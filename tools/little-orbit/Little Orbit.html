@@ -1,0 +1,545 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#111b23"><title>Little Orbit · Display Clock</title><style>
+/* Brief compositor glides once a minute, rather than a perpetual animation. */
+/* Give the doubled clock a full-width row on display-sized screens. */
+@media(min-width:1000px) and (min-height:650px){
+ body #display{display:grid;grid-template-columns:.9fr 2fr;grid-template-areas:"clock clock" "weather fact" "footer footer" "credit credit";gap:10px}
+ body #display[data-layout]{padding-top:14px;padding-bottom:10px;gap:8px}
+ body #display[data-layout="1"],body #display[data-layout="3"]{grid-template-columns:2fr .9fr}
+ body #display[data-layout="1"]{grid-template-areas:"clock clock" "fact weather" "footer footer" "credit credit"}
+ body #display[data-layout="2"]{grid-template-areas:"weather fact" "clock clock" "footer footer" "credit credit"}
+ body #display[data-layout="3"]{grid-template-areas:"fact weather" "clock clock" "footer footer" "credit credit"}
+ body #display .dashboard{display:contents}
+ body #display>.dashboard>.clock-panel{grid-area:clock;padding:10px}
+ body #display>.dashboard>.weather-panel{grid-area:weather;padding:14px}
+ body #display .fact-panel,body #display[data-layout]>.fact-panel{grid-area:fact;margin:0;padding:14px 18px}
+ body #display[data-layout]>footer{grid-area:footer;margin:0}
+ body #display .credit{grid-area:credit;margin:0}
+ body #display .clock-panel #time{font-size:calc(clamp(220px,24vw,360px) * var(--clock-scale,1));line-height:.82;letter-spacing:-6px}
+ body.fact-focus #display .clock-panel #time{font-size:calc(clamp(160px,16vw,224px) * var(--clock-scale,1))}
+ body #display .clock-panel .time-row{justify-content:center;margin:4px 0 8px}
+ body #display .clock-panel .date-row{justify-content:center}
+ body #display .clock-panel>.eyebrow,body #display .weather-panel>.eyebrow{display:none}
+ body #display .weather-panel #location{margin-top:0}
+ body #display .weather-panel .weather-main{margin:8px 0}
+ body #display .weather-panel .weather-details{margin-top:8px;padding-top:8px}
+ body #display .weather-panel #weather-status{margin-top:8px}
+ body #display .fact-panel .fact-art{display:none}
+}
+/* Large, readable content takes priority over decorative clock details. */
+body #display{width:min(1540px,92vw)}
+body #display .clock-panel,body #display .weather-panel{padding:18px}
+body #display #time{font-size:calc(clamp(110px,12vw,180px) * var(--clock-scale,1));letter-spacing:-3px}
+body.fact-focus #display #time{font-size:calc(clamp(80px,8vw,112px) * var(--clock-scale,1))}
+body #display .time-row{margin:8px 0}
+body #display .date-row{font-size:24px}
+body.fact-focus #display .date-row{font-size:20px}
+body #display .day-track,body #display .clock-bottom{display:none}
+body #display #temperature{font-size:calc(clamp(78px,7vw,106px) * var(--weather-scale,1))}
+body #display #weather-icon{font-size:calc(64px * var(--weather-scale,1))}
+body #display #condition{font-size:calc(26px * var(--weather-scale,1))}
+body #display #location{font-size:14px;margin-top:12px}
+body #display .weather-main{margin:12px 0;gap:18px}
+body #display .weather-details{margin-top:14px;padding-top:12px}
+body #display .weather-details strong{font-size:calc(22px * var(--weather-scale,1))}
+body #display #weather-status{font-size:10px;margin-top:12px}
+body #display .fact-panel{padding:16px 22px;gap:20px}
+body #display .fact-content h1{font-size:calc(32px * var(--fact-scale,1));line-height:1.15;margin:10px 0 6px}
+body #display .fact-content p{font-size:calc(22px * var(--fact-scale,1));line-height:1.35;max-width:none}
+body.fact-focus #display .fact-content h1{font-size:calc(36px * var(--fact-scale,1))}
+body.fact-focus #display .fact-content p{font-size:calc(28px * var(--fact-scale,1))}
+body #display footer{margin-top:12px}
+@media(max-height:640px) and (min-width:600px){
+ body #display .clock-panel,body #display .weather-panel{padding:12px}
+ body #display #time{font-size:calc(clamp(72px,11vw,106px) * var(--clock-scale,1))}
+ body.fact-focus #display #time{font-size:calc(clamp(60px,8vw,80px) * var(--clock-scale,1))}
+ body #display .date-row,body.fact-focus #display .date-row{font-size:17px}
+ body #display #temperature{font-size:calc(58px * var(--weather-scale,1))}
+ body #display #weather-icon{font-size:calc(42px * var(--weather-scale,1))}
+ body #display #condition{font-size:calc(21px * var(--weather-scale,1))}
+ body #display #location{font-size:11px;margin-top:8px}
+ body #display .weather-main{margin:8px 0;gap:14px}
+ body #display #weather-status{font-size:8px;margin-top:8px}
+ body #display .fact-panel{padding:12px 16px;gap:12px}
+ body #display .fact-art{display:none}
+ body #display .fact-content h1{font-size:calc(26px * var(--fact-scale,1));margin:8px 0 5px}
+ body #display .fact-content p{font-size:calc(19px * var(--fact-scale,1));line-height:1.3}
+ body.fact-focus #display .fact-content h1{font-size:calc(29px * var(--fact-scale,1))}
+ body.fact-focus #display .fact-content p{font-size:calc(22px * var(--fact-scale,1))}
+}
+@media(max-width:599px){
+ body #display .clock-panel,body #display .weather-panel{padding:14px}
+ body #display #time{font-size:calc(clamp(62px,20vw,96px) * var(--clock-scale,1))}
+ body.fact-focus #display #time{font-size:calc(clamp(52px,16vw,76px) * var(--clock-scale,1))}
+ body #display .date-row,body.fact-focus #display .date-row{font-size:15px}
+ body #display #temperature{font-size:calc(56px * var(--weather-scale,1))}
+ body #display #weather-icon{font-size:calc(42px * var(--weather-scale,1))}
+ body #display #condition{font-size:calc(20px * var(--weather-scale,1))}
+ body #display #location{font-size:11px}
+ body #display #weather-status{font-size:9px}
+ body #display .fact-panel{padding:14px}
+ body #display .fact-content h1{font-size:calc(23px * var(--fact-scale,1))}
+ body #display .fact-content p{font-size:calc(17px * var(--fact-scale,1))}
+ body.fact-focus #display .fact-content h1{font-size:calc(26px * var(--fact-scale,1))}
+ body.fact-focus #display .fact-content p{font-size:calc(20px * var(--fact-scale,1))}
+}
+/* Reserve the display for time, date, weather and facts; no large masthead. */
+#display>header{display:none}
+body #display{padding-top:20px}
+body .credit{margin-top:10px}
+@media(max-height:640px) and (min-width:600px){
+ body #display{padding-top:14px;padding-bottom:12px;width:94vw}
+ body #display .dashboard{gap:12px;grid-template-columns:1.65fr 1fr}
+ body #display[data-layout="1"] .dashboard,body #display[data-layout="3"] .dashboard{grid-template-columns:1fr 1.65fr}
+ body .clock-panel,body .weather-panel{padding:14px;border-radius:12px}
+ body #time{font-size:calc(clamp(58px,9vw,90px) * var(--clock-scale,1));letter-spacing:-3px}
+ body.fact-focus #time{font-size:calc(clamp(44px,6vw,60px) * var(--clock-scale,1))}
+ body .time-row,body.fact-focus .time-row{margin:8px 0}
+ body .day-track,body .clock-bottom{display:none}
+ body .date-row,body.fact-focus .date-row{font-size:14px;gap:8px}
+ body .date-icon{font-size:18px}
+ body #location{margin-top:10px;font-size:10px}
+ body .weather-main,body.fact-focus .weather-main{margin:10px 0;gap:14px}
+ body #temperature,body.fact-focus #temperature{font-size:calc(42px * var(--weather-scale,1))}
+ body #weather-icon,body.fact-focus #weather-icon{font-size:calc(38px * var(--weather-scale,1))}
+ body #condition{font-size:calc(16px * var(--weather-scale,1))}
+ body .weather-details{display:none}
+ body #weather-status{margin-top:9px;font-size:8px}
+ body .fact-panel,body.fact-focus .fact-panel{padding:14px 18px;gap:16px;margin-top:12px;border-radius:12px}
+ body #display[data-layout="2"]>.fact-panel,body #display[data-layout="3"]>.fact-panel{margin-bottom:12px}
+ body .fact-content h1{font-size:calc(22px * var(--fact-scale,1));margin:8px 0 5px}
+ body .fact-content p{font-size:calc(16px * var(--fact-scale,1));line-height:1.35}
+ body.fact-focus .fact-content h1{font-size:calc(26px * var(--fact-scale,1));margin:8px 0 5px}
+ body.fact-focus .fact-content p{font-size:calc(19px * var(--fact-scale,1));line-height:1.35}
+ body .fact-art{min-width:54px;height:54px}
+ body .fact-art span:nth-child(2){font-size:43px}
+ body footer{margin-top:12px;flex-direction:row;gap:8px}
+ body nav{width:auto;flex-wrap:nowrap;gap:5px}
+ body nav button{padding:6px 9px;min-height:40px}
+ body nav button span{font-size:10px}
+ body .footer-note{font-size:7px}
+ body .credit{font-size:6px;margin-top:8px}
+}
+@media(max-width:599px){
+ body #display{padding-top:14px;padding-bottom:12px}
+ body .dashboard{gap:12px}
+ body .clock-panel,body .weather-panel{padding:16px}
+ body .day-track,body .clock-bottom,body .weather-details{display:none}
+ body #time{font-size:calc(clamp(56px,17vw,88px) * var(--clock-scale,1));letter-spacing:-3px}
+ body.fact-focus #time{font-size:calc(clamp(46px,13vw,66px) * var(--clock-scale,1))}
+ body .time-row,body.fact-focus .time-row{margin:8px 0}
+ body .date-row,body.fact-focus .date-row{font-size:13px;gap:8px}
+ body .date-icon{font-size:18px}
+ body #location{margin-top:10px;font-size:10px}
+ body .weather-main,body.fact-focus .weather-main{margin:10px 0;gap:14px}
+ body #weather-icon,body.fact-focus #weather-icon{font-size:calc(38px * var(--weather-scale,1))}
+ body #temperature,body.fact-focus #temperature{font-size:calc(42px * var(--weather-scale,1))}
+ body #condition{font-size:calc(16px * var(--weather-scale,1))}
+ body #weather-status{margin-top:9px;font-size:8px}
+ body .fact-panel,body.fact-focus .fact-panel{padding:16px;gap:12px;margin-top:12px}
+ body #display[data-layout="2"]>.fact-panel,body #display[data-layout="3"]>.fact-panel{margin-bottom:12px}
+ body .fact-content h1{font-size:calc(20px * var(--fact-scale,1));margin:8px 0 5px}
+ body .fact-content p{font-size:calc(14px * var(--fact-scale,1));line-height:1.4}
+ body.fact-focus .fact-content h1{font-size:calc(23px * var(--fact-scale,1));margin:8px 0 5px}
+ body.fact-focus .fact-content p{font-size:calc(17px * var(--fact-scale,1));line-height:1.4}
+ body .fact-art{display:none}
+ body footer{margin-top:12px;gap:8px}
+ body nav{gap:4px;flex-wrap:wrap}
+ body nav button{padding:7px;min-height:40px}
+ body nav button span{font-size:9px}
+ body .credit{font-size:6px}
+}
+#display{display:flex;flex-direction:column}
+#display>header{order:0}#display>.dashboard{order:1}#display>.fact-panel{order:2}#display>footer{order:3}#display>.credit{order:4}
+#display[data-layout="1"] .dashboard,#display[data-layout="3"] .dashboard{grid-template-columns:1fr 1.75fr}
+#display[data-layout="1"] .clock-panel,#display[data-layout="3"] .clock-panel{order:1}
+#display[data-layout="1"] .weather-panel,#display[data-layout="3"] .weather-panel{order:0}
+#display[data-layout="2"]>.fact-panel,#display[data-layout="3"]>.fact-panel{order:1;margin-top:0;margin-bottom:20px}
+#display[data-layout="2"]>.dashboard,#display[data-layout="3"]>.dashboard{order:2}
+body.low-power{background:#030605;background-image:none;color:#a7b5ad;--mint:#8dbba1;--purple:#9587b2;--muted:#7c8f83;--line:#19241e}
+.low-power #display{transition:transform 8s ease-in-out,opacity 1s}
+body .clock-panel,body .weather-panel,body .fact-panel{transition:transform 8s ease-in-out}
+body.fact-focus #time{font-size:calc(clamp(56px,6vw,80px) * var(--clock-scale,1));letter-spacing:-2px}
+.fact-focus .day-track,.fact-focus .clock-bottom{display:none}
+.fact-focus .time-row{margin:16px 0 12px}
+.fact-focus .fact-content h1{font-size:calc(clamp(30px,3vw,42px) * var(--fact-scale,1));line-height:1.12;margin:14px 0 10px}
+.fact-focus .fact-content p{font-size:calc(clamp(21px,2.1vw,28px) * var(--fact-scale,1));line-height:1.4;max-width:none}
+.fact-focus .fact-panel{padding:26px 30px;gap:24px}
+.fact-focus .weather-main{margin:12px 0 8px}
+.fact-focus #temperature{font-size:calc(46px * var(--weather-scale,1))}.fact-focus #weather-icon{font-size:calc(44px * var(--weather-scale,1))}
+.fact-focus .weather-details{display:none}
+.fact-focus .date-row{font-size:17px}
+.fact-focus .time-side{font-size:14px}
+@media(max-height:720px) and (min-width:760px){.fact-focus .fact-panel{padding:18px 24px}.fact-focus .fact-content h1{font-size:calc(32px * var(--fact-scale,1))}.fact-focus .fact-content p{font-size:calc(24px * var(--fact-scale,1))}}
+@media(max-width:759px){body.fact-focus #time{font-size:calc(clamp(52px,14vw,70px) * var(--clock-scale,1))}.fact-focus .fact-panel{padding:22px 18px;gap:12px}.fact-focus .fact-content h1{font-size:calc(26px * var(--fact-scale,1))}.fact-focus .fact-content p{font-size:calc(19px * var(--fact-scale,1))}.fact-focus .fact-art{min-width:44px;height:44px}.fact-focus .fact-art span:nth-child(2){font-size:36px}}
+@media(prefers-reduced-motion:reduce){body #display,body.low-power #display,body .clock-panel,body .weather-panel,body .fact-panel{transition:none}}
+.low-power .clock-panel,.low-power .weather-panel{background:#070d0a;border-color:#1d2b23}
+.low-power .fact-panel{background:#0c0a10;color:#aca1bd;border-color:#292331}
+.low-power .fact-content .eyebrow,.low-power #fact-source{color:#9685ac}
+.low-power .fact-label{background:#19151f;color:#a596bb}
+.low-power .fact-art{border-color:#40364b}
+.low-power #time{text-shadow:none;color:#8dbba1;letter-spacing:-3px}
+.low-power #temperature{color:#a7b5ad}.low-power #weather-icon{color:#a69870}
+.low-power .logo{background:#14271b;color:#8dbba1}
+.low-power #power-button{color:var(--mint);border-color:#42664d}
+.low-power .day-track>div{background:#17271d}.low-power .clock-bottom{border-color:#253529}
+.low-power footer,.low-power .credit,.low-power header{opacity:.6}
+.low-power footer:hover,.low-power footer:focus-within{opacity:1}
+.low-power #unlock-button{background:#050907;color:#7f9a88;border-color:#24372b}
+.low-power #unlock-button.holding{background:#283e2e;color:#b3cabb}
+.low-power.dim #display{opacity:.45}
+body.screen-rest{background:#000;background-image:none}
+.screen-rest #display,.screen-rest #lock-overlay{visibility:hidden}
+#rest-overlay{position:fixed;inset:0;width:100vw;height:100vh;background:#000;border:0;border-radius:0;z-index:11;cursor:none;touch-action:none}
+#rest-overlay:hover,#rest-overlay:focus{background:#000;outline:none}
+@media(max-width:759px){#display[data-layout] .dashboard{grid-template-columns:1fr}.low-power nav{flex-wrap:wrap}.low-power footer{opacity:.75}}
+:root{color-scheme:dark;--bg:#111b23;--mint:#b6f4ca;--muted:#8fa6a7;--line:#34484a;--purple:#c6b4f5}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:#e6eee8;font-family:'Space Grotesk',system-ui,sans-serif;min-height:100vh;background-image:radial-gradient(#66867d18 1px,transparent 1px);background-size:7px 7px}button,input,select{font:inherit}button,a,input,select{-webkit-tap-highlight-color:transparent}button{cursor:pointer}button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid var(--mint);outline-offset:4px}button{color:inherit;background:transparent;border:1px solid var(--line);border-radius:8px;padding:12px 16px;min-height:46px}button:hover{background:#b6f4ca12;border-color:var(--mint)}#display{width:min(1220px,92vw);margin:auto;padding:32px 0 15px;transition:opacity 1s,transform 2s}header{display:flex;align-items:center;justify-content:space-between;margin-bottom:30px}.brand{display:flex;gap:12px;align-items:center;font-weight:700;letter-spacing:2px;font-size:19px}.logo{background:var(--mint);color:var(--bg);font-size:30px;border-radius:10px;width:49px;height:49px;text-align:center;line-height:49px}.brand-sub{display:block;font:9px 'Space Mono',monospace;letter-spacing:1.5px;color:var(--muted);margin-top:5px}.status,.eyebrow,.footer-note,.credit,.day-track,.clock-bottom,#weather-status,#location,#fact-source{font-family:'Space Mono',monospace;font-size:11px;letter-spacing:1px}.status{color:var(--mint);border:1px solid var(--line);padding:10px 14px;border-radius:30px}.led{display:inline-block;width:6px;height:6px;background:var(--mint);border-radius:50%;margin-right:5px}.dashboard{display:grid;grid-template-columns:1.75fr 1fr;gap:20px}.clock-panel,.weather-panel{border:1px solid var(--line);border-radius:18px;padding:28px;background:#152329}.clock-panel{color:var(--mint);background:linear-gradient(130deg,#1c3533,#172a2b);overflow:hidden}.eyebrow{display:flex;justify-content:space-between;color:var(--muted)}.clock-panel .eyebrow{color:#96bba8}.time-row{display:flex;align-items:center;gap:18px;margin:12px 0 4px}#time{font:700 clamp(70px,10.6vw,145px)/1.14 'Space Mono',monospace;letter-spacing:-10px;font-variant-numeric:tabular-nums;text-shadow:0 0 35px #b6f4ca12}.time-side{display:flex;flex-direction:column;gap:12px;font:18px 'Space Mono',monospace}#seconds{opacity:.5;font-size:27px}.date-row{display:flex;align-items:center;gap:12px;font-size:20px}.date-icon{font-size:26px}.day-track{display:flex;align-items:center;gap:12px;font-size:8px;margin:29px 0 22px;color:#94b6a7}.day-track>div{height:3px;flex:1;background:#34534b}.day-track i{display:block;height:100%;background:var(--mint)}.clock-bottom{border-top:1px solid #3b544b;padding-top:18px;display:flex;align-items:center;justify-content:space-between;font-size:9px}.orbit{font-size:25px}#location{margin-top:18px;color:var(--purple);font-size:12px}.weather-main{display:flex;align-items:center;gap:22px;margin:16px 0 8px}#weather-icon{color:#efd089;font-size:calc(70px * var(--weather-scale,1));line-height:1}#temperature{font:500 68px/1 'Space Grotesk',sans-serif;color:#f5efe1}#condition{font-size:calc(20px * var(--weather-scale,1))}.weather-details{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--line);padding-top:19px;margin-top:22px;gap:15px}.weather-details span{font:9px 'Space Mono',monospace;display:block;color:var(--muted);margin-bottom:6px}.weather-details strong{font-size:calc(17px * var(--weather-scale,1));font-weight:500}#weather-status{font-size:9px;color:var(--muted);margin-top:17px;letter-spacing:0}.fact-panel{display:flex;gap:28px;background:var(--purple);color:#26243c;border:1px solid #dbcef7;border-radius:16px;margin-top:20px;padding:24px 28px;align-items:center}.fact-art{position:relative;min-width:100px;height:100px;border:1px solid #797092;border-radius:50%;display:flex;justify-content:center;align-items:center}.fact-art span:nth-child(2){font-size:74px;transform:rotate(-18deg)}.fact-art span:first-child{position:absolute;top:0;right:4px;font-size:23px}.fact-art span:last-child{position:absolute;bottom:0;left:4px}.fact-content{flex:1}.fact-content .eyebrow{color:#504469;font-size:10px}.fact-label{background:#26243c;color:#e4d9fc;padding:5px 9px;border-radius:4px;margin-top:-4px}h1{font-size:27px;margin:10px 0 6px;letter-spacing:-.6px}.fact-content p{font-size:calc(16px * var(--fact-scale,1));margin:0;line-height:1.5;max-width:850px}#fact-source{display:inline-block;color:#504469;font-size:8px;margin-top:10px;text-decoration:none}footer{display:flex;align-items:center;justify-content:space-between;margin-top:24px;gap:12px}.footer-note{font-size:8px;color:var(--muted);letter-spacing:.5px}.divider{margin:0 9px}nav{display:flex;gap:8px}nav button{font-size:16px;padding:9px 12px}nav button span{font-size:11px;margin-left:4px}.credit{display:flex;gap:10px;justify-content:center;color:#70858a;font-size:7px;margin-top:22px}.credit a{color:inherit}.dim #display{opacity:.35}#lock-overlay{position:fixed;inset:0;z-index:10;touch-action:none;user-select:none}#unlock-button{position:absolute;bottom:14px;left:50%;transform:translateX(-50%);background:#111b23f0;color:var(--mint);font-size:12px;min-width:240px;touch-action:none}#unlock-button.holding{background:var(--mint);color:var(--bg)}[hidden]{display:none!important}dialog{border:1px solid var(--line);border-radius:16px;background:#152329;color:#e6eee8;width:min(460px,94vw);padding:24px;max-height:90vh}dialog::backdrop{background:#070e16bb;backdrop-filter:blur(6px)}.dialog-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px}h2{margin:0;font-size:24px}.dialog-top button{border:0}label:not(.check){display:block;margin:16px 0}input:not([type=checkbox]),select{width:100%;background:#111b23;border:1px solid var(--line);color:#e6eee8;border-radius:6px;padding:12px;margin-top:8px}.check{display:flex;align-items:center;gap:10px;margin:18px 0;font-size:14px}input[type=checkbox]{width:20px;height:20px;accent-color:var(--mint)}.hint,#settings-status{color:var(--muted);font-size:12px;line-height:1.5}.primary{width:100%;background:var(--mint);color:#172a2b;font-weight:700}.primary:hover{background:#9dddb4}#city-results button{width:100%;text-align:left;margin:5px 0}#toast{position:fixed;z-index:20;top:20px;left:50%;transform:translateX(-50%);padding:14px 20px;background:#2e4542;border:1px solid var(--mint);border-radius:8px;font-size:14px;max-width:90vw}body.locked #display a{pointer-events:none}@media(min-width:1500px){#display{padding-top:6vh}}@media(max-height:720px) and (min-width:760px){#display{padding-top:18px}header{margin-bottom:18px}.clock-panel,.weather-panel{padding:20px}.time-row{margin:6px 0}#time{font-size:calc(110px * var(--clock-scale,1))}.day-track{margin:20px 0 16px}.fact-panel{padding:16px 24px}.fact-art{height:80px;min-width:80px}h1{font-size:24px}footer{margin-top:16px}.credit{margin-top:12px}}@media(max-width:759px){#display{padding:22px 0}.status{font-size:8px}.brand{font-size:14px;letter-spacing:1px}.brand-sub{font-size:7px}.logo{width:40px;height:40px;line-height:40px}.dashboard{grid-template-columns:1fr}.clock-panel,.weather-panel{padding:22px}#time{font-size:calc(clamp(72px,18vw,130px) * var(--clock-scale,1));letter-spacing:-6px}.weather-main{margin:18px 0}.weather-details{margin-top:16px}.fact-panel{padding:22px;gap:14px}.fact-art{min-width:60px;height:60px}.fact-art span:nth-child(2){font-size:45px}h1{font-size:23px}.fact-content p{font-size:calc(14px * var(--fact-scale,1))}footer{flex-direction:column;gap:16px}nav{width:100%;justify-content:center}nav button{padding:10px 9px}nav button span{font-size:10px}.eyebrow{font-size:9px}.date-row{font-size:17px}}@media(prefers-reduced-motion:reduce){#display{transition:none}}
+/* Scaled handheld displays also need the large clock row (150% Windows scaling). */
+@media(min-width:760px) and (min-height:400px) and (max-height:649px){
+ body #display{display:grid;grid-template-columns:.8fr 2fr;grid-template-areas:"clock clock" "weather fact" "footer footer";gap:8px;padding:10px 0;width:94vw}
+ body #display[data-layout="1"],body #display[data-layout="3"]{grid-template-columns:2fr .8fr}
+ body #display[data-layout="1"]{grid-template-areas:"clock clock" "fact weather" "footer footer"}
+ body #display[data-layout="2"]{grid-template-areas:"weather fact" "clock clock" "footer footer"}
+ body #display[data-layout="3"]{grid-template-areas:"fact weather" "clock clock" "footer footer"}
+ body #display .dashboard{display:contents}
+ body #display .clock-panel{grid-area:clock;padding:8px}
+ body #display .weather-panel{grid-area:weather;padding:10px}
+ body #display[data-layout]>.fact-panel{grid-area:fact;margin:0;padding:10px 14px}
+ body #display footer{grid-area:footer;margin:0}
+ body #display .credit,body #display .footer-note{display:none}
+ body #display .clock-panel>.eyebrow,body #display .weather-panel>.eyebrow{display:none}
+ body #display .clock-panel #time{font-size:calc(min(22vw,40vh) * var(--clock-scale,1));line-height:.82;letter-spacing:-4px}
+ body.fact-focus #display .clock-panel #time{font-size:calc(min(16vw,32vh) * var(--clock-scale,1))}
+ body #display .time-row{justify-content:center;margin:4px 0 8px}
+ body #display .date-row{justify-content:center}
+ body #display #location{margin-top:0}
+ body #display .weather-main{gap:10px}
+ body #display #temperature{font-size:calc(48px * var(--weather-scale,1))}
+ body #display #weather-icon{font-size:calc(32px * var(--weather-scale,1))}
+ body #display #condition{font-size:calc(19px * var(--weather-scale,1))}
+ body #display .fact-content h1{font-size:calc(24px * var(--fact-scale,1));margin:6px 0 4px}
+ body #display .fact-content p{font-size:calc(19px * var(--fact-scale,1));line-height:1.25}
+ body.fact-focus #display .fact-content h1{font-size:calc(26px * var(--fact-scale,1))}
+ body.fact-focus #display .fact-content p{font-size:calc(20px * var(--fact-scale,1))}
+ body #display #fact-source{margin-top:6px}
+}
+/* Candy Quest is an optional, quiet platform-game companion to the same clock. */
+body[data-theme="candy"] .clock-panel{border-color:#324337}
+body[data-theme="candy"] .fact-panel{border-color:#3d2f43}
+#candy-stage{position:fixed;inset:0;pointer-events:none;z-index:2;overflow:hidden}
+#candy-pal{position:absolute;width:48px;height:48px;opacity:.8;will-change:transform}
+#candy-pal svg{width:100%;height:100%;overflow:visible}
+.candy-bike,.candy-broom{display:none}
+#candy-pal[data-action="bike"] .candy-bike,#candy-pal[data-action="work"] .candy-broom{display:block}
+#candy-pal[data-action="bike"] .candy-legs{display:none}
+#candy-pal[data-action="run"] .leg-a{transform-origin:34px 48px;animation:candy-stride .45s ease-in-out infinite alternate}
+#candy-pal[data-action="run"] .leg-b{transform-origin:44px 48px;animation:candy-stride .45s ease-in-out infinite alternate-reverse}
+#candy-pal[data-action="work"] .candy-broom{transform-origin:65px 29px;animation:candy-sweep 1s ease-in-out infinite alternate}
+#candy-pal[data-action="bike"] .candy-body{animation:candy-bob 1s ease-in-out infinite alternate}
+body.dim #candy-stage{opacity:.45}
+body.screen-rest #candy-stage{display:none}
+@keyframes candy-stride{from{transform:rotate(-25deg)}to{transform:rotate(25deg)}}
+@keyframes candy-sweep{from{transform:rotate(-12deg)}to{transform:rotate(12deg)}}
+@keyframes candy-bob{from{transform:translateY(-1px)}to{transform:translateY(1px)}}
+@media(max-height:649px){#candy-pal{width:40px;height:40px}}
+@media(prefers-reduced-motion:reduce){#candy-pal *{animation:none!important}}
+
+.display-settings{border:1px solid var(--line);border-radius:10px;padding:16px;margin:20px 0}.display-settings legend{padding:0 8px}.display-settings output{float:right;color:var(--mint)}.display-settings input[type=range]{padding:0;accent-color:var(--mint)}.about-license a{color:var(--mint)}
+@media(min-width:1000px) and (min-height:650px),(min-width:760px) and (min-height:400px) and (max-height:649px){body #display[data-layout]{gap:var(--panel-gap,8px)}}
+
+</style></head>
+<body>
+<main id="display">
+ <header><div class="brand"><span class="logo">✦</span><span>LITTLE ORBIT<span class="brand-sub">YOUR EVERYDAY SPACE STATION</span></span></div><div class="status"><span class="led"></span> <span id="greeting">HELLO, EXPLORER</span></div></header>
+ <section class="dashboard" aria-label="Clock and weather">
+  <div class="clock-panel"><div class="eyebrow">EARTH TIME <span id="zone">EASTERN TIME</span></div><div class="time-row"><time id="time">00:00</time><div class="time-side"><span id="period">AM</span><span id="seconds">00</span></div></div><div class="date-row"><span class="date-icon">▦</span><span id="date"></span></div><div class="day-track" aria-hidden="true"><span>MORNING</span><div><i id="day-progress"></i></div><span>NIGHT</span></div><div class="clock-bottom"><span>✧ A NEW DAY. A NEW ADVENTURE.</span><span class="orbit">◎</span></div></div>
+  <aside class="weather-panel"><div class="eyebrow">OUTSIDE YOUR WINDOW <span>↗</span></div><div id="location">MARIETTA, GA · 30064</div><div class="weather-main"><span id="weather-icon" aria-hidden="true">☁</span><span id="temperature">—°</span></div><div id="condition">Connecting to the weather…</div><div class="weather-details"><div><span>FEELS LIKE</span><strong id="feels">—</strong></div><div><span>HIGH / LOW</span><strong id="range">— / —</strong></div></div><div id="weather-status" role="status">Weather updates every 15 minutes</div></aside>
+ </section>
+ <section class="fact-panel"><div class="fact-art" aria-hidden="true"><span>✦</span><span>♄</span><span>+</span></div><div class="fact-content"><div class="eyebrow"><span class="fact-label">DAILY BRAIN BOOST</span><span id="fact-number">01 / 31</span></div><h1 id="fact-title"></h1><p id="fact-text"></p><a id="fact-source" target="_blank" rel="noopener noreferrer">EXPLORE THE SCIENCE ↗</a></div></section>
+ <footer><span class="footer-note"><span class="led"></span> <span id="protection-status">SCREEN CARE ON</span><span class="divider">/</span><span id="wake-status">READY TO EXPLORE</span></span><nav aria-label="Display controls"><button id="theme-button" title="Cycle display themes">✦ <span>Theme: Candy</span></button><button id="settings-button">⚙ <span>Settings</span></button><button id="power-button" aria-pressed="true">⌁ <span>Low power</span></button><button id="dim-button" aria-pressed="false">☾ <span>Dim</span></button><button id="lock-button">♧ <span>Touch lock</span></button><button id="fullscreen-button">⛶ <span>Full screen</span></button></nav></footer>
+ <div class="credit">WEATHER BY <a href="https://open-meteo.com/" target="_blank" rel="noopener noreferrer">OPEN-METEO</a> <span>•</span> MADE FOR CURIOUS MINDS</div>
+</main>
+<div id="candy-stage" aria-hidden="true" hidden><div id="candy-pal">
+ <svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
+  <g class="candy-bike" fill="none" stroke="#89bba3" stroke-width="3"><circle cx="18" cy="63" r="12"/><circle cx="64" cy="63" r="12"/><path d="M18 63L32 43L46 63H18L41 43L64 63M59 38L64 63M55 38H64M27 42H38"/></g>
+  <g class="candy-legs" fill="none" stroke="#ab92b9" stroke-width="4" stroke-linecap="round"><path class="leg-a" d="M34 48L28 64L20 65"/><path class="leg-b" d="M44 48L50 63L58 65"/></g>
+  <g class="candy-body"><path d="M39 8C36 20 18 26 18 39C18 53 30 59 40 59C54 59 61 50 61 39C61 26 44 20 39 8Z" fill="#ad8fad" stroke="#d1aaba" stroke-width="2"/>
+   <path d="M30 29Q26 32 26 37" fill="none" stroke="#d5b7c5" stroke-width="3" stroke-linecap="round"/>
+   <ellipse cx="33" cy="40" rx="2.5" ry="4" fill="#17141e"/><ellipse cx="46" cy="40" rx="2.5" ry="4" fill="#17141e"/><path d="M35 48Q40 52 45 48" fill="none" stroke="#342737" stroke-width="2" stroke-linecap="round"/>
+   <path d="M19 41L10 35M60 41L67 35" stroke="#ad8fad" stroke-width="4" stroke-linecap="round"/>
+  </g>
+  <g class="candy-broom" stroke="#bba778" stroke-width="3" fill="#958563"><path d="M65 29L53 63"/><path d="M48 59L59 63L60 73L43 68Z"/></g>
+ </svg>
+</div></div>
+<div id="lock-overlay" hidden><button id="unlock-button">◇ Hold 2 seconds to unlock</button></div>
+<button id="rest-overlay" aria-label="Screen rest active. Tap to wake." hidden></button>
+<dialog id="settings"><form id="settings-form"><div class="dialog-top"><h2>Mission control</h2><button type="button" id="close-settings" aria-label="Close settings">✕</button></div><label>Weather city or ZIP<input id="city" placeholder="Marietta or 30064" autocomplete="off"></label><div id="city-results"></div><button type="button" id="search-city">Find city</button> <button type="button" id="geolocate">Use my location</button><p id="settings-status" role="status"></p><label>Temperature<select id="unit"><option value="fahrenheit">Fahrenheit · °F</option><option value="celsius">Celsius · °C</option></select></label><label class="check"><input id="format24" type="checkbox">24-hour clock</label><label class="check"><input id="lowPower" type="checkbox">Low power · darker theme, minute updates</label><label class="check"><input id="care" type="checkbox">Screen care · shift & rearrange panels</label><label class="check"><input id="rest" type="checkbox">One-minute black-screen break each hour</label><label class="check"><input id="night" type="checkbox">Auto-dim from 9 PM to 7 AM</label><fieldset class="display-settings"><legend>Display &amp; character</legend><label>Device preset<select id="display-profile"><option value="auto">Automatic · current window</option><option value="handheld">Handheld · ROG Ally</option><option value="desktop">Desktop / TV</option><option value="tablet">Tablet / small display</option></select></label><p class="hint" id="viewport-info"></p><label>Time size <output id="clockScale-value"></output><input id="clockScale" type="range" min="0.65" max="1.2" step="0.05"></label><label>Weather size <output id="weatherScale-value"></output><input id="weatherScale" type="range" min="0.65" max="1.2" step="0.05"></label><label>Fact size <output id="factScale-value"></output><input id="factScale" type="range" min="0.65" max="1.2" step="0.05"></label><label>Panel spacing <output id="gap-value"></output><input id="gap" type="range" min="4" max="24" step="1"></label><label>Character visits every <output id="companionInterval-value"></output><input id="companionInterval" type="range" min="30" max="300" step="15"></label><label>Character visit length <output id="companionDuration-value"></output><input id="companionDuration" type="range" min="4" max="20" step="1"></label><label class="check"><input id="companion" type="checkbox">Candy companion in Candy Quest</label><button id="reset-display" type="button">Reset display sizes</button><p class="hint">If larger text needs more space, reduce another size or spacing. Saved settings apply to this browser only.</p></fieldset><p class="hint about-license">Little Orbit © 2026 ilamgumaran and contributors. GPLv3: you may share and modify this software; no warranty. <a href="https://github.com/ilamgumaran/simpli-home-tools/blob/main/LICENSE" target="_blank" rel="noopener noreferrer">License</a> · <a href="https://github.com/ilamgumaran/simpli-home-tools/tree/main/tools/little-orbit" target="_blank" rel="noopener noreferrer">Source &amp; contribute</a></p><p class="hint">Panels glide each minute, swap every 10 minutes, and spotlight the fact every 5 minutes. Screen breaks run at :59; tap to wake. Clock uses this device’s timezone. Touch lock covers this page only. These measures cannot guarantee against display wear.</p><button class="primary" type="submit">Save & return to orbit</button></form></dialog>
+<div id="toast" role="status" hidden></div>
+<script>
+// SPDX-License-Identifier: GPL-3.0-only
+// Site defaults. Settings saved in a browser override these values.
+// After editing, run `npm run build` to update the single-file clock.
+window.ORBIT_CONFIG = {
+  theme: 'candy',
+  unit: 'fahrenheit',
+  format24: false,
+  lowPower: true,
+  care: true,
+  night: true,
+  rest: true,
+  place: {name: 'Marietta, GA · 30064', latitude: 33.9276, longitude: -84.6202},
+  display: {
+    profile: 'auto',
+    clockScale: 1,
+    weatherScale: 1,
+    factScale: 1,
+    gap: 8,
+    companionInterval: 60,
+    companionDuration: 12,
+    companion: true
+  }
+};
+
+</script>
+<script>
+// SPDX-License-Identifier: GPL-3.0-only
+// Copyright (C) 2026 ilamgumaran and contributors
+'use strict';
+const $ = id => document.getElementById(id);
+const defaultDisplay={profile:'auto',clockScale:1,weatherScale:1,factScale:1,gap:8,companionInterval:60,companionDuration:12,companion:true};
+const siteConfig=window.ORBIT_CONFIG||{};
+const defaults = {version:3,unit:'fahrenheit',format24:false,care:true,night:true,lowPower:true,rest:true,theme:'candy',place:{name:'Marietta, GA · 30064',latitude:33.9276,longitude:-84.6202},...siteConfig,display:{...defaultDisplay,...siteConfig.display}};
+function read(key,fallback){try{return JSON.parse(localStorage.getItem(key)) ?? fallback;}catch{return fallback;}}
+function write(key,value){try{localStorage.setItem(key,JSON.stringify(value));}catch{}}
+async function fetchWithTimeout(url,milliseconds){
+ const controller=typeof AbortController==='function'?new AbortController():null;
+ const timeout=setTimeout(()=>controller?.abort(),milliseconds);
+ try{return await fetch(url,controller?{signal:controller.signal}:{});}finally{clearTimeout(timeout);}
+}
+let prefs={...defaults,...read('orbit-settings',{})};
+prefs.display={...defaults.display,...prefs.display};
+write('orbit-settings',prefs);
+if(!prefs.place || !Number.isFinite(prefs.place.latitude) || !Number.isFinite(prefs.place.longitude)) prefs.place=defaults.place;
+const facts=[
+ ['A planet with a very slow spin','Venus takes about 243 Earth days to spin once, but only 225 Earth days to orbit the Sun. Its spin takes longer than its year!','venus'],
+ ['The hottest planet isn’t the closest','Venus is hotter than Mercury. Its thick atmosphere traps heat like an enormous blanket.','venus'],
+ ['Sunrise runs backward on Venus','Venus spins in the opposite direction to Earth. From its surface, the Sun would rise in the west and set in the east.','venus'],
+ ['Venus has no moon buddies','Some planets have many moons. Venus has none—and neither does Mercury.','venus'],
+ ['Mars is a rusty world','Mars looks red because iron minerals in its soil rust. Think of it as a planet wearing rusty dust!','mars'],
+ ['A mountain fit for a space giant','Olympus Mons on Mars is the largest volcano in our solar system. It is roughly three times taller than Mount Everest.','mars'],
+ ['Mars has two tiny moons','The moons of Mars are called Phobos and Deimos. Both are small and shaped more like potatoes than perfect balls.','mars'],
+ ['A longer birthday countdown','A year on Mars lasts about 687 Earth days. You would wait almost twice as long between Martian birthdays!','mars'],
+ ['Jupiter is the planet champion','Jupiter is the biggest planet in our solar system. About 1,000 Earths could fit inside it.','jupiter'],
+ ['A storm bigger than Earth','Jupiter’s Great Red Spot is a giant storm larger than our planet. People have watched it for centuries.','jupiter'],
+ ['Jupiter spins in a hurry','A day on Jupiter lasts about 10 hours. The biggest planet has the shortest day in our solar system!','jupiter'],
+ ['No landing pad on Jupiter','Jupiter is a gas giant. It has no solid surface like Earth where you could stand and take a walk.','jupiter'],
+ ['Saturn’s rings are icy','Saturn’s beautiful rings are made of countless pieces of ice and rock. Some pieces are tiny; others are as large as houses.','saturn'],
+ ['The planet that could float','Saturn’s average density is lower than water. If you imagined a bathtub big enough, Saturn would float!','saturn'],
+ ['A very long Saturn summer','Saturn takes about 29 Earth years to orbit the Sun. That makes its seasons much longer than ours.','saturn'],
+ ['A hexagon in the clouds','Saturn has a huge six-sided weather pattern around its north pole. Even planets can show off their geometry!','saturn'],
+ ['Our planet is mostly blue','Water covers about 71% of Earth’s surface. That is why our home looks like a blue marble from space.','earth'],
+ ['Earth has a protective shield','Earth’s magnetic field helps protect us from charged particles coming from the Sun. An invisible shield around our home!','earth'],
+ ['Our air is mostly nitrogen','Nitrogen makes up about 78% of Earth’s atmosphere. Oxygen, the gas we need to breathe, makes up about 21%.','earth'],
+ ['An extra day for our calendar','Earth takes about 365.25 days to orbit the Sun. Leap days help keep our calendar lined up with the seasons.','earth'],
+ ['The Moon borrows its shine','The Moon does not make its own light. The moonlight you see is sunlight reflected from its surface.','moon'],
+ ['One familiar lunar face','The Moon spins once in the same time it takes to orbit Earth. That is why we always see nearly the same side.','moon'],
+ ['The Moon is slowly drifting away','The Moon moves about 1.5 inches farther from Earth each year. That is roughly the width of a small building block!','moon'],
+ ['Moon jumps would be enormous','The Moon’s surface gravity is about one-sixth of Earth’s. You would weigh less there, even though your mass would stay the same.','moon']
+];
+let lastDay='',manualDim=false,locked=false,wakeLock=null,weather=null,requestId=0,clockTimer=null,weatherTimer=null,lastShift=-1,restSkippedHour=-1;
+function toast(message){$('toast').textContent=message;$('toast').hidden=false;clearTimeout(toast.timer);toast.timer=setTimeout(()=>$('toast').hidden=true,4500);}
+function tick(){
+ const now=new Date(),hours=now.getHours();
+ const h=prefs.format24?hours:hours%12||12;
+ $('time').textContent=`${String(h).padStart(2,'0')}:${String(now.getMinutes()).padStart(2,'0')}`;
+ $('seconds').textContent=String(now.getSeconds()).padStart(2,'0');$('period').textContent=prefs.format24?'24H':hours>=12?'PM':'AM';
+ $('date').textContent=new Intl.DateTimeFormat('en-US',{weekday:'long',month:'long',day:'numeric',year:'numeric'}).format(now);
+ $('zone').textContent=new Intl.DateTimeFormat('en-US',{timeZoneName:'short'}).formatToParts(now).find(p=>p.type==='timeZoneName').value+' · DEVICE TIME';
+ $('greeting').textContent=hours<12?'GOOD MORNING, EXPLORER':hours<18?'GOOD AFTERNOON, EXPLORER':'GOOD EVENING, EXPLORER';
+ $('day-progress').style.width=`${(hours*60+now.getMinutes())/1440*100}%`;
+ document.body.classList.toggle('dim',manualDim||(prefs.night&&(hours>=21||hours<7)));
+ $('dim-button').setAttribute('aria-pressed',String(manualDim));
+ const day=`${now.getFullYear()}-${now.getMonth()}-${now.getDate()}`;
+ if(day!==lastDay){lastDay=day;const index=Math.floor(Date.UTC(now.getFullYear(),now.getMonth(),now.getDate())/86400000)%facts.length;const [title,description,planet]=facts[index];$('fact-title').textContent=title;$('fact-text').textContent=description;$('fact-number').textContent=`${String(index+1).padStart(2,'0')} / ${facts.length}`;$('fact-source').href=`https://science.nasa.gov/${planet}/facts/`;}
+ $('protection-status').textContent=prefs.care?'SCREEN CARE ON':'SCREEN CARE OFF';
+ document.body.classList.toggle('low-power',prefs.lowPower);
+ $('power-button').setAttribute('aria-pressed',String(prefs.lowPower));
+ $('seconds').hidden=prefs.lowPower;
+ const resting=prefs.care&&prefs.rest&&now.getMinutes()===59&&restSkippedHour!==Math.floor(now.getTime()/3600000)&&!$('settings').open;
+ document.body.classList.toggle('screen-rest',resting);
+ $('rest-overlay').hidden=!resting;
+ if(resting)stopCandy();
+ shift();
+}
+function shift(){
+ const step=Math.floor(Date.now()/60000);if(step===lastShift)return;lastShift=step;
+ const offsets=[[-10,-6],[0,8],[10,-4],[-6,8],[8,2],[0,-8]];
+ stopCandy();if(prefs.theme==='candy')candyTimer=setTimeout(candyAdventure,9000);
+ const [x,y]=offsets[step%offsets.length];
+ $('display').style.transform=prefs.care?`translate(${x}px,${y}px)`:'none';
+ $('display').dataset.layout=prefs.care?String(Math.floor(step/10)%4):'0';
+ document.body.classList.toggle('fact-focus',prefs.care&&Math.floor(step/5)%2===1);
+ for(const [index,selector] of ['.clock-panel','.weather-panel','.fact-panel'].entries()){
+  const [dx,dy]=offsets[(step+index*2)%offsets.length];
+  document.querySelector(selector).style.transform=prefs.care?`translate(${dx/2}px,${dy/2}px)`:'none';
+ }
+}
+function weatherInterval(){return prefs.lowPower?1800000:900000;}
+function scheduleClock(){clearTimeout(clockTimer);if(document.visibilityState!=='visible')return;const interval=prefs.lowPower?60000:1000;clockTimer=setTimeout(()=>{tick();scheduleClock();},interval-Date.now()%interval+25);}
+function scheduleWeather(){clearInterval(weatherTimer);weatherTimer=setInterval(()=>{if(document.visibilityState==='visible')refreshWeather();},weatherInterval());}
+function updateMode(){lastShift=-1;tick();scheduleClock();scheduleWeather();}
+function skipRest(){restSkippedHour=Math.floor(Date.now()/3600000);tick();}
+$('rest-overlay').onclick=skipRest;
+document.addEventListener('pointerdown',()=>{if(document.body.classList.contains('screen-rest'))skipRest();});
+function condition(code){if(code===0)return ['☀','Clear skies'];if(code<=2)return ['☀','Partly cloudy'];if(code===3)return ['☁','Cloudy'];if([45,48].includes(code))return ['≋','Foggy'];if(code>=51&&code<=57)return ['☂','Drizzle'];if(code>=61&&code<=67)return ['☂','Rain'];if(code>=71&&code<=77)return ['❄','Snow'];if(code>=80&&code<=82)return ['☂','Rain showers'];if([85,86].includes(code))return ['❄','Snow showers'];if(code>=95)return ['ϟ','Thunderstorms'];return ['☁','Weather'];}
+function renderWeather(stale=false){if(!weather)return;const c=weather.data.current,d=weather.data.daily;const [icon,description]=condition(c.weather_code);$('temperature').textContent=`${Math.round(c.temperature_2m)}°`;$('feels').textContent=`${Math.round(c.apparent_temperature)}°${prefs.unit==='fahrenheit'?'F':'C'}`;$('range').textContent=`${Math.round(d.temperature_2m_max[0])}° / ${Math.round(d.temperature_2m_min[0])}°`;$('weather-icon').textContent=icon;$('condition').textContent=description;$('weather-status').textContent=`${stale?'Offline · last update':'Updated'} ${new Date(weather.at).toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit'})} · ${prefs.unit==='fahrenheit'?'°F':'°C'}${stale?' · weather may be old':''}`;}
+function cacheKey(){return `orbit-weather:${prefs.place.latitude}:${prefs.place.longitude}:${prefs.unit}`;}
+async function refreshWeather(){
+ const id=++requestId,key=cacheKey();$('location').textContent=prefs.place.name.toUpperCase();weather=read(key,null);
+ if(weather?.data?.current&&weather?.data?.daily)renderWeather(true);else {weather=null;$('temperature').textContent='—°';$('feels').textContent='—';$('range').textContent='— / —';$('condition').textContent='Checking the skies…';$('weather-status').textContent='Connecting to Open-Meteo';}
+ try{const query=new URLSearchParams({latitude:prefs.place.latitude,longitude:prefs.place.longitude,current:'temperature_2m,apparent_temperature,weather_code',daily:'temperature_2m_max,temperature_2m_min',temperature_unit:prefs.unit,timezone:'auto',forecast_days:'1'});const res=await fetchWithTimeout(`https://api.open-meteo.com/v1/forecast?${query}`,12000);if(!res.ok)throw Error('Weather unavailable');const data=await res.json();if(id!==requestId)return;if(!Number.isFinite(data.current?.temperature_2m)||!data.daily?.temperature_2m_max?.length)throw Error('Invalid weather response');weather={data,at:Date.now()};write(key,weather);renderWeather();}
+ catch(error){if(id!==requestId)return;if(weather)renderWeather(true);else{$('condition').textContent='Weather is taking a break';$('weather-status').textContent=`No connection · automatic retry in ${prefs.lowPower?30:15} minutes`;}}
+}
+async function keepAwake(){if(typeof navigator.wakeLock?.request!=='function'){$('wake-status').textContent='USE DEVICE SLEEP SETTINGS';return;}try{if(wakeLock||document.visibilityState!=='visible')return;wakeLock=await navigator.wakeLock.request('screen');$('wake-status').textContent='DISPLAY AWAKE';wakeLock.addEventListener('release',()=>{wakeLock=null;$('wake-status').textContent='KEEP AWAKE PAUSED';});}catch{$('wake-status').textContent='USE DEVICE SLEEP SETTINGS';}}
+$('settings-button').onclick=()=>{if(locked)return;$('unit').value=prefs.unit;$('format24').checked=prefs.format24;$('care').checked=prefs.care;$('night').checked=prefs.night;$('lowPower').checked=prefs.lowPower;$('rest').checked=prefs.rest;$('city').value=prefs.place.name;$('settings-status').textContent='Choose a result to update the weather location.';$('city-results').replaceChildren();$('settings').showModal();tick();};
+$('close-settings').onclick=()=>$('settings').close();
+$('settings-form').onsubmit=e=>{e.preventDefault();prefs.unit=$('unit').value;prefs.format24=$('format24').checked;prefs.care=$('care').checked;prefs.night=$('night').checked;prefs.lowPower=$('lowPower').checked;prefs.rest=$('rest').checked;write('orbit-settings',prefs);$('settings').close();updateMode();refreshWeather();};
+$('power-button').onclick=()=>{if(locked)return;prefs.lowPower=!prefs.lowPower;write('orbit-settings',prefs);updateMode();toast(prefs.lowPower?'Low power on · minute updates · weather every 30 minutes':'Low power off · seconds restored');};
+function setPlace(place){prefs.place=place;write('orbit-settings',prefs);$('city').value=place.name;$('city-results').replaceChildren();$('settings-status').textContent=`Weather location set to ${place.name}.`;refreshWeather();}
+let searchSequence=0;
+$('search-city').onclick=async()=>{const query=$('city').value.trim(),seq=++searchSequence;if(query.length<2){$('settings-status').textContent='Enter a city name or ZIP.';return;}$('settings-status').textContent='Searching…';$('city-results').replaceChildren();if(query==='30064'){setPlace(defaults.place);return;}try{const response=await fetchWithTimeout(`https://geocoding-api.open-meteo.com/v1/search?${new URLSearchParams({name:query,count:5,language:'en',format:'json'})}`,10000);if(!response.ok)throw Error();const data=await response.json();if(seq!==searchSequence)return;if(!data.results?.length){$('settings-status').textContent='No matches. Try a nearby city name.';return;}$('settings-status').textContent='Tap your city:';for(const result of data.results){const button=document.createElement('button');button.type='button';const name=[result.name,result.admin1,result.country].filter(Boolean).join(', ');button.textContent=name;button.onclick=()=>setPlace({name,latitude:result.latitude,longitude:result.longitude});$('city-results').append(button);}}catch{if(seq===searchSequence)$('settings-status').textContent='Search unavailable. Check your internet connection and try again.';}};
+$('city').addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();$('search-city').click();}});
+$('geolocate').onclick=()=>{if(!navigator.geolocation){$('settings-status').textContent='Location is unavailable. Search by city instead.';return;}$('settings-status').textContent='Waiting for location permission…';navigator.geolocation.getCurrentPosition(p=>setPlace({name:'Your current location',latitude:p.coords.latitude,longitude:p.coords.longitude}),()=>{$('settings-status').textContent='Location unavailable or permission declined. Search by city instead.';},{timeout:15000,maximumAge:300000});};
+$('dim-button').onclick=()=>{if(locked)return;manualDim=!manualDim;tick();if(!manualDim&&prefs.night&&(new Date().getHours()>=21||new Date().getHours()<7))toast('Automatic night dimming is on. Turn it off in Settings for a brighter display.');};
+$('fullscreen-button').onclick=async()=>{if(locked)return;try{if(document.fullscreenElement&&typeof document.exitFullscreen==='function')await document.exitFullscreen();else if(typeof document.documentElement.requestFullscreen==='function')await document.documentElement.requestFullscreen();else throw Error('Fullscreen unavailable');await keepAwake();}catch{toast('Use your browser’s full-screen menu; this page cannot enter full screen here.');}};
+document.addEventListener('fullscreenchange',()=>{$('fullscreen-button').querySelector('span').textContent=document.fullscreenElement?'Exit full screen':'Full screen';});
+function lock(){locked=true;document.body.classList.add('locked');$('lock-overlay').hidden=false;$('unlock-button').focus();toast('Touch lock on. Hold the unlock button for 2 seconds.');}
+function unlock(){locked=false;document.body.classList.remove('locked');$('lock-overlay').hidden=true;cancelHold();$('lock-button').focus();toast('Touch lock off.');}
+$('lock-button').onclick=lock;
+let holdTimer=null;function startHold(){if(holdTimer||!locked)return;$('unlock-button').classList.add('holding');$('unlock-button').textContent='Keep holding…';holdTimer=setTimeout(unlock,2000);}function cancelHold(){clearTimeout(holdTimer);holdTimer=null;$('unlock-button').classList.remove('holding');$('unlock-button').textContent='◇ Hold 2 seconds to unlock';}
+$('unlock-button').addEventListener('pointerdown',e=>{e.preventDefault();try{$('unlock-button').setPointerCapture?.(e.pointerId);}catch{}startHold();});
+for(const event of ['pointerup','pointercancel','lostpointercapture'])$('unlock-button').addEventListener(event,cancelHold);
+$('unlock-button').addEventListener('pointermove',e=>{const r=$('unlock-button').getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)cancelHold();});
+$('unlock-button').addEventListener('keydown',e=>{if(e.key===' '||e.key==='Enter'){e.preventDefault();startHold();}});$('unlock-button').addEventListener('keyup',cancelHold);window.addEventListener('blur',cancelHold);
+document.addEventListener('keydown',e=>{if(locked&&e.key==='Tab'){e.preventDefault();$('unlock-button').focus();}});
+document.addEventListener('visibilitychange',()=>{cancelHold();scheduleClock();if(document.visibilityState==='visible'){tick();keepAwake();if(!weather||Date.now()-weather.at>weatherInterval())refreshWeather();}});window.addEventListener('online',()=>{if(document.visibilityState==='visible')refreshWeather();});
+
+
+
+// Add future themes here; the Theme button cycles this registry.
+const themes=[{id:'orbit',name:'Orbit',label:'Original Orbit'},{id:'candy',name:'Candy',label:'Candy Quest'}];
+let candyTimer=null,candyAnimation=null,candyTrip=0,candyNextVisit=0;
+const candyMotion=typeof matchMedia==='function'?matchMedia('(prefers-reduced-motion: reduce)'):null;
+function stopCandy(){clearTimeout(candyTimer);candyTimer=null;candyAnimation?.cancel();candyAnimation=null;$('candy-stage').hidden=true;}
+function candyLanes(mini=false){
+ $('candy-pal').style.width=mini?'28px':''; $('candy-pal').style.height=mini?'28px':'';
+ const size=$('candy-pal').getBoundingClientRect().width||30,half=size/2,margin=5;
+ const obstacles=[...document.querySelectorAll('.time-row,.date-row,#location,.weather-main,#condition,.weather-details,#weather-status,.fact-content .eyebrow,#fact-title,#fact-text,#fact-source,footer,.credit')]
+  .filter(e=>e.getClientRects().length&&getComputedStyle(e).display!=='none').map(e=>e.getBoundingClientRect());
+ const lanes=[];
+ for(let y=half+2;y<=innerHeight-half-2;y+=6){
+  const blocks=obstacles.filter(r=>y+half+margin>r.top&&y-half-margin<r.bottom).map(r=>[Math.max(half+2,r.left-half-margin),Math.min(innerWidth-half-2,r.right+half+margin)]).sort((a,b)=>a[0]-b[0]);
+  let left=half+2;
+  for(const [start,end] of [...blocks,[innerWidth-half-2,innerWidth]]){
+   if(start-left>Math.max(70,innerWidth*.08))lanes.push({left,right:start,y,size});
+   left=Math.max(left,end);
+  }
+ }
+ if(!lanes.length&&!mini)return candyLanes(true);
+ return lanes.sort((a,b)=>(b.right-b.left)-(a.right-a.left)).slice(0,12);
+}
+function candyAdventure(){
+ stopCandy();
+ if(prefs.theme!=='candy'||prefs.display.companion===false||document.visibilityState!=='visible')return;
+ if(Date.now()<candyNextVisit){candyTimer=setTimeout(candyAdventure,candyNextVisit-Date.now());return;}
+ candyTimer=setTimeout(candyAdventure,prefs.display.companionInterval*1000);
+ if(document.body.classList.contains('screen-rest')||$('settings').open)return;
+ // Temporarily expose the layer to measure the sprite; hide if no safe gap exists.
+ $('candy-stage').hidden=false;
+ const lanes=candyLanes();if(!lanes.length){$('candy-stage').hidden=true;return;}
+ candyNextVisit=Date.now()+prefs.display.companionInterval*1000;
+ const lane=lanes[candyTrip%lanes.length],action=['run','bike','work'][candyTrip%3],reverse=candyTrip%2===1;
+ candyTrip++;const pal=$('candy-pal');pal.dataset.action=action;
+ const start=(reverse?lane.right:lane.left)-lane.size/2,end=(reverse?lane.left:lane.right)-lane.size/2,y=lane.y-lane.size/2;
+ const transform=x=>`translate(${x}px,${y}px) scaleX(${reverse?-1:1})`;
+ pal.style.transform=transform(start);
+ if(candyMotion?.matches||typeof pal.animate!=='function'){
+  clearTimeout(candyTimer);
+  candyTimer=setTimeout(()=>{$('candy-stage').hidden=true;candyTimer=setTimeout(candyAdventure,prefs.display.companionInterval*1000-2000);},2000);return;
+ }
+ const destination=action==='work'?start+(end-start)*.18:end;
+ candyAnimation=pal.animate([{transform:transform(start),opacity:0},{transform:transform(start),opacity:.8,offset:.08},{transform:transform(destination),opacity:.8,offset:.9},{transform:transform(destination),opacity:0}],{duration:Math.min(prefs.display.companionDuration,action==='work'?8:20)*1000,easing:'ease-in-out',fill:'forwards'});
+ candyAnimation.onfinish=()=>{$('candy-stage').hidden=true;};
+}
+function applyTheme(){
+ candyNextVisit=0;
+ if(!themes.some(t=>t.id===prefs.theme))prefs.theme='candy';
+ const theme=themes.find(t=>t.id===prefs.theme);document.body.dataset.theme=theme.id;
+ $('theme-button').querySelector('span').textContent=`Theme: ${theme.name}`;
+ $('theme-button').setAttribute('aria-label',`Theme: ${theme.label}. Switch theme`);
+ $('theme-button').title=`${theme.label} · tap for next theme`;
+ write('orbit-settings',prefs);stopCandy();if(prefs.theme==='candy')candyTimer=setTimeout(candyAdventure,9000);
+}
+$('theme-button').onclick=()=>{if(locked)return;const index=themes.findIndex(t=>t.id===prefs.theme);prefs.theme=themes[(index+1)%themes.length].id;applyTheme();toast(`${themes.find(t=>t.id===prefs.theme).label} theme`);};
+window.addEventListener('resize',()=>{stopCandy();candyTimer=setTimeout(candyAdventure,400);});
+document.addEventListener('visibilitychange',()=>{stopCandy();if(document.visibilityState==='visible'&&prefs.theme==='candy')candyTimer=setTimeout(candyAdventure,9000);});
+$('settings-button').addEventListener('click',stopCandy);
+$('settings').addEventListener('close',()=>{stopCandy();if(prefs.theme==='candy')candyTimer=setTimeout(candyAdventure,9000);});
+candyMotion?.addEventListener?.('change',candyAdventure);
+applyTheme();
+
+updateMode();refreshWeather();keepAwake();
+
+</script>
+<script>
+// SPDX-License-Identifier: GPL-3.0-only
+// Device-independent sizing: browser viewport pixels already include OS scaling.
+const displayProfiles={
+ auto:{clockScale:1,weatherScale:1,factScale:1,gap:8},
+ handheld:{clockScale:1,weatherScale:1,factScale:1,gap:8},
+ desktop:{clockScale:1,weatherScale:1.05,factScale:1.05,gap:10},
+ tablet:{clockScale:.9,weatherScale:.95,factScale:.95,gap:8}
+};
+function displayNumber(value,fallback,min,max){return Number.isFinite(Number(value))?Math.max(min,Math.min(max,Number(value))):fallback;}
+function normalizeDisplay(value){
+ const d={...defaults.display,...value};
+ return {profile:Object.hasOwn(displayProfiles,d.profile)?d.profile:'auto',
+  clockScale:displayNumber(d.clockScale,1,.65,1.2),
+  weatherScale:displayNumber(d.weatherScale,1,.65,1.2),
+  factScale:displayNumber(d.factScale,1,.65,1.2),
+  gap:displayNumber(d.gap,8,4,24),
+  companionInterval:displayNumber(d.companionInterval,60,30,300),
+  companionDuration:displayNumber(d.companionDuration,12,4,20),
+  companion:d.companion!==false};
+}
+function applyDisplay(){
+ prefs.display=normalizeDisplay(prefs.display);
+ for(const [key,property] of [['clockScale','--clock-scale'],['weatherScale','--weather-scale'],['factScale','--fact-scale'],['gap','--panel-gap']]){
+  document.documentElement.style.setProperty(property,prefs.display[key]+(key==='gap'?'px':''));
+ }
+ document.body.dataset.profile=prefs.display.profile;
+ write('orbit-settings',prefs);
+}
+function fillDisplaySettings(d=prefs.display){
+ $('display-profile').value=d.profile;
+ for(const key of ['clockScale','weatherScale','factScale','gap','companionInterval','companionDuration']){
+  $(key).value=d[key];updateDisplayLabel(key);
+ }
+ $('companion').checked=d.companion;
+ $('viewport-info').textContent=`Browser viewport: ${innerWidth} × ${innerHeight} · pixel ratio ${window.devicePixelRatio||1}. Size presets follow your browser window; OS scaling is already included.`;
+}
+function updateDisplayLabel(key){$(key+'-value').textContent=['clockScale','weatherScale','factScale'].includes(key)?`${Math.round(Number($(key).value)*100)}%`:`${$(key).value}${key==='gap'?' px':' s'}`;}
+function saveDisplaySettings(){
+ prefs.display=normalizeDisplay({profile:$('display-profile').value,...Object.fromEntries(['clockScale','weatherScale','factScale','gap','companionInterval','companionDuration'].map(key=>[key,Number($(key).value)])),companion:$('companion').checked});
+ applyDisplay();
+}
+for(const key of ['clockScale','weatherScale','factScale','gap','companionInterval','companionDuration'])$(key).addEventListener('input',()=>updateDisplayLabel(key));
+$('display-profile').onchange=()=>fillDisplaySettings({...prefs.display,...displayProfiles[$('display-profile').value],profile:$('display-profile').value});
+$('reset-display').onclick=()=>fillDisplaySettings(normalizeDisplay(defaults.display));
+$('settings-button').addEventListener('click',()=>fillDisplaySettings());
+$('settings-form').addEventListener('submit',saveDisplaySettings);
+applyDisplay();
+
+</script>
+</body></html>

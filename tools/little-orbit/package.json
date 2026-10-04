@@ -1,0 +1,14 @@
+{
+  "name": "little-orbit-clock",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A configurable browser display clock with weather, daily facts, and quiet cartoon themes",
+  "license": "GPL-3.0-only",
+  "engines": {"node": ">=22"},
+  "scripts": {
+    "start": "node server.cjs",
+    "build": "node build-portable.cjs",
+    "test": "node tests/run.cjs"
+  },
+  "devDependencies": {"playwright": "1.62.1"}
+}
