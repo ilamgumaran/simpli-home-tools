@@ -20,4 +20,6 @@ Check handheld (854×480), HD (1280×720), full HD (1920×1080), and portrait (3
 
 New themes should fit the existing content, avoid covering the time/weather/facts, pause when hidden, respect reduced motion, and offer quiet intervals. Add themes to the registry instead of replacing current ones.
 
+For Our Desk Clock, consult the [product guide](tools/little-orbit/PRODUCT.md) and [roadmap](tools/little-orbit/ROADMAP.md). Save useful proposals and original previews in `tools/little-orbit/design/` with a clear status and acceptance checks. Keep plans distinct from implemented behavior, update the decision log for lasting choices, and update the changelog when behavior changes. Documentation-only PRs should validate links/previews without altering the device runtime.
+
 Contributions are accepted under **GPL-3.0-only**, the project's license. Retain copyright and attribution notices. No separate contributor agreement is required by this repository.

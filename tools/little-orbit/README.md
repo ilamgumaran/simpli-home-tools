@@ -31,6 +31,8 @@ Candy Quest visits briefly and pauses between appearances, picks routes outside 
 
 ## Develop and test
 
+Start with the [product guide](PRODUCT.md), [roadmap](ROADMAP.md), [design archive](design/), and [changelog](CHANGELOG.md) for product status and planned work. Time Climber II is a design proposal; the running themes remain Orbit, Candy Quest and Time Climber.
+
 ```sh
 npm ci
 npx playwright install chromium firefox
@@ -40,7 +42,7 @@ npm test
 
 Node 22 or later is used for contributor tooling; Linux may need `npx playwright install --with-deps chromium firefox`. Tests start their own loopback server on a free port and use mocked weather. They cover settings, touch lock, theme persistence, safe companion routes, all daily facts and rotating layouts, reduced motion, offline behavior, device presets, and the portable file. Tests write ignored output to `test-results/`.
 
-The browser runtime has no library dependencies. Playwright is a development dependency. `npm run build` embeds `config.js`, `style.css`, `app.js`, and `display-settings.js` into the tracked portable file. Commit that file with source changes.
+The browser runtime has no library dependencies. Playwright is a development dependency. `npm run build` embeds `config.js`, `style.css`, `app.js`, `display-settings.js`, and `time-climber.js` into the tracked portable file. Commit that file with source changes.
 
 ## Windows helpers
 
