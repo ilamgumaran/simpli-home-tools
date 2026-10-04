@@ -20,4 +20,4 @@ Our Desk Clock's [product guide](tools/little-orbit/PRODUCT.md), [roadmap](tools
 
 ## License
 
-Project source, documentation, and original artwork are **GPL-3.0-only**; see [LICENSE](LICENSE). You may use, share, and modify the tools under those terms. Distributed derivatives must retain the required notices and source availability. External weather data and linked educational sources have their own terms and attribution; see the tool notices.
+Project source, documentation, and original artwork use the **Simpli Home Tools Noncommercial License 1.0**; see [LICENSE](LICENSE) and [LICENSING.md](LICENSING.md). Noncommercial use, modification, and sharing are allowed under those terms. **Commercial use or monetization requires separate written permission from ilamgumaran.** This is source-available software, not OSI open source. Earlier GPL-licensed versions retain their existing rights. External services/data and dependencies keep their own terms.

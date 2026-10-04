@@ -50,7 +50,7 @@ The browser runtime has no library dependencies. Playwright is a development dep
 
 ## License and sources
 
-Copyright © 2026 ilamgumaran and contributors. **GPL-3.0-only**; [LICENSE](LICENSE). No warranty. Original SVG character and CSS are included under the same license. [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) lists external services and contributor dependencies.
+Copyright © 2026 ilamgumaran and contributors. **Simpli Home Tools Noncommercial License 1.0**; [LICENSE](LICENSE). Noncommercial use, modification and sharing are allowed; commercial use or monetization needs separate written permission from the project licensor. This is source-available software, not OSI open source. Earlier GPL versions retain their rights. See [licensing and permission requests](../../LICENSING.md). No warranty. Original SVG character and CSS use the same license. [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) lists external services and contributor dependencies.
 
 Default weather is Marietta, GA (30064), configurable in Settings. Facts are original short summaries with links to NASA sources and repeat on a 24-day cycle. Location permission is only requested when you tap **Use my location**. There is no analytics, account service, or telemetry; weather and city searches contact Open-Meteo.
 

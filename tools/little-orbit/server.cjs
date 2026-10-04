@@ -1,4 +1,4 @@
-// SPDX-License-Identifier: GPL-3.0-only
+// SPDX-License-Identifier: LicenseRef-Simpli-Noncommercial-1.0
 // Copyright (C) 2026 ilamgumaran and contributors
 const http=require('node:http');
 const fs=require('node:fs');

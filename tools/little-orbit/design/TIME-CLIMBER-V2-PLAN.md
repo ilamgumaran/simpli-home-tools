@@ -8,7 +8,7 @@ See the [shareable design preview](time-climber-ii-preview.html), [product guide
 
 Our Desk Clock becomes a window onto a mountain range made of time. A tiny, clearly visible mountaineer follows trails shaped like numbers, climbs their rock faces, hangs a tent, and rests. The camera follows one digit at a time. The active digit grows as the camera approaches; completed and neighboring digits recede without becoming unreadable. The viewer can always read the full local time and date, plus weather and the daily fact.
 
-Add this as a fourth theme, provisionally `climber2`, named **Time Climber II**. Keep Orbit, Candy Quest, and the existing Time Climber intact. Use original vector artwork and GPL-3.0-only attribution; no assets or characters copied from climbing games.
+Add this as a fourth theme, provisionally `climber2`, named **Time Climber II**. Keep Orbit, Candy Quest, and the existing Time Climber intact. Use original vector artwork and the current project license and attribution; no assets or characters copied from climbing games.
 
 ## Composition
 

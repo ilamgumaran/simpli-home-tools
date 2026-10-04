@@ -1,5 +1,117 @@
 <!doctype html>
+<!-- SPDX-License-Identifier: LicenseRef-Simpli-Noncommercial-1.0 -->
 <html lang="en">
+<!-- Full project license follows; keep it with this portable file.
+Simpli Home Tools Noncommercial License 1.0
+SPDX identifier: LicenseRef-Simpli-Noncommercial-1.0
+Effective for project versions distributed with this license.
+
+Copyright (C) 2026 ilamgumaran and contributors.
+All rights not expressly granted are reserved.
+
+1. Definitions and scope
+
+"Project" means the original software, documentation, and artwork supplied
+with this license, including modified versions and copies of that material.
+Separately licensed third-party material is excluded and retains its own terms.
+
+"Project Licensor" means ilamgumaran, the repository owner at
+https://github.com/ilamgumaran/simpli-home-tools, or a successor designated
+in writing by that owner. The Project Licensor may grant permission only
+for rights it owns or is authorized to license.
+
+"Commercial Use" means using, modifying, hosting, distributing, sublicensing,
+or otherwise exploiting the Project for monetary compensation, revenue,
+commercial advantage, or in support of a business or revenue-generating
+activity, whether directly or indirectly. This includes, without limitation:
+
+  - Selling copies, modified versions, licenses, or access to the Project.
+  - Paid hosting, subscriptions, paid services, or advertising-supported use.
+  - Bundling the Project with a product, device, service, or paid offering.
+  - Using the Project in business operations, customer displays, marketing,
+    or other activities intended to support commercial advantage.
+  - Charging for work or services based on the Project, including paid
+    customization, deployment, consulting, or support.
+  - Seeking money, sponsorship, or donations in exchange for access to, use
+    of, or services based on the Project.
+
+Providing access without a fee does not make an otherwise commercial
+activity noncommercial. Whether an organization is for-profit or nonprofit
+does not by itself determine whether a use is commercial.
+
+2. Noncommercial permission
+
+Subject to these terms, you may use, inspect, copy, modify, and distribute
+the Project solely for noncommercial purposes, without charge. This includes
+personal/home use, unpaid learning, noncommercial research, and noncommercial
+community collaboration.
+
+Keep this license and existing copyright/attribution notices with every copy
+or distribution, including modified versions. Identify substantive changes
+you make. Distribute covered original material and modifications under this
+same license, unless you have separate written permission from the Project
+Licensor. Do not remove or weaken the commercial-use restriction. Provide
+the corresponding preferred source for any covered modified executable or
+packaged version you distribute, or a freely accessible link to that source.
+
+3. Commercial permission is required
+
+No Commercial Use is permitted under this license. Before any Commercial
+Use, obtain a separate, explicit written agreement from the Project Licensor
+that authorizes that use. A public repository, an accepted contribution,
+silence, a download, or permission for a different use is not such agreement.
+
+Request permission through the repository's commercial-permission issue
+template. A request does not grant permission. Permission may be subject to
+fees, attribution, scope, duration, or other terms in the written agreement.
+
+4. Contribution authorization
+
+If you intentionally submit a contribution for inclusion in this Project
+after these terms are published, you confirm that you have the authority
+to license it, identify any separately licensed third-party material, and
+license your original contribution to recipients under this license.
+
+You also grant the Project Licensor a nonexclusive, worldwide, perpetual,
+irrevocable, royalty-free right to use, reproduce, modify, distribute,
+sublicense, and license that contribution under these terms and under
+separate commercial terms. You retain copyright; this is not a copyright
+assignment. This authorization allows the Project Licensor to approve
+commercial uses of the combined Project without claiming ownership of
+contributors' copyrights. It does not alter grants made before these terms.
+
+5. Earlier licenses and independent material
+
+This license does not revoke rights already granted in Project versions
+previously distributed under GPL-3.0-only or another license. Those versions
+remain governed by the license under which they were obtained. This license
+does not impose these restrictions on independently obtained prior versions,
+third-party dependencies, external weather data, or separately licensed work.
+
+This license is not GPL, is not a modification of the GPL license text, and
+is not an OSI-approved open-source license. The Project is source-available
+for noncommercial use. No trademark or endorsement rights are granted.
+Rights that cannot lawfully be restricted remain unaffected.
+
+6. Termination
+
+Permission under this license ends automatically if you violate its terms.
+Ending permission does not cancel your obligations for existing copies or
+limit other remedies available to rights holders. The Project Licensor may
+reinstate permission in writing. No fee, payment, or settlement by itself
+grants ongoing commercial permission without a written agreement.
+
+7. No warranty or liability
+
+TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, THE PROJECT IS PROVIDED
+"AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NONINFRINGEMENT.
+THE AUTHORS AND RIGHTS HOLDERS ARE NOT LIABLE FOR ANY CLAIM, DAMAGE, OR
+OTHER LIABILITY ARISING FROM THE PROJECT OR ITS USE, WHETHER IN CONTRACT,
+TORT, OR OTHERWISE. NOTHING HERE EXCLUDES LIABILITY THAT THE LAW DOES NOT
+ALLOW TO BE EXCLUDED.
+
+-->
 <head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="application-name" content="Little Orbit Desk Clock"><meta name="theme-color" content="#111b23"><title>Our Desk Clock · Time Climber</title><style>
 /* Brief compositor glides once a minute, rather than a perpetual animation. */
 /* Give the doubled clock a full-width row on display-sized screens. */
@@ -321,10 +433,10 @@ body.screen-rest #climber-stage{display:none}
 </div></div>
 <div id="lock-overlay" hidden><button id="unlock-button">◇ Hold 2 seconds to unlock</button></div>
 <button id="rest-overlay" aria-label="Screen rest active. Tap to wake." hidden></button>
-<dialog id="settings"><form id="settings-form"><div class="dialog-top"><h2>Mission control</h2><button type="button" id="close-settings" aria-label="Close settings">✕</button></div><label>Weather city or ZIP<input id="city" placeholder="Marietta or 30064" autocomplete="off"></label><div id="city-results"></div><button type="button" id="search-city">Find city</button> <button type="button" id="geolocate">Use my location</button><p id="settings-status" role="status"></p><label>Temperature<select id="unit"><option value="fahrenheit">Fahrenheit · °F</option><option value="celsius">Celsius · °C</option></select></label><label class="check"><input id="format24" type="checkbox">24-hour clock</label><label class="check"><input id="lowPower" type="checkbox">Low power · darker theme, minute updates</label><label class="check"><input id="care" type="checkbox">Screen care · shift & rearrange panels</label><label class="check"><input id="rest" type="checkbox">One-minute black-screen break each hour</label><label class="check"><input id="night" type="checkbox">Auto-dim from 9 PM to 7 AM</label><fieldset class="display-settings"><legend>Display &amp; character</legend><label>Device preset<select id="display-profile"><option value="auto">Automatic · current window</option><option value="handheld">Handheld · ROG Ally</option><option value="desktop">Desktop / TV</option><option value="tablet">Tablet / small display</option></select></label><p class="hint" id="viewport-info"></p><label>Time size <output id="clockScale-value"></output><input id="clockScale" type="range" min="0.65" max="1.2" step="0.05"></label><label>Weather size <output id="weatherScale-value"></output><input id="weatherScale" type="range" min="0.65" max="1.2" step="0.05"></label><label>Fact size <output id="factScale-value"></output><input id="factScale" type="range" min="0.65" max="1.2" step="0.05"></label><label>Panel spacing <output id="gap-value"></output><input id="gap" type="range" min="4" max="24" step="1"></label><label>Character visits every <output id="companionInterval-value"></output><input id="companionInterval" type="range" min="30" max="300" step="15"></label><label>Character visit length <output id="companionDuration-value"></output><input id="companionDuration" type="range" min="4" max="20" step="1"></label><label class="check"><input id="companion" type="checkbox">Character in Candy Quest / Time Climber</label><button id="reset-display" type="button">Reset display sizes</button><p class="hint">If larger text needs more space, reduce another size or spacing. Saved settings apply to this browser only.</p></fieldset><p class="hint about-license">Our Desk Clock © 2026 ilamgumaran and contributors. GPLv3: you may share and modify this software; no warranty. <a href="https://github.com/ilamgumaran/simpli-home-tools/blob/main/LICENSE" target="_blank" rel="noopener noreferrer">License</a> · <a href="https://github.com/ilamgumaran/simpli-home-tools/tree/main/tools/little-orbit" target="_blank" rel="noopener noreferrer">Source &amp; contribute</a></p><p class="hint">Panels glide each minute, swap every 10 minutes, and spotlight the fact every 5 minutes. Screen breaks run at :59; tap to wake. Clock uses this device’s timezone. Touch lock covers this page only. These measures cannot guarantee against display wear.</p><button class="primary" type="submit">Save & return to orbit</button></form></dialog>
+<dialog id="settings"><form id="settings-form"><div class="dialog-top"><h2>Mission control</h2><button type="button" id="close-settings" aria-label="Close settings">✕</button></div><label>Weather city or ZIP<input id="city" placeholder="Marietta or 30064" autocomplete="off"></label><div id="city-results"></div><button type="button" id="search-city">Find city</button> <button type="button" id="geolocate">Use my location</button><p id="settings-status" role="status"></p><label>Temperature<select id="unit"><option value="fahrenheit">Fahrenheit · °F</option><option value="celsius">Celsius · °C</option></select></label><label class="check"><input id="format24" type="checkbox">24-hour clock</label><label class="check"><input id="lowPower" type="checkbox">Low power · darker theme, minute updates</label><label class="check"><input id="care" type="checkbox">Screen care · shift & rearrange panels</label><label class="check"><input id="rest" type="checkbox">One-minute black-screen break each hour</label><label class="check"><input id="night" type="checkbox">Auto-dim from 9 PM to 7 AM</label><fieldset class="display-settings"><legend>Display &amp; character</legend><label>Device preset<select id="display-profile"><option value="auto">Automatic · current window</option><option value="handheld">Handheld · ROG Ally</option><option value="desktop">Desktop / TV</option><option value="tablet">Tablet / small display</option></select></label><p class="hint" id="viewport-info"></p><label>Time size <output id="clockScale-value"></output><input id="clockScale" type="range" min="0.65" max="1.2" step="0.05"></label><label>Weather size <output id="weatherScale-value"></output><input id="weatherScale" type="range" min="0.65" max="1.2" step="0.05"></label><label>Fact size <output id="factScale-value"></output><input id="factScale" type="range" min="0.65" max="1.2" step="0.05"></label><label>Panel spacing <output id="gap-value"></output><input id="gap" type="range" min="4" max="24" step="1"></label><label>Character visits every <output id="companionInterval-value"></output><input id="companionInterval" type="range" min="30" max="300" step="15"></label><label>Character visit length <output id="companionDuration-value"></output><input id="companionDuration" type="range" min="4" max="20" step="1"></label><label class="check"><input id="companion" type="checkbox">Character in Candy Quest / Time Climber</label><button id="reset-display" type="button">Reset display sizes</button><p class="hint">If larger text needs more space, reduce another size or spacing. Saved settings apply to this browser only.</p></fieldset><p class="hint about-license">Our Desk Clock © 2026 ilamgumaran and contributors. Noncommercial use, sharing and modification permitted. Commercial use requires written permission; no warranty. <a href="https://github.com/ilamgumaran/simpli-home-tools/blob/add-little-orbit-clock/LICENSE" target="_blank" rel="noopener noreferrer">License</a> · <a href="https://github.com/ilamgumaran/simpli-home-tools/tree/main/tools/little-orbit" target="_blank" rel="noopener noreferrer">Source &amp; contribute</a></p><p class="hint">Panels glide each minute, swap every 10 minutes, and spotlight the fact every 5 minutes. Screen breaks run at :59; tap to wake. Clock uses this device’s timezone. Touch lock covers this page only. These measures cannot guarantee against display wear.</p><button class="primary" type="submit">Save & return to orbit</button></form></dialog>
 <div id="toast" role="status" hidden></div>
 <script>
-// SPDX-License-Identifier: GPL-3.0-only
+// SPDX-License-Identifier: LicenseRef-Simpli-Noncommercial-1.0
 // Site defaults. Settings saved in a browser override these values.
 // After editing, run `npm run build` to update the single-file clock.
 window.ORBIT_CONFIG = {
@@ -350,7 +462,7 @@ window.ORBIT_CONFIG = {
 
 </script>
 <script>
-// SPDX-License-Identifier: GPL-3.0-only
+// SPDX-License-Identifier: LicenseRef-Simpli-Noncommercial-1.0
 // Copyright (C) 2026 ilamgumaran and contributors
 'use strict';
 const $ = id => document.getElementById(id);
@@ -546,7 +658,7 @@ updateMode();refreshWeather();keepAwake();
 
 </script>
 <script>
-// SPDX-License-Identifier: GPL-3.0-only
+// SPDX-License-Identifier: LicenseRef-Simpli-Noncommercial-1.0
 // Device-independent sizing: browser viewport pixels already include OS scaling.
 const displayProfiles={
  auto:{clockScale:1,weatherScale:1,factScale:1,gap:8},
@@ -597,7 +709,7 @@ applyDisplay();
 
 </script>
 <script>
-// SPDX-License-Identifier: GPL-3.0-only
+// SPDX-License-Identifier: LicenseRef-Simpli-Noncommercial-1.0
 // Copyright (C) 2026 ilamgumaran and contributors
 // Original miniature mountaineering scenes; no game assets or runtime libraries.
 (()=>{

@@ -7,7 +7,7 @@ Updated 2026-10-04. Milestones express intent, not promised delivery dates. The 
 - Browser clock with date, weather, daily facts, fullscreen and touch lock.
 - Orbit, Candy Quest, and Time Climber themes; configurable fonts, spacing, presets, and companion timing.
 - Dark low-power presentation, moving layouts, night dimming, reduced-motion handling, and black-screen breaks.
-- Portable single-file build, original artwork, GPL-3.0-only licensing, contribution guide, and Windows helpers.
+- Portable single-file build, original artwork, source-available noncommercial licensing with written commercial permission, contribution guide, and Windows helpers. Earlier GPL versions retain their granted rights.
 - Automated hosted/portable Chromium and Firefox checks on Windows, macOS, and Linux.
 
 The implementation is in [PR #1](https://github.com/ilamgumaran/simpli-home-tools/pull/1). Treat main and a future tagged release separately from an unmerged development branch.

@@ -1,4 +1,4 @@
-// SPDX-License-Identifier: GPL-3.0-only
+// SPDX-License-Identifier: LicenseRef-Simpli-Noncommercial-1.0
 // Site defaults. Settings saved in a browser override these values.
 // After editing, run `npm run build` to update the single-file clock.
 window.ORBIT_CONFIG = {

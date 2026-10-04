@@ -1,4 +1,4 @@
-// SPDX-License-Identifier: GPL-3.0-only
+// SPDX-License-Identifier: LicenseRef-Simpli-Noncommercial-1.0
 // Device-independent sizing: browser viewport pixels already include OS scaling.
 const displayProfiles={
  auto:{clockScale:1,weatherScale:1,factScale:1,gap:8},

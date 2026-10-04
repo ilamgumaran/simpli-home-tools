@@ -11,7 +11,7 @@ This is the product's planning hub. Designs are proposals until explicitly marke
 3. Quiet companionship. Characters entertain without dominating the display; motion respects reduced motion, hidden tabs, and low-power settings.
 4. Care for long-running displays. Use dark backgrounds, configurable movement and breaks, with honest limits on what browsers can control.
 5. Configurable defaults. Use viewport-based presets and feature detection. Shared configuration and browser overrides must be understandable and documented.
-6. Open collaboration. Keep source, original artwork, decisions, tests, and useful design studies in Git under GPL-3.0-only. Avoid proprietary game assets and device-private data.
+6. Open collaboration. Keep source, original artwork, decisions, tests, and useful design studies in Git under the Simpli Home Tools Noncommercial License 1.0, with commercial permission controlled by the project licensor. Avoid proprietary game assets and device-private data.
 
 ## Documentation map
 

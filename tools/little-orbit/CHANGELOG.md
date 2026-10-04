@@ -15,5 +15,6 @@ No tagged releases yet. Entries below describe implemented code on the developme
 ### Changed
 
 - Product name is Our Desk Clock; Little Orbit filenames and directory remain compatible.
+- New versions use the Simpli Home Tools Noncommercial License 1.0: noncommercial use and collaboration are allowed, while commercial use needs separate written permission from the project licensor. Earlier GPL grants remain in effect. Contributor terms, license headers, package metadata, and portable license text are updated accordingly.
 
 Time Climber II is a design proposal and is not included in the runtime.

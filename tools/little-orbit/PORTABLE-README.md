@@ -26,7 +26,11 @@ The separate Windows/Ally launchers and power scripts are optional helpers and a
 
 Weather: https://open-meteo.com/ · Facts: https://science.nasa.gov/ · Vanadium: https://github.com/GrapheneOS/Vanadium
 
-## Themes
+## License
+
+Noncommercial use, modification, and sharing are permitted under the **Simpli Home Tools Noncommercial License 1.0** in `LICENSE`. **Commercial use or monetization requires separate written permission from ilamgumaran.** The standalone HTML includes the complete license in its source; keep it intact when sharing. Earlier GPL-licensed versions retain their existing rights. See the repository's `LICENSING.md` for details and permission requests. External services/data retain their own terms.
+
+## Available themes
 
 Tap **Theme** to cycle through the original **Orbit** layout, **Candy Quest**, and **Time Climber**. Your selection is saved in this browser. Candy Quest adds a candy-drop friend who runs, rides a bicycle, and sweeps in available spaces around the content. The companion visits for 8–12 seconds about once a minute in low power, then disappears; it waits for panel glides to finish and uses smaller artwork when space is tight. Reduced motion uses a brief still appearance instead. Hidden pages, settings, and screen breaks pause the companion. Both themes retain the same clock, weather, facts, and screen-care settings. Future themes can be added to the registry in app.js.
 

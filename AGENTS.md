@@ -2,7 +2,7 @@
 
 Tools live in independent directories under `tools/`. Little Orbit's canonical source is `tools/little-orbit/`; maintain its configuration, documentation, and tests together.
 
-Preserve GPLv3 licensing and attribution. Keep the browser app independent of operating-system helpers. Never commit local browser profiles, power-plan state, credentials, screenshots from private sessions, or installed dependencies.
+Preserve the Simpli Home Tools Noncommercial License 1.0 and attribution. Commercial use requires separate written permission from the project licensor; prior GPL versions retain their granted rights. Keep the browser app independent of operating-system helpers. Never commit local browser profiles, power-plan state, credentials, screenshots from private sessions, or installed dependencies.
 
 For clock changes, run `npm run build` and `npm test` in `tools/little-orbit/`. Commit the regenerated `Little Orbit.html` with source changes. Tests use Playwright's Chromium and Firefox, mock weather, and must work without real weather access. New themes go in the theme registry in `app.js`; retain Orbit and Candy Quest and their readable layout.
 
