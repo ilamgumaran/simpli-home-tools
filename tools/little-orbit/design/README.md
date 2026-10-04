@@ -4,7 +4,7 @@ Version plans and original design studies here so contributors can see intent be
 
 | Design | Status | Preview |
 | --- | --- | --- |
-| [Time Climber II — Mountain of Time](TIME-CLIMBER-V2-PLAN.md) | Proposed; implementation deferred pending review/start authorization | [Interactive design study](time-climber-ii-preview.html) — download and open in a browser |
+| [Time Climber II — Mountain of Time](TIME-CLIMBER-V2-PLAN.md) | Initial implementation on development branch; hardware/release review remains | [Original interactive design study](time-climber-ii-preview.html) — download and open in a browser |
 
 The preview has a fixed sample clock and manually selected focus/viewpoints. It does not change settings or connect to the running desk clock. GitHub's file viewer displays its source; download the file to interact with it.
 

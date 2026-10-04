@@ -1,6 +1,6 @@
 # Time Climber II — Mountain of Time
 
-Status: design proposal only, prepared 2026-10-04. Implementation is deferred until the user authorizes starting it later this week. Do not change the running clock, its saved settings, or the current themes from this document alone.
+Status: initial implementation authorized by the owner and completed on the development branch, 2026-10-04. The original proposal below is retained as design context; real-device visual review and extended-duration testing remain part of release readiness. The separate design preview is still a fixed-time study, not the runtime.
 
 See the [shareable design preview](time-climber-ii-preview.html), [product guide](../PRODUCT.md), and [roadmap](../ROADMAP.md). Download the preview and open it in a browser; GitHub shows HTML source rather than running it.
 
@@ -8,7 +8,7 @@ See the [shareable design preview](time-climber-ii-preview.html), [product guide
 
 Our Desk Clock becomes a window onto a mountain range made of time. A tiny, clearly visible mountaineer follows trails shaped like numbers, climbs their rock faces, hangs a tent, and rests. The camera follows one digit at a time. The active digit grows as the camera approaches; completed and neighboring digits recede without becoming unreadable. The viewer can always read the full local time and date, plus weather and the daily fact.
 
-Add this as a fourth theme, provisionally `climber2`, named **Time Climber II**. Keep Orbit, Candy Quest, and the existing Time Climber intact. Use original vector artwork and the current project license and attribution; no assets or characters copied from climbing games.
+This is the fourth theme, `climber2`, named **Time Climber II**. Orbit, Candy Quest, and the existing Time Climber are retained. Use original vector artwork and the current project license and attribution; no assets or characters copied from climbing games.
 
 ## Composition
 
@@ -108,4 +108,10 @@ Continue the dark palette, low-power mode, touch lock, layout shifts, night dimm
 
 ## Follow-up timing
 
-The user asked to execute later this week, but no exact day/time or automatic-start authorization has been confirmed. The follow-up question is pending. Do not schedule an automatic implementation from an assumed date or interpret this design document as start approval.
+The owner subsequently authorized proceeding now. No scheduled automatic implementation was created; this work is carried out in the current session. The original proposal's review steps remain useful for subsequent refinements.
+
+## Implemented source and verification
+
+`time-climber-ii.js` implements pure local calendar progress and resampled routes for 0–9, a bounded responsive scene, digit geometry transitions, a tiny original explorer, three gentle perspectives, short expeditions and quiet camps. The fixed information lives outside the camera. The existing theme registry, defaults, settings, static server, portable builder and screen-care lifecycle include it.
+
+`tests/verify-mountain.cjs` checks hosted/portable forms, all digit routes and calendar levels, four viewport sizes, large-font/fact fits, real minute continuity, calendar boundaries including leap day and DST, clock jumps, settings persistence, hidden-page and screen-break pauses, reduced motion and the low-power frame cap. Existing theme checks cover all four theme choices and preserve the original scenes. Physical Android/Vanadium and long-duration hardware testing are still pending, not claimed as completed.

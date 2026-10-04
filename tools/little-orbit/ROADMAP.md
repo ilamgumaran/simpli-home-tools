@@ -5,28 +5,28 @@ Updated 2026-10-04. Milestones express intent, not promised delivery dates. The 
 ## Current foundation — implemented, awaiting PR merge
 
 - Browser clock with date, weather, daily facts, fullscreen and touch lock.
-- Orbit, Candy Quest, and Time Climber themes; configurable fonts, spacing, presets, and companion timing.
+- Orbit, Candy Quest, Time Climber and Time Climber II themes; configurable fonts, spacing, presets, camera and companion timing.
 - Dark low-power presentation, moving layouts, night dimming, reduced-motion handling, and black-screen breaks.
 - Portable single-file build, original artwork, source-available noncommercial licensing with written commercial permission, contribution guide, and Windows helpers. Earlier GPL versions retain their granted rights.
 - Automated hosted/portable Chromium and Firefox checks on Windows, macOS, and Linux.
 
 The implementation is in [PR #1](https://github.com/ilamgumaran/simpli-home-tools/pull/1). Treat main and a future tagged release separately from an unmerged development branch.
 
-## Next: Time Climber II design review — planned
+## Time Climber II design — authorized and implemented on development branch
 
-Review the [Mountain of Time proposal](design/TIME-CLIMBER-V2-PLAN.md) and [interactive design study](design/time-climber-ii-preview.html). Confirm the minute/hour/day hierarchy, distant calendar ridges, tiny character visibility, and gentle perspectives. Implementation remains deferred; no exact start time has been agreed.
+The owner authorized implementation of the [Mountain of Time plan](design/TIME-CLIMBER-V2-PLAN.md). The [original interactive design study](design/time-climber-ii-preview.html) stays available as history. The runtime implements the minute/hour/day hierarchy, distant calendar labels/ridges, tiny explorer, and gentle perspectives; refine the visual direction through device feedback.
 
-Done when: visual direction and pacing are accepted, unresolved choices are recorded, and implementation is authorized. A design preview is not a production theme.
+The preview remains a design study. Real-device visual feedback is still welcome; it does not prevent review of the implemented theme.
 
-## Time Climber II vertical slice — deferred
+## Time Climber II vertical slice — implemented
 
-Build a fourth theme with one numeral-shaped trail, one cliff route, one small explorer, a readable fixed time/date strip, and a safe real minute rollover. Reuse lifecycle and screen-care behavior. Validate readability and motion on the Ally before building all scenes.
+The fourth theme includes numeral-shaped trails, cliff routes, one small explorer, a fixed readable time/date strip, and a safe real minute rollover. Lifecycle and screen care are integrated. Browser tests cover the Ally viewport and the existing three themes.
 
 Done when: no overlap/scrolling across supported presets; real time remains accurate; route changes are continuous; reduced motion, pauses, and portable build pass tests. Existing three themes are unchanged.
 
-## Mountain of Time expansion — follows the vertical slice
+## Mountain of Time expansion — initial implementation; hardware review remains
 
-Extend route data to 0–9, both minute/hour digits and calendar levels; add supply stops, a suspended camp, and the three camera perspectives. Cover midnight, month/year transitions, leap years, daylight-saving changes, sleep/resume, and manual clock changes.
+Route data covers 0–9, paired time/day/month digits and year digits, with supply stops, a suspended camp and three perspectives. Calendar/DST boundaries, real rollovers, clock jumps, quiet frame behavior and pause/resume are covered by automated checks. Extended operation and physical Android/Vanadium review are still release-readiness tasks.
 
 Done when: the complete acceptance list in the design plan passes and character motion remains bounded and quiet in low-power mode.
 

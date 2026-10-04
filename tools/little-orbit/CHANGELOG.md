@@ -10,6 +10,7 @@ No tagged releases yet. Entries below describe implemented code on the developme
 - Orbit and Candy Quest themes, configurable device presets, independent font scales and spacing.
 - Dark low-power mode, layout shifts, night dimming, black-screen breaks and reduced-motion handling.
 - Time Climber theme with original SVG mountaineer, real digit/widget climbing, ropes, supply pickups and a suspended campsite.
+- Time Climber II theme: tiny original explorer, numeral-shaped terrain/trails, digit focus scaling, overhead/cliff/traverse lens, calendar-paced higher routes, supplies and a suspended portaledge. Fixed full time/date, weather and fact stay readable. Configurable Still camera, reduced-motion support and quiet animation lifecycle.
 - Single-file portable build, optional Windows launchers, and Chromium/Firefox checks on Windows, macOS and Linux.
 
 ### Changed
@@ -17,4 +18,4 @@ No tagged releases yet. Entries below describe implemented code on the developme
 - Product name is Our Desk Clock; Little Orbit filenames and directory remain compatible.
 - New versions use the Simpli Home Tools Noncommercial License 1.0: noncommercial use and collaboration are allowed, while commercial use needs separate written permission from the project licensor. Earlier GPL grants remain in effect. Contributor terms, license headers, package metadata, and portable license text are updated accordingly.
 
-Time Climber II is a design proposal and is not included in the runtime.
+Time Climber II is implemented on the development branch; real-device visual review and extended-duration testing remain release-readiness work.

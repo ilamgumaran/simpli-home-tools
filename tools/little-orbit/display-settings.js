@@ -16,7 +16,7 @@ function normalizeDisplay(value){
   gap:displayNumber(d.gap,8,4,24),
   companionInterval:displayNumber(d.companionInterval,60,30,300),
   companionDuration:displayNumber(d.companionDuration,12,4,20),
-  companion:d.companion!==false};
+  companion:d.companion!==false,cameraMotion:d.cameraMotion==='still'?'still':'gentle'};
 }
 function applyDisplay(){
  prefs.display=normalizeDisplay(prefs.display);
@@ -33,11 +33,12 @@ function fillDisplaySettings(d=prefs.display){
   $(key).value=d[key];updateDisplayLabel(key);
  }
  $('companion').checked=d.companion;
+ $('camera-motion').value=d.cameraMotion;
  $('viewport-info').textContent=`Browser viewport: ${innerWidth} × ${innerHeight} · pixel ratio ${window.devicePixelRatio||1}. Size presets follow your browser window; OS scaling is already included.`;
 }
 function updateDisplayLabel(key){$(key+'-value').textContent=['clockScale','weatherScale','factScale'].includes(key)?`${Math.round(Number($(key).value)*100)}%`:`${$(key).value}${key==='gap'?' px':' s'}`;}
 function saveDisplaySettings(){
- prefs.display=normalizeDisplay({profile:$('display-profile').value,...Object.fromEntries(['clockScale','weatherScale','factScale','gap','companionInterval','companionDuration'].map(key=>[key,Number($(key).value)])),companion:$('companion').checked});
+ prefs.display=normalizeDisplay({profile:$('display-profile').value,...Object.fromEntries(['clockScale','weatherScale','factScale','gap','companionInterval','companionDuration'].map(key=>[key,Number($(key).value)])),companion:$('companion').checked,cameraMotion:$('camera-motion').value});
  applyDisplay();
 }
 for(const key of ['clockScale','weatherScale','factScale','gap','companionInterval','companionDuration'])$(key).addEventListener('input',()=>updateDisplayLabel(key));

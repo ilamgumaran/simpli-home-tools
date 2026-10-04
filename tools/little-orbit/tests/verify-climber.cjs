@@ -7,6 +7,7 @@ const path=require('node:path'),{pathToFileURL}=require('node:url');
   for(const target of [url,pathToFileURL(path.join(__dirname,'../Little Orbit.html')).href]){
    const page=await browser.newPage({viewport:{width:854,height:480},timezoneId:'America/New_York'}),errors=[];
    page.on('pageerror',e=>errors.push(e.message));await page.route('https://**',r=>r.abort());
+   await page.addInitScript(()=>{if(!localStorage.getItem('orbit-settings'))localStorage.setItem('orbit-settings',JSON.stringify({theme:'climber'}));});
    await page.clock.install({time:new Date('2026-10-04T12:00:54-04:00')});await page.clock.pauseAt(new Date('2026-10-04T12:00:54-04:00'));await page.goto(target);
    assert.equal(await page.locator('body').getAttribute('data-theme'),'climber');assert.match(await page.title(),/Our Desk Clock/);
    assert.equal(await page.locator('#time .time-digit').count(),5);

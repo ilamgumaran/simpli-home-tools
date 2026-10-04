@@ -9,6 +9,7 @@
 | `config.js` | Shared defaults, overridden by browser-saved settings |
 | `display-settings.js` | Device/display settings and live layout changes |
 | `time-climber.js` | Time Climber scene, digit geometry, routes and animation lifecycle |
+| `time-climber-ii.js` | Numeral terrain, calendar progress, tiny explorer and camera lifecycle |
 | `build-portable.cjs` | Embeds runtime assets into `Little Orbit.html` |
 | `server.cjs` | Optional loopback static server with explicit served-file list |
 | `tests/` | Hosted and portable browser verification |

@@ -10,7 +10,7 @@ server.stdout.on('data',data=>{
  started=true;clearTimeout(timeout);
  try{
   for(const engine of (process.env.CLOCK_TEST_BROWSER?[process.env.CLOCK_TEST_BROWSER]:['chromium','firefox'])){
-   for(const script of ['verify.cjs','verify-themes.cjs','verify-config.cjs','verify-climber.cjs']){
+   for(const script of ['verify.cjs','verify-themes.cjs','verify-config.cjs','verify-climber.cjs','verify-mountain.cjs']){
     console.log(`\n${engine}: ${script}`);
     const result=spawnSync(process.execPath,[path.join(__dirname,script)],{env:{...process.env,CLOCK_TEST_URL:match[0],CLOCK_TEST_BROWSER:engine},stdio:'inherit'});
     if(result.status!==0)throw Error(`${engine} ${script} failed`);

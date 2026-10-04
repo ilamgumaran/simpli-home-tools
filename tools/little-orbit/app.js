@@ -2,7 +2,7 @@
 // Copyright (C) 2026 ilamgumaran and contributors
 'use strict';
 const $ = id => document.getElementById(id);
-const defaultDisplay={profile:'auto',clockScale:1,weatherScale:1,factScale:1,gap:8,companionInterval:60,companionDuration:12,companion:true};
+const defaultDisplay={profile:'auto',clockScale:1,weatherScale:1,factScale:1,gap:8,companionInterval:60,companionDuration:12,companion:true,cameraMotion:'gentle'};
 const siteConfig=window.ORBIT_CONFIG||{};
 const defaults = {version:3,unit:'fahrenheit',format24:false,care:true,night:true,lowPower:true,rest:true,theme:'candy',place:{name:'Marietta, GA · 30064',latitude:33.9276,longitude:-84.6202},...siteConfig,display:{...defaultDisplay,...siteConfig.display}};
 function read(key,fallback){try{return JSON.parse(localStorage.getItem(key)) ?? fallback;}catch{return fallback;}}
@@ -71,18 +71,20 @@ function tick(){
  if(resting)stopCandy();
  shift();
  window.DeskClimber?.sync();
+ window.TimeMountain?.sync();
 }
 function shift(){
  const step=Math.floor(Date.now()/60000);if(step===lastShift)return;lastShift=step;
  const offsets=[[-10,-6],[0,8],[10,-4],[-6,8],[8,2],[0,-8]];
  stopCandy();if(prefs.theme==='candy')candyTimer=setTimeout(candyAdventure,9000);
  const [x,y]=offsets[step%offsets.length];
- $('display').style.transform=prefs.care?`translate(${x}px,${y}px)`:'none';
+ const drift=prefs.theme==='climber2'&&innerWidth<600?.5:1;
+ $('display').style.transform=prefs.care?`translate(${x*drift}px,${y*drift}px)`:'none';
  $('display').dataset.layout=prefs.care?String(Math.floor(step/10)%4):'0';
  document.body.classList.toggle('fact-focus',prefs.care&&Math.floor(step/5)%2===1);
  for(const [index,selector] of ['.clock-panel','.weather-panel','.fact-panel'].entries()){
   const [dx,dy]=offsets[(step+index*2)%offsets.length];
-  document.querySelector(selector).style.transform=prefs.care?`translate(${dx/2}px,${dy/2}px)`:'none';
+  document.querySelector(selector).style.transform=prefs.care?`translate(${dx/2*drift}px,${dy/2*drift}px)`:'none';
  }
 }
 function weatherInterval(){return prefs.lowPower?1800000:900000;}
@@ -128,7 +130,7 @@ document.addEventListener('visibilitychange',()=>{cancelHold();scheduleClock();i
 
 
 // Add future themes here; the Theme button cycles this registry.
-const themes=[{id:'orbit',name:'Orbit',label:'Original Orbit'},{id:'candy',name:'Candy',label:'Candy Quest'},{id:'climber',name:'Climber',label:'Time Climber'}];
+const themes=[{id:'orbit',name:'Orbit',label:'Original Orbit'},{id:'candy',name:'Candy',label:'Candy Quest'},{id:'climber',name:'Climber',label:'Time Climber'},{id:'climber2',name:'Climber II',label:'Time Climber II'}];
 let candyTimer=null,candyAnimation=null,candyTrip=0,candyNextVisit=0;
 const candyMotion=typeof matchMedia==='function'?matchMedia('(prefers-reduced-motion: reduce)'):null;
 function stopCandy(){clearTimeout(candyTimer);candyTimer=null;candyAnimation?.cancel();candyAnimation=null;$('candy-stage').hidden=true;}
@@ -180,7 +182,7 @@ function applyTheme(){
  $('theme-button').setAttribute('aria-label',`Theme: ${theme.label}. Switch theme`);
  $('theme-button').title=`${theme.label} · tap for next theme`;
  write('orbit-settings',prefs);stopCandy();if(prefs.theme==='candy')candyTimer=setTimeout(candyAdventure,9000);
- document.title=`Our Desk Clock · ${theme.label}`;window.DeskClimber?.sync();
+ document.title=`Our Desk Clock · ${theme.label}`;window.DeskClimber?.sync();window.TimeMountain?.refresh();
 }
 $('theme-button').onclick=()=>{if(locked)return;const index=themes.findIndex(t=>t.id===prefs.theme);prefs.theme=themes[(index+1)%themes.length].id;applyTheme();toast(`${themes.find(t=>t.id===prefs.theme).label} theme`);};
 window.addEventListener('resize',()=>{stopCandy();candyTimer=setTimeout(candyAdventure,400);});

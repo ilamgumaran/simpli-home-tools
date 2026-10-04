@@ -6,6 +6,7 @@ const assert=require('node:assert/strict');
  const browser=await engine.launch({...options,headless:true});
  const page=await browser.newPage({viewport:{width:1280,height:720},timezoneId:'America/New_York'});
  const errors=[];page.on('pageerror',e=>errors.push(e.message));
+ await page.addInitScript(()=>{if(!localStorage.getItem('orbit-settings'))localStorage.setItem('orbit-settings',JSON.stringify({theme:'climber'}));});
  await page.route('https://api.open-meteo.com/**',r=>r.fulfill({json:{current:{temperature_2m:72,apparent_temperature:70,weather_code:2},daily:{temperature_2m_max:[78],temperature_2m_min:[58]}}}));
  await page.goto(url);
  await page.waitForFunction(()=>document.getElementById('time').textContent!=='00:00');

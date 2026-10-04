@@ -25,13 +25,13 @@ The page uses standard browser features and feature detection for Edge, Chrome, 
 
 ## Screen care
 
-Low power uses near-black colors, hides seconds, updates time once a minute, and refreshes weather every 30 minutes. Panels briefly glide each minute, rotate positions every ten minutes, and spotlight facts every five minutes. Optional night dimming and one-minute black breaks at :59 remain available in both themes.
+Low power uses near-black colors, hides seconds, updates time once a minute, and refreshes weather every 30 minutes. Panels briefly glide each minute, rotate positions every ten minutes, and spotlight facts every five minutes. Optional night dimming and one-minute black breaks at :59 remain available in all themes.
 
 Candy Quest visits briefly and pauses between appearances, picks routes outside the text, resizes its character when needed, and respects reduced motion. These measures cannot guarantee against display wear. Black-screen breaks draw black; they do not turn off a backlight. Set sleep and hardware brightness in the device OS. Ordinary browser pages cannot set charging limits or CPU power modes.
 
 ## Develop and test
 
-Start with the [product guide](PRODUCT.md), [roadmap](ROADMAP.md), [design archive](design/), and [changelog](CHANGELOG.md) for product status and planned work. Time Climber II is a design proposal; the running themes remain Orbit, Candy Quest and Time Climber.
+Start with the [product guide](PRODUCT.md), [roadmap](ROADMAP.md), [design archive](design/), and [changelog](CHANGELOG.md) for product status and planned work. Time Climber II is the fourth implemented theme; Orbit, Candy Quest and Time Climber remain available.
 
 ```sh
 npm ci
@@ -42,7 +42,7 @@ npm test
 
 Node 22 or later is used for contributor tooling; Linux may need `npx playwright install --with-deps chromium firefox`. Tests start their own loopback server on a free port and use mocked weather. They cover settings, touch lock, theme persistence, safe companion routes, all daily facts and rotating layouts, reduced motion, offline behavior, device presets, and the portable file. Tests write ignored output to `test-results/`.
 
-The browser runtime has no library dependencies. Playwright is a development dependency. `npm run build` embeds `config.js`, `style.css`, `app.js`, `display-settings.js`, and `time-climber.js` into the tracked portable file. Commit that file with source changes.
+The browser runtime has no library dependencies. Playwright is a development dependency. `npm run build` embeds `config.js`, `style.css`, `app.js`, `display-settings.js`, `time-climber.js`, and `time-climber-ii.js` into the tracked portable file. Commit that file with source changes.
 
 ## Windows helpers
 
@@ -56,6 +56,14 @@ Default weather is Marietta, GA (30064), configurable in Settings. Facts are ori
 
 ### Time Climber
 
-Time Climber is the default for new browser profiles; existing saved theme choices are retained. Use **Theme** to cycle Orbit → Candy Quest → Time Climber. The companion follows live digit geometry and widget positions as panels glide. Default 60-second visits are aligned to start near :54, so the real minute changes during a climb. The first visit starts quickly so you can see the new theme. Time continues to follow the device clock.
+Time Climber is retained as the third theme; existing saved theme choices are preserved. Use **Theme** to cycle Orbit → Candy Quest → Time Climber → Time Climber II. The companion follows live digit geometry and widget positions as panels glide. Default 60-second visits are aligned to start near :54, so the real minute changes during a climb. The first visit starts quickly so you can see the new theme. Time continues to follow the device clock.
 
 Settings → Display & character controls the shared visit interval, visit duration, and character toggle. Quiet pauses remain between trips. Tent construction, picnics, water breaks, gear collection, and occasional summit snoozes vary across visits. Reduced motion uses a brief still campsite. Settings, hidden pages, disabled companions, and hourly screen breaks stop the scene. The artwork is original SVG and the scene uses bounded animation bursts without external game assets or libraries.
+
+### Time Climber II — Mountain of Time
+
+The fourth theme (`climber2`) is the default for new profiles; existing saved themes remain selected. A tiny original explorer walks numeral trails, swings a rope, climbs rock faces, collects supplies and pitches a suspended portaledge. The active digit grows while its neighbor stays smaller, and the lens gently pans between overhead, cliff and opposite-side perspectives. Minutes sit below hours and the day summit, with month/year on the distant horizon. A fixed full time/date readout, weather, and daily fact remain outside the camera.
+
+Minute visits cross a pair of digits quickly. Hour/day/month/year expeditions use progress calculated from actual local calendar boundaries, so the explorer can resume partway up a longer route. Short visits alternate these levels with quiet camps. Real time always updates immediately; terrain reshapes over a short transition during active visits. A clock jump or return from sleep recomputes current progress instead of replaying missed frames.
+
+Settings → Display & character → **Time Climber II camera** offers Gentle or Still. Reduced motion takes priority. Low power caps active terrain updates around 12 per second and stops animation frames during quiet camps. Hidden pages, Settings, black-screen breaks and character-off pause the explorer. Font presets continue to work; the mountain gives up height before the essential information is reduced. The [design plan](design/TIME-CLIMBER-V2-PLAN.md) and [architecture notes](design/ARCHITECTURE.md) describe the implementation and remaining device-review work.

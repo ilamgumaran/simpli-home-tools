@@ -291,3 +291,59 @@ body.screen-rest #climber-stage{display:none}
 #climber-stage[data-item=food][data-state=collect] .climber-held-food,#climber-stage[data-item=food][data-state=camp] .climber-held-food{display:block;fill:#ad7c6b;stroke:#d1b49a;stroke-width:1.5}
 #climber-stage[data-item=gear][data-state=collect] .climber-held-gear{display:block;fill:#aa9874;stroke:#d4c29d;stroke-width:1.5}
 #climber-stage[data-state=build] .climb-arm-a{animation:climber-reach .6s ease-in-out infinite alternate}
+/* Time Climber II keeps all information outside the small terrain camera. */
+body[data-theme=climber2] #display[data-layout]{display:grid;grid-template-columns:1fr 2fr;grid-template-areas:"clock clock" "mountain mountain" "weather fact" "footer footer";width:94vw;max-width:1540px;padding:12px 0;gap:min(var(--panel-gap,8px),14px)}
+body[data-theme=climber2] #display .dashboard{display:contents}
+body[data-theme=climber2] #display .clock-panel{grid-area:clock;padding:7px 14px;display:flex;align-items:center;justify-content:space-between;gap:12px;background:#070e0c;border-color:#293b30;min-width:0}
+body[data-theme=climber2] #display .clock-panel>.eyebrow,body[data-theme=climber2] #display .date-icon,body[data-theme=climber2] #display .day-track,body[data-theme=climber2] #display .clock-bottom{display:none}
+body[data-theme=climber2] #display .time-row{margin:2px 0;flex:none}
+body[data-theme=climber2] #display .clock-panel #time{font-size:calc(clamp(44px,6.5vw,94px) * var(--clock-scale,1));line-height:1;letter-spacing:-2px;text-shadow:none;color:#b0c9b0}
+body[data-theme=climber2] #display .time-side{font-size:12px;gap:3px}
+body[data-theme=climber2] #display .date-row{font-size:clamp(15px,1.8vw,24px);justify-content:flex-end;min-width:0;text-align:right}
+body[data-theme=climber2] #display .weather-panel{grid-area:weather;min-width:0;padding:9px 12px;order:0}
+body[data-theme=climber2] #display .fact-panel{grid-area:fact;min-width:0;padding:9px 13px;margin:0;order:0;align-items:flex-start}
+body[data-theme=climber2] #display .fact-art{display:none}
+body[data-theme=climber2] #display #location{margin:0;font-size:12px}
+body[data-theme=climber2] #display .weather-panel>.eyebrow,body[data-theme=climber2] #display .weather-details{display:none}
+body[data-theme=climber2] #display .weather-main{margin:5px 0;gap:8px}
+body[data-theme=climber2] #display #temperature{font-size:calc(clamp(36px,4.8vw,70px) * var(--weather-scale,1))}
+body[data-theme=climber2] #display #weather-icon{font-size:calc(30px * var(--weather-scale,1))}
+body[data-theme=climber2] #display #condition{font-size:calc(17px * var(--weather-scale,1));line-height:1.15}
+body[data-theme=climber2] #display #weather-status{font-size:9px;margin-top:5px}
+body[data-theme=climber2] #display .fact-content h1{font-size:calc(clamp(22px,2.1vw,34px) * var(--fact-scale,1));margin:5px 0;line-height:1.1}
+body[data-theme=climber2] #display .fact-content p{font-size:calc(clamp(17px,1.5vw,24px) * var(--fact-scale,1));line-height:1.22}
+body[data-theme=climber2] #display #fact-source{margin-top:5px}
+body[data-theme=climber2] #display footer{grid-area:footer;margin:0;order:0}
+body[data-theme=climber2] #display .credit,body[data-theme=climber2] #display .footer-note{display:none}
+#time-mountain{grid-area:mountain;position:relative;min-width:0;min-height:0;overflow:hidden;border-radius:10px;background:#060d0e;color:#a6c6ae;order:1;height:180px;isolation:isolate}
+#mountain-world{position:absolute;inset:0;width:100%;height:100%;overflow:hidden}
+.mountain-horizon{position:absolute;right:18px;top:7px;display:flex;flex-direction:column;align-items:flex-end;gap:5px;font:11px monospace;color:#8eaaa0;z-index:1}
+.mountain-horizon span:last-child{font-size:13px}
+.mountain-levels{position:absolute;left:14px;top:19%;bottom:28px;display:flex;flex-direction:column;justify-content:space-between;z-index:1;font:13px monospace;letter-spacing:.08em}
+.mountain-levels span:nth-child(2){font-size:16px}.mountain-levels span:last-child{font-size:18px}
+.mountain-caption{position:absolute;bottom:8px;left:14px;right:14px;display:flex;justify-content:space-between;gap:8px;z-index:1;font:10px monospace;color:#a7bbb1}
+#mountain-far{fill:#102024}#mountain-near{fill:#1b3030}
+#mountain-rock,.mountain-neighbor-rock{fill:none;stroke:#36544e;stroke-width:27;stroke-linecap:round;stroke-linejoin:round}
+#mountain-depth{fill:none;stroke:#243c36;stroke-width:29;stroke-linecap:round;stroke-linejoin:round}
+#mountain-trail,.mountain-neighbor-trail{fill:none;stroke:#b2c3a0;stroke-width:1.8;stroke-dasharray:3 4;stroke-linecap:round;stroke-linejoin:round}
+#mountain-neighbor{opacity:.6}
+#mountain-rope,.mountain-tent-lines{fill:none;stroke:#baad88;stroke-width:1.2}
+#mountain-anchor{fill:#a8b7a7;stroke:#102019;stroke-width:1}
+#mountain-arms,#mountain-legs{fill:none;stroke:#eadcb6;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.mountain-backpack,.mountain-helmet{fill:#c78c7a;stroke:#132620;stroke-width:1}
+.mountain-jacket{fill:#a8c8a2;stroke:#132620;stroke-width:1}
+.mountain-face{fill:#e2cfaa;stroke:#132620;stroke-width:1}
+.mountain-coil{fill:none;stroke:#b4a17b;stroke-width:1}
+.mountain-tent-shell{fill:#8b8352;stroke:#bcb085;stroke-width:1}.mountain-tent-door{fill:#12231b}
+.mountain-tent-floor{stroke:#bdc4ac;stroke-width:2}
+#mountain-pickup>path{display:none;stroke:#c0c6ad;stroke-width:1;fill:#759f9d}
+#mountain-pickup[data-item=water] .mountain-bottle{display:block}
+#mountain-pickup[data-item=food] .mountain-apple{display:block;fill:#ba8072}
+#mountain-pickup[data-item=gear] .mountain-gear{display:block;fill:#9e916c}
+body.dim #time-mountain{opacity:.65}
+#time-mountain.mountain-compact .mountain-caption{display:none}
+#time-mountain.mountain-compact .mountain-levels{font-size:11px;bottom:8px;top:8px}
+#time-mountain.mountain-compact .mountain-levels span:nth-child(2),#time-mountain.mountain-compact .mountain-levels span:last-child{font-size:12px}
+#time-mountain.mountain-compact .mountain-horizon{font-size:10px;gap:2px}
+#time-mountain.mountain-compact .mountain-horizon span:last-child{font-size:11px}
+@media(max-width:599px){body[data-theme=climber2] #display[data-layout]{grid-template-columns:1fr;grid-template-areas:"clock" "mountain" "weather" "fact" "footer";gap:8px}body[data-theme=climber2] #display .clock-panel{flex-wrap:wrap;gap:3px;justify-content:center}body[data-theme=climber2] #display .date-row{font-size:14px;justify-content:center;width:100%;text-align:center}body[data-theme=climber2] #display .clock-panel #time{font-size:calc(50px * var(--clock-scale,1))}body[data-theme=climber2] #display .weather-main{display:inline-flex;margin:3px 8px 3px 0}body[data-theme=climber2] #display #condition{display:inline;font-size:calc(16px * var(--weather-scale,1))}body[data-theme=climber2] #display #weather-status{margin:0}.mountain-levels{font-size:11px;left:8px}.mountain-levels span:nth-child(2){font-size:12px}.mountain-levels span:last-child{font-size:13px}.mountain-horizon{right:8px}.mountain-caption{left:8px;right:8px;font-size:9px}}

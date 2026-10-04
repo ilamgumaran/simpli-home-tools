@@ -39,6 +39,8 @@ This is the product's planning hub. Designs are proposals until explicitly marke
 
 Start with a clearly labeled preview release after PR #1 is reviewed and merged. Follow semantic versioning once releases begin. Tag source and attach a portable HTML/ZIP with its license, notices, configuration guide, and checksum. Preserve existing launch filenames or document a migration before changing them.
 
+Time Climber II is implemented as the fourth theme on the development branch, with its original plan/preview retained in the design archive. It is authorized current work, not a deferred automatic task. New profiles select it by default; existing preferences are preserved.
+
 For a stable release, verify hosted and portable forms on Chromium and Firefox across Windows, macOS, and Linux; smoke-test the Ally and document device/browser gaps. Accessibility, offline failure states, and long-running operation are release criteria, not optional polish. Physical Android/Vanadium testing remains a separate check.
 
 Do not add a backend, accounts, analytics, paid assets, automatic updating, or hosting dependencies by default. Any such change needs an explicit product decision, a documented user benefit, and review.
