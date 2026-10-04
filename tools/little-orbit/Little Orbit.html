@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="en">
-<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#111b23"><title>Little Orbit · Display Clock</title><style>
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="application-name" content="Little Orbit Desk Clock"><meta name="theme-color" content="#111b23"><title>Our Desk Clock · Time Climber</title><style>
 /* Brief compositor glides once a minute, rather than a perpetual animation. */
 /* Give the doubled clock a full-width row on display-sized screens. */
 @media(min-width:1000px) and (min-height:650px){
@@ -247,11 +247,58 @@ body.screen-rest #candy-stage{display:none}
 
 .display-settings{border:1px solid var(--line);border-radius:10px;padding:16px;margin:20px 0}.display-settings legend{padding:0 8px}.display-settings output{float:right;color:var(--mint)}.display-settings input[type=range]{padding:0;accent-color:var(--mint)}.about-license a{color:var(--mint)}
 @media(min-width:1000px) and (min-height:650px),(min-width:760px) and (min-height:400px) and (max-height:649px){body #display[data-layout]{gap:var(--panel-gap,8px)}}
+/* Our Desk Clock · Time Climber: original SVG equipment, sparse animated scenes. */
+#time .time-digit{display:inline-block}
+#time .digit-baseline{display:inline-block;width:0;height:0;padding:0;margin:0}
+body[data-theme=climber] .clock-panel{border-color:#344c40}
+body[data-theme=climber] #time{color:#a4c2a1;text-shadow:none}
+#climber-stage{position:fixed;inset:0;z-index:2;overflow:hidden;pointer-events:none}
+#climber-world{width:100%;height:100%;overflow:hidden;opacity:.85}
+body.dim #climber-world{opacity:.4}
+body.screen-rest #climber-stage{display:none}
+#climber-rope,#climber-camp-link{stroke:#b6a47e;stroke-width:1.5;fill:none;stroke-linecap:round}
+#climber-anchor{stroke:#bac7b3;fill:#4a6150;stroke-width:1}
+#climber-hook{fill:none;stroke:#bdd1c1;stroke-width:1.5}
+.climber-limbs{stroke:#c2a4b0;stroke-width:3.5;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.climber-pack{fill:#536e60;stroke:#a4b3a1;stroke-width:1.5}
+.climber-pack path,.climber-pack circle{fill:none}
+.climber-drop{fill:#b597a9;stroke:#d2b4c1;stroke-width:1.5}
+.climber-shine{fill:none;stroke:#e0c9d2;stroke-width:2.5;stroke-linecap:round}
+.climber-face{fill:none;stroke:#302534;stroke-width:2;stroke-linecap:round}
+.climber-helmet{fill:#b7a575;stroke:#d4c290;stroke-width:1.5}
+.climber-harness{fill:none;stroke:#6f5148;stroke-width:3}
+.climber-buckle{fill:#c0cbbc;stroke:#60746a;stroke-width:1.5}
+.climber-held-bottle{display:none;fill:#7da2aa;stroke:#b0d1cf;stroke-width:1.5}
+#climber-stage[data-state=collect] .climber-held-bottle,#climber-stage[data-state=camp] .climber-held-bottle{display:block}
+#climber-stage[data-state=climb] .climb-arm-a,#climber-stage[data-state=climb] .climb-leg-b{animation:climber-reach .65s ease-in-out infinite alternate;transform-origin:0 0}
+#climber-stage[data-state=climb] .climb-arm-b,#climber-stage[data-state=climb] .climb-leg-a{animation:climber-reach .65s ease-in-out infinite alternate-reverse;transform-origin:0 0}
+#climber-stage[data-state=cast] .climb-arm-a{animation:climber-throw .8s ease-in-out infinite alternate;transform-origin:-10px -9px}
+#climber-stage[data-state=camp] #climber-rig,#climber-stage[data-state=sleep] #climber-rig{transform:rotate(-12deg)}
+#climber-stage[data-state=sleep] .climber-face{transform:scaleY(.3)}
+#climber-camp .tent-cables,#climber-camp .tent-seam{fill:none;stroke:#a3b4a0;stroke-width:1.5}
+#climber-camp .tent-platform{stroke:#b8c6ae;stroke-width:3}
+#climber-camp .tent-shell{fill:#86764e;stroke:#c0ad77;stroke-width:1.5}
+#climber-camp .tent-door{fill:#232c24;stroke:#a69970;stroke-width:1}
+#climber-camp .tent-roll{stroke:#788a73;stroke-width:5;stroke-linecap:round}
+#climber-supply>g{display:none;stroke-width:1.5;stroke:#c0cdb9}
+#climber-supply[data-item=water] .supply-water{display:block;fill:#69969d}
+#climber-supply[data-item=food] .supply-food{display:block;fill:#ab796e}
+#climber-supply[data-item=gear] .supply-gear{display:block;fill:#ac9b70}
+#climber-note rect{fill:#101b14;stroke:#354a3a;stroke-width:1}
+#climber-note text{fill:#99b19c;font:8px monospace;letter-spacing:.3px}
+@keyframes climber-reach{from{transform:rotate(-12deg)}to{transform:rotate(12deg)}}
+@keyframes climber-throw{from{transform:rotate(-25deg)}to{transform:rotate(55deg)}}
+@media(prefers-reduced-motion:reduce){#climber-stage *{animation:none!important}}
+#climber-stage .climber-held-bottle,#climber-stage .climber-held-food,#climber-stage .climber-held-gear{display:none}
+#climber-stage[data-item=water][data-state=collect] .climber-held-bottle,#climber-stage[data-item=water][data-state=camp] .climber-held-bottle{display:block}
+#climber-stage[data-item=food][data-state=collect] .climber-held-food,#climber-stage[data-item=food][data-state=camp] .climber-held-food{display:block;fill:#ad7c6b;stroke:#d1b49a;stroke-width:1.5}
+#climber-stage[data-item=gear][data-state=collect] .climber-held-gear{display:block;fill:#aa9874;stroke:#d4c29d;stroke-width:1.5}
+#climber-stage[data-state=build] .climb-arm-a{animation:climber-reach .6s ease-in-out infinite alternate}
 
 </style></head>
 <body>
 <main id="display">
- <header><div class="brand"><span class="logo">✦</span><span>LITTLE ORBIT<span class="brand-sub">YOUR EVERYDAY SPACE STATION</span></span></div><div class="status"><span class="led"></span> <span id="greeting">HELLO, EXPLORER</span></div></header>
+ <header><div class="brand"><span class="logo">✦</span><span>OUR DESK CLOCK<span class="brand-sub">YOUR EVERYDAY SPACE STATION</span></span></div><div class="status"><span class="led"></span> <span id="greeting">HELLO, EXPLORER</span></div></header>
  <section class="dashboard" aria-label="Clock and weather">
   <div class="clock-panel"><div class="eyebrow">EARTH TIME <span id="zone">EASTERN TIME</span></div><div class="time-row"><time id="time">00:00</time><div class="time-side"><span id="period">AM</span><span id="seconds">00</span></div></div><div class="date-row"><span class="date-icon">▦</span><span id="date"></span></div><div class="day-track" aria-hidden="true"><span>MORNING</span><div><i id="day-progress"></i></div><span>NIGHT</span></div><div class="clock-bottom"><span>✧ A NEW DAY. A NEW ADVENTURE.</span><span class="orbit">◎</span></div></div>
   <aside class="weather-panel"><div class="eyebrow">OUTSIDE YOUR WINDOW <span>↗</span></div><div id="location">MARIETTA, GA · 30064</div><div class="weather-main"><span id="weather-icon" aria-hidden="true">☁</span><span id="temperature">—°</span></div><div id="condition">Connecting to the weather…</div><div class="weather-details"><div><span>FEELS LIKE</span><strong id="feels">—</strong></div><div><span>HIGH / LOW</span><strong id="range">— / —</strong></div></div><div id="weather-status" role="status">Weather updates every 15 minutes</div></aside>
@@ -274,14 +321,14 @@ body.screen-rest #candy-stage{display:none}
 </div></div>
 <div id="lock-overlay" hidden><button id="unlock-button">◇ Hold 2 seconds to unlock</button></div>
 <button id="rest-overlay" aria-label="Screen rest active. Tap to wake." hidden></button>
-<dialog id="settings"><form id="settings-form"><div class="dialog-top"><h2>Mission control</h2><button type="button" id="close-settings" aria-label="Close settings">✕</button></div><label>Weather city or ZIP<input id="city" placeholder="Marietta or 30064" autocomplete="off"></label><div id="city-results"></div><button type="button" id="search-city">Find city</button> <button type="button" id="geolocate">Use my location</button><p id="settings-status" role="status"></p><label>Temperature<select id="unit"><option value="fahrenheit">Fahrenheit · °F</option><option value="celsius">Celsius · °C</option></select></label><label class="check"><input id="format24" type="checkbox">24-hour clock</label><label class="check"><input id="lowPower" type="checkbox">Low power · darker theme, minute updates</label><label class="check"><input id="care" type="checkbox">Screen care · shift & rearrange panels</label><label class="check"><input id="rest" type="checkbox">One-minute black-screen break each hour</label><label class="check"><input id="night" type="checkbox">Auto-dim from 9 PM to 7 AM</label><fieldset class="display-settings"><legend>Display &amp; character</legend><label>Device preset<select id="display-profile"><option value="auto">Automatic · current window</option><option value="handheld">Handheld · ROG Ally</option><option value="desktop">Desktop / TV</option><option value="tablet">Tablet / small display</option></select></label><p class="hint" id="viewport-info"></p><label>Time size <output id="clockScale-value"></output><input id="clockScale" type="range" min="0.65" max="1.2" step="0.05"></label><label>Weather size <output id="weatherScale-value"></output><input id="weatherScale" type="range" min="0.65" max="1.2" step="0.05"></label><label>Fact size <output id="factScale-value"></output><input id="factScale" type="range" min="0.65" max="1.2" step="0.05"></label><label>Panel spacing <output id="gap-value"></output><input id="gap" type="range" min="4" max="24" step="1"></label><label>Character visits every <output id="companionInterval-value"></output><input id="companionInterval" type="range" min="30" max="300" step="15"></label><label>Character visit length <output id="companionDuration-value"></output><input id="companionDuration" type="range" min="4" max="20" step="1"></label><label class="check"><input id="companion" type="checkbox">Candy companion in Candy Quest</label><button id="reset-display" type="button">Reset display sizes</button><p class="hint">If larger text needs more space, reduce another size or spacing. Saved settings apply to this browser only.</p></fieldset><p class="hint about-license">Little Orbit © 2026 ilamgumaran and contributors. GPLv3: you may share and modify this software; no warranty. <a href="https://github.com/ilamgumaran/simpli-home-tools/blob/main/LICENSE" target="_blank" rel="noopener noreferrer">License</a> · <a href="https://github.com/ilamgumaran/simpli-home-tools/tree/main/tools/little-orbit" target="_blank" rel="noopener noreferrer">Source &amp; contribute</a></p><p class="hint">Panels glide each minute, swap every 10 minutes, and spotlight the fact every 5 minutes. Screen breaks run at :59; tap to wake. Clock uses this device’s timezone. Touch lock covers this page only. These measures cannot guarantee against display wear.</p><button class="primary" type="submit">Save & return to orbit</button></form></dialog>
+<dialog id="settings"><form id="settings-form"><div class="dialog-top"><h2>Mission control</h2><button type="button" id="close-settings" aria-label="Close settings">✕</button></div><label>Weather city or ZIP<input id="city" placeholder="Marietta or 30064" autocomplete="off"></label><div id="city-results"></div><button type="button" id="search-city">Find city</button> <button type="button" id="geolocate">Use my location</button><p id="settings-status" role="status"></p><label>Temperature<select id="unit"><option value="fahrenheit">Fahrenheit · °F</option><option value="celsius">Celsius · °C</option></select></label><label class="check"><input id="format24" type="checkbox">24-hour clock</label><label class="check"><input id="lowPower" type="checkbox">Low power · darker theme, minute updates</label><label class="check"><input id="care" type="checkbox">Screen care · shift & rearrange panels</label><label class="check"><input id="rest" type="checkbox">One-minute black-screen break each hour</label><label class="check"><input id="night" type="checkbox">Auto-dim from 9 PM to 7 AM</label><fieldset class="display-settings"><legend>Display &amp; character</legend><label>Device preset<select id="display-profile"><option value="auto">Automatic · current window</option><option value="handheld">Handheld · ROG Ally</option><option value="desktop">Desktop / TV</option><option value="tablet">Tablet / small display</option></select></label><p class="hint" id="viewport-info"></p><label>Time size <output id="clockScale-value"></output><input id="clockScale" type="range" min="0.65" max="1.2" step="0.05"></label><label>Weather size <output id="weatherScale-value"></output><input id="weatherScale" type="range" min="0.65" max="1.2" step="0.05"></label><label>Fact size <output id="factScale-value"></output><input id="factScale" type="range" min="0.65" max="1.2" step="0.05"></label><label>Panel spacing <output id="gap-value"></output><input id="gap" type="range" min="4" max="24" step="1"></label><label>Character visits every <output id="companionInterval-value"></output><input id="companionInterval" type="range" min="30" max="300" step="15"></label><label>Character visit length <output id="companionDuration-value"></output><input id="companionDuration" type="range" min="4" max="20" step="1"></label><label class="check"><input id="companion" type="checkbox">Character in Candy Quest / Time Climber</label><button id="reset-display" type="button">Reset display sizes</button><p class="hint">If larger text needs more space, reduce another size or spacing. Saved settings apply to this browser only.</p></fieldset><p class="hint about-license">Our Desk Clock © 2026 ilamgumaran and contributors. GPLv3: you may share and modify this software; no warranty. <a href="https://github.com/ilamgumaran/simpli-home-tools/blob/main/LICENSE" target="_blank" rel="noopener noreferrer">License</a> · <a href="https://github.com/ilamgumaran/simpli-home-tools/tree/main/tools/little-orbit" target="_blank" rel="noopener noreferrer">Source &amp; contribute</a></p><p class="hint">Panels glide each minute, swap every 10 minutes, and spotlight the fact every 5 minutes. Screen breaks run at :59; tap to wake. Clock uses this device’s timezone. Touch lock covers this page only. These measures cannot guarantee against display wear.</p><button class="primary" type="submit">Save & return to orbit</button></form></dialog>
 <div id="toast" role="status" hidden></div>
 <script>
 // SPDX-License-Identifier: GPL-3.0-only
 // Site defaults. Settings saved in a browser override these values.
 // After editing, run `npm run build` to update the single-file clock.
 window.ORBIT_CONFIG = {
-  theme: 'candy',
+  theme: 'climber',
   unit: 'fahrenheit',
   format24: false,
   lowPower: true,
@@ -352,7 +399,11 @@ function toast(message){$('toast').textContent=message;$('toast').hidden=false;c
 function tick(){
  const now=new Date(),hours=now.getHours();
  const h=prefs.format24?hours:hours%12||12;
- $('time').textContent=`${String(h).padStart(2,'0')}:${String(now.getMinutes()).padStart(2,'0')}`;
+ const timeText=`${String(h).padStart(2,'0')}:${String(now.getMinutes()).padStart(2,'0')}`;
+ if($('time').dataset.value!==timeText){
+  $('time').dataset.value=timeText;$('time').setAttribute('aria-label',timeText);
+  $('time').replaceChildren(...[...timeText].map((digit,index)=>{const span=document.createElement('span');span.className='time-digit';span.dataset.digit=digit;span.dataset.index=index;span.setAttribute('aria-hidden','true');span.append(digit);const baseline=document.createElement('i');baseline.className='digit-baseline';span.append(baseline);return span;}));
+ }
  $('seconds').textContent=String(now.getSeconds()).padStart(2,'0');$('period').textContent=prefs.format24?'24H':hours>=12?'PM':'AM';
  $('date').textContent=new Intl.DateTimeFormat('en-US',{weekday:'long',month:'long',day:'numeric',year:'numeric'}).format(now);
  $('zone').textContent=new Intl.DateTimeFormat('en-US',{timeZoneName:'short'}).formatToParts(now).find(p=>p.type==='timeZoneName').value+' · DEVICE TIME';
@@ -371,6 +422,7 @@ function tick(){
  $('rest-overlay').hidden=!resting;
  if(resting)stopCandy();
  shift();
+ window.DeskClimber?.sync();
 }
 function shift(){
  const step=Math.floor(Date.now()/60000);if(step===lastShift)return;lastShift=step;
@@ -428,7 +480,7 @@ document.addEventListener('visibilitychange',()=>{cancelHold();scheduleClock();i
 
 
 // Add future themes here; the Theme button cycles this registry.
-const themes=[{id:'orbit',name:'Orbit',label:'Original Orbit'},{id:'candy',name:'Candy',label:'Candy Quest'}];
+const themes=[{id:'orbit',name:'Orbit',label:'Original Orbit'},{id:'candy',name:'Candy',label:'Candy Quest'},{id:'climber',name:'Climber',label:'Time Climber'}];
 let candyTimer=null,candyAnimation=null,candyTrip=0,candyNextVisit=0;
 const candyMotion=typeof matchMedia==='function'?matchMedia('(prefers-reduced-motion: reduce)'):null;
 function stopCandy(){clearTimeout(candyTimer);candyTimer=null;candyAnimation?.cancel();candyAnimation=null;$('candy-stage').hidden=true;}
@@ -480,6 +532,7 @@ function applyTheme(){
  $('theme-button').setAttribute('aria-label',`Theme: ${theme.label}. Switch theme`);
  $('theme-button').title=`${theme.label} · tap for next theme`;
  write('orbit-settings',prefs);stopCandy();if(prefs.theme==='candy')candyTimer=setTimeout(candyAdventure,9000);
+ document.title=`Our Desk Clock · ${theme.label}`;window.DeskClimber?.sync();
 }
 $('theme-button').onclick=()=>{if(locked)return;const index=themes.findIndex(t=>t.id===prefs.theme);prefs.theme=themes[(index+1)%themes.length].id;applyTheme();toast(`${themes.find(t=>t.id===prefs.theme).label} theme`);};
 window.addEventListener('resize',()=>{stopCandy();candyTimer=setTimeout(candyAdventure,400);});
@@ -520,6 +573,7 @@ function applyDisplay(){
  }
  document.body.dataset.profile=prefs.display.profile;
  write('orbit-settings',prefs);
+ document.dispatchEvent(new Event('desk-display-change'));
 }
 function fillDisplaySettings(d=prefs.display){
  $('display-profile').value=d.profile;
@@ -540,6 +594,138 @@ $('reset-display').onclick=()=>fillDisplaySettings(normalizeDisplay(defaults.dis
 $('settings-button').addEventListener('click',()=>fillDisplaySettings());
 $('settings-form').addEventListener('submit',saveDisplaySettings);
 applyDisplay();
+
+</script>
+<script>
+// SPDX-License-Identifier: GPL-3.0-only
+// Copyright (C) 2026 ilamgumaran and contributors
+// Original miniature mountaineering scenes; no game assets or runtime libraries.
+(()=>{
+ const stage=document.createElement('div');stage.id='climber-stage';stage.hidden=true;stage.setAttribute('aria-hidden','true');
+ stage.innerHTML=`<svg id="climber-world" xmlns="http://www.w3.org/2000/svg">
+  <path id="climber-rope"/><path id="climber-camp-link"/><circle id="climber-anchor" r="3"/><path id="climber-hook" d="M-5 0Q-5 -9 3 -7L6 -3"/>
+  <g id="climber-supply"><g class="supply-water"><rect x="-5" y="-12" width="10" height="15" rx="3"/><path d="M-3 -14H3M-4 -3H4"/></g><g class="supply-food"><path d="M0 -10C-12 -17 -13 3 -3 3L0 2L3 3C13 3 12 -17 0 -10Z"/><path d="M0 -10L3 -16"/></g><g class="supply-gear"><rect x="-7" y="-10" width="14" height="13" rx="3"/><path d="M-2 -10V-14H2V-10M-7 -4H7"/></g></g>
+  <g id="climber-camp"><path class="tent-cables" d="M0 -50L-32 0M0 -50L32 0"/><path class="tent-platform" d="M-36 3H36"/><path class="tent-shell" d="M-32 0L-18 -24L10 -24L32 0Z"/><path class="tent-door" d="M-11 0L-4 -22L7 0Z"/><path class="tent-seam" d="M10 -24L21 0"/><path class="tent-roll" d="M-20 -29H0"/></g>
+  <g id="climber-person"><g id="climber-rig">
+   <g class="climber-limbs"><path class="climb-arm-a" d="M-10 -9L-19 -23L-15 -34"/><path class="climb-arm-b" d="M9 -9L19 -17L23 -27"/><path class="climb-leg-a" d="M-6 8L-16 18L-19 29L-26 29"/><path class="climb-leg-b" d="M6 8L16 16L12 29L19 29"/></g>
+   <g class="climber-pack"><rect x="7" y="-23" width="17" height="30" rx="5"/><path d="M8 -15H24M11 -7H20M13 -24V-28H21V-24"/><rect x="9" y="-31" width="18" height="6" rx="3"/><circle cx="22" cy="0" r="5"/></g>
+   <path class="climber-drop" d="M-1 -33C-3 -22 -14 -20 -14 -8C-14 4 -7 11 1 11C11 11 15 4 15 -7C15 -20 3 -23 -1 -33Z"/>
+   <path class="climber-shine" d="M-7 -18Q-10 -14 -9 -10"/>
+   <g class="climber-face"><path d="M-5 -7V-3M5 -7V-3"/><path class="climber-smile" d="M-3 1Q1 5 5 1"/></g>
+   <path class="climber-helmet" d="M-12 -19Q0 -35 12 -19Z"/><path class="climber-harness" d="M-12 1L0 7L13 1M0 7V12"/><circle class="climber-buckle" cx="0" cy="7" r="3"/>
+   <path class="climber-held-bottle" d="M-21 -12H-14V1H-21ZM-19 -16H-16V-12"/>
+   <circle class="climber-held-food" cx="-18" cy="-4" r="5"/><rect class="climber-held-gear" x="-22" y="-10" width="8" height="10" rx="2"/>
+  </g></g>
+  <g id="climber-note"><rect x="-44" y="-12" width="88" height="20" rx="7"/><text id="climber-caption" text-anchor="middle" y="2">BASE CAMP</text></g>
+ </svg>`;
+ document.body.append(stage);
+ const get=id=>document.getElementById(id),svg=get('climber-world');
+ let timer=null,frame=null,lastFrame=0,scene=null,trip=0,nextVisit=0;
+ const motion=matchMedia('(prefers-reduced-motion: reduce)');
+ const glyphCanvas=document.createElement('canvas'),glyphContext=glyphCanvas.getContext('2d');
+ const clamp=(n,a,b)=>Math.max(a,Math.min(b,n)),mix=(a,b,t)=>a+(b-a)*t;
+ const ease=t=>t*t*(3-2*t),point=(a,b,t)=>({x:mix(a.x,b.x,ease(t)),y:mix(a.y,b.y,ease(t))});
+ function enabled(){return prefs.theme==='climber'&&prefs.display.companion!==false&&document.visibilityState==='visible'&&!get('settings').open&&!document.body.classList.contains('screen-rest');}
+ function stop(){clearTimeout(timer);timer=null;if(frame!==null)cancelAnimationFrame(frame);frame=null;scene=null;stage.hidden=true;}
+ function place(el,p,extra=''){el.setAttribute('transform',`translate(${p.x.toFixed(1)} ${p.y.toFixed(1)}) ${extra}`);}
+ function glyphs(){
+  const ctx=glyphContext;if(!ctx)return [];
+  const style=getComputedStyle(get('time'));ctx.font=`${style.fontWeight} ${style.fontSize} ${style.fontFamily}`;
+  return [...document.querySelectorAll('#time .time-digit')].filter(e=>e.dataset.digit!==':').map(e=>{
+   const r=e.getBoundingClientRect(),m=ctx.measureText(e.dataset.digit),baseline=e.querySelector('.digit-baseline').getBoundingClientRect().top;
+   const left=r.left-(m.actualBoundingBoxLeft||0),top=baseline-(m.actualBoundingBoxAscent||r.height*.8);
+   return {left,top,right:r.left+(m.actualBoundingBoxRight||r.width),bottom:baseline+(m.actualBoundingBoxDescent||0),index:e.dataset.index};
+  });
+ }
+ function terrain(index){
+  const size=innerHeight<650?44:60,half=size/2,scale=size/66;
+  const digits=glyphs();if(!digits.length)return null;
+  const digit=digits[Math.floor(index/2)%digits.length],panel=document.querySelector(['.weather-panel','.fact-panel','.clock-panel'][Math.floor(index/2)%3]).getBoundingClientRect();
+  const widget=index%2===1;
+  let anchor,start,ledge;
+  if(widget){
+   const x=clamp(panel.right+half*.55,half+3,innerWidth-half-3);
+   anchor={x:panel.right-6,y:panel.top+12};start={x,y:clamp(panel.bottom-half-5,half+10,innerHeight-half-12)};
+   ledge={x,y:clamp(panel.top+42,half+10,innerHeight-half-12)};
+  }else{
+   anchor={x:digit.left+(digit.right-digit.left)*.62,y:digit.top+5};
+   start={x:digit.left+6,y:digit.bottom-half*.5};
+   ledge={x:digit.left+(digit.right-digit.left)*.35,y:digit.top-half*.5};
+  }
+  for(const p of [anchor,start,ledge]){p.x=clamp(p.x,half+5,innerWidth-half-5);p.y=clamp(p.y,half+10,innerHeight-half-15);}
+  const middle={x:widget?start.x:digit.left-half*.5,y:mix(start.y,ledge.y,.55)};
+  middle.x=clamp(middle.x,half+5,innerWidth-half-5);
+  // Camp hangs beside the numeral or outside a widget, rather than over other text.
+  const camp={x:widget?start.x-28*scale:clamp(digit.right+22*scale,40*scale+4,innerWidth-40*scale-4),y:clamp(ledge.y+55*scale,60*scale,innerHeight-35*scale)};
+  return {size,scale,anchor,start,middle,ledge,camp,widget,digit:digit.index};
+ }
+ function paint(progress){
+  if(!scene)return;const land=terrain(scene.trip);if(!land){stop();return;}
+  svg.setAttribute('viewBox',`0 0 ${innerWidth} ${innerHeight}`);
+  const {anchor,start,middle,ledge,camp,scale}=land;
+  const camping=scene.trip%3===2,climbEnd=camping?.48:.65,castEnd=.12,collectEnd=climbEnd+.1,campEnd=.94;
+  let p,state;
+  if(progress<castEnd){p=start;state='cast';}
+  else if(progress<climbEnd){const t=(progress-castEnd)/(climbEnd-castEnd);p=t<.55?point(start,middle,t/.55):point(middle,ledge,(t-.55)/.45);state='climb';}
+  else if(progress<collectEnd){p=ledge;state='collect';}
+  else if(progress<campEnd){p=land.widget?ledge:point(ledge,{x:camp.x-8*scale,y:camp.y-10*scale},clamp((progress-collectEnd)/.08,0,1));state=camping?'sleep':'camp';}
+  else{p=point({x:camp.x-8*scale,y:camp.y-10*scale},start,(progress-campEnd)/(1-campEnd));state='rappel';}
+  if(state==='camp'&&progress<collectEnd+.08&&!land.widget)state='build';
+  stage.dataset.state=state;stage.dataset.target=land.widget?'widget':'digit';stage.dataset.digit=land.digit;stage.dataset.item=['water','food','gear'][scene.trip%3];
+  place(get('climber-person'),p,`scale(${scale})`);
+  const hook=state==='cast'?point(start,anchor,progress/castEnd):anchor;
+  place(get('climber-hook'),hook);
+  const hand={x:p.x-12*scale,y:p.y-22*scale};
+  const sway=state==='cast'?Math.sin(progress/castEnd*Math.PI)*45*scale:state==='camp'||state==='sleep'?Math.sin(progress*12)*5*scale:5*scale;
+  get('climber-rope').setAttribute('d',`M${hook.x} ${hook.y} Q${mix(hook.x,hand.x,.5)+sway} ${mix(hook.y,hand.y,.5)+Math.abs(sway)} ${hand.x} ${hand.y}`);
+  place(get('climber-anchor'),anchor);
+  place(get('climber-supply'),{x:ledge.x+16*scale,y:ledge.y+15*scale},`scale(${scale})`);
+  get('climber-supply').dataset.item=['water','food','gear'][scene.trip%3];get('climber-supply').style.opacity=progress>climbEnd?String(clamp(1-(progress-climbEnd)/.08,0,1)):'1';
+  const tentVisible=!land.widget&&['build','camp','sleep','rappel'].includes(state);
+  get('climber-camp').style.display=tentVisible?'':'none';
+  get('climber-camp-link').style.display=tentVisible?'':'none';
+  get('climber-camp-link').setAttribute('d',`M${anchor.x} ${anchor.y} L${camp.x} ${camp.y-50*scale}`);
+  place(get('climber-camp'),camp,`scale(${scale}) rotate(${motion.matches?0:Math.sin(progress*14)*2})`);
+  for(const part of get('climber-camp').querySelectorAll('.tent-shell,.tent-door,.tent-seam'))part.setAttribute('transform',`scale(1 ${clamp((progress-collectEnd)/.08,0,1)})`);
+  const captions={cast:'ROPE READY',climb:'TIME TO CLIMB',collect:['WATER BREAK','SNACK FOUND','GEAR CHECK'][scene.trip%3],build:'MAKING CAMP',camp:land.widget?'LEDGE PICNIC':'HANGING CAMP',sleep:'SUMMIT SNOOZE',rappel:'SEE YOU UP TOP'};
+  get('climber-caption').textContent=captions[state];
+  // Small labels belong in the margin; leave facts, weather and date unobstructed.
+  place(get('climber-note'),{x:clamp(p.x,48,innerWidth-48),y:innerHeight-13});
+  get('climber-note').style.display=innerHeight<650?'none':'';
+  stage.style.opacity=String(Math.min(1,progress/.04,(1-progress)/.04));
+ }
+ function schedule(){
+  if(!enabled())return;
+  const interval=prefs.display.companionInterval*1000;
+  nextVisit=Date.now()+Math.max(4000,interval-scene.duration);
+  // In the default cadence, begin at :54 so a real minute change happens during the climb.
+  if(interval===60000)nextVisit=Math.ceil((nextVisit-54000)/60000)*60000+54000;
+  timer=setTimeout(start,Math.max(1000,nextVisit-Date.now()));
+ }
+ function animate(now){
+  if(!enabled()){stop();return;}
+  if(now-lastFrame>=(prefs.lowPower?80:40)){
+   lastFrame=now;const progress=clamp((now-scene.began)/scene.duration,0,1);paint(progress);if(!scene)return;
+   if(progress>=1){schedule();scene=null;frame=null;stage.hidden=true;return;}
+  }
+  frame=requestAnimationFrame(animate);
+ }
+ function start(){
+  clearTimeout(timer);timer=null;if(!enabled())return;
+  scene={trip:trip++,began:performance.now(),duration:prefs.display.companionDuration*1000};stage.hidden=false;
+  if(motion.matches||typeof requestAnimationFrame!=='function'){
+   paint(.89);if(!scene)return;timer=setTimeout(()=>{schedule();scene=null;stage.hidden=true;},2000);return;
+  }
+  paint(0);if(!scene)return;lastFrame=0;frame=requestAnimationFrame(animate);
+ }
+ function sync(){if(!enabled()){stop();return;}if(!scene&&timer===null)timer=setTimeout(start,1000);}
+ window.DeskClimber={sync,stop,start,paint,glyphs,terrain,get running(){return scene!==null;},get visits(){return trip;}};
+ document.addEventListener('visibilitychange',sync);get('settings').addEventListener('close',sync);get('settings-button').addEventListener('click',stop);
+ document.addEventListener('desk-display-change',()=>{stop();sync();});
+ window.addEventListener('resize',()=>{stop();if(enabled())timer=setTimeout(start,9000);});
+ motion.addEventListener?.('change',()=>{stop();sync();});
+ sync();
+})();
 
 </script>
 </body></html>

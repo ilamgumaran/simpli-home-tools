@@ -2,7 +2,7 @@
 // Site defaults. Settings saved in a browser override these values.
 // After editing, run `npm run build` to update the single-file clock.
 window.ORBIT_CONFIG = {
-  theme: 'candy',
+  theme: 'climber',
   unit: 'fahrenheit',
   format24: false,
   lowPower: true,

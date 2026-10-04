@@ -12,6 +12,7 @@ const html=fs.readFileSync(path.join(root,'index.html'),'utf8')
  .replace('<link rel="stylesheet" href="style.css">',`<style>\n${css}\n</style>`)
  .replace('<script src="config.js"></script>',`<script>\n${config.replace(/<\/script/gi,'<\\/script')}\n</script>`)
  .replace('<script src="app.js"></script>',`<script>\n${js.replace(/<\/script/gi,'<\\/script')}\n</script>`);
-const portable=html.replace('<script src="display-settings.js"></script>',`<script>\n${display.replace(/<\/script/gi,'<\\/script')}\n</script>`);
+const climber=fs.readFileSync(path.join(root,'time-climber.js'),'utf8');
+const portable=html.replace('<script src="display-settings.js"></script>',`<script>\n${display.replace(/<\/script/gi,'<\\/script')}\n</script>`).replace('<script src="time-climber.js"></script>',`<script>\n${climber.replace(/<\/script/gi,'<\\/script')}\n</script>`);
 fs.writeFileSync(path.join(root,'Little Orbit.html'),portable);
 console.log('Built portable Little Orbit.html (no installation, runtime, or external fonts).');

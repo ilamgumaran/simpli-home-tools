@@ -6,7 +6,7 @@ Small, configurable tools for everyday home devices. Contributions and new ideas
 
 | Tool | What it does | Run it |
 | --- | --- | --- |
-| [Little Orbit](tools/little-orbit/) | Retro display clock with weather, date, daily facts, touch lock, and cartoon screensaver themes | Download the repo ZIP and open `tools/little-orbit/Little Orbit.html` in a browser |
+| [Our Desk Clock](tools/little-orbit/) | Retro display clock with weather, date, daily facts, touch lock, and cartoon screensaver themes, including Time Climber | Download the repo ZIP and open `tools/little-orbit/Little Orbit.html` in a browser |
 
 Little Orbit runs entirely in the browser. Its [configuration guide](tools/little-orbit/CONFIGURATION.md) covers device presets, font sizes, weather location, screen care, and character timing. Node is optional for local serving or rebuilding the portable file.
 

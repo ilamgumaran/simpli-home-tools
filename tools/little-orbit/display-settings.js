@@ -25,6 +25,7 @@ function applyDisplay(){
  }
  document.body.dataset.profile=prefs.display.profile;
  write('orbit-settings',prefs);
+ document.dispatchEvent(new Event('desk-display-change'));
 }
 function fillDisplaySettings(d=prefs.display){
  $('display-profile').value=d.profile;

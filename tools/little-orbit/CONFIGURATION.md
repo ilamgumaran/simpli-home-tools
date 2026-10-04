@@ -13,11 +13,11 @@ Open **Settings → Display & character**. The settings are saved for this brows
 | Panel spacing | Space between rows in the wide display layout | 4–24 px; 8 px |
 | Character visits every | Delay between visits; panel glides may postpone a visit | 30–300 seconds; 60 |
 | Character visit length | Maximum visit duration; sweeping is capped at 8 seconds | 4–20 seconds; 12 |
-| Candy companion | Show the companion in Candy Quest | On |
+| Candy companion | Show the companion in Candy Quest or Time Climber | On |
 
 **Reset display sizes** restores the site's display defaults without changing location, theme, or screen-care choices. Larger fonts may require reducing another size or spacing on small screens. Reduced-motion preferences always take priority and show a brief still appearance.
 
-The Theme button cycles Orbit and Candy Quest. Time/date use the device clock and timezone. Weather location and Fahrenheit/Celsius are independent of the device locale. Touch lock and fullscreen are browser features; wake lock is requested where available. Configure sleep and physical brightness in the OS.
+The Theme button cycles Orbit, Candy Quest, and Time Climber. Time/date use the device clock and timezone. Weather location and Fahrenheit/Celsius are independent of the device locale. Touch lock and fullscreen are browser features; wake lock is requested where available. Configure sleep and physical brightness in the OS.
 
 ## Site defaults
 
@@ -25,7 +25,7 @@ Edit `config.js`, then run `npm run build`. It sets defaults for friends opening
 
 ```js
 window.ORBIT_CONFIG = {
-  theme: 'candy',
+  theme: 'climber',
   unit: 'celsius',
   place: {name: 'Your city', latitude: 51.5, longitude: -0.12},
   lowPower: true,
@@ -45,7 +45,7 @@ window.ORBIT_CONFIG = {
 };
 ```
 
-Omitted values keep built-in defaults. Display numbers are constrained to the ranges above. `format24` selects 24-hour time. `care`, `rest`, `night`, and `lowPower` control shifting, hourly black breaks, night dimming, and lower-frequency updates. Keep exact theme IDs (`orbit` or `candy`), profile IDs (`auto`, `handheld`, `desktop`, `tablet`), and unit IDs (`celsius` or `fahrenheit`).
+Omitted values keep built-in defaults. Display numbers are constrained to the ranges above. `format24` selects 24-hour time. `care`, `rest`, `night`, and `lowPower` control shifting, hourly black breaks, night dimming, and lower-frequency updates. Keep exact theme IDs (`orbit`, `candy`, or `climber`), profile IDs (`auto`, `handheld`, `desktop`, `tablet`), and unit IDs (`celsius` or `fahrenheit`).
 
 Configuration is executable local JavaScript; accept config changes through normal source review. Put public defaults in this file; do not put API secrets or personal browser settings in the repository.
 
@@ -59,3 +59,5 @@ Configuration is executable local JavaScript; accept config changes through norm
 - `windows/`: optional Edge kiosk helpers; not required on other OSes.
 
 The local server binds only to 127.0.0.1. Set its port using environment variable `PORT` (default 4173). Use static HTTPS hosting to share the clock across devices. Fullscreen and staying awake may require interaction or browser/OS permission; missing APIs fall back gracefully.
+
+Time Climber uses the same character controls. At the default 60-second interval it starts trips near :54, allowing a real minute rollover during the ascent; the first trip starts immediately after a short setup pause. Its tent is a miniature portaledge suspended from a digit. `time-climber.js` contains original SVG equipment, digit measurement, widget routes, and scene timing. Its animation stops during quiet pauses and screen rest.

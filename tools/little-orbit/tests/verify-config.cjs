@@ -5,7 +5,7 @@ const assert=require('node:assert/strict');
  try{
   const page=await browser.newPage({viewport:{width:854,height:480},reducedMotion:'reduce'}),errors=[];
   page.on('pageerror',e=>errors.push(e.message));await page.route('https://**',r=>r.abort());
-  await page.clock.install({time:new Date('2026-10-04T12:00:00-04:00')});await page.clock.pauseAt(new Date('2026-10-04T12:00:01-04:00'));await page.goto(url);
+  await page.clock.install({time:new Date('2026-10-04T12:00:00-04:00')});await page.clock.pauseAt(new Date('2026-10-04T12:00:01-04:00'));await page.addInitScript(()=>{if(!localStorage.getItem('orbit-settings'))localStorage.setItem('orbit-settings',JSON.stringify({theme:'candy'}));});await page.goto(url);
   await page.getByRole('button',{name:'Settings'}).click();
   assert.match(await page.locator('#viewport-info').innerText(),/854 × 480/);
   await page.locator('#clockScale').evaluate(e=>{e.value='0.8';e.dispatchEvent(new Event('input',{bubbles:true}));});await page.locator('#weatherScale').evaluate(e=>{e.value='0.8';e.dispatchEvent(new Event('input',{bubbles:true}));});await page.locator('#factScale').evaluate(e=>{e.value='0.8';e.dispatchEvent(new Event('input',{bubbles:true}));});

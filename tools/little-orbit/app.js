@@ -47,7 +47,11 @@ function toast(message){$('toast').textContent=message;$('toast').hidden=false;c
 function tick(){
  const now=new Date(),hours=now.getHours();
  const h=prefs.format24?hours:hours%12||12;
- $('time').textContent=`${String(h).padStart(2,'0')}:${String(now.getMinutes()).padStart(2,'0')}`;
+ const timeText=`${String(h).padStart(2,'0')}:${String(now.getMinutes()).padStart(2,'0')}`;
+ if($('time').dataset.value!==timeText){
+  $('time').dataset.value=timeText;$('time').setAttribute('aria-label',timeText);
+  $('time').replaceChildren(...[...timeText].map((digit,index)=>{const span=document.createElement('span');span.className='time-digit';span.dataset.digit=digit;span.dataset.index=index;span.setAttribute('aria-hidden','true');span.append(digit);const baseline=document.createElement('i');baseline.className='digit-baseline';span.append(baseline);return span;}));
+ }
  $('seconds').textContent=String(now.getSeconds()).padStart(2,'0');$('period').textContent=prefs.format24?'24H':hours>=12?'PM':'AM';
  $('date').textContent=new Intl.DateTimeFormat('en-US',{weekday:'long',month:'long',day:'numeric',year:'numeric'}).format(now);
  $('zone').textContent=new Intl.DateTimeFormat('en-US',{timeZoneName:'short'}).formatToParts(now).find(p=>p.type==='timeZoneName').value+' · DEVICE TIME';
@@ -66,6 +70,7 @@ function tick(){
  $('rest-overlay').hidden=!resting;
  if(resting)stopCandy();
  shift();
+ window.DeskClimber?.sync();
 }
 function shift(){
  const step=Math.floor(Date.now()/60000);if(step===lastShift)return;lastShift=step;
@@ -123,7 +128,7 @@ document.addEventListener('visibilitychange',()=>{cancelHold();scheduleClock();i
 
 
 // Add future themes here; the Theme button cycles this registry.
-const themes=[{id:'orbit',name:'Orbit',label:'Original Orbit'},{id:'candy',name:'Candy',label:'Candy Quest'}];
+const themes=[{id:'orbit',name:'Orbit',label:'Original Orbit'},{id:'candy',name:'Candy',label:'Candy Quest'},{id:'climber',name:'Climber',label:'Time Climber'}];
 let candyTimer=null,candyAnimation=null,candyTrip=0,candyNextVisit=0;
 const candyMotion=typeof matchMedia==='function'?matchMedia('(prefers-reduced-motion: reduce)'):null;
 function stopCandy(){clearTimeout(candyTimer);candyTimer=null;candyAnimation?.cancel();candyAnimation=null;$('candy-stage').hidden=true;}
@@ -175,6 +180,7 @@ function applyTheme(){
  $('theme-button').setAttribute('aria-label',`Theme: ${theme.label}. Switch theme`);
  $('theme-button').title=`${theme.label} · tap for next theme`;
  write('orbit-settings',prefs);stopCandy();if(prefs.theme==='candy')candyTimer=setTimeout(candyAdventure,9000);
+ document.title=`Our Desk Clock · ${theme.label}`;window.DeskClimber?.sync();
 }
 $('theme-button').onclick=()=>{if(locked)return;const index=themes.findIndex(t=>t.id===prefs.theme);prefs.theme=themes[(index+1)%themes.length].id;applyTheme();toast(`${themes.find(t=>t.id===prefs.theme).label} theme`);};
 window.addEventListener('resize',()=>{stopCandy();candyTimer=setTimeout(candyAdventure,400);});

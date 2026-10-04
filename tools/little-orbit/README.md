@@ -1,6 +1,6 @@
-# Little Orbit
+# Our Desk Clock (Little Orbit)
 
-A retro browser display clock for a desk, kids' room, handheld, spare tablet, or TV. Time, date, weather, and daily space facts share a dark, readable screen. **Orbit** keeps the classic layout; **Candy Quest** adds a candy-drop companion who runs, cycles, and sweeps in spare spaces.
+A retro browser display clock for a desk, kids' room, handheld, spare tablet, or TV. Time, date, weather, and daily space facts share a dark, readable screen. **Orbit** keeps the classic layout; **Candy Quest** adds a candy-drop companion who runs, cycles, and sweeps in spare spaces. **Time Climber** turns the clock into a miniature mountaineering window: a helmeted candy adventurer with stick limbs, backpack, and grappling rope climbs all four digits and the clock/weather/fact widget edges, finds food, water, and gear, and builds a suspended tent for a rest.
 
 ## Run
 
@@ -51,3 +51,9 @@ The browser runtime has no library dependencies. Playwright is a development dep
 Copyright © 2026 ilamgumaran and contributors. **GPL-3.0-only**; [LICENSE](LICENSE). No warranty. Original SVG character and CSS are included under the same license. [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) lists external services and contributor dependencies.
 
 Default weather is Marietta, GA (30064), configurable in Settings. Facts are original short summaries with links to NASA sources and repeat on a 24-day cycle. Location permission is only requested when you tap **Use my location**. There is no analytics, account service, or telemetry; weather and city searches contact Open-Meteo.
+
+### Time Climber
+
+Time Climber is the default for new browser profiles; existing saved theme choices are retained. Use **Theme** to cycle Orbit → Candy Quest → Time Climber. The companion follows live digit geometry and widget positions as panels glide. Default 60-second visits are aligned to start near :54, so the real minute changes during a climb. The first visit starts quickly so you can see the new theme. Time continues to follow the device clock.
+
+Settings → Display & character controls the shared visit interval, visit duration, and character toggle. Quiet pauses remain between trips. Tent construction, picnics, water breaks, gear collection, and occasional summit snoozes vary across visits. Reduced motion uses a brief still campsite. Settings, hidden pages, disabled companions, and hourly screen breaks stop the scene. The artwork is original SVG and the scene uses bounded animation bursts without external game assets or libraries.
