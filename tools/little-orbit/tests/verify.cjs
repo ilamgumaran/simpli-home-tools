@@ -4,7 +4,7 @@ const {engine,options,url}=require('./runtime.cjs');
 const assert=require('node:assert/strict');
 (async()=>{
  const browser=await engine.launch({...options,headless:true});
- const page=await browser.newPage({viewport:{width:1280,height:720}});
+ const page=await browser.newPage({viewport:{width:1280,height:720},timezoneId:'America/New_York'});
  const errors=[];page.on('pageerror',e=>errors.push(e.message));
  await page.route('https://api.open-meteo.com/**',r=>r.fulfill({json:{current:{temperature_2m:72,apparent_temperature:70,weather_code:2},daily:{temperature_2m_max:[78],temperature_2m_min:[58]}}}));
  await page.goto(url);
