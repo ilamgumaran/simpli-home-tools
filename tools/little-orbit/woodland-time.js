@@ -10,7 +10,7 @@
  <rect id="woodland-sky" width="800" height="360"/><circle id="woodland-light" cx="705" cy="55" r="25" fill="#f4e2ac"/>
  <g id="woodland-background"/><path id="woodland-ground" d="M0 240Q180 220 360 241T800 231V360H0Z"/>
  <path id="woodland-creek" d="M800 240Q600 229 552 276T344 340L300 360H365Q470 320 570 304T800 270Z"/>
- <g id="woodland-details"/><g id="woodland-holds"/><g id="woodland-props"/><path id="woodland-rope" fill="none" stroke="#ead6a8" stroke-width="1.6"/>
+ <g id="woodland-details"/><g id="woodland-holds"/><g id="woodland-props"/><g id="woodland-work-sockets"/><path id="woodland-rope" fill="none" stroke="#ead6a8" stroke-width="1.6"/>
  <circle id="woodland-anchor" cx="58" cy="206" r="3" fill="#e3d4ab" stroke="#485844" stroke-width="1"/><g id="woodland-cast"></g><g id="woodland-hand-tool"/><g id="woodland-minute-marker"/>
  <g id="woodland-numerals" fill="none" stroke-linecap="round" stroke-linejoin="round"></g>
  <g fill="#eaddb3" stroke="#485844" stroke-width="3"><circle cx="400" cy="99" r="5"/><circle cx="400" cy="144" r="5"/></g>
@@ -107,6 +107,14 @@
   const climb=m.action.role==='climbing'&&m.hour>=6;
   const marker=p.phase==='mark'&&companions;
   const contactRig=climb&&m.actionId==='rock'&&!marker?DeskCharacters.climbContacts(rockRoute,p.climb,{resting:p.phase==='recover'||!p.running}):null;
+  const survey=m.actionId==='survey'&&m.hour>=6&&!marker;
+  const walkProgress=p.running?Math.max(0,Math.min(1,(p.progress-.4)/.5)):1;
+  const surveyPose=p.running&&p.progress<.4?'read-map':p.running&&p.progress<.9?'walk':'rest';
+  const walkRig=survey?DeskCharacters.walkContacts(DeskWorlds.routes.woodlandWalk,walkProgress,{action:surveyPose}):null;
+  const working=['sticks','cook'].includes(m.actionId)&&m.hour>=6&&!marker;
+  const workSocket=working?{x:m.actionId==='cook'?339+(p.running?Math.sin(p.progress*6*Math.PI)*2:0):303,y:m.actionId==='cook'?309:319}:null;
+  const workRig=working?DeskCharacters.workContacts({root:m.actionId==='cook'?{x:326,y:300}:{x:299,y:303},scale:.72,groundY:318.72,work:workSocket,hand:m.actionId==='cook'?1:0,action:m.action.pose,cycle:p.running?p.progress*3:0,angle:Math.PI/2+(p.running?Math.sin(p.progress*6*Math.PI)*.12:0)}):null;
+  get('woodland-work-sockets').innerHTML=walkRig?'<path id="woodland-walk-ground" d="M270 318.72H380" fill="none" stroke="#bbaa7a" stroke-width="1.5"/>':workRig?`<circle id="woodland-work-target" cx="${workSocket.x}" cy="${workSocket.y}" r="1.5" fill="#dac897"/>`:'';
   const protectionAnchor=contactRig?rockRoute.anchor:{x:58,y:206};
   attr('woodland-anchor','cx',protectionAnchor.x);attr('woodland-anchor','cy',protectionAnchor.y);
   get('woodland-holds').innerHTML=contactRig?rockRoute.stations.flatMap(station=>['leftHand','leftFoot','rightHand','rightFoot'].map(name=>{const hold=station[name];return `<path data-hold="${hold.id}" d="M${hold.x-2.5} ${hold.y}h5" fill="none" stroke="#d2d2b4" stroke-width="1.7" stroke-linecap="round"/>`;})).join(''):'';
@@ -115,21 +123,26 @@
   const trailJoint={x:546+joint.x,y:52+joint.y};
   const primary={x:climb?57:['water'].includes(m.actionId)?541:['forage'].includes(m.actionId)?586:m.actionId==='bridge'?453:280+(p.running&&m.actionId==='survey'?p.progress*90:0),y:climb?301-p.climb*56:300};
   if(contactRig)Object.assign(primary,contactRig.root);
+  if(walkRig||workRig)Object.assign(primary,(walkRig||workRig).root);
   if(marker){primary.x=trailJoint.x+12;primary.y=trailJoint.y+12;}
   actors.forEach(({host,young},i)=>{
    const scale=young?.52:.72,social=['teach','water','cook','rest'].includes(m.actionId),pos=i===0?primary:{x:social?primary.x+45+i*25:360+i*39,y:young?311:300};
    host.setAttribute('transform',`translate(${pos.x.toFixed(2)} ${pos.y.toFixed(2)}) scale(${scale})`);
-   const pose=m.hour<6?'sleep':i===0?(marker?'build':p.pose):m.actionId==='teach'?'teach':m.reflection?'rest':'camp';
+   const pose=m.hour<6?'sleep':i===0?(marker?'build':walkRig?surveyPose:workRig?m.action.pose:p.pose):m.actionId==='teach'?'teach':m.reflection?'rest':'camp';
    const anchor={x:(protectionAnchor.x-pos.x)/scale,y:(protectionAnchor.y-pos.y)/scale};
-   const rig=i===0?contactRig:null;
-   host.dataset.contactHolds=rig?JSON.stringify(rig.holds):'';host.dataset.movingLimb=rig?.moving||'';
+   const rig=i===0?(contactRig||walkRig||workRig):null;
+   host.dataset.contactHolds=contactRig&&i===0?JSON.stringify(contactRig.holds):'';host.dataset.movingLimb=rig?.moving||'';
+   host.dataset.groundContacts=walkRig&&i===0?JSON.stringify(walkRig.holds):'';
    DeskCharacters.update(host,{action:pose,cycle:p.progress*3,fatigue:i===0?p.fatigue:0,assisted:i===0&&p.assisted,item:m.actionId==='water'?'water':m.actionId==='cook'?'food':null,ropeAnchor:anchor,rig});
   });
   get('woodland-cast').style.display=companions?'':'none';
   const a=DeskCharacters.attachment(DeskCharacters.create('moss',{role:'climbing'}));
   attr('woodland-rope','d',`M${protectionAnchor.x} ${protectionAnchor.y}L${primary.x+a.x*.72} ${primary.y+a.y*.72}`);get('woodland-rope').style.display=companions&&climb&&!marker?'':'none';get('woodland-anchor').style.display=get('woodland-rope').style.display;
   get('woodland-hand-tool').innerHTML='';
-  if(companions&&p.running&&!marker&&['sticks','shelter','bridge'].includes(m.actionId)){
+  if(companions&&workRig&&m.actionId==='sticks'){
+   const hand=workRig.arms[0][2],grip=DeskCharacters.toolGrip(hand,workRig.toolTarget);
+   get('woodland-hand-tool').innerHTML=`<g data-tool="fallen-stick" transform="translate(${primary.x} ${primary.y}) scale(.72)"><g transform="translate(${grip.x} ${grip.y}) rotate(${grip.angle})"><path id="woodland-stick-grip" d="M0 0H14" stroke="#d8bc83" stroke-width="3" stroke-linecap="round"/></g></g>`;
+  }else if(companions&&p.running&&!marker&&['shelter','bridge'].includes(m.actionId)){
    const hand=DeskCharacters.pose(p.pose,p.progress*3).arms[0][2];
    get('woodland-hand-tool').innerHTML=`<path d="M${primary.x+hand.x*.72-12} ${primary.y+hand.y*.72-4}l24 8" stroke="#d8bc83" stroke-width="3"/>`;
   }

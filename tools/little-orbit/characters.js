@@ -77,7 +77,7 @@
   else if(action==='build'){hands[0]={x:-18,y:-5-lift*6};hands[1]={x:20,y:-13};}
   else if(action==='water'){hands[0]={x:-3,y:-20};hands[1]={x:17,y:1};}
   else if(action==='cook'){hands[0]={x:-16,y:3};hands[1]={x:20,y:-2-lift*4};}
-  else if(action==='teach'){hands[0]={x:-20,y:-14};hands[1]={x:16,y:0};}
+  else if(action==='teach'||action==='read-map'){hands[0]={x:-20,y:-14};hands[1]={x:16,y:0};}
   else if(action==='recover-climb'){hands[0]={x:-12,y:-27};hands[1]={x:13,y:2};feet[0]={x:-12,y:30};feet[1]={x:12,y:30};contacts.leftHand=true;}
 
   const arms=hands.map((p,i)=>joint(anatomy.shoulders[i],p,anatomy.upperArm,anatomy.forearm,i?-1:1));
@@ -121,6 +121,36 @@
   const legs=['leftFoot','rightFoot'].map((name,i)=>solve(anatomy.hips[i],relative(name),anatomy.thigh,anatomy.shin,i?1:-1));
   return {root,targets,holds,stage,moving:stage<4&&t>0&&t<1?names[stage]:null,arms,legs,contacts,resting};
  }
+ function walkContacts(route,progress,{action='walk'}={}){
+  if(!Number.isFinite(progress)||!(route.scale>0)||!Number.isInteger(route.steps)||route.steps<1)throw Error('Invalid walking route');
+  const at=clamp(progress)*route.steps,index=Math.min(route.steps-1,Math.floor(at)),t=at-index,stride=route.stride,scale=route.scale;
+  const root={x:route.origin.x+at*stride,y:route.origin.y};
+  const leftMoves=index%2===0,start=[route.origin.x-stride/2,route.origin.x+stride/2];
+  const targets={},holds={},contacts={leftHand:false,rightHand:false};
+  ['leftFoot','rightFoot'].forEach((name,i)=>{
+   const completed=Math.floor((index+(i===0?1:0))/2),x=start[i]+completed*2*stride,moving=i===(leftMoves?0:1);
+   const groundX=moving?x+2*stride*t:x;
+   targets[name]={x:groundX,y:route.groundY-(moving?Math.sin(t*Math.PI)*4*scale:0)};
+   contacts[name]=!moving||t===0||t===1;
+   holds[name]=contacts[name]?{x:groundX,y:route.groundY}:null;
+  });
+  const base=pose(action,progress*route.steps);
+  const legs=['leftFoot','rightFoot'].map((name,i)=>joint(anatomy.hips[i],{x:(targets[name].x-root.x)/scale,y:(targets[name].y-root.y)/scale},anatomy.thigh,anatomy.shin,i?1:-1));
+  return {...base,root,legs,targets,holds,contacts,resting:action!=='walk'};
+ }
+ // Place a tool by a named local grip, with its working end at the work socket.
+ function toolGrip(hand,work,{length=14,grip={x:0,y:0}}={}){
+  const angle=Math.atan2(work.y-hand.y,work.x-hand.x),c=Math.cos(angle),s=Math.sin(angle);
+  return {angle:angle*180/Math.PI,x:hand.x-grip.x*c+grip.y*s,y:hand.y-grip.x*s-grip.y*c,tip:{x:hand.x+length*c,y:hand.y+length*s}};
+ }
+ function workContacts({root,scale,groundY,work,hand=0,angle=Math.PI/2,length=14,action='gather',cycle=0}){
+  const base=pose(action,cycle),target={x:(work.x-root.x)/scale,y:(work.y-root.y)/scale};
+  const wrist={x:target.x-length*Math.cos(angle),y:target.y-length*Math.sin(angle)},shoulder=anatomy.shoulders[hand];
+  if(Math.hypot(wrist.x-shoulder.x,wrist.y-shoulder.y)>anatomy.upperArm+anatomy.forearm-.01)throw Error('Work socket outside hand reach');
+  const arms=base.arms.slice();arms[hand]=joint(shoulder,wrist,anatomy.upperArm,anatomy.forearm,hand?-1:1);
+  const legs=[-12,12].map((x,i)=>joint(anatomy.hips[i],{x,y:(groundY-root.y)/scale},anatomy.thigh,anatomy.shin,i?1:-1));
+  return {...base,root,arms,legs,toolTarget:target,toolHand:hand,contacts:{leftHand:false,rightHand:false,leftFoot:true,rightFoot:true}};
+ }
  const path=points=>points.map((p,i)=>`${i?'L':'M'}${p.x.toFixed(2)} ${p.y.toFixed(2)}`).join(' ');
  function artwork(character){
   const c=character.appearance,climbing=character.role==='climbing',has=id=>character.inventory.includes(id);
@@ -136,7 +166,7 @@
     <g stroke="${c.metal}" stroke-width="1" fill="none"><path d="M-9 3Q-15 3 -14 8Q-12 11 -9 7ZM9 3Q15 3 14 8Q12 11 9 7Z"/><path d="M-11 4V7M11 4V7"/><rect x="-2" y="11" width="4" height="3" rx="1"/></g>
     <path d="M9 -7Q20 -11 20 -4Q20 3 13 0Q9 -2 13 -5Q18 -8 18 -3" fill="none" stroke="${c.rope}" stroke-width="1.5"/>
     <path data-part="fixed-line" display="none" fill="none" stroke="${c.rope}" stroke-width="1"/><path data-part="aid-tether" display="none" fill="none" stroke="${c.harness}" stroke-width="1"/><path data-part="aid-foot-loop" display="none" fill="none" stroke="${c.harness}" stroke-width="1"/><g data-part="ascender" display="none"><rect x="-2" y="-3" width="4" height="7" rx="1" fill="${c.metal}" stroke="${c.ink}" stroke-width=".7"/></g>
-   </g><g data-part="glove-left" fill="${c.boots}"><circle r="2"/></g><g data-part="glove-right" fill="${c.boots}"><circle r="2"/></g><g data-part="held-bottle" display="none" fill="#82b9c1" stroke="${c.ink}" stroke-width=".8"><rect x="-2" y="-5" width="4" height="7" rx="1"/><path d="M-1 -7H1V-5H-1Z"/></g><g data-part="held-food" display="none" fill="${c.helmet}" stroke="${c.ink}" stroke-width=".8"><rect x="-3" y="-2" width="6" height="3" rx="1"/></g><g data-part="held-map" display="none" fill="#e3d6ac" stroke="${c.ink}" stroke-width=".7"><path d="M-7 -5L0 -7L7 -5V5L0 3L-7 5Z"/><path d="M0 -7V3" fill="none"/></g><g data-part="held-spoon" display="none" fill="${c.metal}" stroke="${c.ink}" stroke-width=".5"><path d="M0 0L8 5"/><ellipse cx="10" cy="6" rx="3" ry="1.6"/></g><g data-part="held-gear" display="none" fill="none" stroke="${c.metal}" stroke-width="1"><path d="M-2 -3Q3 -5 3 0Q2 4 -2 2Z"/></g></g><g data-layer="footwear" stroke="${c.boots}" stroke-width="3.8" stroke-linecap="round"><path data-part="boot-left"/><path data-part="boot-right"/></g>
+   </g><g data-part="glove-left" fill="${c.boots}"><circle r="2"/></g><g data-part="glove-right" fill="${c.boots}"><circle r="2"/></g><g data-part="held-bottle" display="none" fill="#82b9c1" stroke="${c.ink}" stroke-width=".8"><rect x="-2" y="-5" width="4" height="7" rx="1"/><path d="M-1 -7H1V-5H-1Z"/></g><g data-part="held-food" display="none" fill="${c.helmet}" stroke="${c.ink}" stroke-width=".8"><rect x="-3" y="-2" width="6" height="3" rx="1"/></g><g data-part="held-map" display="none" fill="#e3d6ac" stroke="${c.ink}" stroke-width=".7"><path d="M-7 -5L0 -7L7 -5V5L0 3L-7 5Z"/><path d="M0 -7V3" fill="none"/></g><g data-part="held-spoon" display="none" fill="${c.metal}" stroke="${c.ink}" stroke-width=".5"><path d="M0 0H11"/><ellipse cx="14" cy="0" rx="3" ry="1.6"/></g><g data-part="held-gear" display="none" fill="none" stroke="${c.metal}" stroke-width="1"><path d="M-2 -3Q3 -5 3 0Q2 4 -2 2Z"/></g></g><g data-layer="footwear" stroke="${c.boots}" stroke-width="3.8" stroke-linecap="round"><path data-part="boot-left"/><path data-part="boot-right"/></g>
   </g>`;
  }
  function mount(host,character){host.innerHTML=artwork(character);host._deskCharacter=character;update(host,{action:'camp'});return host;}
@@ -146,7 +176,8 @@
   ['left','right'].forEach((side,i)=>{part('arm-'+side).setAttribute('d',path(p.arms[i]));part('leg-'+side).setAttribute('d',path(p.legs[i]));const foot=p.legs[i][2];part('boot-'+side).setAttribute('d',path([foot,{x:foot.x+(i?4:-4),y:foot.y}]));});
   ['left','right'].forEach((side,i)=>{const hand=p.arms[i][2];part('glove-'+side).setAttribute('transform',`translate(${hand.x} ${hand.y})`);part('glove-'+side).setAttribute('display',(character.inventory.includes('gloves')||character.inventory.includes('work-gloves'))?'':'none');});
   for(const [name,kind,inventory] of [['held-bottle','water','bottle'],['held-food','food','energy-bar'],['held-gear','gear','locking-carabiner']]){const hand=p.arms[0][2];part(name).setAttribute('transform',`translate(${hand.x} ${hand.y})`);part(name).setAttribute('display',['collect','camp','water','cook'].includes(action)&&item===kind&&(character.inventory.includes(inventory)||(kind==='food'&&character.inventory.some(id=>['rice','beans','trail-mix'].includes(id))))?'':'none');}
-  for(const [name,index,show] of [['held-map',0,['teach','walk'].includes(action)&&character.inventory.includes('map')],['held-spoon',1,action==='cook'&&character.inventory.includes('spoon')]]){const hand=p.arms[index][2];part(name).setAttribute('transform',`translate(${hand.x} ${hand.y})`);part(name).setAttribute('display',show?'':'none');}
+  for(const [name,index,show] of [['held-map',0,['teach','read-map'].includes(action)&&character.inventory.includes('map')],['held-spoon',1,action==='cook'&&character.inventory.includes('spoon')]]){const hand=p.arms[index][2];part(name).setAttribute('transform',`translate(${hand.x} ${hand.y})`);part(name).setAttribute('display',show?'':'none');}
+  if(action==='cook'&&p.toolTarget){const grip=toolGrip(p.arms[1][2],p.toolTarget);part('held-spoon').setAttribute('transform',`translate(${grip.x} ${grip.y}) rotate(${grip.angle})`);}
   root.dataset.action=action;root.dataset.fatigue=clamp(fatigue).toFixed(3);root.dataset.support=String(Object.values(p.contacts).filter(Boolean).length);
   part('sweat').setAttribute('display',fatigue>.55&&!p.resting?'':'none');
   part('eyes').setAttribute('d',action==='sleep'?'M-4 -23H-1M1 -23H4':'M-3 -24V-22M3 -24V-22');
@@ -172,5 +203,5 @@
   <g class="candy-broom" stroke="${c.harness}" stroke-width="3" fill="${c.pack}"><path d="M65 29L53 63"/><path d="M48 59L59 63L60 73L43 68Z"/></g>
  </svg>`;}
  function mountCandy(host){const character=forTheme('candy');host.innerHTML=character.id==='candy'?candyArt(character):`<svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg"><g transform="translate(40 38) scale(.75)">${artwork(character)}</g></svg>`;host.dataset.character=character.id;host.dataset.role=character.role;if(character.id!=='candy'){host._deskCharacter=character;update(host,{action:'walk'});}}
- globalThis.DeskCharacters=freeze({identities,items,roles,themes,anatomy,create,forTheme,joint,pose,ascent,climbContacts,artwork,mount,update,attachment,mountCandy});
+ globalThis.DeskCharacters=freeze({identities,items,roles,themes,anatomy,create,forTheme,joint,pose,ascent,climbContacts,walkContacts,workContacts,toolGrip,artwork,mount,update,attachment,mountCandy});
 })();

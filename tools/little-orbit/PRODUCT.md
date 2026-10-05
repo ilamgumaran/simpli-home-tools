@@ -6,6 +6,8 @@ This is the product's planning hub. Designs are proposals until explicitly marke
 
 ## Product principles
 
+The next character branch, `feature/woodland-walking-grips`, adds [planted survey walking and grounded tool grips](design/WALKING-AND-GRIPS.md). [Session outcome](../../sessions/2026-10-05-woodland-ally/004-walking-grips.md) records verification, deployment and remaining physical acceptance.
+
 The character follow-up on `feature/woodland-character-contacts` adds [planted rock contacts](design/CHARACTER-CONTACTS.md) to the Woodland slice. [Progress and outcomes](../../sessions/2026-10-05-woodland-ally/003-character-contacts.md) distinguish implementation/browser checks from pending live-device acceptance.
 
 1. Read the clock at a glance. Time, date, weather, and facts must stay visible across device sizes and motion states.

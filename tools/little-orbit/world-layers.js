@@ -18,7 +18,7 @@
   9:'M80 80H20L0 60V20L20 0H60L80 20V120L55 150H5'
  });
  // Authored foreground boulder sockets; the rig samples these actual world holds.
- const routes=freeze({woodlandRock:{scale:.72,anchor:{x:58,y:206},stations:Array.from({length:8},(_,row)=>{
+ const routes=freeze({woodlandWalk:{scale:.72,origin:{x:280,y:300},groundY:318.72,steps:10,stride:9},woodlandRock:{scale:.72,anchor:{x:58,y:206},stations:Array.from({length:8},(_,row)=>{
   const root={x:57,y:301-row*8*.72},station={root};
   for(const [name,x,y] of [['leftHand',-12,-20],['leftFoot',-12,26],['rightHand',12,-20],['rightFoot',12,26]])station[name]={id:`rock-${name}-${row}`,x:root.x+x*.72,y:root.y+y*.72};
   return station;

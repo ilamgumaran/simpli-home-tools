@@ -17,7 +17,7 @@ Sampling is deterministic from current route progress, with no accumulated frame
 - Sample the route densely: each planted endpoint equals its authored world socket, every bone length is fixed, at least three contacts remain, and body movement is continuous.
 - Compare real hosted/portable SVG limb endpoints to rendered hold positions and rope endpoint to harness after changing controlled browser time. Check supported body lifts, recovery and the final stationary state.
 - Run all existing theme, viewport/font/fact, time boundary, pause, reduced-motion and portable tests in Edge and Firefox; rebuild the portable file.
-- Next: contact-pinned ground walking and reachable work surfaces/tool grips, then a separately designed tree route and appropriate role. Compact character scale still needs visual refinement.
+- Subsequently implemented: [lead survey walking and gathering/cooking work grips](WALKING-AND-GRIPS.md). Next candidates are shelter/crossing sockets, reciprocal teaching gestures and a separately designed tree route and appropriate role. Compact character scale still needs visual refinement.
 - Later: center-of-mass feasibility, collisions, rope forces/pendulum dynamics, persistent effort/resources and richer transitions between activities. Do not describe the current authored support arrangement as a dynamics or biological simulation.
 
 No new settings or runtime modules are needed. Shared defaults, browser overrides and portable/browser compatibility remain the same.
