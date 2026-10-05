@@ -31,7 +31,7 @@ Candy Quest visits briefly and pauses between appearances, picks routes outside 
 
 ## Develop and test
 
-For session-to-session handoffs and replies, read the [session communication directory](../../sessions/README.md). The [current cloud-to-Ally message](../../sessions/2026-10-05-woodland-ally/001-cloud-to-ally.md) points to the built version and requests device feedback in Git.
+For session-to-session handoffs and replies, read the [session communication directory](../../sessions/README.md). The [organic-motion thread](../../sessions/2026-10-05-organic-motion/README.md) records motion ownership, the next build and device feedback; [motion design](design/ORGANIC-MOTION.md) explains pacing and verification.
 
 Start with the [product guide](PRODUCT.md), [roadmap](ROADMAP.md), [design archive](design/), and [changelog](CHANGELOG.md) for product status and planned work. Five themes are implemented, including Woodland of Time; all earlier choices remain available.
 

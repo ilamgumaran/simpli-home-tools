@@ -14,7 +14,7 @@ Use **Code → Download ZIP**, extract it, and open the portable HTML file. Alte
 
 ## Session communication
 
-Start with [sessions/README.md](sessions/README.md) when continuing work in another session. The directory keeps numbered messages, handoffs, replies and testing results in Git. The current [cloud-to-Ally message](sessions/2026-10-05-woodland-ally/001-cloud-to-ally.md) identifies the published Woodland build and asks the local session to install/test it and return its findings here.
+Start with [sessions/README.md](sessions/README.md) when continuing work in another session. The directory keeps numbered messages, handoffs, replies and testing results in Git. The [organic-motion thread](sessions/2026-10-05-organic-motion/README.md) records current motion ownership and the next build handoff; the local session should fetch its branch and return device findings in Git.
 
 Fetch `feature/living-woodland-time` to read that handoff while PR #3 remains unmerged. Git does not notify sessions automatically; fetch and read the relevant thread before acting.
 

@@ -16,6 +16,16 @@ The first Woodland slice demonstrates all layers together: readable trail numera
 
 The next Woodland expansion is material-edit choreography: work visibly connects to a current numeral's trail edging, stepping stones or crossing. The initial scene must describe any activities that happen beside the numerals honestly. A foreground shelter appearing near a digit is not yet evidence that its construction made that digit.
 
+### Visual refinement — implemented and browser-verified
+
+The owner's review found that the scene and characters looked too small, movement felt abrupt, timber needed more fidelity, and mountains needed softer forms. The composition now fills the available panel, with corrected digit/tree/sun proportions and a larger responsive cast. All four canonical time digits and the independent time strip remain part of the composition.
+
+Shared limb cycles and IK target blends are smoother, climbing is eased, and continuous authored travel connects worksite positions. The minute peg remains a decoration without moving the worker instantly to it. Stationary protected recovery remains a distinct hold; repeated climbing visits return by protected rappel. Timber shows bark, end grain, knots and thickness; organic curved mountain layers add depth away from essential numeral edges.
+
+[Organic motion](ORGANIC-MOTION.md) separates body-paced 1–20 second travel from work. Each minute starts a chapter/arrival; configured intervals can repeat travel/work within that minute, ending before the next visit or second 55. Work windows under four seconds are skipped rather than losing recovery. Contact-rig blends and planted steps avoid worksite jumps. Companion-off, reduced motion, hidden tabs, open settings and screen rest suppress moving frames. This preserves bounded motion rather than an always-running scene.
+
+Acceptance review covers compact landscape, desktop and portrait layouts, character size and reach, continuity at visit/minute boundaries, stationary recovery and quiet/reduced-motion behavior. Full hosted and offline portable suites passed in Chrome for Testing 151, Edge 154 and Playwright Firefox 153 on Linux. Added checks cover root and solved-limb continuity for durations 4/12/20 and intervals 30/45/60/90/300 seconds, preserved character proportions, fully visible actors and numeral edges, and compact/portrait layouts. Synthetic art review checked story spacing and handheld/desktop/portrait scenes; physical Ally and Vanadium review remains pending. This pass is visual choreography; contact-pinned locomotion, rope forces, conserved materials and persistent resources remain separate future milestones.
+
 ## Layer interfaces
 
 Use stable identifiers and immutable definitions. Themes select definitions; a scene instance samples them using one clock snapshot. Do not put individual SVG figures, gear catalogs, story captions and clock arithmetic into the same theme-specific animation timeline.

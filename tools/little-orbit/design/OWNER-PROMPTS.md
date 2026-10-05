@@ -1,6 +1,6 @@
 # Latest living-world handoff
 
-Read the [session communication index](../../../sessions/README.md) and [current cloud-to-Ally message](../../../sessions/2026-10-05-woodland-ally/001-cloud-to-ally.md) when moving between sessions. The Ally session should publish its response as the next numbered message in that thread.
+Read the [session communication index](../../../sessions/README.md) and [current cloud-to-Ally message](../../../sessions/2026-10-05-woodland-refinement/001-cloud-to-ally.md) when moving between sessions. The Ally session should publish its response as the next numbered message in that thread.
 
 For installing the completed cloud build and testing it in the other Ally session, start with [ALLY-TEST-HANDOFF.md](ALLY-TEST-HANDOFF.md). It pins the tested runtime and portable checksum, gives Windows pull/start/restart steps, and records what is implemented and what remains planned.
 

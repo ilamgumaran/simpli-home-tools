@@ -101,5 +101,54 @@
   return {running,progress,phase:model.second<3&&!reducedMotion&&model.hour>=6?'mark':effort?.resting?'recover':running?'work':'observe',
    pose:model.hour<6?'sleep':effort?.resting?'recover-climb':effort?.action||(!running?(model.action.pose==='climb'?'recover-climb':'rest'):model.action.pose),fatigue:effort?.fatigue||0,assisted:effort?.assisted||false,climb:effort?.progress??(model.action.pose==='climb'?1:0)};
  }
- globalThis.DeskWorlds=freeze({numerals,routes,landscapes,actions,philosophies,stories,recipes,itinerary,clock,woodland,performance});
+ // Travel has its own body-scale pace; work begins on arrival instead of using
+ // up the effort/recovery budget during a crossing. Each configured visit starts
+ // with its crossing; effort ends before the next visit or the quiet final five
+ // seconds. Woodland starts a fresh chapter at each minute for clock readability.
+ function motionTiming(model,{distance=0,duration=12,interval=60,reducedMotion=false}={}){
+  const span=Math.max(0,Number.isFinite(distance)?distance:0),travel=Math.max(1,Math.min(20,span/50));
+  const requested=Math.max(0,Number.isFinite(duration)?duration:12),repeat=Math.max(30,Number.isFinite(interval)?interval:60);
+  const visitStart=Math.floor(model.second/repeat)*repeat,workStart=visitStart+travel;
+  const available=Math.max(0,Math.min(requested,repeat-travel,55-workStart)),workDuration=available>=4?available:0;
+  const quiet=reducedMotion||model.hour<6,traveling=!quiet&&workDuration>=4&&model.second<workStart&&model.second<55;
+  const elapsed=traveling?model.second-visitStart:Math.max(0,model.second-workStart);
+  const running=!quiet&&!traveling&&workDuration>=4&&model.second<workStart+workDuration&&model.second<55;
+  const progress=traveling?0:running?elapsed/workDuration:1,climbing=model.action.pose==='climb';
+  const effort=climbing&&running?DeskCharacters.ascent(progress,Math.max(0,workDuration-elapsed)):null;
+  const assisted=!!effort&&!effort.resting&&progress>.85&&workDuration-elapsed<=1.5;
+  return {travel,traveling,running,progress,climb:traveling?0:effort?.progress??(climbing?1:0),fatigue:effort?.fatigue||0,assisted,
+   pose:model.hour<6?'sleep':traveling?'walk':effort?.resting?'recover-climb':assisted?'assist':effort?.action||(running?model.action.pose:climbing?'recover-climb':'rest'),
+   phase:traveling?'travel':effort?.resting?'recover':running?'work':'observe',visitStart,workStart,workDuration,elapsed};
+ }
+ const ease=t=>{const p=Math.max(0,Math.min(1,t));return p*p*p*(p*(p*6-15)+10);};
+ function worksite(model,progress=1,climb=1){
+  return {x:model.action.role==='climbing'?57:model.actionId==='water'?541:model.actionId==='forage'?586:model.actionId==='bridge'?453:280+(model.actionId==='survey'?progress*90:0),y:model.action.role==='climbing'?301-climb*56:300};
+ }
+ // Travel joins the previous endpoint to this visit without jumping to the glyph.
+ // A repeated climbing visit begins with a protected return to its lower holds.
+ function blocking(model,previous,performanceState,{duration=12,interval=60,reducedMotion=false,target:site=null,prior:priorSite=null}={}){
+  const p=performanceState,visit=mod(model.hour*3600+model.minute*60+model.second,Math.max(30,interval)),travel=Math.min(3,duration*.25);
+  const minuteMove=model.second<travel,elapsed=minuteMove?model.second:visit;
+  const moving=!reducedMotion&&model.hour>=6&&(minuteMove||(p.running&&visit<travel));
+  const before=minuteMove?performance(previous,{duration,interval}):{progress:1,climb:1,pose:model.action.role==='climbing'?'recover-climb':'rest'};
+  const target=site||worksite(model,p.progress,p.climb),prior=priorSite||(minuteMove?worksite(previous,before.progress,before.climb):worksite(model));
+  const source=visit+1e-7>=model.second?worksite(previous):worksite(model);
+  const travelAction=model.action.role==='climbing'&&source.x===target.x?'rappel':'walk';
+  const amount=moving?ease(elapsed/travel):1;
+  const position={x:prior.x+(target.x-prior.x)*amount,y:prior.y+(target.y-prior.y)*amount};
+  const cycle=moving?elapsed*1.25:p.progress*3;
+  let action=moving?travelAction:p.pose,from=null,fromCycle=cycle,blend=1;
+  if(moving){from=before.running&&before.progress>=.94?(previous.action.role==='climbing'?'recover-climb':'rest'):before.pose;fromCycle=before.progress*3;blend=ease(elapsed/Math.min(.35,travel*.25));}
+  if(!reducedMotion&&p.running&&!moving){
+   const boundary=p.progress<.34?travel/duration:p.progress<.5?.34:p.progress<.94?.5:.94;
+   if(model.action.role!=='climbing'&&boundary!==travel/duration){from=null;}
+   else{from=boundary===.34?'climb':boundary===.5?'recover-climb':travelAction;fromCycle=boundary===travel/duration?travel*1.25:boundary*3;blend=boundary===travel/duration?ease((visit-travel)/.35):ease((p.progress-boundary)/.03);}
+   if(p.progress>=.94){action=model.action.role==='climbing'?'recover-climb':'rest';from=p.pose;blend=ease((p.progress-.94)/.06);}
+  }
+  // Minute travel can occur between work visits, then settle without a pose snap.
+  if(!moving&&!reducedMotion&&model.second>=travel&&model.second<travel+.35){from=travelAction;fromCycle=travel*1.25;blend=ease((model.second-travel)/.35);}
+  if(model.hour<6){action='sleep';position.x=worksite(model).x;position.y=300;}
+  return {position,action,cycle,from,fromCycle,blend,moving,travel,elapsed,settling:from!==null&&blend<1};
+ }
+ globalThis.DeskWorlds=freeze({numerals,routes,landscapes,actions,philosophies,stories,recipes,itinerary,clock,woodland,performance,motionTiming,worksite,blocking});
 })();
