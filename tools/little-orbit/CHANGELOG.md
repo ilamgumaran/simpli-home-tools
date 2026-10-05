@@ -6,6 +6,10 @@ No tagged releases yet. Entries below describe implemented code on the developme
 
 ### Added
 
+- Woodland of Time, the fifth theme: complete earth-trail HH:MM, distinct hourly woodland landmarks, twelve minute activities, six authored daily stories and a quiet daily reflection chapter.
+- Shared world/landscape/action/story/philosophy recipes, central learner Sprout, distinct gathering/building/water/cooking/teaching poses and shared map/spoon props. Woodland protected climbing includes stationary recovery and deadline-only optional assistance.
+- Living-world composition and specialist plans for industrial, weaving, farming, railway and ant themes; later implementations and deeper simulation remain proposed.
+
 - Shared character registry for Pip, Moss and Ridge; reusable appearance layers, jointed body rig, role kits and 83-item equipment catalog. Interactive character workshop shares the runtime library.
 - Climbing scenes use waist/leg-loop harness attachments, per-ascent exertion and a mandatory recovery hold. Optional ascender assistance appears only late in the route budget; portaledge support and climber protection remain separate.
 

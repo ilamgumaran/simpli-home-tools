@@ -21,5 +21,7 @@ const climber=fs.readFileSync(path.join(root,'time-climber.js'),'utf8');
 const portable=html.replace('<script src="display-settings.js"></script>',`<script>\n${display.replace(/<\/script/gi,'<\\/script')}\n</script>`).replace('<script src="time-climber.js"></script>',`<script>\n${climber.replace(/<\/script/gi,'<\\/script')}\n</script>`);
 const mountain=fs.readFileSync(path.join(root,'time-climber-ii.js'),'utf8');
 const complete=portable.replace('<script src="time-climber-ii.js"></script>',`<script>\n${mountain.replace(/<\/script/gi,'<\\/script')}\n</script>`);
-fs.writeFileSync(path.join(root,'Little Orbit.html'),complete);
+let living=complete;
+for(const file of ['world-layers.js','woodland-time.js']){const source=fs.readFileSync(path.join(root,file),'utf8');living=living.replace(`<script src="${file}"></script>`,`<script>\n${source.replace(/<\/script/gi,'<\\/script')}\n</script>`);}
+fs.writeFileSync(path.join(root,'Little Orbit.html'),living);
 console.log('Built portable Little Orbit.html (no installation, runtime, or external fonts).');

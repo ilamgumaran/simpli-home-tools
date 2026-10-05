@@ -1,0 +1,69 @@
+const {engine,options,url,freezeClock}=require('./runtime.cjs');
+const assert=require('node:assert/strict'),path=require('node:path'),{pathToFileURL}=require('node:url');
+(async()=>{
+ const browser=await engine.launch({...options,headless:true});
+ try{
+  for(const target of [url,pathToFileURL(path.join(__dirname,'..','Little Orbit.html')).href]){
+   const context=await browser.newContext({viewport:{width:1280,height:720},timezoneId:'America/New_York'});
+   const page=await context.newPage(),errors=[];page.on('pageerror',e=>errors.push(e.message));await page.route('https://**',r=>r.abort());
+   await freezeClock(page,'2026-10-05T10:02:04-04:00');
+   await page.addInitScript(()=>localStorage.setItem('orbit-settings',JSON.stringify({theme:'woodland',care:false,rest:false,night:false,lowPower:false})));
+   await page.goto(target);assert.equal(await page.locator('#woodland-scene').isVisible(),true);
+   const checkTime=async expected=>{
+    assert.equal(await page.locator('#woodland-scene').getAttribute('data-time'),expected);assert.equal(await page.locator('#time').innerText(),expected);
+    const glyphs=await page.locator('#woodland-numerals').evaluate(e=>[...e.children].map(g=>({digit:g.dataset.digit,path:g.querySelector('.woodland-trail').getAttribute('d'),expected:DeskWorlds.numerals[g.dataset.digit]})));
+    assert.equal(glyphs.map(g=>g.digit).join(''),expected.replace(':',''));assert.ok(glyphs.every(g=>g.path===g.expected));assert.equal(glyphs.length,4);
+    assert.match(await page.locator('#woodland-title').textContent(),new RegExp(expected));
+   };
+   await checkTime('10:02');await page.evaluate(()=>{prefs.format24=true;WoodlandTime.sync();});assert.match(await page.locator('#woodland-title').textContent(),/24H/);await page.evaluate(()=>{prefs.format24=false;WoodlandTime.sync();});assert.equal(await page.locator('#woodland-scene').getAttribute('data-story'),'family');assert.equal(await page.locator('#woodland-cast > g').count(),3);
+   for(const viewport of [{width:854,height:480},{width:1280,height:720},{width:1920,height:1080},{width:390,height:844}]){
+    await page.setViewportSize(viewport);
+    const result=await page.evaluate(()=>{
+     let maxHeight=0,minDigit=Infinity,minStroke=Infinity;
+     for(const focus of [false,true])for(const scale of [.8,1.2])for(const f of facts){
+      prefs.display.factScale=scale;prefs.display.clockScale=scale;prefs.display.weatherScale=scale;document.documentElement.style.setProperty('--fact-scale',scale);document.documentElement.style.setProperty('--clock-scale',scale);document.documentElement.style.setProperty('--weather-scale',scale);
+      document.body.classList.toggle('fact-focus',focus);document.querySelector('#fact-title').textContent=f[0];document.querySelector('#fact-text').textContent=f[1];WoodlandTime.sync();
+      maxHeight=Math.max(maxHeight,document.body.scrollHeight);
+      const path=document.querySelector('.woodland-trail'),matrix=path.getScreenCTM();minDigit=Math.min(minDigit,150*matrix.d);minStroke=Math.min(minStroke,13*matrix.d);
+     }
+     return {height:maxHeight,width:document.body.scrollWidth,minDigit,minStroke};
+    });
+    assert.ok(result.height<=viewport.height&&result.width<=viewport.width,JSON.stringify({viewport,result}));assert.ok(result.minDigit>=24&&result.minStroke>=2,JSON.stringify({viewport,result}));
+   }
+   await page.setViewportSize({width:1280,height:720});await page.evaluate(()=>{prefs.display.factScale=1;prefs.display.clockScale=1;prefs.display.weatherScale=1;applyDisplay();WoodlandTime.refresh();});
+   // Every activity has a coherent current-time snapshot, even between visits.
+   for(let minute=0;minute<12;minute++){
+    await page.clock.setSystemTime(new Date(`2026-10-05T10:${String(minute).padStart(2,'0')}:04-04:00`));await page.evaluate(()=>WoodlandTime.refresh());
+    await checkTime('10:'+String(minute).padStart(2,'0'));assert.ok((await page.locator('#woodland-props').innerHTML()).length>0);
+    if(minute===3)assert.equal(await page.locator('#woodland-cast [data-part=held-bottle]').first().getAttribute('display'),'');
+    if(minute===8)assert.equal(await page.locator('#woodland-cast [data-part=held-spoon]').first().getAttribute('display'),'');
+   }
+   await page.clock.setSystemTime(new Date('2026-10-05T10:05:04.3-04:00'));await page.evaluate(()=>WoodlandTime.refresh());
+   const recovering=await page.locator('#woodland-cast > g').first().getAttribute('transform');assert.equal(await page.locator('#woodland-scene').getAttribute('data-phase'),'recover');await page.clock.runFor(1000);
+   assert.equal(await page.locator('#woodland-cast > g').first().getAttribute('transform'),recovering);assert.equal(await page.locator('#woodland-cast .character-art').first().getAttribute('data-action'),'recover-climb');
+   await page.clock.setSystemTime(new Date('2026-10-05T10:05:10.8-04:00'));await page.evaluate(()=>WoodlandTime.refresh());assert.equal(await page.locator('#woodland-cast .character-art').first().getAttribute('data-rope-system'),'protected-fixed-line');
+   // A visit spaced across a boundary must not keep the old digit on screen.
+   await page.clock.setSystemTime(new Date('2026-10-05T10:09:59.900-04:00'));await page.evaluate(()=>{prefs.display.companionInterval=45;prefs.display.companionDuration=20;WoodlandTime.refresh();});await checkTime('10:09');await page.clock.runFor(101);await checkTime('10:10');
+   await page.clock.setSystemTime(new Date('2026-10-05T10:59:59.900-04:00'));await page.evaluate(()=>WoodlandTime.refresh());const terrain=await page.locator('#woodland-scene').getAttribute('data-terrain');await page.clock.runFor(101);await checkTime('11:00');assert.notEqual(await page.locator('#woodland-scene').getAttribute('data-terrain'),terrain);
+   await page.clock.setSystemTime(new Date('2026-10-05T23:59:59.900-04:00'));await page.evaluate(()=>{prefs.format24=true;WoodlandTime.refresh();});await checkTime('23:59');await page.clock.runFor(101);await checkTime('00:00');
+   // DST gap and repeated local hour reconstruct the current time without replay.
+   for(const [stamp,time] of [['2026-03-08T03:00:00-04:00','03:00'],['2026-11-01T01:30:00-04:00','01:30'],['2026-11-01T01:00:00-05:00','01:00']]){await page.clock.setSystemTime(new Date(stamp));await page.evaluate(()=>WoodlandTime.refresh());await checkTime(time);}
+   await page.clock.setSystemTime(new Date('2026-10-05T02:05:01-04:00'));await page.evaluate(()=>WoodlandTime.refresh());assert.equal(await page.locator('#woodland-cast .character-art[data-action=sleep]').count(),3);assert.equal(await page.locator('#woodland-rope').evaluate(e=>getComputedStyle(e).display),'none');
+   await page.clock.setSystemTime(new Date('2026-10-05T18:03:01-04:00'));await page.evaluate(()=>WoodlandTime.refresh());assert.equal(await page.locator('#woodland-scene').getAttribute('data-action'),'teach');assert.match(await page.locator('#woodland-story').textContent(),/watch the light together/);
+   await page.clock.setSystemTime(new Date('2026-10-05T10:05:00-04:00'));await page.evaluate(()=>WoodlandTime.refresh());assert.equal(await page.locator('#woodland-rope').evaluate(e=>getComputedStyle(e).display),'none');
+   await page.evaluate(()=>{window._woodlandHidden=true;Object.defineProperty(document,'visibilityState',{configurable:true,get:()=>window._woodlandHidden?'hidden':'visible'});document.dispatchEvent(new Event('visibilitychange'));});assert.equal(await page.evaluate(()=>WoodlandTime.running||WoodlandTime.pending),false);
+   await page.clock.setSystemTime(new Date('2026-10-05T10:05:00-04:00'));await page.evaluate(()=>{window._woodlandHidden=false;document.dispatchEvent(new Event('visibilitychange'));});await checkTime('10:05');
+   await page.evaluate(()=>{document.body.classList.add('screen-rest');WoodlandTime.sync();});assert.equal(await page.evaluate(()=>WoodlandTime.running||WoodlandTime.pending),false);await page.evaluate(()=>{document.body.classList.remove('screen-rest');WoodlandTime.sync();});
+   await page.getByRole('button',{name:'Settings'}).click();assert.equal(await page.evaluate(()=>WoodlandTime.running||WoodlandTime.pending),false);await page.locator('#close-settings').click();
+   await page.emulateMedia({reducedMotion:'reduce'});await page.waitForFunction(()=>matchMedia('(prefers-reduced-motion: reduce)').matches);await page.evaluate(()=>WoodlandTime.sync());assert.equal(await page.evaluate(()=>WoodlandTime.running),false);
+   await page.evaluate(()=>{prefs.display.companion=false;WoodlandTime.refresh();});assert.equal(await page.locator('#woodland-cast').evaluate(e=>getComputedStyle(e).display),'none');assert.equal(await page.evaluate(()=>WoodlandTime.running),false);
+   await page.clock.runFor(60000);await checkTime('10:06');
+   // A lead override does not duplicate family cast or contradict named episodes.
+   await page.evaluate(()=>{ORBIT_CONFIG.characters.woodland='ridge';prefs.display.companion=true;WoodlandTime.refresh();});assert.equal(await page.locator('#woodland-cast [data-character=ridge]').count(),1);assert.equal(await page.locator('#woodland-cast > g').count(),3);
+   await page.clock.setSystemTime(new Date('2026-10-07T10:06:12-04:00'));await page.evaluate(()=>WoodlandTime.refresh());assert.equal(await page.locator('#woodland-cast > g').count(),2);assert.match(await page.locator('#woodland-story').textContent(),/Two travelers/);await page.clock.setSystemTime(new Date('2026-10-05T10:06:12-04:00'));
+   await page.evaluate(()=>{ORBIT_CONFIG.characters.woodland='sprout';WoodlandTime.refresh();});assert.equal(await page.locator('#woodland-cast .character-art').first().getAttribute('data-character'),'moss');
+   await page.evaluate(()=>{prefs.theme='orbit';applyTheme();});assert.equal(await page.locator('#woodland-scene').isHidden(),true);assert.equal(await page.evaluate(()=>WoodlandTime.running||WoodlandTime.pending),false);
+   assert.deepEqual(errors,[]);console.log('PASS Woodland:',target.startsWith('file:')?'portable offline':'hosted','all activities, exact minute/hour/midnight/DST, recovery/aid, cast, compact readability and pause/quiet lifecycle.');await context.close();
+  }
+ }finally{await browser.close();}
+})().catch(e=>{console.error(e);process.exit(1)});

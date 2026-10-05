@@ -13,12 +13,12 @@ Open **Settings → Display & character**. The settings are saved for this brows
 | Panel spacing | Space between rows in the wide display layout | 4–24 px; 8 px |
 | Character visits every | Delay between visits; panel glides may postpone a visit | 30–300 seconds; 60 |
 | Character visit length | Maximum visit duration; sweeping is capped at 8 seconds | 4–20 seconds; 12 |
-| Character | Show the companion in Candy Quest, Time Climber, or Time Climber II | On |
+| Character | Show the companion in Candy Quest, Time Climber, Time Climber II, or Woodland | On |
 | Time Climber II camera | Gentle focus/perspective changes or a still scene; reduced motion takes priority | Gentle / Still; Gentle |
 
 **Reset display sizes** restores the site's display defaults without changing location, theme, or screen-care choices. Larger fonts may require reducing another size or spacing on small screens. Reduced-motion preferences always take priority and show a brief still appearance.
 
-The Theme button cycles Orbit, Candy Quest, Time Climber, and Time Climber II. The fourth theme has a fixed full time/date readout and a separate moving mountain scene. Time/date use the device clock and timezone. Weather location and Fahrenheit/Celsius are independent of the device locale. Touch lock and fullscreen are browser features; wake lock is requested where available. Configure sleep and physical brightness in the OS.
+The Theme button cycles Orbit, Candy Quest, Time Climber, Time Climber II, and Woodland of Time. The fourth theme has a fixed full time/date readout and a separate moving mountain scene. Time/date use the device clock and timezone. Weather location and Fahrenheit/Celsius are independent of the device locale. Touch lock and fullscreen are browser features; wake lock is requested where available. Configure sleep and physical brightness in the OS.
 
 ## Site defaults
 
@@ -47,7 +47,7 @@ window.ORBIT_CONFIG = {
 };
 ```
 
-Omitted values keep built-in defaults. Display numbers are constrained to the ranges above. `format24` selects 24-hour time. `care`, `rest`, `night`, and `lowPower` control shifting, hourly black breaks, night dimming, and lower-frequency updates. Keep exact theme IDs (`orbit`, `candy`, `climber`, or `climber2`), profile IDs (`auto`, `handheld`, `desktop`, `tablet`), camera IDs (`gentle`, `still`), and unit IDs (`celsius` or `fahrenheit`).
+Omitted values keep built-in defaults. Display numbers are constrained to the ranges above. `format24` selects 24-hour time. `care`, `rest`, `night`, and `lowPower` control shifting, hourly black breaks, night dimming, and lower-frequency updates. Keep exact theme IDs (`orbit`, `candy`, `climber`, `climber2`, or `woodland`), profile IDs (`auto`, `handheld`, `desktop`, `tablet`), camera IDs (`gentle`, `still`), and unit IDs (`celsius` or `fahrenheit`).
 
 Configuration is executable local JavaScript; accept config changes through normal source review. Put public defaults in this file; do not put API secrets or personal browser settings in the repository.
 
@@ -69,3 +69,9 @@ Time Climber uses the same character controls. At the default 60-second interval
 ## Shared character defaults
 
 `config.js` exposes `characters: {candy: 'candy', climber: 'moss', climber2: 'ridge'}`. Choose any registered identity for a theme; its role stays with the scene. Orbit has no mascot by default. This is a site configuration option, not a new browser setting. Run `npm run build` afterward for portable use. Identity, colors, body and gear are defined once in `characters.js`; use `DeskCharacters.create(id, {role, appearance})` for an independent appearance instance. See the [character workshop and design notes](design/CHARACTERS.md).
+
+### Woodland of Time
+
+Use `theme: 'woodland'` for the fifth theme. Its four terrain numerals always show the selected current local HH:MM; the place changes each hour and activity each minute. `display.companionInterval` and `companionDuration` govern bounded moving visits; minutes between visits still show a settled scene. Companions off hides the cast and work motion. Reduced motion selects static poses. The Time Climber II camera setting applies only to that theme.
+
+Woodland normally selects Moss or Ridge from its daily story. An optional `characters.woodland: 'ridge'` (or another adult identity) overrides the lead; conflicting adult cast slots swap to preserve the episode’s participants and named captions follow the chosen lead. Sprout remains a grounded learner and is not accepted as a woodland lead override. Hourly screen-rest and night dimming remain controlled by their existing settings. The daily reflection chapter uses local 18:00–18:59; this is authored story time, not a computed sunset.
