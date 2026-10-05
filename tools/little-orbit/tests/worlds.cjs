@@ -37,7 +37,8 @@ for(let sample=0;sample<=1000;sample++){
 assert.throws(()=>characters.walkContacts(walkRoute,NaN));
 for(let sample=0;sample<=100;sample++){
  const angle=Math.PI/2+Math.sin(sample/100*Math.PI*6)*.12;
- for(const [root,work,hand,action] of [[{x:299,y:303},{x:303,y:319},0,'gather'],[{x:326,y:300},{x:339,y:309},1,'cook']]){
+ for(const [root,work,hand,action] of [[{x:299,y:303},{x:303,y:319},0,'gather'],[{x:326,y:300},{x:339,y:309},1,'cook'],[{x:299,y:300},{x:313,y:311},1,'build'],[{x:465,y:300},{x:479,y:311},1,'build']]){
+  if(action!=='gather')work.x+=Math.sin(sample/100*Math.PI*6)*2;
   const rig=characters.workContacts({root,work,hand,action,scale:.72,groundY:318.72,angle}),wrist=rig.arms[hand][2],grip=characters.toolGrip(wrist,rig.toolTarget);
   assert.ok(Math.hypot(grip.tip.x-rig.toolTarget.x,grip.tip.y-rig.toolTarget.y)<1e-8);
   assert.ok(Math.hypot(grip.x-wrist.x,grip.y-wrist.y)<1e-8);
@@ -76,4 +77,37 @@ for(const second of [0,1,4.2,5.8,10.8,12,45]){
 const model=worlds.woodland(new Date(2026,9,5,10,0,1));assert.equal(worlds.performance(model,{reducedMotion:true}).running,false);assert.equal(worlds.performance(model,{reducedMotion:true}).phase,'observe');
 const night=worlds.woodland(new Date(2026,9,5,2,5,1));assert.equal(worlds.performance(night).pose,'sleep');assert.equal(worlds.performance(night).running,false);
 assert.throws(()=>worlds.woodland(new Date(NaN)));
+// Wall-time choreography joins minute/visit endpoints and holds recovery still.
+const sample=(stamp,options={})=>{
+ const m=worlds.woodland(new Date(stamp)),previous=worlds.woodland(new Date(+new Date(stamp)-m.second*1000-1));
+ return worlds.blocking(m,previous,worlds.performance(m,options),options);
+};
+for(let minute=1;minute<12;minute++){
+ const boundary=+new Date(2026,9,5,10,minute,0);
+ const before=sample(boundary-1),after=sample(boundary+1);
+ assert.ok(Math.hypot(before.position.x-after.position.x,before.position.y-after.position.y)<.01,`minute ${minute} teleports`);
+ for(const offset of [3000,12000]){
+  const a=sample(boundary+offset-1),b=sample(boundary+offset+1);
+  assert.ok(Math.hypot(a.position.x-b.position.x,a.position.y-b.position.y)<.1,`minute ${minute} visit edge jumps`);
+ }
+}
+const recovery=+new Date(2026,9,5,10,5,4,300);
+assert.deepEqual(sample(recovery).position,sample(recovery+1000).position);
+assert.equal(sample(recovery-4300,{reducedMotion:true}).moving,false);
+assert.equal(sample(recovery-4300,{reducedMotion:true}).settling,false);
+const repeat=+new Date(2026,9,5,10,5,30);
+assert.ok(Math.hypot(sample(repeat-1,{interval:30}).position.y-sample(repeat+1,{interval:30}).position.y)<.01);
+// Include non-aligned intervals, repeat visits, actual limb endpoints and phase blends.
+for(const duration of [4,12,20])for(const interval of [30,45,60,90,300])for(let minute=0;minute<12;minute++){
+ const start=+new Date(2026,9,5,10,minute),travel=Math.min(3,duration*.25),events=[0,travel,travel+.35];
+ const first=(interval-(36000+minute*60)%interval)%interval;
+ for(let visit=first;visit<60;visit+=interval)events.push(visit,visit+travel,visit+travel+.35,...[.34,.5,.94,1].map(p=>visit+duration*p));
+ for(const second of events){
+  const at=start+second*1000,a=sample(at-1,{duration,interval}),b=sample(at+1,{duration,interval});
+  const label=JSON.stringify({duration,interval,minute,second});
+  assert.ok(Math.hypot(a.position.x-b.position.x,a.position.y-b.position.y)<.3,`root discontinuity ${label}`);
+  const pa=characters.pose(a.action,a.cycle,a),pb=characters.pose(b.action,b.cycle,b);
+  for(const kind of ['arms','legs'])for(let i=0;i<2;i++)for(let j=0;j<3;j++)assert.ok(Math.hypot(pa[kind][i][j].x-pb[kind][i][j].x,pa[kind][i][j].y-pb[kind][i][j].y)<.3,`limb discontinuity ${label}`);
+ }
+}
 console.log('PASS living worlds: all 1,440 minutes, atomic calendar boundaries, six daily casts, reflection beats, gear contracts, recovery/deadline and quiet states.');

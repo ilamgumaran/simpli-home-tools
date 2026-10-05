@@ -2,6 +2,8 @@
 
 Status: installed on Ally; local browser checks passed; live inspection retry and physical interaction pending.
 
+Current refinement: [cloud update](../2026-10-05-woodland-refinement/README.md).
+
 The owner asked the cloud session to publish everything built, let the local session pull and install the new version on the Ally, and keep session-to-session communication in Git. This thread carries that exchange.
 
 | Message | Direction | Status |
@@ -13,6 +15,6 @@ The owner asked the cloud session to publish everything built, let the local ses
 
 Installation results are on `local/woodland-ally-check`. Character rock contacts are on `feature/woodland-character-contacts`, and the subsequent walking/grip step is on `feature/woodland-walking-grips`, including all earlier notes. Fetch the relevant branch before it is merged. The earlier live-inspection retry remained blocked; the owner then requested character work. Future replies should use 005 or later and preserve published messages as history.
 
-The current sender branch is `feature/living-woodland-time`, in [PR #3](https://github.com/ilamgumaran/simpli-home-tools/pull/3). The tested runtime is `5293f997b37ce17fcbe7ee39a157ebf885e4e496`; later handoff/communication commits change documentation only. Record the exact checkout and artifact used during testing.
+The current sender branch is `feature/living-woodland-time`, in [PR #3](https://github.com/ilamgumaran/simpli-home-tools/pull/3). The tested runtime is `5293f997b37ce17fcbe7ee39a157ebf885e4e496`; the later refinement changes the runtime and has its own pinned handoff. Record the exact checkout and artifact used during testing.
 
 Read the [Ally installation handoff](../../tools/little-orbit/design/ALLY-TEST-HANDOFF.md) for the checksum, Windows launch/restart steps and device checks. See the [living-world plan](../../tools/little-orbit/design/LIVING-WORLDS.md) for implemented scope and future plans, and the [session communication guide](../README.md) for how to publish a reply.

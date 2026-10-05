@@ -15,7 +15,7 @@ Active work gently varies the grip and work point; reduced motion and quiet visi
 - Densely sample walking: at least one foot planted, no foot below ground, exact planted endpoints and fixed bone lengths.
 - Check actual rendered SVG feet against ground/socket coordinates across steps, map stowing and destination rest in hosted/portable forms.
 - Check tool handle at wrist and working end at the rendered work socket; retain all clock, font/viewport, pause, screen-care and portable checks.
-- Next: reach-aware shelter/crossing work and reciprocal teaching gestures, then a specialist tree route and role. Compact-scene character visibility still requires separate visual refinement.
+- Shelter/crossing work and reciprocal teaching are now implemented in [the refinement integration](REFINEMENT-AND-WORK.md). Next: a specialist tree route and role. Compact character sizing is now refined; physical device readability remains to be reviewed.
 - Later: supported center-of-mass/collision/dynamics, persistent resources and effort, and richer transitions between activities.
 
 Shared presets and saved browser preferences remain compatible. This adds no settings, modules, network calls or external assets.

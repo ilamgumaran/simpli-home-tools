@@ -18,3 +18,5 @@ Start a new session with the [owner prompts and handoff](OWNER-PROMPTS.md). Plan
 The preview has a fixed sample clock and manually selected focus/viewpoints. It does not change settings or connect to the running desk clock. GitHub's file viewer displays its source; download the file to interact with it.
 
 See [architecture](ARCHITECTURE.md), [decision log](DECISIONS.md), [product guide](../PRODUCT.md), and [roadmap](../ROADMAP.md) for context. Keep originals/license notices with artwork. Do not save personal screen captures, device profiles, private settings, credentials, or OS power state here.
+
+- [Woodland refinement and supported work](REFINEMENT-AND-WORK.md): merged size/motion and contact histories, shelter/crossing sockets, teaching and remaining milestones.
