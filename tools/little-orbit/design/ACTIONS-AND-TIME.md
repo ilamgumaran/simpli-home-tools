@@ -1,10 +1,12 @@
 # Activities, effort and the time contract
 
-Status: implementation plan for reusable activity layers, October 2026. Woodland is the first scene; the other worlds below are proposals. This document defines the target behavior and acceptance criteria. It does not claim that world-space contacts, biological simulation, conserved resources or material-by-material numeral construction already exist. The current shared rig provides bounded articulated poses and a short sampled recovery model; the first woodland scene uses authored illustrations.
+Status: implementation plan for reusable activity layers, October 2026. Woodland is the first scene; the other worlds below are proposals. This document defines the target behavior and acceptance criteria. World-space contact pinning is now implemented for the authored Woodland rock route; full-body/rope dynamics, biological simulation, conserved resources and material-by-material numeral construction remain targets. Other activities still use the shared bounded pose and short sampled recovery model.
 
 Read alongside [shared characters](CHARACTERS.md), [world composition](LIVING-WORLDS.md) and [architecture](ARCHITECTURE.md). Identities, clothing and equipment stay in `characters.js`; activities reference those IDs rather than defining another person.
 
 ## First Woodland acceptance scope
+
+Follow-up implementation: [planted Woodland rock contacts](CHARACTER-CONTACTS.md) adds actual authored world-space sockets, one-limb transfers and supported body movement to the rock activity. Its scope does not imply the broader contact, tree, ground-walking or dynamics acceptance criteria below are already complete.
 
 The first slice targets distinct shared IK hand poses for gathering, building, water, cooking and teaching; hand-attached props; an authored protected climb at the woodland cliff; stationary recovery; and a secured terminal pose. Its minute handoff places a worker and trail peg at a joint of an already current glyph. This is a concrete connection to the time-bearing trail, rather than a complete causal reconstruction of every numeral stroke. Browser and pure-model checks determine whether this slice passes; a plan alone is not evidence.
 

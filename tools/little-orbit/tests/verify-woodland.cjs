@@ -31,6 +31,21 @@ const assert=require('node:assert/strict'),path=require('node:path'),{pathToFile
     assert.ok(result.height<=viewport.height&&result.width<=viewport.width,JSON.stringify({viewport,result}));assert.ok(result.minDigit>=24&&result.minStroke>=2,JSON.stringify({viewport,result}));
    }
    await page.setViewportSize({width:1280,height:720});await page.evaluate(()=>{prefs.display.factScale=1;prefs.display.clockScale=1;prefs.display.weatherScale=1;applyDisplay();WoodlandTime.refresh();});
+   // Observe actual rendered endpoints on terrain holds during rock steps/body lifts.
+   for(const second of [3.1,3.5,4.3,5.7,6.1,7.2,8.8,10.8,12]){
+    await page.clock.setSystemTime(new Date(new Date('2026-10-05T10:06:00-04:00').getTime()+second*1000));
+    const geometry=await page.evaluate(()=>{
+     WoodlandTime.refresh();const host=document.querySelector('#woodland-cast > g'),held=JSON.parse(host.dataset.contactHolds),names={leftHand:'arm-left',rightHand:'arm-right',leftFoot:'leg-left',rightFoot:'leg-right'};
+     const at=(node,t)=>{const p=node.getPointAtLength(node.getTotalLength()*t);return new DOMPoint(p.x,p.y).matrixTransform(node.getCTM());};
+     const errors=Object.entries(held).filter(([,id])=>id).map(([name,id])=>{const limb=host.querySelector(`[data-part="${names[name]}"]`),hold=document.querySelector(`[data-hold="${id}"]`),a=at(limb,1),b=at(hold,.5);return Math.hypot(a.x-b.x,a.y-b.y);});
+     const loop=DeskCharacters.anatomy.belayLoop,atLoop=new DOMPoint(loop.x,loop.y).matrixTransform(host.getCTM()),ropeEnd=at(document.querySelector('#woodland-rope'),1);
+     return {errors,rope:Math.hypot(atLoop.x-ropeEnd.x,atLoop.y-ropeEnd.y),root:host.getAttribute('transform'),phase:document.querySelector('#woodland-scene').dataset.phase};
+    });
+    assert.ok(geometry.errors.length>=3&&geometry.errors.every(error=>error<.03),JSON.stringify(geometry));assert.ok(geometry.rope<.03,'Rock protection detached from harness');
+   }
+   await page.clock.setSystemTime(new Date('2026-10-05T10:06:04.3-04:00'));await page.evaluate(()=>WoodlandTime.refresh());
+   const recoveryGeometry=()=>{const host=document.querySelector('#woodland-cast > g');return {root:host.getAttribute('transform'),holds:host.dataset.contactHolds,limbs:[...host.querySelectorAll('[data-part^="arm-"],[data-part^="leg-"]')].map(p=>p.getAttribute('d'))};};
+   const rockRecovery=await page.evaluate(recoveryGeometry);await page.clock.runFor(1000);assert.deepEqual(await page.evaluate(recoveryGeometry),rockRecovery,'Rock contacts move during recovery');
    // Every activity has a coherent current-time snapshot, even between visits.
    for(let minute=0;minute<12;minute++){
     await page.clock.setSystemTime(new Date(`2026-10-05T10:${String(minute).padStart(2,'0')}:04-04:00`));await page.evaluate(()=>WoodlandTime.refresh());

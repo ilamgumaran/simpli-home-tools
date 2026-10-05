@@ -6,6 +6,8 @@ This is the product's planning hub. Designs are proposals until explicitly marke
 
 ## Product principles
 
+The character follow-up on `feature/woodland-character-contacts` adds [planted rock contacts](design/CHARACTER-CONTACTS.md) to the Woodland slice. [Progress and outcomes](../../sessions/2026-10-05-woodland-ally/003-character-contacts.md) distinguish implementation/browser checks from pending live-device acceptance.
+
 1. Read the clock at a glance. Time, date, weather, and facts must stay visible across device sizes and motion states.
 2. Browser first. Keep the runtime independent of OS helpers, accounts, installed packages, and external fonts. Preserve the single-file offline path.
 3. Quiet companionship. Characters entertain without dominating the display; motion respects reduced motion, hidden tabs, and low-power settings.
