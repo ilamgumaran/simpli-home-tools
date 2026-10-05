@@ -107,3 +107,5 @@ Current versions use **Simpli Home Tools Noncommercial License 1.0**. Commercial
 > Also pls keep the plans in the main and the overall prompts as I may have another session to improve the theme, landscape and character
 
 Keep this curated record and the planning hub on `main`; update them as the owner changes direction. Clearly distinguish proposals, branch implementations, verification results, and released features. Do not interpret archived prompts as authorization for unrelated deployments or scheduled work.
+
+Current fluid-motion pickup: fetch `feature/woodland-organic-motion` and read [message 005](../../../sessions/2026-10-05-organic-motion/005-cloud-motion-ready.md), then [Ally instructions](ALLY-TEST-HANDOFF.md). The numbered messages preserve earlier installed builds; verify the new revision/checksum before testing.
