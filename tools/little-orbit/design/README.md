@@ -6,6 +6,7 @@ Start a new session with the [owner prompts and handoff](OWNER-PROMPTS.md). Plan
 
 | Design | Status | Preview |
 | --- | --- | --- |
+| [Local installation results](../../../sessions/2026-10-05-woodland-ally/002-ally-to-cloud.md) | Woodland installed; Windows browser suites passed; live inspection pending | Compact-scene feedback and five validation milestones |
 | [Ally install and testing handoff](ALLY-TEST-HANDOFF.md) | Published Woodland build; physical Ally results pending | Tested revision, portable checksum and Windows instructions |
 | [Living-world composition](LIVING-WORLDS.md) | Woodland first slice implemented; five other worlds proposed | Actual clock: select Woodland |
 | [Visual layers](VISUAL-LAYERS.md), [actions and time](ACTIONS-AND-TIME.md), [stories and philosophy](STORIES-AND-PHILOSOPHY.md) | Detailed reusable contracts and future review gates | Original runtime SVG artwork |

@@ -2,7 +2,7 @@
 
 Our Desk Clock is a configurable browser display for desks, families, spare screens, and handhelds. It combines readable time, date, local weather, daily learning, and quiet character scenes. The source directory remains `tools/little-orbit/` for compatibility.
 
-This is the product's planning hub. Designs are proposals until explicitly marked implemented; the portable clock and its tests describe shipped behavior. Current code is on the `add-little-orbit-clock` branch in [PR #1](https://github.com/ilamgumaran/simpli-home-tools/pull/1), pending merge. No versioned release has been published yet.
+This is the product's planning hub. Designs are proposals until explicitly marked implemented. The latest five-theme implementation is on `feature/living-woodland-time` in [PR #3](https://github.com/ilamgumaran/simpli-home-tools/pull/3), stacked on the shared-character and original-clock PRs. No versioned release has been published yet. [Local installation and verification results](../../sessions/2026-10-05-woodland-ally/002-ally-to-cloud.md) distinguish passed browser checks from pending physical-device checks.
 
 ## Product principles
 
