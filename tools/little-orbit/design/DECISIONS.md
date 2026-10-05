@@ -4,6 +4,7 @@ Record durable choices and their reasons. Proposed choices remain labeled until 
 
 | Date | Decision | Status and reason |
 | --- | --- | --- |
+| 2026-10-04 | Keep plans and curated owner prompts on main | Requested by the owner for future theme, landscape and character sessions. Runtime implementation remains in its PR until an authorized merge. |
 | 2026-10-04 | Browser-first runtime; portable single-file distribution | Accepted. Supports browser use across devices without mandatory installation or accounts. |
 | 2026-10-04 | GPL-3.0-only for source, documents and original artwork | Superseded for new versions by the noncommercial license decision below. Earlier GPL grants remain in force. |
 | 2026-10-04 | Our Desk Clock is the product name; keep Little Orbit paths/filenames | Accepted. Clear product identity while preserving existing launchers and links. |

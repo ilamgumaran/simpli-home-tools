@@ -22,6 +22,7 @@ This is the product's planning hub. Designs are proposals until explicitly marke
 | [Roadmap](ROADMAP.md) | Prioritized milestones and completion criteria |
 | [Changelog](CHANGELOG.md) | Implemented changes and release history |
 | [Design index](design/README.md) | Proposals, design studies, and their status |
+| [Owner prompts and session handoff](design/OWNER-PROMPTS.md) | Original product direction and where a new session should resume |
 | [Architecture](design/ARCHITECTURE.md) | Current source map and intended separation as the product grows |
 | [Decision log](design/DECISIONS.md) | Why lasting product choices were made |
 | [Repository contribution guide](../../CONTRIBUTING.md) | Reporting issues and submitting work |

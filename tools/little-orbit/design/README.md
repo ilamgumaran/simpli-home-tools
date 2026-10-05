@@ -2,6 +2,8 @@
 
 Version plans and original design studies here so contributors can see intent before editing the runtime. Every proposal must identify its status and acceptance checks. A design can be superseded without deleting the history from Git.
 
+Start a new session with the [owner prompts and handoff](OWNER-PROMPTS.md). Plans and prompts are kept on `main`; executable code remains in the development PR until merged.
+
 | Design | Status | Preview |
 | --- | --- | --- |
 | [Time Climber II — Mountain of Time](TIME-CLIMBER-V2-PLAN.md) | Initial implementation on development branch; hardware/release review remains | [Original interactive design study](time-climber-ii-preview.html) — download and open in a browser |
