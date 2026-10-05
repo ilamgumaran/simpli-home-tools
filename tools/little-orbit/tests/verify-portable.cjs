@@ -8,9 +8,11 @@ const clockUrl=pathToFileURL(path.join(__dirname,'..','Little Orbit.html')).href
  for(const [name,engine,options] of (process.env.CLOCK_TEST_BROWSER?[process.env.CLOCK_TEST_BROWSER==='firefox'?['Firefox',firefox,{}]:['Chromium',chromium,channelOptions]]:[['Chromium',chromium,channelOptions],['Firefox',firefox,{}]])){
   const browser=await engine.launch({...options,headless:true});
   try{
-   const context=await browser.newContext({viewport:{width:1280,height:720},reducedMotion:'reduce',offline:true});
+   const context=await browser.newContext({viewport:{width:1280,height:720},timezoneId:'America/New_York',reducedMotion:'reduce',offline:true});
    await context.route('https://**',route=>route.abort());
    const page=await context.newPage(),errors=[];page.on('pageerror',e=>errors.push(e.message));
+   // Context clock also applies to the restricted-storage page opened below.
+   await page.clock.install({time:new Date('2026-10-04T12:00:00-04:00')});
    await page.goto(clockUrl);
    await page.waitForFunction(()=>document.getElementById('weather-status').textContent.includes('No connection')||document.getElementById('weather-status').textContent.includes('Offline')).catch(async e=>{console.log({browser:name,errors,clock:await page.locator('#time').innerText(),weather:await page.locator('#weather-status').innerText()});throw e;});
    assert.match(await page.locator('#time').innerText(),/\d{2}:\d{2}/);

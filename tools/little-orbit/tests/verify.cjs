@@ -6,6 +6,8 @@ const assert=require('node:assert/strict');
  const browser=await engine.launch({...options,headless:true});
  const page=await browser.newPage({viewport:{width:1280,height:720},timezoneId:'America/New_York'});
  const errors=[];page.on('pageerror',e=>errors.push(e.message));
+ // Start in daylight before navigation; CI may run during the real :59 screen break.
+ await page.clock.install({time:new Date('2026-10-04T12:00:00-04:00')});
  await page.addInitScript(()=>{if(!localStorage.getItem('orbit-settings'))localStorage.setItem('orbit-settings',JSON.stringify({theme:'climber'}));});
  await page.route('https://api.open-meteo.com/**',r=>r.fulfill({json:{current:{temperature_2m:72,apparent_temperature:70,weather_code:2},daily:{temperature_2m_max:[78],temperature_2m_min:[58]}}}));
  await page.goto(url);
@@ -36,7 +38,7 @@ const assert=require('node:assert/strict');
  await page.setViewportSize({width:390,height:844});if(await page.locator('body').evaluate(e=>e.scrollWidth>innerWidth)){console.log(await page.locator('body').evaluate(e=>({width:e.scrollWidth,height:e.scrollHeight})));await page.screenshot({path:'mobile-overflow.png',fullPage:true});}assert.equal(await page.locator('body').evaluate(e=>e.scrollWidth<=innerWidth),true);
  await page.route('https://api.open-meteo.com/**',route=>route.abort());await page.reload();await page.waitForFunction(()=>document.getElementById('weather-status').textContent.includes('Offline')||document.getElementById('weather-status').textContent.includes('No connection'));
  assert.ok((await page.locator('#time').innerText()).includes(':'));
- await page.clock.install({time:new Date('2026-10-04T12:00:00-04:00')});
+ await page.clock.setSystemTime(new Date('2026-10-04T12:00:00-04:00'));
  await page.clock.pauseAt(new Date('2026-10-04T12:00:01-04:00'));
  await page.setViewportSize({width:1280,height:720});await page.reload();
  assert.equal(await page.locator('#seconds').isVisible(),false);
