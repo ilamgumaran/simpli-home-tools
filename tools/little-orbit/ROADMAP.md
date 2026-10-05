@@ -1,6 +1,10 @@
 # Our Desk Clock roadmap
 
-Updated 2026-10-04. Milestones express intent, not promised delivery dates. The product owner sets priorities and authorizes deferred implementation.
+Updated 2026-10-05. Milestones express intent, not promised delivery dates. The product owner sets priorities and authorizes deferred implementation.
+
+## Woodland Ally validation — installation complete; device review in progress
+
+See [local results and milestones](../../sessions/2026-10-05-woodland-ally/002-ally-to-cloud.md). The pinned Woodland artifact matches its checksum, Windows Edge/Firefox hosted and portable checks pass, and Woodland is installed in the Ally fullscreen workflow. Live capture was blocked by URL-confidence policy; physical interaction, actual kiosk scaling and extended operation remain pending. Compact character visibility and scene width are follow-up art milestones. Do not label this a completed physical acceptance or stable release.
 
 ## Current foundation — implemented, awaiting PR merge
 
