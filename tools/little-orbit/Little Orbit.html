@@ -981,12 +981,18 @@ applyDisplay();
   const turn=ease(clamp((local-.24)/.2)),around=ease(clamp((local-.67)/.2));
   const skew=still()?0:mix(-.24,0,turn)+.12*around,vertical=still()?1:mix(.76,1,turn);
   const lead=position(currentRoute,unitProgress),panX=run?clamp((40-lead.x)*scale,-w*.025,w*.025):0,panY=run?clamp((75-lead.y)*scale,-h*.08,h*.08):0;
-  const tx=w*.43-40*scale*zoom+panX,ty=h*.52-75*scale*zoom*vertical+panY;
+  // Keep the whole number together and in reading order as its focal digit changes.
+  const neighborSize=scale*.65,gap=34*scale;
+  const sizes=Array.from(data.value,(_,i)=>i===focus?scale*zoom:neighborSize);
+  const numberWidth=sizes.reduce((sum,size)=>sum+80*size,0)+gap*(count-1);
+  const numberLeft=w*.52-numberWidth/2+panX;
+  const digitLeft=index=>numberLeft+sizes.slice(0,index).reduce((sum,size)=>sum+80*size+gap,0);
+  const tx=digitLeft(focus),ty=h*.52-75*scale*zoom*vertical+panY;
   // One focal numeral grows while the other digits recede; fixed readouts stay untouched.
   attr('mountain-digit','transform',`translate(${tx.toFixed(2)} ${ty.toFixed(2)}) matrix(${(scale*zoom).toFixed(4)} 0 ${(skew*scale*zoom).toFixed(4)} ${(scale*zoom*vertical).toFixed(4)} 0 0)`);
   const d=path(currentRoute);attr('mountain-rock','d',d);attr('mountain-trail','d',d);attr('mountain-depth','d',d);attr('mountain-depth','transform',`translate(${camera==='traverse'?-9:9} 7)`);
-  const neighbor=data.value[(focus+1)%count],neighborSize=scale*.5;
-  get('mountain-neighbor').innerHTML=`<g transform="translate(${(w*.71).toFixed(2)} ${(h*.61).toFixed(2)}) scale(${neighborSize.toFixed(4)})"><path class="mountain-neighbor-rock" d="${path(routes[neighbor])}"/><path class="mountain-neighbor-trail" d="${path(routes[neighbor])}"/></g>`;
+  const baseline=ty+150*scale*zoom*vertical;
+  get('mountain-neighbor').innerHTML=Array.from(data.value,(neighbor,index)=>index===focus?'':`<g transform="translate(${digitLeft(index).toFixed(2)} ${(baseline-150*neighborSize).toFixed(2)}) scale(${neighborSize.toFixed(4)})"><path class="mountain-neighbor-rock" d="${path(routes[neighbor])}"/><path class="mountain-neighbor-trail" d="${path(routes[neighbor])}"/></g>`).join('');
   attr('mountain-far','d',`M0 ${h*.63}L${w*.09} ${h*.42} ${w*.17} ${h*.53} ${w*.28} ${h*.19} ${w*.38} ${h*.45} ${w*.54} ${h*.15} ${w*.65} ${h*.38} ${w*.8} ${h*.12} ${w} ${h*.5}V${h}H0Z`);
   attr('mountain-near','d',`M0 ${h*.89}L${w*.14} ${h*.7} ${w*.24} ${h*.81} ${w*.39} ${h*.46} ${w*.52} ${h*.75} ${w*.63} ${h*.56} ${w*.82} ${h*.8} ${w} ${h*.59}V${h}H0Z`);
   const project=p=>({x:tx+(p.x+skew*p.y)*scale*zoom,y:ty+p.y*scale*zoom*vertical});
