@@ -6,6 +6,7 @@ Start a new session with the [owner prompts and handoff](OWNER-PROMPTS.md). Plan
 
 | Design | Status | Preview |
 | --- | --- | --- |
+| [Organic character motion](ORGANIC-MOTION.md) | Implemented on `feature/woodland-organic-motion` | 30 fps low-power/native-frame rendering, paced planted travel, supported weight shifts and continuous contact/teaching transitions |
 | [Planted walking and tool grips](WALKING-AND-GRIPS.md) | Implemented on `feature/woodland-walking-grips` | Survey ground contacts, map stowing and reachable gathering/cooking work |
 | [Planted Woodland rock contacts](CHARACTER-CONTACTS.md) | Next character step implemented on `feature/woodland-character-contacts` | Authored sockets, one-limb steps, supported body lifts and recovery |
 | [Local installation results](../../../sessions/2026-10-05-woodland-ally/002-ally-to-cloud.md) | Woodland installed; Windows browser suites passed; live inspection pending | Compact-scene feedback and five validation milestones |

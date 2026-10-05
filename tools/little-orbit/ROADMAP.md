@@ -72,7 +72,7 @@ Shared landscape, action, story and philosophy definitions compose the fifth the
 
 Visual refinement implemented on the development branch: the landscape fills its panel, digits/trees/sun retain their proportions and the responsive cast is larger. Shared gait and pose blends, eased climbing and authored worksite travel replace abrupt movement. Timber includes bark, knots and end grain; curved mountain layers soften the terrain.
 
-Configured companion interval/duration governs work bouts. Minute changes can also trigger up to three seconds of travel followed by a 0.35-second pose settle between bouts; repeated climbing visits return by protected rappel. Companion-off, reduced motion, hidden tabs, settings and screen rest suppress moving frames.
+[Organic motion](design/ORGANIC-MOTION.md) now uses 30 fps low-power/native-frame normal rendering, body-paced 1–20 second travel, planted walking, supported contact transfers and gentle follow-through. Work starts after arrival; repeat visits include return travel, and work ends before the next visit or second 55. Short windows are skipped to retain recovery; repeated climbing visits return by protected rappel. Companion-off, reduced motion, hidden tabs, settings and screen rest suppress moving frames.
 
 Review gate: readable terrain time and shell content in compact landscape and portrait layouts; continuous movement at visit/minute boundaries; stationary protected recovery; quiet lifecycle behavior; timber and mountain detail at handheld size. Hosted and offline portable suites passed in Chrome for Testing 151, Edge 154 and Playwright Firefox 153 on Linux; physical-device review remains pending.
 

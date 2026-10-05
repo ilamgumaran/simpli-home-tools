@@ -31,7 +31,7 @@ Candy Quest visits briefly and pauses between appearances, picks routes outside 
 
 ## Develop and test
 
-For session-to-session handoffs and replies, read the [session communication directory](../../sessions/README.md). The [current cloud-to-Ally message](../../sessions/2026-10-05-woodland-refinement/001-cloud-to-ally.md) points to the built version and requests device feedback in Git.
+For session-to-session handoffs and replies, read the [session communication directory](../../sessions/README.md). The [organic-motion thread](../../sessions/2026-10-05-organic-motion/README.md) records motion ownership, the next build and device feedback; [motion design](design/ORGANIC-MOTION.md) explains pacing and verification.
 
 Start with the [product guide](PRODUCT.md), [roadmap](ROADMAP.md), [design archive](design/), and [changelog](CHANGELOG.md) for product status and planned work. Five themes are implemented, including Woodland of Time; all earlier choices remain available.
 
@@ -82,6 +82,6 @@ Open [the character workshop](design/character-study.html) from the checkout to 
 
 The fifth theme, `woodland`, shows the complete current HH:MM as earth trails in woods. The place changes hourly; each minute selects trail work, shelter, water, foraging, protected climbing, cooking, crossing repair, rest or teaching. A central learner, Sprout, joins authored family and mentoring episodes. Six daily episodes and an 18:00 quiet chapter express urgency, attention and reciprocal care. Select it with **Theme: Woodland**; existing defaults and saved preferences remain preserved.
 
-`world-layers.js` separates landscape, action, story, philosophy and composition definitions; `woodland-time.js` renders the first scene using the shared character library. Minute glyphs change together immediately. Character visits follow the existing interval/duration controls; reduced motion or companions off retain current terrain time. Site configuration may select an adult woodland lead; by default the episode selects its cast.
+`world-layers.js` separates landscape, action, story, philosophy and composition definitions; `woodland-time.js` renders the first scene using the shared character library. Minute glyphs change together immediately. [Organic motion](design/ORGANIC-MOTION.md) renders at 30 fps in low-power mode and follows browser frames normally. Body-paced travel precedes work; intervals can repeat a visit within the minute and work finishes by second 55. Reduced motion or companions off retain current terrain time. Site configuration may select an adult woodland lead; by default the episode selects its cast.
 
 The [living-world plan](design/LIVING-WORLDS.md) links detailed visual, action and story plans for industrial/engineering, weaving, farming, railway and ant-life scenes. These later themes are proposals. Woodland is an authored illustration with articulated poses and sampled effort, not a complete contact/rope, metabolism, resource-conservation or generational simulation. Wildlife tracking/hunting choreography remains planned.
