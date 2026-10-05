@@ -67,3 +67,9 @@ The fourth theme (`climber2`) is the default for new profiles; existing saved th
 Minute visits cross a pair of digits quickly. Hour/day/month/year expeditions use progress calculated from actual local calendar boundaries, so the explorer can resume partway up a longer route. Short visits alternate these levels with quiet camps. Real time always updates immediately; terrain reshapes over a short transition during active visits. A clock jump or return from sleep recomputes current progress instead of replaying missed frames.
 
 Settings → Display & character → **Time Climber II camera** offers Gentle or Still. Reduced motion takes priority. Low power caps active terrain updates around 12 per second and stops animation frames during quiet camps. Hidden pages, Settings, black-screen breaks and character-off pause the explorer. Font presets continue to work; the mountain gives up height before the essential information is reduced. The [design plan](design/TIME-CLIMBER-V2-PLAN.md) and [architecture notes](design/ARCHITECTURE.md) describe the implementation and remaining device-review work.
+
+### Shared characters and role kits
+
+Character definitions now live in `characters.js`, including the original Candy Quest artwork, Moss and Ridge. The climbing themes use jointed human proportions, a visible harness and a rope tied to the shared belay loop. Recovery holds and late optional ascender assistance are independent of the clock.
+
+Open [the character workshop](design/character-study.html) from the checkout to inspect looks, colors and role inventories. [Design notes](design/CHARACTERS.md) distinguish the implemented appearance/effort layer from future terrain physics and food/bushcraft/farming/hunting actions.

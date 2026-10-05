@@ -256,22 +256,6 @@ body.screen-rest #climber-stage{display:none}
 #climber-rope,#climber-camp-link{stroke:#b6a47e;stroke-width:1.5;fill:none;stroke-linecap:round}
 #climber-anchor{stroke:#bac7b3;fill:#4a6150;stroke-width:1}
 #climber-hook{fill:none;stroke:#bdd1c1;stroke-width:1.5}
-.climber-limbs{stroke:#c2a4b0;stroke-width:3.5;fill:none;stroke-linecap:round;stroke-linejoin:round}
-.climber-pack{fill:#536e60;stroke:#a4b3a1;stroke-width:1.5}
-.climber-pack path,.climber-pack circle{fill:none}
-.climber-drop{fill:#b597a9;stroke:#d2b4c1;stroke-width:1.5}
-.climber-shine{fill:none;stroke:#e0c9d2;stroke-width:2.5;stroke-linecap:round}
-.climber-face{fill:none;stroke:#302534;stroke-width:2;stroke-linecap:round}
-.climber-helmet{fill:#b7a575;stroke:#d4c290;stroke-width:1.5}
-.climber-harness{fill:none;stroke:#6f5148;stroke-width:3}
-.climber-buckle{fill:#c0cbbc;stroke:#60746a;stroke-width:1.5}
-.climber-held-bottle{display:none;fill:#7da2aa;stroke:#b0d1cf;stroke-width:1.5}
-#climber-stage[data-state=collect] .climber-held-bottle,#climber-stage[data-state=camp] .climber-held-bottle{display:block}
-#climber-stage[data-state=climb] .climb-arm-a,#climber-stage[data-state=climb] .climb-leg-b{animation:climber-reach .65s ease-in-out infinite alternate;transform-origin:0 0}
-#climber-stage[data-state=climb] .climb-arm-b,#climber-stage[data-state=climb] .climb-leg-a{animation:climber-reach .65s ease-in-out infinite alternate-reverse;transform-origin:0 0}
-#climber-stage[data-state=cast] .climb-arm-a{animation:climber-throw .8s ease-in-out infinite alternate;transform-origin:-10px -9px}
-#climber-stage[data-state=camp] #climber-rig,#climber-stage[data-state=sleep] #climber-rig{transform:rotate(-12deg)}
-#climber-stage[data-state=sleep] .climber-face{transform:scaleY(.3)}
 #climber-camp .tent-cables,#climber-camp .tent-seam{fill:none;stroke:#a3b4a0;stroke-width:1.5}
 #climber-camp .tent-platform{stroke:#b8c6ae;stroke-width:3}
 #climber-camp .tent-shell{fill:#86764e;stroke:#c0ad77;stroke-width:1.5}
@@ -283,14 +267,7 @@ body.screen-rest #climber-stage{display:none}
 #climber-supply[data-item=gear] .supply-gear{display:block;fill:#ac9b70}
 #climber-note rect{fill:#101b14;stroke:#354a3a;stroke-width:1}
 #climber-note text{fill:#99b19c;font:8px monospace;letter-spacing:.3px}
-@keyframes climber-reach{from{transform:rotate(-12deg)}to{transform:rotate(12deg)}}
-@keyframes climber-throw{from{transform:rotate(-25deg)}to{transform:rotate(55deg)}}
 @media(prefers-reduced-motion:reduce){#climber-stage *{animation:none!important}}
-#climber-stage .climber-held-bottle,#climber-stage .climber-held-food,#climber-stage .climber-held-gear{display:none}
-#climber-stage[data-item=water][data-state=collect] .climber-held-bottle,#climber-stage[data-item=water][data-state=camp] .climber-held-bottle{display:block}
-#climber-stage[data-item=food][data-state=collect] .climber-held-food,#climber-stage[data-item=food][data-state=camp] .climber-held-food{display:block;fill:#ad7c6b;stroke:#d1b49a;stroke-width:1.5}
-#climber-stage[data-item=gear][data-state=collect] .climber-held-gear{display:block;fill:#aa9874;stroke:#d4c29d;stroke-width:1.5}
-#climber-stage[data-state=build] .climb-arm-a{animation:climber-reach .6s ease-in-out infinite alternate}
 /* Time Climber II keeps all information outside the small terrain camera. */
 body[data-theme=climber2] #display[data-layout]{display:grid;grid-template-columns:1fr 2fr;grid-template-areas:"clock clock" "mountain mountain" "weather fact" "footer footer";width:94vw;max-width:1540px;padding:12px 0;gap:min(var(--panel-gap,8px),14px)}
 body[data-theme=climber2] #display .dashboard{display:contents}
@@ -327,13 +304,8 @@ body[data-theme=climber2] #display .credit,body[data-theme=climber2] #display .f
 #mountain-depth{fill:none;stroke:#243c36;stroke-width:29;stroke-linecap:round;stroke-linejoin:round}
 #mountain-trail,.mountain-neighbor-trail{fill:none;stroke:#b2c3a0;stroke-width:1.8;stroke-dasharray:3 4;stroke-linecap:round;stroke-linejoin:round}
 #mountain-neighbor{opacity:.6}
-#mountain-rope,.mountain-tent-lines{fill:none;stroke:#baad88;stroke-width:1.2}
+#mountain-rope,#mountain-camp-link,.mountain-tent-lines{fill:none;stroke:#baad88;stroke-width:1.2}
 #mountain-anchor{fill:#a8b7a7;stroke:#102019;stroke-width:1}
-#mountain-arms,#mountain-legs{fill:none;stroke:#eadcb6;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
-.mountain-backpack,.mountain-helmet{fill:#c78c7a;stroke:#132620;stroke-width:1}
-.mountain-jacket{fill:#a8c8a2;stroke:#132620;stroke-width:1}
-.mountain-face{fill:#e2cfaa;stroke:#132620;stroke-width:1}
-.mountain-coil{fill:none;stroke:#b4a17b;stroke-width:1}
 .mountain-tent-shell{fill:#8b8352;stroke:#bcb085;stroke-width:1}.mountain-tent-door{fill:#12231b}
 .mountain-tent-floor{stroke:#bdc4ac;stroke-width:2}
 #mountain-pickup>path{display:none;stroke:#c0c6ad;stroke-width:1;fill:#759f9d}

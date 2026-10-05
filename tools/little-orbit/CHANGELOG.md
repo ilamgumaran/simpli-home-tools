@@ -6,6 +6,9 @@ No tagged releases yet. Entries below describe implemented code on the developme
 
 ### Added
 
+- Shared character registry for Pip, Moss and Ridge; reusable appearance layers, jointed body rig, role kits and 83-item equipment catalog. Interactive character workshop shares the runtime library.
+- Climbing scenes use waist/leg-loop harness attachments, per-ascent exertion and a mandatory recovery hold. Optional ascender assistance appears only late in the route budget; portaledge support and climber protection remain separate.
+
 - Browser display clock with date, weather, daily learning facts, fullscreen and touch lock.
 - Orbit and Candy Quest themes, configurable device presets, independent font scales and spacing.
 - Dark low-power mode, layout shifts, night dimming, black-screen breaks and reduced-motion handling.

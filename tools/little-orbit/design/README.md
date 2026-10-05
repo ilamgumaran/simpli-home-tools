@@ -6,6 +6,7 @@ Start a new session with the [owner prompts and handoff](OWNER-PROMPTS.md). Plan
 
 | Design | Status | Preview |
 | --- | --- | --- |
+| [Shared character layers](CHARACTERS.md) | First appearance/equipment/effort implementation; deeper physics and activities deferred | [Interactive character workshop](character-study.html) |
 | [Time Climber II — Mountain of Time](TIME-CLIMBER-V2-PLAN.md) | Initial implementation on development branch; hardware/release review remains | [Original interactive design study](time-climber-ii-preview.html) — download and open in a browser |
 
 The preview has a fixed sample clock and manually selected focus/viewpoints. It does not change settings or connect to the running desk clock. GitHub's file viewer displays its source; download the file to interact with it.

@@ -4,23 +4,15 @@
 (()=>{
  const stage=document.createElement('div');stage.id='climber-stage';stage.hidden=true;stage.setAttribute('aria-hidden','true');
  stage.innerHTML=`<svg id="climber-world" xmlns="http://www.w3.org/2000/svg">
-  <path id="climber-rope"/><path id="climber-camp-link"/><circle id="climber-anchor" r="3"/><path id="climber-hook" d="M-5 0Q-5 -9 3 -7L6 -3"/>
+  <path id="climber-rope"/><path id="climber-camp-link"/><circle id="climber-anchor" r="3"/><path id="climber-hook" d="M-3 -5Q4 -8 4 -1L1 5Q-5 6 -4 0ZM0 -4L2 2"/>
   <g id="climber-supply"><g class="supply-water"><rect x="-5" y="-12" width="10" height="15" rx="3"/><path d="M-3 -14H3M-4 -3H4"/></g><g class="supply-food"><path d="M0 -10C-12 -17 -13 3 -3 3L0 2L3 3C13 3 12 -17 0 -10Z"/><path d="M0 -10L3 -16"/></g><g class="supply-gear"><rect x="-7" y="-10" width="14" height="13" rx="3"/><path d="M-2 -10V-14H2V-10M-7 -4H7"/></g></g>
   <g id="climber-camp"><path class="tent-cables" d="M0 -50L-32 0M0 -50L32 0"/><path class="tent-platform" d="M-36 3H36"/><path class="tent-shell" d="M-32 0L-18 -24L10 -24L32 0Z"/><path class="tent-door" d="M-11 0L-4 -22L7 0Z"/><path class="tent-seam" d="M10 -24L21 0"/><path class="tent-roll" d="M-20 -29H0"/></g>
-  <g id="climber-person"><g id="climber-rig">
-   <g class="climber-limbs"><path class="climb-arm-a" d="M-10 -9L-19 -23L-15 -34"/><path class="climb-arm-b" d="M9 -9L19 -17L23 -27"/><path class="climb-leg-a" d="M-6 8L-16 18L-19 29L-26 29"/><path class="climb-leg-b" d="M6 8L16 16L12 29L19 29"/></g>
-   <g class="climber-pack"><rect x="7" y="-23" width="17" height="30" rx="5"/><path d="M8 -15H24M11 -7H20M13 -24V-28H21V-24"/><rect x="9" y="-31" width="18" height="6" rx="3"/><circle cx="22" cy="0" r="5"/></g>
-   <path class="climber-drop" d="M-1 -33C-3 -22 -14 -20 -14 -8C-14 4 -7 11 1 11C11 11 15 4 15 -7C15 -20 3 -23 -1 -33Z"/>
-   <path class="climber-shine" d="M-7 -18Q-10 -14 -9 -10"/>
-   <g class="climber-face"><path d="M-5 -7V-3M5 -7V-3"/><path class="climber-smile" d="M-3 1Q1 5 5 1"/></g>
-   <path class="climber-helmet" d="M-12 -19Q0 -35 12 -19Z"/><path class="climber-harness" d="M-12 1L0 7L13 1M0 7V12"/><circle class="climber-buckle" cx="0" cy="7" r="3"/>
-   <path class="climber-held-bottle" d="M-21 -12H-14V1H-21ZM-19 -16H-16V-12"/>
-   <circle class="climber-held-food" cx="-18" cy="-4" r="5"/><rect class="climber-held-gear" x="-22" y="-10" width="8" height="10" rx="2"/>
-  </g></g>
+  <g id="climber-person"><g id="climber-rig"></g></g>
   <g id="climber-note"><rect x="-44" y="-12" width="88" height="20" rx="7"/><text id="climber-caption" text-anchor="middle" y="2">BASE CAMP</text></g>
  </svg>`;
  document.body.append(stage);
  const get=id=>document.getElementById(id),svg=get('climber-world');
+ const character=DeskCharacters.forTheme('climber');DeskCharacters.mount(get('climber-rig'),character);
  let timer=null,frame=null,lastFrame=0,scene=null,trip=0,nextVisit=0;
  const motion=matchMedia('(prefers-reduced-motion: reduce)');
  const glyphCanvas=document.createElement('canvas'),glyphContext=glyphCanvas.getContext('2d');
@@ -65,19 +57,23 @@
   svg.setAttribute('viewBox',`0 0 ${innerWidth} ${innerHeight}`);
   const {anchor,start,middle,ledge,camp,scale}=land;
   const camping=scene.trip%3===2,climbEnd=camping?.48:.65,castEnd=.12,collectEnd=climbEnd+.1,campEnd=.94;
+  const effort=DeskCharacters.ascent(clamp((progress-castEnd)/(climbEnd-castEnd),0,1),Math.max(0,(climbEnd-progress)*scene.duration/1000));
   let p,state;
   if(progress<castEnd){p=start;state='cast';}
-  else if(progress<climbEnd){const t=(progress-castEnd)/(climbEnd-castEnd);p=t<.55?point(start,middle,t/.55):point(middle,ledge,(t-.55)/.45);state='climb';}
+  else if(progress<climbEnd){const t=effort.progress;p=t<.55?point(start,middle,t/.55):point(middle,ledge,(t-.55)/.45);state='climb';}
   else if(progress<collectEnd){p=ledge;state='collect';}
   else if(progress<campEnd){p=land.widget?ledge:point(ledge,{x:camp.x-8*scale,y:camp.y-10*scale},clamp((progress-collectEnd)/.08,0,1));state=camping?'sleep':'camp';}
   else{p=point({x:camp.x-8*scale,y:camp.y-10*scale},start,(progress-campEnd)/(1-campEnd));state='rappel';}
   if(state==='camp'&&progress<collectEnd+.08&&!land.widget)state='build';
   stage.dataset.state=state;stage.dataset.target=land.widget?'widget':'digit';stage.dataset.digit=land.digit;stage.dataset.item=['water','food','gear'][scene.trip%3];
   place(get('climber-person'),p,`scale(${scale})`);
-  const hook=state==='cast'?point(start,anchor,progress/castEnd):anchor;
+  const action=state==='climb'?effort.action:state;
+  DeskCharacters.update(get('climber-rig'),{action,cycle:progress*8,fatigue:state==='climb'?effort.fatigue:.12,assisted:state==='climb'&&effort.assisted,ropeAnchor:{x:(anchor.x-p.x)/scale,y:(anchor.y-p.y)/scale},item:['water','food','gear'][scene.trip%3]});
+  stage.dataset.character=character.id;stage.dataset.action=action;
+  const hook=anchor;
   place(get('climber-hook'),hook);
-  const hand={x:p.x-12*scale,y:p.y-22*scale};
-  const sway=state==='cast'?Math.sin(progress/castEnd*Math.PI)*45*scale:state==='camp'||state==='sleep'?Math.sin(progress*12)*5*scale:5*scale;
+  const loop=DeskCharacters.attachment(character),hand={x:p.x+loop.x*scale,y:p.y+loop.y*scale};
+  const sway=['climb','rappel'].includes(state)?0:3*scale;
   get('climber-rope').setAttribute('d',`M${hook.x} ${hook.y} Q${mix(hook.x,hand.x,.5)+sway} ${mix(hook.y,hand.y,.5)+Math.abs(sway)} ${hand.x} ${hand.y}`);
   place(get('climber-anchor'),anchor);
   place(get('climber-supply'),{x:ledge.x+16*scale,y:ledge.y+15*scale},`scale(${scale})`);
@@ -88,8 +84,8 @@
   get('climber-camp-link').setAttribute('d',`M${anchor.x} ${anchor.y} L${camp.x} ${camp.y-50*scale}`);
   place(get('climber-camp'),camp,`scale(${scale}) rotate(${motion.matches?0:Math.sin(progress*14)*2})`);
   for(const part of get('climber-camp').querySelectorAll('.tent-shell,.tent-door,.tent-seam'))part.setAttribute('transform',`scale(1 ${clamp((progress-collectEnd)/.08,0,1)})`);
-  const captions={cast:'ROPE READY',climb:'TIME TO CLIMB',collect:['WATER BREAK','SNACK FOUND','GEAR CHECK'][scene.trip%3],build:'MAKING CAMP',camp:land.widget?'LEDGE PICNIC':'HANGING CAMP',sleep:'SUMMIT SNOOZE',rappel:'SEE YOU UP TOP'};
-  get('climber-caption').textContent=captions[state];
+  const captions={cast:'ANCHOR CHECK',climb:'TIME TO CLIMB',collect:['WATER BREAK','SNACK FOUND','GEAR CHECK'][scene.trip%3],build:'MAKING CAMP',camp:land.widget?'LEDGE PICNIC':'HANGING CAMP',sleep:'SUMMIT SNOOZE',rappel:'SEE YOU UP TOP'};
+  get('climber-caption').textContent=action==='rest'?'REST & RECOVER':action==='assist'?'ASCENDER ASSIST':captions[state];
   // Small labels belong in the margin; leave facts, weather and date unobstructed.
   place(get('climber-note'),{x:clamp(p.x,48,innerWidth-48),y:innerHeight-13});
   get('climber-note').style.display=innerHeight<650?'none':'';
