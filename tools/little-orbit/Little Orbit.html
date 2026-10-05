@@ -1032,7 +1032,7 @@ applyDisplay();
   if(!scene&&(signature!==lastSignature||!currentRoute))draw(.92);
   if(!scene&&timer===null)schedule(1000);
  }
- function refresh(){stop();if(active()){lastShift=-1;shift();expedition.hidden=false;fit();draw(.92);sync();}}
+ function refresh(){stop();expedition.hidden=!active();if(active()){lastShift=-1;shift();fit();draw(.92);sync();}}
  window.TimeMountain={calendar,route,draw,start,stop,sync,refresh,get running(){return scene!==null;},get pending(){return timer!==null;},get state(){return {level,focus,visits,frame,lastActor,routeKey:currentKey};}};
  document.addEventListener('visibilitychange',sync);get('settings').addEventListener('close',refresh);get('settings-button').addEventListener('click',stop);
  document.addEventListener('desk-display-change',refresh);window.addEventListener('resize',refresh);motion?.addEventListener?.('change',refresh);

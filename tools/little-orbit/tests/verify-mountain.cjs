@@ -6,6 +6,7 @@ const assert=require('node:assert/strict'),path=require('node:path'),{pathToFile
   page.on('pageerror',e=>errors.push(e.message));await page.route('https://**',r=>r.abort());
   await page.clock.install({time:new Date('2026-10-04T12:00:54-04:00')});await page.clock.pauseAt(new Date('2026-10-04T12:00:54-04:00'));await page.goto(target);
   assert.equal(await page.locator('body').getAttribute('data-theme'),'climber2');
+  for(const theme of ['orbit','candy','climber']){await page.evaluate(theme=>{prefs.theme=theme;applyTheme();},theme);assert.equal(await page.locator('#time-mountain').getAttribute('hidden'),'');assert.equal(await page.evaluate(()=>TimeMountain.running||TimeMountain.pending),false);}await page.evaluate(()=>{prefs.theme='climber2';applyTheme();});
   const seen=new Set();
   for(const viewport of [{width:854,height:480},{width:1280,height:720},{width:1920,height:1080},{width:390,height:844}]){
    await page.setViewportSize(viewport);await page.waitForTimeout(120);
