@@ -7,13 +7,14 @@
  expedition.setAttribute('aria-label','Mountain of Time');
  expedition.innerHTML=`<div class="mountain-horizon"><span id="mountain-year"></span><span id="mountain-month"></span></div><div class="mountain-levels"><span id="mountain-day"></span><span id="mountain-hour"></span><span id="mountain-minute"></span></div>
  <svg id="mountain-world" xmlns="${ns}" aria-hidden="true"><path id="mountain-far"/><path id="mountain-near"/><g id="mountain-camera"><g id="mountain-neighbor"/><g id="mountain-digit"><path id="mountain-depth"/><path id="mountain-rock"/><path id="mountain-trail"/></g></g>
- <path id="mountain-rope"/><circle id="mountain-anchor" r="2.5"/>
+ <path id="mountain-rope"/><path id="mountain-camp-link"/><circle id="mountain-anchor" r="2.5"/>
  <g id="mountain-pickup"><path class="mountain-bottle" d="M-3 -6H3V3H-3ZM-2 -9H2V-6"/><path class="mountain-apple" d="M0 -4C-8 -10 -9 3 -2 3L0 2L2 3C9 3 8 -10 0 -4ZM0 -4L2 -8"/><path class="mountain-gear" d="M-5 -6H5V3H-5ZM-2 -6V-9H2V-6"/></g>
  <g id="mountain-tent"><path class="mountain-tent-lines" d="M0 -28L-17 0M0 -28L17 0"/><path class="mountain-tent-shell" d="M-17 0L-9 -13H5L17 0Z"/><path class="mountain-tent-door" d="M-5 0L0 -12L5 0Z"/><path class="mountain-tent-floor" d="M-20 2H20"/></g>
- <g id="mountain-explorer"><path id="mountain-arms"/><path id="mountain-legs"/><rect class="mountain-backpack" x="-7" y="-7" width="6" height="9" rx="2"/><path class="mountain-jacket" d="M-3 -7H3L4 1H-4Z"/><circle class="mountain-face" cy="-11" r="3.7"/><path class="mountain-helmet" d="M-5 -12Q0 -19 5 -12Z"/><path class="mountain-coil" d="M-7 -3Q-11 -6 -10 0Q-8 4 -6 0"/></g></svg>
+ <g id="mountain-explorer"></g></svg>
  <div class="mountain-caption"><span id="mountain-focus"></span><span id="mountain-action"></span></div>`;
  get('display').insertBefore(expedition,get('display').querySelector('.fact-panel'));
  const svg=get('mountain-world'),actor=get('mountain-explorer');
+ const character=DeskCharacters.forTheme('climber2');DeskCharacters.mount(actor,character);
  const motion=typeof matchMedia==='function'?matchMedia('(prefers-reduced-motion: reduce)'):null;
  const clamp=(n,a=0,b=1)=>Math.max(a,Math.min(b,n)),mix=(a,b,t)=>a+(b-a)*t,ease=t=>t*t*(3-2*t);
  const definitions={
@@ -45,7 +46,7 @@
  function active(){return prefs.theme==='climber2';}
  function allowed(){return active()&&prefs.display.companion!==false&&document.visibilityState==='visible'&&!get('settings').open&&!document.body.classList.contains('screen-rest');}
  function still(){return motion?.matches||prefs.display.cameraMotion==='still'||typeof requestAnimationFrame!=='function';}
- function stop(){clearTimeout(timer);timer=null;if(frame!==null)cancelAnimationFrame(frame);frame=null;scene=null;actor.style.display='none';get('mountain-rope').style.display='none';get('mountain-tent').style.display='none';}
+ function stop(){clearTimeout(timer);timer=null;if(frame!==null)cancelAnimationFrame(frame);frame=null;scene=null;actor.style.display='none';get('mountain-rope').style.display='none';get('mountain-tent').style.display='none';get('mountain-camp-link').style.display='none';}
  function fit(){
   if(!active()||sizing)return;sizing=true;
   // Deduct natural content height so enlarged facts/presets get space before scenery.
@@ -73,9 +74,11 @@
   const camera=still()?'cliff':local<.3?'trail':local<.7?'cliff':'traverse';
   const phase=!scene?'camp':local<.12?'cast':local<.3?'walk':local<.64?'climb':local<.74?'collect':local<.83?'build':local<.96?'camp':'traverse';
   expedition.dataset.view=camera;expedition.dataset.state=phase;expedition.dataset.level=level;expedition.dataset.digit=digit;
-  const unitProgress=level==='minute'?clamp((local-.12)/.52):clamp(data.progress+(local-.12)*({hour:.1,day:.035,month:.018,year:.008}[level]));
-  const scale=Math.max(.3,Math.min(h*.64/150,w*.22/80)),zoom=run?1+.12*Math.sin(local*Math.PI):1;
-  const turn=ease(clamp((local-.24)/.2)),around=ease(clamp((local-.67)/.2));
+  const effort=DeskCharacters.ascent(clamp((local-.3)/.34),scene?Math.max(0,(.64-local)*scene.duration/1000/count):Infinity);
+  const routeLocal=phase==='climb'?.3+effort.progress*.34:local;
+  const unitProgress=level==='minute'?clamp((routeLocal-.12)/.52):clamp(data.progress+(routeLocal-.12)*({hour:.1,day:.035,month:.018,year:.008}[level]));
+  const scale=Math.max(.3,Math.min(h*.64/150,w*.22/80)),zoom=run?1+.12*Math.sin(routeLocal*Math.PI):1;
+  const turn=ease(clamp((routeLocal-.24)/.2)),around=ease(clamp((routeLocal-.67)/.2));
   const skew=still()?0:mix(-.24,0,turn)+.12*around,vertical=still()?1:mix(.76,1,turn);
   const lead=position(currentRoute,unitProgress),panX=run?clamp((40-lead.x)*scale,-w*.025,w*.025):0,panY=run?clamp((75-lead.y)*scale,-h*.08,h*.08):0;
   // Keep the whole number together and in reading order as its focal digit changes.
@@ -96,22 +99,25 @@
   let p=project(position(currentRoute,unitProgress));
   if(morph?.actor&&blend<1&&run)p={x:mix(morph.actor.x,p.x,ease(blend)),y:mix(morph.actor.y,p.y,ease(blend))};
   p.x=clamp(p.x,20,w-22);p.y=clamp(p.y,27,h-34);lastActor=p;
-  const explorerScale=innerWidth<600?1:1.05;place('mountain-explorer',p,`scale(${explorerScale})`);
-  const limb=phase==='walk'||phase==='climb'?Math.sin(local*36)*3:0;
-  attr('mountain-arms','d',`M-2 -5L${-7-limb} -10M2 -5L${7+limb} -12`);attr('mountain-legs','d',`M-2 1L${-5+limb} 8L${-8+limb} 8M2 1L${5-limb} 7L${8-limb} 7`);
+  const explorerScale=innerWidth<600?.36:.4;place('mountain-explorer',p,`scale(${explorerScale})`);
+  const anchor=project(position(currentRoute,clamp(unitProgress+.16)));
+  const action=phase==='climb'?effort.action:phase;
+  DeskCharacters.update(actor,{action,cycle:local*8,fatigue:phase==='climb'?effort.fatigue:.12,assisted:phase==='climb'&&effort.assisted,ropeAnchor:{x:(anchor.x-p.x)/explorerScale,y:(anchor.y-p.y)/explorerScale},item:['water','food','gear'][visits%3]});
+  expedition.dataset.character=character.id;expedition.dataset.action=action;
   actor.style.display=allowed()?'':'none';
-  const anchor=project(position(currentRoute,clamp(unitProgress+.16))),camp={x:clamp(p.x+25,25,w-25),y:clamp(p.y+18,45,h-12)};
+  const camp={x:clamp(p.x+25,25,w-25),y:clamp(p.y+18,45,h-12)};
   const tent=['build','camp'].includes(phase)&&allowed();get('mountain-tent').style.display=tent?'':'none';place('mountain-tent',camp);
-  const rope=allowed()&&(camera!=='trail'||tent||phase==='cast');get('mountain-rope').style.display=rope?'':'none';get('mountain-anchor').style.display=rope?'':'none';place('mountain-anchor',anchor);
-  const end=tent?{x:camp.x,y:camp.y-28}:p;
-  const swing=phase==='cast'?Math.sin(local/.12*Math.PI)*12:0;
-  attr('mountain-rope','d',`M${anchor.x.toFixed(2)} ${anchor.y.toFixed(2)}Q${(mix(anchor.x,end.x,.5)+swing).toFixed(2)} ${(mix(anchor.y,end.y,.5)+7).toFixed(2)} ${end.x.toFixed(2)} ${end.y.toFixed(2)}`);
+  get('mountain-camp-link').style.display=tent?'':'none';attr('mountain-camp-link','d',`M${anchor.x} ${anchor.y}L${camp.x} ${camp.y-28}`);
+  const rope=allowed()&&(camera!=='trail'||tent||phase==='cast'||phase==='climb');get('mountain-rope').style.display=rope?'':'none';get('mountain-anchor').style.display=rope?'':'none';place('mountain-anchor',anchor);
+  const loop=DeskCharacters.attachment(character),end={x:p.x+loop.x*explorerScale,y:p.y+loop.y*explorerScale};
+  const swing=phase==='cast'?Math.sin(local/.12*Math.PI)*3:0;
+  attr('mountain-rope','d',`M${anchor.x.toFixed(2)} ${anchor.y.toFixed(2)}Q${(mix(anchor.x,end.x,.5)+swing).toFixed(2)} ${(mix(anchor.y,end.y,.5)+(phase==='climb'?0:3)).toFixed(2)} ${end.x.toFixed(2)} ${end.y.toFixed(2)}`);
   get('mountain-tent').style.opacity=phase==='build'?String(clamp((local-.74)/.09)): '1';
   const supply=project(position(currentRoute,clamp(unitProgress+.06)));place('mountain-pickup',supply);get('mountain-pickup').dataset.item=['water','food','gear'][visits%3];get('mountain-pickup').style.display=phase==='collect'||phase==='build'?'':'none';
   get('mountain-year').textContent=`YEAR · ${model.year.value}`;get('mountain-month').textContent=`${model.month.name.toUpperCase()} · ${model.month.value}`;
   get('mountain-day').textContent=`DAY ${model.day.value}`;get('mountain-hour').textContent=`HOURS ${model.hour.value}`;get('mountain-minute').textContent=`MINUTES ${model.minute.value}`;
   get('mountain-focus').textContent=`${level.toUpperCase()} ${data.value} · DIGIT ${focus+1}/${count}`;
-  get('mountain-action').textContent=({cast:'Rope ready',walk:'Walking the trail',climb:'Cliff ascent',collect:['Water stop','Snack found','Gear check'][visits%3],build:'Pitching a portaledge',camp:'Quiet camp',traverse:'Next ridge'}[phase]);
+  get('mountain-action').textContent=(action==='rest'?'Rest and recover':action==='assist'?'Deadline · ascender assist':{cast:'Checking anchor',walk:'Walking the trail',climb:'Cliff ascent',collect:['Water stop','Snack found','Gear check'][visits%3],build:'Pitching a portaledge',camp:'Quiet camp',traverse:'Next ridge'}[phase]);
   lastSignature=[model.minute.value,model.hour.value,model.day.value,model.month.value,model.year.value,prefs.format24,prefs.display.companion,prefs.display.cameraMotion].join('|');
  }
  function schedule(delay){if(allowed())timer=setTimeout(start,delay??Math.max(2000,(prefs.display.companionInterval-prefs.display.companionDuration)*1000));}

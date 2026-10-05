@@ -51,3 +51,9 @@ Done when: documented long-run and accessibility checks pass, known limitations 
 - Localization and locale-specific calendar/time presentation.
 
 These are candidates, not commitments. Keep them out of an active milestone until the user benefit, scope, and validation are clear.
+
+## Shared characters — first layer implemented
+
+The owner authorized appearance/body layers and reusable role equipment. [Shared character design](design/CHARACTERS.md) and the [interactive workshop](design/character-study.html) accompany a central registry for every current mascot. Both climbing themes now share articulated artwork, a harness connection and per-ascent fatigue/recovery/optional aid behavior. The catalog separates available gear from carried kit.
+
+Next layers: persistent terrain hand/foot contacts and center-of-mass/rope physics; gear-specific animation; persistent fatigue and food/water consumption; cooking/bushcraft; planting/harvest and hunting/foraging. These are follow-up work, not implemented behavior.

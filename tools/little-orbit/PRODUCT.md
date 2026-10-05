@@ -45,3 +45,7 @@ Time Climber II is implemented as the fourth theme on the development branch, wi
 For a stable release, verify hosted and portable forms on Chromium and Firefox across Windows, macOS, and Linux; smoke-test the Ally and document device/browser gaps. Accessibility, offline failure states, and long-running operation are release criteria, not optional polish. Physical Android/Vanadium testing remains a separate check.
 
 Do not add a backend, accounts, analytics, paid assets, automatic updating, or hosting dependencies by default. Any such change needs an explicit product decision, a documented user benefit, and review.
+
+## Shared character foundation
+
+The first character layer centralizes Pip, Moss and Ridge in `characters.js`, independent of themes. Appearance, anatomical poses and role kits can evolve separately. The climbing themes use a shared harness/rope attachment and a stylized effort/recovery model; safety equipment is continuous and optional ascender assistance is reserved for a late deadline. The [character workshop](design/character-study.html) demonstrates appearance and role selection, with a catalog for climbing, trail, backpacking, food, bushcraft, farming and hunting equipment. See [scope and deferred physics](design/CHARACTERS.md); cooking, farming, hunting and world-space contact simulation are future layers.
