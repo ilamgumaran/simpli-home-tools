@@ -1,5 +1,7 @@
 # Latest living-world handoff
 
+For installing the completed cloud build and testing it in the other Ally session, start with [ALLY-TEST-HANDOFF.md](ALLY-TEST-HANDOFF.md). It pins the tested runtime and portable checksum, gives Windows pull/start/restart steps, and records what is implemented and what remains planned.
+
 The active implementation is `feature/living-woodland-time`, based on `feature/shared-character-layers` (PR #2), which itself targets the original clock development branch. Five themes now exist; the new one is Woodland of Time (`woodland`). Read [LIVING-WORLDS.md](LIVING-WORLDS.md) and its visual, action and story plans for the owner's latest direction. The user explicitly asked the orchestrator to delegate detailed planning, validate harmony, and implement one scene first.
 
 Woodland supplies central world layers, an hourly woods itinerary, minute vignettes, current-time terrain glyphs, six daily episodes, Sprout and daily attention/mentoring. Industrial/engineering, fabric/weaving, farming, railway and ant life are planned. The owner's concrete next sequence is industrial, farming, railway, ants; weaving's slot is not yet selected. Deeper contact/rope physics, resource conservation and persistent generations are future work. Continue with owner-directed refinement; do not automatically implement the full backlog or merge/deploy.

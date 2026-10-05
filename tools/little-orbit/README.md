@@ -42,9 +42,11 @@ npm test
 
 Node 22 or later is used for contributor tooling; Linux may need `npx playwright install --with-deps chromium firefox`. Tests start their own loopback server on a free port and use mocked weather. They cover settings, touch lock, theme persistence, safe companion routes, all daily facts and rotating layouts, reduced motion, offline behavior, device presets, and the portable file. Tests write ignored output to `test-results/`.
 
-The browser runtime has no library dependencies. Playwright is a development dependency. `npm run build` embeds `config.js`, `style.css`, `app.js`, `display-settings.js`, `time-climber.js`, and `time-climber-ii.js` into the tracked portable file. Commit that file with source changes.
+The browser runtime has no library dependencies. Playwright is a development dependency. `npm run build` embeds `config.js`, `style.css`, `characters.js`, `world-layers.js`, `app.js`, `display-settings.js`, `time-climber.js`, `time-climber-ii.js`, and `woodland-time.js` into the tracked portable file. Commit that file with source changes.
 
 ## Windows helpers
+
+For the latest built version and physical Ally testing, follow the [installation handoff](design/ALLY-TEST-HANDOFF.md). It identifies the Git branch, tested revision, portable checksum and local update steps.
 
 `windows/Start Clock.cmd` opens a default-browser tab. `windows/Start Ally Display.cmd` opens a separate Edge fullscreen kiosk window. `windows/Restart Clock.cmd` restarts only that clock's Edge profile and server. These helpers require Node on PATH; they change no OS power plan. Close the kiosk with **Alt+F4**. They are optional and not required on macOS, Linux, or Android.
 

@@ -6,6 +6,7 @@ Start a new session with the [owner prompts and handoff](OWNER-PROMPTS.md). Plan
 
 | Design | Status | Preview |
 | --- | --- | --- |
+| [Ally install and testing handoff](ALLY-TEST-HANDOFF.md) | Published Woodland build; physical Ally results pending | Tested revision, portable checksum and Windows instructions |
 | [Living-world composition](LIVING-WORLDS.md) | Woodland first slice implemented; five other worlds proposed | Actual clock: select Woodland |
 | [Visual layers](VISUAL-LAYERS.md), [actions and time](ACTIONS-AND-TIME.md), [stories and philosophy](STORIES-AND-PHILOSOPHY.md) | Detailed reusable contracts and future review gates | Original runtime SVG artwork |
 | [Shared character layers](CHARACTERS.md) | First appearance/equipment/effort implementation; deeper physics and activities deferred | [Interactive character workshop](character-study.html) |
