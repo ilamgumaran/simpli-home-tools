@@ -22,6 +22,9 @@ No tagged releases yet. Entries below describe implemented code on the developme
 
 ### Changed
 
+- Woodland fills the available scene panel with proportion-preserving scenery and larger responsive characters. Timber now includes bark, knots and end grain; layered curved mountains give the landscape softer depth.
+- Shared anatomical gait and pose transitions are smoother, with eased climbing and continuous authored Woodland worksite travel. Repeated climbing visits return by protected rappel; terrain-contact and rope-force simulation remain future work.
+- Woodland companion interval/duration controls work bouts, while minute changes can include up to three seconds of travel and a 0.35-second pose settle between bouts. Companion-off, reduced motion, hidden tabs, settings and screen rest suppress moving frames.
 - Time Climber II keeps numeral terrain closer together on a shared baseline, preserving left-to-right digit order and showing the complete year as focus moves between digits.
 - Product name is Our Desk Clock; Little Orbit filenames and directory remain compatible.
 - New versions use the Simpli Home Tools Noncommercial License 1.0: noncommercial use and collaboration are allowed, while commercial use needs separate written permission from the project licensor. Earlier GPL grants remain in effect. Contributor terms, license headers, package metadata, and portable license text are updated accordingly.

@@ -328,5 +328,8 @@ body[data-theme=woodland]{--accent:#c4cca1;background:#16221d}
 .woodland-caption{position:absolute;top:10px;left:14px;right:14px;display:flex;justify-content:space-between;gap:12px;color:#213e35;font:11px monospace;pointer-events:none}
 .woodland-caption span{background:#edf0d9dd;padding:4px 7px;border-radius:4px}
 #woodland-story{position:absolute;bottom:7px;left:12px;right:12px;text-align:center;margin:0;color:#f1edd2;font-size:12px;text-shadow:0 1px 3px #25352a;pointer-events:none}
-.woodland-compact .woodland-caption{top:4px;left:6px;right:6px;font-size:9px}.woodland-compact #woodland-story{display:none}
+.woodland-compact .woodland-caption{top:4px;left:6px;right:6px;font-size:9px}.woodland-compact #woodland-story,.woodland-compact .woodland-label{display:none}
+#woodland-world{height:calc(100% - 34px)}
+.woodland-compact #woodland-world{height:100%}
+@media(max-width:599px){#woodland-world{height:calc(100% - 48px)}.woodland-label{display:none}}
 @media(max-width:599px){.woodland-caption{font-size:9px;top:5px;left:7px;right:7px}.woodland-caption span{padding:3px 4px}#woodland-story{font-size:10px;bottom:4px}}
