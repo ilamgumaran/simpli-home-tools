@@ -7,6 +7,8 @@
 | `index.html` / `style.css` | Clock content, controls, layouts and theme styling |
 | `app.js` | Real time/date, facts, weather, storage, core controls, theme registry and Candy Quest |
 | `characters.js` | Shared identities, appearance palettes, anatomical poses, role/equipment kits and per-ascent effort |
+| `world-layers.js` | Shared numeral paths, landscape/action/story/philosophy definitions, immutable recipes and sampled woodland model |
+| `woodland-time.js` | Woodland SVG composition, current-time updates, cast/gear, bounded visits and quiet lifecycle |
 | `config.js` | Shared defaults, overridden by browser-saved settings |
 | `display-settings.js` | Device/display settings and live layout changes |
 | `time-climber.js` | Time Climber scene, digit geometry, routes and animation lifecycle |
@@ -35,3 +37,9 @@ Use feature detection and browser viewport sizes, not OS or browser-name branche
 ## Shared character boundary
 
 Characters are now independent of theme scenes. `characters.js` owns all character artwork and exposes immutable identities/roles, per-instance appearance, reusable mounts, poses and an effort model. Scenes own routes, camera, time and lifecycle; they attach ropes through the shared belay-loop coordinate. `config.js` maps theme defaults to shared identities. [Character design](CHARACTERS.md) describes the first implementation and what remains deferred. The workshop and the portable clock use the same module.
+
+## Living-world boundary
+
+`DeskWorlds` owns definitions and pure current-date selection, independently of theme drawing. `WoodlandTime` renders that model using `DeskCharacters`; it never owns duplicate body art. `DeskWorlds.clock` supplies the shared HH:MM/period formatter; `renderClockTime` updates the header from the same date sample as Woodland. Four glyphs replace together at the minute boundary, while visits use sampled wall time. A separate boundary/visit timer remains scheduled during bounded frames, so a pose frame throttle cannot delay time rollover. Paused views stop work and reconstruct current state on return. Resize observers give essential shell content space before scenic detail.
+
+The runtime catalog lists six recipes but only Woodland has a renderer and theme registry entry. Native ant anatomy, future specialist role kits and richer contact/resource/relationship interfaces are proposals in the [composition plan](LIVING-WORLDS.md). Keep those declarations distinct from playable themes.

@@ -23,6 +23,8 @@ This is the product's planning hub. Designs are proposals until explicitly marke
 | [Changelog](CHANGELOG.md) | Implemented changes and release history |
 | [Design index](design/README.md) | Proposals, design studies, and their status |
 | [Owner prompts and session handoff](design/OWNER-PROMPTS.md) | Original product direction and where a new session should resume |
+| [Ally installation handoff](design/ALLY-TEST-HANDOFF.md) | Published build revision, checksum, installation and physical-device checks |
+| [Session communication](../../sessions/README.md) | Numbered handoffs and replies between development and device-testing sessions |
 | [Architecture](design/ARCHITECTURE.md) | Current source map and intended separation as the product grows |
 | [Decision log](design/DECISIONS.md) | Why lasting product choices were made |
 | [Repository contribution guide](../../CONTRIBUTING.md) | Reporting issues and submitting work |
@@ -48,4 +50,8 @@ Do not add a backend, accounts, analytics, paid assets, automatic updating, or h
 
 ## Shared character foundation
 
-The first character layer centralizes Pip, Moss and Ridge in `characters.js`, independent of themes. Appearance, anatomical poses and role kits can evolve separately. The climbing themes use a shared harness/rope attachment and a stylized effort/recovery model; safety equipment is continuous and optional ascender assistance is reserved for a late deadline. The [character workshop](design/character-study.html) demonstrates appearance and role selection, with a catalog for climbing, trail, backpacking, food, bushcraft, farming and hunting equipment. See [scope and deferred physics](design/CHARACTERS.md); cooking, farming, hunting and world-space contact simulation are future layers.
+The first character layer centralizes Pip, Moss, Ridge and Sprout in `characters.js`, independent of themes. Appearance, anatomical poses and role kits can evolve separately. The climbing themes use a shared harness/rope attachment and a stylized effort/recovery model; safety equipment is continuous and optional ascender assistance is reserved for a late deadline. The [character workshop](design/character-study.html) demonstrates appearance and role selection, with a catalog for climbing, trail, backpacking, food, bushcraft, farming and hunting equipment. See [scope and deferred physics](design/CHARACTERS.md); Woodland now illustrates cooking and foraging; farming, hunting, resource conservation and world-space contact simulation remain future layers.
+
+Woodland of Time is implemented as the fifth theme on the living-world branch. Reusable landscape, action, story, philosophy and recipe definitions compose centrally defined characters into one woodland scene. All current time digits stay readable while hourly places, minute vignettes and six daily social episodes vary. The [living-world plan](design/LIVING-WORLDS.md) records the larger direction and specialist plans; five later worlds remain proposed. Complete contact physics, conserved resources and persistent family generations remain future work.
+
+Woodland now fills the available scene panel, with proportion-preserving trees, time digits and larger characters, smoother shared anatomical poses, detailed timber and curved mountain layers. Short authored travel connects worksites, with a protected rappel return for repeated climbing visits. Companion interval/duration controls the work bouts; each minute can also include up to three seconds of travel and a 0.35-second pose settle between bouts. Companion-off, reduced motion, hidden tabs, open settings and screen rest suppress those moving frames. This visual pass does not complete terrain-contact or rope-force simulation; browser and device review remain separate evidence.

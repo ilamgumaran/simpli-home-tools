@@ -1,6 +1,6 @@
 # Our Desk Clock roadmap
 
-Updated 2026-10-04. Milestones express intent, not promised delivery dates. The product owner sets priorities and authorizes deferred implementation.
+Updated 2026-10-05. Milestones express intent, not promised delivery dates. The product owner sets priorities and authorizes deferred implementation.
 
 ## Current foundation — implemented, awaiting PR merge
 
@@ -57,3 +57,17 @@ These are candidates, not commitments. Keep them out of an active milestone unti
 The owner authorized appearance/body layers and reusable role equipment. [Shared character design](design/CHARACTERS.md) and the [interactive workshop](design/character-study.html) accompany a central registry for every current mascot. Both climbing themes now share articulated artwork, a harness connection and per-ascent fatigue/recovery/optional aid behavior. The catalog separates available gear from carried kit.
 
 Next layers: persistent terrain hand/foot contacts and center-of-mass/rope physics; gear-specific animation; persistent fatigue and food/water consumption; cooking/bushcraft; planting/harvest and hunting/foraging. These are follow-up work, not implemented behavior.
+
+## Living worlds — Woodland first slice implemented
+
+Shared landscape, action, story and philosophy definitions compose the fifth theme, Woodland of Time. Complete terrain HH:MM changes atomically each minute; eight hourly woodland places, twelve activities, central Sprout and six daily episodes provide the first composition. A quiet daily chapter varies observation, water, food and teaching. Branded desktop browser/portable checks and physical-device limits are recorded with this change.
+
+Visual refinement implemented on the development branch: the landscape fills its panel, digits/trees/sun retain their proportions and the responsive cast is larger. Shared gait and pose blends, eased climbing and authored worksite travel replace abrupt movement. Timber includes bark, knots and end grain; curved mountain layers soften the terrain.
+
+Configured companion interval/duration governs work bouts. Minute changes can also trigger up to three seconds of travel followed by a 0.35-second pose settle between bouts; repeated climbing visits return by protected rappel. Companion-off, reduced motion, hidden tabs, settings and screen rest suppress moving frames.
+
+Review gate: readable terrain time and shell content in compact landscape and portrait layouts; continuous movement at visit/minute boundaries; stationary protected recovery; quiet lifecycle behavior; timber and mountain detail at handheld size. Hosted and offline portable suites passed in Chrome for Testing 151, Edge 154 and Playwright Firefox 153 on Linux; physical-device review remains pending.
+
+Next Woodland expansion: contact-pinned rock/tree routes and specialist tree gear, activity-specific material edits, sustained resource history and richer reciprocal gestures. The first slice uses timed vignettes rather than claiming these systems are complete.
+
+The [overall composition plan](design/LIVING-WORLDS.md) combines [visual layers](design/VISUAL-LAYERS.md), [actions/time/effort](design/ACTIONS-AND-TIME.md) and [stories/philosophy](design/STORIES-AND-PHILOSOPHY.md). Proposed implementation order after Woodland: industrial/engineering, farming, railway/station/junction, ant life. Weaving is fully planned; its implementation slot remains to be chosen. Do not begin later themes automatically.

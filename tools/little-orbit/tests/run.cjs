@@ -2,6 +2,7 @@ const {spawn,spawnSync}=require('node:child_process');
 const path=require('node:path');
 const root=path.join(__dirname,'..');
 if(spawnSync(process.execPath,[path.join(__dirname,'characters.cjs')],{stdio:'inherit'}).status!==0)process.exit(1);
+if(spawnSync(process.execPath,[path.join(__dirname,'worlds.cjs')],{stdio:'inherit'}).status!==0)process.exit(1);
 if(spawnSync(process.execPath,[path.join(root,'build-portable.cjs')],{stdio:'inherit'}).status!==0)process.exit(1);
 const server=spawn(process.execPath,[path.join(root,'server.cjs')],{env:{...process.env,PORT:'0'},stdio:['ignore','pipe','inherit']});
 let started=false;
@@ -11,7 +12,7 @@ server.stdout.on('data',data=>{
  started=true;clearTimeout(timeout);
  try{
   for(const engine of (process.env.CLOCK_TEST_BROWSER?[process.env.CLOCK_TEST_BROWSER]:['chromium','firefox'])){
-   for(const script of ['verify.cjs','verify-themes.cjs','verify-config.cjs','verify-climber.cjs','verify-mountain.cjs','verify-characters.cjs']){
+   for(const script of ['verify.cjs','verify-themes.cjs','verify-config.cjs','verify-climber.cjs','verify-mountain.cjs','verify-characters.cjs','verify-woodland.cjs']){
     console.log(`\n${engine}: ${script}`);
     const result=spawnSync(process.execPath,[path.join(__dirname,script)],{env:{...process.env,CLOCK_TEST_URL:match[0],CLOCK_TEST_BROWSER:engine},stdio:'inherit'});
     if(result.status!==0)throw Error(`${engine} ${script} failed`);

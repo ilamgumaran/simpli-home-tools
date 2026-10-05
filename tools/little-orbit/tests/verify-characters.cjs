@@ -1,10 +1,10 @@
-const {engine,options,url}=require('./runtime.cjs');
+const {engine,options,url,freezeClock}=require('./runtime.cjs');
 const assert=require('node:assert/strict'),path=require('node:path'),{pathToFileURL}=require('node:url');
 (async()=>{const browser=await engine.launch({...options,headless:true});try{
  for(const target of [url,pathToFileURL(path.join(__dirname,'../Little Orbit.html')).href]){
   const page=await browser.newPage({viewport:{width:1280,height:720}}),errors=[];
   page.on('pageerror',e=>errors.push(e.message));await page.route('https://**',r=>r.abort());
-  await page.clock.install({time:new Date('2026-10-04T12:00:00-04:00')});await page.clock.pauseAt(new Date('2026-10-04T12:00:00-04:00'));await page.goto(target);
+  await freezeClock(page,'2026-10-04T12:00:00-04:00');await page.goto(target);
   assert.equal(await page.locator('#candy-pal').getAttribute('data-character'),'candy');
   for(const theme of ['climber','climber2']){
    const root=theme==='climber'?'#climber-rig':'#mountain-explorer';

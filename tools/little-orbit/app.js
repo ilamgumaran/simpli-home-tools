@@ -45,16 +45,18 @@ const facts=[
 ];
 let lastDay='',manualDim=false,locked=false,wakeLock=null,weather=null,requestId=0,clockTimer=null,weatherTimer=null,lastShift=-1,restSkippedHour=-1;
 function toast(message){$('toast').textContent=message;$('toast').hidden=false;clearTimeout(toast.timer);toast.timer=setTimeout(()=>$('toast').hidden=true,4500);}
-function tick(){
- const now=new Date(),hours=now.getHours();
- const h=prefs.format24?hours:hours%12||12;
- const timeText=`${String(h).padStart(2,'0')}:${String(now.getMinutes()).padStart(2,'0')}`;
+function renderClockTime(now=new Date()){
+ const reading=DeskWorlds.clock(now,{format24:prefs.format24}),timeText=reading.time;
  if($('time').dataset.value!==timeText){
   $('time').dataset.value=timeText;$('time').setAttribute('aria-label',timeText);
   $('time').replaceChildren(...[...timeText].map((digit,index)=>{const span=document.createElement('span');span.className='time-digit';span.dataset.digit=digit;span.dataset.index=index;span.setAttribute('aria-hidden','true');span.append(digit);const baseline=document.createElement('i');baseline.className='digit-baseline';span.append(baseline);return span;}));
  }
- $('seconds').textContent=String(now.getSeconds()).padStart(2,'0');$('period').textContent=prefs.format24?'24H':hours>=12?'PM':'AM';
- $('date').textContent=new Intl.DateTimeFormat('en-US',{weekday:'long',month:'long',day:'numeric',year:'numeric'}).format(now);
+ $('seconds').textContent=String(now.getSeconds()).padStart(2,'0');$('period').textContent=reading.period;
+ const calendar=`${now.getFullYear()}-${now.getMonth()}-${now.getDate()}`;
+ if($('date').dataset.calendar!==calendar){$('date').dataset.calendar=calendar;$('date').textContent=new Intl.DateTimeFormat('en-US',{weekday:'long',month:'long',day:'numeric',year:'numeric'}).format(now);}
+}
+function tick(){
+ const now=new Date(),hours=now.getHours();renderClockTime(now);
  $('zone').textContent=new Intl.DateTimeFormat('en-US',{timeZoneName:'short'}).formatToParts(now).find(p=>p.type==='timeZoneName').value+' · DEVICE TIME';
  $('greeting').textContent=hours<12?'GOOD MORNING, EXPLORER':hours<18?'GOOD AFTERNOON, EXPLORER':'GOOD EVENING, EXPLORER';
  $('day-progress').style.width=`${(hours*60+now.getMinutes())/1440*100}%`;
@@ -73,13 +75,14 @@ function tick(){
  shift();
  window.DeskClimber?.sync();
  window.TimeMountain?.sync();
+ window.WoodlandTime?.sync();
 }
 function shift(){
  const step=Math.floor(Date.now()/60000);if(step===lastShift)return;lastShift=step;
  const offsets=[[-10,-6],[0,8],[10,-4],[-6,8],[8,2],[0,-8]];
  stopCandy();if(prefs.theme==='candy')candyTimer=setTimeout(candyAdventure,9000);
  const [x,y]=offsets[step%offsets.length];
- const drift=prefs.theme==='climber2'&&innerWidth<600?.5:1;
+ const drift=['climber2','woodland'].includes(prefs.theme)&&innerWidth<600?.5:1;
  $('display').style.transform=prefs.care?`translate(${x*drift}px,${y*drift}px)`:'none';
  $('display').dataset.layout=prefs.care?String(Math.floor(step/10)%4):'0';
  document.body.classList.toggle('fact-focus',prefs.care&&Math.floor(step/5)%2===1);
@@ -131,7 +134,7 @@ document.addEventListener('visibilitychange',()=>{cancelHold();scheduleClock();i
 
 
 // Add future themes here; the Theme button cycles this registry.
-const themes=[{id:'orbit',name:'Orbit',label:'Original Orbit'},{id:'candy',name:'Candy',label:'Candy Quest'},{id:'climber',name:'Climber',label:'Time Climber'},{id:'climber2',name:'Climber II',label:'Time Climber II'}];
+const themes=[{id:'orbit',name:'Orbit',label:'Original Orbit'},{id:'candy',name:'Candy',label:'Candy Quest'},{id:'climber',name:'Climber',label:'Time Climber'},{id:'climber2',name:'Climber II',label:'Time Climber II'},{id:'woodland',name:'Woodland',label:'Woodland of Time'}];
 let candyTimer=null,candyAnimation=null,candyTrip=0,candyNextVisit=0;
 const candyMotion=typeof matchMedia==='function'?matchMedia('(prefers-reduced-motion: reduce)'):null;
 function stopCandy(){clearTimeout(candyTimer);candyTimer=null;candyAnimation?.cancel();candyAnimation=null;$('candy-stage').hidden=true;}
@@ -183,7 +186,7 @@ function applyTheme(){
  $('theme-button').setAttribute('aria-label',`Theme: ${theme.label}. Switch theme`);
  $('theme-button').title=`${theme.label} · tap for next theme`;
  write('orbit-settings',prefs);stopCandy();if(prefs.theme==='candy')candyTimer=setTimeout(candyAdventure,9000);
- document.title=`Our Desk Clock · ${theme.label}`;window.DeskClimber?.sync();window.TimeMountain?.refresh();
+ document.title=`Our Desk Clock · ${theme.label}`;window.DeskClimber?.sync();window.TimeMountain?.refresh();window.WoodlandTime?.refresh();
 }
 $('theme-button').onclick=()=>{if(locked)return;const index=themes.findIndex(t=>t.id===prefs.theme);prefs.theme=themes[(index+1)%themes.length].id;applyTheme();toast(`${themes.find(t=>t.id===prefs.theme).label} theme`);};
 window.addEventListener('resize',()=>{stopCandy();candyTimer=setTimeout(candyAdventure,400);});
