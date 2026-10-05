@@ -2,6 +2,10 @@
 
 Updated 2026-10-05. Milestones express intent, not promised delivery dates. The product owner sets priorities and authorizes deferred implementation.
 
+## Woodland Ally validation — installation complete; device review in progress
+
+See [local results and milestones](../../sessions/2026-10-05-woodland-ally/002-ally-to-cloud.md). The pinned Woodland artifact matches its checksum, Windows Edge/Firefox hosted and portable checks pass, and Woodland is installed in the Ally fullscreen workflow. Live capture was blocked by URL-confidence policy; physical interaction, actual kiosk scaling and extended operation remain pending. Compact character visibility and scene width are follow-up art milestones. Do not label this a completed physical acceptance or stable release.
+
 ## Current foundation — implemented, awaiting PR merge
 
 - Browser clock with date, weather, daily facts, fullscreen and touch lock.
@@ -54,6 +58,10 @@ These are candidates, not commitments. Keep them out of an active milestone unti
 
 ## Shared characters — first layer implemented
 
+Next step implemented: [survey walking and work grips](design/WALKING-AND-GRIPS.md). Ground contacts now support the lead survey route; gathering/cooking sockets join hand and tool to the workpiece. Shelter/crossing sockets and reciprocal teaching are implemented in the refinement integration. Other walking, tree work and full dynamics remain deferred; scope is recorded rather than generalized to all activities.
+
+Next authorized step implemented: [Woodland rock contact slice](design/CHARACTER-CONTACTS.md), with shared world-space hand/foot targeting, supported body lifts and recovery. Ground walking and work grips are implemented; a specialist tree route remains a next milestone; full rope/contact dynamics remain later work. See [session progress](../../sessions/2026-10-05-woodland-ally/003-character-contacts.md) for verification and deployment status.
+
 The owner authorized appearance/body layers and reusable role equipment. [Shared character design](design/CHARACTERS.md) and the [interactive workshop](design/character-study.html) accompany a central registry for every current mascot. Both climbing themes now share articulated artwork, a harness connection and per-ascent fatigue/recovery/optional aid behavior. The catalog separates available gear from carried kit.
 
 Next layers: persistent terrain hand/foot contacts and center-of-mass/rope physics; gear-specific animation; persistent fatigue and food/water consumption; cooking/bushcraft; planting/harvest and hunting/foraging. These are follow-up work, not implemented behavior.
@@ -71,3 +79,5 @@ Review gate: readable terrain time and shell content in compact landscape and po
 Next Woodland expansion: contact-pinned rock/tree routes and specialist tree gear, activity-specific material edits, sustained resource history and richer reciprocal gestures. The first slice uses timed vignettes rather than claiming these systems are complete.
 
 The [overall composition plan](design/LIVING-WORLDS.md) combines [visual layers](design/VISUAL-LAYERS.md), [actions/time/effort](design/ACTIONS-AND-TIME.md) and [stories/philosophy](design/STORIES-AND-PHILOSOPHY.md). Proposed implementation order after Woodland: industrial/engineering, farming, railway/station/junction, ant life. Weaving is fully planned; its implementation slot remains to be chosen. Do not begin later themes automatically.
+
+Woodland refinement now combines both development histories with responsive contact sites, shelter/crossing grips and reciprocal teaching. See [implemented scope and next milestones](design/REFINEMENT-AND-WORK.md). Physical acceptance remains pending.
