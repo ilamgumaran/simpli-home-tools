@@ -10,6 +10,20 @@ Canonical application directory: `tools/little-orbit/`. Product name: **Our Desk
 
 Next-session focus requested by the owner: improve the **theme, landscape, and character**. No specific next visual redesign has been selected yet. Use the prompts below as direction, retain readable information and all existing themes, and record new proposals/decisions in Git. Save refinements through branches/PRs; the owner approves merges and releases. No future-session automation is configured.
 
+## Cloud development and local Ally testing
+
+The owner is continuing improvements in a cloud session, then returning to this local session for physical-device testing after builds complete. Cloud work should start from `add-little-orbit-clock` (or a new branch based on it), rather than the documentation-only `main`, until PR #1 is merged. Fetch current remote state before choosing a base; another session may have advanced it.
+
+Suggested opening prompt for the cloud session:
+
+> Work in ilamgumaran/simpli-home-tools. Start from the latest add-little-orbit-clock branch, or its successor if PR #1 has merged. Read AGENTS.md and tools/little-orbit/design/OWNER-PROMPTS.md, PRODUCT.md, ROADMAP.md, and the Time Climber II plan. Improve the theme, landscape, and character while preserving readable grouped numbers, fixed time/date/weather/facts, four themes, configurable sizes, portable browser use, low-power and reduced-motion behavior. Keep artwork original and preserve the noncommercial license. Commit source, updated plans, and rebuilt Little Orbit.html; run npm run build and npm test. Publish the work to a branch/PR and report the branch, commit, tests, and remaining physical-device checks. We will test the build on the Ally in the local session afterward.
+
+For the local return: provide the PR/branch and exact commit to test. Fetch and inspect that revision, run required checks, then update the local runtime mirror and portable bundle and restart the clock for Ally review. Preserve local launchers, profiles, settings, and power state; none belongs in Git. Record viewport, readability, digit grouping, movement, touch/fullscreen, and screen-care feedback in the shared plan. Avoid simultaneous edits to the same branch while the cloud session is publishing.
+
+Latest owner prompt:
+
+> pls get all these updated to git... I am starting further improvement in a cloud session and we can come here and test after the builds are done..
+
 ## Original display direction
 
 > Let’s build a display clock on the browser which shows time and weather with date also and some fun fact daily. Also protect the display make it look retro and cool for the kids. Setup in the rog ally device
