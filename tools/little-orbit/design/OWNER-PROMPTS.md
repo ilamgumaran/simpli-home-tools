@@ -1,5 +1,7 @@
 # Latest living-world handoff
 
+Read the [session communication index](../../../sessions/README.md) and [current cloud-to-Ally message](../../../sessions/2026-10-05-woodland-ally/001-cloud-to-ally.md) when moving between sessions. The Ally session should publish its response as the next numbered message in that thread.
+
 For installing the completed cloud build and testing it in the other Ally session, start with [ALLY-TEST-HANDOFF.md](ALLY-TEST-HANDOFF.md). It pins the tested runtime and portable checksum, gives Windows pull/start/restart steps, and records what is implemented and what remains planned.
 
 The active implementation is `feature/living-woodland-time`, based on `feature/shared-character-layers` (PR #2), which itself targets the original clock development branch. Five themes now exist; the new one is Woodland of Time (`woodland`). Read [LIVING-WORLDS.md](LIVING-WORLDS.md) and its visual, action and story plans for the owner's latest direction. The user explicitly asked the orchestrator to delegate detailed planning, validate harmony, and implement one scene first.

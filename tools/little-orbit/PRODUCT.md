@@ -24,6 +24,7 @@ This is the product's planning hub. Designs are proposals until explicitly marke
 | [Design index](design/README.md) | Proposals, design studies, and their status |
 | [Owner prompts and session handoff](design/OWNER-PROMPTS.md) | Original product direction and where a new session should resume |
 | [Ally installation handoff](design/ALLY-TEST-HANDOFF.md) | Published build revision, checksum, installation and physical-device checks |
+| [Session communication](../../sessions/README.md) | Numbered handoffs and replies between development and device-testing sessions |
 | [Architecture](design/ARCHITECTURE.md) | Current source map and intended separation as the product grows |
 | [Decision log](design/DECISIONS.md) | Why lasting product choices were made |
 | [Repository contribution guide](../../CONTRIBUTING.md) | Reporting issues and submitting work |

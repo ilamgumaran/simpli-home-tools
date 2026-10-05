@@ -2,6 +2,8 @@
 
 Prepared 2026-10-05. Status: source, plans and portable build published for local device testing. Physical Ally testing has not been performed in the cloud session.
 
+Session communication lives in [sessions/README.md](../../../sessions/README.md). Read [the cloud-to-Ally message](../../../sessions/2026-10-05-woodland-ally/001-cloud-to-ally.md) before starting, and return installation/testing results as `002-ally-to-cloud.md` in that thread.
+
 ## Version to pull
 
 | Item | Value |
