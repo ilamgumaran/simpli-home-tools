@@ -21,6 +21,28 @@ assert.deepEqual(recoveryA,recoveryB);assert.equal(Object.values(recoveryA.conta
 assert.throws(()=>characters.climbContacts(route,NaN));
 const badRoute={...route,stations:route.stations.map(s=>({...s,leftHand:{...s.leftHand,x:500}}))};
 assert.throws(()=>characters.climbContacts(badRoute,0),/outside limb reach/);
+const walkRoute=worlds.routes.woodlandWalk;
+let lastWalk=null;
+for(let sample=0;sample<=1000;sample++){
+ const rig=characters.walkContacts(walkRoute,sample/1000);
+ ['leftFoot','rightFoot'].forEach((name,i)=>{
+  const limb=rig.legs[i],end={x:rig.root.x+limb[2].x*walkRoute.scale,y:rig.root.y+limb[2].y*walkRoute.scale};
+  assert.ok(Math.hypot(end.x-rig.targets[name].x,end.y-rig.targets[name].y)<1e-8);
+  assert.ok(end.y<=walkRoute.groundY+1e-8,'Swing foot passes through ground');
+  for(let bone=0;bone<2;bone++)assert.ok(Math.abs(Math.hypot(limb[bone+1].x-limb[bone].x,limb[bone+1].y-limb[bone].y)-12)<1e-8);
+  if(rig.holds[name]){assert.equal(end.y,walkRoute.groundY);if(lastWalk?.holds[name]&&Math.abs(lastWalk.holds[name].x-rig.holds[name].x)<.01)assert.ok(Math.hypot(end.x-lastWalk.targets[name].x,end.y-lastWalk.targets[name].y)<1e-8);}
+ });
+ assert.ok(rig.contacts.leftFoot||rig.contacts.rightFoot);lastWalk=rig;
+}
+assert.throws(()=>characters.walkContacts(walkRoute,NaN));
+for(let sample=0;sample<=100;sample++){
+ const angle=Math.PI/2+Math.sin(sample/100*Math.PI*6)*.12;
+ for(const [root,work,hand,action] of [[{x:299,y:303},{x:303,y:319},0,'gather'],[{x:326,y:300},{x:339,y:309},1,'cook']]){
+  const rig=characters.workContacts({root,work,hand,action,scale:.72,groundY:318.72,angle}),wrist=rig.arms[hand][2],grip=characters.toolGrip(wrist,rig.toolTarget);
+  assert.ok(Math.hypot(grip.tip.x-rig.toolTarget.x,grip.tip.y-rig.toolTarget.y)<1e-8);
+  assert.ok(Math.hypot(grip.x-wrist.x,grip.y-wrist.y)<1e-8);
+ }
+}
 assert.equal(Object.keys(worlds.recipes).length,6);
 assert.deepEqual(Object.entries(worlds.recipes).filter(([,v])=>v.status==='implemented').map(([id])=>id),['woodland']);
 assert.deepEqual(worlds.recipes.ants.characters,[]);

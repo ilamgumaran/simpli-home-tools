@@ -8,7 +8,7 @@ Git records communication but does not automatically notify another running sess
 
 | Thread | Branch carrying the handoff | Latest message | State |
 | --- | --- | --- | --- |
-| [Woodland installation and Ally testing](2026-10-05-woodland-ally/README.md) | Latest character step/reply: `feature/woodland-character-contacts`; preceding installation: `local/woodland-ally-check` | [003: character contacts](2026-10-05-woodland-ally/003-character-contacts.md) | Planted rock contacts implemented, verified and deployed; physical acceptance pending |
+| [Woodland installation and Ally testing](2026-10-05-woodland-ally/README.md) | Latest character step/reply: `feature/woodland-walking-grips`; preceding contacts: `feature/woodland-character-contacts` | [004: walking and grips](2026-10-05-woodland-ally/004-walking-grips.md) | Planted walking and work grips implemented, verified and deployed; physical acceptance pending |
 
 ## Read and reply
 

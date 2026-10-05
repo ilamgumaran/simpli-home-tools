@@ -47,6 +47,28 @@ const assert=require('node:assert/strict'),path=require('node:path'),{pathToFile
    const recoveryGeometry=()=>{const host=document.querySelector('#woodland-cast > g');return {root:host.getAttribute('transform'),holds:host.dataset.contactHolds,limbs:[...host.querySelectorAll('[data-part^="arm-"],[data-part^="leg-"]')].map(p=>p.getAttribute('d'))};};
    const rockRecovery=await page.evaluate(recoveryGeometry);await page.clock.runFor(1000);assert.deepEqual(await page.evaluate(recoveryGeometry),rockRecovery,'Rock contacts move during recovery');
    // Every activity has a coherent current-time snapshot, even between visits.
+   for(const second of [5,5.25,5.5,6,6.25,7,7.5,8,8.5,9,9.5,10,11,12]){
+    await page.clock.setSystemTime(new Date(new Date('2026-10-05T10:00:00-04:00').getTime()+second*1000));
+    const ground=await page.evaluate(()=>{
+     WoodlandTime.refresh();const host=document.querySelector('#woodland-cast > g'),contacts=JSON.parse(host.dataset.groundContacts),inverse=document.querySelector('#woodland-world').getScreenCTM().inverse();
+     const ends=['left','right'].map(side=>{const path=host.querySelector(`[data-part="leg-${side}"]`),point=path.getPointAtLength(path.getTotalLength());return new DOMPoint(point.x,point.y).matrixTransform(inverse.multiply(path.getScreenCTM()));});
+     return {ends:ends.map(p=>({x:p.x,y:p.y})),contacts,ground:document.querySelector('#woodland-walk-ground').getBBox().y,map:host.querySelector('[data-part=held-map]').getAttribute('display')};
+    });
+    assert.equal(ground.map,'none','Map should be stowed during walking');
+    assert.ok(ground.ends.every(p=>p.y<=ground.ground+.02));
+    const planted=Object.entries(ground.contacts).filter(([,hold])=>hold);assert.ok(planted.length>=1);
+    for(const [name,hold] of planted){const p=ground.ends[name==='leftFoot'?0:1];assert.ok(Math.hypot(p.x-hold.x,p.y-hold.y)<.03,JSON.stringify({second,name,p,hold,ground}));}
+   }
+   await page.clock.setSystemTime(new Date('2026-10-05T10:00:04-04:00'));await page.evaluate(()=>WoodlandTime.refresh());assert.equal(await page.locator('#woodland-cast [data-part=held-map]').first().getAttribute('display'),'');
+   for(const minute of [1,8]){
+    await page.clock.setSystemTime(new Date(`2026-10-05T10:${String(minute).padStart(2,'0')}:07-04:00`));
+    const grip=await page.evaluate(minute=>{
+     WoodlandTime.refresh();const host=document.querySelector('#woodland-cast > g'),part=host.querySelector(`[data-part="arm-${minute===8?'right':'left'}"]`),end=part.getPointAtLength(part.getTotalLength()),wrist=new DOMPoint(end.x,end.y).matrixTransform(part.getCTM());
+     const tool=minute===8?host.querySelector('[data-part=held-spoon]'):document.querySelector('#woodland-stick-grip'),tip=new DOMPoint(14,0).matrixTransform(tool.getCTM()),handle=new DOMPoint(0,0).matrixTransform(tool.getCTM()),target=document.querySelector('#woodland-work-target'),socket=new DOMPoint(Number(target.getAttribute('cx')),Number(target.getAttribute('cy'))).matrixTransform(target.getCTM());
+     return {hand:Math.hypot(handle.x-wrist.x,handle.y-wrist.y),work:Math.hypot(tip.x-socket.x,tip.y-socket.y)};
+    },minute);
+    assert.ok(grip.hand<.03&&grip.work<.03,JSON.stringify(grip));
+   }
    for(let minute=0;minute<12;minute++){
     await page.clock.setSystemTime(new Date(`2026-10-05T10:${String(minute).padStart(2,'0')}:04-04:00`));await page.evaluate(()=>WoodlandTime.refresh());
     await checkTime('10:'+String(minute).padStart(2,'0'));assert.ok((await page.locator('#woodland-props').innerHTML()).length>0);

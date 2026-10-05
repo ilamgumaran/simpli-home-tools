@@ -58,6 +58,8 @@ These are candidates, not commitments. Keep them out of an active milestone unti
 
 ## Shared characters — first layer implemented
 
+Next step implemented: [survey walking and work grips](design/WALKING-AND-GRIPS.md). Ground contacts now support the lead survey route; gathering/cooking sockets join hand and tool to the workpiece. Shelter/crossing sockets and reciprocal teaching gestures remain next candidates. Other walking, tree work and full dynamics remain deferred; scope is recorded rather than generalized to all activities.
+
 Next authorized step implemented: [Woodland rock contact slice](design/CHARACTER-CONTACTS.md), with shared world-space hand/foot targeting, supported body lifts and recovery. Ground walking, work sockets/tool grips and a specialist tree route remain next milestones; full rope/contact dynamics remain later work. See [session progress](../../sessions/2026-10-05-woodland-ally/003-character-contacts.md) for verification and deployment status.
 
 The owner authorized appearance/body layers and reusable role equipment. [Shared character design](design/CHARACTERS.md) and the [interactive workshop](design/character-study.html) accompany a central registry for every current mascot. Both climbing themes now share articulated artwork, a harness connection and per-ascent fatigue/recovery/optional aid behavior. The catalog separates available gear from carried kit.

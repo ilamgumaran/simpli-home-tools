@@ -53,6 +53,8 @@ This is a stylized pose and effort model, not a complete physics/biology simulat
 
 ### Next character step: planted rock contacts
 
+The subsequent [walking and grip slice](WALKING-AND-GRIPS.md) adds a planted lead survey route and reachable gathering/cooking work targets. It shares the same identities and rig, while keeping fixed feet and tool contact separate from future dynamic simulation.
+
 Woodland's rock climb now has an authored world-space route and shared contact solver, with one-limb moves followed by a four-contact body lift. Recovery and the final quiet stance retain terrain sockets and a harness-connected protection line. See [the contact implementation scope](CHARACTER-CONTACTS.md). Earlier statements about logical support poses still apply to Time Climber I/II, the tree activity and general walking. Full dynamics, contact collisions and persistent biology remain deferred.
 
 `characters.js` is loaded before theme code and embedded by `build-portable.cjs`. The static server serves the shared library and character study. `time-climber.js` and `time-climber-ii.js` mount the shared art and sample its poses/effort; they retain scene geometry, calendar behavior and lifecycle responsibility.
