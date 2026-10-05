@@ -1,17 +1,23 @@
 # Simpli Home Tools
 
-Small, configurable tools for everyday home devices.
+Small, configurable tools for everyday home devices. Contributions and new ideas are welcome.
 
-## Our Desk Clock planning hub
+## Tools
 
-Plans, original design studies, and curated owner prompts are saved on main so future sessions can improve the theme, landscape, and character. The executable clock is currently on [add-little-orbit-clock / PR #1](https://github.com/ilamgumaran/simpli-home-tools/pull/1), pending merge. Download that branch for the working browser or portable clock; main currently contains planning and reference documents.
+| Tool | What it does | Run it |
+| --- | --- | --- |
+| [Our Desk Clock](tools/little-orbit/) | Retro display clock with weather, date, daily facts, touch lock, and cartoon screensaver themes, including Time Climber I and II | Download the repo ZIP and open `tools/little-orbit/Little Orbit.html` in a browser |
 
-- [Start another session: owner prompts and handoff](tools/little-orbit/design/OWNER-PROMPTS.md)
-- [Product guide](tools/little-orbit/PRODUCT.md)
-- [Roadmap](tools/little-orbit/ROADMAP.md)
-- [Mountain of Time plan](tools/little-orbit/design/TIME-CLIMBER-V2-PLAN.md)
-- [Design archive](tools/little-orbit/design/README.md)
-- [Architecture](tools/little-orbit/design/ARCHITECTURE.md)
-- [Contribution guide](CONTRIBUTING.md)
+Little Orbit runs entirely in the browser. Its [configuration guide](tools/little-orbit/CONFIGURATION.md) covers device presets, font sizes, weather location, screen care, and character timing. Node is optional for local serving or rebuilding the portable file.
 
-Original project code, documentation and artwork use [Simpli Home Tools Noncommercial License 1.0](LICENSE). Commercial use or monetization requires separate written permission from ilamgumaran. This is source-available, not OSI open source. Earlier GPL grants remain in effect. See [licensing](LICENSING.md).
+Use **Code → Download ZIP**, extract it, and open the portable HTML file. Alternatively, clone the repository and follow the tool's README. A GitHub file preview is source code; download the HTML to run it.
+
+## Contribute
+
+Open an issue or send a pull request. See [CONTRIBUTING.md](CONTRIBUTING.md). Each tool has its own folder so the collection can grow.
+
+Our Desk Clock's [product guide](tools/little-orbit/PRODUCT.md), [roadmap](tools/little-orbit/ROADMAP.md), and [design archive](tools/little-orbit/design/) track how it will evolve. Time Climber II is implemented on the development branch alongside its original design and acceptance checks.
+
+## License
+
+Project source, documentation, and original artwork use the **Simpli Home Tools Noncommercial License 1.0**; see [LICENSE](LICENSE) and [LICENSING.md](LICENSING.md). Noncommercial use, modification, and sharing are allowed under those terms. **Commercial use or monetization requires separate written permission from ilamgumaran.** This is source-available software, not OSI open source. Earlier GPL-licensed versions retain their existing rights. External services/data and dependencies keep their own terms.
