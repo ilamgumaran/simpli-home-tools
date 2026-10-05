@@ -1,0 +1,202 @@
+<!doctype html>
+<!-- SPDX-License-Identifier: LicenseRef-Simpli-Noncommercial-1.0
+Copyright (C) 2026 ilamgumaran and contributors. -->
+<!-- Full project license follows; keep it with this design study.
+Simpli Home Tools Noncommercial License 1.0
+SPDX identifier: LicenseRef-Simpli-Noncommercial-1.0
+Effective for project versions distributed with this license.
+
+Copyright (C) 2026 ilamgumaran and contributors.
+All rights not expressly granted are reserved.
+
+1. Definitions and scope
+
+"Project" means the original software, documentation, and artwork supplied
+with this license, including modified versions and copies of that material.
+Separately licensed third-party material is excluded and retains its own terms.
+
+"Project Licensor" means ilamgumaran, the repository owner at
+https://github.com/ilamgumaran/simpli-home-tools, or a successor designated
+in writing by that owner. The Project Licensor may grant permission only
+for rights it owns or is authorized to license.
+
+"Commercial Use" means using, modifying, hosting, distributing, sublicensing,
+or otherwise exploiting the Project for monetary compensation, revenue,
+commercial advantage, or in support of a business or revenue-generating
+activity, whether directly or indirectly. This includes, without limitation:
+
+  - Selling copies, modified versions, licenses, or access to the Project.
+  - Paid hosting, subscriptions, paid services, or advertising-supported use.
+  - Bundling the Project with a product, device, service, or paid offering.
+  - Using the Project in business operations, customer displays, marketing,
+    or other activities intended to support commercial advantage.
+  - Charging for work or services based on the Project, including paid
+    customization, deployment, consulting, or support.
+  - Seeking money, sponsorship, or donations in exchange for access to, use
+    of, or services based on the Project.
+
+Providing access without a fee does not make an otherwise commercial
+activity noncommercial. Whether an organization is for-profit or nonprofit
+does not by itself determine whether a use is commercial.
+
+2. Noncommercial permission
+
+Subject to these terms, you may use, inspect, copy, modify, and distribute
+the Project solely for noncommercial purposes, without charge. This includes
+personal/home use, unpaid learning, noncommercial research, and noncommercial
+community collaboration.
+
+Keep this license and existing copyright/attribution notices with every copy
+or distribution, including modified versions. Identify substantive changes
+you make. Distribute covered original material and modifications under this
+same license, unless you have separate written permission from the Project
+Licensor. Do not remove or weaken the commercial-use restriction. Provide
+the corresponding preferred source for any covered modified executable or
+packaged version you distribute, or a freely accessible link to that source.
+
+3. Commercial permission is required
+
+No Commercial Use is permitted under this license. Before any Commercial
+Use, obtain a separate, explicit written agreement from the Project Licensor
+that authorizes that use. A public repository, an accepted contribution,
+silence, a download, or permission for a different use is not such agreement.
+
+Request permission through the repository's commercial-permission issue
+template. A request does not grant permission. Permission may be subject to
+fees, attribution, scope, duration, or other terms in the written agreement.
+
+4. Contribution authorization
+
+If you intentionally submit a contribution for inclusion in this Project
+after these terms are published, you confirm that you have the authority
+to license it, identify any separately licensed third-party material, and
+license your original contribution to recipients under this license.
+
+You also grant the Project Licensor a nonexclusive, worldwide, perpetual,
+irrevocable, royalty-free right to use, reproduce, modify, distribute,
+sublicense, and license that contribution under these terms and under
+separate commercial terms. You retain copyright; this is not a copyright
+assignment. This authorization allows the Project Licensor to approve
+commercial uses of the combined Project without claiming ownership of
+contributors' copyrights. It does not alter grants made before these terms.
+
+5. Earlier licenses and independent material
+
+This license does not revoke rights already granted in Project versions
+previously distributed under GPL-3.0-only or another license. Those versions
+remain governed by the license under which they were obtained. This license
+does not impose these restrictions on independently obtained prior versions,
+third-party dependencies, external weather data, or separately licensed work.
+
+This license is not GPL, is not a modification of the GPL license text, and
+is not an OSI-approved open-source license. The Project is source-available
+for noncommercial use. No trademark or endorsement rights are granted.
+Rights that cannot lawfully be restricted remain unaffected.
+
+6. Termination
+
+Permission under this license ends automatically if you violate its terms.
+Ending permission does not cancel your obligations for existing copies or
+limit other remedies available to rights holders. The Project Licensor may
+reinstate permission in writing. No fee, payment, or settlement by itself
+grants ongoing commercial permission without a written agreement.
+
+7. No warranty or liability
+
+TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, THE PROJECT IS PROVIDED
+"AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NONINFRINGEMENT.
+THE AUTHORS AND RIGHTS HOLDERS ARE NOT LIABLE FOR ANY CLAIM, DAMAGE, OR
+OTHER LIABILITY ARISING FROM THE PROJECT OR ITS USE, WHETHER IN CONTRACT,
+TORT, OR OTHERWISE. NOTHING HERE EXCLUDES LIABILITY THAT THE LAW DOES NOT
+ALLOW TO BE EXCLUDED.
+
+-->
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Time Climber II — design proposal</title><style>body{--foreground:#c5e5d4;background:#101617;color:#c5e5d4;margin:0;padding:16px;font-family:system-ui,sans-serif}main{max-width:1024px;margin:auto}h1{font-size:22px;font-weight:500}p{line-height:1.5}a{color:#addbb9}#tc2-design .tc2-controls select{background:#202521;color:#e6ede6;border-color:#687368}footer.preview-note{margin-top:16px;font-size:13px}</style></head><body><main><h1>Time Climber II — Mountain of Time</h1><p>Design proposal only. Sample time and manually selected views; this is not a working clock theme. It does not connect to your clock or save its settings.</p>
+<div id="tc2-design">
+  <div class="tc2-controls">
+    <label>Focus <select id="tc2-focus"><option value="minute">Minute trail</option><option value="hour">Hour ridge</option><option value="day">Day summit</option></select></label>
+    <label>Perspective <select id="tc2-view"><option value="trail">Above the trail</option><option value="cliff" selected>Climbing the cliff</option><option value="traverse">The other side</option></select></label>
+  </div>
+  <div class="tc2-clock" aria-label="Time Climber II design preview">
+    <header><span>OUR DESK CLOCK</span><span>Design preview · sample time</span></header>
+    <div class="tc2-readout"><strong>08:42 <small>AM</small></strong><span>Sunday · 04 October 2026</span></div>
+    <div class="tc2-world">
+      <div class="tc2-horizon"><span>YEAR · 2026</span><span>MONTH · OCTOBER</span></div>
+      <div class="tc2-day">DAY SUMMIT · 04</div>
+      <div class="tc2-hour">HOUR RIDGE · 08</div>
+      <svg id="tc2-scene" role="img" aria-label="A tiny mountaineer climbs a mountain shaped like a digit, below distant calendar ridges" viewBox="0 0 720 290">
+        <path class="tc2-far" d="M0 128L55 93 96 109 158 44 190 67 222 31 268 72 313 59 354 108 402 55 455 76 495 38 554 79 608 41 657 91 720 64V290H0Z"/>
+        <path class="tc2-mid" d="M0 220L82 179 126 197 188 134 221 162 284 113 340 163 380 123 436 177 486 115 560 171 620 136 720 204V290H0Z"/>
+        <g id="tc2-geometry"></g>
+        <g id="tc2-explorer">
+          <path class="tc2-rope" d="M0 -65Q-17 -32 0 0"/>
+          <circle class="tc2-anchor" cy="-65" r="3"/>
+          <path class="tc2-limb" d="M0 0L-5 7 -2 13M0 0L7 4 10 10M0 -6L-8 -14M0 -6L7 -13"/>
+          <rect class="tc2-pack" x="-8" y="-9" width="6" height="10" rx="2"/>
+          <path class="tc2-jacket" d="M-3 -9H3L4 1H-4Z"/>
+          <circle class="tc2-face" cy="-14" r="4"/>
+          <path class="tc2-helmet" d="M-5 -15Q0 -22 5 -15Z"/>
+        </g>
+      </svg>
+      <div class="tc2-minute">MINUTE TRAIL · 42</div>
+      <div id="tc2-state" aria-live="polite">Minute digit 4 · rope ascent</div>
+    </div>
+    <footer><div><span>WEATHER · MARIETTA</span><strong>72° · Partly cloudy</strong></div><div><span>DAILY BRAIN BOOST</span><strong>Mountains can grow a little each year.</strong></div></footer>
+  </div>
+</div>
+<style>
+#tc2-design{--ink:#c5e5d4;--dim:#91ad9d;--bg:#080e10;--ridge:#18262a;--near:#263c3e;--trail:#a4c9a8;--pack:#df8c83;font-family:ui-monospace,Consolas,monospace}
+#tc2-design .tc2-controls{display:flex;flex-wrap:wrap;gap:16px;margin-bottom:12px;color:var(--foreground)}
+#tc2-design .tc2-controls label{display:flex;align-items:center;gap:8px}
+#tc2-design select{font:inherit;background:light-dark(#f4f5f4,#202521);color:light-dark(#202521,#e6ede6);padding:8px;border:1px solid light-dark(#adb7ad,#687368);border-radius:5px;min-height:44px}
+#tc2-design .tc2-clock{background:var(--bg);color:var(--ink);padding:20px;overflow:hidden;border-radius:12px}
+#tc2-design header{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between;font-size:11px;letter-spacing:.08em;color:var(--dim);padding-right:90px}
+#tc2-design .tc2-readout{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;padding:15px 0}
+#tc2-design .tc2-readout strong{font-size:clamp(28px,5vw,48px);font-weight:500;letter-spacing:.06em}
+#tc2-design small{font-size:14px}
+#tc2-design .tc2-readout span{font-size:16px}
+#tc2-design .tc2-world{position:relative;background:linear-gradient(var(--bg),#101c20);padding:8px 0 12px}
+#tc2-design .tc2-horizon{display:flex;align-items:center;flex-direction:column;gap:6px;font-size:12px;color:var(--dim)}
+#tc2-design .tc2-horizon span:last-child{font-size:14px}
+#tc2-design .tc2-day{font-size:14px;text-align:center;margin-top:9px}
+#tc2-design .tc2-hour{font-size:18px;text-align:center;margin-top:9px}
+#tc2-design .tc2-minute{font-size:22px;text-align:center;margin-top:4px}
+#tc2-design #tc2-state{font-size:12px;text-align:center;color:var(--dim);margin-top:9px}
+#tc2-design svg{display:block;width:100%;height:auto;max-height:300px;overflow:visible}
+#tc2-design .tc2-far{fill:var(--ridge)}
+#tc2-design .tc2-mid{fill:var(--near)}
+#tc2-design .tc2-rock{fill:none;stroke:#324d4c;stroke-width:38;stroke-linecap:round;stroke-linejoin:round}
+#tc2-design .tc2-route{fill:none;stroke:var(--trail);stroke-width:2;stroke-dasharray:4 5;stroke-linejoin:round}
+#tc2-design .tc2-rope{fill:none;stroke:var(--ink);stroke-width:1.6}
+#tc2-design .tc2-anchor{fill:var(--ink)}
+#tc2-design .tc2-limb{fill:none;stroke:#f2e7bc;stroke-width:2.2;stroke-linecap:round}
+#tc2-design .tc2-pack,#tc2-design .tc2-helmet{fill:var(--pack);stroke:var(--bg);stroke-width:1}
+#tc2-design .tc2-jacket{fill:#bedfb2;stroke:var(--bg);stroke-width:1}
+#tc2-design .tc2-face{fill:#f2e7bc;stroke:var(--bg);stroke-width:1}
+#tc2-design footer{display:grid;grid-template-columns:1fr 1.6fr;gap:18px;border-top:1px solid #243637;padding-top:15px}
+#tc2-design footer span{display:block;font-size:11px;color:var(--dim);margin-bottom:6px}
+#tc2-design footer strong{font-size:16px;font-weight:400}
+@media(max-width:500px){#tc2-design .tc2-clock{padding:12px}#tc2-design footer{grid-template-columns:1fr;gap:12px}#tc2-design header{padding-right:0}#tc2-design .tc2-readout span{font-size:14px}}
+</style>
+<script>
+(()=>{
+const root=document.getElementById('tc2-design'),focus=root.querySelector('#tc2-focus'),view=root.querySelector('#tc2-view'),geometry=root.querySelector('#tc2-geometry'),actor=root.querySelector('#tc2-explorer'),status=root.querySelector('#tc2-state');
+const routes={4:'M45 0L0 105H80M60 0V185',0:'M10 20Q10 0 40 0H60Q80 0 80 20V160Q80 185 55 185H30Q5 185 5 160V20',8:'M40 90Q0 90 0 45Q0 0 40 0Q80 0 80 45Q80 90 40 90Q0 90 0 140Q0 185 40 185Q80 185 80 140Q80 90 40 90',2:'M0 28Q0 0 40 0Q80 0 80 30Q80 65 0 165V185H80'};
+function render(){
+ const level=focus.value,perspective=view.value,digit=level==='minute'?'4':'0',neighbor=level==='hour'?'8':level==='day'?'4':'2';
+ const transform=perspective==='trail'?'translate(245 65) skewX(-24) scale(1.25 .8)':perspective==='traverse'?'translate(285 62) skewX(14) scale(1.05 1.05)':'translate(245 62) scale(1.2 1.05)';
+ geometry.innerHTML='<g opacity=".55" transform="translate(500 125) scale(.5)"><path class="tc2-rock" d="'+routes[neighbor]+'"/><path class="tc2-route" d="'+routes[neighbor]+'"/></g><g transform="'+transform+'"><path class="tc2-rock" d="'+routes[digit]+'"/><path class="tc2-route" d="'+routes[digit]+'"/></g>';
+ const positions=perspective==='trail'?[288,132]:perspective==='traverse'?[354,173]:[320,188];
+ actor.setAttribute('transform','translate('+positions.join(' ')+') scale(1.15)');
+ actor.querySelector('.tc2-rope').style.display=perspective==='trail'?'none':'';actor.querySelector('.tc2-anchor').style.display=perspective==='trail'?'none':'';
+ status.textContent=(level==='minute'?'Minute digit 4':level==='hour'?'Hour digit 0':'Day digit 0')+' · '+({trail:'walking the number trail',cliff:'rope ascent',traverse:'traverse toward the next digit'}[perspective]);
+}
+const saved=window.openai?.widgetState?.modelContent;if(saved&&['minute','hour','day'].includes(saved.focus))focus.value=saved.focus;if(saved&&['trail','cliff','traverse'].includes(saved.view))view.value=saved.view;
+function changed(){render();window.openai?.setWidgetState?.({modelContent:{focus:focus.value,view:view.value},privateContent:null}).catch(()=>{});}
+focus.addEventListener('change',changed);view.addEventListener('change',changed);render();
+const options={characterSize:1.15};if(globalThis.Tweak){const tweak=new Tweak({container:root.querySelector('.tc2-world'),onChange:()=>{render();actor.setAttribute('transform',actor.getAttribute('transform').replace('scale(1.15)','scale('+options.characterSize+')'));}});tweak.addSlider(options,'characterSize',{label:'Explorer visibility',min:1,max:1.8,step:.1});}
+})();
+</script>
+
+<footer class="preview-note">Original design study · Noncommercial use; commercial permission required · <a href="TIME-CLIMBER-V2-PLAN.md">Design plan</a> · <a href="../PRODUCT.md">Product guide</a></footer></main></body></html>
