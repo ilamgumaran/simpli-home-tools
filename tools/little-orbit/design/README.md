@@ -6,6 +6,7 @@ Start a new session with the [owner prompts and handoff](OWNER-PROMPTS.md). Plan
 
 | Design | Status | Preview |
 | --- | --- | --- |
+| [Organic character motion](ORGANIC-MOTION.md) | Implemented on `feature/woodland-organic-motion` | 30 fps low-power/native-frame rendering, paced planted travel, supported weight shifts and continuous contact/teaching transitions |
 | [Planted walking and tool grips](WALKING-AND-GRIPS.md) | Implemented on `feature/woodland-walking-grips` | Survey ground contacts, map stowing and reachable gathering/cooking work |
 | [Planted Woodland rock contacts](CHARACTER-CONTACTS.md) | Next character step implemented on `feature/woodland-character-contacts` | Authored sockets, one-limb steps, supported body lifts and recovery |
 | [Local installation results](../../../sessions/2026-10-05-woodland-ally/002-ally-to-cloud.md) | Woodland installed; Windows browser suites passed; live inspection pending | Compact-scene feedback and five validation milestones |
@@ -18,3 +19,5 @@ Start a new session with the [owner prompts and handoff](OWNER-PROMPTS.md). Plan
 The preview has a fixed sample clock and manually selected focus/viewpoints. It does not change settings or connect to the running desk clock. GitHub's file viewer displays its source; download the file to interact with it.
 
 See [architecture](ARCHITECTURE.md), [decision log](DECISIONS.md), [product guide](../PRODUCT.md), and [roadmap](../ROADMAP.md) for context. Keep originals/license notices with artwork. Do not save personal screen captures, device profiles, private settings, credentials, or OS power state here.
+
+- [Woodland refinement and supported work](REFINEMENT-AND-WORK.md): merged size/motion and contact histories, shelter/crossing sockets, teaching and remaining milestones.

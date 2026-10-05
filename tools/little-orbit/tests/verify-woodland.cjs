@@ -47,7 +47,22 @@ const assert=require('node:assert/strict'),path=require('node:path'),{pathToFile
     assert.equal(result.clipped,false,JSON.stringify({viewport,result}));
     assert.equal(result.glyphClipped,false,JSON.stringify({viewport,result}));
    }
+   // Give ResizeObserver a turn: supported actors must not acquire a second scale.
+   await page.setViewportSize({width:390,height:844});await page.evaluate(()=>WoodlandTime.refresh());await atWork('2026-10-05T10:08:00-04:00',.6);await page.waitForTimeout(100);
+   const afterResize=await page.locator('#woodland-cast .character-art').evaluateAll(nodes=>nodes.map(n=>n.getBoundingClientRect().height));
+   assert.ok(afterResize.every(height=>height<100),JSON.stringify({afterResize}));
    await page.setViewportSize({width:1280,height:720});await page.evaluate(()=>{prefs.display.factScale=1;prefs.display.clockScale=1;prefs.display.weatherScale=1;applyDisplay();WoodlandTime.refresh();});
+   // Responsive worksite joins preserve the rendered root across the travel edge.
+   for(const duration of [4,12,20])for(const minute of [0,1,2,6,8,9]){
+    await page.evaluate(duration=>{prefs.display.companionDuration=duration;WoodlandTime.refresh();},duration);
+    const stamp=new Date(`2026-10-05T10:${String(minute).padStart(2,'0')}:00-04:00`),timing=await page.evaluate(stamp=>WoodlandTime.timing(new Date(stamp)),stamp.toISOString()),roots=[];
+    for(const offset of [-.001,.001]){
+     await page.clock.setSystemTime(new Date(stamp.getTime()+(timing.travel+offset)*1000));
+     roots.push(await page.evaluate(()=>{WoodlandTime.refresh();const root=document.querySelector('#woodland-cast .character-art');const p=new DOMPoint(0,0).matrixTransform(root.getScreenCTM());return {x:p.x,y:p.y};}));
+    }
+    assert.ok(Math.hypot(roots[0].x-roots[1].x,roots[0].y-roots[1].y)<.4,JSON.stringify({duration,minute,roots}));
+   }
+   await page.evaluate(()=>{prefs.display.companionDuration=12;WoodlandTime.refresh();});
    // Observe actual rendered endpoints on terrain holds during rock steps/body lifts.
    for(const progress of [.05,.12,.24,.36,.48,.51,.6,.73,.9,1]){
     await atWork('2026-10-05T10:06:00-04:00',progress);
@@ -69,7 +84,8 @@ const assert=require('node:assert/strict'),path=require('node:path'),{pathToFile
     const ground=await page.evaluate(()=>{
      WoodlandTime.refresh();const host=document.querySelector('#woodland-cast > g'),contacts=JSON.parse(host.dataset.groundContacts),inverse=document.querySelector('#woodland-world').getScreenCTM().inverse();
      const ends=['left','right'].map(side=>{const path=host.querySelector(`[data-part="leg-${side}"]`),point=path.getPointAtLength(path.getTotalLength());return new DOMPoint(point.x,point.y).matrixTransform(inverse.multiply(path.getScreenCTM()));});
-     return {ends:ends.map(p=>({x:p.x,y:p.y})),contacts,ground:document.querySelector('#woodland-walk-ground').getBBox().y,map:host.querySelector('[data-part=held-map]').getAttribute('display')};
+     const groundPath=document.querySelector('#woodland-walk-ground'),groundPoint=groundPath.getPointAtLength(0),ground=new DOMPoint(groundPoint.x,groundPoint.y).matrixTransform(inverse.multiply(groundPath.getScreenCTM())).y;
+     return {ends:ends.map(p=>({x:p.x,y:p.y})),contacts,ground,map:host.querySelector('[data-part=held-map]').getAttribute('display')};
     });
     assert.equal(ground.map,'none','Map should be stowed during walking');
     assert.ok(ground.ends.every(p=>p.y<=ground.ground+.02));
@@ -77,10 +93,10 @@ const assert=require('node:assert/strict'),path=require('node:path'),{pathToFile
     for(const [name,hold] of planted){const p=ground.ends[name==='leftFoot'?0:1];assert.ok(Math.hypot(p.x-hold.x,p.y-hold.y)<.03,JSON.stringify({second,name,p,hold,ground}));}
    }
    await atWork('2026-10-05T10:00:00-04:00',.2);assert.equal(await page.locator('#woodland-cast [data-part=held-map]').first().getAttribute('display'),'');
-   for(const minute of [1,8]){
-    await atWork(`2026-10-05T10:${String(minute).padStart(2,'0')}:00-04:00`,.6);
+   for(const minute of [1,2,8,9])for(const progress of [.1,.25,.6,.8,.95]){
+    await atWork(`2026-10-05T10:${String(minute).padStart(2,'0')}:00-04:00`,progress);
     const grip=await page.evaluate(minute=>{
-     WoodlandTime.refresh();const host=document.querySelector('#woodland-cast > g'),part=host.querySelector(`[data-part="arm-${minute===8?'right':'left'}"]`),end=part.getPointAtLength(part.getTotalLength()),wrist=new DOMPoint(end.x,end.y).matrixTransform(part.getCTM());
+     WoodlandTime.refresh();const host=document.querySelector('#woodland-cast > g'),part=host.querySelector(`[data-part="arm-${[2,8,9].includes(minute)?'right':'left'}"]`),end=part.getPointAtLength(part.getTotalLength()),wrist=new DOMPoint(end.x,end.y).matrixTransform(part.getCTM());
      const tool=minute===8?host.querySelector('[data-part=held-spoon]'):document.querySelector('#woodland-stick-grip'),tip=new DOMPoint(14,0).matrixTransform(tool.getCTM()),handle=new DOMPoint(0,0).matrixTransform(tool.getCTM()),target=document.querySelector('#woodland-work-target'),socket=new DOMPoint(Number(target.getAttribute('cx')),Number(target.getAttribute('cy'))).matrixTransform(target.getCTM());
      return {hand:Math.hypot(handle.x-wrist.x,handle.y-wrist.y),work:Math.hypot(tip.x-socket.x,tip.y-socket.y)};
     },minute);
@@ -96,6 +112,10 @@ const assert=require('node:assert/strict'),path=require('node:path'),{pathToFile
    const recovering=await page.locator('#woodland-cast > g').first().getAttribute('transform');assert.equal(await page.locator('#woodland-scene').getAttribute('data-phase'),'recover');await page.clock.runFor(1000);
    assert.equal(await page.locator('#woodland-cast > g').first().getAttribute('transform'),recovering);assert.equal(await page.locator('#woodland-cast .character-art').first().getAttribute('data-action'),'recover-climb');
    await atWork('2026-10-05T10:05:00-04:00',1,{remaining:1.2});assert.equal(await page.locator('#woodland-cast .character-art').first().getAttribute('data-rope-system'),'protected-fixed-line');
+   for(const [progress,actions] of [[.35,['listen','teach','teach']],[.6,['teach','listen','listen']]]){
+    await atWork('2026-10-05T10:11:00-04:00',progress);
+    assert.deepEqual(await page.locator('#woodland-cast .character-art').evaluateAll(nodes=>nodes.map(n=>n.dataset.action)),actions,'Teacher and learners take turns');
+   }
    // A visit spaced across a boundary must not keep the old digit on screen.
    await page.clock.setSystemTime(new Date('2026-10-05T10:09:59.900-04:00'));await page.evaluate(()=>{prefs.display.companionInterval=45;prefs.display.companionDuration=20;WoodlandTime.refresh();});await checkTime('10:09');await page.clock.runFor(101);await checkTime('10:10');
    await page.clock.setSystemTime(new Date('2026-10-05T10:59:59.900-04:00'));await page.evaluate(()=>WoodlandTime.refresh());const terrain=await page.locator('#woodland-scene').getAttribute('data-terrain');await page.clock.runFor(101);await checkTime('11:00');assert.notEqual(await page.locator('#woodland-scene').getAttribute('data-terrain'),terrain);

@@ -8,8 +8,8 @@ Git records communication but does not automatically notify another running sess
 
 | Thread | Branch carrying the handoff | Latest message | State |
 | --- | --- | --- | --- |
-| [Organic character motion — cloud ownership](2026-10-05-organic-motion/README.md) | Notice: `feature/living-woodland-time`; work: `feature/woodland-organic-motion` | [001: ownership notice](2026-10-05-organic-motion/001-cloud-ownership.md) | Cloud owns fluid/organic motion; other session continues its separate next task |
-| [Woodland size and motion refinement](2026-10-05-woodland-refinement/README.md) | `feature/living-woodland-time` / [PR #3](https://github.com/ilamgumaran/simpli-home-tools/pull/3) | [001: cloud → Ally](2026-10-05-woodland-refinement/001-cloud-to-ally.md) | Current build ready; device results pending |
+| [Organic character motion — cloud ownership](2026-10-05-organic-motion/README.md) | Local reply: `feature/woodland-refinement-contacts`; cloud work: `feature/woodland-organic-motion` | [003: pickup/status](2026-10-05-organic-motion/003-pickup-and-status.md) | Cloud owns fluid/organic motion; other session continues its separate next task |
+| [Woodland size and motion refinement](2026-10-05-woodland-refinement/README.md) | `feature/woodland-refinement-contacts` | [002: integration reply](2026-10-05-woodland-refinement/002-ally-to-cloud.md) | Enlarged artwork + contacts/work integrated; physical review pending |
 | [Woodland installation and Ally testing](2026-10-05-woodland-ally/README.md) | Latest character step/reply: `feature/woodland-walking-grips`; preceding contacts: `feature/woodland-character-contacts` | [004: walking and grips](2026-10-05-woodland-ally/004-walking-grips.md) | Planted walking and work grips implemented, verified and deployed; physical acceptance pending |
 
 ## Read and reply

@@ -61,4 +61,15 @@ for(const distance of [0,100,1000])for(const actionId of ['survey','rock','cook'
 assert.equal(worlds.motionTiming(model('survey'),{distance:-50}).travel,1);
 assert.equal(worlds.motionTiming(model('survey'),{distance:5000}).travel,20);
 assert.equal(worlds.motionTiming(model('survey',2),{duration:3}).running,false);
+// Walking cruises instead of racing at the middle of long crossings. Velocity
+// and acceleration meet quietly at the ramp edges and both stopped endpoints.
+for(const duration of [1,2,12,20]){
+ let previous=0;
+ for(let i=0;i<=2000;i++){const at=worlds.travelProgress(duration*i/2000,duration);assert.ok(at>=previous&&at<=1);near(at+worlds.travelProgress(duration*(1-i/2000),duration),1);previous=at;}
+ near(worlds.travelProgress(0,duration),0);near(worlds.travelProgress(duration,duration),1);
+ const epsilon=1e-4,velocity=t=>(worlds.travelProgress(t+epsilon,duration)-worlds.travelProgress(t-epsilon,duration))/(2*epsilon);
+ for(const boundary of [0,Math.min(duration*.2,1),duration-Math.min(duration*.2,1),duration])assert.ok(Math.abs(velocity(boundary-epsilon)-velocity(boundary+epsilon))<1e-5);
+ assert.ok(velocity(0)<1e-7&&velocity(duration)<1e-7);
+ assert.ok(velocity(duration/2)<=1.26/duration);
+}
 console.log('PASS organic timing: body-paced crossings, arrival work, intact recovery, bounded repeated bouts and quiet minute endings.');

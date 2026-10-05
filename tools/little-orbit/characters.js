@@ -82,6 +82,7 @@
   else if(action==='water'){hands[0]={x:-3,y:-19+wave};hands[1]={x:17,y:1};}
   else if(action==='cook'){hands[0]={x:-16,y:3};hands[1]={x:20+wave*2,y:-2+Math.cos(c*Math.PI*2)*2};}
   else if(action==='teach'||action==='read-map'){hands[0]={x:-20,y:-14+wave*2};hands[1]={x:16,y:0};}
+  else if(action==='listen'){hands[0]={x:-12,y:4};hands[1]={x:12,y:4};}
   else if(action==='recover-climb'){hands[0]={x:-12,y:-27};hands[1]={x:13,y:2};feet[0]={x:-12,y:30};feet[1]={x:12,y:30};contacts.leftHand=true;}
 
   // Blend targets before IK, so transitions retain fixed bone lengths.
@@ -169,11 +170,11 @@
   const angle=Math.atan2(work.y-hand.y,work.x-hand.x),c=Math.cos(angle),s=Math.sin(angle);
   return {angle:angle*180/Math.PI,x:hand.x-grip.x*c+grip.y*s,y:hand.y-grip.x*s-grip.y*c,tip:{x:hand.x+length*c,y:hand.y+length*s}};
  }
- function workContacts({root,scale,groundY,work,hand=0,angle=Math.PI/2,length=14,action='gather',cycle=0}){
+ function workContacts({root,scale,groundY,work,hand=0,angle=Math.PI/2,length=14,action='gather',cycle=0,sway=1}){
   const base=pose(action,cycle),beat=cycle*Math.PI*2;
   // Move the hips over a fixed stance without letting either foot or the tool
   // socket slide. This small supported shift gives the working arm a full body.
-  const supported={x:root.x+Math.sin(beat)*.5*scale,y:root.y+Math.sin(beat/2)**2*.3*scale};
+  const supported={x:root.x+Math.sin(beat)*.5*scale*clamp(sway),y:root.y+Math.sin(beat/2)**2*.3*scale*clamp(sway)};
   const target={x:(work.x-supported.x)/scale,y:(work.y-supported.y)/scale};
   const wrist={x:target.x-length*Math.cos(angle),y:target.y-length*Math.sin(angle)},shoulder=anatomy.shoulders[hand];
   if(Math.hypot(wrist.x-shoulder.x,wrist.y-shoulder.y)>anatomy.upperArm+anatomy.forearm-.01)throw Error('Work socket outside hand reach');

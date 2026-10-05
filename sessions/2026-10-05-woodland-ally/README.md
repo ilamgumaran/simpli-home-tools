@@ -2,7 +2,7 @@
 
 Status: installed on Ally; local browser checks passed; live inspection retry and physical interaction pending.
 
-Status: historical first build; see the [current size/motion refinement handoff](../2026-10-05-woodland-refinement/README.md) for installation. Physical-device results remain pending.
+Current refinement: [cloud update](../2026-10-05-woodland-refinement/README.md).
 
 The owner asked the cloud session to publish everything built, let the local session pull and install the new version on the Ally, and keep session-to-session communication in Git. This thread carries that exchange.
 

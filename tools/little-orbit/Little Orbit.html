@@ -579,6 +579,7 @@ window.ORBIT_CONFIG = {
   else if(action==='water'){hands[0]={x:-3,y:-19+wave};hands[1]={x:17,y:1};}
   else if(action==='cook'){hands[0]={x:-16,y:3};hands[1]={x:20+wave*2,y:-2+Math.cos(c*Math.PI*2)*2};}
   else if(action==='teach'||action==='read-map'){hands[0]={x:-20,y:-14+wave*2};hands[1]={x:16,y:0};}
+  else if(action==='listen'){hands[0]={x:-12,y:4};hands[1]={x:12,y:4};}
   else if(action==='recover-climb'){hands[0]={x:-12,y:-27};hands[1]={x:13,y:2};feet[0]={x:-12,y:30};feet[1]={x:12,y:30};contacts.leftHand=true;}
 
   // Blend targets before IK, so transitions retain fixed bone lengths.
@@ -666,11 +667,11 @@ window.ORBIT_CONFIG = {
   const angle=Math.atan2(work.y-hand.y,work.x-hand.x),c=Math.cos(angle),s=Math.sin(angle);
   return {angle:angle*180/Math.PI,x:hand.x-grip.x*c+grip.y*s,y:hand.y-grip.x*s-grip.y*c,tip:{x:hand.x+length*c,y:hand.y+length*s}};
  }
- function workContacts({root,scale,groundY,work,hand=0,angle=Math.PI/2,length=14,action='gather',cycle=0}){
+ function workContacts({root,scale,groundY,work,hand=0,angle=Math.PI/2,length=14,action='gather',cycle=0,sway=1}){
   const base=pose(action,cycle),beat=cycle*Math.PI*2;
   // Move the hips over a fixed stance without letting either foot or the tool
   // socket slide. This small supported shift gives the working arm a full body.
-  const supported={x:root.x+Math.sin(beat)*.5*scale,y:root.y+Math.sin(beat/2)**2*.3*scale};
+  const supported={x:root.x+Math.sin(beat)*.5*scale*clamp(sway),y:root.y+Math.sin(beat/2)**2*.3*scale*clamp(sway)};
   const target={x:(work.x-supported.x)/scale,y:(work.y-supported.y)/scale};
   const wrist={x:target.x-length*Math.cos(angle),y:target.y-length*Math.sin(angle)},shoulder=anatomy.shoulders[hand];
   if(Math.hypot(wrist.x-shoulder.x,wrist.y-shoulder.y)>anatomy.upperArm+anatomy.forearm-.01)throw Error('Work socket outside hand reach');
@@ -869,18 +870,26 @@ window.ORBIT_CONFIG = {
    phase:traveling?'travel':effort?.resting?'recover':running?'work':'observe',visitStart,workStart,workDuration,elapsed};
  }
  const ease=t=>{const p=Math.max(0,Math.min(1,t));return p*p*p*(p*(p*6-15)+10);};
+ // Ease velocity at departure/arrival, with a steady cruise on long crossings.
+ // Integrating the quintic velocity keeps position, velocity and acceleration
+ // continuous without doubling the walking speed halfway across the woods.
+ function travelProgress(elapsed,duration){
+  const at=Math.max(0,Math.min(1,elapsed/duration)),ramp=Math.min(.2,1/duration);
+  const integral=t=>t*t*t*t*(t*t-3*t+2.5);
+  return at<ramp?ramp*integral(at/ramp)/(1-ramp):at>1-ramp?1-ramp*integral((1-at)/ramp)/(1-ramp):(at-ramp/2)/(1-ramp);
+ }
  function worksite(model,progress=1,climb=1){
   return {x:model.action.role==='climbing'?57:model.actionId==='water'?541:model.actionId==='forage'?586:model.actionId==='bridge'?453:280+(model.actionId==='survey'?progress*90:0),y:model.action.role==='climbing'?301-climb*56:300};
  }
  // Travel joins the previous endpoint to this visit without jumping to the glyph.
  // A repeated climbing visit begins with a protected return to its lower holds.
- function blocking(model,previous,performanceState,{duration=12,interval=60,reducedMotion=false,target:site=null,prior:priorSite=null}={}){
+ function blocking(model,previous,performanceState,{duration=12,interval=60,reducedMotion=false,siteAt=worksite,target:site=null,prior:priorSite=null}={}){
   const p=performanceState,visit=mod(model.hour*3600+model.minute*60+model.second,Math.max(30,interval)),travel=Math.min(3,duration*.25);
   const minuteMove=model.second<travel,elapsed=minuteMove?model.second:visit;
   const moving=!reducedMotion&&model.hour>=6&&(minuteMove||(p.running&&visit<travel));
   const before=minuteMove?performance(previous,{duration,interval}):{progress:1,climb:1,pose:model.action.role==='climbing'?'recover-climb':'rest'};
-  const target=site||worksite(model,p.progress,p.climb),prior=priorSite||(minuteMove?worksite(previous,before.progress,before.climb):worksite(model));
-  const source=visit+1e-7>=model.second?worksite(previous):worksite(model);
+  const target=site||siteAt(model,p.progress,p.climb),prior=priorSite||(minuteMove?siteAt(previous,before.progress,before.climb):siteAt(model));
+  const source=visit+1e-7>=model.second?siteAt(previous):siteAt(model);
   const travelAction=model.action.role==='climbing'&&source.x===target.x?'rappel':'walk';
   const amount=moving?ease(elapsed/travel):1;
   const position={x:prior.x+(target.x-prior.x)*amount,y:prior.y+(target.y-prior.y)*amount};
@@ -895,10 +904,10 @@ window.ORBIT_CONFIG = {
   }
   // Minute travel can occur between work visits, then settle without a pose snap.
   if(!moving&&!reducedMotion&&model.second>=travel&&model.second<travel+.35){from=travelAction;fromCycle=travel*1.25;blend=ease((model.second-travel)/.35);}
-  if(model.hour<6){action='sleep';position.x=worksite(model).x;position.y=300;}
+  if(model.hour<6){action='sleep';position.x=siteAt(model).x;position.y=300;}
   return {position,action,cycle,from,fromCycle,blend,moving,travel,elapsed,settling:from!==null&&blend<1};
  }
- globalThis.DeskWorlds=freeze({numerals,routes,landscapes,actions,philosophies,stories,recipes,itinerary,clock,woodland,performance,motionTiming,worksite,blocking});
+ globalThis.DeskWorlds=freeze({numerals,routes,landscapes,actions,philosophies,stories,recipes,itinerary,clock,woodland,performance,motionTiming,travelProgress,worksite,blocking});
 })();
 
 </script>
@@ -1482,7 +1491,7 @@ applyDisplay();
   const world=get('woodland-world').getBoundingClientRect();layout={width:world.width,height:world.height};
   // Landscape fills the panel; the cast compensates its Y stretch to stay human.
   for(const {host,young} of actors){const size=characterSize(young);host.querySelector('.character-art').setAttribute('transform',`scale(${size.x} ${size.y})`);}
-  compose();
+  compose();if(actors.length)draw();
  }
  function compose(){
   const r=layout;if(!r.width||!r.height)return;
@@ -1568,10 +1577,11 @@ applyDisplay();
    const amount=p.running&&p.progress>=.4&&p.progress<.45?ease((p.progress-.4)/.05):1;
    if(amount<1)rig={...rig,arms:blendRig(DeskCharacters.pose('read-map',0),rig,amount).arms};
    if(p.running&&p.progress>=.85){const amount=ease((p.progress-.85)/.05);rig={...rig,arms:blendRig(rig,DeskCharacters.pose('rest',0),amount).arms};}
-  }else if(m.hour>=6&&['sticks','cook'].includes(m.actionId)){
-   origin=m.actionId==='cook'?{x:326,y:300}:{x:299,y:303};kind='work';pose=m.action.pose;
-   socket={x:m.actionId==='cook'?339+Math.sin(p.progress*6*Math.PI)*2*envelope:303,y:m.actionId==='cook'?309:319};
-   rig=DeskCharacters.workContacts({root:origin,scale:.72,groundY:318.72,work:socket,hand:m.actionId==='cook'?1:0,action:pose,cycle:p.running?p.progress*3:0,angle:Math.PI/2+Math.sin(p.progress*6*Math.PI)*.12*envelope});
+  }else if(m.hour>=6&&['sticks','cook','shelter','bridge'].includes(m.actionId)){
+   const work={sticks:{root:{x:299,y:303},x:303,y:319},cook:{root:{x:326,y:300},x:339,y:309},shelter:{root:{x:299,y:300},x:313,y:311},bridge:{root:{x:465,y:300},x:479,y:311}}[m.actionId];
+   origin=work.root;kind='work';pose=m.action.pose;
+   socket={x:work.x+(m.actionId==='sticks'?0:Math.sin(p.progress*6*Math.PI)*2*envelope),y:work.y};
+   rig=DeskCharacters.workContacts({root:origin,scale:.72,groundY:318.72,work:socket,hand:m.actionId==='sticks'?0:1,action:pose,cycle:p.running?p.progress*3:0,sway:envelope,angle:Math.PI/2+Math.sin(p.progress*6*Math.PI)*.12*envelope});
   }
   const ground=Math.min(origin?.y||300,360-35*size.y-4/(layout.height/360));
   const project=point=>({x:origin.x+(point.x-origin.x)*size.x/.72,y:ground+(point.y-origin.y)*size.y/.72});
@@ -1600,10 +1610,10 @@ applyDisplay();
   return {...p,m,previous,size,source,initial};
  }
  function travelRig(source,target,size,elapsed,duration){
-  const amount=ease(elapsed/duration),dx=(target.x-source.x)/size.x,dy=(target.y-source.y)/size.y;
+  const amount=DeskWorlds.travelProgress(elapsed,duration),dx=(target.x-source.x)/size.x,dy=(target.y-source.y)/size.y;
   const position={x:source.x+(target.x-source.x)*amount,y:source.y+(target.y-source.y)*amount};
   if(Math.abs(dx)<10||Math.abs(dy/dx)>.65)return {position,rig:DeskCharacters.pose(Math.abs(dx)<10&&dy>0?'rappel':'walk',amount*Math.hypot(dx,dy)/18)};
-  const steps=Math.max(1,Math.ceil(Math.abs(dx)/9)),sign=Math.sign(dx),grade=dy/dx;
+  const grade=dy/dx,stride=14-5*Math.min(1,Math.abs(grade)/.25),steps=Math.max(1,Math.ceil(Math.abs(dx)/stride)),sign=Math.sign(dx);
   const gait=DeskCharacters.walkContacts({scale:1,origin:{x:0,y:0},groundY:26,steps,stride:Math.abs(dx)/steps},amount);
   const bob=gait.root.y*ease(elapsed/.35)*ease((duration-elapsed)/.45);position.y+=bob*size.y;
   const solve=(kind,roots,lengths,bends)=>roots.map((root,i)=>{
@@ -1644,7 +1654,7 @@ applyDisplay();
    if(m.action.role!=='climbing'&&boundary>0)b.from=null;
    if(p.progress>=.94)b.action=m.action.role==='climbing'?'recover-climb':'rest';
   }
-  const climb=m.action.role==='climbing'&&m.hour>=6,marker=p.phase==='mark'&&companions;
+  const climb=m.action.role==='climbing'&&m.hour>=6,marker=m.second<3&&!quiet&&m.hour>=6&&companions;
   const secured=sample.kind==='rock'&&!b.moving;
   const top=sample.kind==='rock'?Math.min(...rockRoute.stations.map(s=>sample.project(s.leftHand).y))-14:0;
   markup('woodland-contact-face',sample.kind==='rock'?`<path d="M17 340Q17 ${top+18} 46 ${top}Q69 ${top-15} 92 ${top+18}Q109 ${top+39} 107 340Z" fill="#869180" stroke="#556654" stroke-width="3"/><path d="M30 ${top+57}Q39 ${top+20} 65 ${top+13}M84 ${top+31}Q100 ${top+53} 93 ${top+82}" fill="none" stroke="#bac1a6" stroke-width="2"/>`:'');
@@ -1669,23 +1679,27 @@ applyDisplay();
    host.querySelector('.character-art').setAttribute('transform',`scale(${scale.x} ${scale.y})`);
    let rig=i===0?sample.rig:null;
    if(i===0&&b.moving)rig=blendRig(travelPose,rig||DeskCharacters.pose(m.action.pose,0),ease((b.elapsed-b.travel+.45)/.45));
-   const secondary=model=>model.hour<6?'sleep':model.actionId==='teach'?'teach':model.reflection?'rest':'camp';
-   const pose=m.hour<6?'sleep':i===0?(b.moving?b.action:rig?sample.pose:b.action):secondary(m);
+   const secondary=model=>model.hour<6?'sleep':model.actionId==='teach'?'listen':model.reflection?'rest':'camp';
+   let pose=m.hour<6?'sleep':i===0?(b.moving?b.action:rig?sample.pose:b.action):secondary(m);
+   let from=i===0?b.from:secondary(previous),fromCycle=i===0?b.fromCycle:.7,blend=i===0?b.blend:ease(Math.min(m.second,visit)/.6);
+   if(m.hour>=6&&m.actionId==='teach'&&p.running){
+    const turn=Math.floor(p.progress*4),talk=index=>((index%2===0)===(i===0))?'teach':'listen';
+    pose=talk(turn);from=turn?talk(turn-1):i===0?'teach':'listen';fromCycle=turn*.75;blend=ease((p.progress-turn/4)/.06);
+    if(p.progress>=.94){from=talk(turn);fromCycle=p.progress*3;pose=i===0?'rest':'listen';blend=ease((p.progress-.94)/.06);}
+   }
    const anchor={x:(protectionAnchor.x-pos.x)/scale.x,y:(protectionAnchor.y-pos.y)/scale.y};
    host.dataset.contactHolds=secured&&i===0?JSON.stringify(sample.rig.holds):'';host.dataset.movingLimb=rig?.moving||'';
    host.dataset.groundContacts=sample.kind==='walk'&&!b.moving&&i===0?JSON.stringify(Object.fromEntries(Object.entries(rig.holds).map(([key,point])=>[key,point?sample.project(point):null]))):'';
-   const result=DeskCharacters.update(host,{action:pose,cycle:i===0?b.cycle:p.running?p.progress*.7:.7,from:i===0?b.from:secondary(previous),fromCycle:i===0?b.fromCycle:.7,blend:i===0?b.blend:ease(Math.min(m.second,visit)/.6),fatigue:i===0?p.fatigue:0,assisted:i===0&&p.assisted,item:m.actionId==='water'?'water':m.actionId==='cook'?'food':null,ropeAnchor:anchor,rig,organic:quiet||p.phase==='recover'?0:sample.envelope,phase:(now.getTime()%60000)/1000+i*.7});
+   const result=DeskCharacters.update(host,{action:pose,cycle:m.actionId==='teach'&&p.running?p.progress*3:i===0?b.cycle:p.running?p.progress*.7:.7,from,fromCycle,blend,fatigue:i===0?p.fatigue:0,assisted:i===0&&p.assisted,item:m.actionId==='water'?'water':m.actionId==='cook'?'food':null,ropeAnchor:anchor,rig,organic:quiet||p.phase==='recover'?0:sample.envelope,phase:(now.getTime()%60000)/1000+i*.7});
    if(i===0)leadPose=result;
   });
   get('woodland-cast').style.display=companions?'':'none';
   const a=DeskCharacters.anatomy.belayLoop;
   attr('woodland-rope','d',`M${protectionAnchor.x} ${protectionAnchor.y}L${primary.x+a.x*size.x} ${primary.y+a.y*size.y}`);get('woodland-rope').style.display=companions&&climb&&(!b.moving||b.action==='rappel')?'':'none';get('woodland-anchor').style.display=get('woodland-rope').style.display;
   let tool='';
-  if(companions&&sample.kind==='work'&&!b.moving&&m.actionId==='sticks'){
-   const grip=DeskCharacters.toolGrip(leadPose.arms[0][2],leadPose.toolTarget);
-   tool=`<g data-tool="fallen-stick" transform="translate(${primary.x} ${primary.y}) scale(${size.x} ${size.y})"><g transform="translate(${grip.x} ${grip.y}) rotate(${grip.angle})"><path id="woodland-stick-grip" d="M0 0H14" stroke="#d8bc83" stroke-width="3" stroke-linecap="round"/></g></g>`;
-  }else if(companions&&p.running&&!b.moving&&['shelter','bridge'].includes(m.actionId)){
-   const hand=leadPose.arms[0][2];tool=`<path d="M${primary.x+hand.x*size.x-12} ${primary.y+hand.y*size.y-4}l24 8" stroke="#d8bc83" stroke-width="3"/>`;
+  if(companions&&sample.kind==='work'&&!b.moving&&m.actionId!=='cook'){
+   const grip=DeskCharacters.toolGrip(leadPose.arms[leadPose.toolHand][2],leadPose.toolTarget);
+   tool=`<g data-tool="${m.actionId==='sticks'?'fallen-stick':'mallet'}" transform="translate(${primary.x} ${primary.y}) scale(${size.x} ${size.y})"><g transform="translate(${grip.x} ${grip.y}) rotate(${grip.angle})"><path id="woodland-stick-grip" d="M0 0H14" stroke="#d8bc83" stroke-width="3" stroke-linecap="round"/>${m.actionId==='sticks'?'':'<path d="M14 -4V4" stroke="#718077" stroke-width="5" stroke-linecap="round"/>'}</g></g>`;
   }
   markup('woodland-hand-tool',tool);
   markup('woodland-minute-marker',marker?`<g transform="translate(${trailJoint.x} ${trailJoint.y})"><path d="M0 4v12m-5 -8h10" stroke="#eedbad" stroke-width="3"/><circle cy="4" r="3" fill="#8a7150"/></g>`:'');

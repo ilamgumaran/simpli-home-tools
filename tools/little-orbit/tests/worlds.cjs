@@ -37,7 +37,8 @@ for(let sample=0;sample<=1000;sample++){
 assert.throws(()=>characters.walkContacts(walkRoute,NaN));
 for(let sample=0;sample<=100;sample++){
  const angle=Math.PI/2+Math.sin(sample/100*Math.PI*6)*.12;
- for(const [root,work,hand,action] of [[{x:299,y:303},{x:303,y:319},0,'gather'],[{x:326,y:300},{x:339,y:309},1,'cook']]){
+ for(const [root,work,hand,action] of [[{x:299,y:303},{x:303,y:319},0,'gather'],[{x:326,y:300},{x:339,y:309},1,'cook'],[{x:299,y:300},{x:313,y:311},1,'build'],[{x:465,y:300},{x:479,y:311},1,'build']]){
+  if(action!=='gather')work.x+=Math.sin(sample/100*Math.PI*6)*2;
   const rig=characters.workContacts({root,work,hand,action,scale:.72,groundY:318.72,angle}),wrist=rig.arms[hand][2],grip=characters.toolGrip(wrist,rig.toolTarget);
   assert.ok(Math.hypot(grip.tip.x-rig.toolTarget.x,grip.tip.y-rig.toolTarget.y)<1e-8);
   assert.ok(Math.hypot(grip.x-wrist.x,grip.y-wrist.y)<1e-8);
