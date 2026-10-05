@@ -2,7 +2,7 @@
 
 Prepared 2026-10-05. Status: source, plans and portable build published for local device testing. Physical Ally testing has not been performed in the cloud session.
 
-Session communication lives in [sessions/README.md](../../../sessions/README.md). Read [the cloud-to-Ally message](../../../sessions/2026-10-05-woodland-ally/001-cloud-to-ally.md) before starting, and return installation/testing results as `002-ally-to-cloud.md` in that thread.
+Session communication lives in [sessions/README.md](../../../sessions/README.md). Read [the cloud-to-Ally message](../../../sessions/2026-10-05-woodland-refinement/001-cloud-to-ally.md) before starting, and return installation/testing results as `002-ally-to-cloud.md` in that thread.
 
 ## Version to pull
 
@@ -11,12 +11,12 @@ Session communication lives in [sessions/README.md](../../../sessions/README.md)
 | Repository | `ilamgumaran/simpli-home-tools` |
 | Branch | `feature/living-woodland-time` |
 | Pull request | [PR #3](https://github.com/ilamgumaran/simpli-home-tools/pull/3) |
-| Tested runtime revision | `5293f997b37ce17fcbe7ee39a157ebf885e4e496` |
+| Tested runtime revision | `145c67f5775c71f63703c790c8233e5fb6f1032c` |
 | Canonical application | `tools/little-orbit/` |
 | Ready-to-open build | `tools/little-orbit/Little Orbit.html` |
-| Portable SHA-256 | `4febc9c95e1ba5243d59626706defa9e200e47e80af05d9a634170457cbd6f9c` |
+| Portable SHA-256 | `8138c5fd17dc0af8c8c9f5644bddddf28b06c73359367418b48aa537e6c15b0e` |
 
-The branch contains the complete character foundation and Woodland implementation, even while its parent PRs remain unmerged. Do not pull the documentation-only `main` expecting this version. Follow-up handoff commits do not alter the tested runtime; the checksum identifies its portable artifact. If the branch later advances with runtime changes, test and record that new revision separately.
+The branch contains the complete character foundation and Woodland implementation, even while its parent PRs remain unmerged. Do not pull the documentation-only `main` expecting this version. This size/motion refinement supersedes the original build recorded in the [historical message](../../../sessions/2026-10-05-woodland-ally/001-cloud-to-ally.md). The checksum identifies the new portable artifact; later documentation-only handoff commits do not change it. If the branch later advances with runtime changes, test and record that new revision separately.
 
 Published contents include browser source modules, shared character/world definitions, regenerated licensed single-file HTML, Windows helpers, automated tests, product documentation and four specialist layer plans. Installed dependencies, browser profiles and private device files are excluded.
 
@@ -61,7 +61,7 @@ The portable build is already committed. A fresh unchanged rebuild should produc
 
 - Check header and terrain HH:MM agree with device time; test 12/24-hour mode, a real minute rollover and an hourly place change.
 - Check time/date/weather/facts/controls fit at the actual viewport and Windows scaling, using Handheld and enlarged text. Cloud checks included 854×480, 1280×720, 1920×1080 and 390×844; record the actual browser viewport.
-- Inspect gathering, shelter, filtering, foraging, climbing, cooking, crossing, rest and teaching. Check harness attachment, stationary recovery and readable digits during the trail-peg handoff.
+- Inspect gathering, shelter, filtering, foraging, climbing, cooking, crossing, rest and teaching. Inspect bark/end grain and mountain contours. Check harness attachment, stationary recovery, protected rappel returns and readable digits during minute/worksite transitions. Try non-aligned work intervals such as 45 seconds; minute travel remains bounded even between work bouts.
 - Test touch, Settings, theme persistence, fullscreen, touch-lock hold-to-unlock, reduced motion, companions off, low power, screen-care glides, night dimming, optional :59 black break, tab hiding and resume from sleep. A configured black break intentionally blanks the display.
 - Open the portable file offline: time/facts should work with a clear weather fallback. Test Edge, Chrome and Firefox where installed. Vanadium needs a separate GrapheneOS device.
 - Observe a longer run for memory/power behavior and readability. Cloud checks do not establish physical battery use, screen wear or long-duration device behavior.
@@ -73,6 +73,8 @@ Record results in a follow-up Git document or issue: Git revision, artifact chec
 The fifth theme combines central characters, including Sprout, with shared landscape/action/story/philosophy recipes. Eight hourly woodland places and twelve minute activities accompany current-time trail numerals. Six daily episodes cover solitude, family, mentoring, shared repair, urgency and reciprocity, with a quiet 18:00 chapter.
 
 Complete hosted and offline portable suites passed in Chrome for Testing 151.0.7922.34, Edge 154.0.4258.53 and Playwright Firefox 153 on Linux. Model checks covered all 1,440 minute values; browser checks covered calendar/DST boundaries, header agreement, activity props, recovery/assistance, cast overrides, compact readability and pause/quiet lifecycle. The portable build was regenerated and verified against committed source before this handoff.
+
+The refinement enlarges the full-panel landscape and proportion-preserving cast, smooths shared gait/pose transitions and Woodland travel, details timber, and uses curved layered mountains. Added checks cover root/limb continuity across durations 4/12/20 and intervals 30/45/60/90/300 seconds, minimum character size/proportions, fully visible actors and numeral edges, and portrait story spacing. Work bouts keep the configured cadence; a minute change can additionally have up to three seconds of travel and a 0.35-second pose settle.
 
 Full contact/rope dynamics, conserved resources, hunting mechanics and persistent generations remain planned. Industrial, weaving, farming, railway and ant-life scenes have detailed plans but no renderer. This handoff authorizes installation/testing of the built clock, not automatic implementation or merging of those proposals.
 
