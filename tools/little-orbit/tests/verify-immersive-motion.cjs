@@ -90,7 +90,7 @@ async function verifyChoreography(browser,target){
     const a=at(host.querySelector(`[data-part="${map[name]}"]`),1,new DOMMatrix()),b=at(document.querySelector(`[data-hold="${id}"]`),.5,new DOMMatrix());return Math.hypot(a.x-b.x,a.y-b.y);
    });
    const loop=DeskCharacters.anatomy.belayLoop,p=new DOMPoint(loop.x,loop.y).matrixTransform(host.querySelector('.character-art').getScreenCTM()),rope=at(document.querySelector('#woodland-immersive-rope'),1,new DOMMatrix());
-   return {errors,rope:Math.hypot(p.x-rope.x,p.y-rope.y),held,ends:Object.values(map).map(name=>at(host.querySelector(`[data-part="${name}"]`),1,camera)),root:host.getAttribute('transform')};
+   return {errors,rope:Math.hypot(p.x-rope.x,p.y-rope.y),held,ends:Object.values(map).map(name=>at(host.querySelector(`[data-part="${name}"]`),1,camera)),root:host.getAttribute('transform'),phase:document.querySelector('#woodland-immersive').dataset.phase,aid:host.querySelector('[data-part="ascender"]').getAttribute('display')!=='none'};
   };
   for(let bout=0;bout<3;bout++){
    for(const offset of [.6,2,4,5.5,7.5,9.5,timing.climbBout-.5]){
@@ -102,8 +102,10 @@ async function verifyChoreography(browser,target){
    await sample(base+(timing.climbStart+bout*timing.climbBout+5.5)*1000);const a=await page.evaluate(contacts);
    await sample(base+(timing.climbStart+bout*timing.climbBout+7.5)*1000);const b=await page.evaluate(contacts);
    assert.deepEqual(a.held,b.held,'Recovery releases a hold');assert.equal(a.root,b.root,'Body moves during mandatory recovery');
+   assert.equal(a.aid,false);assert.equal(b.aid,false,'Deadline aid remains active during recovery');
    assert.ok(a.ends.every((point,index)=>distance(point,b.ends[index])<.015),'Recovery moves a supported limb');
   }
+  await sample(base+59001);const settled=await page.evaluate(contacts);assert.equal(settled.phase,'settle');assert.equal(settled.aid,false,'Deadline aid remains active in final rest');
 
   await page.emulateMedia({reducedMotion:'reduce'});await page.evaluate(()=>WoodlandScene.sync());
   assert.equal(await page.evaluate(()=>WoodlandScene.running),false);
