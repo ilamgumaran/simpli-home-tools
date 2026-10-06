@@ -14,7 +14,8 @@ Open **Settings → Display & character**. The settings are saved for this brows
 | Character visits every | Delay between visits; panel glides may postpone a visit | 30–300 seconds; 60 |
 | Character visit length | Maximum visit duration; sweeping is capped at 8 seconds | 4–20 seconds; 12 |
 | Character | Show the companion in Candy Quest, Time Climber, Time Climber II, or Woodland | On |
-| Time Climber II camera | Gentle focus/perspective changes or a still scene; reduced motion takes priority | Gentle / Still; Gentle |
+| Scene camera | Time Climber II focus and fullscreen Woodland camera/information drift; reduced motion takes priority | Gentle / Still; Gentle |
+| Woodland view | Full landscape with continuous camp activity, or the earlier dashboard with visits | Full landscape / Dashboard; Full landscape |
 
 **Reset display sizes** restores the site's display defaults without changing location, theme, or screen-care choices. Larger fonts may require reducing another size or spacing on small screens. Reduced-motion preferences always take priority and show a brief still appearance.
 
@@ -42,7 +43,8 @@ window.ORBIT_CONFIG = {
     companionInterval: 90,
     companionDuration: 10,
     companion: true,
-    cameraMotion: 'gentle'
+    cameraMotion: 'gentle',
+    woodlandView: 'immersive'
   }
 };
 ```
@@ -72,6 +74,8 @@ Time Climber uses the same character controls. At the default 60-second interval
 
 ### Woodland of Time
 
-Use `theme: 'woodland'` for the fifth theme. Its four terrain numerals always show the selected current local HH:MM; the place changes each hour and activity each minute. Travel takes 1–20 seconds according to body-scaled distance. `display.companionDuration` governs work after arrival; `companionInterval` can repeat travel/work within the minute. Work ends before the next visit or second 55; windows under four seconds are skipped. Each minute starts its own activity, including with intervals longer than a minute. Low-power motion renders at 30 fps; normal motion follows browser animation frames. See [organic motion](design/ORGANIC-MOTION.md). Companions off hides the cast and work motion. Reduced motion selects static poses. The Time Climber II camera setting applies only to that theme.
+Use `theme: 'woodland'` for the fifth theme. `display.woodlandView: 'immersive'` fills the browser viewport with larger characters, detailed material time and continuous camp/river activity. All four numerals immediately show the selected current local HH:MM. Hourly chapters change the scenery and rebuild authored camp progress; daily stories select the cast. Travel precedes work, including following helpers/children and a protected descent after climbing. Each ascent includes three four-second supported recovery holds. Low power targets 30 fps; normal mode follows browser frames. Companion-off hides the cast while atmosphere continues. Reduced motion selects a static composition, and `cameraMotion: 'still'` suppresses camera/information drift. See [immersive Woodland](design/IMMERSIVE-WOODLAND.md).
+
+Set `woodlandView: 'dashboard'` for the earlier panel composition. In that view, travel takes 1–20 seconds according to body-scaled distance; `companionDuration` governs work after arrival and `companionInterval` can repeat visits within the minute. Work ends before the next visit or second 55; windows under four seconds are skipped. See [organic motion](design/ORGANIC-MOTION.md). Full landscape does not use the visit interval/duration controls.
 
 Woodland normally selects Moss or Ridge from its daily story. An optional `characters.woodland: 'ridge'` (or another adult identity) overrides the lead; conflicting adult cast slots swap to preserve the episode’s participants and named captions follow the chosen lead. Sprout remains a grounded learner and is not accepted as a woodland lead override. Hourly screen-rest and night dimming remain controlled by their existing settings. The daily reflection chapter uses local 18:00–18:59; this is authored story time, not a computed sunset.

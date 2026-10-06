@@ -1,6 +1,6 @@
 # Our Desk Clock roadmap
 
-Updated 2026-10-05. Milestones express intent, not promised delivery dates. The product owner sets priorities and authorizes deferred implementation.
+Updated 2026-10-06. Milestones express intent, not promised delivery dates. The product owner sets priorities and authorizes deferred implementation.
 
 ## Woodland Ally validation — installation complete; device review in progress
 
@@ -81,3 +81,11 @@ Next Woodland expansion: contact-pinned rock/tree routes and specialist tree gea
 The [overall composition plan](design/LIVING-WORLDS.md) combines [visual layers](design/VISUAL-LAYERS.md), [actions/time/effort](design/ACTIONS-AND-TIME.md) and [stories/philosophy](design/STORIES-AND-PHILOSOPHY.md). Proposed implementation order after Woodland: industrial/engineering, farming, railway/station/junction, ant life. Weaving is fully planned; its implementation slot remains to be chosen. Do not begin later themes automatically.
 
 Woodland refinement now combines both development histories with responsive contact sites, shelter/crossing grips and reciprocal teaching. See [implemented scope and next milestones](design/REFINEMENT-AND-WORK.md). Physical acceptance remains pending.
+
+## Immersive Woodland — implemented; verification in progress
+
+The [fullscreen camp scene](design/IMMERSIVE-WOODLAND.md) layers edge-to-edge SVG art, a larger central cast, practical camp/family work, current-digit material flow and slow atmospheric/camera/HUD movement. `display.woodlandView` defaults Woodland to Immersive while retaining the previous Dashboard renderer; the default theme and legacy themes remain unchanged.
+
+Implemented scope: proportion-preserving 80–160 CSS pixel cast target; complete canonical HH:MM, timber/stone hour digits and DD plaque; current-ones sandbox/river material work; hourly construction advancing monotonically with minute/time; twelve activities, central poses/expedition kit and supervised family shallows. Lead and followers walk to their sites. Climbing starts after arrival, has three bouts with four-second recovery in each and ends in protected descent. Reduced motion overrides moving scenery and camera. Construction is sampled within a chapter; persistent resources, camp history and full dynamics remain deferred.
+
+Current performance evidence: Chrome at 854×480 measured near 30 fps low-power and 60 fps normal for the full scene, supporting browser SVG. Full Chrome/Edge/Firefox suites remain pending. Review gate: hosted/portable layout, current-time geometry, motion and controls at 854×480, 1280×720, 1920×1080 and 390×844, DPR 1/2; material/action/story scope and frame behavior recorded honestly. Change rendering technology only if measured evidence warrants it. Ally and Vanadium hardware acceptance remain separate work; scene movement does not guarantee burn-in prevention.

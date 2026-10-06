@@ -3,7 +3,7 @@
 'use strict';
 DeskCharacters.mountCandy(document.getElementById('candy-pal'));
 const $ = id => document.getElementById(id);
-const defaultDisplay={profile:'auto',clockScale:1,weatherScale:1,factScale:1,gap:8,companionInterval:60,companionDuration:12,companion:true,cameraMotion:'gentle'};
+const defaultDisplay={profile:'auto',clockScale:1,weatherScale:1,factScale:1,gap:8,companionInterval:60,companionDuration:12,companion:true,cameraMotion:'gentle',woodlandView:'immersive'};
 const siteConfig=window.ORBIT_CONFIG||{};
 const defaults = {version:3,unit:'fahrenheit',format24:false,care:true,night:true,lowPower:true,rest:true,theme:'candy',place:{name:'Marietta, GA · 30064',latitude:33.9276,longitude:-84.6202},...siteConfig,display:{...defaultDisplay,...siteConfig.display}};
 function read(key,fallback){try{return JSON.parse(localStorage.getItem(key)) ?? fallback;}catch{return fallback;}}
@@ -76,6 +76,7 @@ function tick(){
  window.DeskClimber?.sync();
  window.TimeMountain?.sync();
  window.WoodlandTime?.sync();
+ window.WoodlandScene?.sync();
 }
 function shift(){
  const step=Math.floor(Date.now()/60000);if(step===lastShift)return;lastShift=step;
@@ -186,7 +187,7 @@ function applyTheme(){
  $('theme-button').setAttribute('aria-label',`Theme: ${theme.label}. Switch theme`);
  $('theme-button').title=`${theme.label} · tap for next theme`;
  write('orbit-settings',prefs);stopCandy();if(prefs.theme==='candy')candyTimer=setTimeout(candyAdventure,9000);
- document.title=`Our Desk Clock · ${theme.label}`;window.DeskClimber?.sync();window.TimeMountain?.refresh();window.WoodlandTime?.refresh();
+ document.title=`Our Desk Clock · ${theme.label}`;window.DeskClimber?.sync();window.TimeMountain?.refresh();window.WoodlandTime?.refresh();window.WoodlandScene?.refresh();
 }
 $('theme-button').onclick=()=>{if(locked)return;const index=themes.findIndex(t=>t.id===prefs.theme);prefs.theme=themes[(index+1)%themes.length].id;applyTheme();toast(`${themes.find(t=>t.id===prefs.theme).label} theme`);};
 window.addEventListener('resize',()=>{stopCandy();candyTimer=setTimeout(candyAdventure,400);});

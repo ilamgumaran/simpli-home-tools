@@ -24,7 +24,7 @@
  // Small supported rock route, authored entirely within the foreground boulder.
  const rockRoute=DeskWorlds.routes.woodlandRock;
  const lead=m=>{const chosen=globalThis.ORBIT_CONFIG?.characters?.woodland;return Object.hasOwn(DeskCharacters.identities,chosen)&&!DeskCharacters.identities[chosen].young?chosen:m.story.cast[0];};
- const active=()=>prefs.theme==='woodland';
+ const active=()=>prefs.theme==='woodland'&&prefs.display.woodlandView==='dashboard';
  const visible=()=>active()&&document.visibilityState==='visible'&&!get('settings').open&&!document.body.classList.contains('screen-rest');
  const attr=(id,name,value)=>get(id).setAttribute(name,value);
  const text=(id,value)=>{if(get(id).textContent!==value)get(id).textContent=value;};

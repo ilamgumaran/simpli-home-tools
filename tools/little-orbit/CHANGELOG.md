@@ -6,6 +6,9 @@ No tagged releases yet. Entries below describe implemented code on the developme
 
 ### Added
 
+- [Immersive Woodland](design/IMMERSIVE-WOODLAND.md): default fullscreen SVG view with a Dashboard option, larger shared cast, complete current-time material digits and a DD plaque. River-carried leaves/timber, bank stone delivery and a current-ones sandbox accompany twelve camp activities, supervised family shallows and construction advancing within the hourly chapter. Construction is time-sampled rather than persistent user history.
+- Central expedition kit and ten activity poses for immersive camp work, food carrying and family scenes. The lead climbs after arrival, with three work bouts, each with four seconds of supported recovery, deadline-only assistance and protected descent; followers walk to their sites. Slow wind/water/clouds, lighting and camera/HUD movement respect reduced motion.
+
 - Combined cloud Woodland enlargement and blended choreography with local supported rock/walking/tool contacts. Shelter/crossing use reach-checked mallets; teaching alternates teacher/listener turns. Responsive worksite transforms preserve grips and travel arrival positions.
 
 - Woodland survey uses map-before-walk sequencing, planted alternating ground steps and destination rest. Gathering/cooking use grounded shared work rigs and wrist-attached sticks/spoons whose working ends meet authored sockets.
