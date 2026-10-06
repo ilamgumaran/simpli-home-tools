@@ -2202,7 +2202,7 @@ applyDisplay();
   else if(local>=restStart){p=.34+.16*(local-restStart)/4;phase='recover';}
   else if(local>=.5){p=.34*(local-.5)/(restStart-.5);phase='work';}
   const effort=DeskCharacters.ascent(p,finish-local);
-  return {...effort,progress:(beat+effort.progress)/3,resting:['prepare','recover','settle'].includes(phase),phase,beat};
+  return {...effort,progress:(beat+effort.progress)/3,assisted:phase==='work'&&effort.assisted,resting:['prepare','recover','settle'].includes(phase),phase,beat};
  }
  function projectCliff(point,z){
   const origin=DeskWorlds.routes.woodlandRock.stations[0].root;
