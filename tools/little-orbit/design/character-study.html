@@ -29,6 +29,7 @@ function rebuild(resetColors=true){
  get('role').replaceChildren();
  for(const [id,role] of Object.entries(lib.roles)){if((id==='infant')!==infant)continue;const option=document.createElement('option');option.value=id;option.textContent=role.name;get('role').append(option);}
  if([...get('role').options].some(option=>option.value===previousRole))get('role').value=previousRole;
+ else get('role').value=infant?'infant':'climbing';
  get('play').disabled=get('progress').disabled=infant;
  document.querySelector('.figure').setAttribute('aria-label',infant?'Swaddled infant appearance preview':'Character with a jointed body and role equipment');
  const appearance={};if(resetColors){for(const id of ['skin','jacket','trousers','helmet','pack'])get('color-'+id).value=lib.identities[get('character').value].appearance[id];}
