@@ -42,12 +42,14 @@
  function landscape(model={}){
   const place=model.place||{},hour=Number.isFinite(model.hour)?model.hour:12,night=model.daylight===false,dusk=!night&&(hour===6||hour>=17),variant=mod(hour,8);
   const forest=color(place.forest,'#42694f'),hill=color(place.hill,'#a2b38e'),ground=color(place.ground,'#8ca174');
+  const weather=model.weatherAppearance||{},warmth=Math.max(0,Math.min(1,Number.isFinite(weather.warmth)?weather.warmth:.5)),cold=warmth<.45;
+  const precipitation=model.weather?.available?model.weather?.precipitation||'none':'none';
   const sky=night?'w-art-night':dusk?'w-art-dusk':'w-art-sky';
   const backdrop=`<rect x="-24" y="-24" width="848" height="408" fill="url(#${sky})"/>
-   <circle cx="707" cy="49" r="61" fill="url(#w-art-sun)" opacity="${night?.25:.75}"/><circle cx="707" cy="49" r="${night?15:20}" fill="${night?'#e4e6c4':'#f8e5b2'}"/>
+   <circle data-weather-sunhalo cx="680" cy="88" r="61" fill="url(#w-art-sun)" opacity="${night?.25:weather.sunOpacity??(.48+warmth*.36)}"/><circle data-weather-sun cx="680" cy="88" r="${night?15:20}" fill="${night?'#e4e6c4':warmth>.55?'#fff0c1':'#d8e4e3'}" opacity="${night?1:weather.sunOpacity??1}"/>
    ${night?'<path d="M69 31h1m115 12h1m269 -16h1m89 18h1m95 -8h1m113 -24h1m36 77h1m-462 -62h1" stroke="#e4e7cf" stroke-width="2" stroke-linecap="round" opacity=".7"/>':''}
-   <g data-cloud=".31 0" fill="#e8ecdb" opacity="${night?.09:.32}"><path d="M35 50Q48 35 66 40Q80 22 96 40Q122 29 137 47Q153 41 161 51Z"/><path d="M267 35Q288 17 305 25Q322 9 342 25Q369 16 395 34Z"/></g>
-   <g data-cloud=".2 2" fill="#f1ebd5" opacity="${night?.07:.22}"><path d="M483 69Q514 47 533 58Q550 38 574 57Q598 48 621 66Z"/></g>
+   <g data-weather-cloud data-cloud=".31 0" fill="${cold?'#d5e0e0':'#e8ecdb'}" opacity="${night?.09:weather.cloudOpacity??.32}"><path d="M35 50Q48 35 66 40Q80 22 96 40Q122 29 137 47Q153 41 161 51Z"/><path d="M267 35Q288 17 305 25Q322 9 342 25Q369 16 395 34Z"/></g>
+   <g data-weather-cloud data-cloud=".2 2" fill="${cold?'#c7d5d8':'#f1ebd5'}" opacity="${night?.07:weather.cloudOpacity??.22}"><path d="M483 69Q514 47 533 58Q550 38 574 57Q598 48 621 66Z"/></g>
    <path d="M-24 153Q19 138 65 98T147 77Q184 101 226 141Q265 145 298 108L363 ${62+variant*3}Q385 43 407 77T485 137Q520 140 559 104T632 77Q663 74 693 104T755 125Q788 104 824 91V259H-24Z" fill="${hill}" opacity="${night?.48:.65}"/>
    <path d="M-24 184Q44 148 89 161T182 139Q236 118 299 160T406 143Q454 112 505 154T614 154Q698 117 824 143V263H-24Z" fill="${forest}" opacity="${night?.5:.26}"/>
    <path d="M289 110L365 ${74+variant*3}L390 91L402 84M582 101Q629 71 661 99M72 107Q111 73 142 93" fill="none" stroke="#e9e5cf" stroke-width="1.7" opacity="${night?.1:.36}"/>
@@ -72,10 +74,12 @@
    <g data-wind="746 343 3 2"><path d="M739 345q-13 -52 -4 -37q7 12 8 38q3 -62 10 -44q4 22 -5 43q20 -40 23 -27q-1 16 -20 29Z" fill="#7c8750"/><path d="M743 338l-5 -26m8 28l7 -31" stroke="#c9c38a" stroke-width="1"/></g>
    ${stone(77,332,1.5)}${stone(125,340,.7)}${stone(677,328,.6)}${stone(782,353,1.0)}
    ${variant===6?'<g fill="#b88955"><circle cx="58" cy="184" r="4"/><circle cx="17" cy="199" r="4"/><circle cx="36" cy="223" r="3"/></g>':''}`;
+  const shelterColor=precipitation!=='none'?'#879996':warmth>.83?'#e5d39e':'#c8b27d';
+  const shelterFlap=precipitation!=='none'||warmth>.83?`<path data-weather-shelter-flap d="M371 276L387 278L404 300L388 302Z" fill="${shelterColor}" stroke="#796546" stroke-width="1" opacity=".76"/>`:'';
   const camp=`<path d="M214 332Q276 313 349 325T461 333" fill="none" stroke="#9a895f" stroke-width="3" opacity=".42"/>
    ${timber(134,312,62,7)}${timber(147,298,51,-4)}${timber(170,326,58,3)}
    <g fill="none" stroke="#7e6846" stroke-width="3" stroke-linecap="round"><path d="M273 321L304 270L339 321M304 270L371 274L401 320M371 274L339 321"/><path d="M270 323h135" stroke-width="1.5"/></g>
-   <path d="M304 272L371 276L388 302L325 299Z" fill="#c8b27d" stroke="#796546" stroke-width="1" opacity=".54"/>
+   <path data-weather-shelter d="M304 272L371 276L388 302L325 299Z" fill="${shelterColor}" stroke="#796546" stroke-width="1" opacity="${precipitation!=='none'?.82:warmth>.83?.76:.54}"/>${shelterFlap}${precipitation!=='none'?'<path d="M309 273L326 298m17 -23l17 24m-2 -22l17 24" fill="none" stroke="#e1e2d0" stroke-width="1" opacity=".38"/>':''}
    ${[0,1,2,3,4,5,6].map(i=>stone(432+Math.cos(i*Math.PI*2/7)*19,326+Math.sin(i*Math.PI*2/7)*6,.33)).join('')}
    <path d="M419 326l26 -3m-20 -7l14 14" stroke="#6c593e" stroke-width="4" stroke-linecap="round"/>
    <path d="M606 302v31m12 -30v30M602 306h19" stroke="#7b6848" stroke-width="2.3"/><path d="M606 306h12l-3 11h-6Z" fill="#e0d3a6" stroke="#65705a" stroke-width="1"/><path d="M611 319v3" stroke="#d5e5d5" stroke-width="1.4"/>

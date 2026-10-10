@@ -10,19 +10,24 @@
  <title id="woodland-immersive-title">Woodland of Time</title><desc id="woodland-immersive-description"></desc>${DeskWoodlandArt.defs()}
  <rect id="woodland-immersive-wash" x="-30" y="-30" width="860" height="420" fill="#90aaa0"/>
  <g id="woodland-immersive-camera"><g id="woodland-immersive-backdrop"/><g id="woodland-immersive-river"/><g id="woodland-immersive-foreground"/><g id="woodland-immersive-camp"/>
+ <g id="woodland-immersive-weather" pointer-events="none"/>
  <g id="woodland-immersive-structures"/><g id="woodland-immersive-day"/><g id="woodland-immersive-workpieces"/>
  <g id="woodland-immersive-cliff"/><g id="woodland-immersive-holds"/><path id="woodland-immersive-rope" fill="none" stroke="#eddbb7" stroke-width="1.6"/>
  <g id="woodland-immersive-numerals"/><g id="woodland-immersive-colon" fill="#ead9af" stroke="#445542" stroke-width="2"><circle r="3.5"/><circle cy="26" r="3.5"/></g>
- <g id="woodland-immersive-delivery"/><g id="woodland-immersive-inlet"/><g id="woodland-immersive-cast"/><g id="woodland-immersive-fire"/><g id="woodland-immersive-ripples"/><rect id="woodland-immersive-light" x="-30" y="-30" width="860" height="420" fill="#f5d9ad" opacity="0" pointer-events="none"/></g></svg>
+ <g id="woodland-immersive-delivery"/><g id="woodland-immersive-inlet"/><g id="woodland-immersive-cast"/><g id="woodland-immersive-community"/><g id="woodland-immersive-fire"/><g id="woodland-immersive-ripples"/><rect id="woodland-immersive-light" x="-30" y="-30" width="860" height="420" fill="#f5d9ad" opacity="0" pointer-events="none"/></g></svg>
  <div class="immersive-heading"><span id="woodland-immersive-place"></span><span id="woodland-immersive-chapter"></span></div>
  <p id="woodland-immersive-story"></p>`;
+ const thermometer=document.createElement('aside');thermometer.id='woodland-weather-thermometer';thermometer.setAttribute('aria-label','Weather temperature unavailable');thermometer.setAttribute('aria-live','off');thermometer.innerHTML=`<svg class="woodland-thermometer-glass" viewBox="0 0 82 100" aria-hidden="true"><rect x="19" y="6" width="10" height="68" rx="5" class="thermometer-tube"/><circle cx="24" cy="80" r="13" class="thermometer-bulb"/><rect id="woodland-thermometer-fill" x="22" y="18" width="4" height="62" rx="2" class="thermometer-fill"/><circle cx="24" cy="80" r="8" class="thermometer-mercury"/><g class="thermometer-ticks"><path d="M31 18h7m-7 13h5m-5 13.5h7m-7 13.5h5m-7 13h7"/><text x="39" y="21">50°</text><text x="39" y="48">20°</text><text x="39" y="74">−10°</text></g></svg><strong id="woodland-weather-value">— °C</strong><span id="woodland-weather-kind">Weather loading</span><small id="woodland-weather-freshness">Loading</small>`;
+ scene.append(thermometer);
  get('display').prepend(scene);
  const thought=document.createElement('button');thought.id='woodland-thought-button';thought.textContent='✧ Daily thought';thought.setAttribute('aria-expanded','false');thought.setAttribute('aria-controls','fact-title');get('display').querySelector('nav').append(thought);
  thought.onclick=()=>{if(locked)return;const show=document.body.classList.toggle('woodland-information');thought.setAttribute('aria-expanded',String(show));};
  const media=typeof matchMedia==='function'?matchMedia('(prefers-reduced-motion: reduce)'):null;
- let frame=null,timer=null,lastFrame=0,lastChapter='',lastMinute='',lastCast='',lastLayout='',lastClock='',lastLabel='';
+ let frame=null,timer=null,lastFrame=0,lastChapter='',lastMinute='',lastCast='',lastLayout='',lastClock='',lastLabel='',weatherSnapshot=null,weatherKey='',lastThermometer='';
  let layout={width:800,height:360,sx:1,sy:1,portrait:false,ground:322},slots=[],actors=[],paths=[];
- const active=()=>prefs.theme==='woodland'&&prefs.display.woodlandView==='immersive';
+ const greenhouse=()=>prefs.theme==='greenhouse1';
+ const nightFor=m=>greenhouse()?m.daylight===false:m.hour<6||m.hour>=20;
+ const active=()=>greenhouse()||prefs.theme==='woodland'&&prefs.display.woodlandView==='immersive';
  const visible=()=>active()&&document.visibilityState==='visible'&&!get('settings').open&&!document.body.classList.contains('screen-rest');
  const quiet=()=>!!media?.matches||typeof requestAnimationFrame!=='function';
  const text=(id,value)=>{const e=get(id);if(e.textContent!==value)e.textContent=value;};
@@ -54,9 +59,53 @@
   return {x:pixels/(66*layout.sx),y:pixels/(66*layout.sy),pixels};
  }
  function chapter(m){
-  const art=DeskWoodlandArt.landscape(m);
-  for(const key of ['backdrop','river','foreground','camp'])markup('woodland-immersive-'+key,art[key]);
+  const art=DeskWoodlandArt.landscape({...m,weather:weatherSnapshot,weatherAppearance:weatherAppearance(weatherSnapshot,nightFor(m))});
+  for(const key of ['backdrop','river','foreground','camp'])markup('woodland-immersive-'+key,key==='camp'&&greenhouse()?'':art[key]);
   DeskWoodlandArt.invalidate(get('woodland-immersive-world'));lastLayout='';
+ }
+ function weatherAppearance(snapshot,night){
+  const api=globalThis.DeskHabitatWeather;
+  if(!snapshot?.available)return null;
+  try{
+   const result=snapshot&&api?.appearance?.(snapshot,{night});return result||null;
+  }catch{return null;}
+ }
+ function weatherGroup(snapshot,night){
+  const g=get('woodland-immersive-weather'),a=weatherAppearance(snapshot,night);if(!g)return;
+  const kind=a?.precipitation||'none',count=kind==='rain'?Math.min(28,Math.max(8,Math.round(8+(a?.rainIntensity||0)*20))):kind==='snow'?14:0;
+  const marks=Array.from({length:count},(_,i)=>{
+   return kind==='snow'?`<circle data-weather-particle="${i}" cx="0" cy="0" r="${1.2+(i%3)*.45}" fill="#f4f1df" opacity=".75"/>`:`<path data-weather-particle="${i}" d="M0 0l${kind==='rain'?'-2 8':'1 5'}" stroke="#d5e5df" stroke-width="${kind==='rain'?'.9':'1.2'}" stroke-linecap="round" opacity=".64"/>`;
+  }).join('');
+  const cloud=Math.min(.65,a?.cloudOpacity||0),wet=kind!=='none',warmth=a?.warmth||0,cover=snapshot?.available&&snapshot.kind!=='unknown'?Math.min(.27,cloud*.16+(wet?.07:0)+(warmth<.3?.07:0)):0;
+  const tint=cloud>.3||wet?'#71838a':a?.tintColor||'#8ea9ad',opacity=night?Math.min(.22,Math.max(cover,a?.tintOpacity||0)):Math.min(.22,Math.max(cover,a?.tintOpacity||0)),sun=!night?Math.min(.3,a?.sunOpacity||0):0;
+  const content=`<rect data-weather-tint x="-24" y="-24" width="848" height="408" fill="${tint}" opacity="${opacity}"/><circle data-weather-sunwash cx="680" cy="88" r="52" fill="#ffe7a8" opacity="${sun*.22}"/><g data-weather-particles>${marks}</g>`;
+  if(g._weatherArt!==content){g.innerHTML=content;g._weatherArt=content;g._particles=[...g.querySelectorAll('[data-weather-particle]')];}
+  g.dataset.precipitation=kind;g.dataset.weatherKind=snapshot?.kind||snapshot?.code||'unknown';
+ }
+ function syncWeather(){
+  if(!greenhouse()){
+   const group=get('woodland-immersive-weather');
+   if(group._weatherArt){group.replaceChildren();group._weatherArt='';group._particles=[];}
+   weatherSnapshot=null;weatherKey='';lastThermometer='';return;
+  }
+  const api=globalThis.DeskHabitatWeather;
+  try{weatherSnapshot=api?.get?.()||null;}catch{weatherSnapshot=null;}
+  if(!weatherSnapshot)return;
+  const night=scene.dataset.night==='true',key=[weatherSnapshot.revision,night].join(':');
+  const unit=weatherSnapshot.unitSymbol|| (weatherSnapshot.unit==='fahrenheit'?'°F':'°C'),value=weatherSnapshot.available&&Number.isFinite(weatherSnapshot.temperature)?`${Math.round(weatherSnapshot.temperature)} ${unit}`:`— ${unit}`;
+  const status=['live','available'].includes(weatherSnapshot.status)?'Live':weatherSnapshot.status==='cached'?'Cached':weatherSnapshot.status==='loading'?'Loading':'Unavailable';
+  const condition=weatherSnapshot.kind||weatherSnapshot.code||'Weather unavailable';
+  const appearance=weatherAppearance(weatherSnapshot,night),fill=Number.isFinite(appearance?.dialFill)?Math.max(0,Math.min(1,appearance.dialFill)):0;
+  const signature=[key,value,status,condition,fill].join('|');
+  if(signature!==lastThermometer){
+   text('woodland-weather-value',value);text('woodland-weather-kind',condition);text('woodland-weather-freshness',status);
+   const tickValues=weatherSnapshot.unit==='fahrenheit'?['122°','68°','14°']:['50°','20°','−10°'];
+   [...thermometer.querySelectorAll('.thermometer-ticks text')].forEach((node,i)=>{node.textContent=tickValues[i];});
+   get('woodland-weather-thermometer').setAttribute('aria-label',`Weather temperature ${value}; ${condition}; ${status.toLowerCase()}`);
+   get('woodland-thermometer-fill').setAttribute('y',(80-fill*62).toFixed(1));get('woodland-thermometer-fill').setAttribute('height',(Math.max(0,fill*62)).toFixed(1));
+   lastThermometer=signature;
+  }
+  if(key!==weatherKey){weatherKey=key;weatherGroup(weatherSnapshot,night);if(lastChapter)lastChapter='';}
  }
  function numerals(m){
   const materials=[m.hourMaterial,m.hourMaterial,m.minuteMaterial.tens,m.minuteMaterial.ones];
@@ -66,7 +115,7 @@
  }
  function override(m){
   const requested=globalThis.ORBIT_CONFIG?.characters?.woodland;
-  const lead=Object.hasOwn(DeskCharacters.identities,requested)&&!DeskCharacters.identities[requested].young?requested:m.social.lead;
+  const lead=Object.hasOwn(DeskCharacters.identities,requested)&&!DeskCharacters.identities[requested].young&&!DeskCharacters.identities[requested].infant?requested:m.social.lead;
   const ids=[...new Set([lead,...m.social.cast.slice(1).map(id=>id===lead?m.social.lead:id)])];return {lead,ids};
  }
  function cast(m){
@@ -161,12 +210,31 @@
  function draw(){
   if(!active())return;
   const now=new Date(),m=DeskWoodlandStory.sample(now,{format24:prefs.format24});m._minuteStart=now.getTime()-m.second*1000;
+  const habitat=greenhouse();
+  if(habitat){m.hourMaterial='leaf';m.minuteMaterial={tens:'leaf',ones:'stone'};m.dateMaterial='stone';}
+  syncWeather();
   const frozen=quiet(),companions=prefs.display.companion!==false,t=now.getTime()/1000;
   const clockKey=Math.floor(now.getTime()/1000)+':'+prefs.format24;if(clockKey!==lastClock){renderClockTime(now);lastClock=clockKey;}
   if(m.terrainKey!==lastChapter){chapter(m);lastChapter=m.terrainKey;}
   const minuteKey=m.minuteKey+':'+m.time+':'+m.dateDigits;if(minuteKey!==lastMinute){numerals(m);lastMinute=minuteKey;}
-  const castKey=override(m).ids.join(':');if(castKey!==lastCast){cast(m);lastCast=castKey;}
+  const castKey=override(m).ids.join(':');if(!habitat&&castKey!==lastCast){cast(m);lastCast=castKey;}
   fit();
+  const community=habitat?DeskHabitatCommunity.sample(now,{night:nightFor(m),weatherKind:weatherSnapshot?.kind}):null;
+  if(habitat&&!get('woodland-immersive-community')._communityCamp)DeskHabitatCommunity.create(get('woodland-immersive-community'));
+  const communityHost=get('woodland-immersive-community'),display=habitat?'':'none';
+  if(communityHost.style.display!==display)communityHost.style.display=display;
+  if(thermometer.hidden===habitat)thermometer.hidden=!habitat;
+  if(habitat)DeskHabitatCommunity.update(get('woodland-immersive-community'),{model:community,layout,frozen,companions});
+  if(habitat){
+   scene.dataset.time=m.time;scene.dataset.date=m.dateDigits;scene.dataset.night=String(nightFor(m));
+   scene.dataset.activity=community.routine;scene.dataset.chapter=m.terrainKey;scene.dataset.phase='community';
+   for(const id of ['structures','workpieces','cliff','holds','delivery','inlet','fire','ripples'])markup('woodland-immersive-'+id,'');
+   attr('woodland-immersive-rope','d','');get('woodland-immersive-cast').style.display='none';
+   const key=[weatherSnapshot?.revision,scene.dataset.night].join(':');if(key!==weatherKey){weatherKey=key;weatherGroup(weatherSnapshot,scene.dataset.night==='true');chapter(m);lastChapter=m.terrainKey;}
+   text('woodland-immersive-title',`Green House 1 · ${m.time} ${m.period}`);text('woodland-immersive-place','Green House 1 · '+m.place.name);
+   text('woodland-immersive-chapter',community.label);text('woodland-immersive-story',community.caption+' Small acts of care make a shared home.');
+   text('woodland-immersive-description',`Green House 1, ${m.time} ${m.period}, day ${m.dateDigits}. ${community.caption} Weather ${weatherSnapshot?.kind||'unavailable'}.`);
+  }else{
   const z=size(),plan=schedule(m),{previous,from:previousLoc,to:leadLoc,travel,descent}=plan;
   const climbing=m.work.id==='protected-climb'&&m.hour>=6,descending=descent>0&&m.second<descent;
   const effort=climbing?climbEffort(m,plan):m.work.effort,phase=climbing?effort.phase:m.phase;
@@ -273,6 +341,7 @@
    const base=slot.y+154*slot.s,span=100*slot.s*ratio;
    return `<path d="M${slot.x-10} ${base}h${span}" stroke="#8a8767" stroke-width="5"/><path d="M${slot.x+8} ${base}V${ground}M${slot.x+60*slot.s*ratio} ${base}V${ground}" stroke="#796345" stroke-width="4"/><path d="M${slot.x-14} ${ground}h${span+15}" stroke="#a99976" stroke-width="6"/>`;
   }).join('');markup('woodland-immersive-structures',foundations);
+  }
   if(!frozen&&prefs.display.cameraMotion!=='still'){
    // Translate the outer SVG in CSS so its cached art can be composited.
    // An inner SVG camera transform rerasterizes the moving forest at high DPR.
@@ -281,6 +350,8 @@
   }else{get('woodland-immersive-world').style.transform='translate(0px,0px)';document.body.style.setProperty('--woodland-ui-x','0px');document.body.style.setProperty('--woodland-ui-y','0px');}
   attr('woodland-immersive-light','opacity',frozen?'0':(.016+.012*Math.sin(t/39)).toFixed(4));
   DeskWoodlandArt.animate(get('woodland-immersive-world'),t,{reducedMotion:frozen,lowPower:prefs.lowPower});
+  const particles=get('woodland-immersive-weather')._particles||[];
+  if(particles.length){const kind=get('woodland-immersive-weather').dataset.precipitation,weatherTime=frozen?0:t;for(const el of particles){const index=Number(el.getAttribute('data-weather-particle')),phase=index*.71,y=mod(index*47+21+weatherTime*(kind==='rain'?38:9),330)-15,x=mod(index*83+17+Math.sin(weatherTime*.35+phase)*3,800);el.setAttribute('transform',`translate(${x.toFixed(1)} ${y.toFixed(1)})`);}}
   return visible()&&!frozen;
  }
  function stop(){clearTimeout(timer);timer=null;if(frame!==null)cancelAnimationFrame(frame);frame=null;}
@@ -294,6 +365,7 @@
  }
  function sync(){
   stop();const on=active(),wasOn=document.body.classList.contains('woodland-fullscene');if(on!==wasOn)lastLayout='';scene.hidden=!on;document.body.classList.toggle('woodland-fullscene',on);
+  if(scene.dataset.theme!==prefs.theme)scene.dataset.theme=prefs.theme;
   if(!on){document.body.classList.remove('woodland-information');return;}
   fit();const animate=draw();if(!visible())return;
   const interval=prefs.lowPower?60000:1000;timer=setTimeout(sync,interval-Date.now()%interval+1);
@@ -303,5 +375,6 @@
  document.addEventListener('visibilitychange',sync);get('settings').addEventListener('close',sync);
  new MutationObserver(sync).observe(get('settings'),{attributes:true,attributeFilter:['open']});
  window.addEventListener('resize',()=>{lastLayout='';sync();});window.addEventListener('desk-display-change',()=>{lastLayout='';sync();});media?.addEventListener?.('change',sync);
+ window.addEventListener('desk-weather-change',()=>{weatherKey='';lastThermometer='';syncWeather();if(active()){lastChapter='';sync();}});
  window.WoodlandScene={sync,refresh,model:DeskWoodlandStory.sample,timing(date){const m=DeskWoodlandStory.sample(date,{format24:prefs.format24});m._minuteStart=date.getTime()-m.second*1000;const p=schedule(m);return {travel:p.travel,descent:p.descent,climbStart:p.climbStart,climbBout:p.climbBout};},get running(){return frame!==null;},get pending(){return timer!==null;}};sync();
 })();

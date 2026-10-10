@@ -178,6 +178,13 @@ async function verifyCadence(browser,target,deviceScaleFactor=1){
 
 (async()=>{
  const browser=await engine.launch({...options,headless:true});
- try{for(const target of [url,portable]){await verifyChoreography(browser,target);await verifyCadence(browser,target);}await verifyCadence(browser,url,2);}
+ try{for(const target of [url,portable])await verifyChoreography(browser,target);}
  finally{await browser.close();}
+ // Keep profiling separate from the thousands of synthetic clock jumps and
+ // resizes above, which can retain raster caches between browser contexts.
+ // All original cadence assertions still apply to each normal running page.
+ for(const [target,dpr] of [[url,1],[portable,1],[url,2]]){
+  const isolated=await engine.launch({...options,headless:true});
+  try{await verifyCadence(isolated,target,dpr);}finally{await isolated.close();}
+ }
 })().catch(error=>{console.error(error);process.exit(1)});
