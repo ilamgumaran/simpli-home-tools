@@ -70,6 +70,11 @@ async function verify(browser,target,dpr){
   assert.equal(await page.locator('#woodland-weather-thermometer').isVisible(),false);
   assert.equal(await page.locator('#woodland-immersive-cast').isVisible(),true);
   assert.equal(await page.locator('#woodland-immersive-weather [data-weather-particle]').count(),0,'Green House weather leaked into Woodland');
+  assert.equal(await page.evaluate(()=>{
+   const backdrop=document.querySelector('#woodland-immersive-backdrop').firstElementChild;
+   DeskHabitatWeather.publish({current:{temperature_2m:3,weather_code:75},unit:'celsius',status:'live',at:Date.now()});
+   return document.querySelector('#woodland-immersive-backdrop').firstElementChild===backdrop;
+  }),true,'Weather refresh reconstructs the unrelated Woodland landscape');
   await page.evaluate(()=>{prefs.theme='greenhouse1';prefs.display.woodlandView='dashboard';applyTheme();});
   assert.equal(await page.locator('#woodland-immersive').isVisible(),true,'Woodland dashboard preference disables Green House 1');
   assert.equal(await page.locator('#woodland-weather-thermometer').isVisible(),true);

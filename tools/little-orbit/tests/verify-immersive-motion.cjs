@@ -126,14 +126,16 @@ async function verifyChoreography(browser,target){
   assert.equal(await page.evaluate(()=>WoodlandScene.running),true);
   await page.evaluate(()=>{prefs.display.companion=false;WoodlandScene.sync();});
   assert.equal(await page.locator('#woodland-immersive-cast').isVisible(),false);assert.equal(await page.evaluate(()=>WoodlandScene.running),true,'Ambient scene stops with people disabled');
-  const environment=()=>page.evaluate(()=>({camera:document.querySelector('#woodland-immersive-world').style.transform,light:document.querySelector('#woodland-immersive-light').getAttribute('opacity'),wind:[...document.querySelectorAll('[data-wind],[data-cloud],[data-river]')].map(e=>e.getAttribute('transform'))}));
+  const environment=()=>page.evaluate(()=>({camera:document.querySelector('#woodland-immersive-world').style.transform,ui:getComputedStyle(document.querySelector('.immersive-heading')).transform,light:document.querySelector('#woodland-immersive-light').getAttribute('opacity'),wind:[...document.querySelectorAll('[data-wind],[data-cloud],[data-river]')].map(e=>e.getAttribute('transform'))}));
   await sample(base+10000);const early=await environment();await sample(base+195000);const late=await environment();
   assert.notEqual(early.camera,late.camera);assert.notEqual(early.light,late.light);assert.notDeepEqual(early.wind,late.wind,'Atmosphere stays fixed over several minutes');
+  assert.notEqual(early.ui,late.ui,'Scene captions stay fixed over several minutes');
   await page.evaluate(()=>{prefs.display.cameraMotion='still';WoodlandScene.sync();});
   assert.deepEqual(await page.evaluate(()=>{
    const matrix=new DOMMatrixReadOnly(document.querySelector('#woodland-immersive-world').style.transform);
    return {x:matrix.m41,y:matrix.m42};
   }),{x:0,y:0},'Still camera has a nonzero offset');
+  assert.deepEqual(await page.evaluate(()=>{const matrix=new DOMMatrixReadOnly(getComputedStyle(document.querySelector('.immersive-heading')).transform);return {x:matrix.m41,y:matrix.m42};}),{x:0,y:0},'Still camera leaves UI drift active');
   assert.equal(await page.evaluate(()=>WoodlandScene.running),true,'Still camera stops water/wind');
   await page.evaluate(()=>{document.body.classList.add('screen-rest');WoodlandScene.sync();});
   assert.equal(await page.evaluate(()=>WoodlandScene.running||WoodlandScene.pending),false,'Screen rest leaves rendering active');
@@ -185,6 +187,13 @@ async function verifyCadence(browser,target,deviceScaleFactor=1){
  // All original cadence assertions still apply to each normal running page.
  for(const [target,dpr] of [[url,1],[portable,1],[url,2]]){
   const isolated=await engine.launch({...options,headless:true});
-  try{await verifyCadence(isolated,target,dpr);}finally{await isolated.close();}
+  try{
+   // Firefox's delayed browser-window startup tasks overlap the first page
+   // even after launch resolves (confirmed with its native profiler). Settle
+   // the browser on a blank page before measuring the running illustration.
+   // The application is still newly loaded and every cadence gate is intact.
+   const blank=await isolated.newPage();await blank.goto('about:blank');await blank.waitForTimeout(4000);await blank.close();
+   await verifyCadence(isolated,target,dpr);
+  }finally{await isolated.close();}
  }
 })().catch(error=>{console.error(error);process.exit(1)});

@@ -76,6 +76,12 @@ async function verify(browser,target){
   const publishClear=temperature=>page.evaluate(temperature=>DeskHabitatWeather.publish({current:{temperature_2m:temperature,weather_code:0},unit:'celsius',status:'live',at:Date.now(),place:{name:'Test woodland'}}),temperature);
   await publishClear(35);const hot=await visual();
   assert.match(hot.value,/35\s*°C/);assert.equal(hot.particles,0);
+  for(const hour of [6,19,21]){
+   await page.clock.setSystemTime(new Date(`2026-10-05T${String(hour).padStart(2,'0')}:08:28-04:00`));await page.evaluate(()=>WoodlandScene.sync());
+   assert.equal((await visual()).sunOpacity,0,'Weather paints sunlight during the landscape night at '+hour);
+   assert.equal(await page.locator('[data-weather-sun]').getAttribute('opacity'),'1','Night moon is hidden');
+  }
+  await page.clock.setSystemTime(new Date('2026-10-05T10:08:28-04:00'));await page.evaluate(()=>WoodlandScene.sync());
   await publishClear(-5);const cold=await visual();
   assert.match(cold.value,/-5\s*°C/);assert.ok(hot.sunOpacity>cold.sunOpacity,'Hot sun should shine brighter than cold sun');
   await page.evaluate(()=>DeskHabitatWeather.publish({current:{temperature_2m:35,weather_code:999},unit:'celsius',status:'live',at:Date.now()}));
