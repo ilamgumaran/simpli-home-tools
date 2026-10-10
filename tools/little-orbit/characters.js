@@ -27,6 +27,7 @@
  };
  const items=freeze(Object.fromEntries(Object.entries(groups).flatMap(([category,rows])=>rows.map(([id,name,attachment])=>[id,{id,name,category,attachment,essential:category==='protection',use:category==='protection'?'always':id==='ascender'?'deadline-assistance':'activity'}]))));
  const roles=freeze({
+  expedition:{name:'Woodland expedition guide',available:Object.keys(items),carried:['helmet','harness','locking-carabiner','belay-device','dynamic-rope','static-rope','personal-tether','climbing-shoes','gloves','backpack','bottle','filter','first-aid','firesteel','tinder','pot','spoon','cord','saw','map','compass','ascender','foot-loop'],optionalAid:'ascender'},
   climbing:{name:'Rock climber',available:[...groups.protection,...groups.climbing,...groups.alpine,...groups.backpacking,...groups.food].map(row=>row[0]),carried:['helmet','harness','locking-carabiner','belay-device','dynamic-rope','climbing-shoes','personal-tether','gloves','backpack','bottle','energy-bar','chalk','quickdraws','nuts','cams','static-rope','ascender','foot-loop','first-aid'],optionalAid:'ascender'},
   trail:{name:'Trail / trials explorer',available:[...groups.trail,...groups.backpacking,...groups.food].map(row=>row[0]),carried:['trail-shoes','poles','map','compass','backpack','bottle','filter','trail-mix','rain-shell','first-aid','headlamp']},
   backpacking:{name:'Backpacker',available:[...groups.backpacking,...groups.trail,...groups.food].map(row=>row[0]),carried:['backpack','trail-shoes','bottle','filter','map','compass','sleeping-bag','sleeping-mat','shelter','stove','fuel','pot','oats','first-aid']},
@@ -64,6 +65,11 @@
   const hands=climbing?[{x:-12,y:-27},{x:12,y:-24}]:[{x:-13,y:2},{x:13,y:2}];
   const feet=rest?[{x:-15,y:23},{x:15,y:23}]:[{x:-8,y:30},{x:8,y:30}];
   const contacts={leftHand:climbing,rightHand:climbing,leftFoot:true,rightFoot:true};
+  // Camp tasks keep their own supported stance. The cosine beat arrives and
+  // leaves each cycle at zero velocity; it does not alter the shared gait.
+  const pulse=(1-Math.cos(c*Math.PI*2))/2;
+  let task=null;
+  const kneel=()=>{feet[0]={x:-16,y:20};feet[1]={x:16,y:20};};
   if(climbing){
    // Move one appendage at a time: the other three remain supporting contacts.
    if(step===0){hands[0].y+=lift*5;contacts.leftHand=lift<.001;}
@@ -84,6 +90,39 @@
   else if(action==='teach'||action==='read-map'){hands[0]={x:-20,y:-14+wave*2};hands[1]={x:16,y:0};}
   else if(action==='listen'){hands[0]={x:-12,y:4};hands[1]={x:12,y:4};}
   else if(action==='recover-climb'){hands[0]={x:-12,y:-27};hands[1]={x:13,y:2};feet[0]={x:-12,y:30};feet[1]={x:12,y:30};contacts.leftHand=true;}
+  else if(action==='pave'){
+   kneel();hands[0]={x:-14,y:1+5*pulse};hands[1]={x:16,y:5+4*pulse};
+   task={stance:'kneel',groundY:20,kind:'stone',hand:1,tip:{x:16,y:12+4*pulse}};
+  }else if(action==='rake-sand'){
+   feet[0]={x:-10,y:30};feet[1]={x:10,y:30};
+   hands[0]={x:0,y:(50*pulse-240)/17};hands[1]={x:8,y:2*pulse};
+   task={stance:'stand',groundY:30,kind:'rake',hand:1,secondHand:0,tip:{x:25,y:30}};
+  }else if(action==='carry-wood'){
+   feet[0]={x:-10,y:30};feet[1]={x:10,y:30};
+   hands[0]={x:-13,y:3+.5*pulse};hands[1]={x:13,y:3+.5*pulse};
+   task={stance:'stand',groundY:30,kind:'log',hand:0,secondHand:1,tip:{x:20,y:3+.5*pulse}};
+  }else if(action==='kindle-fire'){
+   kneel();hands[0]={x:3,y:4};hands[1]={x:15+2*pulse,y:7+2*pulse};
+   task={stance:'kneel',groundY:20,kind:'firesteel',hand:1,secondHand:0,tip:{x:24,y:14}};
+  }else if(action==='fill-water'){
+   kneel();hands[0]={x:-13,y:4};hands[1]={x:13,y:8+2*pulse};
+   task={stance:'kneel',groundY:20,kind:'filter-bottle',hand:1,tip:{x:13,y:20}};
+  }else if(action==='wade'||action==='play-water'){
+   const leftLift=Math.max(0,wave)**2*3,rightLift=Math.max(0,-wave)**2*3;
+   feet[0]={x:-9,y:30-leftLift};feet[1]={x:9,y:30-rightLift};
+   contacts.leftFoot=leftLift<1e-8;contacts.rightFoot=rightLift<1e-8;
+   hands[0]={x:-13,y:1-3*pulse};hands[1]={x:13+2*pulse,y:1+3*pulse};
+   task={stance:'shallow-water',groundY:30,...(action==='play-water'?{kind:'splash',hand:1,tip:{x:19,y:18}}:{})};
+  }else if(action==='play-sand'){
+   kneel();hands[0]={x:-12,y:8-2*pulse};hands[1]={x:14,y:7+2*pulse};
+   task={stance:'kneel',groundY:20,kind:'sand-stick',hand:1,tip:{x:20,y:20}};
+  }else if(action==='stir-pot'){
+   hands[0]={x:-14,y:3};hands[1]={x:14+4*pulse,y:-1+2*pulse};
+   task={stance:'stand',groundY:30,kind:'spoon',hand:1,tip:{x:20+2*pulse,y:12}};
+  }else if(action==='tent-peg'){
+   kneel();hands[0]={x:-12,y:4};hands[1]={x:15,y:1-6*pulse};
+   task={stance:'kneel',groundY:20,kind:'mallet',hand:1,tip:{x:20,y:20-6*pulse}};
+  }
 
   // Blend targets before IK, so transitions retain fixed bone lengths.
   if(from&&blend<1){
@@ -93,7 +132,22 @@
   }
   const arms=hands.map((p,i)=>joint(anatomy.shoulders[i],p,anatomy.upperArm,anatomy.forearm,i?-1:1));
   const legs=feet.map((p,i)=>joint(anatomy.hips[i],p,anatomy.thigh,anatomy.shin,i?1:-1));
-  return {arms,legs,contacts,resting:rest};
+  const result={arms,legs,contacts,resting:rest};
+  if(task){
+   result.stance=task.stance;result.groundY=task.groundY;
+   // The scene can place the root from this support plane while settling
+   // from a standing pose to folded knees, without pushing boots underground.
+   if(from&&blend<1){
+    result.groundY=Math.max(...legs.flatMap(limb=>limb.slice(1).map(point=>point.y)));
+    contacts.leftFoot=Math.abs(legs[0][2].y-result.groundY)<1e-8;
+    contacts.rightFoot=Math.abs(legs[1][2].y-result.groundY)<1e-8;
+   }
+   if(task.kind){
+    result.prop={kind:task.kind,hand:task.hand,grip:{...arms[task.hand][2]},tip:{...task.tip}};
+    if(task.secondHand!==undefined)result.prop.secondGrip={...arms[task.secondHand][2]};
+   }
+  }
+  return result;
  }
  // Stylized effort model per ascent: a mandatory hold-and-recover interval.
  // Pure progress sampling avoids integrating hidden-tab time or missed frames.
@@ -188,9 +242,9 @@
   });
   return {...base,root:supported,arms,legs,targets,holds,toolTarget:target,toolHand:hand,contacts:{leftHand:false,rightHand:false,leftFoot:true,rightFoot:true}};
  }
- const path=points=>points.map((p,i)=>`${i?'L':'M'}${p.x.toFixed(2)} ${p.y.toFixed(2)}`).join(' ');
+ const path=points=>points.map((p,i)=>`${i?'L':'M'}${p.x.toFixed(3)} ${p.y.toFixed(3)}`).join(' ');
  function artwork(character){
-  const c=character.appearance,climbing=character.role==='climbing',has=id=>character.inventory.includes(id);
+  const c=character.appearance,climbing=character.inventory.includes('helmet')&&character.inventory.includes('harness'),has=id=>character.inventory.includes(id);
   const body=character.body==='drop'?'M0 -19C-3 -13 -10 -9 -9 -2Q-9 10 0 10Q10 10 10 -2C10 -9 3 -13 0 -19Z':'M-6 -13Q0 -16 6 -13L8 7Q0 11 -8 7Z';
   return `<g class="character-art" data-character="${character.id}" data-role="${character.role}" style="--character-skin:${c.skin};--character-ink:${c.ink}">
    <g data-layer="equipment-back"><g class="character-pack" ${has('backpack')?'':'display="none"'} fill="${c.pack}" stroke="${c.ink}" stroke-width="1.2"><rect x="7" y="-14" width="10" height="22" rx="4"/><path d="M9 -8H15M10 -14V-18H15V-14" fill="none"/><rect x="8" y="-21" width="12" height="5" rx="2" fill="${c.trousers}"/><rect x="16" y="-3" width="3" height="7" rx="1" fill="#82b9c1"/></g></g>

@@ -160,3 +160,95 @@
  }
  globalThis.DeskWorlds=freeze({numerals,routes,landscapes,actions,philosophies,stories,recipes,itinerary,clock,woodland,performance,motionTiming,travelProgress,worksite,blocking});
 })();
+
+// Full-scene authored choreography is a separate composition API. It samples
+// current wall time; it neither changes the clock contract nor accumulates a
+// fictional resource ledger while the page is closed.
+(()=>{
+ 'use strict';
+ const freeze=v=>{if(v&&typeof v==='object'){Object.values(v).forEach(freeze);Object.freeze(v);}return v;};
+ const clamp=n=>Math.max(0,Math.min(1,n)),mod=(n,d)=>((n%d)+d)%d;
+ const worlds=globalThis.DeskWorlds;
+ const materials=freeze(['leaf','stone','wood','sand']);
+ const activities=freeze([
+  {id:'paving',label:'Seating the minute trail',role:'bushcraft',pose:'build',tool:'work-gloves',zone:'trail',site:{x:560,y:310}},
+  {id:'gather-sticks',label:'Gathering fallen sticks',role:'bushcraft',pose:'gather',tool:'work-gloves',zone:'forest',site:{x:222,y:297}},
+  {id:'pitch-tent',label:'Tensioning the camp shelter',role:'bushcraft',pose:'build',tool:'cord',zone:'camp',site:{x:328,y:304}},
+  {id:'filter-water',label:'Filtering water at the creek',role:'trail',pose:'water',tool:'filter',zone:'bank',site:{x:582,y:281}},
+  {id:'forage',label:'Gathering a little fruit',role:'hunting',pose:'gather',tool:'food-bag',zone:'forest',site:{x:687,y:283}},
+  {id:'protected-climb',label:'Climbing with secured recovery',role:'climbing',pose:'climb',tool:'dynamic-rope',zone:'cliff',site:{x:57,y:301}},
+  {id:'stone-work',label:'Fitting prepared trail stones',role:'bushcraft',pose:'build',tool:'work-gloves',zone:'trail',site:{x:455,y:293}},
+  {id:'tend-fire',label:'Tending the small camp hearth',role:'bushcraft',pose:'build',tool:'firesteel',zone:'camp',site:{x:348,y:306}},
+  {id:'cook',label:'Cooking at camp',role:'bushcraft',pose:'cook',tool:'spoon',zone:'camp',site:{x:382,y:306}},
+  {id:'repair-crossing',label:'Mending a timber crossing',role:'bushcraft',pose:'build',tool:'cord',zone:'bank',site:{x:548,y:294}},
+  {id:'rest',label:'Resting beside the trail',role:'trail',pose:'rest',tool:'bottle',zone:'camp',site:{x:293,y:304}},
+  {id:'teach',label:'Sharing a trail lesson',role:'trail',pose:'teach',tool:'map',zone:'camp',site:{x:445,y:307}}
+ ]);
+ const geometry=new Map();
+ // The canonical clock uses only M/L/H/V/Z. Split strokes explicitly, so the
+ // disconnected foot of 1 and bar of 4 never acquire a fictitious diagonal.
+ function points(digit,{step=8}={}){
+  const key=String(digit);
+  if(!Object.hasOwn(worlds.numerals,key))throw Error('A canonical digit from 0 to 9 is required');
+  if(!Number.isFinite(step)||step<=0||step<.25)throw Error('Point spacing must be finite and at least 0.25');
+  const cacheKey=key+':'+step;if(geometry.has(cacheKey))return geometry.get(cacheKey);
+  const tokens=worlds.numerals[key].match(/[MLHVZ]|-?\d+(?:\.\d+)?/g),segments=[],starts=[];
+  let i=0,at={x:0,y:0},start=null,stroke=-1,command='',total=0;
+  while(i<tokens.length){
+   if(/^[MLHVZ]$/.test(tokens[i]))command=tokens[i++];
+   if(command==='M'){
+    at={x:Number(tokens[i++]),y:Number(tokens[i++])};start={...at};stroke++;starts.push({...at,stroke,distance:total});command='L';
+   }else{
+    const next=command==='L'?{x:Number(tokens[i++]),y:Number(tokens[i++])}:command==='H'?{x:Number(tokens[i++]),y:at.y}:command==='V'?{x:at.x,y:Number(tokens[i++])}:start;
+    const length=Math.hypot(next.x-at.x,next.y-at.y);
+    if(length){segments.push({from:at,to:next,length,stroke,distance:total});total+=length;}
+    at={...next};if(command==='Z')command='';
+   }
+  }
+  const out=[];
+  for(const s of starts){
+   out.push({x:s.x,y:s.y,stroke:s.stroke,fraction:total?s.distance/total:0});
+   for(const segment of segments.filter(item=>item.stroke===s.stroke)){
+    const count=Math.max(1,Math.ceil(segment.length/step));
+    for(let n=1;n<=count;n++){
+     const t=n/count;out.push({x:segment.from.x+(segment.to.x-segment.from.x)*t,y:segment.from.y+(segment.to.y-segment.from.y)*t,stroke:s.stroke,fraction:(segment.distance+segment.length*t)/total});
+    }
+   }
+  }
+  const result=freeze(out);geometry.set(cacheKey,result);return result;
+ }
+ function sample(date=new Date(),{format24=false}={}){
+  const model=worlds.woodland(date,{format24}),within=mod(model.second,20),beat=Math.floor(model.second/20),progress=within/20;
+  const night=model.hour<6,reflection=model.reflection;
+  const selected=activities[reflection?[10,3,8,11][model.minute%4]:model.minute%activities.length];
+  const climbing=selected.id==='protected-climb'&&!night;
+  const phase=night?'sleep':within<3?'prepare':climbing?(within<7.5?'work':within<11.5?'recover':within<17?'work':'settle'):within<11?'work':within<15?'recover':'settle';
+  // Three small pitches form one continuous ascent; 20-second bout boundaries
+  // advance from the previous station rather than teleporting to the ground.
+  const climbSample=within<3?0:within<7.5?(within-3)/4.5*.34:within<11.5?.34+(within-7.5)/4*.16:.5+clamp((within-11.5)/5.5)*.5;
+  const ascent=climbing?globalThis.DeskCharacters.ascent(climbSample,17-within):null;
+  if(ascent&&phase!=='work'){ascent.assisted=false;ascent.resting=true;ascent.action='rest';}
+  const effort=ascent?{...ascent,progress:(beat+ascent.progress)/3}: {progress:night?0:progress,fatigue:night?0:phase==='recover'?.18:phase==='work'?.38:.24,resting:night||['prepare','recover','settle'].includes(phase)||selected.id==='rest',assisted:false};
+  const work={...selected,site:{...selected.site},bout:beat,effort,pose:night?'sleep':climbing&&['prepare','recover','settle'].includes(phase)?'recover-climb':ascent?.assisted?'assist':ascent?.action||(['recover','settle'].includes(phase)?'rest':selected.pose)};
+  if(night){work.site={x:293,y:304};work.zone='camp';work.role='trail';work.tool='bottle';work.label='The camp sleeps';}
+  const cast=[...model.story.cast],registry=globalThis.DeskCharacters.identities;
+  const adultIds=cast.filter(id=>!registry[id]?.young),childIds=cast.filter(id=>registry[id]?.young);
+  const lead=adultIds[0]||'moss',helper=adultIds[1]||null,learner=childIds[0]||null,supervisor=learner?(helper||lead):null;
+  const bankSupervision=!!helper||work.zone==='bank';
+  const kidActivity=night?'sleep':reflection?'observe':selected.id==='teach'?'learn':bankSupervision?['water-edge-play','sand-build','shallow-wade'][mod(model.minute+beat,3)]:'observe';
+  const interaction=night?'sleep':reflection?'notice-together':selected.id==='cook'?(cast.length>1?'share-food':'quiet-meal'):selected.id==='teach'?(learner?'teach-and-listen':'inspect-map'):helper?'cooperate':learner?'guide-and-observe':'solo-work';
+  const social={id:model.story.id,relationship:model.story.id,cast,lead,helper,learner,supervisor,kidActivity,interaction};
+  const leadSite={id:lead,...work.site,zone:work.zone,role:work.role,pose:work.pose,protected:climbing,resting:effort.resting||phase==='settle',fatigue:effort.fatigue,climb:climbing?effort.progress:0};
+  const helpers=adultIds.slice(1).map((id,index)=>{
+   const elder=!!registry[id]?.elder,supervising=supervisor===id;
+   return {id,x:supervising?619:work.site.x+35+index*24,y:supervising?286:work.site.y,zone:supervising?'bank':work.zone,role:'trail',pose:night?'sleep':elder||phase==='recover'?'rest':supervising?'teach':'camp',elder,resting:night||elder||phase==='recover',supervising,fatigue:elder?.12:.22};
+  });
+  const children=childIds.map((id,index)=>({id,x:bankSupervision?638+index*18:climbing?91+index*18:work.site.x+28+index*18,y:bankSupervision?290:climbing?307:Math.max(290,work.site.y),zone:night?'camp':bankSupervision?'shallow-bank':work.zone,role:'trail',pose:night?'sleep':kidActivity==='sand-build'?'gather':kidActivity==='shallow-wade'?'walk':'teach',activity:kidActivity,supervisor,waterDepth:kidActivity==='shallow-wade'?'ankle':'dry',protected:false}));
+  if(night){helpers.forEach((person,index)=>{person.x=331+index*30;person.y=304;person.zone='camp';});children.forEach((person,index)=>{person.x=352+index*18;person.y=312;person.waterDepth='dry';});}
+  const material=materials[model.minute%materials.length],minuteMaterial={ones:material,tens:Math.floor(model.minute/10)%2?'wood':'sand'},hourMaterial=model.hour%2?'stone':'wood';
+  const craft={digitIndex:3,material,task:material==='sand'?'rake':material==='leaf'?'float':'place',phase,progress:night?1:progress,targetFraction:mod(model.day*.031+model.hour*.023+model.minute*.071+beat/3,1),deliveryFraction:night?1:clamp((within-3)/8)};
+  return {...model,dateDigits:String(date.getDate()).padStart(2,'0'),dateMaterial:'wood',chapter:{id:model.place.name.toLowerCase().replaceAll(' ','-'),name:model.place.name,index:model.hour%8,hour:model.hour,terrainKey:model.terrainKey},work,social,material,minuteMaterial,hourMaterial,beat,phase,progress,reflection,riverFlow:mod(model.hour*3600+model.minute*60+model.second,8)/8,craft,
+   site:{lead:leadSite,helpers,children,river:{shallow:true,fast:false,depth:'ankle',supervised:!children.length||!!supervisor}}};
+ }
+ globalThis.DeskWoodlandStory=freeze({activities,materials,points,sample});
+})();

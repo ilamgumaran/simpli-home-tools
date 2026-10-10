@@ -1,6 +1,6 @@
 # Our Desk Clock roadmap
 
-Updated 2026-10-05. Milestones express intent, not promised delivery dates. The product owner sets priorities and authorizes deferred implementation.
+Updated 2026-10-06. Milestones express intent, not promised delivery dates. The product owner sets priorities and authorizes deferred implementation.
 
 ## Woodland Ally validation — installation complete; device review in progress
 
@@ -80,4 +80,20 @@ Next Woodland expansion: contact-pinned rock/tree routes and specialist tree gea
 
 The [overall composition plan](design/LIVING-WORLDS.md) combines [visual layers](design/VISUAL-LAYERS.md), [actions/time/effort](design/ACTIONS-AND-TIME.md) and [stories/philosophy](design/STORIES-AND-PHILOSOPHY.md). Proposed implementation order after Woodland: industrial/engineering, farming, railway/station/junction, ant life. Weaving is fully planned; its implementation slot remains to be chosen. Do not begin later themes automatically.
 
+### Future theme queue — proposed, not scheduled
+
+- Industrial/engineering → farming → railway/station/junction → ant life, preserving the existing proposed order.
+- Weaving: planned; slot TBD.
+- Sports scoreboard: baseball and football variants; slot TBD. Characters stage a scoring play that cues a visible scoreboard update at the current minute boundary. Hours can frame innings/periods/rounds and days a fixture/date board; actual HH:MM and date remain authoritative.
+
 Woodland refinement now combines both development histories with responsive contact sites, shelter/crossing grips and reciprocal teaching. See [implemented scope and next milestones](design/REFINEMENT-AND-WORK.md). Physical acceptance remains pending.
+
+## Immersive Woodland — cloud verified; physical acceptance pending
+
+The [fullscreen camp scene](design/IMMERSIVE-WOODLAND.md) layers edge-to-edge SVG art, a larger central cast, practical camp/family work, current-digit material flow and slow atmospheric/camera/HUD movement. `display.woodlandView` defaults Woodland to Immersive while retaining the previous Dashboard renderer; the default theme and legacy themes remain unchanged.
+
+Implemented scope: proportion-preserving 80–160 CSS pixel cast target; complete canonical HH:MM, timber/stone hour digits and DD plaque; current-ones sandbox/river material work; hourly construction advancing monotonically with minute/time; twelve activities, central poses/expedition kit and supervised family shallows. Lead and followers walk to their sites. Climbing starts after arrival, has three bouts with four-second recovery in each and ends in protected descent. Reduced motion overrides moving scenery and camera. Construction is sampled within a chapter; persistent resources, camp history and full dynamics remain deferred.
+
+Final cloud checks passed in Chrome, Edge and Firefox for hosted/portable layout, current-time geometry, motion and controls at 854×480, 1280×720, 1920×1080 and 390×844, DPR 1/2. Compact cadence measured near 30/60 fps; hosted 1280×720 DPR2 measured near 30/61 fps in Chrome/Edge and 30/57 fps in Firefox. The [validation record](design/IMMERSIVE-WOODLAND.md#final-cloud-validation--2026-10-10) identifies revisions, suites, frame gaps and short-sample limits. Browser SVG remains the current renderer. Ally and Vanadium hardware acceptance remain separate work; scene movement does not guarantee burn-in prevention.
+
+The [model orchestration plan](design/MODEL-ORCHESTRATION.md) assigns planning/review to Sol 6.1, validation to Sol 6 and narrow execution to lighter models. Next scope follows device evidence: activity clarity, one material variation or one chapter refinement, with deeper persistent state designed separately.

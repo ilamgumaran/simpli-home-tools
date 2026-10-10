@@ -7,7 +7,7 @@ const assert=require('node:assert/strict'),path=require('node:path'),{pathToFile
    const context=await browser.newContext({viewport:{width:1280,height:720},timezoneId:'America/New_York'});
    const page=await context.newPage(),errors=[];page.on('pageerror',e=>errors.push(e.message));await page.route('https://**',r=>r.abort());
    await freezeClock(page,'2026-10-05T10:02:04-04:00');
-   await page.addInitScript(()=>localStorage.setItem('orbit-settings',JSON.stringify({theme:'woodland',care:false,rest:false,night:false,lowPower:false})));
+   await page.addInitScript(()=>localStorage.setItem('orbit-settings',JSON.stringify({theme:'woodland',care:false,rest:false,night:false,lowPower:false,display:{woodlandView:'dashboard'}})));
    await page.goto(target);assert.equal(await page.locator('#woodland-scene').isVisible(),true);
    const checkTime=async expected=>{
     assert.equal(await page.locator('#woodland-scene').getAttribute('data-time'),expected);assert.equal(await page.locator('#time').innerText(),expected);

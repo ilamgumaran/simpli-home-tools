@@ -4,7 +4,7 @@ async function verifyTransitions(browser,target){
  const context=await browser.newContext({viewport:{width:1280,height:720},timezoneId:'America/New_York'}),page=await context.newPage();
  try{
   await freezeClock(page,'2026-10-05T10:06:59.999-04:00');await page.route('https://**',r=>r.abort());
-  await page.addInitScript(()=>localStorage.setItem('orbit-settings',JSON.stringify({theme:'woodland',care:false,rest:false,night:false,lowPower:false,display:{companionInterval:30,companionDuration:20}})));
+  await page.addInitScript(()=>localStorage.setItem('orbit-settings',JSON.stringify({theme:'woodland',care:false,rest:false,night:false,lowPower:false,display:{woodlandView:'dashboard',companionInterval:30,companionDuration:20}})));
   await page.goto(target);
   const sample=async timestamp=>{
    await page.clock.setSystemTime(new Date(timestamp));return page.evaluate(()=>{
@@ -37,7 +37,7 @@ async function verifyTransitions(browser,target){
    await page.addInitScript(()=>{
     const RealDate=Date,start=performance.now(),base=+new RealDate('2026-10-05T10:00:09.000-04:00');
     window.Date=class extends RealDate{constructor(...args){super(...(args.length?args:[base+performance.now()-start]));}static now(){return base+performance.now()-start;}};
-    localStorage.setItem('orbit-settings',JSON.stringify({theme:'woodland',care:false,rest:false,night:false,lowPower:true,display:{companionInterval:60,companionDuration:20}}));
+    localStorage.setItem('orbit-settings',JSON.stringify({theme:'woodland',care:false,rest:false,night:false,lowPower:true,display:{woodlandView:'dashboard',companionInterval:60,companionDuration:20}}));
    });
    await page.goto(target);await page.waitForTimeout(150);
    for(const lowPower of [true,false]){

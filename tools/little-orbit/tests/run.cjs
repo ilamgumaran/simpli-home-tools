@@ -5,6 +5,9 @@ if(spawnSync(process.execPath,[path.join(__dirname,'characters.cjs')],{stdio:'in
 if(spawnSync(process.execPath,[path.join(__dirname,'worlds.cjs')],{stdio:'inherit'}).status!==0)process.exit(1);
 if(spawnSync(process.execPath,[path.join(__dirname,'organic-contacts.cjs')],{stdio:'inherit'}).status!==0)process.exit(1);
 if(spawnSync(process.execPath,[path.join(__dirname,'organic-timing.cjs')],{stdio:'inherit'}).status!==0)process.exit(1);
+for(const script of ['woodland-poses.cjs','woodland-choreography.cjs']){
+ if(spawnSync(process.execPath,[path.join(__dirname,script)],{stdio:'inherit'}).status!==0)process.exit(1);
+}
 if(spawnSync(process.execPath,[path.join(root,'build-portable.cjs')],{stdio:'inherit'}).status!==0)process.exit(1);
 const server=spawn(process.execPath,[path.join(root,'server.cjs')],{env:{...process.env,PORT:'0'},stdio:['ignore','pipe','inherit']});
 let started=false;
@@ -14,7 +17,7 @@ server.stdout.on('data',data=>{
  started=true;clearTimeout(timeout);
  try{
   for(const engine of (process.env.CLOCK_TEST_BROWSER?[process.env.CLOCK_TEST_BROWSER]:['chromium','firefox'])){
-   for(const script of ['verify.cjs','verify-themes.cjs','verify-config.cjs','verify-climber.cjs','verify-mountain.cjs','verify-characters.cjs','verify-woodland.cjs','verify-motion.cjs']){
+   for(const script of ['verify.cjs','verify-themes.cjs','verify-config.cjs','verify-climber.cjs','verify-mountain.cjs','verify-characters.cjs','verify-woodland.cjs','verify-motion.cjs','verify-immersive.cjs','verify-immersive-motion.cjs']){
     console.log(`\n${engine}: ${script}`);
     const result=spawnSync(process.execPath,[path.join(__dirname,script)],{env:{...process.env,CLOCK_TEST_URL:match[0],CLOCK_TEST_BROWSER:engine},stdio:'inherit'});
     if(result.status!==0)throw Error(`${engine} ${script} failed`);
