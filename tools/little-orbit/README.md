@@ -33,7 +33,7 @@ Candy Quest visits briefly and pauses between appearances, picks routes outside 
 
 For session-to-session handoffs and replies, read the [session communication directory](../../sessions/README.md). The [organic-motion thread](../../sessions/2026-10-05-organic-motion/README.md) records motion ownership, the next build and device feedback; [motion design](design/ORGANIC-MOTION.md) explains pacing and verification.
 
-Start with the [product guide](PRODUCT.md), [roadmap](ROADMAP.md), [design archive](design/), and [changelog](CHANGELOG.md) for product status and planned work. Five themes are implemented, including Woodland of Time; all earlier choices remain available.
+Start with the [product guide](PRODUCT.md), [roadmap](ROADMAP.md), [design archive](design/), and [changelog](CHANGELOG.md) for product status and planned work. The [model orchestration plan](design/MODEL-ORCHESTRATION.md) records planning, testing and execution roles. Five themes are implemented, including Woodland of Time; all earlier choices remain available.
 
 ```sh
 npm ci

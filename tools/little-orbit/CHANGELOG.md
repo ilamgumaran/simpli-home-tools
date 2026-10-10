@@ -29,6 +29,8 @@ No tagged releases yet. Entries below describe implemented code on the developme
 
 ### Changed
 
+- Fullscreen Woodland uses a composited outer SVG camera and cached layout geometry to improve Firefox at high pixel density. Low-power pacing in both Woodland views avoids phase catch-up stutter; browser checks inspect rendered frame gaps, supported rest, and geometry through minute transitions.
+
 - Woodland fills the available scene panel with proportion-preserving scenery and larger responsive characters. Timber now includes bark, knots and end grain; layered curved mountains give the landscape softer depth.
 - Shared anatomical gait and pose transitions are smoother, with eased climbing and continuous authored Woodland worksite travel. Repeated climbing visits return by protected rappel; terrain-contact and rope-force simulation remain future work.
 - Woodland now renders at 30 fps in low-power mode and browser animation-frame cadence in normal mode, with cached layout/markup, body-paced crossings, distance-based planted gait, supported weight shifts and continuous contact-rig transitions. Work starts after arrival; repeats include return travel, and work ends before the next visit or second 55 while preserving recovery. Companion-off, reduced motion, hidden tabs, settings and screen rest suppress moving frames.
