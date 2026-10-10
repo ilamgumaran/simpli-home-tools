@@ -1,6 +1,6 @@
 # Living worlds: composition plan
 
-Status: Woodland is the first implementation slice on the development branch. The other five worlds below are proposals. This document defines the larger target and its review gates; it does not claim complete physics, resource simulation, generational memory, or all six playable themes.
+Status: Woodland is the first implementation slice on the development branch. The other six worlds below are proposals. This document defines the larger target and its review gates; it does not claim complete physics, resource simulation, generational memory, or all seven playable themes.
 
 The clock becomes a small work of changing landscape art. Characters shape their surroundings to meet a need, discover the cost of rushing, rest, and pass knowledge or care to someone else. The landscape itself states the current time. A viewer should understand the time before needing to understand the story.
 
@@ -158,6 +158,16 @@ These are authored recurring episodes. They do not yet simulate births, aging, i
 
 **Daily story and meaning:** Colony continuity comes through brood care, shared routes and task transfer. A worker's local transformation contributes to a larger living network. A quiet narrator may connect this to human urgency and continuity; do not claim ants experience a human moral epiphany, marriage or spoken teaching.
 
+### Sports scoreboard — proposed; slot TBD
+
+**Composition:** Central characters take configurable baseball scorekeeper/player or football referee/player roles around a small readable field. Scoreboard score columns show current HH:MM; a labeled calendar row or date board shows the actual date.
+
+**Minute choreography:** A pitch and hit, base run, or football scoring play visibly prompts the scorekeeper/referee to update the corresponding digit at the exact local-minute boundary. The complete current time changes immediately; activity cannot delay or imply a different clock time.
+
+**Hour/day chapters:** An inning, period or round opens a new field-side chapter. On a new day, players begin another fixture and the scorekeeper turns the date board to the current date. Variants, scoring rules and activity remain configurable design choices. Family/team play, coaching and shared celebration can carry the story.
+
+**Acceptance:** Preserve actual local HH:MM/date, readable score digits, browser and portable fit, and reduced-motion behavior; animate only explanatory activity around the authoritative time.
+
 ## Composition rules for mixing later
 
 Mix by compatibility, not by accepting every possible combination. A human farmer can visit a Woodland camp with an appropriate trail kit. A climber can help in a workshop after adopting the workshop role and leaving incompatible tools at a cache. Pip may share a human role if its articulated silhouette can perform it. Ants require their own species rig and colony actions; shrinking a human into an ant scene is a deliberate fantasy crossover, not the default.
@@ -168,7 +178,7 @@ The landscape supplies geometry and anchors, the role supplies tools, and the st
 
 | Milestone | Concrete result | Required evidence before proceeding |
 | --- | --- | --- |
-| 1. Shared plan and composition catalog | Six world recipes, layer boundaries and explicit proposal status | Each world has a material/time connection, resource anchors, believable role kit, social episode and visible philosophical choice |
+| 1. Shared plan and composition catalog | Seven world recipes, layer boundaries and explicit proposal status | Each world has a material/time connection, resource anchors, believable role kit, social episode and visible philosophical choice |
 | 2. Woodland vertical slice | One selectable live theme using central characters and deterministic hour/minute/day sampling | Hosted and portable rendering; exact four digits at rollovers/time jumps; hourly chapter changes; practical actions/gear; bounded recovery; visible daily realization |
 | 3. Woodland refinement | Work edits a selected current numeral edge; authored contacts and stable work results | Tool-hand-target alignment, supported rest, visible causal material change; same completed shelter/bridge cannot regress on another visit; readable clock throughout |
 | 4. Industrial slice | New material and motion vocabulary composed through shared layers | A real visible linkage between action and numeral result; appropriate equipment, safe work zones and recovered effort; all lifecycle/time tests reused |

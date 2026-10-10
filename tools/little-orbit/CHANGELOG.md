@@ -1,6 +1,6 @@
 # Our Desk Clock changelog
 
-No tagged releases yet. Entries below describe implemented code on the development branch; plans appear in [ROADMAP.md](ROADMAP.md), not as shipped features.
+No tagged releases yet. Implemented entries describe code on the development branch; planning notes describe proposals tracked in [ROADMAP.md](ROADMAP.md).
 
 ## Unreleased
 
@@ -39,3 +39,7 @@ No tagged releases yet. Entries below describe implemented code on the developme
 - New versions use the Simpli Home Tools Noncommercial License 1.0: noncommercial use and collaboration are allowed, while commercial use needs separate written permission from the project licensor. Earlier GPL grants remain in effect. Contributor terms, license headers, package metadata, and portable license text are updated accordingly.
 
 Time Climber II is implemented on the development branch; real-device visual review and extended-duration testing remain release-readiness work.
+
+## Planning note — proposal only
+
+- Future theme idea: configurable baseball/football scoreboard variants, with a small field play visibly cueing current-time digit updates. See the [future theme queue](ROADMAP.md#future-theme-queue--proposed-not-scheduled) and [living-world recipe](design/LIVING-WORLDS.md#sports-scoreboard--proposed-slot-tbd). No implementation is included.

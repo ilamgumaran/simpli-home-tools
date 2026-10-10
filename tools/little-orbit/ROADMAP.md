@@ -80,6 +80,12 @@ Next Woodland expansion: contact-pinned rock/tree routes and specialist tree gea
 
 The [overall composition plan](design/LIVING-WORLDS.md) combines [visual layers](design/VISUAL-LAYERS.md), [actions/time/effort](design/ACTIONS-AND-TIME.md) and [stories/philosophy](design/STORIES-AND-PHILOSOPHY.md). Proposed implementation order after Woodland: industrial/engineering, farming, railway/station/junction, ant life. Weaving is fully planned; its implementation slot remains to be chosen. Do not begin later themes automatically.
 
+### Future theme queue — proposed, not scheduled
+
+- Industrial/engineering → farming → railway/station/junction → ant life, preserving the existing proposed order.
+- Weaving: planned; slot TBD.
+- Sports scoreboard: baseball and football variants; slot TBD. Characters stage a scoring play that cues a visible scoreboard update at the current minute boundary. Hours can frame innings/periods/rounds and days a fixture/date board; actual HH:MM and date remain authoritative.
+
 Woodland refinement now combines both development histories with responsive contact sites, shelter/crossing grips and reciprocal teaching. See [implemented scope and next milestones](design/REFINEMENT-AND-WORK.md). Physical acceptance remains pending.
 
 ## Immersive Woodland — cloud verified; physical acceptance pending
