@@ -134,7 +134,7 @@ const stamp=(day,minute,second=28,hour=10)=>new Date(+new Date(`2026-10-${String
    });assert.equal(substituted.actual,'1',JSON.stringify(substituted));await page.evaluate(()=>{delete ORBIT_CONFIG.characters.woodland;WoodlandScene.refresh();});
    await page.emulateMedia({reducedMotion:'reduce'});await at(stamp(5,8));
    assert.equal(await page.evaluate(()=>WoodlandScene.running),false);await checkReading();
-   const staticState=()=>page.evaluate(()=>({camera:document.querySelector('#woodland-immersive-camera').getAttribute('transform'),poses:[...document.querySelectorAll('#woodland-immersive-cast .character-art')].map(e=>[...e.querySelectorAll('[data-part^="arm-"],[data-part^="leg-"]')].map(p=>p.getAttribute('d')))}));
+   const staticState=()=>page.evaluate(()=>({camera:document.querySelector('#woodland-immersive-world').style.transform,poses:[...document.querySelectorAll('#woodland-immersive-cast .character-art')].map(e=>[...e.querySelectorAll('[data-part^="arm-"],[data-part^="leg-"]')].map(p=>p.getAttribute('d')))}));
    const quietState=await staticState();await page.clock.runFor(1000);assert.deepEqual(await staticState(),quietState);
    await page.emulateMedia({reducedMotion:'no-preference'});await at(stamp(5,8));
    await page.click('#settings-button');assert.equal(await page.evaluate(()=>WoodlandScene.running),false);

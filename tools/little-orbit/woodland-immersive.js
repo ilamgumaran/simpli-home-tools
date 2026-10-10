@@ -29,8 +29,8 @@
  const markup=(id,value)=>{const e=get(id);if(e._art!==value){e.innerHTML=value;e._art=value;}};
  const attr=(id,name,value)=>get(id).setAttribute(name,value);
  function fit(){
-  const controls=get('display').querySelector('footer').getBoundingClientRect();
-  const signature=[innerWidth,innerHeight,controls.height,prefs.display.clockScale].join(':');if(signature===lastLayout)return;lastLayout=signature;
+  const signature=[innerWidth,innerHeight,prefs.display.clockScale].join(':');if(signature===lastLayout)return;
+  const controls=get('display').querySelector('footer').getBoundingClientRect();lastLayout=signature;
   const width=innerWidth,height=innerHeight,sx=width/800,sy=height/360,portrait=width<height*.85;
   layout={width,height,sx,sy,portrait,ground:Math.min(326,(controls.top-22)/sy)};
   const scale=portrait?Math.min(.46,120/(150*sy))*prefs.display.clockScale:Math.min(1.12,205/(150*sy))*prefs.display.clockScale;
@@ -274,9 +274,11 @@
    return `<path d="M${slot.x-10} ${base}h${span}" stroke="#8a8767" stroke-width="5"/><path d="M${slot.x+8} ${base}V${ground}M${slot.x+60*slot.s*ratio} ${base}V${ground}" stroke="#796345" stroke-width="4"/><path d="M${slot.x-14} ${ground}h${span+15}" stroke="#a99976" stroke-width="6"/>`;
   }).join('');markup('woodland-immersive-structures',foundations);
   if(!frozen&&prefs.display.cameraMotion!=='still'){
-   attr('woodland-immersive-camera','transform',`translate(${(Math.sin(t/47)*9).toFixed(3)} ${(Math.sin(t/61)*3).toFixed(3)})`);
+   // Translate the outer SVG in CSS so its cached art can be composited.
+   // An inner SVG camera transform rerasterizes the moving forest at high DPR.
+   get('woodland-immersive-world').style.transform=`translate(${(Math.sin(t/47)*9*layout.sx).toFixed(3)}px,${(Math.sin(t/61)*3*layout.sy).toFixed(3)}px)`;
    document.body.style.setProperty('--woodland-ui-x',(Math.sin(t/53)*10).toFixed(2)+'px');document.body.style.setProperty('--woodland-ui-y',(Math.sin(t/79)*4).toFixed(2)+'px');
-  }else{attr('woodland-immersive-camera','transform','translate(0 0)');document.body.style.setProperty('--woodland-ui-x','0px');document.body.style.setProperty('--woodland-ui-y','0px');}
+  }else{get('woodland-immersive-world').style.transform='translate(0px,0px)';document.body.style.setProperty('--woodland-ui-x','0px');document.body.style.setProperty('--woodland-ui-y','0px');}
   attr('woodland-immersive-light','opacity',frozen?'0':(.016+.012*Math.sin(t/39)).toFixed(4));
   DeskWoodlandArt.animate(get('woodland-immersive-world'),t,{reducedMotion:frozen,lowPower:prefs.lowPower});
   return visible()&&!frozen;
@@ -291,7 +293,7 @@
   if(draw())frame=requestAnimationFrame(loop);
  }
  function sync(){
-  stop();const on=active();scene.hidden=!on;document.body.classList.toggle('woodland-fullscene',on);
+  stop();const on=active(),wasOn=document.body.classList.contains('woodland-fullscene');if(on!==wasOn)lastLayout='';scene.hidden=!on;document.body.classList.toggle('woodland-fullscene',on);
   if(!on){document.body.classList.remove('woodland-information');return;}
   fit();const animate=draw();if(!visible())return;
   const interval=prefs.lowPower?60000:1000;timer=setTimeout(sync,interval-Date.now()%interval+1);

@@ -107,11 +107,15 @@ async function verifyChoreography(browser,target){
   }
   await sample(base+59001);const settled=await page.evaluate(contacts);assert.equal(settled.phase,'settle');assert.equal(settled.aid,false,'Deadline aid remains active in final rest');
 
-  await page.emulateMedia({reducedMotion:'reduce'});await page.evaluate(()=>WoodlandScene.sync());
+  await page.emulateMedia({reducedMotion:'reduce'});
+  await page.waitForFunction(()=>matchMedia('(prefers-reduced-motion: reduce)').matches);
+  await page.evaluate(()=>WoodlandScene.sync());
   assert.equal(await page.evaluate(()=>WoodlandScene.running),false);
   const still=await sample(base+25000),later=await sample(base+26000);
   assert.deepEqual(still,later,'Reduced-motion scene changes character geometry within a minute');
-  await page.emulateMedia({reducedMotion:'no-preference'});await page.evaluate(()=>WoodlandScene.sync());
+  await page.emulateMedia({reducedMotion:'no-preference'});
+  await page.waitForFunction(()=>!matchMedia('(prefers-reduced-motion: reduce)').matches);
+  await page.evaluate(()=>WoodlandScene.sync());
   await page.evaluate(async()=>{document.querySelector('#settings').showModal();await Promise.resolve();});
   assert.equal(await page.evaluate(()=>WoodlandScene.running||WoodlandScene.pending),false,'Settings leave scene rendering active');
   await page.evaluate(async()=>{document.querySelector('#settings').close();await Promise.resolve();});
@@ -122,11 +126,15 @@ async function verifyChoreography(browser,target){
   assert.equal(await page.evaluate(()=>WoodlandScene.running),true);
   await page.evaluate(()=>{prefs.display.companion=false;WoodlandScene.sync();});
   assert.equal(await page.locator('#woodland-immersive-cast').isVisible(),false);assert.equal(await page.evaluate(()=>WoodlandScene.running),true,'Ambient scene stops with people disabled');
-  const environment=()=>page.evaluate(()=>({camera:document.querySelector('#woodland-immersive-camera').getAttribute('transform'),light:document.querySelector('#woodland-immersive-light').getAttribute('opacity'),wind:[...document.querySelectorAll('[data-wind],[data-cloud],[data-river]')].map(e=>e.getAttribute('transform'))}));
+  const environment=()=>page.evaluate(()=>({camera:document.querySelector('#woodland-immersive-world').style.transform,light:document.querySelector('#woodland-immersive-light').getAttribute('opacity'),wind:[...document.querySelectorAll('[data-wind],[data-cloud],[data-river]')].map(e=>e.getAttribute('transform'))}));
   await sample(base+10000);const early=await environment();await sample(base+195000);const late=await environment();
   assert.notEqual(early.camera,late.camera);assert.notEqual(early.light,late.light);assert.notDeepEqual(early.wind,late.wind,'Atmosphere stays fixed over several minutes');
   await page.evaluate(()=>{prefs.display.cameraMotion='still';WoodlandScene.sync();});
-  assert.equal((await environment()).camera,'translate(0 0)');assert.equal(await page.evaluate(()=>WoodlandScene.running),true,'Still camera stops water/wind');
+  assert.deepEqual(await page.evaluate(()=>{
+   const matrix=new DOMMatrixReadOnly(document.querySelector('#woodland-immersive-world').style.transform);
+   return {x:matrix.m41,y:matrix.m42};
+  }),{x:0,y:0},'Still camera has a nonzero offset');
+  assert.equal(await page.evaluate(()=>WoodlandScene.running),true,'Still camera stops water/wind');
   await page.evaluate(()=>{document.body.classList.add('screen-rest');WoodlandScene.sync();});
   assert.equal(await page.evaluate(()=>WoodlandScene.running||WoodlandScene.pending),false,'Screen rest leaves rendering active');
   assert.deepEqual(errors,[]);
