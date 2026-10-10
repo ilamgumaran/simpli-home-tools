@@ -87,3 +87,7 @@ Each cadence sample observes actual changing character geometry for 2.1 seconds 
 | Playwright Firefox 153.0 | 29.99 / 59.86 | 30.20 / 60.68 | 30.00 / 57.06 | 26 / 35 ms |
 
 Final checks retain the cadence gates: low power at least 26 fps with p95 gap at most 46 ms; normal at least 45 fps with p95 gap at most 31 ms; maximum gap below 100 ms. No threshold was relaxed for the compositor optimization. Physical Ally fullscreen scaling, sustained power/heat, long operation and Android/Vanadium remain for the [device handoff](ALLY-TEST-HANDOFF.md).
+
+## Local Ally browser review — 2026-10-10
+
+The latest scene is installed and restarted. [Review, reproduction steps and next priorities](../../../sessions/2026-10-05-immersive-woodland/004-ally-scene-results.md) record passing functional checks, a portrait weather-scale issue and a failing Firefox DPR2 normal cadence gate. The complete local suite is not green; physical touch/scaling, sustained operation and Vanadium remain pending. No runtime fix or security-setting change was made.

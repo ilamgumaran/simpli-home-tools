@@ -91,3 +91,7 @@ Implemented scope: proportion-preserving 80–160 CSS pixel cast target; complet
 Final cloud checks passed in Chrome, Edge and Firefox for hosted/portable layout, current-time geometry, motion and controls at 854×480, 1280×720, 1920×1080 and 390×844, DPR 1/2. Compact cadence measured near 30/60 fps; hosted 1280×720 DPR2 measured near 30/61 fps in Chrome/Edge and 30/57 fps in Firefox. The [validation record](design/IMMERSIVE-WOODLAND.md#final-cloud-validation--2026-10-10) identifies revisions, suites, frame gaps and short-sample limits. Browser SVG remains the current renderer. Ally and Vanadium hardware acceptance remain separate work; scene movement does not guarantee burn-in prevention.
 
 The [model orchestration plan](design/MODEL-ORCHESTRATION.md) assigns planning/review to Sol 6.1, validation to Sol 6 and narrow execution to lighter models. Next scope follows device evidence: activity clarity, one material variation or one chapter refinement, with deeper persistent state designed separately.
+
+## Local Ally browser review — 2026-10-10
+
+The latest scene is installed and restarted. [Review, reproduction steps and next priorities](../../sessions/2026-10-05-immersive-woodland/004-ally-scene-results.md) record passing functional checks, a portrait weather-scale issue and a failing Firefox DPR2 normal cadence gate. The complete local suite is not green; physical touch/scaling, sustained operation and Vanadium remain pending. No runtime fix or security-setting change was made.
