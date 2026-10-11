@@ -169,7 +169,7 @@ async function verifyRainCadence(browser,target,viewport,deviceScaleFactor){
    window.Date=class extends RealDate{constructor(...args){super(...(args.length?args:[base+performance.now()-start]));}static now(){return base+performance.now()-start;}};
    localStorage.setItem('orbit-settings',JSON.stringify({...settings,lowPower:true}));
   },settings);
-  await page.goto(target);await page.waitForFunction(()=>DeskHabitatWeather?.get().kind==='rain');
+  await page.goto(target);await page.waitForFunction(()=>DeskHabitatWeather?.get().kind==='rain');await page.waitForTimeout(150);
   for(const lowPower of [true,false]){
    await page.evaluate(lowPower=>{prefs.lowPower=lowPower;WoodlandScene.sync();},lowPower);
    const result=await page.evaluate(async()=>{
@@ -188,4 +188,16 @@ async function verifyRainCadence(browser,target,viewport,deviceScaleFactor){
  }finally{await context.close();}
 }
 
-(async()=>{const browser=await engine.launch({...options,headless:true});try{for(const target of [url,portable]){await verify(browser,target);await verifyRainCadence(browser,target,{width:854,height:480},1);await verifyRainCadence(browser,target,{width:1280,height:720},2);}}finally{await browser.close();}})().catch(error=>{console.error(error);process.exit(1);});
+(async()=>{
+ const browser=await engine.launch({...options,headless:true});
+ try{for(const target of [url,portable])await verify(browser,target);}finally{await browser.close();}
+ // Match the Woodland benchmark: isolate steady cadence from the dense
+ // condition/resizing fixtures and from delayed browser startup work.
+ for(const target of [url,portable])for(const dpr of [1,2]){
+  const isolated=await engine.launch({...options,headless:true});
+  try{
+   const blank=await isolated.newPage();await blank.goto('about:blank');await blank.waitForTimeout(4000);await blank.close();
+   await verifyRainCadence(isolated,target,dpr===2?{width:1280,height:720}:{width:854,height:480},dpr);
+  }finally{await isolated.close();}
+ }
+})().catch(error=>{console.error(error);process.exit(1);});

@@ -33,6 +33,7 @@
  thought.onclick=()=>{if(locked)return;const show=document.body.classList.toggle('woodland-information');thought.setAttribute('aria-expanded',String(show));};
  const media=typeof matchMedia==='function'?matchMedia('(prefers-reduced-motion: reduce)'):null;
  let frame=null,timer=null,lastFrame=0,lastChapter='',lastMinute='',lastCast='',lastLayout='',lastClock='',lastLabel='',weatherSnapshot=null,weatherKey='',lastThermometer='';
+ let lastAmbientBeat=null,lastAmbientFrozen=null;
  let layout={width:800,height:360,sx:1,sy:1,portrait:false,ground:322},slots=[],actors=[],paths=[];
  const greenhouse=()=>prefs.theme==='greenhouse1';
  const nightFor=m=>greenhouse()?m.daylight===false:m.hour<6||m.hour>=20;
@@ -73,7 +74,7 @@
  function chapter(m){
   const art=DeskWoodlandArt.landscape({...m,weather:weatherSnapshot,weatherAppearance:weatherAppearance(weatherSnapshot,nightFor(m))});
   for(const key of ['backdrop','river','foreground','camp'])markup('woodland-immersive-'+key,key==='camp'&&greenhouse()?'':art[key]);
-  DeskWoodlandArt.invalidate(get('woodland-immersive-world'));lastLayout='';
+  DeskWoodlandArt.invalidate(get('woodland-immersive-world'));lastLayout='';lastAmbientBeat=null;
  }
  function weatherAppearance(snapshot,night){
   const api=globalThis.DeskHabitatWeather;
@@ -384,7 +385,13 @@
    driftUI((Math.sin(t/53)*10).toFixed(2)+'px',(Math.sin(t/79)*4).toFixed(2)+'px');
   }else{get('woodland-immersive-world').style.transform='translate(0px,0px)';driftUI('0px','0px');}
   attr('woodland-immersive-light','opacity',frozen?'0':(.016+.012*Math.sin(t/39)).toFixed(4));
-  DeskWoodlandArt.animate(get('woodland-immersive-world'),t,{reducedMotion:frozen,lowPower:prefs.lowPower});
+  // Slow scenery has a separate 30fps cadence; actors, camera and rain retain
+  // the main frame cadence. Clock buckets also reconstruct manual time jumps.
+  const ambientBeat=Math.floor(now.getTime()*30/1000);
+  if(ambientBeat!==lastAmbientBeat||frozen!==lastAmbientFrozen){
+   DeskWoodlandArt.animate(get('woodland-immersive-world'),t,{reducedMotion:frozen,lowPower:prefs.lowPower});
+   lastAmbientBeat=ambientBeat;lastAmbientFrozen=frozen;
+  }
   const particles=get('woodland-immersive-weather')._particles||[];
   if(particles.length){const kind=get('woodland-immersive-weather').dataset.precipitation,weatherTime=frozen?0:t;for(const el of particles){const index=Number(el.getAttribute('data-weather-particle')),phase=index*.71,y=mod(index*47+21+weatherTime*(kind==='rain'?38:9),330)-15,x=mod(index*83+17+Math.sin(weatherTime*.35+phase)*3,800);el.setAttribute('transform',`translate(${x.toFixed(1)} ${y.toFixed(1)})`);}}
   return visible()&&!frozen;
