@@ -156,7 +156,11 @@ async function verifyCadence(browser,target,deviceScaleFactor=1){
    window.Date=class extends RealDate{constructor(...args){super(...(args.length?args:[base+performance.now()-start]));}static now(){return base+performance.now()-start;}};
    localStorage.setItem('orbit-settings',JSON.stringify({...settings,lowPower:true}));
   },settings);
-  await page.goto(target);await page.waitForTimeout(150);
+  await page.goto(target);
+  // Measure the running illustration after font loading and first-paint/JIT
+  // work settles; the real frame cadence and all performance gates stay intact.
+  await page.evaluate(()=>document.fonts?.ready);
+  await page.waitForTimeout(1000);
   for(const lowPower of [true,false]){
    await page.evaluate(lowPower=>{prefs.lowPower=lowPower;WoodlandScene.sync();},lowPower);
    const result=await page.evaluate(async()=>{
