@@ -2156,6 +2156,9 @@ applyDisplay();
 // A small authored family camp; calendar sampling has no persistent ecology.
 (()=>{
  'use strict';
+ const setAttr=(node,name,value)=>{value=String(value);if(node.getAttribute(name)!==value)node.setAttribute(name,value);};
+ const setStyle=(node,name,value)=>{if(node.style[name]!==value)node.style[name]=value;};
+ const setData=(node,name,value)=>{value=String(value);if(node.dataset[name]!==value)node.dataset[name]=value;};
  const freeze=v=>{if(v&&typeof v==='object'){Object.values(v).forEach(freeze);Object.freeze(v);}return v;};
  const family=freeze({adults:['aster','sage'],child:'sprout',infant:'pebble',remembered:'fern'});
  const schedule=freeze([
@@ -2192,20 +2195,29 @@ applyDisplay();
   const childHost=doc.createElementNS(ns,'g');childHost.setAttribute('data-character','sprout');childHost.setAttribute('data-community-role','child');childHost.setAttribute('data-child','sprout');root.appendChild(childHost);
   const c=doc.createElementNS(ns,'g');childHost.appendChild(c);globalThis.DeskCharacters.mount(c,globalThis.DeskCharacters.create('sprout',{role:'play'}));
   const stick=doc.createElementNS(ns,'path');stick.setAttribute('data-play-stick','');stick.setAttribute('stroke','#b4a16c');stick.setAttribute('stroke-width','1.4');c.append(stick);
-  root._communityActors={aster:a,sage:b,sprout:c};return root;
+  root._communityActors={aster:a,sage:b,sprout:c};
+  root._communityNodes={
+   memorial:root.querySelector('[data-prop="memorial"]'),ridgeLine:root.querySelector('[data-prop="ridge-line"]'),
+   cookPot:root.querySelector('[data-prop="cook-pot"]'),seedBoard:root.querySelector('[data-prop="seed-board"]'),
+   canopy:root.querySelector('[data-prop="shelter"] path'),hearth:root.querySelector('[data-community-hearth]'),
+   wrappers:{aster:root.querySelector('[data-adult="aster"]'),sage:root.querySelector('[data-adult="sage"]'),sprout:childHost},
+   infant
+  };
+  return root;
  }
  function update(host,{model,layout,frozen=false,companions=true}={}){
   const root=host?._communityCamp||host;if(!root?._communityActors||!model||!layout)return;
   const portrait=!!layout.portrait,sx=layout.sx||1,sy=layout.sy||1,adultPx=54,s=adultPx/66;
   const originX=(portrait?90:190)/sx,ground=layout.ground-10;
-  root.setAttribute('transform',`translate(${originX} ${ground-30*s/sy}) scale(${s/sx} ${s/sy})`);
-  root.dataset.routine=model.routine;host.dataset.routine=model.routine;root.dataset.frozen=String(!!frozen);
-  root.querySelector('[data-prop="memorial"]').setAttribute('opacity',model.routine==='remember'?'1':'.52');
-  root.querySelector('[data-prop="ridge-line"]').setAttribute('opacity',model.routine==='shelter'?'1':'.25');
-  root.querySelector('[data-prop="cook-pot"]').setAttribute('opacity',['cook','care'].includes(model.routine)?'1':'.72');
-  root.querySelector('[data-prop="seed-board"]').setAttribute('opacity',model.routine==='teach'?'1':'.65');
-  const canopy=root.querySelector('[data-prop="shelter"] path');canopy.setAttribute('fill',['rain','storm'].includes(model.weatherKind)?'#687b78':model.weatherKind==='snow'?'#b9c9cc':'#c4a987');
-  for(const node of root.querySelectorAll('[data-adult],[data-child]'))node.style.display=companions?'':'none';
+  const nodes=root._communityNodes;
+  setAttr(root,'transform',`translate(${originX} ${ground-30*s/sy}) scale(${s/sx} ${s/sy})`);
+  setData(root,'routine',model.routine);setData(host,'routine',model.routine);setData(root,'frozen',!!frozen);
+  setAttr(nodes.memorial,'opacity',model.routine==='remember'?'1':'.52');
+  setAttr(nodes.ridgeLine,'opacity',model.routine==='shelter'?'1':'.25');
+  setAttr(nodes.cookPot,'opacity',['cook','care'].includes(model.routine)?'1':'.72');
+  setAttr(nodes.seedBoard,'opacity',model.routine==='teach'?'1':'.65');
+  setAttr(nodes.canopy,'fill',['rain','storm'].includes(model.weatherKind)?'#687b78':model.weatherKind==='snow'?'#b9c9cc':'#c4a987');
+  for(const node of Object.values(nodes.wrappers))setStyle(node,'display',companions?'':'none');
   if(!companions)return;
   const elapsed=model.elapsedSeconds||0,cycle=frozen?0:elapsed/6,organic=frozen?0:elapsed/120;
   for(const id of ['aster','sage','sprout']){
@@ -2231,20 +2243,20 @@ applyDisplay();
      tool.querySelector('[data-camp-spoon]').setAttribute('d',`M${hand.x} ${hand.y}L${tip.x} ${tip.y}`);tool.querySelector('[data-camp-spoon]').style.display=cook?'':'none';
      const bowl=tool.querySelector('[data-camp-spoon-bowl]');bowl.setAttribute('cx',tip.x);bowl.setAttribute('cy',tip.y);bowl.style.display=cook?'':'none';
      for(const [selector,shown] of [['[data-camp-greens]',model.routine==='forage'],['[data-camp-flower]',model.routine==='remember']]){const node=tool.querySelector(selector);node.setAttribute('transform',`translate(${hand.x} ${hand.y})`);node.style.display=shown?'':'none';}
-     const line=root.querySelector('[data-prop="ridge-line"]');if(model.routine==='shelter')line.setAttribute('d',`M38 7L${x+hand.x*actorScale} ${rootY+hand.y*actorScale}`);
+     const line=nodes.ridgeLine;if(model.routine==='shelter')setAttr(line,'d',`M38 7L${x+hand.x*actorScale} ${rootY+hand.y*actorScale}`);
     }else{const tool=actor.querySelector('[data-community-tool]');if(tool)tool.style.display='none';}
    }else{const tool=actor.querySelector('[data-community-tool]');if(tool)tool.style.display='none';}
-   const wrapper=root.querySelector(`[data-${id==='sprout'?'child':'adult'}="${id}"]`);
-   wrapper.setAttribute('transform',`translate(${x} ${rootY}) scale(${actorScale})`);
+   const wrapper=nodes.wrappers[id];
+   setAttr(wrapper,'transform',`translate(${x} ${rootY}) scale(${actorScale})`);
    globalThis.DeskCharacters.update(actor,{action,cycle,from,fromCycle:cycle,blend,rig:actorPose,organic:frozen?0:.18,phase:organic});
    if(id==='sprout'){const stick=actor.querySelector('[data-play-stick]'),p=actorPose.prop;stick.style.display=p?.kind==='sand-stick'?'':'none';if(p)stick.setAttribute('d',`M${p.grip.x} ${p.grip.y}L${p.tip.x} ${p.tip.y}`);}
-   actor.dataset.character=id;
+   setData(actor,'character',id);
   }
-  const infant=root.querySelector('[data-infant="pebble"]'),points=globalThis.DeskCharacters.infantSupportPoints;
+  const infant=nodes.infant,points=globalThis.DeskCharacters.infantSupportPoints;
   const rig=globalThis.DeskCharacters.pose('cradle-care',cycle),left=rig.arms[0][2],right=rig.arms[1][2];
   const centerX=(left.x+right.x)/2,centerY=(left.y+right.y)/2;
-  infant.setAttribute('transform',`translate(${centerX-(points.head.x+points.body.x)/2} ${centerY-(points.head.y+points.body.y)/2})`);infant.dataset.support='aster-hands';infant.setAttribute('data-supported','true');
-  const hearth=root.querySelector('[data-community-hearth]');hearth.style.opacity=model.routine==='cook'||model.routine==='care'&&model.elapsedSeconds>=20*3600?'1':'.45';
+  setAttr(infant,'transform',`translate(${centerX-(points.head.x+points.body.x)/2} ${centerY-(points.head.y+points.body.y)/2})`);setData(infant,'support','aster-hands');setAttr(infant,'data-supported','true');
+  setStyle(nodes.hearth,'opacity',model.routine==='cook'||model.routine==='care'&&model.elapsedSeconds>=20*3600?'1':'0.45');
  }
  globalThis.DeskHabitatCommunity=Object.freeze({sample,create,update,family,schedule});
 })();
