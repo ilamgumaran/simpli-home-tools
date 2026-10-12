@@ -8,7 +8,7 @@ Prepared 2026-10-12. Green House 1 is the new weather and tiny-community theme; 
 | --- | --- |
 | Repository | `ilamgumaran/simpli-home-tools` |
 | Branch | `feature/woodland-weather-habitat` |
-| Pull request | Pending final validation and publication |
+| Pull request | [PR #11](https://github.com/ilamgumaran/simpli-home-tools/pull/11), draft while browser checks run |
 | Current runtime revision | `93d90a9191976f0e1b13532bf4a04832f61d2ce2` |
 | Canonical app | `tools/little-orbit/` |
 | Portable SHA-256 | `a86f416a978a5669fed753134511c1362f39392b9e5f2daac29ec852a2daa8b2` |

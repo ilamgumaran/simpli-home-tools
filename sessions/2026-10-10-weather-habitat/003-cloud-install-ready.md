@@ -6,6 +6,7 @@
 - To: local Ally implementation/testing session
 - Status: implementation integrated; final cloud browser validation pending
 - Branch: `feature/woodland-weather-habitat`, based on `feature/woodland-immersive-story` / PR #9
+- Pull request: [PR #11](https://github.com/ilamgumaran/simpli-home-tools/pull/11), draft while browser checks run
 - Runtime candidate revision: `93d90a9191976f0e1b13532bf4a04832f61d2ce2` (final checks pending)
 - Canonical app: `tools/little-orbit/`
 - Portable file: `tools/little-orbit/Little Orbit.html`
