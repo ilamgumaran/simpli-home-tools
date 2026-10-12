@@ -1,7 +1,7 @@
 <!-- SPDX-License-Identifier: LicenseRef-Simpli-Noncommercial-1.0 -->
 # Green House 1 — weather habitat
 
-Status: source and portable integration authored; browser acceptance pending. This weather-responsive habitat is the separate `greenhouse1` theme, displayed as **Green House 1**. Its weather, tiny antlike camp people, tent, food/play story and thermometer belong to that scene. Woodland keeps its larger human-scale cast and engineering terrain/time scene; the existing clock weather panel remains available globally. This is not a complete ecology simulation.
+Status: source and portable integration authored; scoped weather/cache functional checks passed; cadence failures in Chrome, Edge and Firefox mean motion acceptance has not passed. See [session 006](../../../sessions/2026-10-10-weather-habitat/006-cloud-validation.md) for results. This weather-responsive habitat is the separate `greenhouse1` theme, displayed as **Green House 1**. Its weather, tiny antlike camp people, tent, food/play story and thermometer belong to that scene. Woodland keeps its larger human-scale cast and engineering terrain/time scene; the existing clock weather panel remains available globally. This is not a complete ecology simulation.
 
 ## Weather display
 
@@ -23,4 +23,4 @@ The scene uses five separate SVG paint layers for scenery, moving precipitation,
 - Cover hot sun, cool muted conditions, rain, snow and night/precipitation combinations. Check no hot sun at night and a truthful current temperature in both units, including below/above the art scale.
 - Inspect scene/browser viewport and portable fit; current HH:MM and labeled date stay authoritative through weather changes and minute/hour/day boundaries.
 - Check rain/snow limits and pause/resume in hidden tabs, Settings, screen rest, reduced motion, Still camera, companion-off and offline/stale states. Weather may animate only within existing lifecycle controls.
-- Record Chrome, Edge and Firefox versions; hosted/portable form; viewport and DPR; unit; condition/cache fixture; motion/lifecycle state; measured cadence; and observed result in [session message 003](../../../sessions/2026-10-10-weather-habitat/003-cloud-install-ready.md). Checks remain pending until run and reviewed.
+- Scoped cache, unit, loading/stale and weather functionality checks passed; rain layout was exercised across four CSS viewports × DPR1/2 in hosted and portable forms. Some cadence gates failed, and the full browser motion suite has not passed. Read current browser results in [session message 006](../../../sessions/2026-10-10-weather-habitat/006-cloud-validation.md); physical Ally/Vanadium checks remain pending.

@@ -8,7 +8,7 @@ Git records communication but does not automatically notify another running sess
 
 | Thread | Branch carrying the handoff | Latest message | State |
 | --- | --- | --- | --- |
-| [Green House 1](2026-10-10-weather-habitat/README.md) | `feature/woodland-weather-habitat` | [005: rendering follow-up](2026-10-10-weather-habitat/005-cloud-rendering-followup.md) | Separate weather/community theme integrated; browser validation pending |
+| [Green House 1](2026-10-10-weather-habitat/README.md) | `feature/woodland-weather-habitat` | [006: cloud validation](2026-10-10-weather-habitat/006-cloud-validation.md) | Scoped functional checks pass; motion acceptance failed in all three engines; device checks pending |
 | [Full-screen Woodland story](2026-10-05-immersive-woodland/README.md) | `feature/woodland-immersive-story` / [PR #9](https://github.com/ilamgumaran/simpli-home-tools/pull/9) | [003: scene ready](2026-10-05-immersive-woodland/003-cloud-scene-ready.md) | Fullscreen camp/material time ready; Ally/Vanadium acceptance pending |
 | [Organic character motion — cloud ownership](2026-10-05-organic-motion/README.md) | Motion build: `feature/woodland-organic-motion` / [PR #8](https://github.com/ilamgumaran/simpli-home-tools/pull/8) | [005: motion build ready](2026-10-05-organic-motion/005-cloud-motion-ready.md) | Fluid motion complete; Chrome/Edge/Firefox passed; Ally/Vanadium acceptance pending |
 | [Woodland size and motion refinement](2026-10-05-woodland-refinement/README.md) | `feature/woodland-refinement-contacts` | [002: integration reply](2026-10-05-woodland-refinement/002-ally-to-cloud.md) | Enlarged artwork + contacts/work integrated; physical review pending |

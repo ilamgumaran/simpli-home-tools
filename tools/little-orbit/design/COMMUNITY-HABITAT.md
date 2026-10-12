@@ -1,7 +1,7 @@
 <!-- SPDX-License-Identifier: LicenseRef-Simpli-Noncommercial-1.0 -->
 # Green House 1 — community habitat
 
-Status: first authored community-life slice implemented in the development branch; browser acceptance pending. This recurring community story belongs to the separate `greenhouse1` theme, displayed as **Green House 1**, alongside its weather scene. It is not part of Woodland's larger-actor engineering terrain, nor a life simulation or persistent family system.
+Status: first authored community-life slice implemented; hosted/portable functional checks passed at DPR1/2 in Chrome, Edge and Firefox; motion acceptance failed in all three. See [session 006](../../../sessions/2026-10-10-weather-habitat/006-cloud-validation.md). This recurring community story belongs to the separate `greenhouse1` theme, displayed as **Green House 1**, alongside its weather scene. It is not part of Woodland's larger-actor engineering terrain, nor a life simulation or persistent family system.
 
 ## Cast and story
 
@@ -38,4 +38,4 @@ Each mounted camp retains its prop and actor nodes. Routine colors, visibility a
 - Confirm Pebble remains swaddled and supported by a caregiver wherever visible.
 - Confirm stories do not age, replace or imply a new infant, and do not claim ecosystem/resource/lineage simulation.
 - Check current time/date legibility, compact and tall viewports, companion-off behavior, and shared pause/reduced-motion/Still-camera behavior.
-- Record browser/version, hosted or portable form, viewport/DPR, story fixture and observed result in the weather habitat session's install-ready validation record. Acceptance remains pending until the checks are run and reviewed.
+- Functional community checks passed hosted/portable at DPR1/2 in Chrome and Firefox. Motion acceptance failed in all three engines; diagnose and rerun the cadence checks documented in [session 006](../../../sessions/2026-10-10-weather-habitat/006-cloud-validation.md).
