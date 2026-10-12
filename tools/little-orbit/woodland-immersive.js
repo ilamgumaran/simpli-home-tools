@@ -15,7 +15,7 @@
  <g id="woodland-immersive-structures"/><g id="woodland-immersive-workpieces"/>
  <g id="woodland-immersive-cliff"/><g id="woodland-immersive-holds"/><path id="woodland-immersive-rope" fill="none" stroke="#eddbb7" stroke-width="1.6"/></g></svg>
  <svg id="woodland-immersive-weather-layer" viewBox="0 0 800 360" preserveAspectRatio="none" aria-hidden="true" pointer-events="none" xmlns="${ns}"><g id="woodland-immersive-weather" pointer-events="none"/></svg>
- <svg id="woodland-immersive-reading" viewBox="0 0 800 360" preserveAspectRatio="none" aria-hidden="true" pointer-events="none" xmlns="${ns}"><g id="woodland-immersive-day"/><g id="woodland-immersive-numerals"/><g id="woodland-immersive-colon" fill="#ead9af" stroke="#445542" stroke-width="2"><circle r="3.5"/><circle cy="26" r="3.5"/></g></svg>
+ <svg id="woodland-immersive-reading" viewBox="0 0 800 360" preserveAspectRatio="none" aria-hidden="true" pointer-events="none" xmlns="${ns}"><g id="woodland-immersive-weather-atmosphere"/><g id="woodland-immersive-day"/><g id="woodland-immersive-numerals"/><g id="woodland-immersive-colon" fill="#ead9af" stroke="#445542" stroke-width="2"><circle r="3.5"/><circle cy="26" r="3.5"/></g></svg>
  <svg id="woodland-immersive-actors" viewBox="0 0 800 360" preserveAspectRatio="none" aria-hidden="true" xmlns="${ns}"><g id="woodland-immersive-delivery"/><g id="woodland-immersive-inlet"/><g id="woodland-immersive-cast"/><g id="woodland-immersive-community"/><g id="woodland-immersive-fire"/><g id="woodland-immersive-ripples"/></svg>
  <svg id="woodland-immersive-light-layer" viewBox="0 0 800 360" preserveAspectRatio="none" aria-hidden="true" pointer-events="none" xmlns="${ns}"><rect id="woodland-immersive-light" x="-30" y="-30" width="860" height="420" fill="#f5d9ad" opacity="0" pointer-events="none"/></svg>
  <div class="immersive-heading"><span id="woodland-immersive-place"></span><span id="woodland-immersive-chapter"></span></div>
@@ -92,21 +92,26 @@
   }catch{return null;}
  }
  function weatherGroup(snapshot,night){
-  const g=get('woodland-immersive-weather'),a=weatherAppearance(snapshot,night);if(!g)return;
+  const g=get('woodland-immersive-weather'),atmosphere=get('woodland-immersive-weather-atmosphere'),a=weatherAppearance(snapshot,night);if(!g||!atmosphere)return;
   const kind=a?.precipitation||'none',count=kind==='rain'?Math.min(28,Math.max(8,Math.round(8+(a?.rainIntensity||0)*20))):kind==='snow'?14:0;
   const marks=Array.from({length:count},(_,i)=>{
    return kind==='snow'?`<circle data-weather-particle="${i}" cx="0" cy="0" r="${1.2+(i%3)*.45}" fill="#f4f1df" opacity=".75"/>`:`<path data-weather-particle="${i}" d="M0 0l${kind==='rain'?'-2 8':'1 5'}" stroke="#d5e5df" stroke-width="${kind==='rain'?'.9':'1.2'}" stroke-linecap="round" opacity=".64"/>`;
   }).join('');
   const cloud=Math.min(.65,a?.cloudOpacity||0),wet=kind!=='none',warmth=a?.warmth||0,cover=snapshot?.available&&snapshot.kind!=='unknown'?Math.min(.27,cloud*.16+(wet?.07:0)+(warmth<.3?.07:0)):0;
   const tint=cloud>.3||wet?'#71838a':a?.tintColor||'#8ea9ad',opacity=night?Math.min(.22,Math.max(cover,a?.tintOpacity||0)):Math.min(.22,Math.max(cover,a?.tintOpacity||0)),sun=!night?Math.min(.3,a?.sunOpacity||0):0;
-  const content=`<rect data-weather-tint x="-24" y="-24" width="848" height="408" fill="${tint}" opacity="${opacity}"/><circle data-weather-sunwash cx="680" cy="88" r="52" fill="#ffe7a8" opacity="${sun*.22}"/><g data-weather-particles>${marks}</g>`;
-  if(g._weatherArt!==content){g.innerHTML=content;g._weatherArt=content;g._particles=[...g.querySelectorAll('[data-weather-particle]')];}
+  // Keep the static full-screen wash out of the SVG whose particles move each frame.
+  const atmosphereArt=`<rect data-weather-tint x="-24" y="-24" width="848" height="408" fill="${tint}" opacity="${opacity}"/><circle data-weather-sunwash cx="680" cy="88" r="52" fill="#ffe7a8" opacity="${sun*.22}"/>`;
+  if(atmosphere._weatherArt!==atmosphereArt){atmosphere.innerHTML=atmosphereArt;atmosphere._weatherArt=atmosphereArt;}
+  const particleArt=`<g data-weather-particles>${marks}</g>`;
+  if(g._weatherArt!==particleArt){g.innerHTML=particleArt;g._weatherArt=particleArt;g._particles=[...g.querySelectorAll('[data-weather-particle]')];}
   g.dataset.precipitation=kind;g.dataset.weatherKind=snapshot?.kind||snapshot?.code||'unknown';
  }
  function syncWeather(){
   if(!greenhouse()){
    const group=get('woodland-immersive-weather');
    if(group._weatherArt){group.replaceChildren();group._weatherArt='';group._particles=[];}
+   const atmosphere=get('woodland-immersive-weather-atmosphere');
+   if(atmosphere._weatherArt){atmosphere.replaceChildren();atmosphere._weatherArt='';}
    weatherSnapshot=null;weatherKey='';lastThermometer='';return;
   }
   const api=globalThis.DeskHabitatWeather;
