@@ -1,6 +1,6 @@
 # Green House 1: Ally installation and acceptance
 
-Prepared 2026-10-12. Green House 1 is the new weather and tiny-community theme; Woodland retains its larger characters and terrain-engineering activities. Read the [current cloud handoff](../../../sessions/2026-10-10-weather-habitat/003-cloud-install-ready.md) first. Cloud validation is being finalized; physical Ally and Vanadium acceptance remain pending. Return findings as `004-ally-to-cloud.md` in the weather-habitat session thread. The [earlier fullscreen handoff](../../../sessions/2026-10-05-immersive-woodland/003-cloud-scene-ready.md) remains history.
+Prepared 2026-10-12. Green House 1 is the new weather and tiny-community theme; Woodland retains its larger characters and terrain-engineering activities. Read the [current cloud handoff](../../../sessions/2026-10-10-weather-habitat/005-cloud-rendering-followup.md) first. Cloud validation is being finalized; physical Ally and Vanadium acceptance remain pending. Return findings as `004-ally-to-cloud.md` in the weather-habitat session thread. The [earlier fullscreen handoff](../../../sessions/2026-10-05-immersive-woodland/003-cloud-scene-ready.md) remains history.
 
 ## Version to install
 
@@ -9,9 +9,9 @@ Prepared 2026-10-12. Green House 1 is the new weather and tiny-community theme; 
 | Repository | `ilamgumaran/simpli-home-tools` |
 | Branch | `feature/woodland-weather-habitat` |
 | Pull request | [PR #11](https://github.com/ilamgumaran/simpli-home-tools/pull/11), draft while browser checks run |
-| Current runtime revision | `93d90a9191976f0e1b13532bf4a04832f61d2ce2` |
+| Current runtime revision | `a9122c09c4f757a03a4c681dd0322b29e7de8072` |
 | Canonical app | `tools/little-orbit/` |
-| Portable SHA-256 | `a86f416a978a5669fed753134511c1362f39392b9e5f2daac29ec852a2daa8b2` |
+| Portable SHA-256 | `ff134b9fa18076df24dbd8a30511514fa2696c75b6ebeb10373714ecca024ff5` |
 
 This branch advances PR #9 with a separate sixth theme. Fetch this branch. The runtime revision identifies the source freeze; later test and documentation commits may advance HEAD while leaving that runtime and artifact unchanged. Verify the portable checksum and record both revisions. See the [weather design](WEATHER-HABITAT.md) and [community design](COMMUNITY-HABITAT.md). Community routines follow local time and recur with the same family; persistent ecology and demographic changes remain future work.
 
@@ -41,6 +41,6 @@ Cycle **Theme** to **Green House 1**. It always fills the screen; Woodland's Ful
 - Check true fullscreen fit, viewport-edge art, readable time/date/weather and controls at the device's actual CSS size and scaling. Review normal and low-power/native cadence during sustained use.
 - Exercise reduced motion, Still camera, companions off, hidden tab, Settings, screen rest, resume/sleep and offline portable behavior. Verify time stays current after each pause/resume.
 - In Green House 1, inspect clear hot/cold conditions, rain/snow and night, Celsius/Fahrenheit labels and cached/unavailable states. Check the tiny shelter, food/cooking, teaching, supported infant care, supervised Sprout play and remembrance of Fern. Companions off should retain the camp and weather while hiding people. Confirm weather and community layers clear when returning to Woodland.
-- Report Ally and Vanadium separately. Current cloud checks and cadence belong in the [weather-habitat handoff](../../../sessions/2026-10-10-weather-habitat/003-cloud-install-ready.md); physical Ally and Vanadium acceptance require device evidence.
+- Report Ally and Vanadium separately. Current cloud checks and cadence belong in the [weather-habitat handoff](../../../sessions/2026-10-10-weather-habitat/005-cloud-rendering-followup.md); physical Ally and Vanadium acceptance require device evidence.
 
 Keep private screenshots, profiles and device paths out of Git. Report reproduction steps and distinguish display or clock failures from art feedback. No merge, release or installation is part of this handoff.
