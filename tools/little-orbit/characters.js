@@ -298,8 +298,8 @@
   for(const [name,index,show] of [['held-map',0,['teach','read-map'].includes(action)&&character.inventory.includes('map')],['held-spoon',1,['cook','stir-pot'].includes(action)&&character.inventory.includes('spoon')]]){const hand=p.arms[index][2];write(part(name),'transform',`translate(${hand.x} ${hand.y})`);write(part(name),'display',show?'':'none');}
   if(['cook','stir-pot'].includes(action)&&p.toolTarget){const grip=toolGrip(p.arms[1][2],p.toolTarget);write(part('held-spoon'),'transform',`translate(${grip.x} ${grip.y}) rotate(${grip.angle})`);}
   else if(action==='stir-pot'&&character.inventory.includes('spoon')){const hand=p.arms[1][2],grip=toolGrip(hand,{x:hand.x,y:9});write(part('held-spoon'),'transform',`translate(${grip.x} ${grip.y}) rotate(${grip.angle})`);}
-  root.dataset.action=action;root.dataset.fatigue=clamp(fatigue).toFixed(3);root.dataset.support=String(Object.values(p.contacts).filter(Boolean).length);
-  if(action==='cradle-care'){root.dataset.infantSupport='both-hands';root.dataset.infantHeadSupport='left-hand';}else{delete root.dataset.infantSupport;delete root.dataset.infantHeadSupport;}
+  write(root,'data-action',action);write(root,'data-fatigue',clamp(fatigue).toFixed(3));write(root,'data-support',Object.values(p.contacts).filter(Boolean).length);
+  if(action==='cradle-care'){write(root,'data-infant-support','both-hands');write(root,'data-infant-head-support','left-hand');}else{if(root.hasAttribute('data-infant-support'))root.removeAttribute('data-infant-support');if(root.hasAttribute('data-infant-head-support'))root.removeAttribute('data-infant-head-support');}
   write(part('sweat'),'display',fatigue>.55&&!p.resting?'':'none');
   write(part('eyes'),'d',action==='sleep'?'M-4 -23H-1M1 -23H4':'M-3 -24V-22M3 -24V-22');
   write(part('mouth'),'d',fatigue>.55&&!p.resting?'M-2 -19Q0 -22 2 -19Q0 -17 -2 -19':'M-3 -19Q0 -16 3 -19');
@@ -309,7 +309,7 @@
   write(part('fixed-line'),'d',path([{x:ropeAnchor.x-dy/d*3,y:ropeAnchor.y+dx/d*3},{x:loop.x-dx/d*20-dy/d*3,y:loop.y-dy/d*20+dx/d*3}]));
   write(part('aid-tether'),'d',path([device,loop]));write(part('aid-foot-loop'),'d',path([device,p.legs[0][2]]));
   for(const name of ['ascender','aid-tether','aid-foot-loop','fixed-line'])write(part(name),'display',aid?'':'none');
-  root.dataset.ropeSystem=aid?'protected-fixed-line':'dynamic-protection';
+  write(root,'data-rope-system',aid?'protected-fixed-line':'dynamic-protection');
   return p;
  }
  function attachment(character){if(!character.inventory.includes('harness'))throw Error('Rope-bearing roles require a harness');return {...anatomy.belayLoop};}

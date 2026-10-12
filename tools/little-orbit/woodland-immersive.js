@@ -6,15 +6,15 @@
  const ns='http://www.w3.org/2000/svg',get=id=>document.getElementById(id),mod=(n,d)=>((n%d)+d)%d;
  const ease=n=>{const t=Math.max(0,Math.min(1,n));return t*t*t*(t*(t*6-15)+10);};
  const scene=document.createElement('section');scene.id='woodland-immersive';scene.hidden=true;
- // The changing full-screen light has its own paint layer so its opacity
- // never invalidates the detailed forest and material numerals underneath.
+ // Rain and changing full-screen light have their own paint layers so their
+ // updates do not invalidate the detailed forest and material numerals.
  scene.innerHTML=`<svg id="woodland-immersive-world" viewBox="0 0 800 360" preserveAspectRatio="none" role="img" aria-labelledby="woodland-immersive-title woodland-immersive-description" xmlns="${ns}">
  <title id="woodland-immersive-title">Woodland of Time</title><desc id="woodland-immersive-description"></desc>${DeskWoodlandArt.defs()}
  <rect id="woodland-immersive-wash" x="-30" y="-30" width="860" height="420" fill="#90aaa0"/>
  <g id="woodland-immersive-camera"><g id="woodland-immersive-backdrop"/><g id="woodland-immersive-river"/><g id="woodland-immersive-foreground"/><g id="woodland-immersive-camp"/>
- <g id="woodland-immersive-weather" pointer-events="none"/>
  <g id="woodland-immersive-structures"/><g id="woodland-immersive-workpieces"/>
  <g id="woodland-immersive-cliff"/><g id="woodland-immersive-holds"/><path id="woodland-immersive-rope" fill="none" stroke="#eddbb7" stroke-width="1.6"/></g></svg>
+ <svg id="woodland-immersive-weather-layer" viewBox="0 0 800 360" preserveAspectRatio="none" aria-hidden="true" pointer-events="none" xmlns="${ns}"><g id="woodland-immersive-weather" pointer-events="none"/></svg>
  <svg id="woodland-immersive-reading" viewBox="0 0 800 360" preserveAspectRatio="none" aria-hidden="true" pointer-events="none" xmlns="${ns}"><g id="woodland-immersive-day"/><g id="woodland-immersive-numerals"/><g id="woodland-immersive-colon" fill="#ead9af" stroke="#445542" stroke-width="2"><circle r="3.5"/><circle cy="26" r="3.5"/></g></svg>
  <svg id="woodland-immersive-actors" viewBox="0 0 800 360" preserveAspectRatio="none" aria-hidden="true" xmlns="${ns}"><g id="woodland-immersive-delivery"/><g id="woodland-immersive-inlet"/><g id="woodland-immersive-cast"/><g id="woodland-immersive-community"/><g id="woodland-immersive-fire"/><g id="woodland-immersive-ripples"/></svg>
  <svg id="woodland-immersive-light-layer" viewBox="0 0 800 360" preserveAspectRatio="none" aria-hidden="true" pointer-events="none" xmlns="${ns}"><rect id="woodland-immersive-light" x="-30" y="-30" width="860" height="420" fill="#f5d9ad" opacity="0" pointer-events="none"/></svg>
@@ -49,10 +49,10 @@
  const write=(el,name,value)=>{const next=String(value);if(el.getAttribute(name)!==next)el.setAttribute(name,next);};
  const attr=(id,name,value)=>{const el=get(id),next=String(value);if(el.getAttribute(name)!==next)el.setAttribute(name,next);};
  const data=(el,name,value)=>{const next=String(value);if(el.dataset[name]!==next)el.dataset[name]=next;};
- const cameraLayers=['woodland-immersive-world','woodland-immersive-reading','woodland-immersive-actors','woodland-immersive-light-layer'];
+ const cameraLayers=['woodland-immersive-world','woodland-immersive-weather-layer','woodland-immersive-reading','woodland-immersive-actors','woodland-immersive-light-layer'];
  let lastCameraTransform='';
  // CSS serializes commas and trailing zeroes differently; retain our input
- // so Still camera does not rewrite the same four layer styles every frame.
+ // so Still camera does not rewrite the same five layer styles every frame.
  const setCameraTransform=value=>{if(value===lastCameraTransform)return;for(const id of cameraLayers)get(id).style.transform=value;lastCameraTransform=value;};
  function fit(){
   const signature=[innerWidth,innerHeight,prefs.display.clockScale].join(':');if(signature===lastLayout)return;
@@ -144,8 +144,8 @@
   ids.forEach((id,index)=>{
    const host=document.createElementNS(ns,'g'),young=!!DeskCharacters.identities[id].young;
    const character=DeskCharacters.create(id,{role:index===0?'expedition':'trail'});DeskCharacters.mount(host,character);
-   const prop=document.createElementNS(ns,'g');prop.dataset.immersiveProp='';host.append(prop);host.dataset.castIndex=index;
-   get('woodland-immersive-cast').append(host);actors.push({host,character,young,prop,index,id});
+   const art=host.querySelector('.character-art'),prop=document.createElementNS(ns,'g');prop.dataset.immersiveProp='';host.append(prop);host.dataset.castIndex=index;
+   get('woodland-immersive-cast').append(host);actors.push({host,art,character,young,prop,index,id});
   });
  }
  function glyphPoint(m){
@@ -311,16 +311,16 @@
    if(anchored){
     const anchor=projectCliff(route.anchor,s);actor.host._anchor=anchor;
     attr('woodland-immersive-rope','d',`M${anchor.x} ${anchor.y}L${pos.x} ${pos.y+9*s.y}`);
-    actor.host.dataset.contactHolds=JSON.stringify(rig.holds);
-   }else actor.host.dataset.contactHolds='';
+    data(actor.host,'contactHolds',JSON.stringify(rig.holds));
+   }else data(actor.host,'contactHolds','');
    // Site bounds apply before interpolation, and the whole cliff projects from
    // one safe origin. Never clamp a solved root away from its terrain contacts.
-   actor.host.setAttribute('transform',`translate(${pos.x.toFixed(4)} ${pos.y.toFixed(4)})`);actor.host.querySelector('.character-art').setAttribute('transform',`scale(${s.x} ${s.y})`);
+   actor.host.setAttribute('transform',`translate(${pos.x.toFixed(4)} ${pos.y.toFixed(4)})`);write(actor.art,'transform',`scale(${s.x} ${s.y})`);
    const anchor=actor.host._anchor||{x:80,y:90},organic=frozen||effort.resting?0:Math.sin(Math.PI*m.progress)**2;
    const result=DeskCharacters.update(actor.host,{action:pose,cycle,rig,fatigue:actor.index?0:effort.fatigue,assisted:actor.index===0&&effort.assisted,ropeAnchor:{x:(anchor.x-pos.x)/s.x,y:(anchor.y-pos.y)/s.y},organic,phase:t+actor.index*.7,item:actor.index&&m.work.id==='cook'?'food':m.work.id==='filter-water'?'water':null});
-   const prop=result.prop;const drawing=propMarkup(prop);if(actor.prop._art!==drawing){actor.prop.innerHTML=drawing;actor.prop._art=drawing;}actor.prop.setAttribute('transform',`scale(${s.x} ${s.y})`);
-   actor.host.dataset.action=pose;actor.host.dataset.supervisor=actor.young?(actors.find(a=>a.index&&!a.young)||actors[0]).id:'';actor.host.dataset.ground=ground;
-   actor.host.dataset.footContacts=JSON.stringify({leftFoot:rig.contacts.leftFoot,rightFoot:rig.contacts.rightFoot});
+   const prop=result.prop,drawing=propMarkup(prop);if(actor.prop._art!==drawing){actor.prop.innerHTML=drawing;actor.prop._art=drawing;}write(actor.prop,'transform',`scale(${s.x} ${s.y})`);
+   data(actor.host,'action',pose);data(actor.host,'supervisor',actor.young?(actors.find(a=>a.index&&!a.young)||actors[0]).id:'');data(actor.host,'ground',ground);
+   data(actor.host,'footContacts',JSON.stringify({leftFoot:rig.contacts.leftFoot,rightFoot:rig.contacts.rightFoot}));
    if(actor.index===0){leadPosition=pos;leadRig=rig;}
    if(actor.young){kidPosition=pos;kidRig=rig;}
   });
