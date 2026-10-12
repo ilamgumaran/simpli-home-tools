@@ -6,7 +6,7 @@ Small, configurable tools for everyday home devices. Contributions and new ideas
 
 | Tool | What it does | Run it |
 | --- | --- | --- |
-| [Our Desk Clock](tools/little-orbit/) | Retro display clock with weather, date, daily facts, touch lock, and cartoon screensaver themes, including Time Climber I and II | Download the repo ZIP and open `tools/little-orbit/Little Orbit.html` in a browser |
+| [Our Desk Clock](tools/little-orbit/) | Retro display clock with weather, date, daily facts, touch lock, and cartoon screensaver themes, including Woodland and Green House 1 | Download the repo ZIP and open `tools/little-orbit/Little Orbit.html` in a browser |
 
 Little Orbit runs entirely in the browser. Its [configuration guide](tools/little-orbit/CONFIGURATION.md) covers device presets, font sizes, weather location, screen care, and character timing. Node is optional for local serving or rebuilding the portable file.
 
@@ -14,7 +14,7 @@ Use **Code → Download ZIP**, extract it, and open the portable HTML file. Alte
 
 ## Session communication
 
-Start with [sessions/README.md](sessions/README.md) when continuing work in another session. The directory keeps numbered messages, handoffs, replies and testing results in Git. The [full-screen Woodland thread](sessions/2026-10-05-immersive-woodland/README.md) records the latest scene ownership and build handoff; the local session should fetch its branch and return device findings in Git. Earlier motion results remain in the [organic-motion thread](sessions/2026-10-05-organic-motion/README.md).
+Start with [sessions/README.md](sessions/README.md) when continuing work in another session. The directory keeps numbered messages, handoffs, replies and testing results in Git. The latest [Green House 1 thread](sessions/2026-10-10-weather-habitat/README.md) tracks weather and community-life slices for the separate `greenhouse1` theme; its install-ready message records validation status, with browser/device checks pending. The [full-screen Woodland thread](sessions/2026-10-05-immersive-woodland/README.md) records Woodland's larger-actor engineering scene handoff; the local session should fetch its branch and return device findings in Git. Earlier motion results remain in the [organic-motion thread](sessions/2026-10-05-organic-motion/README.md).
 
 Fetch `feature/living-woodland-time` to read that handoff while PR #3 remains unmerged. Git does not notify sessions automatically; fetch and read the relevant thread before acting.
 

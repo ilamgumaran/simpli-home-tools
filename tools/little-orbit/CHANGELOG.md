@@ -4,6 +4,13 @@ No tagged releases yet. Implemented entries describe code on the development bra
 
 ## Unreleased
 
+### In progress — validation pending
+
+- The shared fullscreen renderer now caches detailed clock art separately from scenery, weather, moving characters and lighting. Each SVG layer follows the same camera transform, and unchanged character/camp properties skip DOM writes. Slow scenery runs at 30 fps while characters and precipitation retain the main cadence.
+
+- Green House 1 (`greenhouse1`) is a separate weather-responsive theme with cached-weather lighting, bounded precipitation, thermometer, tiny antlike camp people, tent and food/play setting. It adds no weather request or temperature-control setting. Browser validation is pending; see [design and acceptance](design/WEATHER-HABITAT.md).
+- Green House 1 adds authored recurring routines: Aster cares for swaddled, supported infant Pebble; Sage tends shelter, forage, cooking, teaching and remembrance; Sprout joins safe, supervised play and sleep. Dusk memorial flowers (17:00–20:00) honor Fern; no ancestor character appears. Browser validation is pending; persistent lineage and ecosystem simulation are not claimed. See [community design](design/COMMUNITY-HABITAT.md).
+
 ### Added
 
 - [Immersive Woodland](design/IMMERSIVE-WOODLAND.md): default fullscreen SVG view with a Dashboard option, larger shared cast, complete current-time material digits and a DD plaque. River-carried leaves/timber, bank stone delivery and a current-ones sandbox accompany twelve camp activities, supervised family shallows and construction advancing within the hourly chapter. Construction is time-sampled rather than persistent user history.

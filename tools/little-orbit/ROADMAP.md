@@ -70,6 +70,14 @@ Next layers: persistent terrain hand/foot contacts and center-of-mass/rope physi
 
 Shared landscape, action, story and philosophy definitions compose the fifth theme, Woodland of Time. Complete terrain HH:MM changes atomically each minute; eight hourly woodland places, twelve activities, central Sprout and six daily episodes provide the first composition. A quiet daily chapter varies observation, water, food and teaching. Branded desktop browser/portable checks and physical-device limits are recorded with this change.
 
+### Green House 1 — implementation integrated; browser checks pending
+
+The new `greenhouse1` theme, **Green House 1**, holds weather-driven scene lighting, bounded precipitation, a thermometer, tiny antlike camp people, tent and food/play setting. It reuses the current Open-Meteo response/cache without extra requests. Woodland retains its larger actors and engineering terrain/time scene; the existing global weather panel remains. Keep actual clock/date authoritative and clearly label unknown or stale weather. Hosted/portable, cache, unit, condition and lifecycle validation remains to be recorded; see [design and acceptance plan](design/WEATHER-HABITAT.md).
+
+### Green House 1 Community Habitat — first authored slice implemented; browser checks pending
+
+The recurring cast has Aster caring for swaddled, caregiver-supported infant Pebble; Sage performs shelter, forage, cook, teach and remembrance routines; Sprout joins safe, supervised play and sleep. Dusk memorial flowers from 17:00–20:00 honor Fern; no ancestor character appears. This is authored story recurrence; fast aging, infant replacement, real ecosystem claims and persistent lineage/resources are outside scope. Record browser acceptance with the [community design](design/COMMUNITY-HABITAT.md) and [Green House 1 handoff](../../sessions/2026-10-10-weather-habitat/README.md).
+
 Visual refinement implemented on the development branch: the landscape fills its panel, digits/trees/sun retain their proportions and the responsive cast is larger. Shared gait and pose blends, eased climbing and authored worksite travel replace abrupt movement. Timber includes bark, knots and end grain; curved mountain layers soften the terrain.
 
 [Organic motion](design/ORGANIC-MOTION.md) now uses 30 fps low-power/native-frame normal rendering, body-paced 1–20 second travel, planted walking, supported contact transfers and gentle follow-through. Work starts after arrival; repeat visits include return travel, and work ends before the next visit or second 55. Short windows are skipped to retain recovery; repeated climbing visits return by protected rappel. Companion-off, reduced motion, hidden tabs, settings and screen rest suppress moving frames.
