@@ -2162,6 +2162,17 @@ applyDisplay();
  const setStyle=(node,name,value)=>{if(node.style[name]!==value)node.style[name]=value;};
  const setData=(node,name,value)=>{value=String(value);if(node.dataset[name]!==value)node.dataset[name]=value;};
  const freeze=v=>{if(v&&typeof v==='object'){Object.values(v).forEach(freeze);Object.freeze(v);}return v;};
+ const frame=freeze({actorPixels:54,originCss:{landscape:190,portrait:90},groundInset:10,bounds:{left:-112,top:-90,right:112,bottom:50},paddingCss:16});
+ function paintFrame(layout){
+  const sx=Number(layout?.sx),sy=Number(layout?.sy),ground=Number(layout?.ground);
+  if(!Number.isFinite(sx)||sx<=0||!Number.isFinite(sy)||sy<=0||!Number.isFinite(ground)||ground<=0)return null;
+  const portrait=!!layout.portrait,s=frame.actorPixels/66,originX=(portrait?frame.originCss.portrait:frame.originCss.landscape)/sx,originY=(ground-frame.groundInset)-30*s/sy;
+  const padX=frame.paddingCss/sx,padY=frame.paddingCss/sy;
+  const left=Math.floor((originX+frame.bounds.left*s/sx-padX)*sx),top=Math.floor((originY+frame.bounds.top*s/sy-padY)*sy);
+  const right=Math.ceil((originX+frame.bounds.right*s/sx+padX)*sx),bottom=Math.ceil((originY+frame.bounds.bottom*s/sy+padY)*sy);
+  const viewBox=freeze({x:left/sx,y:top/sy,width:(right-left)/sx,height:(bottom-top)/sy});
+  return freeze({left,top,width:right-left,height:bottom-top,viewBox});
+ }
  const family=freeze({adults:['aster','sage'],child:'sprout',infant:'pebble',remembered:'fern'});
  const schedule=freeze([
   {id:'shelter',label:'Tend the shelter',caption:'Aster cradles Pebble while Sage checks the shelter line.',start:6,end:8,action:'build'},
@@ -2209,8 +2220,8 @@ applyDisplay();
  }
  function update(host,{model,layout,frozen=false,companions=true}={}){
   const root=host?._communityCamp||host;if(!root?._communityActors||!model||!layout)return;
-  const portrait=!!layout.portrait,sx=layout.sx||1,sy=layout.sy||1,adultPx=54,s=adultPx/66;
-  const originX=(portrait?90:190)/sx,ground=layout.ground-10;
+  const portrait=!!layout.portrait,sx=layout.sx||1,sy=layout.sy||1,adultPx=frame.actorPixels,s=adultPx/66;
+  const originX=(portrait?frame.originCss.portrait:frame.originCss.landscape)/sx,ground=layout.ground-frame.groundInset;
   const nodes=root._communityNodes;
   setAttr(root,'transform',`translate(${originX} ${ground-30*s/sy}) scale(${s/sx} ${s/sy})`);
   setData(root,'routine',model.routine);setData(host,'routine',model.routine);setData(root,'frozen',!!frozen);
@@ -2260,7 +2271,7 @@ applyDisplay();
   setAttr(infant,'transform',`translate(${centerX-(points.head.x+points.body.x)/2} ${centerY-(points.head.y+points.body.y)/2})`);setData(infant,'support','aster-hands');setAttr(infant,'data-supported','true');
   setStyle(nodes.hearth,'opacity',model.routine==='cook'||model.routine==='care'&&model.elapsedSeconds>=20*3600?'1':'0.45');
  }
- globalThis.DeskHabitatCommunity=Object.freeze({sample,create,update,family,schedule});
+ globalThis.DeskHabitatCommunity=Object.freeze({sample,create,update,family,schedule,frame,paintFrame});
 })();
 
 </script>
@@ -2324,11 +2335,25 @@ applyDisplay();
  // CSS serializes commas and trailing zeroes differently; retain our input
  // so Still camera does not rewrite the same five layer styles every frame.
  const setCameraTransform=value=>{if(value===lastCameraTransform)return;for(const id of cameraLayers)get(id).style.transform=value;lastCameraTransform=value;};
+ const actorSvg=get('woodland-immersive-actors'),actorCropProperties=['position','inset','left','top','right','bottom','width','height','overflow'];
+ const actorCropOriginal={viewBox:actorSvg.getAttribute('viewBox'),style:Object.fromEntries(actorCropProperties.map(name=>[name,[actorSvg.style.getPropertyValue(name),actorSvg.style.getPropertyPriority(name)]]))};
+ function restoreActorPaintFrame(){
+  if(actorSvg.getAttribute('viewBox')!==actorCropOriginal.viewBox){if(actorCropOriginal.viewBox===null)actorSvg.removeAttribute('viewBox');else actorSvg.setAttribute('viewBox',actorCropOriginal.viewBox);}
+  for(const [name,[value,priority]] of Object.entries(actorCropOriginal.style)){if(value)actorSvg.style.setProperty(name,value,priority);else actorSvg.style.removeProperty(name);}
+ }
+ function updateActorPaintFrame(){
+  const paint=greenhouse()?DeskHabitatCommunity.paintFrame(layout):null;
+  if(!paint){restoreActorPaintFrame();return;}
+  const {x,y,width,height}=paint.viewBox;
+  actorSvg.setAttribute('viewBox',`${x} ${y} ${width} ${height}`);
+  Object.assign(actorSvg.style,{position:'absolute',inset:'auto',left:`${paint.left}px`,top:`${paint.top}px`,right:'auto',bottom:'auto',width:`${paint.width}px`,height:`${paint.height}px`,overflow:'hidden'});
+ }
  function fit(){
-  const signature=[innerWidth,innerHeight,prefs.display.clockScale].join(':');if(signature===lastLayout)return;
+  const signature=[innerWidth,innerHeight,prefs.display.clockScale,prefs.theme].join(':');if(signature===lastLayout)return;
   const controls=get('display').querySelector('footer').getBoundingClientRect();lastLayout=signature;
   const width=innerWidth,height=innerHeight,sx=width/800,sy=height/360,portrait=width<height*.85;
   layout={width,height,sx,sy,portrait,ground:Math.min(326,(controls.top-22)/sy)};
+  updateActorPaintFrame();
   const scale=portrait?Math.min(.46,120/(150*sy))*prefs.display.clockScale:Math.min(1.12,205/(150*sy))*prefs.display.clockScale;
   const ratio=sy/sx,w=80*scale*ratio,gap=24/sx;
   if(portrait){

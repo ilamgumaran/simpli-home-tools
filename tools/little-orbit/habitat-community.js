@@ -7,6 +7,17 @@
  const setStyle=(node,name,value)=>{if(node.style[name]!==value)node.style[name]=value;};
  const setData=(node,name,value)=>{value=String(value);if(node.dataset[name]!==value)node.dataset[name]=value;};
  const freeze=v=>{if(v&&typeof v==='object'){Object.values(v).forEach(freeze);Object.freeze(v);}return v;};
+ const frame=freeze({actorPixels:54,originCss:{landscape:190,portrait:90},groundInset:10,bounds:{left:-112,top:-90,right:112,bottom:50},paddingCss:16});
+ function paintFrame(layout){
+  const sx=Number(layout?.sx),sy=Number(layout?.sy),ground=Number(layout?.ground);
+  if(!Number.isFinite(sx)||sx<=0||!Number.isFinite(sy)||sy<=0||!Number.isFinite(ground)||ground<=0)return null;
+  const portrait=!!layout.portrait,s=frame.actorPixels/66,originX=(portrait?frame.originCss.portrait:frame.originCss.landscape)/sx,originY=(ground-frame.groundInset)-30*s/sy;
+  const padX=frame.paddingCss/sx,padY=frame.paddingCss/sy;
+  const left=Math.floor((originX+frame.bounds.left*s/sx-padX)*sx),top=Math.floor((originY+frame.bounds.top*s/sy-padY)*sy);
+  const right=Math.ceil((originX+frame.bounds.right*s/sx+padX)*sx),bottom=Math.ceil((originY+frame.bounds.bottom*s/sy+padY)*sy);
+  const viewBox=freeze({x:left/sx,y:top/sy,width:(right-left)/sx,height:(bottom-top)/sy});
+  return freeze({left,top,width:right-left,height:bottom-top,viewBox});
+ }
  const family=freeze({adults:['aster','sage'],child:'sprout',infant:'pebble',remembered:'fern'});
  const schedule=freeze([
   {id:'shelter',label:'Tend the shelter',caption:'Aster cradles Pebble while Sage checks the shelter line.',start:6,end:8,action:'build'},
@@ -54,8 +65,8 @@
  }
  function update(host,{model,layout,frozen=false,companions=true}={}){
   const root=host?._communityCamp||host;if(!root?._communityActors||!model||!layout)return;
-  const portrait=!!layout.portrait,sx=layout.sx||1,sy=layout.sy||1,adultPx=54,s=adultPx/66;
-  const originX=(portrait?90:190)/sx,ground=layout.ground-10;
+  const portrait=!!layout.portrait,sx=layout.sx||1,sy=layout.sy||1,adultPx=frame.actorPixels,s=adultPx/66;
+  const originX=(portrait?frame.originCss.portrait:frame.originCss.landscape)/sx,ground=layout.ground-frame.groundInset;
   const nodes=root._communityNodes;
   setAttr(root,'transform',`translate(${originX} ${ground-30*s/sy}) scale(${s/sx} ${s/sy})`);
   setData(root,'routine',model.routine);setData(host,'routine',model.routine);setData(root,'frozen',!!frozen);
@@ -105,5 +116,5 @@
   setAttr(infant,'transform',`translate(${centerX-(points.head.x+points.body.x)/2} ${centerY-(points.head.y+points.body.y)/2})`);setData(infant,'support','aster-hands');setAttr(infant,'data-supported','true');
   setStyle(nodes.hearth,'opacity',model.routine==='cook'||model.routine==='care'&&model.elapsedSeconds>=20*3600?'1':'0.45');
  }
- globalThis.DeskHabitatCommunity=Object.freeze({sample,create,update,family,schedule});
+ globalThis.DeskHabitatCommunity=Object.freeze({sample,create,update,family,schedule,frame,paintFrame});
 })();

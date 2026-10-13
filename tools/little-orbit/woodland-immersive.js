@@ -57,11 +57,25 @@
  // CSS serializes commas and trailing zeroes differently; retain our input
  // so Still camera does not rewrite the same five layer styles every frame.
  const setCameraTransform=value=>{if(value===lastCameraTransform)return;for(const id of cameraLayers)get(id).style.transform=value;lastCameraTransform=value;};
+ const actorSvg=get('woodland-immersive-actors'),actorCropProperties=['position','inset','left','top','right','bottom','width','height','overflow'];
+ const actorCropOriginal={viewBox:actorSvg.getAttribute('viewBox'),style:Object.fromEntries(actorCropProperties.map(name=>[name,[actorSvg.style.getPropertyValue(name),actorSvg.style.getPropertyPriority(name)]]))};
+ function restoreActorPaintFrame(){
+  if(actorSvg.getAttribute('viewBox')!==actorCropOriginal.viewBox){if(actorCropOriginal.viewBox===null)actorSvg.removeAttribute('viewBox');else actorSvg.setAttribute('viewBox',actorCropOriginal.viewBox);}
+  for(const [name,[value,priority]] of Object.entries(actorCropOriginal.style)){if(value)actorSvg.style.setProperty(name,value,priority);else actorSvg.style.removeProperty(name);}
+ }
+ function updateActorPaintFrame(){
+  const paint=greenhouse()?DeskHabitatCommunity.paintFrame(layout):null;
+  if(!paint){restoreActorPaintFrame();return;}
+  const {x,y,width,height}=paint.viewBox;
+  actorSvg.setAttribute('viewBox',`${x} ${y} ${width} ${height}`);
+  Object.assign(actorSvg.style,{position:'absolute',inset:'auto',left:`${paint.left}px`,top:`${paint.top}px`,right:'auto',bottom:'auto',width:`${paint.width}px`,height:`${paint.height}px`,overflow:'hidden'});
+ }
  function fit(){
-  const signature=[innerWidth,innerHeight,prefs.display.clockScale].join(':');if(signature===lastLayout)return;
+  const signature=[innerWidth,innerHeight,prefs.display.clockScale,prefs.theme].join(':');if(signature===lastLayout)return;
   const controls=get('display').querySelector('footer').getBoundingClientRect();lastLayout=signature;
   const width=innerWidth,height=innerHeight,sx=width/800,sy=height/360,portrait=width<height*.85;
   layout={width,height,sx,sy,portrait,ground:Math.min(326,(controls.top-22)/sy)};
+  updateActorPaintFrame();
   const scale=portrait?Math.min(.46,120/(150*sy))*prefs.display.clockScale:Math.min(1.12,205/(150*sy))*prefs.display.clockScale;
   const ratio=sy/sx,w=80*scale*ratio,gap=24/sx;
   if(portrait){
