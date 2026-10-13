@@ -1,7 +1,7 @@
 <!-- SPDX-License-Identifier: LicenseRef-Simpli-Noncommercial-1.0 -->
 # Green House 1 — community habitat
 
-Status: first authored community-life slice implemented; hosted/portable functional checks passed at DPR1/2 in Chrome, Edge and Firefox; motion acceptance failed in all three. See [session 006](../../../sessions/2026-10-10-weather-habitat/006-cloud-validation.md). This recurring community story belongs to the separate `greenhouse1` theme, displayed as **Green House 1**, alongside its weather scene. It is not part of Woodland's larger-actor engineering terrain, nor a life simulation or persistent family system.
+Status: first authored community-life slice implemented; prior candidate `a9122c0` passed hosted/portable functional checks at DPR1/2 in Chrome, Edge and Firefox, while motion acceptance failed in all three. Intermediate `7c11d81` passed focused Firefox immersive-motion cadence but failed weather cadence at portable 1280×720 DPR2 low power; full Chrome/Edge suites were not run on it. Current fine-snap-plus-crop candidate `9b0d6003` is frozen and browser validation is pending; see [session 008](../../../sessions/2026-10-10-weather-habitat/008-cloud-motion-results.md) and prior results in [session 006](../../../sessions/2026-10-10-weather-habitat/006-cloud-validation.md). This recurring community story belongs to the separate `greenhouse1` theme, displayed as **Green House 1**, alongside its weather scene. It is not part of Woodland's larger-actor engineering terrain, nor a life simulation or persistent family system.
 
 ## Cast and story
 
@@ -38,4 +38,4 @@ Each mounted camp retains its prop and actor nodes. Routine colors, visibility a
 - Confirm Pebble remains swaddled and supported by a caregiver wherever visible.
 - Confirm stories do not age, replace or imply a new infant, and do not claim ecosystem/resource/lineage simulation.
 - Check current time/date legibility, compact and tall viewports, companion-off behavior, and shared pause/reduced-motion/Still-camera behavior.
-- Functional community checks passed hosted/portable at DPR1/2 in Chrome and Firefox. Motion acceptance failed in all three engines; diagnose and rerun the cadence checks documented in [session 006](../../../sessions/2026-10-10-weather-habitat/006-cloud-validation.md).
+- Prior-candidate functional community checks passed hosted/portable at DPR1/2 in Chrome, Edge and Firefox. Motion acceptance failed in all three engines. The 7c11 focused Firefox community coverage was not rerun; 7c11 immersive-motion passed but weather cadence failed. Current candidate `9b0d6003` is frozen and awaits validation; see [session 008](../../../sessions/2026-10-10-weather-habitat/008-cloud-motion-results.md).

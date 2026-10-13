@@ -1,19 +1,20 @@
 # Green House 1: Ally installation and acceptance
 
-Prepared 2026-10-12. Green House 1 is the new weather and tiny-community theme; Woodland retains its larger characters and terrain-engineering activities. Read the [current cloud validation handoff](../../../sessions/2026-10-10-weather-habitat/006-cloud-validation.md) first. The feature is integrated, but full browser motion acceptance has not passed; physical Ally and Vanadium acceptance remain pending. Return findings as `004-ally-to-cloud.md` in the weather-habitat session thread. The [earlier fullscreen handoff](../../../sessions/2026-10-05-immersive-woodland/003-cloud-scene-ready.md) remains history.
+Prepared 2026-10-13. Green House 1 is the new weather and tiny-community theme; Woodland retains its larger characters and terrain-engineering activities. Read the [current candidate handoff](../../../sessions/2026-10-10-weather-habitat/008-cloud-motion-results.md) first. Intermediate candidate 7c11d81 passed focused Firefox immersive-motion cadence but failed weather cadence at portable 1280×720 DPR2 low power; full Chrome/Edge suites were not run on it. The current fine-snap-plus-crop candidate is frozen at `9b0d6003f536bfea7666c7dbcf4f7b0087906319` (portable SHA-256 `5c7fc8289645babb5a8ebba34c8f77a905e6951f676c1ad6416c2f1fc348783c`). Its partial Firefox community preflight exited 1 at a reduced-motion infant-position assertion; weather and full browser suites remain unrun. Physical Ally and Vanadium acceptance also remain pending. Return findings as `004-ally-to-cloud.md` in the weather-habitat session thread. The [earlier fullscreen handoff](../../../sessions/2026-10-05-immersive-woodland/003-cloud-scene-ready.md) remains history.
 
-## Version to install
+## Current candidate — browser validation pending
 
 | Item | Value |
 | --- | --- |
 | Repository | `ilamgumaran/simpli-home-tools` |
 | Branch | `feature/woodland-weather-habitat` |
 | Pull request | [PR #11](https://github.com/ilamgumaran/simpli-home-tools/pull/11), draft; browser acceptance incomplete |
-| Current runtime revision | `a9122c09c4f757a03a4c681dd0322b29e7de8072` |
+| Candidate runtime revision | `9b0d6003f536bfea7666c7dbcf4f7b0087906319` |
 | Canonical app | `tools/little-orbit/` |
-| Portable SHA-256 | `ff134b9fa18076df24dbd8a30511514fa2696c75b6ebeb10373714ecca024ff5` |
+| Portable SHA-256 | `5c7fc8289645babb5a8ebba34c8f77a905e6951f676c1ad6416c2f1fc348783c` |
+| Validation status | **UNVALIDATED** — browser checks pending |
 
-This branch advances PR #9 with a separate sixth theme. Fetch this branch. The runtime revision identifies the source freeze; later test and documentation commits may advance HEAD while leaving that runtime and artifact unchanged. Verify the portable checksum and record both revisions. See the [weather design](WEATHER-HABITAT.md) and [community design](COMMUNITY-HABITAT.md). Community routines follow local time and recur with the same family; persistent ecology and demographic changes remain future work.
+This branch advances PR #9 with a separate sixth theme. The current candidate combines camera/HUD coalescing in fine device-pixel steps with a small-family-actor SVG crop. Original vector nodes and scale remain; the crop uses shared camp metadata and paint-frame data without per-frame bounding-box calculation. Browser validation is pending; do not treat it as accepted. The previous 7c11 candidate passed focused Firefox immersive-motion cadence but failed weather cadence at portable 1280×720 DPR2 low power. See the [weather design](WEATHER-HABITAT.md), [community design](COMMUNITY-HABITAT.md) and [candidate investigation](../../../sessions/2026-10-10-weather-habitat/008-cloud-motion-results.md). Community routines follow local time and recur with the same family; persistent ecology and demographic changes remain future work.
 
 ## Install while preserving the local display
 
@@ -41,6 +42,6 @@ Cycle **Theme** to **Green House 1**. It always fills the screen; Woodland's Ful
 - Check true fullscreen fit, viewport-edge art, readable time/date/weather and controls at the device's actual CSS size and scaling. Review normal and low-power/native cadence during sustained use.
 - Exercise reduced motion, Still camera, companions off, hidden tab, Settings, screen rest, resume/sleep and offline portable behavior. Verify time stays current after each pause/resume.
 - In Green House 1, inspect clear hot/cold conditions, rain/snow and night, Celsius/Fahrenheit labels and cached/unavailable states. Check the tiny shelter, food/cooking, teaching, supported infant care, supervised Sprout play and remembrance of Fern. Companions off should retain the camp and weather while hiding people. Confirm weather and community layers clear when returning to Woodland.
-- Report Ally and Vanadium separately. Current cloud checks and cadence belong in the [weather-habitat handoff](../../../sessions/2026-10-10-weather-habitat/006-cloud-validation.md); physical Ally and Vanadium acceptance require device evidence.
+- Report Ally and Vanadium separately. The 7c11d81 focused Firefox outcomes and the current unvalidated candidate are recorded in the [weather-habitat handoff](../../../sessions/2026-10-10-weather-habitat/008-cloud-motion-results.md). Physical Ally and Vanadium acceptance require device evidence.
 
 Keep private screenshots, profiles and device paths out of Git. Report reproduction steps and distinguish display or clock failures from art feedback. No merge, release or cloud installation was performed; local device testing may proceed while browser cadence acceptance remains pending.
