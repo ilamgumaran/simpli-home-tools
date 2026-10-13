@@ -2271,6 +2271,9 @@ applyDisplay();
 (()=>{
  'use strict';
  const ns='http://www.w3.org/2000/svg',get=id=>document.getElementById(id),mod=(n,d)=>((n%d)+d)%d;
+ // Coalesce invisible camera/HUD movement to avoid repeated SVG style updates.
+ // Rounding stays within 1/32 of a physical pixel; character/tool poses are exact.
+ const compositorPosition=n=>{const raw=Number(globalThis.devicePixelRatio),dpr=Number.isFinite(raw)&&raw>0?Math.max(1,raw):1;return String(Math.round(n*dpr*16)/(dpr*16));};
  const ease=n=>{const t=Math.max(0,Math.min(1,n));return t*t*t*(t*(t*6-15)+10);};
  const scene=document.createElement('section');scene.id='woodland-immersive';scene.hidden=true;
  // Rain and changing full-screen light have their own paint layers so their
@@ -2661,12 +2664,12 @@ applyDisplay();
   if(!frozen&&prefs.display.cameraMotion!=='still'){
    // Translate the outer SVG in CSS so its cached art can be composited.
    // An inner SVG camera transform rerasterizes the moving forest at high DPR.
-   const cameraTransform=`translate(${(Math.sin(t/47)*9*layout.sx).toFixed(3)}px,${(Math.sin(t/61)*3*layout.sy).toFixed(3)}px)`;
+   const cameraTransform=`translate(${compositorPosition(Math.sin(t/47)*9*layout.sx)}px,${compositorPosition(Math.sin(t/61)*3*layout.sy)}px)`;
    setCameraTransform(cameraTransform);
-   driftUI((Math.sin(t/53)*10).toFixed(2)+'px',(Math.sin(t/79)*4).toFixed(2)+'px');
+   driftUI(compositorPosition(Math.sin(t/53)*10)+'px',compositorPosition(Math.sin(t/79)*4)+'px');
   }else{setCameraTransform('translate(0px,0px)');driftUI('0px','0px');}
   attr('woodland-immersive-light','opacity',frozen?'0':(.016+.012*Math.sin(t/39)).toFixed(4));
-  // Slow scenery has a separate 30fps cadence; actors, camera and rain retain
+  // Slow scenery has a separate 30fps cadence; actors and rain retain
   // the main frame cadence. Clock buckets also reconstruct manual time jumps.
   const ambientBeat=Math.floor(now.getTime()*30/1000);
   if(ambientBeat!==lastAmbientBeat||frozen!==lastAmbientFrozen){
