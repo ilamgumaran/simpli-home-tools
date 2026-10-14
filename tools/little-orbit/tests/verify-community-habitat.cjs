@@ -110,4 +110,55 @@ async function verify(browser,target,dpr){
   console.log('PASS community habitat:',target.startsWith('file:')?'portable':'hosted',`DPR${dpr}`, 'daily routines, painted head/body support, four viewports, proportions, reduced motion, companions and central infant art.');
  }finally{await context.close();}
 }
-(async()=>{const browser=await engine.launch({...options,headless:true});try{for(const target of [url,portable])for(const dpr of [1,2])await verify(browser,target,dpr);}finally{await browser.close();}})().catch(e=>{console.error(e);process.exit(1);});
+// Hold a retained MQL stale after the OS preference changes; fresh queries still see the new value.
+async function verifyImmediateReducedMotion(browser,target){
+ const context=await browser.newContext({viewport:{width:854,height:480},deviceScaleFactor:1,timezoneId:'America/New_York'}),page=await context.newPage(),errors=[];
+ try{
+  page.on('pageerror',e=>errors.push(e.message));await page.route('https://**',r=>r.abort());
+  await page.route('https://api.open-meteo.com/**',r=>r.fulfill({json:{current:{temperature_2m:12,weather_code:65},daily:{temperature_2m_max:[16],temperature_2m_min:[8]}}}));
+  await freezeClock(page,stamp(10));await page.emulateMedia({reducedMotion:'no-preference'});
+  await page.addInitScript(()=>{
+   const query='(prefers-reduced-motion: reduce)',nativeMatchMedia=window.matchMedia.bind(window);
+   window.__holdCachedMotionQueries=false;window.__cachedReducedMotionQueries=[];
+   window.matchMedia=function(media){
+    const result=nativeMatchMedia(media);
+    if(media!==query||window.__holdCachedMotionQueries)return result;
+    const cached=new Proxy(result,{get(target,property){
+     if(property==='matches'&&window.__holdCachedMotionQueries)return false;
+     const value=Reflect.get(target,property,target);return typeof value==='function'?value.bind(target):value;
+    }});
+    window.__cachedReducedMotionQueries.push(cached);return cached;
+   };
+  });
+  await page.addInitScript(()=>localStorage.setItem('orbit-settings',JSON.stringify({theme:'greenhouse1',unit:'celsius',format24:true,care:false,rest:false,night:false,lowPower:false,display:{woodlandView:'immersive',cameraMotion:'still'}})));
+  await page.goto(target);await page.waitForFunction(()=>DeskHabitatWeather?.get().status==='live');
+  await page.evaluate(()=>{if(matchMedia('(prefers-reduced-motion: reduce)').matches)throw Error('Regression fixture did not start at no-preference');});
+  assert.ok(await page.evaluate(()=>window.__cachedReducedMotionQueries.length>0),'Runtime did not retain a cached reduced-motion query');
+  await page.clock.setSystemTime(new Date(+stamp(12,28)+250));await page.evaluate(()=>WoodlandScene.sync());
+  await page.evaluate(()=>{window.__holdCachedMotionQueries=true;});
+  await page.emulateMedia({reducedMotion:'reduce'});
+  await page.waitForFunction(()=>matchMedia('(prefers-reduced-motion: reduce)').matches);
+  const immediate=await page.evaluate(()=>{
+   const fresh=matchMedia('(prefers-reduced-motion: reduce)').matches,cached=window.__cachedReducedMotionQueries[0].matches;
+   WoodlandScene.sync();
+   return {fresh,cached,running:WoodlandScene.running,frozen:document.querySelector('#woodland-immersive-community [data-layer="community-camp"]').dataset.frozen};
+  });
+  assert.deepEqual(immediate,{fresh:true,cached:false,running:false,frozen:'true'},'Immediate reduced-motion sync did not refresh stale preference, freeze, and stop Green House 1');
+  const geometry=()=>page.evaluate(()=>{
+   const camp=document.querySelector('#woodland-immersive-community'),infant=camp.querySelector('[data-infant="pebble"]'),aster=camp.querySelector('[data-adult="aster"] .character-art');
+   const point=(node,p)=>{const q=new DOMPoint(p.x,p.y).matrixTransform(node.getScreenCTM());return {x:q.x,y:q.y};};
+   const wrist=name=>{const node=aster.querySelector(`[data-part="arm-${name}"]`),p=node.getPointAtLength(node.getTotalLength());return point(node,p);};
+   const rect=infant.getBoundingClientRect(),bbox={left:rect.left,right:rect.right,top:rect.top,bottom:rect.bottom,width:rect.width,height:rect.height};
+   const support=Object.entries(DeskCharacters.infantSupportPoints).map(([key,p])=>{const a=point(infant,p),b=wrist(key==='head'?'left':'right');return Math.hypot(a.x-b.x,a.y-b.y);});
+   return {bbox,support};
+  });
+  const before=await geometry();
+  await page.clock.setSystemTime(stamp(12,29));await page.evaluate(()=>WoodlandScene.sync());
+  const after=await geometry();
+  assert.deepEqual(after,before,'Reduced motion changed the infant painted bounds or caregiver hand support across 12:08:28.250→29.000');
+  assert.ok(after.support.every(distance=>distance<.2),'Reduced-motion cradle lost head/body hand support: '+JSON.stringify(after));
+  assert.deepEqual(errors,[]);
+  console.log('PASS immediate reduced-motion refresh:',target.startsWith('file:')?'portable':'hosted','stale cached MQL, immediate stop and stable supported infant.');
+ }finally{await context.close();}
+}
+(async()=>{const browser=await engine.launch({...options,headless:true});try{for(const target of [url,portable])for(const dpr of [1,2])await verify(browser,target,dpr);for(const target of [url,portable])await verifyImmediateReducedMotion(browser,target);}finally{await browser.close();}})().catch(e=>{console.error(e);process.exit(1);});

@@ -38,6 +38,7 @@
  const thought=document.createElement('button');thought.id='woodland-thought-button';thought.textContent='✧ Daily thought';thought.setAttribute('aria-expanded','false');thought.setAttribute('aria-controls','fact-title');get('display').querySelector('nav').append(thought);
  thought.onclick=()=>{if(locked)return;const show=document.body.classList.toggle('woodland-information');thought.setAttribute('aria-expanded',String(show));};
  const media=typeof matchMedia==='function'?matchMedia('(prefers-reduced-motion: reduce)'):null;
+ let reducedMotion=!!media?.matches;
  let frame=null,timer=null,lastFrame=0,lastChapter='',lastMinute='',lastCast='',lastLayout='',lastClock='',lastLabel='',weatherSnapshot=null,weatherKey='',lastThermometer='';
  let lastAmbientBeat=null,lastAmbientFrozen=null;
  let layout={width:800,height:360,sx:1,sy:1,portrait:false,ground:322},slots=[],actors=[],paths=[];
@@ -45,7 +46,7 @@
  const nightFor=m=>greenhouse()?m.daylight===false:m.hour<6||m.hour>=20;
  const active=()=>greenhouse()||prefs.theme==='woodland'&&prefs.display.woodlandView==='immersive';
  const visible=()=>active()&&document.visibilityState==='visible'&&!get('settings').open&&!document.body.classList.contains('screen-rest');
- const quiet=()=>!!media?.matches||typeof requestAnimationFrame!=='function';
+ const quiet=()=>reducedMotion||typeof requestAnimationFrame!=='function';
  const text=(id,value)=>{const e=get(id);if(e.textContent!==value)e.textContent=value;};
  const art=(el,value)=>{if(el._art!==value){el.innerHTML=value;el._art=value;}};
  const markup=(id,value)=>art(get(id),value);
@@ -439,6 +440,9 @@
   if(draw())frame=requestAnimationFrame(loop);
  }
  function sync(){
+  // A retained query can lag a preference change until its change event.
+  // Read the current preference for an explicit refresh, then reuse it in RAF.
+  reducedMotion=typeof matchMedia==='function'?!!matchMedia('(prefers-reduced-motion: reduce)').matches:!!media?.matches;
   stop();const on=active(),wasOn=document.body.classList.contains('woodland-fullscene');if(on!==wasOn)lastLayout='';scene.hidden=!on;document.body.classList.toggle('woodland-fullscene',on);
   if(scene.dataset.theme!==prefs.theme)scene.dataset.theme=prefs.theme;
   if(!on){document.body.classList.remove('woodland-information');return;}
