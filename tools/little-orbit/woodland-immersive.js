@@ -252,15 +252,17 @@
  }
  function draw(){
   if(!active())return;
-  const now=new Date(),m=DeskWoodlandStory.sample(now,{format24:prefs.format24});m._minuteStart=now.getTime()-m.second*1000;
-  const habitat=greenhouse();
-  if(habitat){m.hourMaterial='leaf';m.minuteMaterial={tens:'leaf',ones:'stone'};m.dateMaterial='stone';}
+  // The habitat has its own community routines; it only needs Woodland's
+  // clock/terrain base, not the engineering cast and climbing effort each frame.
+  const now=new Date(),habitat=greenhouse(),m=habitat?DeskWorlds.woodland(now,{format24:prefs.format24}):DeskWoodlandStory.sample(now,{format24:prefs.format24});
+  if(habitat){m.dateDigits=String(now.getDate()).padStart(2,'0');m.hourMaterial='leaf';m.minuteMaterial={tens:'leaf',ones:'stone'};m.dateMaterial='stone';}
+  else m._minuteStart=now.getTime()-m.second*1000;
   syncWeather();
   const frozen=quiet(),companions=prefs.display.companion!==false,t=now.getTime()/1000;
   const clockKey=Math.floor(now.getTime()/1000)+':'+prefs.format24;if(clockKey!==lastClock){renderClockTime(now);lastClock=clockKey;}
   if(m.terrainKey!==lastChapter){chapter(m);lastChapter=m.terrainKey;}
   const minuteKey=m.minuteKey+':'+m.time+':'+m.dateDigits;if(minuteKey!==lastMinute){numerals(m);lastMinute=minuteKey;}
-  const castKey=override(m).ids.join(':');if(!habitat&&castKey!==lastCast){cast(m);lastCast=castKey;}
+  if(!habitat){const castKey=override(m).ids.join(':');if(castKey!==lastCast){cast(m);lastCast=castKey;}}
   fit();
   const community=habitat?DeskHabitatCommunity.sample(now,{night:nightFor(m),weatherKind:weatherSnapshot?.kind}):null;
   if(habitat&&!get('woodland-immersive-community')._communityCamp)DeskHabitatCommunity.create(get('woodland-immersive-community'));
