@@ -103,7 +103,9 @@ async function verify(browser,target){
   const validCache=await page.evaluate(()=>{const key=cacheKey();const saved=localStorage.getItem(key),entry=JSON.parse(saved);entry.data.daily.temperature_2m_max=[null];localStorage.setItem(key,JSON.stringify(entry));return {key,saved};});
   await page.reload();await page.waitForFunction(()=>DeskHabitatWeather.get().status==='unavailable');
   assert.equal((await state()).available,false,'Malformed cached forecast painted as observed weather');
-  await page.evaluate(({key,saved})=>localStorage.setItem(key,saved),validCache);
+  // File URLs can lose a pending storage write on immediate reload.
+  // Seed the restored fixture before the next document reads it.
+  await page.addInitScript(({key,saved})=>localStorage.setItem(key,saved),validCache);
   await page.reload();await page.waitForFunction(()=>DeskHabitatWeather.get().status==='cached');
   offline=false;
   let unitRequested;const unitRequest=new Promise(resolve=>{unitRequested=resolve;});unitSeen=unitRequested;holdUnit=true;
