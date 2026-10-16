@@ -110,6 +110,66 @@ async function verify(browser,target,dpr){
   console.log('PASS community habitat:',target.startsWith('file:')?'portable':'hosted',`DPR${dpr}`, 'daily routines, painted head/body support, four viewports, proportions, reduced motion, companions and central infant art.');
  }finally{await context.close();}
 }
+// Sample painted joints across every daily routine boundary. A pose can keep
+// the same bones and planted feet yet still snap the working wrist to a new
+// socket, so continuity is checked from the actual SVG path on screen.
+async function verifyRoutineTransitions(browser,target,dpr){
+ const context=await browser.newContext({viewport:{width:854,height:480},deviceScaleFactor:dpr,timezoneId:'America/New_York'}),page=await context.newPage(),errors=[];
+ try{
+  page.on('pageerror',error=>errors.push(error.message));
+  await page.route('https://**',route=>route.abort());
+  await page.route('https://api.open-meteo.com/**',route=>route.fulfill({json:{current:{temperature_2m:12,weather_code:65},daily:{temperature_2m_max:[16],temperature_2m_min:[8]}}}));
+  await freezeClock(page,stamp(10));
+  await page.addInitScript(()=>localStorage.setItem('orbit-settings',JSON.stringify({theme:'greenhouse1',unit:'celsius',format24:true,care:false,rest:false,night:false,lowPower:false,display:{woodlandView:'immersive',cameraMotion:'still'}})));
+  await page.goto(target);await page.waitForFunction(()=>DeskHabitatWeather?.get().status==='live');
+  const geometry=()=>page.evaluate(()=>{
+   const camp=document.querySelector('#woodland-immersive-community'),sage=camp.querySelector('[data-adult="sage"] .character-art');
+   const screen=(node,x,y)=>{const p=new DOMPoint(x,y).matrixTransform(node.getScreenCTM());return {x:p.x,y:p.y};};
+   const joints=node=>{const values=[...node.getAttribute('d').matchAll(/[-+]?\d*\.?\d+(?:e[-+]?\d+)?/gi)].map(match=>Number(match[0]));return [0,2,4].map(i=>screen(node,values[i],values[i+1]));};
+   const distance=(a,b)=>Math.hypot(a.x-b.x,a.y-b.y);
+   const arm=joints(sage.querySelector('[data-part="arm-right"]'));
+   const legs=['left','right'].map(side=>joints(sage.querySelector(`[data-part="leg-${side}"]`)));
+   const lengths=[distance(arm[0],arm[1]),distance(arm[1],arm[2]),...legs.flatMap(leg=>[distance(leg[0],leg[1]),distance(leg[1],leg[2])])];
+   const ridge=camp.querySelector('[data-prop="ridge-line"]'),ridgeValues=[...ridge.getAttribute('d').matchAll(/[-+]?\d*\.?\d+(?:e[-+]?\d+)?/gi)].map(match=>Number(match[0]));
+   const ridgeEnd=screen(ridge,ridgeValues[2],ridgeValues[3]);
+   const opacity=selector=>{const node=camp.querySelector(selector);return node&&getComputedStyle(node).display!=='none'&&getComputedStyle(node.parentElement).display!=='none'?Number(getComputedStyle(node).opacity):0;};
+   const toolOpacity={spoon:opacity('[data-camp-spoon]'),greens:opacity('[data-camp-greens]'),flower:opacity('[data-camp-flower]')};
+   const spoon=camp.querySelector('[data-camp-spoon]'),visible=spoon&&getComputedStyle(spoon).display!=='none'&&getComputedStyle(spoon.parentElement).display!=='none';
+   let tool=null;
+   if(visible){
+    const values=[...spoon.getAttribute('d').matchAll(/[-+]?\d*\.?\d+(?:e[-+]?\d+)?/gi)].map(match=>Number(match[0]));
+    const grip=screen(spoon,values[0],values[1]),tip=screen(spoon,values[2],values[3]),pot=camp.querySelector('[data-prop="cook-pot"] ellipse').getBoundingClientRect();
+    tool={opacity:Number(getComputedStyle(spoon).opacity),grip:distance(grip,arm[2]),length:distance(grip,tip),insidePot:tip.x>=pot.left&&tip.x<=pot.right&&tip.y>=pot.top&&tip.y<=pot.bottom};
+   }
+   return {routine:camp.dataset.routine,wrist:arm[2],feet:legs.map(leg=>leg[2].y),lengths,ridgeEnd,toolOpacity,tool};
+  });
+  const distance=(a,b)=>Math.hypot(a.x-b.x,a.y-b.y);
+  for(const viewport of [{width:854,height:480},{width:1280,height:720},{width:1920,height:1080},{width:390,height:844}]){
+   await page.setViewportSize(viewport);
+   for(const hour of [6,8,11,13,16,17,20,22]){
+    const boundary=+new Date(`2026-10-05T${String(hour).padStart(2,'0')}:00:00-04:00`),frames=[];
+    for(const offset of [-1,0,1,175,350,525,699,700,701]){
+     await page.clock.setSystemTime(new Date(boundary+offset));await page.evaluate(()=>WoodlandScene.sync());
+     frames.push({offset,...await geometry()});
+    }
+    const before=frames[0],after=frames[2],endBefore=frames[6],endAfter=frames[8],detail=JSON.stringify({viewport,dpr,hour,frames});
+    assert.ok(distance(before.wrist,after.wrist)<.05,'Sage wrist jumps at a daily routine boundary: '+detail);
+    assert.ok(distance(endBefore.wrist,endAfter.wrist)<.05,'Sage wrist jumps at the end of a routine blend: '+detail);
+    assert.ok(distance(before.ridgeEnd,after.ridgeEnd)<.05&&distance(endBefore.ridgeEnd,endAfter.ridgeEnd)<.05,'Shelter line jumps during a routine blend: '+detail);
+    assert.ok(['spoon','greens','flower'].every(kind=>Math.abs(before.toolOpacity[kind]-after.toolOpacity[kind])<.005&&Math.abs(endBefore.toolOpacity[kind]-endAfter.toolOpacity[kind])<.005),'Camp tool visibility jumps during a routine blend: '+detail);
+    assert.ok(frames.every(frame=>frame.feet.every((y,i)=>Math.abs(y-before.feet[i])<.06)),'Sage feet leave their support plane: '+detail);
+    const expected=[12,11,12,12,12,12].map(length=>length*48/66);
+    assert.ok(frames.every(frame=>frame.lengths.every((length,i)=>Math.abs(length-expected[i])<.02)),'Sage arm or leg bone changes length: '+detail);
+    assert.ok(frames.every(frame=>!frame.tool||frame.tool.grip<.06&&Math.abs(frame.tool.length-14*48/66)<.02),'Cooking spoon leaves Sage’s wrist or changes length: '+detail);
+    // The utensil fades in on entry and out on exit. At full opacity its tip
+    // must already be within the pot, including the exact boundary frame.
+    assert.ok(frames.every(frame=>!frame.tool||frame.tool.opacity<.99||frame.tool.insidePot),'Fully visible spoon leaves the pot: '+detail);
+   }
+  }
+  assert.deepEqual(errors,[]);
+  console.log('PASS community routine transitions:',target.startsWith('file:')?'portable':'hosted',`DPR${dpr}`, 'painted wrist, fixed bones, planted feet and spoon at eight boundaries.');
+ }finally{await context.close();}
+}
 // Hold a retained MQL stale after the OS preference changes; fresh queries still see the new value.
 async function verifyImmediateReducedMotion(browser,target){
  const context=await browser.newContext({viewport:{width:854,height:480},deviceScaleFactor:1,timezoneId:'America/New_York'}),page=await context.newPage(),errors=[];
@@ -161,4 +221,4 @@ async function verifyImmediateReducedMotion(browser,target){
   console.log('PASS immediate reduced-motion refresh:',target.startsWith('file:')?'portable':'hosted','stale cached MQL, immediate stop and stable supported infant.');
  }finally{await context.close();}
 }
-(async()=>{const browser=await engine.launch({...options,headless:true});try{for(const target of [url,portable])for(const dpr of [1,2])await verify(browser,target,dpr);for(const target of [url,portable])await verifyImmediateReducedMotion(browser,target);}finally{await browser.close();}})().catch(e=>{console.error(e);process.exit(1);});
+(async()=>{const browser=await engine.launch({...options,headless:true});try{for(const target of [url,portable])for(const dpr of [1,2]){await verify(browser,target,dpr);await verifyRoutineTransitions(browser,target,dpr);}for(const target of [url,portable])await verifyImmediateReducedMotion(browser,target);}finally{await browser.close();}})().catch(e=>{console.error(e);process.exit(1);});
