@@ -1,20 +1,20 @@
 # Green House 1: Ally installation and acceptance
 
-Prepared 2026-10-15. Green House 1 is the weather and tiny-community theme; Woodland retains its larger characters and terrain-engineering activities. Read the [current candidate handoff](../../../sessions/2026-10-10-weather-habitat/010-cloud-clock-rendering-results.md) first. Tested application source is `c827dba952f2873386fc78f4f7b5892b78bc29ba`, with portable SHA-256 `00fbf20cba9b1e19a2d22943cf6dc318d21281946dd7ee9db4a31bfcc711d2c4`. Community, fullscreen, weather functional and offline portable checks pass in Chrome, Firefox and Edge; cadence acceptance fails in all three. Physical Ally/Vanadium checks are unrun. Return findings as `004-ally-to-cloud.md` in the weather-habitat session thread. The [earlier fullscreen handoff](../../../sessions/2026-10-05-immersive-woodland/003-cloud-scene-ready.md) remains history.
+Prepared 2026-10-16. Green House 1 is the weather and tiny-community theme; Woodland retains its larger characters and terrain-engineering activities. Read the [current candidate handoff](../../../sessions/2026-10-10-weather-habitat/011-cloud-camp-contact-motion.md) first. Candidate application source is `58ac16a8da1b13fc4b10fec0e78f69ca7bf54227`, with portable SHA-256 `87dc552b999c7852b717fe041c92e4dfd69f61832beb73dbca30fbee38a726f3`. The focused Sage-contact regression passes in Chrome, Firefox and Edge hosted/portable × DPR 1/2 at four viewports; full suites, cadence gates and offline portable checks pass in all three browsers. Current cadence gates pass; earlier intermittent stalls on `c827dba9` remain unexplained. Physical Ally/Vanadium checks are unrun. Return findings as `004-ally-to-cloud.md` in the weather-habitat session thread. The [earlier fullscreen handoff](../../../sessions/2026-10-05-immersive-woodland/003-cloud-scene-ready.md) remains history.
 
-## Current candidate — functional checks pass; motion cadence gates fail
+## Current candidate — browser suites pass; device testing pending
 
 | Item | Value |
 | --- | --- |
 | Repository | `ilamgumaran/simpli-home-tools` |
 | Branch | `feature/woodland-weather-habitat` |
 | Pull request | [PR #11](https://github.com/ilamgumaran/simpli-home-tools/pull/11), draft; browser acceptance incomplete |
-| Candidate runtime revision | `c827dba952f2873386fc78f4f7b5892b78bc29ba` |
+| Candidate runtime revision | `58ac16a8da1b13fc4b10fec0e78f69ca7bf54227` |
 | Canonical app | `tools/little-orbit/` |
-| Portable SHA-256 | `00fbf20cba9b1e19a2d22943cf6dc318d21281946dd7ee9db4a31bfcc711d2c4` |
-| Validation status | **FUNCTIONAL CHECKS PASS; MOTION ACCEPTANCE OPEN** — cadence gates failed in Chrome, Firefox and Edge; physical acceptance unrun |
+| Portable SHA-256 | `87dc552b999c7852b717fe041c92e4dfd69f61832beb73dbca30fbee38a726f3` |
+| Validation status | **BROWSER SUITES PASS IN CHROME/FIREFOX/EDGE** — sustained and physical acceptance unrun; earlier intermittent stalls remain unexplained |
 
-This branch advances PR #9 with a separate sixth theme. The current candidate avoids unused Woodland model snapshots in Green House 1 and uses a CSS color quad beneath the animated SVG root opacity. The 16 controlled pixel comparisons on predecessor `f0aaaecf` apply to that unchanged CSS-quad component, not the whole current candidate. Current community, fullscreen, weather functional and offline portable checks pass in all three browsers, while motion cadence gates fail in each. See the [weather design](WEATHER-HABITAT.md), [community design](COMMUNITY-HABITAT.md) and [candidate investigation](../../../sessions/2026-10-10-weather-habitat/010-cloud-clock-rendering-results.md). Community routines follow local time and recur with the same family; persistent ecology and demographic changes remain future work.
+This branch advances PR #9 with a separate sixth theme. Candidate `58ac16a8` retains the lean Green House 1 path, CSS light surface and reduced-motion handling, and blends Sage's constrained task contacts across routine boundaries. The focused painted-contact regression passes in Chrome, Firefox and Edge hosted/portable × DPR 1/2 at four viewports. Full suites, cadence gates and offline portable checks pass in all three browsers. The 16 controlled pixel comparisons on predecessor `f0aaaecf` cover the CSS-quad component, not the whole current candidate. Current full runs pass all cadence gates; earlier intermittent stalls on `c827dba9` remain unexplained. See the [weather design](WEATHER-HABITAT.md), [community design](COMMUNITY-HABITAT.md), current [candidate handoff](../../../sessions/2026-10-10-weather-habitat/011-cloud-camp-contact-motion.md) and historical [session 010](../../../sessions/2026-10-10-weather-habitat/010-cloud-clock-rendering-results.md). Community routines follow local time and recur with the same family; persistent ecology and demographic changes remain future work.
 
 ## Install while preserving the local display
 
@@ -25,11 +25,11 @@ git status --short
 git fetch origin refs/heads/feature/woodland-weather-habitat:refs/remotes/origin/feature/woodland-weather-habitat
 git switch feature/woodland-weather-habitat
 git pull --ff-only origin feature/woodland-weather-habitat
-$runtimeRevision = 'c827dba952f2873386fc78f4f7b5892b78bc29ba'
+$runtimeRevision = '58ac16a8da1b13fc4b10fec0e78f69ca7bf54227'
 git merge-base --is-ancestor $runtimeRevision HEAD
 if ($LASTEXITCODE -ne 0) { throw "Tested runtime revision $runtimeRevision is not an ancestor of HEAD." }
 $portableHash = (Get-FileHash -LiteralPath 'tools/little-orbit/Little Orbit.html' -Algorithm SHA256).Hash.ToLowerInvariant()
-if ($portableHash -ne '00fbf20cba9b1e19a2d22943cf6dc318d21281946dd7ee9db4a31bfcc711d2c4') { throw "Portable clock checksum does not match the tested runtime." }
+if ($portableHash -ne '87dc552b999c7852b717fe041c92e4dfd69f61832beb73dbca30fbee38a726f3') { throw "Portable clock checksum does not match the tested runtime." }
 git rev-parse HEAD
 ```
 
@@ -46,6 +46,6 @@ Cycle **Theme** to **Green House 1**. It always fills the screen; Woodland's Ful
 - Check true fullscreen fit, viewport-edge art, readable time/date/weather and controls at the device's actual CSS size and scaling. Review normal and low-power/native cadence during sustained use.
 - Exercise reduced motion, Still camera, companions off, hidden tab, Settings, screen rest, resume/sleep and offline portable behavior. Verify time stays current after each pause/resume.
 - In Green House 1, inspect clear hot/cold conditions, rain/snow and night, Celsius/Fahrenheit labels and cached/unavailable states. Check the tiny shelter, food/cooking, teaching, supported infant care, supervised Sprout play and remembrance of Fern. Companions off should retain the camp and weather while hiding people. Confirm weather and community layers clear when returning to Woodland.
-- Report Ally and Vanadium separately. Cloud functional checks pass, while motion cadence gates fail; physical results do not replace those cloud outcomes. Current browser evidence is in the [weather-habitat handoff](../../../sessions/2026-10-10-weather-habitat/010-cloud-clock-rendering-results.md). Physical Ally and Vanadium acceptance require device evidence.
+- Report Ally and Vanadium separately. The focused Sage-contact regression passes in Chrome, Firefox and Edge; full suites, cadence gates and offline portable checks pass in all three browsers. Earlier intermittent stalls remain unexplained. Physical results do not replace those cloud outcomes. Current evidence is in the [weather-habitat handoff](../../../sessions/2026-10-10-weather-habitat/011-cloud-camp-contact-motion.md); historical browser results are in [session 010](../../../sessions/2026-10-10-weather-habitat/010-cloud-clock-rendering-results.md). Physical Ally and Vanadium acceptance require device evidence.
 
-Keep private screenshots, profiles and device paths out of Git. Report reproduction steps and distinguish display or clock failures from art feedback. No merge, release or cloud installation was performed. Physical Ally and Vanadium acceptance remain unrun; PR #11 remains draft while cadence acceptance is open.
+Keep private screenshots, profiles and device paths out of Git. Report reproduction steps and distinguish display or clock failures from art feedback. No merge, release or device installation was performed. Physical Ally and Vanadium acceptance remain unrun; PR #11 remains draft while sustained and device acceptance is open.

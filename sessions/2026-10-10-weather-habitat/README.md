@@ -1,6 +1,6 @@
 # Green House 1 — weather-responsive habitat
 
-Status: current application source is `c827dba952f2873386fc78f4f7b5892b78bc29ba` (portable SHA-256 `00fbf20cba9b1e19a2d22943cf6dc318d21281946dd7ee9db4a31bfcc711d2c4`), with test-fixture follow-up `48e4b350f31ae2ff2e4e1feaa85b291483e95fa2`. Current community, fullscreen, weather-function and offline-portable checks pass in Chrome, Firefox and Edge. Motion cadence gates fail in all three; acceptance is not complete. See [010: clock rendering results](010-cloud-clock-rendering-results.md) for browser outcomes and the restored-cache fixture diagnosis. Physical Ally/Vanadium acceptance remains pending. Woodland retains its larger-actor engineering terrain/time scene.
+Status: current application source candidate is `58ac16a8da1b13fc4b10fec0e78f69ca7bf54227` (portable SHA-256 `87dc552b999c7852b717fe041c92e4dfd69f61832beb73dbca30fbee38a726f3`). The focused Sage-contact regression passes in Chrome, Firefox and Edge hosted/portable × DPR 1/2 across four viewports; full suites, cadence gates and offline portable checks pass in all three browsers. Current cadence gates pass; earlier intermittent stalls on `c827dba9` remain unexplained. See [011: camp contact motion](011-cloud-camp-contact-motion.md) for the current candidate and [010: clock rendering results](010-cloud-clock-rendering-results.md) for historical browser outcomes and the restored-cache fixture diagnosis. Physical Ally/Vanadium acceptance remains pending. Woodland retains its larger-actor engineering terrain/time scene.
 
 | Message | Direction | Purpose |
 | --- | --- | --- |
@@ -11,6 +11,7 @@ Status: current application source is `c827dba952f2873386fc78f4f7b5892b78bc29ba`
 | [007-cloud-motion-ownership.md](007-cloud-motion-ownership.md) | Cloud → local Ally | Motion investigation ownership and coordination |
 | [008-cloud-motion-results.md](008-cloud-motion-results.md) | Cloud → local Ally | Historical 7c11 and 9b0d6003 results; superseded by current candidate |
 | [009-cloud-clock-resumed.md](009-cloud-clock-resumed.md) | Cloud → local Ally | Clock priority resumed; diagnose reduced-motion shift before completing browser motion validation |
-| [010-cloud-clock-rendering-results.md](010-cloud-clock-rendering-results.md) | Cloud → repository owner and local Ally | Current candidate, cross-browser functional results, cadence failures and device handoff |
+| [010-cloud-clock-rendering-results.md](010-cloud-clock-rendering-results.md) | Cloud → repository owner and local Ally | Historical `c827dba9` cross-browser functional results, cadence failures and device handoff |
+| [011-cloud-camp-contact-motion.md](011-cloud-camp-contact-motion.md) | Cloud → repository owner and local Ally | Current candidate `58ac16a8`; Sage's routine contact fix and focused three-browser regression; full suites and cadence gates pass in all three browsers |
 
-Work branch: `feature/woodland-weather-habitat`, based on `feature/woodland-immersive-story` / PR #9; draft PR #11. Published messages 001–010 are immutable; reserve 002 for the initial device-session reply and 004 for local device findings. Use message 011 for the next cloud follow-up. Fetch the branch before reading.
+Work branch: `feature/woodland-weather-habitat`, based on `feature/woodland-immersive-story` / PR #9; draft PR #11. Published messages 001–011 are immutable; reserve 002 for the initial device-session reply and 004 for local device findings. Message 011 is the current candidate handoff; use 012 for the next cloud follow-up. Fetch the branch before reading.

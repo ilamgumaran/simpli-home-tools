@@ -1,7 +1,7 @@
 <!-- SPDX-License-Identifier: LicenseRef-Simpli-Noncommercial-1.0 -->
 # Green House 1 — community habitat
 
-Status: first authored community-life slice implemented. Current candidate `c827dba952f2873386fc78f4f7b5892b78bc29ba` preserves the community model while taking a lean Green House 1 frame path. Current community checks, including the immediate stale-media-query regression, pass in Chrome, Firefox and Edge. Full motion acceptance remains open because cadence gates fail; functional and motion outcomes are recorded separately in [session 010](../../../sessions/2026-10-10-weather-habitat/010-cloud-clock-rendering-results.md). This recurring community story belongs to the separate `greenhouse1` theme, displayed as **Green House 1**, alongside its weather scene. It is not part of Woodland's larger-actor engineering terrain, nor a life simulation or persistent family system.
+Status: first authored community-life slice implemented. Current source candidate `58ac16a8da1b13fc4b10fec0e78f69ca7bf54227` preserves the community model and blends Sage's constrained task contacts over the authored 0.7-second handoff. The focused painted-geometry regression passes in Chrome, Firefox and Edge hosted/portable × DPR 1/2 across four viewports and all eight routine boundaries. Full suites, cadence gates and offline portable checks pass in all three browsers; earlier intermittent stalls on `c827dba9` remain unexplained. Sprout's abrupt day/night pose switch and the small midnight breathing reset remain follow-ups. See current [session 011](../../../sessions/2026-10-10-weather-habitat/011-cloud-camp-contact-motion.md) and historical [session 010](../../../sessions/2026-10-10-weather-habitat/010-cloud-clock-rendering-results.md). This recurring community story belongs to the separate `greenhouse1` theme, displayed as **Green House 1**, alongside its weather scene. It is not part of Woodland's larger-actor engineering terrain, nor a life simulation or persistent family system.
 
 ## Cast and story
 
@@ -24,6 +24,8 @@ Aster supports Pebble throughout the cycle. Sprout plays with a stick in the san
 
 Each mounted camp retains its prop and actor nodes. Routine colors, visibility and other fixed attributes update only when their values change; moving poses and contact calculations retain the main scene cadence. Recreating the camp rebuilds these references. The shared character renderer also caches its rig nodes and skips unchanged attributes.
 
+At routine boundaries, Sage's previous and next task wrists are each solved against their own contact in camp coordinates. The resulting endpoints blend over 0.7 seconds before the arm is solved again with fixed bone lengths; attached tools fade with the same transition and the shelter line returns smoothly to rest. Frozen mode keeps Sage asleep, Aster in cradle-care and Sprout asleep. Sprout's abrupt day/night pose switch and the small midnight breathing-phase reset remain follow-ups.
+
 ## Boundaries
 
 - Do not imply fast aging, infant replacement, births, deaths or persistent generations.
@@ -38,4 +40,4 @@ Each mounted camp retains its prop and actor nodes. Routine colors, visibility a
 - Confirm Pebble remains swaddled and supported by a caregiver wherever visible.
 - Confirm stories do not age, replace or imply a new infant, and do not claim ecosystem/resource/lineage simulation.
 - Check current time/date legibility, compact and tall viewports, companion-off behavior, and shared pause/reduced-motion/Still-camera behavior.
-- The community program, including the stale-query infant-support regression, passed on the current candidate in Chrome, Firefox and Edge. Motion-cadence acceptance remains open after independent dashboard, immersive-motion and weather cadence failures. See [session 010](../../../sessions/2026-10-10-weather-habitat/010-cloud-clock-rendering-results.md) for results; earlier candidate checks are historical.
+- The focused Sage-contact regression, including painted wrists, tools, feet, bones and shelter-line endpoints at eight routine boundaries, passed in Chrome, Firefox and Edge hosted/portable × DPR 1/2 across four viewports. Full suites, cadence gates and offline portable checks pass in all three browsers. Earlier intermittent stalls remain unexplained; sustained and physical-device acceptance remain open. See current [session 011](../../../sessions/2026-10-10-weather-habitat/011-cloud-camp-contact-motion.md) and historical [session 010](../../../sessions/2026-10-10-weather-habitat/010-cloud-clock-rendering-results.md).
