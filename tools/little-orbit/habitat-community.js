@@ -133,7 +133,7 @@
    const actor=root._communityActors[id],pose=actorPose(model,id,{frozen}),{action,from,blend,cycle:actorCycle,rig,actorScale,rootY}=pose;
    const x=id==='aster'?-8:id==='sage'?48:-68;
    if(id==='sage'&&!frozen){
-    const {root:tool,spoon,bowl,greens,flower}=actor._communityToolNodes,hand=rig.arms[1][2],tip={x:hand.x,y:hand.y+pose.spoonLength};
+    const {root:tool,spoon,bowl,greens,flower}=actor._communityToolNodes,hand=rig.arms[1][2],tip={x:hand.x,y:hand.y+14};
     const weights=pose.toolWeights,spoonWeight=weights.spoon||0,greensWeight=weights.greens||0,flowerWeight=weights.flower||0;
     setStyle(tool,'display',spoonWeight+greensWeight+flowerWeight>0?'':'none');
     setData(tool,'kind',spoonWeight?'spoon':flowerWeight?'flower':greensWeight?'greens':'contact');
