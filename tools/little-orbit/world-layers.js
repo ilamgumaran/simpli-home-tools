@@ -74,6 +74,7 @@
  ]);
  const recipes=freeze(Object.fromEntries(Object.keys(landscapes).map(id=>[id,{id,landscape:id,status:landscapes[id].status,characters:id==='ants'?[]:id==='greenhouse1'?['aster','sage','pebble','sprout']:['moss','ridge','sprout'],castKinds:id==='ants'?['worker','nurse','forager','larva','queen']:id==='greenhouse1'?['caregiver','camp-worker','infant','child']:['lead','partner','learner'],storyCycle:id==='greenhouse1'?['shelter','forage','cook','teach','care','remember','rest']:stories.map(s=>s.id),philosophy:Object.keys(philosophies)}])));
  const itinerary=freeze(Object.keys(actions));
+ const daylightHours=freeze({dawn:7,dusk:19});
  function clock(date=new Date(),{format24=false}={}){
   if(!(date instanceof Date)||!Number.isFinite(date.getTime()))throw Error('A valid local date is required');
   const hour=date.getHours(),time=`${String(format24?hour:hour%12||12).padStart(2,'0')}:${String(date.getMinutes()).padStart(2,'0')}`;
@@ -87,8 +88,8 @@
   const actionId=reflection?['rest','water','cook','teach'][minute%4]:itinerary[minute%itinerary.length];
   const action=actions[actionId],reading=clock(date,{format24});
   const place=landscapes.woodland.places[hour%8];
-  return {...reading,hour,minute,second,day,place,story,actionId,action,reflection,
-   terrainKey:`${day}:${hour}`,minuteKey:`${day}:${hour}:${minute}`,daylight:hour>=7&&hour<19,
+  return {...reading,hour,minute,second,day,place,story,actionId,action,reflection,daylightHours,
+   terrainKey:`${day}:${hour}`,minuteKey:`${day}:${hour}:${minute}`,daylight:hour>=daylightHours.dawn&&hour<daylightHours.dusk,
    storyPhase:hour<6?'sleep':hour<12?'intention':hour<18?'consequence':reflection?'realization':'care',
    caption:hour<6?'The camp rests. Tomorrow can wait.':reflection?story.realization:hour>=19?(story.repair||story.evening):hour>=12?(story.consequence||story.morning):story.morning,
    philosophy:reflection?philosophies.presence:philosophies[action.meaning]};
@@ -159,7 +160,7 @@
   if(model.hour<6){action='sleep';position.x=siteAt(model).x;position.y=300;}
   return {position,action,cycle,from,fromCycle,blend,moving,travel,elapsed,settling:from!==null&&blend<1};
  }
- globalThis.DeskWorlds=freeze({numerals,routes,landscapes,actions,philosophies,stories,recipes,itinerary,clock,woodland,performance,motionTiming,travelProgress,worksite,blocking});
+ globalThis.DeskWorlds=freeze({numerals,routes,landscapes,actions,philosophies,stories,recipes,itinerary,daylightHours,clock,woodland,performance,motionTiming,travelProgress,worksite,blocking});
 })();
 
 // Full-scene authored choreography is a separate composition API. It samples

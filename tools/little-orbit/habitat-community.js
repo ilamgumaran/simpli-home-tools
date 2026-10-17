@@ -29,17 +29,24 @@
   {id:'care',label:'Care for the baby',caption:'Aster cradles newborn Pebble while Sage keeps the camp warm.',start:20,end:22,action:'stir-pot'},
   {id:'rest',label:'Rest beneath the shelter',caption:'Aster keeps Pebble close while Sage rests beneath the weather canopy.',start:22,end:6,action:'sleep'}
  ]);
- function sample(date,{night,weatherKind='clear'}={}){
+ function smooth(t){const p=Math.max(0,Math.min(1,t));return p*p*(3-2*p);}
+ function sample(date,{night,weatherKind='clear',daylightHours={dawn:6,dusk:20}}={}){
   const d=date instanceof Date?date:new Date(date);
   const hour=d.getHours()+d.getMinutes()/60+d.getSeconds()/3600+d.getMilliseconds()/3600000;
-  const isNight=night===undefined?(hour<6||hour>=20):!!night;
+  const validHours=Number.isFinite(daylightHours?.dawn)&&Number.isFinite(daylightHours?.dusk)&&daylightHours.dawn>=0&&daylightHours.dawn<daylightHours.dusk&&daylightHours.dusk<=24;
+  const dawn=validHours?daylightHours.dawn:6,dusk=validHours?daylightHours.dusk:20,hours=freeze({dawn,dusk});
+  const isNight=night===undefined?(hour<dawn||hour>=dusk):!!night;
+  const dawnElapsed=hour*3600-dawn*3600,duskElapsed=hour*3600-dusk*3600;
+  let childTransition={fromAction:isNight?'sleep':'play-sand',toAction:isNight?'sleep':'play-sand',blend:1};
+  if(!isNight&&dawnElapsed>=0&&dawnElapsed<.7)childTransition={fromAction:'sleep',toAction:'play-sand',blend:smooth(dawnElapsed/.7)};
+  else if(isNight&&duskElapsed>=0&&duskElapsed<.7)childTransition={fromAction:'play-sand',toAction:'sleep',blend:smooth(duskElapsed/.7)};
   const routine=schedule.find(r=>r.start<r.end?hour>=r.start&&hour<r.end:hour>=r.start||hour<r.end)||schedule[0];
   const previous=schedule[(schedule.indexOf(routine)+schedule.length-1)%schedule.length];
   const sinceStart=((hour-routine.start+24)%24)*3600;
   const transition={fromAction:previous.action,fromRoutine:previous.id,elapsed:sinceStart,blend:sinceStart>=.7?1:(sinceStart/.7)**2*(3-2*sinceStart/.7)};
   // Keep remembrance visible through dusk, even when the supplied clock jumps.
   const label=routine.id==='remember'?'Aster and Sage remember Fern':routine.label;
-  return freeze({routine:routine.id,label,caption:routine.caption,phase:(hour/24)%1,dayCycle:hour/24,elapsedSeconds:hour*3600,night:isNight,weatherKind:['rain','snow','storm'].includes(weatherKind)?weatherKind:'clear',family,characters:freeze({aster:{action:'cradle-care'},sage:{action:routine.action},sprout:{action:isNight?'sleep':'play-sand',supervisedBy:'sage'},pebble:{action:isNight?'sleep':'rest',support:'aster'}}),transition,memorial:routine.id==='remember'?{for:'fern',kind:'flowers'}:null,claims:freeze({biologicalAging:false,deathOrRebirth:false,persistentEcosystem:false})});
+  return freeze({routine:routine.id,label,caption:routine.caption,phase:(hour/24)%1,dayCycle:hour/24,elapsedSeconds:hour*3600,organicPhase:d.getTime()/120000,night:isNight,daylightHours:hours,childTransition,weatherKind:['rain','snow','storm'].includes(weatherKind)?weatherKind:'clear',family,characters:freeze({aster:{action:'cradle-care'},sage:{action:routine.action},sprout:{action:isNight?'sleep':'play-sand',supervisedBy:'sage'},pebble:{action:isNight?'sleep':'rest',support:'aster'}}),transition,memorial:routine.id==='remember'?{for:'fern',kind:'flowers'}:null,claims:freeze({biologicalAging:false,deathOrRebirth:false,persistentEcosystem:false})});
  }
  const lerp=(a,b,t)=>a+(b-a)*t;
  function sageTask(routine,elapsed,cycle){
@@ -54,9 +61,9 @@
  }
  function actorPose(model,id,{frozen=false}={}){
   const elapsed=model.elapsedSeconds||0,cycle=frozen?0:elapsed/6;
-  const action=id==='aster'?'cradle-care':(frozen?'sleep':model.characters[id].action);
-  const from=id==='sage'&&!frozen?model.transition.fromAction:action;
-  const blend=id==='sage'&&!frozen?model.transition.blend:1;
+  const child=id==='sprout'&&!frozen,childTransition=child?model.childTransition:null,action=id==='aster'?'cradle-care':(child?(childTransition?.toAction||model.characters[id].action):(frozen?'sleep':model.characters[id].action));
+  const from=child&&childTransition&&childTransition.fromAction!==action?childTransition.fromAction:id==='sage'&&!frozen?model.transition.fromAction:action;
+  const blend=child&&childTransition&&from!==action?childTransition.blend:id==='sage'&&!frozen?model.transition.blend:1;
   const rig=globalThis.DeskCharacters.pose(action,cycle,{from,fromCycle:cycle,blend});
   const actorPx=id==='sprout'?38:id==='aster'?54:48,actorScale=actorPx/frame.actorPixels;
   const supportY=Math.max(...rig.legs.map(leg=>leg[2].y)),rootY=30-supportY*actorScale;
@@ -105,6 +112,7 @@
   const childHost=doc.createElementNS(ns,'g');childHost.setAttribute('data-character','sprout');childHost.setAttribute('data-community-role','child');childHost.setAttribute('data-child','sprout');root.appendChild(childHost);
   const c=doc.createElementNS(ns,'g');childHost.appendChild(c);globalThis.DeskCharacters.mount(c,globalThis.DeskCharacters.create('sprout',{role:'play'}));
   const stick=doc.createElementNS(ns,'path');stick.setAttribute('data-play-stick','');stick.setAttribute('stroke','#b4a16c');stick.setAttribute('stroke-width','1.4');c.append(stick);
+  c._communityChildNodes={eyes:c.querySelector('[data-part="eyes"]'),stick};
   root._communityActors={aster:a,sage:b,sprout:c};
   root._communityNodes={
    memorial:root.querySelector('[data-prop="memorial"]'),ridgeLine:root.querySelector('[data-prop="ridge-line"]'),
@@ -128,7 +136,7 @@
   setAttr(nodes.canopy,'fill',['rain','storm'].includes(model.weatherKind)?'#687b78':model.weatherKind==='snow'?'#b9c9cc':'#c4a987');
   for(const node of Object.values(nodes.wrappers))setStyle(node,'display',companions?'':'none');
   if(!companions){setAttr(nodes.ridgeLine,'d','M38 7L68 -13');setAttr(nodes.ridgeLine,'opacity',model.routine==='shelter'?'1':'.25');return;}
-  const elapsed=model.elapsedSeconds||0,cycle=frozen?0:elapsed/6,organic=frozen?0:elapsed/120;
+  const elapsed=model.elapsedSeconds||0,cycle=frozen?0:elapsed/6,organic=frozen?0:Number.isFinite(model.organicPhase)?model.organicPhase:elapsed/120;
   for(const id of ['aster','sage','sprout']){
    const actor=root._communityActors[id],pose=actorPose(model,id,{frozen}),{action,from,blend,cycle:actorCycle,rig,actorScale,rootY}=pose;
    const x=id==='aster'?-8:id==='sage'?48:-68;
@@ -149,7 +157,18 @@
    const wrapper=nodes.wrappers[id];
    setAttr(wrapper,'transform',`translate(${x} ${rootY}) scale(${actorScale})`);
    globalThis.DeskCharacters.update(actor,{action,cycle:actorCycle,from,fromCycle:actorCycle,blend,rig,organic:frozen?0:.18,phase:organic});
-   if(id==='sprout'){const stick=actor.querySelector('[data-play-stick]'),p=rig.prop;stick.style.display=p?.kind==='sand-stick'?'':'none';if(p)stick.setAttribute('d',`M${p.grip.x} ${p.grip.y}L${p.tip.x} ${p.tip.y}`);}
+   if(id==='sprout'){
+    const playWeight=action==='play-sand'?blend:action==='sleep'&&from==='play-sand'?1-blend:0;
+    const closed='M-4 -23H-1M1 -23H4',open='M-3 -24V-22M3 -24V-22';
+    const eyePath=playWeight>0&&playWeight<1?(()=>{const a=[-4,-23,-1,-23,1,-23,4,-23],b=[-3,-24,-3,-22,3,-24,3,-22],v=a.map((n,i)=>n+(b[i]-n)*playWeight);return `M${v[0]} ${v[1]}L${v[2]} ${v[3]}M${v[4]} ${v[5]}L${v[6]} ${v[7]}`;})():playWeight===0?closed:open;
+    const stick=actor._communityChildNodes.stick;
+    setAttr(actor._communityChildNodes.eyes,'d',eyePath);
+    if(playWeight>0){const playRig=blend<1?globalThis.DeskCharacters.pose('play-sand',actorCycle):rig;
+     const source=playRig.prop,hand=rig.arms[source.hand][2],sourceHand=playRig.arms[source.hand][2];
+     setAttr(stick,'d',`M${hand.x} ${hand.y}L${hand.x+source.tip.x-sourceHand.x} ${hand.y+source.tip.y-sourceHand.y}`);
+    }
+    setStyle(stick,'display',playWeight>0?'':'none');setStyle(stick,'opacity',playWeight);
+   }
    setData(actor,'character',id);
   }
   const infant=nodes.infant,points=globalThis.DeskCharacters.infantSupportPoints;

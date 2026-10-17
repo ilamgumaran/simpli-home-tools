@@ -265,7 +265,7 @@
   const minuteKey=m.minuteKey+':'+m.time+':'+m.dateDigits;if(minuteKey!==lastMinute){numerals(m);lastMinute=minuteKey;}
   if(!habitat){const castKey=override(m).ids.join(':');if(castKey!==lastCast){cast(m);lastCast=castKey;}}
   fit();
-  const community=habitat?DeskHabitatCommunity.sample(now,{night:nightFor(m),weatherKind:weatherSnapshot?.kind}):null;
+  const community=habitat?DeskHabitatCommunity.sample(now,{night:nightFor(m),weatherKind:weatherSnapshot?.kind,daylightHours:m.daylightHours}):null;
   if(habitat&&!get('woodland-immersive-community')._communityCamp)DeskHabitatCommunity.create(get('woodland-immersive-community'));
   const communityHost=get('woodland-immersive-community'),display=habitat?'':'none';
   if(communityHost.style.display!==display)communityHost.style.display=display;
