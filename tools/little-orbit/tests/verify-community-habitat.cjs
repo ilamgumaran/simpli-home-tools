@@ -34,11 +34,19 @@ async function verify(browser,target,dpr){
     const a=point(line,line.getPointAtLength(0)),w=camp.querySelector('[data-adult="sage"] [data-part="arm-right"]'),b=point(w,w.getPointAtLength(w.getTotalLength())),end=point(line,line.getPointAtLength(line.getTotalLength())),pot=rect(camp.querySelector('[data-prop="cook-pot"] ellipse'));
     spoon={grip:Math.hypot(a.x-b.x,a.y-b.y),inside:end.x>=pot.left&&end.x<=pot.right&&end.y>=pot.top&&end.y<=pot.bottom,insideActor:inside(a)&&inside(b)&&inside(end)};
    }
-   return {routine:camp.dataset.routine,support,supportInside,baby:rect(infant),adults,spoon,actorRect,worldRect:rect(worldSvg),painted,projectionError,faceHit:{withinActor:!!faceHit&&actorSvg.contains(faceHit),withinInfant:!!faceHit&&infant.contains(faceHit)},count:camp.querySelectorAll('*').length,controls:rect(document.querySelector('#display nav')),time:document.querySelector('#woodland-immersive').dataset.time,infantEquipment:infant.querySelector('.character-pack,.character-harness,[data-part^="leg-"]')!==null,caption:document.querySelector('#woodland-immersive-story').textContent};
+   const characters=Object.fromEntries(['aster','sage','sprout','pebble'].map(name=>[name,painted.find(part=>part.name===name)?.rect]));
+   const cradle=characters.aster&&characters.pebble?{left:Math.min(characters.aster.left,characters.pebble.left),right:Math.max(characters.aster.right,characters.pebble.right)}:null;
+   const characterGaps=cradle&&characters.sage&&characters.sprout?{childToCradle:cradle.left-characters.sprout.right,cradleToSage:characters.sage.left-cradle.right}:null;
+   const organic=Object.fromEntries(['aster','sage','sprout'].map(name=>{
+    const art=camp.querySelector(`[data-character="${name}"].character-art`),body=art.querySelector('[data-layer="body"]'),m=art.getScreenCTM().inverse().multiply(body.getScreenCTM());
+    return [name,['a','b','c','d','e','f'].map(key=>m[key])];
+   }));
+   return {routine:camp.dataset.routine,support,supportInside,baby:rect(infant),adults,spoon,actorRect,worldRect:rect(worldSvg),painted,characterGaps,organic,projectionError,faceHit:{withinActor:!!faceHit&&actorSvg.contains(faceHit),withinInfant:!!faceHit&&infant.contains(faceHit)},count:camp.querySelectorAll('*').length,controls:rect(document.querySelector('#display nav')),time:document.querySelector('#woodland-immersive').dataset.time,infantEquipment:infant.querySelector('.character-pack,.character-harness,[data-part^="leg-"]')!==null,caption:document.querySelector('#woodland-immersive-story').textContent};
   });
   let count;
   for(const viewport of [{width:854,height:480},{width:1280,height:720},{width:1920,height:1080},{width:390,height:844}]){
    await page.setViewportSize(viewport);
+   const phaseSeparation={asterSage:0,asterSprout:0,sageSprout:0};
    for(const [hour,routine] of [[3,'rest'],[7,'shelter'],[9,'forage'],[12,'cook'],[14,'teach'],[16,'care'],[18,'remember'],[21,'care'],[23,'rest']]){
     await at(stamp(hour));const g=await geometry();
     assert.equal(g.routine,routine,JSON.stringify({hour,g}));assert.equal(g.time,`${String(hour).padStart(2,'0')}:08`);
@@ -57,6 +65,14 @@ async function verify(browser,target,dpr){
     assert.ok(g.actorRect.width*g.actorRect.height<g.worldRect.width*g.worldRect.height*.5,'Green House actor viewport is not cropped: '+JSON.stringify({viewport,hour,g}));
     assert.ok(g.projectionError<=.02,'Actor and landscape screen projections diverge: '+JSON.stringify({viewport,hour,g}));
     assert.ok(['aster','sage','sprout','pebble'].every(name=>g.painted.some(part=>part.name===name)),'A family member has no painted bounds: '+JSON.stringify({viewport,hour,g}));
+    assert.ok(g.characterGaps&&Object.values(g.characterGaps).every(gap=>gap>=30),'Family figures are crowded in their painted bounds: '+JSON.stringify({viewport,hour,gaps:g.characterGaps}));
+    assert.ok(['aster','sage','sprout','pebble'].every(name=>{
+     const r=g.painted.find(part=>part.name===name).rect;
+     return r.left>=16&&r.right<=viewport.width-16&&r.top>=0&&r.bottom<g.controls.top-2;
+    }),'Family figure reaches the viewport edge or controls: '+JSON.stringify({viewport,hour,painted:g.painted,controls:g.controls}));
+    for(const [pair,names] of Object.entries({asterSage:['aster','sage'],asterSprout:['aster','sprout'],sageSprout:['sage','sprout']})){
+     phaseSeparation[pair]=Math.max(phaseSeparation[pair],...g.organic[names[0]].map((value,i)=>Math.abs(value-g.organic[names[1]][i])));
+    }
     assert.ok(g.painted.every(part=>within(part.rect)),'Camp character or prop is clipped: '+JSON.stringify({viewport,hour,g}));
     assert.ok(g.supportInside&&g.spoon?.insideActor!==false,'Visible care or tool contact leaves actor viewport: '+JSON.stringify({viewport,hour,g}));
     assert.ok(g.faceHit.withinActor,'Painted infant face is occluded outside the actor layer: '+JSON.stringify({viewport,hour,g}));
@@ -64,6 +80,7 @@ async function verify(browser,target,dpr){
     if(count===undefined)count=g.count;assert.equal(g.count,count,'Community reconstructs its actors during ordinary frames');
     if(routine==='remember')assert.match(g.caption,/Fern/);
    }
+   assert.ok(Object.values(phaseSeparation).every(delta=>delta>.003),'Camp breathing stays synchronized across actors: '+JSON.stringify({viewport,phaseSeparation}));
   }
   await at(stamp(12,28));const before=await geometry();await at(new Date(+stamp(12,28)+250));const after=await geometry();
   assert.notDeepEqual(before.baby,after.baby,'Supported infant care has no gentle motion');
@@ -148,7 +165,7 @@ async function verifyRoutineTransitions(browser,target,dpr){
    await page.setViewportSize(viewport);
    for(const hour of [6,8,11,13,16,17,20,22]){
     const boundary=+new Date(`2026-10-05T${String(hour).padStart(2,'0')}:00:00-04:00`),frames=[];
-    for(const offset of [-1,0,1,175,350,525,699,700,701]){
+    for(const offset of [-1,0,1,300,600,900,1199,1200,1201]){
      await page.clock.setSystemTime(new Date(boundary+offset));await page.evaluate(()=>WoodlandScene.sync());
      frames.push({offset,...await geometry()});
     }
@@ -199,7 +216,7 @@ async function verifySproutContinuity(browser,target,dpr){
    await page.setViewportSize(viewport);
    for(const hour of [7,19]){
     const boundary=+new Date(`2026-10-05T${String(hour).padStart(2,'0')}:00:00-04:00`),frames=[];
-    for(const offset of [-1,0,1,175,350,525,699,700,701]){await at(boundary+offset);frames.push({offset,...await sample()});}
+    for(const offset of [-1,0,1,300,600,900,1199,1200,1201]){await at(boundary+offset);frames.push({offset,...await sample()});}
     const detail=JSON.stringify({viewport,dpr,hour,frames}),pairs=[[0,2],[6,8]];
     for(const [i,j] of pairs){
      assert.ok(maxPointDelta(frames[i].arms,frames[j].arms)<.05&&maxPointDelta(frames[i].legs,frames[j].legs)<.05,'Sprout painted joints jump at a light boundary: '+detail);
@@ -235,7 +252,7 @@ async function verifySproutContinuity(browser,target,dpr){
    await page.setViewportSize(viewport);
    for(const hour of [7,19]){
     const boundary=+new Date(`2026-10-05T${String(hour).padStart(2,'0')}:00:00-04:00`),frames=[];
-    for(const offset of [-1,0,1,350,699,700,701]){
+    for(const offset of [-1,0,1,600,1199,1200,1201]){
      await at(boundary+offset);
      frames.push(await page.evaluate(()=>{
       const child=document.querySelector('#woodland-immersive-community [data-child="sprout"]'),art=child.querySelector('.character-art'),stick=child.querySelector('[data-play-stick]');
