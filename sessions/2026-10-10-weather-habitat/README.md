@@ -1,5 +1,7 @@
 # Green House 1 — weather-responsive habitat
 
+Active work: [012: child motion ownership](012-cloud-child-motion-ownership.md) resumes Sprout's play/sleep and midnight continuity fixes. The tested runtime below remains the device candidate until new results are published.
+
 Status: current application source candidate is `58ac16a8da1b13fc4b10fec0e78f69ca7bf54227` (portable SHA-256 `87dc552b999c7852b717fe041c92e4dfd69f61832beb73dbca30fbee38a726f3`). The focused Sage-contact regression passes in Chrome, Firefox and Edge hosted/portable × DPR 1/2 across four viewports; full suites, cadence gates and offline portable checks pass in all three browsers. Current cadence gates pass; earlier intermittent stalls on `c827dba9` remain unexplained. See [011: camp contact motion](011-cloud-camp-contact-motion.md) for the current candidate and [010: clock rendering results](010-cloud-clock-rendering-results.md) for historical browser outcomes and the restored-cache fixture diagnosis. Physical Ally/Vanadium acceptance remains pending. Woodland retains its larger-actor engineering terrain/time scene.
 
 | Message | Direction | Purpose |
@@ -13,5 +15,6 @@ Status: current application source candidate is `58ac16a8da1b13fc4b10fec0e78f69c
 | [009-cloud-clock-resumed.md](009-cloud-clock-resumed.md) | Cloud → local Ally | Clock priority resumed; diagnose reduced-motion shift before completing browser motion validation |
 | [010-cloud-clock-rendering-results.md](010-cloud-clock-rendering-results.md) | Cloud → repository owner and local Ally | Historical `c827dba9` cross-browser functional results, cadence failures and device handoff |
 | [011-cloud-camp-contact-motion.md](011-cloud-camp-contact-motion.md) | Cloud → repository owner and local Ally | Current candidate `58ac16a8`; Sage's routine contact fix and focused three-browser regression; full suites and cadence gates pass in all three browsers |
+| [012-cloud-child-motion-ownership.md](012-cloud-child-motion-ownership.md) | Cloud → repository owner and local Ally | Active child-motion ownership, plan and validation requirements |
 
-Work branch: `feature/woodland-weather-habitat`, based on `feature/woodland-immersive-story` / PR #9; draft PR #11. Published messages 001–011 are immutable; reserve 002 for the initial device-session reply and 004 for local device findings. Message 011 is the current candidate handoff; use 012 for the next cloud follow-up. Fetch the branch before reading.
+Work branch: `feature/woodland-weather-habitat`, based on `feature/woodland-immersive-story` / PR #9; draft PR #11. Published messages 001–012 are immutable; reserve 002 for the initial device-session reply and 004 for local device findings. Message 011 is the current tested candidate; 012 records active work. Use 013 for results. Fetch the branch before reading.
