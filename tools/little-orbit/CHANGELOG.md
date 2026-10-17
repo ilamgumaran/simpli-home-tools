@@ -4,6 +4,14 @@ No tagged releases yet. Implemented entries describe code on the development bra
 
 ## Unreleased
 
+### Unreleased — Green House 1 spacing and motion verified
+
+- The shared fullscreen renderer now caches detailed clock art separately from scenery, weather, moving characters and lighting. Each SVG layer follows the same camera transform, and unchanged character/camp properties skip DOM writes. Slow scenery runs at 30 fps while characters and precipitation retain the main cadence.
+
+- Green House 1 (`greenhouse1`) is a separate weather-responsive theme with cached-weather lighting, bounded precipitation, a thermometer, tiny antlike camp people, a tent and food/play setting. It adds no weather request or temperature-control setting. Earlier candidate `c827dba952f2873386fc78f4f7b5892b78bc29ba` avoids unused Woodland model snapshots, uses a CSS color quad for animated light under the existing SVG opacity control, and refreshes reduced-motion state on scene sync. Its cross-browser functional passes and cadence failures are historical; see [session 010](../../sessions/2026-10-10-weather-habitat/010-cloud-clock-rendering-results.md).
+- Green House 1 adds authored recurring routines: Aster cares for swaddled, supported infant Pebble; Sage tends shelter, forage, cooking, teaching and remembrance; Sprout joins safe, supervised play and sleep. Dusk memorial flowers (17:00–20:00) honor Fern; no ancestor character appears. Persistent lineage and ecosystem simulation are not claimed. See [community design](design/COMMUNITY-HABITAT.md) and [session 010](../../sessions/2026-10-10-weather-habitat/010-cloud-clock-rendering-results.md) for the earlier candidate.
+- Runtime `de43b318d7b62fdd67b90f589b91947d67d843bf` (portable SHA-256 `3ce3de6658214d446368c3b1676ac4dd59a6ea0b2baf30e3f55c5d7032945b99`) has minimum sampled gaps of 46.54 CSS pixels between Sprout and the caregiver group and 39.42 pixels between the caregiver and Sage groups; the minimum horizontal viewport margin is 29.94 CSS pixels. Portrait staging moves inward to keep margins. Aster/Sage/Sprout have independent rhythms and 1.2-second quintic pose blends; Aster continues to support Pebble. Full Chrome/Firefox/Edge suites, cadence and offline portable checks pass; see [session 015](../../sessions/2026-10-10-weather-habitat/015-cloud-spacing-motion-results.md). Physical Ally/Vanadium and sustained acceptance remain pending. Sessions 011–013 preserve separate historical candidate evidence.
+
 ### Added
 
 - [Immersive Woodland](design/IMMERSIVE-WOODLAND.md): default fullscreen SVG view with a Dashboard option, larger shared cast, complete current-time material digits and a DD plaque. River-carried leaves/timber, bank stone delivery and a current-ones sandbox accompany twelve camp activities, supervised family shallows and construction advancing within the hourly chapter. Construction is time-sampled rather than persistent user history.

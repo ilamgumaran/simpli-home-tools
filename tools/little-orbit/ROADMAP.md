@@ -1,6 +1,6 @@
 # Our Desk Clock roadmap
 
-Updated 2026-10-06. Milestones express intent, not promised delivery dates. The product owner sets priorities and authorizes deferred implementation.
+Updated 2026-10-16. Milestones express intent, not promised delivery dates. The product owner sets priorities and authorizes deferred implementation.
 
 ## Woodland Ally validation — installation complete; device review in progress
 
@@ -69,6 +69,16 @@ Next layers: persistent terrain hand/foot contacts and center-of-mass/rope physi
 ## Living worlds — Woodland first slice implemented
 
 Shared landscape, action, story and philosophy definitions compose the fifth theme, Woodland of Time. Complete terrain HH:MM changes atomically each minute; eight hourly woodland places, twelve activities, central Sprout and six daily episodes provide the first composition. A quiet daily chapter varies observation, water, food and teaching. Branded desktop browser/portable checks and physical-device limits are recorded with this change.
+
+### Green House 1 — spacing and motion verified; device validation pending
+
+The new `greenhouse1` theme, **Green House 1**, holds weather-driven scene lighting, bounded precipitation, a thermometer, tiny antlike camp people, tent and food/play setting. It reuses the current Open-Meteo response/cache without extra requests. Woodland retains its larger actors and engineering terrain/time scene; the existing global weather panel remains. Runtime `de43b318d7b62fdd67b90f589b91947d67d843bf` (portable SHA-256 `3ce3de6658214d446368c3b1676ac4dd59a6ea0b2baf30e3f55c5d7032945b99`) has minimum sampled gaps of 46.54 CSS pixels between Sprout and the caregiver group and 39.42 pixels between the caregiver and Sage groups; the minimum horizontal viewport margin is 29.94 CSS pixels. Portrait staging shifts inward to retain margins; Aster/Sage/Sprout have independent rhythms and use 1.2-second quintic pose blends. Aster continues to support Pebble. Full Chrome/Firefox/Edge suites, cadence and offline portable checks pass; see [session 015](../../sessions/2026-10-10-weather-habitat/015-cloud-spacing-motion-results.md). Session 013 and earlier records cover previous candidates only. Physical Ally/Vanadium and sustained acceptance remain pending.
+
+### Green House 1 Community Habitat — Sprout motion updated; validation and device follow-ups open
+
+The recurring cast has Aster caring for swaddled, caregiver-supported infant Pebble; Sage performs shelter, forage, cook, teach and remembrance routines; Sprout joins safe, supervised play and sleep. Dusk memorial flowers from 17:00–20:00 honor Fern; no ancestor character appears. Runtime `de43b318d7b62fdd67b90f589b91947d67d843bf` has minimum sampled gaps of 46.54 CSS pixels between Sprout and the caregiver group and 39.42 pixels between the caregiver and Sage groups; the minimum horizontal viewport margin is 29.94 CSS pixels. Portrait staging shifts inward to retain margins. The three characters have independent rhythms and 1.2-second quintic pose blends. Aster continues to support Pebble. Epoch-based rhythms stay continuous across midnight and DST. The community sampler's standalone default remains 06:00/20:00; the shared schedule is runtime metadata, not a user setting. Sage's routine contacts and clock authority remain intact. Full Chrome/Firefox/Edge suites, cadence and offline portable checks pass; see [session 015](../../sessions/2026-10-10-weather-habitat/015-cloud-spacing-motion-results.md). Physical Ally/Vanadium and sustained acceptance remain pending; earlier intermittent stalls remain open. This is authored story recurrence; fast aging, infant replacement, real ecosystem claims and persistent lineage/resources are outside scope.
+
+Next motion work after this slice: natural activity choreography that follows authored user terrain and camp stories. Do not begin a different deferred theme as part of that work.
 
 Visual refinement implemented on the development branch: the landscape fills its panel, digits/trees/sun retain their proportions and the responsive cast is larger. Shared gait and pose blends, eased climbing and authored worksite travel replace abrupt movement. Timber includes bark, knots and end grain; curved mountain layers soften the terrain.
 

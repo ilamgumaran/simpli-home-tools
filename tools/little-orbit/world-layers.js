@@ -33,6 +33,7 @@
    {name:'Lakeside Clearing',sky:'#e6e8ce',hill:'#b3b995',forest:'#587363',ground:'#879b72',water:'#94bec4',resource:'reeds'},
    {name:'Old Orchard',sky:'#eee3c5',hill:'#babc8c',forest:'#64704c',ground:'#a0a176',water:'#9fb6a0',resource:'fruit'},
    {name:'Return Glade',sky:'#e6d9cf',hill:'#b5ab96',forest:'#64665a',ground:'#969379',water:'#9bb0af',resource:'shared camp'}]},
+  greenhouse1:{status:'implemented',numeralMaterial:'Leaves and stepping stones in a weather-responsive habitat'},
   industrial:{status:'planned',numeralMaterial:'Steel rails, linked gears and counterweights'},
   weaving:{status:'planned',numeralMaterial:'Continuous woven threads in a large cloth'},
   farming:{status:'planned',numeralMaterial:'Crop rows, irrigation beds and orchard paths'},
@@ -71,8 +72,9 @@
   {id:'urgency',name:'A summit postponed',cast:['ridge'],morning:'Ridge keeps inventing another deadline.',consequence:'Ridge rushes past a broken crossing; the return becomes harder.',repair:'Ridge mends the crossing before settling for the night.',realization:'Ridge notices the sunset that hurry nearly hid.',evening:'The unfinished path will still be there tomorrow.'},
   {id:'reciprocity',name:'The lesson returns',cast:['moss','sprout'],morning:'A younger traveler brings a new way of seeing.',realization:'Moss listens. Teaching can flow both ways.',evening:'Tomorrow, another traveler begins.'}
  ]);
- const recipes=freeze(Object.fromEntries(Object.keys(landscapes).map(id=>[id,{id,landscape:id,status:landscapes[id].status,characters:id==='ants'?[]:['moss','ridge','sprout'],castKinds:id==='ants'?['worker','nurse','forager','larva','queen']:['lead','partner','learner'],storyCycle:stories.map(s=>s.id),philosophy:Object.keys(philosophies)}])));
+ const recipes=freeze(Object.fromEntries(Object.keys(landscapes).map(id=>[id,{id,landscape:id,status:landscapes[id].status,characters:id==='ants'?[]:id==='greenhouse1'?['aster','sage','pebble','sprout']:['moss','ridge','sprout'],castKinds:id==='ants'?['worker','nurse','forager','larva','queen']:id==='greenhouse1'?['caregiver','camp-worker','infant','child']:['lead','partner','learner'],storyCycle:id==='greenhouse1'?['shelter','forage','cook','teach','care','remember','rest']:stories.map(s=>s.id),philosophy:Object.keys(philosophies)}])));
  const itinerary=freeze(Object.keys(actions));
+ const daylightHours=freeze({dawn:7,dusk:19});
  function clock(date=new Date(),{format24=false}={}){
   if(!(date instanceof Date)||!Number.isFinite(date.getTime()))throw Error('A valid local date is required');
   const hour=date.getHours(),time=`${String(format24?hour:hour%12||12).padStart(2,'0')}:${String(date.getMinutes()).padStart(2,'0')}`;
@@ -86,8 +88,8 @@
   const actionId=reflection?['rest','water','cook','teach'][minute%4]:itinerary[minute%itinerary.length];
   const action=actions[actionId],reading=clock(date,{format24});
   const place=landscapes.woodland.places[hour%8];
-  return {...reading,hour,minute,second,day,place,story,actionId,action,reflection,
-   terrainKey:`${day}:${hour}`,minuteKey:`${day}:${hour}:${minute}`,daylight:hour>=7&&hour<19,
+  return {...reading,hour,minute,second,day,place,story,actionId,action,reflection,daylightHours,
+   terrainKey:`${day}:${hour}`,minuteKey:`${day}:${hour}:${minute}`,daylight:hour>=daylightHours.dawn&&hour<daylightHours.dusk,
    storyPhase:hour<6?'sleep':hour<12?'intention':hour<18?'consequence':reflection?'realization':'care',
    caption:hour<6?'The camp rests. Tomorrow can wait.':reflection?story.realization:hour>=19?(story.repair||story.evening):hour>=12?(story.consequence||story.morning):story.morning,
    philosophy:reflection?philosophies.presence:philosophies[action.meaning]};
@@ -158,7 +160,7 @@
   if(model.hour<6){action='sleep';position.x=siteAt(model).x;position.y=300;}
   return {position,action,cycle,from,fromCycle,blend,moving,travel,elapsed,settling:from!==null&&blend<1};
  }
- globalThis.DeskWorlds=freeze({numerals,routes,landscapes,actions,philosophies,stories,recipes,itinerary,clock,woodland,performance,motionTiming,travelProgress,worksite,blocking});
+ globalThis.DeskWorlds=freeze({numerals,routes,landscapes,actions,philosophies,stories,recipes,itinerary,daylightHours,clock,woodland,performance,motionTiming,travelProgress,worksite,blocking});
 })();
 
 // Full-scene authored choreography is a separate composition API. It samples

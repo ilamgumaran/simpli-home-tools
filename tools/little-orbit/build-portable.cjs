@@ -11,17 +11,19 @@ const js=fs.readFileSync(path.join(root,'app.js'),'utf8');
 const display=fs.readFileSync(path.join(root,'display-settings.js'),'utf8');
 const characters=fs.readFileSync(path.join(root,'characters.js'),'utf8');
 const config=fs.readFileSync(path.join(root,'config.js'),'utf8');
+const habitatWeather=fs.readFileSync(path.join(root,'habitat-weather.js'),'utf8');
 const html=fs.readFileSync(path.join(root,'index.html'),'utf8')
  .replace('<head>',`<!-- Full project license follows; keep it with this portable file.\n${license}\n-->\n<head>`)
  .replace('<link rel="stylesheet" href="style.css">',`<style>\n${css}\n</style>`)
  .replace('<script src="config.js"></script>',`<script>\n${config.replace(/<\/script/gi,'<\\/script')}\n</script>`)
  .replace('<script src="characters.js"></script>',`<script>\n${characters.replace(/<\/script/gi,'<\\/script')}\n</script>`)
+ .replace('<script src="habitat-weather.js"></script>',`<script>\n${habitatWeather.replace(/<\/script/gi,'<\\/script')}\n</script>`)
  .replace('<script src="app.js"></script>',`<script>\n${js.replace(/<\/script/gi,'<\\/script')}\n</script>`);
 const climber=fs.readFileSync(path.join(root,'time-climber.js'),'utf8');
 const portable=html.replace('<script src="display-settings.js"></script>',`<script>\n${display.replace(/<\/script/gi,'<\\/script')}\n</script>`).replace('<script src="time-climber.js"></script>',`<script>\n${climber.replace(/<\/script/gi,'<\\/script')}\n</script>`);
 const mountain=fs.readFileSync(path.join(root,'time-climber-ii.js'),'utf8');
 const complete=portable.replace('<script src="time-climber-ii.js"></script>',`<script>\n${mountain.replace(/<\/script/gi,'<\\/script')}\n</script>`);
 let living=complete;
-for(const file of ['world-layers.js','woodland-art.js','woodland-time.js','woodland-immersive.js']){const source=fs.readFileSync(path.join(root,file),'utf8');living=living.replace(`<script src="${file}"></script>`,`<script>\n${source.replace(/<\/script/gi,'<\\/script')}\n</script>`);}
+for(const file of ['world-layers.js','woodland-art.js','woodland-time.js','habitat-community.js','woodland-immersive.js']){const source=fs.readFileSync(path.join(root,file),'utf8');living=living.replace(`<script src="${file}"></script>`,`<script>\n${source.replace(/<\/script/gi,'<\\/script')}\n</script>`);}
 fs.writeFileSync(path.join(root,'Little Orbit.html'),living);
 console.log('Built portable Little Orbit.html (no installation, runtime, or external fonts).');

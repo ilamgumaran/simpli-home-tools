@@ -12,6 +12,9 @@
   moss:{name:'Moss',body:'drop',face:'cheerful',appearance:{...palette,jacket:'#b597a9',pack:'#718f70'},temperament:'Patient trail companion; celebrates small gains.'},
   sprout:{name:'Sprout',young:true,body:'drop',face:'cheerful',appearance:{...palette,jacket:'#c9bb75',pack:'#8ca89a',helmet:'#d19d79'},temperament:'Young trail learner; notices what adults hurry past.'},
   ridge:{name:'Ridge',body:'human',face:'cheerful',appearance:{...palette},temperament:'Comic, determined climber; takes recovery seriously.'}
+  ,aster:{name:'Aster',body:'human',face:'gentle',appearance:{...palette,jacket:'#779d87',trousers:'#675b55',pack:'#c59d70',helmet:'#d7b77b'},temperament:'Steady shelter keeper and patient parent.'}
+  ,sage:{name:'Sage',body:'human',face:'gentle',appearance:{...palette,jacket:'#9b8095',trousers:'#5b6870',pack:'#91a47b',helmet:'#d9ba86'},temperament:'Curious forager, cook, and gentle teacher.'}
+  ,pebble:{name:'Pebble',young:true,infant:true,body:'swaddled',face:'sleeping',appearance:{...palette,jacket:'#e6d6b8',trousers:'#d4bca1',pack:'#a6b8a0',helmet:'#e6d6b8'},temperament:'A newborn, always cared for by an adult.'}
  });
  // A catalog is available equipment, not a claim that one person carries all of it.
  const groups={
@@ -35,11 +38,14 @@
   farming:{name:'Grower',available:[...groups.farming,...groups.backpacking,...groups.food].map(row=>row[0]),carried:['trowel','seeds','backpack','bottle','fresh-produce','first-aid']},
   hunting:{name:'Forager / hunter',available:[...groups.hunting,...groups.backpacking,...groups.food].map(row=>row[0]),carried:['backpack','bottle','binoculars','fishing-kit','field-kit','food-bag','first-aid']},
   play:{name:'Playful helper',available:[],carried:[]}
+  ,caregiver:{name:'Camp caregiver',available:['backpack','bottle','oats','fresh-produce','harvest-basket','stove','pot','spoon','tarp','cord','first-aid','thermal-layer'],carried:['backpack','bottle','oats','fresh-produce','pot','spoon','first-aid']}
+  ,infant:{name:'Newborn in adult care',available:[],carried:[]}
  });
  const themes=freeze({orbit:null,candy:{character:'candy',role:'play'},climber:{character:'moss',role:'climbing'},climber2:{character:'ridge',role:'climbing'},woodland:{character:'moss',role:'trail'}});
  const anatomy=freeze({shoulders:[{x:-6,y:-10},{x:6,y:-10}],hips:[{x:-4,y:8},{x:4,y:8}],upperArm:12,forearm:11,thigh:12,shin:12,belayLoop:{x:0,y:9}});
  function create(id,{role='climbing',appearance={}}={}){
   if(!Object.hasOwn(identities,id)||!Object.hasOwn(roles,role))throw Error('Unknown character or role');
+  if(!!identities[id].infant!==(role==='infant'))throw Error('Infant identity and role must be used together');
   const colors={...identities[id].appearance};
   for(const key of Object.keys(appearance)){
    if(!(key in colors)||!/^#[0-9a-f]{6}$/i.test(appearance[key]))throw Error('Appearance expects a known color and six-digit hex value');
@@ -50,7 +56,7 @@
  function forTheme(theme){
   const binding=themes[theme];if(!binding)return null;
   const chosen=globalThis.ORBIT_CONFIG?.characters?.[theme]||binding.character;
-  return create(identities[chosen]?chosen:binding.character,{role:binding.role});
+  return create(identities[chosen]&&!identities[chosen].infant?chosen:binding.character,{role:binding.role});
  }
  // Two-link inverse kinematics: targets are clamped to anatomical reach.
  function joint(root,target,a,b,bend=1){
@@ -122,6 +128,13 @@
   }else if(action==='tent-peg'){
    kneel();hands[0]={x:-12,y:4};hands[1]={x:15,y:1-6*pulse};
    task={stance:'kneel',groundY:20,kind:'mallet',hand:1,tip:{x:20,y:20-6*pulse}};
+  }else if(action==='cradle-care'){
+   // Two reachable, quiet hand contacts support a horizontal swaddled infant;
+   // legs remain planted and only the breath beat moves the upper body subtly.
+   const cradleBreath=Math.sin(c*Math.PI*2)*.22;
+   hands[0]={x:-9,y:-7+cradleBreath};hands[1]={x:8,y:-4+cradleBreath};
+  }else if(action==='kneel'){
+   kneel();hands[0]={x:-12,y:2};hands[1]={x:12,y:2};
   }
 
   // Blend targets before IK, so transitions retain fixed bone lengths.
@@ -244,6 +257,7 @@
  }
  const path=points=>points.map((p,i)=>`${i?'L':'M'}${p.x.toFixed(3)} ${p.y.toFixed(3)}`).join(' ');
  function artwork(character){
+  if(character.infant)return infantArtwork(character);
   const c=character.appearance,climbing=character.inventory.includes('helmet')&&character.inventory.includes('harness'),has=id=>character.inventory.includes(id);
   const body=character.body==='drop'?'M0 -19C-3 -13 -10 -9 -9 -2Q-9 10 0 10Q10 10 10 -2C10 -9 3 -13 0 -19Z':'M-6 -13Q0 -16 6 -13L8 7Q0 11 -8 7Z';
   return `<g class="character-art" data-character="${character.id}" data-role="${character.role}" style="--character-skin:${c.skin};--character-ink:${c.ink}">
@@ -260,31 +274,42 @@
    </g><g data-part="glove-left" fill="${c.boots}"><circle r="2"/></g><g data-part="glove-right" fill="${c.boots}"><circle r="2"/></g><g data-part="held-bottle" display="none" fill="#82b9c1" stroke="${c.ink}" stroke-width=".8"><rect x="-2" y="-5" width="4" height="7" rx="1"/><path d="M-1 -7H1V-5H-1Z"/></g><g data-part="held-food" display="none" fill="${c.helmet}" stroke="${c.ink}" stroke-width=".8"><rect x="-3" y="-2" width="6" height="3" rx="1"/></g><g data-part="held-map" display="none" fill="#e3d6ac" stroke="${c.ink}" stroke-width=".7"><path d="M-7 -5L0 -7L7 -5V5L0 3L-7 5Z"/><path d="M0 -7V3" fill="none"/></g><g data-part="held-spoon" display="none" fill="${c.metal}" stroke="${c.ink}" stroke-width=".5"><path d="M0 0H11"/><ellipse cx="14" cy="0" rx="3" ry="1.6"/></g><g data-part="held-gear" display="none" fill="none" stroke="${c.metal}" stroke-width="1"><path d="M-2 -3Q3 -5 3 0Q2 4 -2 2Z"/></g></g><g data-layer="footwear" stroke="${c.boots}" stroke-width="3.8" stroke-linecap="round"><path data-part="boot-left"/><path data-part="boot-right"/></g>
   </g>`;
  }
- function mount(host,character){host.innerHTML=artwork(character);host._deskCharacter=character;update(host,{action:'camp'});return host;}
+ const infantSupportPoints=freeze({head:{x:-9,y:-7},body:{x:8,y:-4}});
+ function infantArtwork(character=create('pebble',{role:'infant'})){const c=character.appearance;return `<g data-infant-art="pebble" aria-label="Swaddled infant"><path d="M-10 -2Q-8 -6 -3 -5L5 -4Q10 -3 10 1L8 4H-7Q-11 2 -10 -2Z" fill="${c.jacket}" stroke="${c.ink}" stroke-width="1.1"/><path d="M-8 -3Q-11 -8 -7 -10Q-2 -12 0 -7L-1 -3Z" fill="${c.skin}" stroke="${c.ink}" stroke-width="1"/><path d="M-1 -4L2 1M3 -4L6 1" fill="none" stroke="${c.highlight}" stroke-width=".8"/></g>`;}
+ function mount(host,character){host.innerHTML=artwork(character);host._deskCharacter=character;if(!character.infant)update(host,{action:'camp'});return host;}
+ // Mounted art is stable until remount; cache its rig nodes and avoid
+ // rewriting unchanged attributes on every animation frame.
+ const rigNodes=new WeakMap();
+ function write(node,name,value){const next=String(value);if(node.getAttribute(name)!==next)node.setAttribute(name,next);}
  function update(host,{action='camp',cycle=0,from=null,fromCycle=cycle,blend=1,fatigue=0,assisted=false,item=null,ropeAnchor={x:0,y:-40},rig=null,organic=0,phase=cycle}={}){
+  if(host._deskCharacter?.infant)return;
   const root=host.querySelector('.character-art');if(!root)return;
-  const character=host._deskCharacter,p=rig||pose(action,cycle,{from,fromCycle,blend}),part=name=>root.querySelector(`[data-part="${name}"]`);
+  let nodes=rigNodes.get(root);
+  if(!nodes){nodes={parts:Object.fromEntries([...root.querySelectorAll('[data-part]')].map(node=>[node.dataset.part,node])),layers:Object.fromEntries([...root.querySelectorAll('[data-layer]')].map(node=>[node.dataset.layer,node]))};rigNodes.set(root,nodes);}
+  const character=host._deskCharacter,p=rig||pose(action,cycle,{from,fromCycle,blend}),part=name=>nodes.parts[name];
   // Breathing and carried weight move only the body/accessories, never contacts.
   const amount=clamp(organic),breath=Math.sin(phase*2.1)*amount,lean=Math.sin(phase*1.6)*amount;
-  root.querySelector('[data-layer="body"]').setAttribute('transform',`translate(0 ${breath*.22}) rotate(${lean*1.2} 0 8)`);
-  for(const layer of ['face','headwear'])root.querySelector(`[data-layer="${layer}"]`).setAttribute('transform',`translate(${lean*.28} ${breath*.22})`);
-  root.querySelector('[data-layer="equipment-back"]').setAttribute('transform',`rotate(${-lean*.8} 7 -4)`);
-  ['left','right'].forEach((side,i)=>{part('arm-'+side).setAttribute('d',path(p.arms[i]));part('leg-'+side).setAttribute('d',path(p.legs[i]));const foot=p.legs[i][2];part('boot-'+side).setAttribute('d',path([foot,{x:foot.x+(i?4:-4),y:foot.y}]));});
-  ['left','right'].forEach((side,i)=>{const hand=p.arms[i][2];part('glove-'+side).setAttribute('transform',`translate(${hand.x} ${hand.y})`);part('glove-'+side).setAttribute('display',(character.inventory.includes('gloves')||character.inventory.includes('work-gloves'))?'':'none');});
-  for(const [name,kind,inventory] of [['held-bottle','water','bottle'],['held-food','food','energy-bar'],['held-gear','gear','locking-carabiner']]){const hand=p.arms[0][2];part(name).setAttribute('transform',`translate(${hand.x} ${hand.y})`);part(name).setAttribute('display',['collect','camp','water','cook'].includes(action)&&item===kind&&(character.inventory.includes(inventory)||(kind==='food'&&character.inventory.some(id=>['rice','beans','trail-mix'].includes(id))))?'':'none');}
-  for(const [name,index,show] of [['held-map',0,['teach','read-map'].includes(action)&&character.inventory.includes('map')],['held-spoon',1,action==='cook'&&character.inventory.includes('spoon')]]){const hand=p.arms[index][2];part(name).setAttribute('transform',`translate(${hand.x} ${hand.y})`);part(name).setAttribute('display',show?'':'none');}
-  if(action==='cook'&&p.toolTarget){const grip=toolGrip(p.arms[1][2],p.toolTarget);part('held-spoon').setAttribute('transform',`translate(${grip.x} ${grip.y}) rotate(${grip.angle})`);}
-  root.dataset.action=action;root.dataset.fatigue=clamp(fatigue).toFixed(3);root.dataset.support=String(Object.values(p.contacts).filter(Boolean).length);
-  part('sweat').setAttribute('display',fatigue>.55&&!p.resting?'':'none');
-  part('eyes').setAttribute('d',action==='sleep'?'M-4 -23H-1M1 -23H4':'M-3 -24V-22M3 -24V-22');
-  part('mouth').setAttribute('d',fatigue>.55&&!p.resting?'M-2 -19Q0 -22 2 -19Q0 -17 -2 -19':'M-3 -19Q0 -16 3 -19');
+  write(nodes.layers['body'],'transform',`translate(0 ${breath*.22}) rotate(${lean*1.2} 0 8)`);
+  for(const layer of ['face','headwear'])write(nodes.layers[layer],'transform',`translate(${lean*.28} ${breath*.22})`);
+  write(nodes.layers['equipment-back'],'transform',`rotate(${-lean*.8} 7 -4)`);
+  ['left','right'].forEach((side,i)=>{write(part('arm-'+side),'d',path(p.arms[i]));write(part('leg-'+side),'d',path(p.legs[i]));const foot=p.legs[i][2];write(part('boot-'+side),'d',path([foot,{x:foot.x+(i?4:-4),y:foot.y}]));});
+  ['left','right'].forEach((side,i)=>{const hand=p.arms[i][2];write(part('glove-'+side),'transform',`translate(${hand.x} ${hand.y})`);write(part('glove-'+side),'display',(character.inventory.includes('gloves')||character.inventory.includes('work-gloves'))?'':'none');});
+  for(const [name,kind,inventory] of [['held-bottle','water','bottle'],['held-food','food','energy-bar'],['held-gear','gear','locking-carabiner']]){const hand=p.arms[0][2];write(part(name),'transform',`translate(${hand.x} ${hand.y})`);write(part(name),'display',['collect','camp','water','cook'].includes(action)&&item===kind&&(character.inventory.includes(inventory)||(kind==='food'&&character.inventory.some(id=>['rice','beans','trail-mix'].includes(id))))?'':'none');}
+  for(const [name,index,show] of [['held-map',0,['teach','read-map'].includes(action)&&character.inventory.includes('map')],['held-spoon',1,['cook','stir-pot'].includes(action)&&character.inventory.includes('spoon')]]){const hand=p.arms[index][2];write(part(name),'transform',`translate(${hand.x} ${hand.y})`);write(part(name),'display',show?'':'none');}
+  if(['cook','stir-pot'].includes(action)&&p.toolTarget){const grip=toolGrip(p.arms[1][2],p.toolTarget);write(part('held-spoon'),'transform',`translate(${grip.x} ${grip.y}) rotate(${grip.angle})`);}
+  else if(action==='stir-pot'&&character.inventory.includes('spoon')){const hand=p.arms[1][2],grip=toolGrip(hand,{x:hand.x,y:9});write(part('held-spoon'),'transform',`translate(${grip.x} ${grip.y}) rotate(${grip.angle})`);}
+  write(root,'data-action',action);write(root,'data-fatigue',clamp(fatigue).toFixed(3));write(root,'data-support',Object.values(p.contacts).filter(Boolean).length);
+  if(action==='cradle-care'){write(root,'data-infant-support','both-hands');write(root,'data-infant-head-support','left-hand');}else{if(root.hasAttribute('data-infant-support'))root.removeAttribute('data-infant-support');if(root.hasAttribute('data-infant-head-support'))root.removeAttribute('data-infant-head-support');}
+  write(part('sweat'),'display',fatigue>.55&&!p.resting?'':'none');
+  write(part('eyes'),'d',action==='sleep'?'M-4 -23H-1M1 -23H4':'M-3 -24V-22M3 -24V-22');
+  write(part('mouth'),'d',fatigue>.55&&!p.resting?'M-2 -19Q0 -22 2 -19Q0 -17 -2 -19':'M-3 -19Q0 -16 3 -19');
   const aid=action==='assist'&&assisted&&character.inventory.includes('ascender')&&character.inventory.includes('static-rope');
   const loop=anatomy.belayLoop,dx=ropeAnchor.x-loop.x,dy=ropeAnchor.y-loop.y,d=Math.hypot(dx,dy)||1,device={x:loop.x+dx/d*19-dy/d*3,y:loop.y+dy/d*19+dx/d*3};
-  part('ascender').setAttribute('transform',`translate(${device.x} ${device.y})`);
-  part('fixed-line').setAttribute('d',path([{x:ropeAnchor.x-dy/d*3,y:ropeAnchor.y+dx/d*3},{x:loop.x-dx/d*20-dy/d*3,y:loop.y-dy/d*20+dx/d*3}]));
-  part('aid-tether').setAttribute('d',path([device,loop]));part('aid-foot-loop').setAttribute('d',path([device,p.legs[0][2]]));
-  for(const name of ['ascender','aid-tether','aid-foot-loop','fixed-line'])part(name).setAttribute('display',aid?'':'none');
-  root.dataset.ropeSystem=aid?'protected-fixed-line':'dynamic-protection';
+  write(part('ascender'),'transform',`translate(${device.x} ${device.y})`);
+  write(part('fixed-line'),'d',path([{x:ropeAnchor.x-dy/d*3,y:ropeAnchor.y+dx/d*3},{x:loop.x-dx/d*20-dy/d*3,y:loop.y-dy/d*20+dx/d*3}]));
+  write(part('aid-tether'),'d',path([device,loop]));write(part('aid-foot-loop'),'d',path([device,p.legs[0][2]]));
+  for(const name of ['ascender','aid-tether','aid-foot-loop','fixed-line'])write(part(name),'display',aid?'':'none');
+  write(root,'data-rope-system',aid?'protected-fixed-line':'dynamic-protection');
   return p;
  }
  function attachment(character){if(!character.inventory.includes('harness'))throw Error('Rope-bearing roles require a harness');return {...anatomy.belayLoop};}
@@ -299,5 +324,5 @@
   <g class="candy-broom" stroke="${c.harness}" stroke-width="3" fill="${c.pack}"><path d="M65 29L53 63"/><path d="M48 59L59 63L60 73L43 68Z"/></g>
  </svg>`;}
  function mountCandy(host){const character=forTheme('candy');host.innerHTML=character.id==='candy'?candyArt(character):`<svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg"><g transform="translate(40 38) scale(.75)">${artwork(character)}</g></svg>`;host.dataset.character=character.id;host.dataset.role=character.role;if(character.id!=='candy'){host._deskCharacter=character;update(host,{action:'walk'});}}
- globalThis.DeskCharacters=freeze({identities,items,roles,themes,anatomy,create,forTheme,joint,pose,ascent,climbContacts,walkContacts,workContacts,toolGrip,artwork,mount,update,attachment,mountCandy});
+ globalThis.DeskCharacters=freeze({identities,items,roles,themes,anatomy,infantSupportPoints,create,forTheme,joint,pose,ascent,climbContacts,walkContacts,workContacts,toolGrip,artwork,infantArtwork,mount,update,attachment,mountCandy});
 })();

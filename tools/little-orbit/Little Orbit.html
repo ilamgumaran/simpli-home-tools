@@ -384,29 +384,29 @@ body.screen-rest #climber-stage{display:none}
 #climber-note text{fill:#99b19c;font:8px monospace;letter-spacing:.3px}
 @media(prefers-reduced-motion:reduce){#climber-stage *{animation:none!important}}
 /* Time Climber II keeps all information outside the small terrain camera. */
-body:is([data-theme=climber2],[data-theme=woodland]) #display[data-layout]{display:grid;grid-template-columns:1fr 2fr;grid-template-areas:"clock clock" "mountain mountain" "weather fact" "footer footer";width:94vw;max-width:1540px;padding:12px 0;gap:min(var(--panel-gap,8px),14px)}
-body:is([data-theme=climber2],[data-theme=woodland]) #display .dashboard{display:contents}
-body:is([data-theme=climber2],[data-theme=woodland]) #display .clock-panel{grid-area:clock;padding:7px 14px;display:flex;align-items:center;justify-content:space-between;gap:12px;background:#070e0c;border-color:#293b30;min-width:0}
-body:is([data-theme=climber2],[data-theme=woodland]) #display .clock-panel>.eyebrow,body:is([data-theme=climber2],[data-theme=woodland]) #display .date-icon,body:is([data-theme=climber2],[data-theme=woodland]) #display .day-track,body:is([data-theme=climber2],[data-theme=woodland]) #display .clock-bottom{display:none}
-body:is([data-theme=climber2],[data-theme=woodland]) #display .time-row{margin:2px 0;flex:none}
-body:is([data-theme=climber2],[data-theme=woodland]) #display .clock-panel #time{font-size:calc(clamp(44px,6.5vw,94px) * var(--clock-scale,1));line-height:1;letter-spacing:-2px;text-shadow:none;color:#b0c9b0}
-body:is([data-theme=climber2],[data-theme=woodland]) #display .time-side{font-size:12px;gap:3px}
-body:is([data-theme=climber2],[data-theme=woodland]) #display .date-row{font-size:clamp(15px,1.8vw,24px);justify-content:flex-end;min-width:0;text-align:right}
-body:is([data-theme=climber2],[data-theme=woodland]) #display .weather-panel{grid-area:weather;min-width:0;padding:9px 12px;order:0}
-body:is([data-theme=climber2],[data-theme=woodland]) #display .fact-panel{grid-area:fact;min-width:0;padding:9px 13px;margin:0;order:0;align-items:flex-start}
-body:is([data-theme=climber2],[data-theme=woodland]) #display .fact-art{display:none}
-body:is([data-theme=climber2],[data-theme=woodland]) #display #location{margin:0;font-size:12px}
-body:is([data-theme=climber2],[data-theme=woodland]) #display .weather-panel>.eyebrow,body:is([data-theme=climber2],[data-theme=woodland]) #display .weather-details{display:none}
-body:is([data-theme=climber2],[data-theme=woodland]) #display .weather-main{margin:5px 0;gap:8px}
-body:is([data-theme=climber2],[data-theme=woodland]) #display #temperature{font-size:calc(clamp(36px,4.8vw,70px) * var(--weather-scale,1))}
-body:is([data-theme=climber2],[data-theme=woodland]) #display #weather-icon{font-size:calc(30px * var(--weather-scale,1))}
-body:is([data-theme=climber2],[data-theme=woodland]) #display #condition{font-size:calc(17px * var(--weather-scale,1));line-height:1.15}
-body:is([data-theme=climber2],[data-theme=woodland]) #display #weather-status{font-size:9px;margin-top:5px}
-body:is([data-theme=climber2],[data-theme=woodland]) #display .fact-content h1{font-size:calc(clamp(22px,2.1vw,34px) * var(--fact-scale,1));margin:5px 0;line-height:1.1}
-body:is([data-theme=climber2],[data-theme=woodland]) #display .fact-content p{font-size:calc(clamp(17px,1.5vw,24px) * var(--fact-scale,1));line-height:1.22}
-body:is([data-theme=climber2],[data-theme=woodland]) #display #fact-source{margin-top:5px}
-body:is([data-theme=climber2],[data-theme=woodland]) #display footer{grid-area:footer;margin:0;order:0}
-body:is([data-theme=climber2],[data-theme=woodland]) #display .credit,body:is([data-theme=climber2],[data-theme=woodland]) #display .footer-note{display:none}
+body:is([data-theme=climber2],[data-theme=woodland],[data-theme=greenhouse1]) #display[data-layout]{display:grid;grid-template-columns:1fr 2fr;grid-template-areas:"clock clock" "mountain mountain" "weather fact" "footer footer";width:94vw;max-width:1540px;padding:12px 0;gap:min(var(--panel-gap,8px),14px)}
+body:is([data-theme=climber2],[data-theme=woodland],[data-theme=greenhouse1]) #display .dashboard{display:contents}
+body:is([data-theme=climber2],[data-theme=woodland],[data-theme=greenhouse1]) #display .clock-panel{grid-area:clock;padding:7px 14px;display:flex;align-items:center;justify-content:space-between;gap:12px;background:#070e0c;border-color:#293b30;min-width:0}
+body:is([data-theme=climber2],[data-theme=woodland],[data-theme=greenhouse1]) #display .clock-panel>.eyebrow,body:is([data-theme=climber2],[data-theme=woodland],[data-theme=greenhouse1]) #display .date-icon,body:is([data-theme=climber2],[data-theme=woodland],[data-theme=greenhouse1]) #display .day-track,body:is([data-theme=climber2],[data-theme=woodland],[data-theme=greenhouse1]) #display .clock-bottom{display:none}
+body:is([data-theme=climber2],[data-theme=woodland],[data-theme=greenhouse1]) #display .time-row{margin:2px 0;flex:none}
+body:is([data-theme=climber2],[data-theme=woodland],[data-theme=greenhouse1]) #display .clock-panel #time{font-size:calc(clamp(44px,6.5vw,94px) * var(--clock-scale,1));line-height:1;letter-spacing:-2px;text-shadow:none;color:#b0c9b0}
+body:is([data-theme=climber2],[data-theme=woodland],[data-theme=greenhouse1]) #display .time-side{font-size:12px;gap:3px}
+body:is([data-theme=climber2],[data-theme=woodland],[data-theme=greenhouse1]) #display .date-row{font-size:clamp(15px,1.8vw,24px);justify-content:flex-end;min-width:0;text-align:right}
+body:is([data-theme=climber2],[data-theme=woodland],[data-theme=greenhouse1]) #display .weather-panel{grid-area:weather;min-width:0;padding:9px 12px;order:0}
+body:is([data-theme=climber2],[data-theme=woodland],[data-theme=greenhouse1]) #display .fact-panel{grid-area:fact;min-width:0;padding:9px 13px;margin:0;order:0;align-items:flex-start}
+body:is([data-theme=climber2],[data-theme=woodland],[data-theme=greenhouse1]) #display .fact-art{display:none}
+body:is([data-theme=climber2],[data-theme=woodland],[data-theme=greenhouse1]) #display #location{margin:0;font-size:12px}
+body:is([data-theme=climber2],[data-theme=woodland],[data-theme=greenhouse1]) #display .weather-panel>.eyebrow,body:is([data-theme=climber2],[data-theme=woodland],[data-theme=greenhouse1]) #display .weather-details{display:none}
+body:is([data-theme=climber2],[data-theme=woodland],[data-theme=greenhouse1]) #display .weather-main{margin:5px 0;gap:8px}
+body:is([data-theme=climber2],[data-theme=woodland],[data-theme=greenhouse1]) #display #temperature{font-size:calc(clamp(36px,4.8vw,70px) * var(--weather-scale,1))}
+body:is([data-theme=climber2],[data-theme=woodland],[data-theme=greenhouse1]) #display #weather-icon{font-size:calc(30px * var(--weather-scale,1))}
+body:is([data-theme=climber2],[data-theme=woodland],[data-theme=greenhouse1]) #display #condition{font-size:calc(17px * var(--weather-scale,1));line-height:1.15}
+body:is([data-theme=climber2],[data-theme=woodland],[data-theme=greenhouse1]) #display #weather-status{font-size:9px;margin-top:5px}
+body:is([data-theme=climber2],[data-theme=woodland],[data-theme=greenhouse1]) #display .fact-content h1{font-size:calc(clamp(22px,2.1vw,34px) * var(--fact-scale,1));margin:5px 0;line-height:1.1}
+body:is([data-theme=climber2],[data-theme=woodland],[data-theme=greenhouse1]) #display .fact-content p{font-size:calc(clamp(17px,1.5vw,24px) * var(--fact-scale,1));line-height:1.22}
+body:is([data-theme=climber2],[data-theme=woodland],[data-theme=greenhouse1]) #display #fact-source{margin-top:5px}
+body:is([data-theme=climber2],[data-theme=woodland],[data-theme=greenhouse1]) #display footer{grid-area:footer;margin:0;order:0}
+body:is([data-theme=climber2],[data-theme=woodland],[data-theme=greenhouse1]) #display .credit,body:is([data-theme=climber2],[data-theme=woodland],[data-theme=greenhouse1]) #display .footer-note{display:none}
 #time-mountain{grid-area:mountain;position:relative;min-width:0;min-height:0;overflow:hidden;border-radius:10px;background:#060d0e;color:#a6c6ae;order:1;height:180px;isolation:isolate}
 #mountain-world{position:absolute;inset:0;width:100%;height:100%;overflow:hidden}
 .mountain-horizon{position:absolute;right:18px;top:7px;display:flex;flex-direction:column;align-items:flex-end;gap:5px;font:11px monospace;color:#8eaaa0;z-index:1}
@@ -433,7 +433,7 @@ body.dim #time-mountain{opacity:.65}
 #time-mountain.mountain-compact .mountain-levels span:nth-child(2),#time-mountain.mountain-compact .mountain-levels span:last-child{font-size:12px}
 #time-mountain.mountain-compact .mountain-horizon{font-size:10px;gap:2px}
 #time-mountain.mountain-compact .mountain-horizon span:last-child{font-size:11px}
-@media(max-width:599px){body:is([data-theme=climber2],[data-theme=woodland]) #display[data-layout]{grid-template-columns:1fr;grid-template-areas:"clock" "mountain" "weather" "fact" "footer";gap:8px}body:is([data-theme=climber2],[data-theme=woodland]) #display .clock-panel{flex-wrap:wrap;gap:3px;justify-content:center}body:is([data-theme=climber2],[data-theme=woodland]) #display .date-row{font-size:14px;justify-content:center;width:100%;text-align:center}body:is([data-theme=climber2],[data-theme=woodland]) #display .clock-panel #time{font-size:calc(50px * var(--clock-scale,1))}body:is([data-theme=climber2],[data-theme=woodland]) #display .weather-main{display:inline-flex;margin:3px 8px 3px 0}body:is([data-theme=climber2],[data-theme=woodland]) #display #condition{display:inline;font-size:calc(16px * var(--weather-scale,1))}body:is([data-theme=climber2],[data-theme=woodland]) #display #weather-status{margin:0}.mountain-levels{font-size:11px;left:8px}.mountain-levels span:nth-child(2){font-size:12px}.mountain-levels span:last-child{font-size:13px}.mountain-horizon{right:8px}.mountain-caption{left:8px;right:8px;font-size:9px}}
+@media(max-width:599px){body:is([data-theme=climber2],[data-theme=woodland],[data-theme=greenhouse1]) #display[data-layout]{grid-template-columns:1fr;grid-template-areas:"clock" "mountain" "weather" "fact" "footer";gap:8px}body:is([data-theme=climber2],[data-theme=woodland],[data-theme=greenhouse1]) #display .clock-panel{flex-wrap:wrap;gap:3px;justify-content:center}body:is([data-theme=climber2],[data-theme=woodland],[data-theme=greenhouse1]) #display .date-row{font-size:14px;justify-content:center;width:100%;text-align:center}body:is([data-theme=climber2],[data-theme=woodland],[data-theme=greenhouse1]) #display .clock-panel #time{font-size:calc(50px * var(--clock-scale,1))}body:is([data-theme=climber2],[data-theme=woodland],[data-theme=greenhouse1]) #display .weather-main{display:inline-flex;margin:3px 8px 3px 0}body:is([data-theme=climber2],[data-theme=woodland],[data-theme=greenhouse1]) #display #condition{display:inline;font-size:calc(16px * var(--weather-scale,1))}body:is([data-theme=climber2],[data-theme=woodland],[data-theme=greenhouse1]) #display #weather-status{margin:0}.mountain-levels{font-size:11px;left:8px}.mountain-levels span:nth-child(2){font-size:12px}.mountain-levels span:last-child{font-size:13px}.mountain-horizon{right:8px}.mountain-caption{left:8px;right:8px;font-size:9px}}
 
 /* Original woodland artwork. Numeral trails stay above all moving companions. */
 body[data-theme=woodland]{--accent:#c4cca1;background:#16221d}
@@ -449,11 +449,16 @@ body[data-theme=woodland]{--accent:#c4cca1;background:#16221d}
 @media(max-width:599px){#woodland-world{height:calc(100% - 48px)}.woodland-label{display:none}}
 @media(max-width:599px){.woodland-caption{font-size:9px;top:5px;left:7px;right:7px}.woodland-caption span{padding:3px 4px}#woodland-story{font-size:10px;bottom:4px}}
 /* The immersive woodland is the viewport; information floats over the art. */
-#woodland-immersive[hidden],#woodland-thought-button{display:none}
+#woodland-immersive[hidden],#woodland-weather-thermometer[hidden],#woodland-thought-button{display:none}
 body.woodland-fullscene{margin:0;padding:0;overflow:hidden;background:#69897c}
 body.woodland-fullscene #display[data-layout]{display:block;position:relative;width:100vw;max-width:none;height:100dvh;min-height:100vh;margin:0;padding:0;transform:none!important;transition:none}
 body.woodland-fullscene #woodland-immersive{position:absolute;inset:0;overflow:hidden;border-radius:0;z-index:0;isolation:isolate}
 #woodland-immersive-world{width:100%;height:100%;display:block;overflow:visible;will-change:transform;transform-origin:0 0}
+#woodland-immersive-weather-layer,#woodland-immersive-reading,#woodland-immersive-actors,#woodland-immersive-light-layer{position:absolute;inset:0;width:100%;height:100%;display:block;overflow:visible;will-change:transform;transform-origin:0 0}
+/* The solid light wash uses a CSS color surface instead of a full-screen SVG
+   raster. Its box matches the old (-30,-30,860,420) rect in 800x360 coordinates. */
+#woodland-immersive-light{position:absolute;left:-3.75%;top:-8.3333333333%;width:107.5%;height:116.6666666667%;display:block;overflow:visible;will-change:opacity;background:#f5d9ad}
+#woodland-immersive-weather-layer,#woodland-immersive-reading,#woodland-immersive-light-layer{pointer-events:none}
 body.woodland-fullscene #display .dashboard{display:contents}
 body.woodland-fullscene #display .clock-panel,body.woodland-fullscene #display .weather-panel{position:absolute;z-index:2;background:#203e37c9;border:1px solid #c5d0ae55;border-radius:12px;box-shadow:0 2px 10px #152b2922;color:#f0edce;padding:9px 12px;transform:translate(var(--woodland-ui-x,0px),var(--woodland-ui-y,0px))!important;transition:none}
 body.woodland-fullscene #display .clock-panel{top:12px;left:24px;width:auto;max-width:44vw;display:block}
@@ -480,6 +485,10 @@ body.woodland-fullscene #woodland-thought-button{display:inline-block;font-size:
 #woodland-immersive-chapter{font:11px/1.3 system-ui,sans-serif}
 #woodland-immersive[data-night="true"] .immersive-heading,#woodland-immersive[data-night="true"] #woodland-immersive-story{color:#f0e8bd;text-shadow:0 1px 3px #172e2b}
 #woodland-immersive-story{position:absolute;bottom:76px;left:12%;right:12%;margin:0;text-align:center;font:500 12px/1.35 system-ui,sans-serif;color:#334b3b;text-shadow:0 1px #f2e7c788;pointer-events:none;transform:translate(var(--woodland-ui-x,0px),var(--woodland-ui-y,0px))}
+#woodland-weather-thermometer{position:absolute;z-index:2;top:104px;right:24px;width:74px;min-height:146px;box-sizing:border-box;padding:5px 3px 7px;display:flex;flex-direction:column;align-items:center;gap:2px;border:1px solid #c5d0ae55;border-radius:11px;background:#203e37c9;color:#f0edce;text-align:center;pointer-events:none;transform:translate(var(--woodland-ui-x,0px),var(--woodland-ui-y,0px))}
+.woodland-thermometer-glass{display:block;width:66px;height:82px;flex:none;overflow:visible}
+.thermometer-tube{fill:#dce8d8;fill-opacity:.34;stroke:#e7ebd2;stroke-width:2}.thermometer-bulb{fill:#dce8d8;fill-opacity:.34;stroke:#e7ebd2;stroke-width:2}.thermometer-fill,.thermometer-mercury{fill:#e98564}.thermometer-ticks path{fill:none;stroke:#e6e2c9;stroke-width:1.3}.thermometer-ticks text{fill:#f0edce;font:11px system-ui,sans-serif}
+#woodland-weather-value{font:700 12px/1.2 system-ui,sans-serif;white-space:nowrap}#woodland-weather-kind{max-width:68px;font:600 10px/1.15 system-ui,sans-serif;overflow-wrap:anywhere}#woodland-weather-freshness{font:9px/1.1 system-ui,sans-serif;color:#d0ddbf}
 body.woodland-fullscene.dim #woodland-immersive{filter:brightness(.60)}
 @media(max-width:599px){
  body.woodland-fullscene #display .clock-panel{left:21px;right:21px;max-width:none;width:auto;padding:7px 10px}
@@ -489,6 +498,9 @@ body.woodland-fullscene.dim #woodland-immersive{filter:brightness(.60)}
  body.woodland-fullscene #display #temperature,body.woodland-fullscene #display #weather-icon{font-size:19px}
  body.woodland-fullscene #display #condition{font-size:10px}
  body.woodland-fullscene #display #weather-status{font-size:7px;flex-basis:100%;margin:0}
+ #woodland-weather-thermometer{top:112px;right:12px;width:68px;min-height:0;padding:3px 2px 5px;gap:1px;border-radius:9px}
+ .woodland-thermometer-glass{width:56px;height:68px}
+ #woodland-weather-value{font-size:12px}#woodland-weather-kind{font-size:9px;line-height:1.05}#woodland-weather-freshness{font-size:8px}
  .immersive-heading{top:98px;left:23px;right:23px;gap:4px}
  #woodland-immersive-place{font-size:10px}#woodland-immersive-chapter{font-size:10px}
  body.woodland-fullscene #display footer{left:18px;right:18px;bottom:9px}
@@ -515,7 +527,7 @@ body.woodland-fullscene.dim #woodland-immersive{filter:brightness(.60)}
 <div id="candy-stage" aria-hidden="true" hidden><div id="candy-pal"></div></div>
 <div id="lock-overlay" hidden><button id="unlock-button">◇ Hold 2 seconds to unlock</button></div>
 <button id="rest-overlay" aria-label="Screen rest active. Tap to wake." hidden></button>
-<dialog id="settings"><form id="settings-form"><div class="dialog-top"><h2>Mission control</h2><button type="button" id="close-settings" aria-label="Close settings">✕</button></div><label>Weather city or ZIP<input id="city" placeholder="Marietta or 30064" autocomplete="off"></label><div id="city-results"></div><button type="button" id="search-city">Find city</button> <button type="button" id="geolocate">Use my location</button><p id="settings-status" role="status"></p><label>Temperature<select id="unit"><option value="fahrenheit">Fahrenheit · °F</option><option value="celsius">Celsius · °C</option></select></label><label class="check"><input id="format24" type="checkbox">24-hour clock</label><label class="check"><input id="lowPower" type="checkbox">Low power · darker theme, minute updates</label><label class="check"><input id="care" type="checkbox">Screen care · shift & rearrange panels</label><label class="check"><input id="rest" type="checkbox">One-minute black-screen break each hour</label><label class="check"><input id="night" type="checkbox">Auto-dim from 9 PM to 7 AM</label><fieldset class="display-settings"><legend>Display &amp; character</legend><label>Device preset<select id="display-profile"><option value="auto">Automatic · current window</option><option value="handheld">Handheld · ROG Ally</option><option value="desktop">Desktop / TV</option><option value="tablet">Tablet / small display</option></select></label><p class="hint" id="viewport-info"></p><label>Time size <output id="clockScale-value"></output><input id="clockScale" type="range" min="0.65" max="1.2" step="0.05"></label><label>Weather size <output id="weatherScale-value"></output><input id="weatherScale" type="range" min="0.65" max="1.2" step="0.05"></label><label>Fact size <output id="factScale-value"></output><input id="factScale" type="range" min="0.65" max="1.2" step="0.05"></label><label>Panel spacing <output id="gap-value"></output><input id="gap" type="range" min="4" max="24" step="1"></label><label>Character visits every <output id="companionInterval-value"></output><input id="companionInterval" type="range" min="30" max="300" step="15"></label><label>Character visit length <output id="companionDuration-value"></output><input id="companionDuration" type="range" min="4" max="20" step="1"></label><label class="check"><input id="companion" type="checkbox">Character in Candy Quest / Time Climber I &amp; II / Woodland</label><label>Scene camera<select id="camera-motion"><option value="gentle">Gentle scene motion</option><option value="still">Still camera</option></select></label><label>Woodland view<select id="woodland-view"><option value="immersive">Full landscape · river and camp</option><option value="dashboard">Dashboard · clock, weather and facts</option></select></label><button id="reset-display" type="button">Reset display sizes</button><p class="hint">If larger text needs more space, reduce another size or spacing. Saved settings apply to this browser only. Full-landscape Woodland keeps the camp and river active. Character visit controls apply to the dashboard scenes.</p></fieldset><p class="hint about-license">Our Desk Clock © 2026 ilamgumaran and contributors. Noncommercial use, sharing and modification permitted. Commercial use requires written permission; no warranty. <a href="https://github.com/ilamgumaran/simpli-home-tools/blob/add-little-orbit-clock/LICENSE" target="_blank" rel="noopener noreferrer">License</a> · <a href="https://github.com/ilamgumaran/simpli-home-tools/tree/main/tools/little-orbit" target="_blank" rel="noopener noreferrer">Source &amp; contribute</a></p><p class="hint">Panels glide each minute, swap every 10 minutes, and spotlight the fact every 5 minutes. Screen breaks run at :59; tap to wake. Clock uses this device’s timezone. Touch lock covers this page only. These measures cannot guarantee against display wear.</p><button class="primary" type="submit">Save & return to orbit</button></form></dialog>
+<dialog id="settings"><form id="settings-form"><div class="dialog-top"><h2>Mission control</h2><button type="button" id="close-settings" aria-label="Close settings">✕</button></div><label>Weather city or ZIP<input id="city" placeholder="Marietta or 30064" autocomplete="off"></label><div id="city-results"></div><button type="button" id="search-city">Find city</button> <button type="button" id="geolocate">Use my location</button><p id="settings-status" role="status"></p><label>Temperature<select id="unit"><option value="fahrenheit">Fahrenheit · °F</option><option value="celsius">Celsius · °C</option></select></label><label class="check"><input id="format24" type="checkbox">24-hour clock</label><label class="check"><input id="lowPower" type="checkbox">Low power · darker theme, minute updates</label><label class="check"><input id="care" type="checkbox">Screen care · shift & rearrange panels</label><label class="check"><input id="rest" type="checkbox">One-minute black-screen break each hour</label><label class="check"><input id="night" type="checkbox">Auto-dim from 9 PM to 7 AM</label><fieldset class="display-settings"><legend>Display &amp; character</legend><label>Device preset<select id="display-profile"><option value="auto">Automatic · current window</option><option value="handheld">Handheld · ROG Ally</option><option value="desktop">Desktop / TV</option><option value="tablet">Tablet / small display</option></select></label><p class="hint" id="viewport-info"></p><label>Time size <output id="clockScale-value"></output><input id="clockScale" type="range" min="0.65" max="1.2" step="0.05"></label><label>Weather size <output id="weatherScale-value"></output><input id="weatherScale" type="range" min="0.65" max="1.2" step="0.05"></label><label>Fact size <output id="factScale-value"></output><input id="factScale" type="range" min="0.65" max="1.2" step="0.05"></label><label>Panel spacing <output id="gap-value"></output><input id="gap" type="range" min="4" max="24" step="1"></label><label>Character visits every <output id="companionInterval-value"></output><input id="companionInterval" type="range" min="30" max="300" step="15"></label><label>Character visit length <output id="companionDuration-value"></output><input id="companionDuration" type="range" min="4" max="20" step="1"></label><label class="check"><input id="companion" type="checkbox">Character in Candy Quest / Time Climber I &amp; II / Woodland / Green House 1</label><label>Scene camera<select id="camera-motion"><option value="gentle">Gentle scene motion</option><option value="still">Still camera</option></select></label><label>Woodland view<select id="woodland-view"><option value="immersive">Full landscape · river and camp</option><option value="dashboard">Dashboard · clock, weather and facts</option></select></label><button id="reset-display" type="button">Reset display sizes</button><p class="hint">If larger text needs more space, reduce another size or spacing. Saved settings apply to this browser only. Full-landscape Woodland keeps the camp and river active. Green House 1 always fills the screen with weather and a tiny community. Character visit controls apply to the dashboard scenes.</p></fieldset><p class="hint about-license">Our Desk Clock © 2026 ilamgumaran and contributors. Noncommercial use, sharing and modification permitted. Commercial use requires written permission; no warranty. <a href="https://github.com/ilamgumaran/simpli-home-tools/blob/add-little-orbit-clock/LICENSE" target="_blank" rel="noopener noreferrer">License</a> · <a href="https://github.com/ilamgumaran/simpli-home-tools/tree/main/tools/little-orbit" target="_blank" rel="noopener noreferrer">Source &amp; contribute</a></p><p class="hint">Panels glide each minute, swap every 10 minutes, and spotlight the fact every 5 minutes. Screen breaks run at :59; tap to wake. Clock uses this device’s timezone. Touch lock covers this page only. These measures cannot guarantee against display wear.</p><button class="primary" type="submit">Save & return to orbit</button></form></dialog>
 <div id="toast" role="status" hidden></div>
 <script>
 // SPDX-License-Identifier: LicenseRef-Simpli-Noncommercial-1.0
@@ -561,6 +573,9 @@ window.ORBIT_CONFIG = {
   moss:{name:'Moss',body:'drop',face:'cheerful',appearance:{...palette,jacket:'#b597a9',pack:'#718f70'},temperament:'Patient trail companion; celebrates small gains.'},
   sprout:{name:'Sprout',young:true,body:'drop',face:'cheerful',appearance:{...palette,jacket:'#c9bb75',pack:'#8ca89a',helmet:'#d19d79'},temperament:'Young trail learner; notices what adults hurry past.'},
   ridge:{name:'Ridge',body:'human',face:'cheerful',appearance:{...palette},temperament:'Comic, determined climber; takes recovery seriously.'}
+  ,aster:{name:'Aster',body:'human',face:'gentle',appearance:{...palette,jacket:'#779d87',trousers:'#675b55',pack:'#c59d70',helmet:'#d7b77b'},temperament:'Steady shelter keeper and patient parent.'}
+  ,sage:{name:'Sage',body:'human',face:'gentle',appearance:{...palette,jacket:'#9b8095',trousers:'#5b6870',pack:'#91a47b',helmet:'#d9ba86'},temperament:'Curious forager, cook, and gentle teacher.'}
+  ,pebble:{name:'Pebble',young:true,infant:true,body:'swaddled',face:'sleeping',appearance:{...palette,jacket:'#e6d6b8',trousers:'#d4bca1',pack:'#a6b8a0',helmet:'#e6d6b8'},temperament:'A newborn, always cared for by an adult.'}
  });
  // A catalog is available equipment, not a claim that one person carries all of it.
  const groups={
@@ -584,11 +599,14 @@ window.ORBIT_CONFIG = {
   farming:{name:'Grower',available:[...groups.farming,...groups.backpacking,...groups.food].map(row=>row[0]),carried:['trowel','seeds','backpack','bottle','fresh-produce','first-aid']},
   hunting:{name:'Forager / hunter',available:[...groups.hunting,...groups.backpacking,...groups.food].map(row=>row[0]),carried:['backpack','bottle','binoculars','fishing-kit','field-kit','food-bag','first-aid']},
   play:{name:'Playful helper',available:[],carried:[]}
+  ,caregiver:{name:'Camp caregiver',available:['backpack','bottle','oats','fresh-produce','harvest-basket','stove','pot','spoon','tarp','cord','first-aid','thermal-layer'],carried:['backpack','bottle','oats','fresh-produce','pot','spoon','first-aid']}
+  ,infant:{name:'Newborn in adult care',available:[],carried:[]}
  });
  const themes=freeze({orbit:null,candy:{character:'candy',role:'play'},climber:{character:'moss',role:'climbing'},climber2:{character:'ridge',role:'climbing'},woodland:{character:'moss',role:'trail'}});
  const anatomy=freeze({shoulders:[{x:-6,y:-10},{x:6,y:-10}],hips:[{x:-4,y:8},{x:4,y:8}],upperArm:12,forearm:11,thigh:12,shin:12,belayLoop:{x:0,y:9}});
  function create(id,{role='climbing',appearance={}}={}){
   if(!Object.hasOwn(identities,id)||!Object.hasOwn(roles,role))throw Error('Unknown character or role');
+  if(!!identities[id].infant!==(role==='infant'))throw Error('Infant identity and role must be used together');
   const colors={...identities[id].appearance};
   for(const key of Object.keys(appearance)){
    if(!(key in colors)||!/^#[0-9a-f]{6}$/i.test(appearance[key]))throw Error('Appearance expects a known color and six-digit hex value');
@@ -599,7 +617,7 @@ window.ORBIT_CONFIG = {
  function forTheme(theme){
   const binding=themes[theme];if(!binding)return null;
   const chosen=globalThis.ORBIT_CONFIG?.characters?.[theme]||binding.character;
-  return create(identities[chosen]?chosen:binding.character,{role:binding.role});
+  return create(identities[chosen]&&!identities[chosen].infant?chosen:binding.character,{role:binding.role});
  }
  // Two-link inverse kinematics: targets are clamped to anatomical reach.
  function joint(root,target,a,b,bend=1){
@@ -671,6 +689,13 @@ window.ORBIT_CONFIG = {
   }else if(action==='tent-peg'){
    kneel();hands[0]={x:-12,y:4};hands[1]={x:15,y:1-6*pulse};
    task={stance:'kneel',groundY:20,kind:'mallet',hand:1,tip:{x:20,y:20-6*pulse}};
+  }else if(action==='cradle-care'){
+   // Two reachable, quiet hand contacts support a horizontal swaddled infant;
+   // legs remain planted and only the breath beat moves the upper body subtly.
+   const cradleBreath=Math.sin(c*Math.PI*2)*.22;
+   hands[0]={x:-9,y:-7+cradleBreath};hands[1]={x:8,y:-4+cradleBreath};
+  }else if(action==='kneel'){
+   kneel();hands[0]={x:-12,y:2};hands[1]={x:12,y:2};
   }
 
   // Blend targets before IK, so transitions retain fixed bone lengths.
@@ -793,6 +818,7 @@ window.ORBIT_CONFIG = {
  }
  const path=points=>points.map((p,i)=>`${i?'L':'M'}${p.x.toFixed(3)} ${p.y.toFixed(3)}`).join(' ');
  function artwork(character){
+  if(character.infant)return infantArtwork(character);
   const c=character.appearance,climbing=character.inventory.includes('helmet')&&character.inventory.includes('harness'),has=id=>character.inventory.includes(id);
   const body=character.body==='drop'?'M0 -19C-3 -13 -10 -9 -9 -2Q-9 10 0 10Q10 10 10 -2C10 -9 3 -13 0 -19Z':'M-6 -13Q0 -16 6 -13L8 7Q0 11 -8 7Z';
   return `<g class="character-art" data-character="${character.id}" data-role="${character.role}" style="--character-skin:${c.skin};--character-ink:${c.ink}">
@@ -809,31 +835,42 @@ window.ORBIT_CONFIG = {
    </g><g data-part="glove-left" fill="${c.boots}"><circle r="2"/></g><g data-part="glove-right" fill="${c.boots}"><circle r="2"/></g><g data-part="held-bottle" display="none" fill="#82b9c1" stroke="${c.ink}" stroke-width=".8"><rect x="-2" y="-5" width="4" height="7" rx="1"/><path d="M-1 -7H1V-5H-1Z"/></g><g data-part="held-food" display="none" fill="${c.helmet}" stroke="${c.ink}" stroke-width=".8"><rect x="-3" y="-2" width="6" height="3" rx="1"/></g><g data-part="held-map" display="none" fill="#e3d6ac" stroke="${c.ink}" stroke-width=".7"><path d="M-7 -5L0 -7L7 -5V5L0 3L-7 5Z"/><path d="M0 -7V3" fill="none"/></g><g data-part="held-spoon" display="none" fill="${c.metal}" stroke="${c.ink}" stroke-width=".5"><path d="M0 0H11"/><ellipse cx="14" cy="0" rx="3" ry="1.6"/></g><g data-part="held-gear" display="none" fill="none" stroke="${c.metal}" stroke-width="1"><path d="M-2 -3Q3 -5 3 0Q2 4 -2 2Z"/></g></g><g data-layer="footwear" stroke="${c.boots}" stroke-width="3.8" stroke-linecap="round"><path data-part="boot-left"/><path data-part="boot-right"/></g>
   </g>`;
  }
- function mount(host,character){host.innerHTML=artwork(character);host._deskCharacter=character;update(host,{action:'camp'});return host;}
+ const infantSupportPoints=freeze({head:{x:-9,y:-7},body:{x:8,y:-4}});
+ function infantArtwork(character=create('pebble',{role:'infant'})){const c=character.appearance;return `<g data-infant-art="pebble" aria-label="Swaddled infant"><path d="M-10 -2Q-8 -6 -3 -5L5 -4Q10 -3 10 1L8 4H-7Q-11 2 -10 -2Z" fill="${c.jacket}" stroke="${c.ink}" stroke-width="1.1"/><path d="M-8 -3Q-11 -8 -7 -10Q-2 -12 0 -7L-1 -3Z" fill="${c.skin}" stroke="${c.ink}" stroke-width="1"/><path d="M-1 -4L2 1M3 -4L6 1" fill="none" stroke="${c.highlight}" stroke-width=".8"/></g>`;}
+ function mount(host,character){host.innerHTML=artwork(character);host._deskCharacter=character;if(!character.infant)update(host,{action:'camp'});return host;}
+ // Mounted art is stable until remount; cache its rig nodes and avoid
+ // rewriting unchanged attributes on every animation frame.
+ const rigNodes=new WeakMap();
+ function write(node,name,value){const next=String(value);if(node.getAttribute(name)!==next)node.setAttribute(name,next);}
  function update(host,{action='camp',cycle=0,from=null,fromCycle=cycle,blend=1,fatigue=0,assisted=false,item=null,ropeAnchor={x:0,y:-40},rig=null,organic=0,phase=cycle}={}){
+  if(host._deskCharacter?.infant)return;
   const root=host.querySelector('.character-art');if(!root)return;
-  const character=host._deskCharacter,p=rig||pose(action,cycle,{from,fromCycle,blend}),part=name=>root.querySelector(`[data-part="${name}"]`);
+  let nodes=rigNodes.get(root);
+  if(!nodes){nodes={parts:Object.fromEntries([...root.querySelectorAll('[data-part]')].map(node=>[node.dataset.part,node])),layers:Object.fromEntries([...root.querySelectorAll('[data-layer]')].map(node=>[node.dataset.layer,node]))};rigNodes.set(root,nodes);}
+  const character=host._deskCharacter,p=rig||pose(action,cycle,{from,fromCycle,blend}),part=name=>nodes.parts[name];
   // Breathing and carried weight move only the body/accessories, never contacts.
   const amount=clamp(organic),breath=Math.sin(phase*2.1)*amount,lean=Math.sin(phase*1.6)*amount;
-  root.querySelector('[data-layer="body"]').setAttribute('transform',`translate(0 ${breath*.22}) rotate(${lean*1.2} 0 8)`);
-  for(const layer of ['face','headwear'])root.querySelector(`[data-layer="${layer}"]`).setAttribute('transform',`translate(${lean*.28} ${breath*.22})`);
-  root.querySelector('[data-layer="equipment-back"]').setAttribute('transform',`rotate(${-lean*.8} 7 -4)`);
-  ['left','right'].forEach((side,i)=>{part('arm-'+side).setAttribute('d',path(p.arms[i]));part('leg-'+side).setAttribute('d',path(p.legs[i]));const foot=p.legs[i][2];part('boot-'+side).setAttribute('d',path([foot,{x:foot.x+(i?4:-4),y:foot.y}]));});
-  ['left','right'].forEach((side,i)=>{const hand=p.arms[i][2];part('glove-'+side).setAttribute('transform',`translate(${hand.x} ${hand.y})`);part('glove-'+side).setAttribute('display',(character.inventory.includes('gloves')||character.inventory.includes('work-gloves'))?'':'none');});
-  for(const [name,kind,inventory] of [['held-bottle','water','bottle'],['held-food','food','energy-bar'],['held-gear','gear','locking-carabiner']]){const hand=p.arms[0][2];part(name).setAttribute('transform',`translate(${hand.x} ${hand.y})`);part(name).setAttribute('display',['collect','camp','water','cook'].includes(action)&&item===kind&&(character.inventory.includes(inventory)||(kind==='food'&&character.inventory.some(id=>['rice','beans','trail-mix'].includes(id))))?'':'none');}
-  for(const [name,index,show] of [['held-map',0,['teach','read-map'].includes(action)&&character.inventory.includes('map')],['held-spoon',1,action==='cook'&&character.inventory.includes('spoon')]]){const hand=p.arms[index][2];part(name).setAttribute('transform',`translate(${hand.x} ${hand.y})`);part(name).setAttribute('display',show?'':'none');}
-  if(action==='cook'&&p.toolTarget){const grip=toolGrip(p.arms[1][2],p.toolTarget);part('held-spoon').setAttribute('transform',`translate(${grip.x} ${grip.y}) rotate(${grip.angle})`);}
-  root.dataset.action=action;root.dataset.fatigue=clamp(fatigue).toFixed(3);root.dataset.support=String(Object.values(p.contacts).filter(Boolean).length);
-  part('sweat').setAttribute('display',fatigue>.55&&!p.resting?'':'none');
-  part('eyes').setAttribute('d',action==='sleep'?'M-4 -23H-1M1 -23H4':'M-3 -24V-22M3 -24V-22');
-  part('mouth').setAttribute('d',fatigue>.55&&!p.resting?'M-2 -19Q0 -22 2 -19Q0 -17 -2 -19':'M-3 -19Q0 -16 3 -19');
+  write(nodes.layers['body'],'transform',`translate(0 ${breath*.22}) rotate(${lean*1.2} 0 8)`);
+  for(const layer of ['face','headwear'])write(nodes.layers[layer],'transform',`translate(${lean*.28} ${breath*.22})`);
+  write(nodes.layers['equipment-back'],'transform',`rotate(${-lean*.8} 7 -4)`);
+  ['left','right'].forEach((side,i)=>{write(part('arm-'+side),'d',path(p.arms[i]));write(part('leg-'+side),'d',path(p.legs[i]));const foot=p.legs[i][2];write(part('boot-'+side),'d',path([foot,{x:foot.x+(i?4:-4),y:foot.y}]));});
+  ['left','right'].forEach((side,i)=>{const hand=p.arms[i][2];write(part('glove-'+side),'transform',`translate(${hand.x} ${hand.y})`);write(part('glove-'+side),'display',(character.inventory.includes('gloves')||character.inventory.includes('work-gloves'))?'':'none');});
+  for(const [name,kind,inventory] of [['held-bottle','water','bottle'],['held-food','food','energy-bar'],['held-gear','gear','locking-carabiner']]){const hand=p.arms[0][2];write(part(name),'transform',`translate(${hand.x} ${hand.y})`);write(part(name),'display',['collect','camp','water','cook'].includes(action)&&item===kind&&(character.inventory.includes(inventory)||(kind==='food'&&character.inventory.some(id=>['rice','beans','trail-mix'].includes(id))))?'':'none');}
+  for(const [name,index,show] of [['held-map',0,['teach','read-map'].includes(action)&&character.inventory.includes('map')],['held-spoon',1,['cook','stir-pot'].includes(action)&&character.inventory.includes('spoon')]]){const hand=p.arms[index][2];write(part(name),'transform',`translate(${hand.x} ${hand.y})`);write(part(name),'display',show?'':'none');}
+  if(['cook','stir-pot'].includes(action)&&p.toolTarget){const grip=toolGrip(p.arms[1][2],p.toolTarget);write(part('held-spoon'),'transform',`translate(${grip.x} ${grip.y}) rotate(${grip.angle})`);}
+  else if(action==='stir-pot'&&character.inventory.includes('spoon')){const hand=p.arms[1][2],grip=toolGrip(hand,{x:hand.x,y:9});write(part('held-spoon'),'transform',`translate(${grip.x} ${grip.y}) rotate(${grip.angle})`);}
+  write(root,'data-action',action);write(root,'data-fatigue',clamp(fatigue).toFixed(3));write(root,'data-support',Object.values(p.contacts).filter(Boolean).length);
+  if(action==='cradle-care'){write(root,'data-infant-support','both-hands');write(root,'data-infant-head-support','left-hand');}else{if(root.hasAttribute('data-infant-support'))root.removeAttribute('data-infant-support');if(root.hasAttribute('data-infant-head-support'))root.removeAttribute('data-infant-head-support');}
+  write(part('sweat'),'display',fatigue>.55&&!p.resting?'':'none');
+  write(part('eyes'),'d',action==='sleep'?'M-4 -23H-1M1 -23H4':'M-3 -24V-22M3 -24V-22');
+  write(part('mouth'),'d',fatigue>.55&&!p.resting?'M-2 -19Q0 -22 2 -19Q0 -17 -2 -19':'M-3 -19Q0 -16 3 -19');
   const aid=action==='assist'&&assisted&&character.inventory.includes('ascender')&&character.inventory.includes('static-rope');
   const loop=anatomy.belayLoop,dx=ropeAnchor.x-loop.x,dy=ropeAnchor.y-loop.y,d=Math.hypot(dx,dy)||1,device={x:loop.x+dx/d*19-dy/d*3,y:loop.y+dy/d*19+dx/d*3};
-  part('ascender').setAttribute('transform',`translate(${device.x} ${device.y})`);
-  part('fixed-line').setAttribute('d',path([{x:ropeAnchor.x-dy/d*3,y:ropeAnchor.y+dx/d*3},{x:loop.x-dx/d*20-dy/d*3,y:loop.y-dy/d*20+dx/d*3}]));
-  part('aid-tether').setAttribute('d',path([device,loop]));part('aid-foot-loop').setAttribute('d',path([device,p.legs[0][2]]));
-  for(const name of ['ascender','aid-tether','aid-foot-loop','fixed-line'])part(name).setAttribute('display',aid?'':'none');
-  root.dataset.ropeSystem=aid?'protected-fixed-line':'dynamic-protection';
+  write(part('ascender'),'transform',`translate(${device.x} ${device.y})`);
+  write(part('fixed-line'),'d',path([{x:ropeAnchor.x-dy/d*3,y:ropeAnchor.y+dx/d*3},{x:loop.x-dx/d*20-dy/d*3,y:loop.y-dy/d*20+dx/d*3}]));
+  write(part('aid-tether'),'d',path([device,loop]));write(part('aid-foot-loop'),'d',path([device,p.legs[0][2]]));
+  for(const name of ['ascender','aid-tether','aid-foot-loop','fixed-line'])write(part(name),'display',aid?'':'none');
+  write(root,'data-rope-system',aid?'protected-fixed-line':'dynamic-protection');
   return p;
  }
  function attachment(character){if(!character.inventory.includes('harness'))throw Error('Rope-bearing roles require a harness');return {...anatomy.belayLoop};}
@@ -848,7 +885,7 @@ window.ORBIT_CONFIG = {
   <g class="candy-broom" stroke="${c.harness}" stroke-width="3" fill="${c.pack}"><path d="M65 29L53 63"/><path d="M48 59L59 63L60 73L43 68Z"/></g>
  </svg>`;}
  function mountCandy(host){const character=forTheme('candy');host.innerHTML=character.id==='candy'?candyArt(character):`<svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg"><g transform="translate(40 38) scale(.75)">${artwork(character)}</g></svg>`;host.dataset.character=character.id;host.dataset.role=character.role;if(character.id!=='candy'){host._deskCharacter=character;update(host,{action:'walk'});}}
- globalThis.DeskCharacters=freeze({identities,items,roles,themes,anatomy,create,forTheme,joint,pose,ascent,climbContacts,walkContacts,workContacts,toolGrip,artwork,mount,update,attachment,mountCandy});
+ globalThis.DeskCharacters=freeze({identities,items,roles,themes,anatomy,infantSupportPoints,create,forTheme,joint,pose,ascent,climbContacts,walkContacts,workContacts,toolGrip,artwork,infantArtwork,mount,update,attachment,mountCandy});
 })();
 
 </script>
@@ -888,6 +925,7 @@ window.ORBIT_CONFIG = {
    {name:'Lakeside Clearing',sky:'#e6e8ce',hill:'#b3b995',forest:'#587363',ground:'#879b72',water:'#94bec4',resource:'reeds'},
    {name:'Old Orchard',sky:'#eee3c5',hill:'#babc8c',forest:'#64704c',ground:'#a0a176',water:'#9fb6a0',resource:'fruit'},
    {name:'Return Glade',sky:'#e6d9cf',hill:'#b5ab96',forest:'#64665a',ground:'#969379',water:'#9bb0af',resource:'shared camp'}]},
+  greenhouse1:{status:'implemented',numeralMaterial:'Leaves and stepping stones in a weather-responsive habitat'},
   industrial:{status:'planned',numeralMaterial:'Steel rails, linked gears and counterweights'},
   weaving:{status:'planned',numeralMaterial:'Continuous woven threads in a large cloth'},
   farming:{status:'planned',numeralMaterial:'Crop rows, irrigation beds and orchard paths'},
@@ -926,8 +964,9 @@ window.ORBIT_CONFIG = {
   {id:'urgency',name:'A summit postponed',cast:['ridge'],morning:'Ridge keeps inventing another deadline.',consequence:'Ridge rushes past a broken crossing; the return becomes harder.',repair:'Ridge mends the crossing before settling for the night.',realization:'Ridge notices the sunset that hurry nearly hid.',evening:'The unfinished path will still be there tomorrow.'},
   {id:'reciprocity',name:'The lesson returns',cast:['moss','sprout'],morning:'A younger traveler brings a new way of seeing.',realization:'Moss listens. Teaching can flow both ways.',evening:'Tomorrow, another traveler begins.'}
  ]);
- const recipes=freeze(Object.fromEntries(Object.keys(landscapes).map(id=>[id,{id,landscape:id,status:landscapes[id].status,characters:id==='ants'?[]:['moss','ridge','sprout'],castKinds:id==='ants'?['worker','nurse','forager','larva','queen']:['lead','partner','learner'],storyCycle:stories.map(s=>s.id),philosophy:Object.keys(philosophies)}])));
+ const recipes=freeze(Object.fromEntries(Object.keys(landscapes).map(id=>[id,{id,landscape:id,status:landscapes[id].status,characters:id==='ants'?[]:id==='greenhouse1'?['aster','sage','pebble','sprout']:['moss','ridge','sprout'],castKinds:id==='ants'?['worker','nurse','forager','larva','queen']:id==='greenhouse1'?['caregiver','camp-worker','infant','child']:['lead','partner','learner'],storyCycle:id==='greenhouse1'?['shelter','forage','cook','teach','care','remember','rest']:stories.map(s=>s.id),philosophy:Object.keys(philosophies)}])));
  const itinerary=freeze(Object.keys(actions));
+ const daylightHours=freeze({dawn:7,dusk:19});
  function clock(date=new Date(),{format24=false}={}){
   if(!(date instanceof Date)||!Number.isFinite(date.getTime()))throw Error('A valid local date is required');
   const hour=date.getHours(),time=`${String(format24?hour:hour%12||12).padStart(2,'0')}:${String(date.getMinutes()).padStart(2,'0')}`;
@@ -941,8 +980,8 @@ window.ORBIT_CONFIG = {
   const actionId=reflection?['rest','water','cook','teach'][minute%4]:itinerary[minute%itinerary.length];
   const action=actions[actionId],reading=clock(date,{format24});
   const place=landscapes.woodland.places[hour%8];
-  return {...reading,hour,minute,second,day,place,story,actionId,action,reflection,
-   terrainKey:`${day}:${hour}`,minuteKey:`${day}:${hour}:${minute}`,daylight:hour>=7&&hour<19,
+  return {...reading,hour,minute,second,day,place,story,actionId,action,reflection,daylightHours,
+   terrainKey:`${day}:${hour}`,minuteKey:`${day}:${hour}:${minute}`,daylight:hour>=daylightHours.dawn&&hour<daylightHours.dusk,
    storyPhase:hour<6?'sleep':hour<12?'intention':hour<18?'consequence':reflection?'realization':'care',
    caption:hour<6?'The camp rests. Tomorrow can wait.':reflection?story.realization:hour>=19?(story.repair||story.evening):hour>=12?(story.consequence||story.morning):story.morning,
    philosophy:reflection?philosophies.presence:philosophies[action.meaning]};
@@ -1013,7 +1052,7 @@ window.ORBIT_CONFIG = {
   if(model.hour<6){action='sleep';position.x=siteAt(model).x;position.y=300;}
   return {position,action,cycle,from,fromCycle,blend,moving,travel,elapsed,settling:from!==null&&blend<1};
  }
- globalThis.DeskWorlds=freeze({numerals,routes,landscapes,actions,philosophies,stories,recipes,itinerary,clock,woodland,performance,motionTiming,travelProgress,worksite,blocking});
+ globalThis.DeskWorlds=freeze({numerals,routes,landscapes,actions,philosophies,stories,recipes,itinerary,daylightHours,clock,woodland,performance,motionTiming,travelProgress,worksite,blocking});
 })();
 
 // Full-scene authored choreography is a separate composition API. It samples
@@ -1113,6 +1152,49 @@ window.ORBIT_CONFIG = {
 // SPDX-License-Identifier: LicenseRef-Simpli-Noncommercial-1.0
 // Copyright (C) 2026 ilamgumaran and contributors
 'use strict';
+(() => {
+ const validCodes=new Set([0,1,2,3,45,48,51,53,55,56,57,61,63,65,66,67,71,73,75,77,80,81,82,85,86,95,96,99]);
+ const units=Object.freeze({fahrenheit:{symbol:'°F',toC:n=>(n-32)*5/9},celsius:{symbol:'°C',toC:n=>n}});
+ function describe(code){
+  if(code===0)return ['clear','none'];
+  if(code===1||code===2)return ['partly-cloudy','none'];
+  if(code===3)return ['cloudy','none'];
+  if(code===45||code===48)return ['fog','none'];
+  if([51,53,55,56,57].includes(code))return ['drizzle','rain'];
+  if([61,63,65,66,67,80,81,82].includes(code))return ['rain','rain'];
+  if([71,73,75,77,85,86].includes(code))return ['snow','snow'];
+  if([95,96,99].includes(code))return ['storm','rain'];
+  return ['unknown','none'];
+ }
+ function publish(input={}){
+  const validUnit=Object.hasOwn(units,input.unit),unit=validUnit?input.unit:'celsius',value=input.current?.temperature_2m;
+  const temperature=validUnit&&Number.isFinite(value)?value:null,code=Number.isInteger(input.current?.weather_code)&&validCodes.has(input.current.weather_code)?input.current.weather_code:null;
+  const [kind,precipitation]=describe(code),place=Object.freeze({name:typeof input.place?.name==='string'?input.place.name:'',latitude:Number.isFinite(input.place?.latitude)?input.place.latitude:null,longitude:Number.isFinite(input.place?.longitude)?input.place.longitude:null});
+  const at=Number.isFinite(input.at)?input.at:null;
+  state=Object.freeze({revision:state.revision+1,status:['live','cached','loading','unavailable'].includes(input.status)?input.status:'unavailable',available:temperature!==null,temperature,temperatureC:temperature===null?null:units[unit].toC(temperature),unit,unitSymbol:units[unit].symbol,label:temperature===null?`— ${units[unit].symbol}`:`${Math.round(temperature)} ${units[unit].symbol}`,code,kind,precipitation,at,place});
+  window.dispatchEvent(new Event('desk-weather-change'));return state;
+ }
+ let state=Object.freeze({revision:0,status:'unavailable',available:false,temperature:null,temperatureC:null,unit:'celsius',unitSymbol:'°C',label:'— °C',code:null,kind:'unknown',precipitation:'none',at:null,place:Object.freeze({name:'',latitude:null,longitude:null})});
+ function appearance(snapshot=state,{night=false}={}){
+  const c=snapshot?.available&&Number.isFinite(snapshot.temperatureC)?snapshot.temperatureC:null;
+  const known=!!snapshot?.available&&c!==null,precipitation=['rain','snow'].includes(snapshot?.precipitation)?snapshot.precipitation:'none';
+  const warmth=known?Math.max(0,Math.min(1,(c+10)/45)):0;
+  const cloud={clear:0,'partly-cloudy':.24,cloudy:.68,fog:.82,drizzle:.45,rain:.7,snow:.58,storm:.88,unknown:0}[snapshot?.kind]??0;
+  const active=known&&snapshot?.kind!=='unknown',clear=active&&snapshot.kind==='clear',partly=active&&snapshot.kind==='partly-cloudy';
+  const sunOpacity=(clear||partly)&&!night?Math.max(0,Math.min(1,(.22+warmth*.58)*(clear?1:.6))):0;
+  const rainIntensity=known&&precipitation==='rain'?Math.max(.12,Math.min(1,({drizzle:.22,rain:.62,storm:.9}[snapshot.kind]??.4))):0;
+  const neutral=active&&['partly-cloudy','cloudy','fog','drizzle','rain','snow','storm'].includes(snapshot.kind);
+  const tintOpacity=active&&!neutral?Math.min(.18,Math.max(0,warmth>.58?(.18*warmth):(.16*(1-warmth)))):0;
+  return Object.freeze({warmth,tintColor:warmth>.58?'#f5a64b':'#8fc8e8',tintOpacity,cloudOpacity:active?cloud:0,sunOpacity,precipitation:known?precipitation:'none',rainIntensity,dialFill:known?Math.max(0,Math.min(1,(c+20)/70)):0});
+ }
+ window.DeskHabitatWeather=Object.freeze({publish,get:()=>state,appearance});
+})();
+
+</script>
+<script>
+// SPDX-License-Identifier: LicenseRef-Simpli-Noncommercial-1.0
+// Copyright (C) 2026 ilamgumaran and contributors
+'use strict';
 DeskCharacters.mountCandy(document.getElementById('candy-pal'));
 const $ = id => document.getElementById(id);
 const defaultDisplay={profile:'auto',clockScale:1,weatherScale:1,factScale:1,gap:8,companionInterval:60,companionDuration:12,companion:true,cameraMotion:'gentle',woodlandView:'immersive'};
@@ -1195,7 +1277,7 @@ function shift(){
  const offsets=[[-10,-6],[0,8],[10,-4],[-6,8],[8,2],[0,-8]];
  stopCandy();if(prefs.theme==='candy')candyTimer=setTimeout(candyAdventure,9000);
  const [x,y]=offsets[step%offsets.length];
- const drift=['climber2','woodland'].includes(prefs.theme)&&innerWidth<600?.5:1;
+ const drift=['climber2','woodland','greenhouse1'].includes(prefs.theme)&&innerWidth<600?.5:1;
  $('display').style.transform=prefs.care?`translate(${x*drift}px,${y*drift}px)`:'none';
  $('display').dataset.layout=prefs.care?String(Math.floor(step/10)%4):'0';
  document.body.classList.toggle('fact-focus',prefs.care&&Math.floor(step/5)%2===1);
@@ -1211,21 +1293,25 @@ function updateMode(){lastShift=-1;tick();scheduleClock();scheduleWeather();}
 function skipRest(){restSkippedHour=Math.floor(Date.now()/3600000);tick();}
 $('rest-overlay').onclick=skipRest;
 document.addEventListener('pointerdown',()=>{if(document.body.classList.contains('screen-rest'))skipRest();});
-function condition(code){if(code===0)return ['☀','Clear skies'];if(code<=2)return ['☀','Partly cloudy'];if(code===3)return ['☁','Cloudy'];if([45,48].includes(code))return ['≋','Foggy'];if(code>=51&&code<=57)return ['☂','Drizzle'];if(code>=61&&code<=67)return ['☂','Rain'];if(code>=71&&code<=77)return ['❄','Snow'];if(code>=80&&code<=82)return ['☂','Rain showers'];if([85,86].includes(code))return ['❄','Snow showers'];if(code>=95)return ['ϟ','Thunderstorms'];return ['☁','Weather'];}
-function renderWeather(stale=false){if(!weather)return;const c=weather.data.current,d=weather.data.daily;const [icon,description]=condition(c.weather_code);$('temperature').textContent=`${Math.round(c.temperature_2m)}°`;$('feels').textContent=`${Math.round(c.apparent_temperature)}°${prefs.unit==='fahrenheit'?'F':'C'}`;$('range').textContent=`${Math.round(d.temperature_2m_max[0])}° / ${Math.round(d.temperature_2m_min[0])}°`;$('weather-icon').textContent=icon;$('condition').textContent=description;$('weather-status').textContent=`${stale?'Offline · last update':'Updated'} ${new Date(weather.at).toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit'})} · ${prefs.unit==='fahrenheit'?'°F':'°C'}${stale?' · weather may be old':''}`;}
-function cacheKey(){return `orbit-weather:${prefs.place.latitude}:${prefs.place.longitude}:${prefs.unit}`;}
+const validWeatherCodes=new Set([0,1,2,3,45,48,51,53,55,56,57,61,63,65,66,67,71,73,75,77,80,81,82,85,86,95,96,99]);
+function condition(code){if(!Number.isInteger(code)||!validWeatherCodes.has(code))return ['☁','Weather'];if(code===0)return ['☀','Clear skies'];if(code<=2)return ['☀','Partly cloudy'];if(code===3)return ['☁','Cloudy'];if([45,48].includes(code))return ['≋','Foggy'];if(code>=51&&code<=57)return ['☂','Drizzle'];if(code>=61&&code<=67)return ['☂','Rain'];if(code>=71&&code<=77)return ['❄','Snow'];if(code>=80&&code<=82)return ['☂','Rain showers'];if([85,86].includes(code))return ['❄','Snow showers'];if(code>=95)return ['ϟ','Thunderstorms'];return ['☁','Weather'];}
+function usableWeather(data){return Number.isFinite(data?.current?.temperature_2m)&&Array.isArray(data?.daily?.temperature_2m_max)&&Number.isFinite(data.daily.temperature_2m_max[0])&&Array.isArray(data?.daily?.temperature_2m_min)&&Number.isFinite(data.daily.temperature_2m_min[0]);}
+function renderWeather(stale=false){if(!weather)return;const c=weather.data.current,d=weather.data.daily,unit=weather.unit||prefs.unit;const [icon,description]=condition(c.weather_code);$('temperature').textContent=`${Math.round(c.temperature_2m)}°`;$('feels').textContent=Number.isFinite(c.apparent_temperature)?`${Math.round(c.apparent_temperature)}°${unit==='fahrenheit'?'F':'C'}`:'—';$('range').textContent=`${Math.round(d.temperature_2m_max[0])}° / ${Math.round(d.temperature_2m_min[0])}°`;$('weather-icon').textContent=icon;$('condition').textContent=description;$('weather-status').textContent=`${stale?'Offline · last update':'Updated'} ${new Date(weather.at).toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit'})} · ${unit==='fahrenheit'?'°F':'°C'}${stale?' · weather may be old':''}`;}
+function cacheKey(place=prefs.place,unit=prefs.unit){return `orbit-weather:${place.latitude}:${place.longitude}:${unit}`;}
+function publishWeather(status,unit=prefs.unit,place=prefs.place){const current=weather?.data?.current;window.DeskHabitatWeather.publish({current:{temperature_2m:current?.temperature_2m,weather_code:current?.weather_code},unit,at:weather?.at??null,place,status});}
 async function refreshWeather(){
- const id=++requestId,key=cacheKey();$('location').textContent=prefs.place.name.toUpperCase();weather=read(key,null);
- if(weather?.data?.current&&weather?.data?.daily)renderWeather(true);else {weather=null;$('temperature').textContent='—°';$('feels').textContent='—';$('range').textContent='— / —';$('condition').textContent='Checking the skies…';$('weather-status').textContent='Connecting to Open-Meteo';}
- try{const query=new URLSearchParams({latitude:prefs.place.latitude,longitude:prefs.place.longitude,current:'temperature_2m,apparent_temperature,weather_code',daily:'temperature_2m_max,temperature_2m_min',temperature_unit:prefs.unit,timezone:'auto',forecast_days:'1'});const res=await fetchWithTimeout(`https://api.open-meteo.com/v1/forecast?${query}`,12000);if(!res.ok)throw Error('Weather unavailable');const data=await res.json();if(id!==requestId)return;if(!Number.isFinite(data.current?.temperature_2m)||!data.daily?.temperature_2m_max?.length)throw Error('Invalid weather response');weather={data,at:Date.now()};write(key,weather);renderWeather();}
- catch(error){if(id!==requestId)return;if(weather)renderWeather(true);else{$('condition').textContent='Weather is taking a break';$('weather-status').textContent=`No connection · automatic retry in ${prefs.lowPower?30:15} minutes`;}}
+ const id=++requestId,unit=prefs.unit,place={...prefs.place},key=cacheKey(place,unit);$('location').textContent=place.name.toUpperCase();const cached=read(key,null);
+ weather=usableWeather(cached?.data)?{...cached,unit,place}:null;
+ if(weather){renderWeather(true);publishWeather('cached',unit,place);}else {publishWeather('loading',unit,place);$('temperature').textContent='—°';$('feels').textContent='—';$('range').textContent='— / —';$('condition').textContent='Checking the skies…';$('weather-status').textContent='Connecting to Open-Meteo';}
+ try{const query=new URLSearchParams({latitude:place.latitude,longitude:place.longitude,current:'temperature_2m,apparent_temperature,weather_code',daily:'temperature_2m_max,temperature_2m_min',temperature_unit:unit,timezone:'auto',forecast_days:'1'});const res=await fetchWithTimeout(`https://api.open-meteo.com/v1/forecast?${query}`,12000);if(!res.ok)throw Error('Weather unavailable');const data=await res.json();if(id!==requestId)return;if(!usableWeather(data))throw Error('Invalid weather response');weather={data,at:Date.now(),unit,place};write(key,{data,at:weather.at});renderWeather();publishWeather('live',unit,place);}
+ catch(error){if(id!==requestId)return;if(weather){renderWeather(true);publishWeather('cached',unit,place);}else{$('condition').textContent='Weather is taking a break';$('weather-status').textContent=`No connection · automatic retry in ${prefs.lowPower?30:15} minutes`;publishWeather('unavailable',unit,place);}}
 }
 async function keepAwake(){if(typeof navigator.wakeLock?.request!=='function'){$('wake-status').textContent='USE DEVICE SLEEP SETTINGS';return;}try{if(wakeLock||document.visibilityState!=='visible')return;wakeLock=await navigator.wakeLock.request('screen');$('wake-status').textContent='DISPLAY AWAKE';wakeLock.addEventListener('release',()=>{wakeLock=null;$('wake-status').textContent='KEEP AWAKE PAUSED';});}catch{$('wake-status').textContent='USE DEVICE SLEEP SETTINGS';}}
 $('settings-button').onclick=()=>{if(locked)return;$('unit').value=prefs.unit;$('format24').checked=prefs.format24;$('care').checked=prefs.care;$('night').checked=prefs.night;$('lowPower').checked=prefs.lowPower;$('rest').checked=prefs.rest;$('city').value=prefs.place.name;$('settings-status').textContent='Choose a result to update the weather location.';$('city-results').replaceChildren();$('settings').showModal();tick();};
 $('close-settings').onclick=()=>$('settings').close();
-$('settings-form').onsubmit=e=>{e.preventDefault();prefs.unit=$('unit').value;prefs.format24=$('format24').checked;prefs.care=$('care').checked;prefs.night=$('night').checked;prefs.lowPower=$('lowPower').checked;prefs.rest=$('rest').checked;write('orbit-settings',prefs);$('settings').close();updateMode();refreshWeather();};
+$('settings-form').onsubmit=e=>{e.preventDefault();const unitChanged=prefs.unit!==$('unit').value;prefs.unit=$('unit').value;prefs.format24=$('format24').checked;prefs.care=$('care').checked;prefs.night=$('night').checked;prefs.lowPower=$('lowPower').checked;prefs.rest=$('rest').checked;if(unitChanged){weather=null;publishWeather('loading',prefs.unit,prefs.place);}write('orbit-settings',prefs);$('settings').close();updateMode();refreshWeather();};
 $('power-button').onclick=()=>{if(locked)return;prefs.lowPower=!prefs.lowPower;write('orbit-settings',prefs);updateMode();toast(prefs.lowPower?'Low power on · minute updates · weather every 30 minutes':'Low power off · seconds restored');};
-function setPlace(place){prefs.place=place;write('orbit-settings',prefs);$('city').value=place.name;$('city-results').replaceChildren();$('settings-status').textContent=`Weather location set to ${place.name}.`;refreshWeather();}
+function setPlace(place){prefs.place=place;weather=null;publishWeather('loading',prefs.unit,prefs.place);write('orbit-settings',prefs);$('city').value=place.name;$('city-results').replaceChildren();$('settings-status').textContent=`Weather location set to ${place.name}.`;refreshWeather();}
 let searchSequence=0;
 $('search-city').onclick=async()=>{const query=$('city').value.trim(),seq=++searchSequence;if(query.length<2){$('settings-status').textContent='Enter a city name or ZIP.';return;}$('settings-status').textContent='Searching…';$('city-results').replaceChildren();if(query==='30064'){setPlace(defaults.place);return;}try{const response=await fetchWithTimeout(`https://geocoding-api.open-meteo.com/v1/search?${new URLSearchParams({name:query,count:5,language:'en',format:'json'})}`,10000);if(!response.ok)throw Error();const data=await response.json();if(seq!==searchSequence)return;if(!data.results?.length){$('settings-status').textContent='No matches. Try a nearby city name.';return;}$('settings-status').textContent='Tap your city:';for(const result of data.results){const button=document.createElement('button');button.type='button';const name=[result.name,result.admin1,result.country].filter(Boolean).join(', ');button.textContent=name;button.onclick=()=>setPlace({name,latitude:result.latitude,longitude:result.longitude});$('city-results').append(button);}}catch{if(seq===searchSequence)$('settings-status').textContent='Search unavailable. Check your internet connection and try again.';}};
 $('city').addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();$('search-city').click();}});
@@ -1247,7 +1333,7 @@ document.addEventListener('visibilitychange',()=>{cancelHold();scheduleClock();i
 
 
 // Add future themes here; the Theme button cycles this registry.
-const themes=[{id:'orbit',name:'Orbit',label:'Original Orbit'},{id:'candy',name:'Candy',label:'Candy Quest'},{id:'climber',name:'Climber',label:'Time Climber'},{id:'climber2',name:'Climber II',label:'Time Climber II'},{id:'woodland',name:'Woodland',label:'Woodland of Time'}];
+const themes=[{id:'orbit',name:'Orbit',label:'Original Orbit'},{id:'candy',name:'Candy',label:'Candy Quest'},{id:'climber',name:'Climber',label:'Time Climber'},{id:'climber2',name:'Climber II',label:'Time Climber II'},{id:'woodland',name:'Woodland',label:'Woodland of Time'},{id:'greenhouse1',name:'Green House 1',label:'Green House 1'}];
 let candyTimer=null,candyAnimation=null,candyTrip=0,candyNextVisit=0;
 const candyMotion=typeof matchMedia==='function'?matchMedia('(prefers-reduced-motion: reduce)'):null;
 function stopCandy(){clearTimeout(candyTimer);candyTimer=null;candyAnimation?.cancel();candyAnimation=null;$('candy-stage').hidden=true;}
@@ -1691,12 +1777,14 @@ applyDisplay();
  function landscape(model={}){
   const place=model.place||{},hour=Number.isFinite(model.hour)?model.hour:12,night=model.daylight===false,dusk=!night&&(hour===6||hour>=17),variant=mod(hour,8);
   const forest=color(place.forest,'#42694f'),hill=color(place.hill,'#a2b38e'),ground=color(place.ground,'#8ca174');
+  const weather=model.weatherAppearance||{},warmth=Math.max(0,Math.min(1,Number.isFinite(weather.warmth)?weather.warmth:.5)),cold=warmth<.45;
+  const precipitation=model.weather?.available?model.weather?.precipitation||'none':'none';
   const sky=night?'w-art-night':dusk?'w-art-dusk':'w-art-sky';
   const backdrop=`<rect x="-24" y="-24" width="848" height="408" fill="url(#${sky})"/>
-   <circle cx="707" cy="49" r="61" fill="url(#w-art-sun)" opacity="${night?.25:.75}"/><circle cx="707" cy="49" r="${night?15:20}" fill="${night?'#e4e6c4':'#f8e5b2'}"/>
+   <circle data-weather-sunhalo cx="680" cy="88" r="61" fill="url(#w-art-sun)" opacity="${night?.25:weather.sunOpacity??(.48+warmth*.36)}"/><circle data-weather-sun cx="680" cy="88" r="${night?15:20}" fill="${night?'#e4e6c4':warmth>.55?'#fff0c1':'#d8e4e3'}" opacity="${night?1:weather.sunOpacity??1}"/>
    ${night?'<path d="M69 31h1m115 12h1m269 -16h1m89 18h1m95 -8h1m113 -24h1m36 77h1m-462 -62h1" stroke="#e4e7cf" stroke-width="2" stroke-linecap="round" opacity=".7"/>':''}
-   <g data-cloud=".31 0" fill="#e8ecdb" opacity="${night?.09:.32}"><path d="M35 50Q48 35 66 40Q80 22 96 40Q122 29 137 47Q153 41 161 51Z"/><path d="M267 35Q288 17 305 25Q322 9 342 25Q369 16 395 34Z"/></g>
-   <g data-cloud=".2 2" fill="#f1ebd5" opacity="${night?.07:.22}"><path d="M483 69Q514 47 533 58Q550 38 574 57Q598 48 621 66Z"/></g>
+   <g data-weather-cloud data-cloud=".31 0" fill="${cold?'#d5e0e0':'#e8ecdb'}" opacity="${night?.09:weather.cloudOpacity??.32}"><path d="M35 50Q48 35 66 40Q80 22 96 40Q122 29 137 47Q153 41 161 51Z"/><path d="M267 35Q288 17 305 25Q322 9 342 25Q369 16 395 34Z"/></g>
+   <g data-weather-cloud data-cloud=".2 2" fill="${cold?'#c7d5d8':'#f1ebd5'}" opacity="${night?.07:weather.cloudOpacity??.22}"><path d="M483 69Q514 47 533 58Q550 38 574 57Q598 48 621 66Z"/></g>
    <path d="M-24 153Q19 138 65 98T147 77Q184 101 226 141Q265 145 298 108L363 ${62+variant*3}Q385 43 407 77T485 137Q520 140 559 104T632 77Q663 74 693 104T755 125Q788 104 824 91V259H-24Z" fill="${hill}" opacity="${night?.48:.65}"/>
    <path d="M-24 184Q44 148 89 161T182 139Q236 118 299 160T406 143Q454 112 505 154T614 154Q698 117 824 143V263H-24Z" fill="${forest}" opacity="${night?.5:.26}"/>
    <path d="M289 110L365 ${74+variant*3}L390 91L402 84M582 101Q629 71 661 99M72 107Q111 73 142 93" fill="none" stroke="#e9e5cf" stroke-width="1.7" opacity="${night?.1:.36}"/>
@@ -1721,10 +1809,12 @@ applyDisplay();
    <g data-wind="746 343 3 2"><path d="M739 345q-13 -52 -4 -37q7 12 8 38q3 -62 10 -44q4 22 -5 43q20 -40 23 -27q-1 16 -20 29Z" fill="#7c8750"/><path d="M743 338l-5 -26m8 28l7 -31" stroke="#c9c38a" stroke-width="1"/></g>
    ${stone(77,332,1.5)}${stone(125,340,.7)}${stone(677,328,.6)}${stone(782,353,1.0)}
    ${variant===6?'<g fill="#b88955"><circle cx="58" cy="184" r="4"/><circle cx="17" cy="199" r="4"/><circle cx="36" cy="223" r="3"/></g>':''}`;
+  const shelterColor=precipitation!=='none'?'#879996':warmth>.83?'#e5d39e':'#c8b27d';
+  const shelterFlap=precipitation!=='none'||warmth>.83?`<path data-weather-shelter-flap d="M371 276L387 278L404 300L388 302Z" fill="${shelterColor}" stroke="#796546" stroke-width="1" opacity=".76"/>`:'';
   const camp=`<path d="M214 332Q276 313 349 325T461 333" fill="none" stroke="#9a895f" stroke-width="3" opacity=".42"/>
    ${timber(134,312,62,7)}${timber(147,298,51,-4)}${timber(170,326,58,3)}
    <g fill="none" stroke="#7e6846" stroke-width="3" stroke-linecap="round"><path d="M273 321L304 270L339 321M304 270L371 274L401 320M371 274L339 321"/><path d="M270 323h135" stroke-width="1.5"/></g>
-   <path d="M304 272L371 276L388 302L325 299Z" fill="#c8b27d" stroke="#796546" stroke-width="1" opacity=".54"/>
+   <path data-weather-shelter d="M304 272L371 276L388 302L325 299Z" fill="${shelterColor}" stroke="#796546" stroke-width="1" opacity="${precipitation!=='none'?.82:warmth>.83?.76:.54}"/>${shelterFlap}${precipitation!=='none'?'<path d="M309 273L326 298m17 -23l17 24m-2 -22l17 24" fill="none" stroke="#e1e2d0" stroke-width="1" opacity=".38"/>':''}
    ${[0,1,2,3,4,5,6].map(i=>stone(432+Math.cos(i*Math.PI*2/7)*19,326+Math.sin(i*Math.PI*2/7)*6,.33)).join('')}
    <path d="M419 326l26 -3m-20 -7l14 14" stroke="#6c593e" stroke-width="4" stroke-linecap="round"/>
    <path d="M606 302v31m12 -30v30M602 306h19" stroke="#7b6848" stroke-width="2.3"/><path d="M606 306h12l-3 11h-6Z" fill="#e0d3a6" stroke="#65705a" stroke-width="1"/><path d="M611 319v3" stroke="#d5e5d5" stroke-width="1.4"/>
@@ -2069,39 +2159,276 @@ applyDisplay();
 <script>
 // SPDX-License-Identifier: LicenseRef-Simpli-Noncommercial-1.0
 // Copyright (C) 2026 ilamgumaran and contributors
+// A small authored family camp; calendar sampling has no persistent ecology.
+(()=>{
+ 'use strict';
+ const setAttr=(node,name,value)=>{value=String(value);if(node.getAttribute(name)!==value)node.setAttribute(name,value);};
+ const setStyle=(node,name,value)=>{value=String(value);if(node.style[name]!==value)node.style[name]=value;};
+ const setData=(node,name,value)=>{value=String(value);if(node.dataset[name]!==value)node.dataset[name]=value;};
+ const freeze=v=>{if(v&&typeof v==='object'){Object.values(v).forEach(freeze);Object.freeze(v);}return v;};
+ const staging=freeze({aster:-8,sage:78,sprout:-96});
+ const workstationOffset=staging.sage-48,playPatchOffset=staging.sprout+68,lineRestX=68+workstationOffset,restLine=`M38 7L${lineRestX} -13`;
+ const motion=freeze({transitionSeconds:1.2,rhythms:{aster:{period:7.2,offset:.11},sage:{period:8.4,offset:.37},sprout:{period:6.6,offset:.68}},organicPhaseOffsets:{aster:0,sage:.9,sprout:1.8}});
+ const frame=freeze({actorPixels:54,originCss:{landscape:190,portrait:120},groundInset:10,bounds:{left:-140,top:-90,right:145,bottom:50},paddingCss:16});
+ function paintFrame(layout){
+  const sx=Number(layout?.sx),sy=Number(layout?.sy),ground=Number(layout?.ground);
+  if(!Number.isFinite(sx)||sx<=0||!Number.isFinite(sy)||sy<=0||!Number.isFinite(ground)||ground<=0)return null;
+  const portrait=!!layout.portrait,s=frame.actorPixels/66,originX=(portrait?frame.originCss.portrait:frame.originCss.landscape)/sx,originY=(ground-frame.groundInset)-30*s/sy;
+  const padX=frame.paddingCss/sx,padY=frame.paddingCss/sy;
+  const left=Math.floor((originX+frame.bounds.left*s/sx-padX)*sx),top=Math.floor((originY+frame.bounds.top*s/sy-padY)*sy);
+  const right=Math.ceil((originX+frame.bounds.right*s/sx+padX)*sx),bottom=Math.ceil((originY+frame.bounds.bottom*s/sy+padY)*sy);
+  const viewBox=freeze({x:left/sx,y:top/sy,width:(right-left)/sx,height:(bottom-top)/sy});
+  return freeze({left,top,width:right-left,height:bottom-top,viewBox});
+ }
+ const family=freeze({adults:['aster','sage'],child:'sprout',infant:'pebble',remembered:'fern'});
+ const schedule=freeze([
+  {id:'shelter',label:'Tend the shelter',caption:'Aster cradles Pebble while Sage checks the shelter line.',start:6,end:8,action:'build'},
+  {id:'forage',label:'Gather food',caption:'Sage gathers greens for the basket as Aster cares for Pebble.',start:8,end:11,action:'gather'},
+  {id:'cook',label:'Prepare a shared meal',caption:'Sage stirs the gathered food while Aster cradles Pebble.',start:11,end:13,action:'stir-pot'},
+  {id:'teach',label:'Learn together',caption:'Sage shows Aster how to sort seeds while Pebble rests in Aster’s arms.',start:13,end:16,action:'teach'},
+  {id:'care',label:'Care for the baby',caption:'Aster cradles newborn Pebble as Sage checks that the camp is warm.',start:16,end:17,action:'gather'},
+  {id:'remember',label:'Remember Fern',caption:'At dusk, the family tends Fern’s flowers and shares a quiet memory.',start:17,end:20,action:'kneel'},
+  {id:'care',label:'Care for the baby',caption:'Aster cradles newborn Pebble while Sage keeps the camp warm.',start:20,end:22,action:'stir-pot'},
+  {id:'rest',label:'Rest beneath the shelter',caption:'Aster keeps Pebble close while Sage rests beneath the weather canopy.',start:22,end:6,action:'sleep'}
+ ]);
+ function smooth(t){const p=Math.max(0,Math.min(1,t));return p*p*p*(p*(p*6-15)+10);}
+ function sample(date,{night,weatherKind='clear',daylightHours={dawn:6,dusk:20}}={}){
+  const d=date instanceof Date?date:new Date(date);
+  const hour=d.getHours()+d.getMinutes()/60+d.getSeconds()/3600+d.getMilliseconds()/3600000;
+  const validHours=Number.isFinite(daylightHours?.dawn)&&Number.isFinite(daylightHours?.dusk)&&daylightHours.dawn>=0&&daylightHours.dawn<daylightHours.dusk&&daylightHours.dusk<=24;
+  const dawn=validHours?daylightHours.dawn:6,dusk=validHours?daylightHours.dusk:20,hours=freeze({dawn,dusk});
+  const isNight=night===undefined?(hour<dawn||hour>=dusk):!!night;
+  const dawnElapsed=hour*3600-dawn*3600,duskElapsed=hour*3600-dusk*3600;
+  let childTransition={fromAction:isNight?'sleep':'play-sand',toAction:isNight?'sleep':'play-sand',blend:1};
+  if(!isNight&&dawnElapsed>=0&&dawnElapsed<motion.transitionSeconds)childTransition={fromAction:'sleep',toAction:'play-sand',blend:smooth(dawnElapsed/motion.transitionSeconds)};
+  else if(isNight&&duskElapsed>=0&&duskElapsed<motion.transitionSeconds)childTransition={fromAction:'play-sand',toAction:'sleep',blend:smooth(duskElapsed/motion.transitionSeconds)};
+  const routine=schedule.find(r=>r.start<r.end?hour>=r.start&&hour<r.end:hour>=r.start||hour<r.end)||schedule[0];
+  const previous=schedule[(schedule.indexOf(routine)+schedule.length-1)%schedule.length];
+  const sinceStart=((hour-routine.start+24)%24)*3600;
+  const transition={fromAction:previous.action,fromRoutine:previous.id,elapsed:sinceStart,blend:smooth(sinceStart/motion.transitionSeconds)};
+  // Keep remembrance visible through dusk, even when the supplied clock jumps.
+  const label=routine.id==='remember'?'Aster and Sage remember Fern':routine.label;
+  return freeze({routine:routine.id,label,caption:routine.caption,phase:(hour/24)%1,dayCycle:hour/24,elapsedSeconds:hour*3600,organicPhase:d.getTime()/120000,night:isNight,daylightHours:hours,childTransition,weatherKind:['rain','snow','storm'].includes(weatherKind)?weatherKind:'clear',family,characters:freeze({aster:{action:'cradle-care'},sage:{action:routine.action},sprout:{action:isNight?'sleep':'play-sand',supervisedBy:'sage'},pebble:{action:isNight?'sleep':'rest',support:'aster'}}),transition,memorial:routine.id==='remember'?{for:'fern',kind:'flowers'}:null,claims:freeze({biologicalAging:false,deathOrRebirth:false,persistentEcosystem:false})});
+ }
+ const lerp=(a,b,t)=>a+(b-a)*t;
+ function sageTask(routine,elapsed,cycle){
+  const cook=routine==='cook'||routine==='care'&&elapsed>=20*3600;
+  let socket=null,kind=null;
+  if(cook){socket={x:70+Math.sin(cycle*Math.PI*2)*1.2,y:5+Math.cos(cycle*Math.PI*2)*.6};kind='spoon';}
+  else if(routine==='shelter'){socket={x:68,y:-13};kind='shelter';}
+  else if(routine==='teach')socket={x:63,y:-3};
+  else if(routine==='remember'){socket={x:61,y:11};kind='flower';}
+  else if(routine==='forage'||routine==='care'){socket={x:56,y:5};kind=routine==='forage'?'greens':'contact';}
+  if(socket)socket.x+=workstationOffset;
+  return {socket,kind,length:cook?14:0};
+ }
+ function actorPose(model,id,{frozen=false}={}){
+  const elapsed=model.elapsedSeconds||0,motionSeconds=Number.isFinite(model.organicPhase)?model.organicPhase*120:elapsed;
+  const rhythm=motion.rhythms[id]||motion.rhythms.aster,phase=motionSeconds/rhythm.period+rhythm.offset,cycle=frozen?0:phase-Math.floor(phase);
+  const child=id==='sprout'&&!frozen,childTransition=child?model.childTransition:null,action=id==='aster'?'cradle-care':(child?(childTransition?.toAction||model.characters[id].action):(frozen?'sleep':model.characters[id].action));
+  const from=child&&childTransition&&childTransition.fromAction!==action?childTransition.fromAction:id==='sage'&&!frozen?model.transition.fromAction:action;
+  const blend=child&&childTransition&&from!==action?childTransition.blend:id==='sage'&&!frozen?model.transition.blend:1;
+  const rig=globalThis.DeskCharacters.pose(action,cycle,{from,fromCycle:cycle,blend});
+  const actorPx=id==='sprout'?38:id==='aster'?54:48,actorScale=actorPx/frame.actorPixels;
+  const supportY=Math.max(...rig.legs.map(leg=>leg[2].y)),rootY=30-supportY*actorScale;
+  const result={action,cycle,from,blend,rig,actorScale,rootY,wrist:null,toolWeights:{},shelterWeight:0};
+  if(id!=='sage'||frozen)return result;
+  const x=staging.sage;
+  const campPoint=(pose,y)=>({x:x+pose.x*actorScale,y:y+pose.y*actorScale});
+  const solveWrist=(pose,y,endpoint)=>{
+   if(endpoint){
+    const local={x:(endpoint.x-x)/actorScale,y:(endpoint.y-y)/actorScale};
+    pose.arms[1]=globalThis.DeskCharacters.joint(globalThis.DeskCharacters.anatomy.shoulders[1],local,12,11,-1);
+   }
+   return campPoint(pose.arms[1][2],y);
+  };
+  const previous=blend<1?globalThis.DeskCharacters.pose(from,cycle):null;
+  const previousRootY=previous?30-Math.max(...previous.legs.map(leg=>leg[2].y))*actorScale:rootY;
+  const previousTask=previous?sageTask(model.transition.fromRoutine,elapsed,cycle):null;
+  const currentTask=sageTask(model.routine,elapsed,cycle);
+  const previousEndpoint=previousTask?.socket?{x:previousTask.socket.x,y:previousTask.socket.y-previousTask.length*actorScale}:null;
+  const previousWrist=previous?solveWrist(previous,previousRootY,previousEndpoint):null;
+  const currentBase=previous?globalThis.DeskCharacters.pose(action,cycle):rig,currentRootY=30-Math.max(...currentBase.legs.map(leg=>leg[2].y))*actorScale;
+  const currentEndpoint=currentTask.socket?{x:currentTask.socket.x,y:currentTask.socket.y-currentTask.length*actorScale}:null;
+  const currentWrist=solveWrist(currentBase,currentRootY,currentEndpoint);
+  // Both ends are actual IK wrists constrained to their own camp tasks; blend
+  // those camp-space contacts before solving the current rig's fixed bones.
+  const wrist=previousWrist?{x:lerp(previousWrist.x,currentWrist.x,blend),y:lerp(previousWrist.y,currentWrist.y,blend)}:currentWrist;
+  rig.arms[1]=globalThis.DeskCharacters.joint(globalThis.DeskCharacters.anatomy.shoulders[1],{x:(wrist.x-x)/actorScale,y:(wrist.y-rootY)/actorScale},12,11,-1);
+  result.wrist=campPoint(rig.arms[1][2],rootY);
+  result.toolWeights={};
+  if(previousTask?.kind&&blend<1)result.toolWeights[previousTask.kind]=(1-blend);
+  if(currentTask.kind)result.toolWeights[currentTask.kind]=(result.toolWeights[currentTask.kind]||0)+blend;
+  result.shelterWeight=(model.routine==='shelter'?blend:0)+(previous&&model.transition.fromRoutine==='shelter'?1-blend:0);
+  return result;
+ }
+ function create(host){
+  const doc=host.ownerDocument,ns='http://www.w3.org/2000/svg';
+  const root=doc.createElementNS(ns,'g');root.setAttribute('data-layer','community-camp');host.appendChild(root);host._communityCamp=root;
+  root.innerHTML='<g data-prop="shelter"><path d="M-57 8L-10 -43L39 8Z" fill="#c4a987" fill-opacity=".92" stroke="#594f46" stroke-width="2"/><path d="M-10 -43V8M-56 8H39" fill="none" stroke="#594f46" stroke-width="1.4"/><path d="M-43 7L-10 -32L26 7Z" fill="#6e7963"/><path data-prop="ridge-line" d="M38 7L98 -13" fill="none" stroke="#594f46" stroke-width="1.4"/></g><g data-prop="workstation" transform="translate(30 0)"><g data-prop="basket"><path d="M48 5H65L62 18H51Z" fill="#b89162" stroke="#594f46"/><path d="M50 5Q56 -8 64 5M52 9H63" fill="none" stroke="#594f46"/><path d="M52 4Q52 -3 56 1Q59 -5 61 2Q66 -3 64 4Z" fill="#91a47b" stroke="#53694e"/><circle cx="55" cy="2" r="1.3" fill="#bd7f70"/><circle cx="61" cy="0" r="1.4" fill="#d8bb72"/></g><g data-prop="cook-pot"><ellipse cx="70" cy="5" rx="9" ry="2.5" fill="#b3b7ae" stroke="#594f46"/><path d="M62 5Q62 15 70 15Q78 15 78 5" fill="#8d9990" stroke="#594f46"/><path d="M63 4H77" stroke="#594f46" stroke-width="1.5"/><path d="M68 2Q65 -2 69 -4M73 2Q76 -2 72 -5" fill="none" stroke="#e9d1a1" stroke-width="1" opacity=".8"/></g><g data-prop="seed-board"><path d="M56 -9H71V-1H56Z" fill="#d9c99f" stroke="#594f46"/><path d="M59 -6L61 -3M64 -7L66 -4M68 -6L69 -3" stroke="#82956e" stroke-width="1.3"/></g><g data-prop="memorial"><path d="M53 11Q57 -1 61 11M61 11Q66 -5 70 11M49 11Q53 1 56 11" fill="none" stroke="#ad788b" stroke-width="2.2" stroke-linecap="round"/><path d="M48 12H72" stroke="#6a604f" stroke-width="1.5"/><circle cx="61" cy="0" r="1.6" fill="#e4c678"/></g></g><g data-adult="aster"/><g data-adult="sage"/>';
+  const a=doc.createElementNS(ns,'g'),b=doc.createElementNS(ns,'g');root.querySelector('[data-adult="aster"]').appendChild(a);root.querySelector('[data-adult="sage"]').appendChild(b);
+  setAttr(root.querySelector('[data-prop="workstation"]'),'transform',`translate(${workstationOffset} 0)`);
+  setAttr(root.querySelector('[data-prop="ridge-line"]'),'d',restLine);
+  globalThis.DeskCharacters.mount(a,globalThis.DeskCharacters.create('aster',{role:'caregiver'}));globalThis.DeskCharacters.mount(b,globalThis.DeskCharacters.create('sage',{role:'caregiver'}));
+  const tool=doc.createElementNS(ns,'g');tool.dataset.communityTool='';tool.innerHTML='<path data-camp-spoon stroke="#d8c08a" stroke-width="1.5" fill="none"/><ellipse data-camp-spoon-bowl rx="2" ry="2.5" fill="#d8c08a"/><path data-camp-greens d="M-3 1Q-7 -6 0 -3Q5 -8 5 -1L0 3Z" fill="#9cb877" stroke="#4a6b48"/><g data-camp-flower><path d="M0 0v-6" stroke="#91a772"/><circle cy="-6" r="2.5" fill="#d7a0ad"/><circle cy="-6" r="1" fill="#f0d793"/></g>';b.append(tool);
+  b._communityToolNodes={root:tool,spoon:tool.querySelector('[data-camp-spoon]'),bowl:tool.querySelector('[data-camp-spoon-bowl]'),greens:tool.querySelector('[data-camp-greens]'),flower:tool.querySelector('[data-camp-flower]')};
+  const infant=doc.createElementNS(ns,'g');infant.setAttribute('data-infant','pebble');infant.setAttribute('data-infant-support','aster');infant.setAttribute('data-character','pebble');globalThis.DeskCharacters.mount(infant,globalThis.DeskCharacters.create('pebble',{role:'infant'}));a.appendChild(infant);
+  const playPatch=doc.createElementNS(ns,'g');playPatch.setAttribute('data-prop','play-patch');setAttr(playPatch,'transform',`translate(${playPatchOffset} 0)`);playPatch.innerHTML='<ellipse cx="-62" cy="18" rx="15" ry="3" fill="#9b896e" opacity=".75"/><path d="M-63 16L-56 8M-63 16L-70 10" stroke="#685c4e" stroke-width="1.4"/>';root.appendChild(playPatch);
+  const supports=doc.createElementNS(ns,'g');supports.innerHTML='<path d="M51 18V30M62 18V30M58 -1V30M69 -1V30" stroke="#786348" stroke-width="1.5"/><g data-community-hearth><ellipse cx="70" cy="30" rx="11" ry="3" fill="#7e806b"/><path d="M65 28Q64 21 70 17Q73 23 75 28Z" fill="#e1a35e"/><path d="M60 30L70 -3L80 30M70 -3V3" stroke="#655644" stroke-width="1.5" fill="none"/></g>';root.querySelector('[data-prop="workstation"]').appendChild(supports);
+  const childHost=doc.createElementNS(ns,'g');childHost.setAttribute('data-character','sprout');childHost.setAttribute('data-community-role','child');childHost.setAttribute('data-child','sprout');root.appendChild(childHost);
+  const c=doc.createElementNS(ns,'g');childHost.appendChild(c);globalThis.DeskCharacters.mount(c,globalThis.DeskCharacters.create('sprout',{role:'play'}));
+  const stick=doc.createElementNS(ns,'path');stick.setAttribute('data-play-stick','');stick.setAttribute('stroke','#b4a16c');stick.setAttribute('stroke-width','1.4');c.append(stick);
+  c._communityChildNodes={eyes:c.querySelector('[data-part="eyes"]'),stick};
+  root._communityActors={aster:a,sage:b,sprout:c};
+  root._communityNodes={
+   memorial:root.querySelector('[data-prop="memorial"]'),ridgeLine:root.querySelector('[data-prop="ridge-line"]'),
+   cookPot:root.querySelector('[data-prop="cook-pot"]'),seedBoard:root.querySelector('[data-prop="seed-board"]'),
+   canopy:root.querySelector('[data-prop="shelter"] path'),hearth:root.querySelector('[data-community-hearth]'),
+   wrappers:{aster:root.querySelector('[data-adult="aster"]'),sage:root.querySelector('[data-adult="sage"]'),sprout:childHost},
+   infant
+  };
+  return root;
+ }
+ function update(host,{model,layout,frozen=false,companions=true}={}){
+  const root=host?._communityCamp||host;if(!root?._communityActors||!model||!layout)return;
+  const portrait=!!layout.portrait,sx=layout.sx||1,sy=layout.sy||1,adultPx=frame.actorPixels,s=adultPx/66;
+  const originX=(portrait?frame.originCss.portrait:frame.originCss.landscape)/sx,ground=layout.ground-frame.groundInset;
+  const nodes=root._communityNodes;
+  setAttr(root,'transform',`translate(${originX} ${ground-30*s/sy}) scale(${s/sx} ${s/sy})`);
+  setData(root,'routine',model.routine);setData(host,'routine',model.routine);setData(root,'frozen',!!frozen);
+  setAttr(nodes.memorial,'opacity',model.routine==='remember'?'1':'.52');
+  setAttr(nodes.cookPot,'opacity',['cook','care'].includes(model.routine)?'1':'.72');
+  setAttr(nodes.seedBoard,'opacity',model.routine==='teach'?'1':'.65');
+  setAttr(nodes.canopy,'fill',['rain','storm'].includes(model.weatherKind)?'#687b78':model.weatherKind==='snow'?'#b9c9cc':'#c4a987');
+  for(const node of Object.values(nodes.wrappers))setStyle(node,'display',companions?'':'none');
+  if(!companions){setAttr(nodes.ridgeLine,'d',restLine);setAttr(nodes.ridgeLine,'opacity',model.routine==='shelter'?'1':'.25');return;}
+  const elapsed=model.elapsedSeconds||0,organic=frozen?0:Number.isFinite(model.organicPhase)?model.organicPhase:elapsed/120;
+  let caregiverRig;
+  for(const id of ['aster','sage','sprout']){
+   const actor=root._communityActors[id],pose=actorPose(model,id,{frozen}),{action,from,blend,cycle:actorCycle,rig,actorScale,rootY}=pose;
+   const x=staging[id];
+   if(id==='aster')caregiverRig=rig;
+   if(id==='sage'&&!frozen){
+    const {root:tool,spoon,bowl,greens,flower}=actor._communityToolNodes,hand=rig.arms[1][2],tip={x:hand.x,y:hand.y+14};
+    const weights=pose.toolWeights,spoonWeight=weights.spoon||0,greensWeight=weights.greens||0,flowerWeight=weights.flower||0;
+    setStyle(tool,'display',spoonWeight+greensWeight+flowerWeight>0?'':'none');
+    setData(tool,'kind',spoonWeight?'spoon':flowerWeight?'flower':greensWeight?'greens':'contact');
+    setAttr(spoon,'d',spoonWeight?`M${hand.x} ${hand.y}L${tip.x} ${tip.y}`:'');setStyle(spoon,'display',spoonWeight>0?'':'none');setStyle(spoon,'opacity',spoonWeight);
+    setAttr(bowl,'cx',tip.x);setAttr(bowl,'cy',tip.y);setStyle(bowl,'display',spoonWeight>0?'':'none');setStyle(bowl,'opacity',spoonWeight);
+    setAttr(greens,'transform',`translate(${hand.x} ${hand.y})`);setStyle(greens,'display',greensWeight>0?'':'none');setStyle(greens,'opacity',greensWeight);
+    setAttr(flower,'transform',`translate(${hand.x} ${hand.y})`);setStyle(flower,'display',flowerWeight>0?'':'none');setStyle(flower,'opacity',flowerWeight);
+    const line=nodes.ridgeLine,weight=pose.shelterWeight,endX=lineRestX+(x+hand.x*actorScale-lineRestX)*weight,endY=-13+(rootY+hand.y*actorScale+13)*weight;setAttr(line,'d',`M38 7L${endX} ${endY}`);setAttr(line,'opacity',.25+.75*weight);
+   }else if(id==='sage'){
+    setStyle(actor._communityToolNodes.root,'display','none');
+    if(frozen){setAttr(nodes.ridgeLine,'d',restLine);setAttr(nodes.ridgeLine,'opacity',model.routine==='shelter'?'1':'.25');}
+   }
+   const wrapper=nodes.wrappers[id];
+   setAttr(wrapper,'transform',`translate(${x} ${rootY}) scale(${actorScale})`);
+   globalThis.DeskCharacters.update(actor,{action,cycle:actorCycle,from,fromCycle:actorCycle,blend,rig,organic:frozen?0:.18,phase:frozen?0:organic+motion.organicPhaseOffsets[id]});
+   if(id==='sprout'){
+    const playWeight=action==='play-sand'?blend:action==='sleep'&&from==='play-sand'?1-blend:0;
+    const closed='M-4 -23H-1M1 -23H4',open='M-3 -24V-22M3 -24V-22';
+    const eyePath=playWeight>0&&playWeight<1?(()=>{const a=[-4,-23,-1,-23,1,-23,4,-23],b=[-3,-24,-3,-22,3,-24,3,-22],v=a.map((n,i)=>n+(b[i]-n)*playWeight);return `M${v[0]} ${v[1]}L${v[2]} ${v[3]}M${v[4]} ${v[5]}L${v[6]} ${v[7]}`;})():playWeight===0?closed:open;
+    const stick=actor._communityChildNodes.stick;
+    setAttr(actor._communityChildNodes.eyes,'d',eyePath);
+    if(playWeight>0){const playRig=blend<1?globalThis.DeskCharacters.pose('play-sand',actorCycle):rig;
+     const source=playRig.prop,hand=rig.arms[source.hand][2],sourceHand=playRig.arms[source.hand][2];
+     setAttr(stick,'d',`M${hand.x} ${hand.y}L${hand.x+source.tip.x-sourceHand.x} ${hand.y+source.tip.y-sourceHand.y}`);
+    }
+    setStyle(stick,'display',playWeight>0?'':'none');setStyle(stick,'opacity',playWeight);
+   }
+   setData(actor,'character',id);
+  }
+  const infant=nodes.infant,points=globalThis.DeskCharacters.infantSupportPoints;
+  const left=caregiverRig.arms[0][2],right=caregiverRig.arms[1][2];
+  const centerX=(left.x+right.x)/2,centerY=(left.y+right.y)/2;
+  setAttr(infant,'transform',`translate(${centerX-(points.head.x+points.body.x)/2} ${centerY-(points.head.y+points.body.y)/2})`);setData(infant,'support','aster-hands');setAttr(infant,'data-supported','true');
+  setStyle(nodes.hearth,'opacity',model.routine==='cook'||model.routine==='care'&&model.elapsedSeconds>=20*3600?'1':'0.45');
+ }
+ globalThis.DeskHabitatCommunity=Object.freeze({sample,create,update,actorPose,family,schedule,staging,motion,frame,paintFrame,transitionEase:smooth});
+})();
+
+</script>
+<script>
+// SPDX-License-Identifier: LicenseRef-Simpli-Noncommercial-1.0
+// Copyright (C) 2026 ilamgumaran and contributors
 // Full-viewport illustration; calendar time remains authoritative in every frame.
 (()=>{
  'use strict';
  const ns='http://www.w3.org/2000/svg',get=id=>document.getElementById(id),mod=(n,d)=>((n%d)+d)%d;
+ // Coalesce invisible camera/HUD movement to avoid repeated SVG style updates.
+ // Rounding stays within 1/32 of a physical pixel; character/tool poses are exact.
+ const compositorPosition=n=>{const raw=Number(globalThis.devicePixelRatio),dpr=Number.isFinite(raw)&&raw>0?Math.max(1,raw):1;return String(Math.round(n*dpr*16)/(dpr*16));};
  const ease=n=>{const t=Math.max(0,Math.min(1,n));return t*t*t*(t*(t*6-15)+10);};
  const scene=document.createElement('section');scene.id='woodland-immersive';scene.hidden=true;
+ // Rain and changing full-screen light have their own paint layers so their
+ // updates do not invalidate the detailed forest and material numerals.
  scene.innerHTML=`<svg id="woodland-immersive-world" viewBox="0 0 800 360" preserveAspectRatio="none" role="img" aria-labelledby="woodland-immersive-title woodland-immersive-description" xmlns="${ns}">
  <title id="woodland-immersive-title">Woodland of Time</title><desc id="woodland-immersive-description"></desc>${DeskWoodlandArt.defs()}
  <rect id="woodland-immersive-wash" x="-30" y="-30" width="860" height="420" fill="#90aaa0"/>
  <g id="woodland-immersive-camera"><g id="woodland-immersive-backdrop"/><g id="woodland-immersive-river"/><g id="woodland-immersive-foreground"/><g id="woodland-immersive-camp"/>
- <g id="woodland-immersive-structures"/><g id="woodland-immersive-day"/><g id="woodland-immersive-workpieces"/>
- <g id="woodland-immersive-cliff"/><g id="woodland-immersive-holds"/><path id="woodland-immersive-rope" fill="none" stroke="#eddbb7" stroke-width="1.6"/>
- <g id="woodland-immersive-numerals"/><g id="woodland-immersive-colon" fill="#ead9af" stroke="#445542" stroke-width="2"><circle r="3.5"/><circle cy="26" r="3.5"/></g>
- <g id="woodland-immersive-delivery"/><g id="woodland-immersive-inlet"/><g id="woodland-immersive-cast"/><g id="woodland-immersive-fire"/><g id="woodland-immersive-ripples"/><rect id="woodland-immersive-light" x="-30" y="-30" width="860" height="420" fill="#f5d9ad" opacity="0" pointer-events="none"/></g></svg>
+ <g id="woodland-immersive-structures"/><g id="woodland-immersive-workpieces"/>
+ <g id="woodland-immersive-cliff"/><g id="woodland-immersive-holds"/><path id="woodland-immersive-rope" fill="none" stroke="#eddbb7" stroke-width="1.6"/></g></svg>
+ <svg id="woodland-immersive-weather-layer" viewBox="0 0 800 360" preserveAspectRatio="none" aria-hidden="true" pointer-events="none" xmlns="${ns}"><g id="woodland-immersive-weather" pointer-events="none"/></svg>
+ <svg id="woodland-immersive-reading" viewBox="0 0 800 360" preserveAspectRatio="none" aria-hidden="true" pointer-events="none" xmlns="${ns}"><g id="woodland-immersive-weather-atmosphere"/><g id="woodland-immersive-day"/><g id="woodland-immersive-numerals"/><g id="woodland-immersive-colon" fill="#ead9af" stroke="#445542" stroke-width="2"><circle r="3.5"/><circle cy="26" r="3.5"/></g></svg>
+ <svg id="woodland-immersive-actors" viewBox="0 0 800 360" preserveAspectRatio="none" aria-hidden="true" xmlns="${ns}"><g id="woodland-immersive-delivery"/><g id="woodland-immersive-inlet"/><g id="woodland-immersive-cast"/><g id="woodland-immersive-community"/><g id="woodland-immersive-fire"/><g id="woodland-immersive-ripples"/></svg>
+ <div id="woodland-immersive-light-layer" aria-hidden="true"><svg id="woodland-immersive-light" viewBox="0 0 800 360" preserveAspectRatio="none" aria-hidden="true" pointer-events="none" opacity="0" xmlns="${ns}"/></div>
  <div class="immersive-heading"><span id="woodland-immersive-place"></span><span id="woodland-immersive-chapter"></span></div>
  <p id="woodland-immersive-story"></p>`;
+ const thermometer=document.createElement('aside');thermometer.id='woodland-weather-thermometer';thermometer.setAttribute('aria-label','Weather temperature unavailable');thermometer.setAttribute('aria-live','off');thermometer.innerHTML=`<svg class="woodland-thermometer-glass" viewBox="0 0 82 100" aria-hidden="true"><rect x="19" y="6" width="10" height="68" rx="5" class="thermometer-tube"/><circle cx="24" cy="80" r="13" class="thermometer-bulb"/><rect id="woodland-thermometer-fill" x="22" y="18" width="4" height="62" rx="2" class="thermometer-fill"/><circle cx="24" cy="80" r="8" class="thermometer-mercury"/><g class="thermometer-ticks"><path d="M31 18h7m-7 13h5m-5 13.5h7m-7 13.5h5m-7 13h7"/><text x="39" y="21">50°</text><text x="39" y="48">20°</text><text x="39" y="74">−10°</text></g></svg><strong id="woodland-weather-value">— °C</strong><span id="woodland-weather-kind">Weather loading</span><small id="woodland-weather-freshness">Loading</small>`;
+ scene.append(thermometer);
  get('display').prepend(scene);
+ // Keep animated UI variables on the small HUD subtrees. Inheriting them
+ // from body restyles thousands of unrelated SVG nodes in Firefox.
+ const hud=[...get('display').querySelectorAll('.clock-panel,.weather-panel,footer,.immersive-heading,#woodland-immersive-story,#woodland-weather-thermometer')];
+ let hudX='',hudY='';
+ function driftUI(x,y){
+  if(x===hudX&&y===hudY)return;
+  for(const el of hud){if(x!==hudX)el.style.setProperty('--woodland-ui-x',x);if(y!==hudY)el.style.setProperty('--woodland-ui-y',y);}
+  hudX=x;hudY=y;
+ }
  const thought=document.createElement('button');thought.id='woodland-thought-button';thought.textContent='✧ Daily thought';thought.setAttribute('aria-expanded','false');thought.setAttribute('aria-controls','fact-title');get('display').querySelector('nav').append(thought);
  thought.onclick=()=>{if(locked)return;const show=document.body.classList.toggle('woodland-information');thought.setAttribute('aria-expanded',String(show));};
  const media=typeof matchMedia==='function'?matchMedia('(prefers-reduced-motion: reduce)'):null;
- let frame=null,timer=null,lastFrame=0,lastChapter='',lastMinute='',lastCast='',lastLayout='',lastClock='',lastLabel='';
+ let reducedMotion=!!media?.matches;
+ let frame=null,timer=null,lastFrame=0,lastChapter='',lastMinute='',lastCast='',lastLayout='',lastClock='',lastLabel='',weatherSnapshot=null,weatherKey='',lastThermometer='';
+ let lastAmbientBeat=null,lastAmbientFrozen=null;
  let layout={width:800,height:360,sx:1,sy:1,portrait:false,ground:322},slots=[],actors=[],paths=[];
- const active=()=>prefs.theme==='woodland'&&prefs.display.woodlandView==='immersive';
+ const greenhouse=()=>prefs.theme==='greenhouse1';
+ const nightFor=m=>greenhouse()?m.daylight===false:m.hour<6||m.hour>=20;
+ const active=()=>greenhouse()||prefs.theme==='woodland'&&prefs.display.woodlandView==='immersive';
  const visible=()=>active()&&document.visibilityState==='visible'&&!get('settings').open&&!document.body.classList.contains('screen-rest');
- const quiet=()=>!!media?.matches||typeof requestAnimationFrame!=='function';
+ const quiet=()=>reducedMotion||typeof requestAnimationFrame!=='function';
  const text=(id,value)=>{const e=get(id);if(e.textContent!==value)e.textContent=value;};
- const markup=(id,value)=>{const e=get(id);if(e._art!==value){e.innerHTML=value;e._art=value;}};
- const attr=(id,name,value)=>get(id).setAttribute(name,value);
+ const art=(el,value)=>{if(el._art!==value){el.innerHTML=value;el._art=value;}};
+ const markup=(id,value)=>art(get(id),value);
+ const write=(el,name,value)=>{const next=String(value);if(el.getAttribute(name)!==next)el.setAttribute(name,next);};
+ const attr=(id,name,value)=>{const el=get(id),next=String(value);if(el.getAttribute(name)!==next)el.setAttribute(name,next);};
+ const data=(el,name,value)=>{const next=String(value);if(el.dataset[name]!==next)el.dataset[name]=next;};
+ const cameraLayers=['woodland-immersive-world','woodland-immersive-weather-layer','woodland-immersive-reading','woodland-immersive-actors','woodland-immersive-light-layer'];
+ let lastCameraTransform='';
+ // CSS serializes commas and trailing zeroes differently; retain our input
+ // so Still camera does not rewrite the same five layer styles every frame.
+ const setCameraTransform=value=>{if(value===lastCameraTransform)return;for(const id of cameraLayers)get(id).style.transform=value;lastCameraTransform=value;};
+ const actorSvg=get('woodland-immersive-actors'),actorCropProperties=['position','inset','left','top','right','bottom','width','height','overflow'];
+ const actorCropOriginal={viewBox:actorSvg.getAttribute('viewBox'),style:Object.fromEntries(actorCropProperties.map(name=>[name,[actorSvg.style.getPropertyValue(name),actorSvg.style.getPropertyPriority(name)]]))};
+ function restoreActorPaintFrame(){
+  if(actorSvg.getAttribute('viewBox')!==actorCropOriginal.viewBox){if(actorCropOriginal.viewBox===null)actorSvg.removeAttribute('viewBox');else actorSvg.setAttribute('viewBox',actorCropOriginal.viewBox);}
+  for(const [name,[value,priority]] of Object.entries(actorCropOriginal.style)){if(value)actorSvg.style.setProperty(name,value,priority);else actorSvg.style.removeProperty(name);}
+ }
+ function updateActorPaintFrame(){
+  const paint=greenhouse()?DeskHabitatCommunity.paintFrame(layout):null;
+  if(!paint){restoreActorPaintFrame();return;}
+  const {x,y,width,height}=paint.viewBox;
+  actorSvg.setAttribute('viewBox',`${x} ${y} ${width} ${height}`);
+  Object.assign(actorSvg.style,{position:'absolute',inset:'auto',left:`${paint.left}px`,top:`${paint.top}px`,right:'auto',bottom:'auto',width:`${paint.width}px`,height:`${paint.height}px`,overflow:'hidden'});
+ }
  function fit(){
-  const signature=[innerWidth,innerHeight,prefs.display.clockScale].join(':');if(signature===lastLayout)return;
+  const signature=[innerWidth,innerHeight,prefs.display.clockScale,prefs.theme].join(':');if(signature===lastLayout)return;
   const controls=get('display').querySelector('footer').getBoundingClientRect();lastLayout=signature;
   const width=innerWidth,height=innerHeight,sx=width/800,sy=height/360,portrait=width<height*.85;
   layout={width,height,sx,sy,portrait,ground:Math.min(326,(controls.top-22)/sy)};
+  updateActorPaintFrame();
   const scale=portrait?Math.min(.46,120/(150*sy))*prefs.display.clockScale:Math.min(1.12,205/(150*sy))*prefs.display.clockScale;
   const ratio=sy/sx,w=80*scale*ratio,gap=24/sx;
   if(portrait){
@@ -2123,9 +2450,58 @@ applyDisplay();
   return {x:pixels/(66*layout.sx),y:pixels/(66*layout.sy),pixels};
  }
  function chapter(m){
-  const art=DeskWoodlandArt.landscape(m);
-  for(const key of ['backdrop','river','foreground','camp'])markup('woodland-immersive-'+key,art[key]);
-  DeskWoodlandArt.invalidate(get('woodland-immersive-world'));lastLayout='';
+  const art=DeskWoodlandArt.landscape({...m,weather:weatherSnapshot,weatherAppearance:weatherAppearance(weatherSnapshot,nightFor(m))});
+  for(const key of ['backdrop','river','foreground','camp'])markup('woodland-immersive-'+key,key==='camp'&&greenhouse()?'':art[key]);
+  DeskWoodlandArt.invalidate(get('woodland-immersive-world'));lastLayout='';lastAmbientBeat=null;
+ }
+ function weatherAppearance(snapshot,night){
+  const api=globalThis.DeskHabitatWeather;
+  if(!snapshot?.available)return null;
+  try{
+   const result=snapshot&&api?.appearance?.(snapshot,{night});return result||null;
+  }catch{return null;}
+ }
+ function weatherGroup(snapshot,night){
+  const g=get('woodland-immersive-weather'),atmosphere=get('woodland-immersive-weather-atmosphere'),a=weatherAppearance(snapshot,night);if(!g||!atmosphere)return;
+  const kind=a?.precipitation||'none',count=kind==='rain'?Math.min(28,Math.max(8,Math.round(8+(a?.rainIntensity||0)*20))):kind==='snow'?14:0;
+  const marks=Array.from({length:count},(_,i)=>{
+   return kind==='snow'?`<circle data-weather-particle="${i}" cx="0" cy="0" r="${1.2+(i%3)*.45}" fill="#f4f1df" opacity=".75"/>`:`<path data-weather-particle="${i}" d="M0 0l${kind==='rain'?'-2 8':'1 5'}" stroke="#d5e5df" stroke-width="${kind==='rain'?'.9':'1.2'}" stroke-linecap="round" opacity=".64"/>`;
+  }).join('');
+  const cloud=Math.min(.65,a?.cloudOpacity||0),wet=kind!=='none',warmth=a?.warmth||0,cover=snapshot?.available&&snapshot.kind!=='unknown'?Math.min(.27,cloud*.16+(wet?.07:0)+(warmth<.3?.07:0)):0;
+  const tint=cloud>.3||wet?'#71838a':a?.tintColor||'#8ea9ad',opacity=night?Math.min(.22,Math.max(cover,a?.tintOpacity||0)):Math.min(.22,Math.max(cover,a?.tintOpacity||0)),sun=!night?Math.min(.3,a?.sunOpacity||0):0;
+  // Keep the static full-screen wash out of the SVG whose particles move each frame.
+  const atmosphereArt=`<rect data-weather-tint x="-24" y="-24" width="848" height="408" fill="${tint}" opacity="${opacity}"/><circle data-weather-sunwash cx="680" cy="88" r="52" fill="#ffe7a8" opacity="${sun*.22}"/>`;
+  if(atmosphere._weatherArt!==atmosphereArt){atmosphere.innerHTML=atmosphereArt;atmosphere._weatherArt=atmosphereArt;}
+  const particleArt=`<g data-weather-particles>${marks}</g>`;
+  if(g._weatherArt!==particleArt){g.innerHTML=particleArt;g._weatherArt=particleArt;g._particles=[...g.querySelectorAll('[data-weather-particle]')];}
+  g.dataset.precipitation=kind;g.dataset.weatherKind=snapshot?.kind||snapshot?.code||'unknown';
+ }
+ function syncWeather(){
+  if(!greenhouse()){
+   const group=get('woodland-immersive-weather');
+   if(group._weatherArt){group.replaceChildren();group._weatherArt='';group._particles=[];}
+   const atmosphere=get('woodland-immersive-weather-atmosphere');
+   if(atmosphere._weatherArt){atmosphere.replaceChildren();atmosphere._weatherArt='';}
+   weatherSnapshot=null;weatherKey='';lastThermometer='';return;
+  }
+  const api=globalThis.DeskHabitatWeather;
+  try{weatherSnapshot=api?.get?.()||null;}catch{weatherSnapshot=null;}
+  if(!weatherSnapshot)return;
+  const night=scene.dataset.night==='true',key=[weatherSnapshot.revision,night].join(':');
+  const unit=weatherSnapshot.unitSymbol|| (weatherSnapshot.unit==='fahrenheit'?'°F':'°C'),value=weatherSnapshot.available&&Number.isFinite(weatherSnapshot.temperature)?`${Math.round(weatherSnapshot.temperature)} ${unit}`:`— ${unit}`;
+  const status=['live','available'].includes(weatherSnapshot.status)?'Live':weatherSnapshot.status==='cached'?'Cached':weatherSnapshot.status==='loading'?'Loading':'Unavailable';
+  const condition=weatherSnapshot.kind||weatherSnapshot.code||'Weather unavailable';
+  const appearance=weatherAppearance(weatherSnapshot,night),fill=Number.isFinite(appearance?.dialFill)?Math.max(0,Math.min(1,appearance.dialFill)):0;
+  const signature=[key,value,status,condition,fill].join('|');
+  if(signature!==lastThermometer){
+   text('woodland-weather-value',value);text('woodland-weather-kind',condition);text('woodland-weather-freshness',status);
+   const tickValues=weatherSnapshot.unit==='fahrenheit'?['122°','68°','14°']:['50°','20°','−10°'];
+   [...thermometer.querySelectorAll('.thermometer-ticks text')].forEach((node,i)=>{node.textContent=tickValues[i];});
+   get('woodland-weather-thermometer').setAttribute('aria-label',`Weather temperature ${value}; ${condition}; ${status.toLowerCase()}`);
+   get('woodland-thermometer-fill').setAttribute('y',(80-fill*62).toFixed(1));get('woodland-thermometer-fill').setAttribute('height',(Math.max(0,fill*62)).toFixed(1));
+   lastThermometer=signature;
+  }
+  if(key!==weatherKey){weatherKey=key;weatherGroup(weatherSnapshot,night);if(lastChapter)lastChapter='';}
  }
  function numerals(m){
   const materials=[m.hourMaterial,m.hourMaterial,m.minuteMaterial.tens,m.minuteMaterial.ones];
@@ -2135,7 +2511,7 @@ applyDisplay();
  }
  function override(m){
   const requested=globalThis.ORBIT_CONFIG?.characters?.woodland;
-  const lead=Object.hasOwn(DeskCharacters.identities,requested)&&!DeskCharacters.identities[requested].young?requested:m.social.lead;
+  const lead=Object.hasOwn(DeskCharacters.identities,requested)&&!DeskCharacters.identities[requested].young&&!DeskCharacters.identities[requested].infant?requested:m.social.lead;
   const ids=[...new Set([lead,...m.social.cast.slice(1).map(id=>id===lead?m.social.lead:id)])];return {lead,ids};
  }
  function cast(m){
@@ -2143,8 +2519,8 @@ applyDisplay();
   ids.forEach((id,index)=>{
    const host=document.createElementNS(ns,'g'),young=!!DeskCharacters.identities[id].young;
    const character=DeskCharacters.create(id,{role:index===0?'expedition':'trail'});DeskCharacters.mount(host,character);
-   const prop=document.createElementNS(ns,'g');prop.dataset.immersiveProp='';host.append(prop);host.dataset.castIndex=index;
-   get('woodland-immersive-cast').append(host);actors.push({host,character,young,prop,index,id});
+   const art=host.querySelector('.character-art'),prop=document.createElementNS(ns,'g');prop.dataset.immersiveProp='';host.append(prop);host.dataset.castIndex=index;
+   get('woodland-immersive-cast').append(host);actors.push({host,art,character,young,prop,index,id});
   });
  }
  function glyphPoint(m){
@@ -2229,25 +2605,48 @@ applyDisplay();
  }
  function draw(){
   if(!active())return;
-  const now=new Date(),m=DeskWoodlandStory.sample(now,{format24:prefs.format24});m._minuteStart=now.getTime()-m.second*1000;
+  // The habitat has its own community routines; it only needs Woodland's
+  // clock/terrain base, not the engineering cast and climbing effort each frame.
+  const now=new Date(),habitat=greenhouse(),m=habitat?DeskWorlds.woodland(now,{format24:prefs.format24}):DeskWoodlandStory.sample(now,{format24:prefs.format24});
+  if(habitat){m.dateDigits=String(now.getDate()).padStart(2,'0');m.hourMaterial='leaf';m.minuteMaterial={tens:'leaf',ones:'stone'};m.dateMaterial='stone';}
+  else m._minuteStart=now.getTime()-m.second*1000;
+  syncWeather();
   const frozen=quiet(),companions=prefs.display.companion!==false,t=now.getTime()/1000;
   const clockKey=Math.floor(now.getTime()/1000)+':'+prefs.format24;if(clockKey!==lastClock){renderClockTime(now);lastClock=clockKey;}
   if(m.terrainKey!==lastChapter){chapter(m);lastChapter=m.terrainKey;}
   const minuteKey=m.minuteKey+':'+m.time+':'+m.dateDigits;if(minuteKey!==lastMinute){numerals(m);lastMinute=minuteKey;}
-  const castKey=override(m).ids.join(':');if(castKey!==lastCast){cast(m);lastCast=castKey;}
+  if(!habitat){const castKey=override(m).ids.join(':');if(castKey!==lastCast){cast(m);lastCast=castKey;}}
   fit();
+  const community=habitat?DeskHabitatCommunity.sample(now,{night:nightFor(m),weatherKind:weatherSnapshot?.kind,daylightHours:m.daylightHours}):null;
+  if(habitat&&!get('woodland-immersive-community')._communityCamp)DeskHabitatCommunity.create(get('woodland-immersive-community'));
+  const communityHost=get('woodland-immersive-community'),display=habitat?'':'none';
+  if(communityHost.style.display!==display)communityHost.style.display=display;
+  if(thermometer.hidden===habitat)thermometer.hidden=!habitat;
+  if(habitat)DeskHabitatCommunity.update(get('woodland-immersive-community'),{model:community,layout,frozen,companions});
+  if(habitat){
+   data(scene,'time',m.time);data(scene,'date',m.dateDigits);data(scene,'night',nightFor(m));
+   data(scene,'activity',community.routine);data(scene,'chapter',m.terrainKey);data(scene,'phase','community');
+   for(const id of ['structures','workpieces','cliff','holds','delivery','inlet','fire','ripples'])markup('woodland-immersive-'+id,'');
+   attr('woodland-immersive-rope','d','');get('woodland-immersive-cast').style.display='none';
+   const key=[weatherSnapshot?.revision,scene.dataset.night].join(':');if(key!==weatherKey){weatherKey=key;weatherGroup(weatherSnapshot,scene.dataset.night==='true');chapter(m);lastChapter=m.terrainKey;}
+   text('woodland-immersive-title',`Green House 1 · ${m.time} ${m.period}`);text('woodland-immersive-place','Green House 1 · '+m.place.name);
+   text('woodland-immersive-chapter',community.label);text('woodland-immersive-story',community.caption+' Small acts of care make a shared home.');
+   text('woodland-immersive-description',`Green House 1, ${m.time} ${m.period}, day ${m.dateDigits}. ${community.caption} Weather ${weatherSnapshot?.kind||'unavailable'}.`);
+  }else{
   const z=size(),plan=schedule(m),{previous,from:previousLoc,to:leadLoc,travel,descent}=plan;
   const climbing=m.work.id==='protected-climb'&&m.hour>=6,descending=descent>0&&m.second<descent;
   const effort=climbing?climbEffort(m,plan):m.work.effort,phase=climbing?effort.phase:m.phase;
-  scene.dataset.time=m.time;scene.dataset.date=m.dateDigits;scene.dataset.phase=m.phase;scene.dataset.activity=m.work.id;scene.dataset.chapter=m.terrainKey;scene.dataset.material=m.material;
-  scene.dataset.night=String(m.hour<6||m.hour>=20);
+  data(scene,'time',m.time);data(scene,'date',m.dateDigits);data(scene,'phase',m.phase);data(scene,'activity',m.work.id);data(scene,'chapter',m.terrainKey);data(scene,'material',m.material);
+  // This attribute participates in descendant CSS selectors. Rewriting the
+  // same value forces Firefox to restyle the whole illustrated subtree.
+  data(scene,'night',m.hour<6||m.hour>=20);
   const label=m.hour<6?'The camp rests':descending?'Returning on the protected route':m.second<travel?'On the trail to '+m.work.label.toLowerCase():phase==='recover'?'A breath before the next task':m.work.label;
   if(label!==lastLabel){text('woodland-immersive-chapter',label);lastLabel=label;}
   text('woodland-immersive-title',`Woodland of Time · ${m.time} ${m.period}`);text('woodland-immersive-place',m.place.name+' · '+m.period);
   const caption=m.caption.split(DeskCharacters.identities[m.social.lead].name).join(DeskCharacters.identities[override(m).lead].name);
   text('woodland-immersive-story',m.reflection?caption+' '+m.philosophy:m.philosophy);
   text('woodland-immersive-description',`${m.time} ${m.period}, day ${m.dateDigits}. ${m.place.name}. ${label}. ${caption} ${m.philosophy}`);
-  if(climbing)scene.dataset.phase=effort.phase;
+  if(climbing)data(scene,'phase',effort.phase);
   let leadPosition=null,leadRig=null,kidPosition=null,kidRig=null;
   const route=DeskWorlds.routes.woodlandRock,cliffVisible=!frozen&&companions&&m.hour>=6&&(climbing||m.second<travel&&descent>0);
   if(cliffVisible){
@@ -2289,16 +2688,16 @@ applyDisplay();
    if(anchored){
     const anchor=projectCliff(route.anchor,s);actor.host._anchor=anchor;
     attr('woodland-immersive-rope','d',`M${anchor.x} ${anchor.y}L${pos.x} ${pos.y+9*s.y}`);
-    actor.host.dataset.contactHolds=JSON.stringify(rig.holds);
-   }else actor.host.dataset.contactHolds='';
+    data(actor.host,'contactHolds',JSON.stringify(rig.holds));
+   }else data(actor.host,'contactHolds','');
    // Site bounds apply before interpolation, and the whole cliff projects from
    // one safe origin. Never clamp a solved root away from its terrain contacts.
-   actor.host.setAttribute('transform',`translate(${pos.x.toFixed(4)} ${pos.y.toFixed(4)})`);actor.host.querySelector('.character-art').setAttribute('transform',`scale(${s.x} ${s.y})`);
+   actor.host.setAttribute('transform',`translate(${pos.x.toFixed(4)} ${pos.y.toFixed(4)})`);write(actor.art,'transform',`scale(${s.x} ${s.y})`);
    const anchor=actor.host._anchor||{x:80,y:90},organic=frozen||effort.resting?0:Math.sin(Math.PI*m.progress)**2;
    const result=DeskCharacters.update(actor.host,{action:pose,cycle,rig,fatigue:actor.index?0:effort.fatigue,assisted:actor.index===0&&effort.assisted,ropeAnchor:{x:(anchor.x-pos.x)/s.x,y:(anchor.y-pos.y)/s.y},organic,phase:t+actor.index*.7,item:actor.index&&m.work.id==='cook'?'food':m.work.id==='filter-water'?'water':null});
-   const prop=result.prop;const drawing=propMarkup(prop);if(actor.prop._art!==drawing){actor.prop.innerHTML=drawing;actor.prop._art=drawing;}actor.prop.setAttribute('transform',`scale(${s.x} ${s.y})`);
-   actor.host.dataset.action=pose;actor.host.dataset.supervisor=actor.young?(actors.find(a=>a.index&&!a.young)||actors[0]).id:'';actor.host.dataset.ground=ground;
-   actor.host.dataset.footContacts=JSON.stringify({leftFoot:rig.contacts.leftFoot,rightFoot:rig.contacts.rightFoot});
+   const prop=result.prop,drawing=propMarkup(prop);if(actor.prop._art!==drawing){actor.prop.innerHTML=drawing;actor.prop._art=drawing;}write(actor.prop,'transform',`scale(${s.x} ${s.y})`);
+   data(actor.host,'action',pose);data(actor.host,'supervisor',actor.young?(actors.find(a=>a.index&&!a.young)||actors[0]).id:'');data(actor.host,'ground',ground);
+   data(actor.host,'footContacts',JSON.stringify({leftFoot:rig.contacts.leftFoot,rightFoot:rig.contacts.rightFoot}));
    if(actor.index===0){leadPosition=pos;leadRig=rig;}
    if(actor.young){kidPosition=pos;kidRig=rig;}
   });
@@ -2306,7 +2705,15 @@ applyDisplay();
   const point=glyphPoint(m),ground=layout.ground,ratio=layout.sy/layout.sx;
   const fireActive=m.hour>=6&&['tend-fire','cook'].includes(m.work.id),cook=m.work.id==='cook';
   const potY=ground-18*z.y,flame=frozen?0:Math.sin(t*5)*2,flameHeight=cook?Math.max(12,ground-potY-9):24;
-  markup('woodland-immersive-fire',fireActive?`<g><path d="M${432-12*ratio} ${ground+2}Q${432-15*ratio} ${ground-12} 432 ${ground-flameHeight-flame}Q${432-2*ratio} ${ground-9} ${432+8*ratio} ${ground-14}Q${432+21*ratio} ${ground+3} ${432-12*ratio} ${ground+2}Z" fill="#e6a255"/><path d="M${432-6*ratio} ${ground+2}Q${432-8*ratio} ${ground-8} 432 ${ground-flameHeight*.6}Q${432+10*ratio} ${ground+1} ${432-6*ratio} ${ground+2}Z" fill="#f6d489"/>${cook?`<path d="M${432-23*ratio} ${ground}L432 ${potY-12}L${432+23*ratio} ${ground}M432 ${potY-12}V${potY}" stroke="#594e36" stroke-width="2" fill="none"/><path data-workpiece="pot" d="M${432-15*ratio} ${potY}h${30*ratio}v9q${-15*ratio} 8 ${-30*ratio} 0Z" fill="#4b6459" stroke="#dddbb6"/><ellipse data-workpiece="potopening" cx="432" cy="${potY}" rx="${16*ratio}" ry="3" fill="#aab58c" stroke="#efdcaa"/>`:''}<path d="M${432-8*ratio} ${potY-12}q${-6*ratio} -7 0 -14m${13*ratio} 11q${6*ratio} -8 0 -15" fill="none" stroke="#e5e5c9" opacity=".5" stroke-width="1.3"/></g>`:'');
+  const fireHost=get('woodland-immersive-fire'),fireKey=[fireActive,cook,ground,ratio,potY,flameHeight].join(':');
+  if(fireHost._key!==fireKey||fireActive&&!fireHost.firstElementChild){
+  markup('woodland-immersive-fire',fireActive?`<g><path data-flame="outer" d="M${432-12*ratio} ${ground+2}Q${432-15*ratio} ${ground-12} 432 ${ground-flameHeight-flame}Q${432-2*ratio} ${ground-9} ${432+8*ratio} ${ground-14}Q${432+21*ratio} ${ground+3} ${432-12*ratio} ${ground+2}Z" fill="#e6a255"/><path data-flame="inner" d="M${432-6*ratio} ${ground+2}Q${432-8*ratio} ${ground-8} 432 ${ground-flameHeight*.6}Q${432+10*ratio} ${ground+1} ${432-6*ratio} ${ground+2}Z" fill="#f6d489"/>${cook?`<path d="M${432-23*ratio} ${ground}L432 ${potY-12}L${432+23*ratio} ${ground}M432 ${potY-12}V${potY}" stroke="#594e36" stroke-width="2" fill="none"/><path data-workpiece="pot" d="M${432-15*ratio} ${potY}h${30*ratio}v9q${-15*ratio} 8 ${-30*ratio} 0Z" fill="#4b6459" stroke="#dddbb6"/><ellipse data-workpiece="potopening" cx="432" cy="${potY}" rx="${16*ratio}" ry="3" fill="#aab58c" stroke="#efdcaa"/>`:''}<path d="M${432-8*ratio} ${potY-12}q${-6*ratio} -7 0 -14m${13*ratio} 11q${6*ratio} -8 0 -15" fill="none" stroke="#e5e5c9" opacity=".5" stroke-width="1.3"/></g>`:'');
+   fireHost._key=fireKey;fireHost._outer=fireHost.querySelector('[data-flame=outer]');fireHost._inner=fireHost.querySelector('[data-flame=inner]');
+  }
+  if(fireActive){
+   write(fireHost._outer,'d',`M${432-12*ratio} ${ground+2}Q${432-15*ratio} ${ground-12} 432 ${ground-flameHeight-flame}Q${432-2*ratio} ${ground-9} ${432+8*ratio} ${ground-14}Q${432+21*ratio} ${ground+3} ${432-12*ratio} ${ground+2}Z`);
+   write(fireHost._inner,'d',`M${432-6*ratio} ${ground+2}Q${432-8*ratio} ${ground-8} 432 ${ground-flameHeight*.6}Q${432+10*ratio} ${ground+1} ${432-6*ratio} ${ground+2}Z`);
+  }
   // These are cumulative, deterministic construction snapshots within an
   // hourly chapter; a work/rest bout never tears down what was just built.
   const build=.25+.75*ease(Math.min(1,(m.minute+m.second/60)/10)),planks=Math.max(1,Math.min(7,Math.floor((m.minute+m.second/60)/2)+1));
@@ -2323,17 +2730,30 @@ applyDisplay();
    const x=kidPosition.x+19*kidS.x,y=ground-4;
    task+=`<ellipse cx="${x}" cy="${y}" rx="${22*ratio}" ry="6" fill="#dfcb95"/><path data-workpiece="sand-digit" data-digit="${m.digits[3]}" d="${DeskWorlds.numerals[m.digits[3]]}" transform="translate(${x-12*ratio} ${y-3}) scale(${.28*ratio} .045)" fill="none" stroke="#8c7650" stroke-width="2.5"/>`;
   }
-  markup('woodland-immersive-workpieces',shelter+crossing+task);
+  const workHost=get('woodland-immersive-workpieces');
+  if(!workHost._tent?.isConnected){
+   markup('woodland-immersive-workpieces',`<g data-construction="shelter">${shelter}</g><g data-construction="crossing"/><g data-construction="task"/>`);
+   workHost._tent=workHost.querySelector('[data-workpiece=tent]');workHost._ridge=workHost._tent.nextElementSibling;workHost._crossing=workHost.querySelector('[data-construction=crossing]');workHost._task=workHost.querySelector('[data-construction=task]');
+  }
+  write(workHost._tent,'data-progress',build);write(workHost._tent,'d',`M278 ${ground-5}L304 ${ground-53*build}L371 ${ground-49*build}L401 ${ground-6}Z`);
+  write(workHost._ridge,'d',`M304 ${ground-53*build}L330 ${ground-4}`);art(workHost._crossing,crossing);art(workHost._task,task);
   const stream=companions&&!frozen&&m.hour>=6;
   const floating=['leaf','wood'].includes(m.material),bankY=point.y+15;
   const canal=`<path data-minute-source="${floating?'river':'bank'}" d="M825 ${floating?215:ground-7}Q740 ${floating?235:ground-7} ${point.x} ${bankY}" fill="none" stroke="${floating?'#78a69a':'#bcaa7b'}" stroke-width="${floating?13:9}" opacity=".8"/>`;
   const count=m.material==='sand'?0:floating?5:1;
-  const objects=Array.from({length:count},(_,i)=>{
+  const delivery=get('woodland-immersive-delivery'),deliveryKey=[m.material,count,floating].join(':');
+  if(delivery._key!==deliveryKey||!delivery.firstElementChild){
+   const objects=Array.from({length:count},()=>{
+    const kind=m.material,path=kind==='leaf'?'<path d="M-8 1Q-5 -9 8 -2Q6 8 -8 1Z" fill="#bdce91" stroke="#5e7953"/><path d="M-6 1L5 -1" stroke="#7b955f"/>':kind==='stone'?'<path d="M-10 -2h20l-4 5h-14Z" fill="#a78353" stroke="#665c40"/><circle cx="-6" cy="6" r="3" fill="#405f50"/><circle cx="7" cy="6" r="3" fill="#405f50"/><path d="M-6 -4L-1 -7L5 -3L6 0L0 2L-6 -1Z" fill="#bfc8ba" stroke="#627767"/>':'<rect x="-9" y="-3" width="18" height="6" rx="2" fill="#d8bb83" stroke="#92764c"/><path d="M-5 0h10" stroke="#a18756"/>';
+    return `<g data-delivery="${kind}">${path}</g>`;
+   }).join('');markup('woodland-immersive-delivery',canal+objects);delivery._key=deliveryKey;delivery._objects=[...delivery.querySelectorAll('[data-delivery]')];
+  }
+  write(delivery.firstElementChild,'d',`M825 ${floating?215:ground-7}Q740 ${floating?235:ground-7} ${point.x} ${bankY}`);
+  for(const [i,el] of delivery._objects.entries()){
    const p=stream?mod(m.second/9+i/5,1):i/5,x=point.x+(825-point.x)*(1-p),y=floating?215+(bankY-215)*p+5*Math.sin(p*Math.PI):ground-7+(bankY-ground+7)*p;
-   const kind=m.material,path=kind==='leaf'?'<path d="M-8 1Q-5 -9 8 -2Q6 8 -8 1Z" fill="#bdce91" stroke="#5e7953"/><path d="M-6 1L5 -1" stroke="#7b955f"/>':kind==='stone'?'<path d="M-10 -2h20l-4 5h-14Z" fill="#a78353" stroke="#665c40"/><circle cx="-6" cy="6" r="3" fill="#405f50"/><circle cx="7" cy="6" r="3" fill="#405f50"/><path d="M-6 -4L-1 -7L5 -3L6 0L0 2L-6 -1Z" fill="#bfc8ba" stroke="#627767"/>':'<rect x="-9" y="-3" width="18" height="6" rx="2" fill="#d8bb83" stroke="#92764c"/><path d="M-5 0h10" stroke="#a18756"/>';
    const opacity=frozen?1:Math.min(1,p*12,(1-p)*12);
-   return `<g data-delivery="${kind}" opacity="${opacity.toFixed(3)}" transform="translate(${x.toFixed(2)} ${y.toFixed(2)}) scale(${ratio} 1) rotate(${stream&&floating?Math.sin(t+i)*7:0})">${path}</g>`;
-  }).join('');markup('woodland-immersive-delivery',canal+objects);
+   write(el,'opacity',opacity.toFixed(3));write(el,'transform',`translate(${x.toFixed(2)} ${y.toFixed(2)}) scale(${ratio} 1) rotate(${stream&&floating?Math.sin(t+i)*7:0})`);
+  }
   const waterPlay=kid&&kidPosition&&m.hour>=6&&m.second>=travel&&m.social.supervisor&&['water-edge-play','shallow-wade'].includes(m.social.kidActivity);
   const splash=stream&&waterPlay,ripple=stream?1+Math.sin(t*2)*.08:1;
   markup('woodland-immersive-inlet',waterPlay?`<path data-water-inlet d="M691 247Q713 ${ground-44} ${kidPosition.x} ${ground-4}Q${kidPosition.x-14*ratio} ${ground+4} ${kidPosition.x-30*ratio} ${ground-3}Q${kidPosition.x+7*ratio} ${ground-25} 672 241Z" fill="#79aaa1" stroke="#b9d6bb" stroke-width="1"/>`:'');
@@ -2342,14 +2762,24 @@ applyDisplay();
    const base=slot.y+154*slot.s,span=100*slot.s*ratio;
    return `<path d="M${slot.x-10} ${base}h${span}" stroke="#8a8767" stroke-width="5"/><path d="M${slot.x+8} ${base}V${ground}M${slot.x+60*slot.s*ratio} ${base}V${ground}" stroke="#796345" stroke-width="4"/><path d="M${slot.x-14} ${ground}h${span+15}" stroke="#a99976" stroke-width="6"/>`;
   }).join('');markup('woodland-immersive-structures',foundations);
+  }
   if(!frozen&&prefs.display.cameraMotion!=='still'){
    // Translate the outer SVG in CSS so its cached art can be composited.
    // An inner SVG camera transform rerasterizes the moving forest at high DPR.
-   get('woodland-immersive-world').style.transform=`translate(${(Math.sin(t/47)*9*layout.sx).toFixed(3)}px,${(Math.sin(t/61)*3*layout.sy).toFixed(3)}px)`;
-   document.body.style.setProperty('--woodland-ui-x',(Math.sin(t/53)*10).toFixed(2)+'px');document.body.style.setProperty('--woodland-ui-y',(Math.sin(t/79)*4).toFixed(2)+'px');
-  }else{get('woodland-immersive-world').style.transform='translate(0px,0px)';document.body.style.setProperty('--woodland-ui-x','0px');document.body.style.setProperty('--woodland-ui-y','0px');}
+   const cameraTransform=`translate(${compositorPosition(Math.sin(t/47)*9*layout.sx)}px,${compositorPosition(Math.sin(t/61)*3*layout.sy)}px)`;
+   setCameraTransform(cameraTransform);
+   driftUI(compositorPosition(Math.sin(t/53)*10)+'px',compositorPosition(Math.sin(t/79)*4)+'px');
+  }else{setCameraTransform('translate(0px,0px)');driftUI('0px','0px');}
   attr('woodland-immersive-light','opacity',frozen?'0':(.016+.012*Math.sin(t/39)).toFixed(4));
-  DeskWoodlandArt.animate(get('woodland-immersive-world'),t,{reducedMotion:frozen,lowPower:prefs.lowPower});
+  // Slow scenery has a separate 30fps cadence; actors and rain retain
+  // the main frame cadence. Clock buckets also reconstruct manual time jumps.
+  const ambientBeat=Math.floor(now.getTime()*30/1000);
+  if(ambientBeat!==lastAmbientBeat||frozen!==lastAmbientFrozen){
+   DeskWoodlandArt.animate(get('woodland-immersive-world'),t,{reducedMotion:frozen,lowPower:prefs.lowPower});
+   lastAmbientBeat=ambientBeat;lastAmbientFrozen=frozen;
+  }
+  const particles=get('woodland-immersive-weather')._particles||[];
+  if(particles.length){const kind=get('woodland-immersive-weather').dataset.precipitation,weatherTime=frozen?0:t;for(const el of particles){const index=Number(el.getAttribute('data-weather-particle')),phase=index*.71,y=mod(index*47+21+weatherTime*(kind==='rain'?38:9),330)-15,x=mod(index*83+17+Math.sin(weatherTime*.35+phase)*3,800);el.setAttribute('transform',`translate(${x.toFixed(1)} ${y.toFixed(1)})`);}}
   return visible()&&!frozen;
  }
  function stop(){clearTimeout(timer);timer=null;if(frame!==null)cancelAnimationFrame(frame);frame=null;}
@@ -2362,7 +2792,11 @@ applyDisplay();
   if(draw())frame=requestAnimationFrame(loop);
  }
  function sync(){
+  // A retained query can lag a preference change until its change event.
+  // Read the current preference for an explicit refresh, then reuse it in RAF.
+  reducedMotion=typeof matchMedia==='function'?!!matchMedia('(prefers-reduced-motion: reduce)').matches:!!media?.matches;
   stop();const on=active(),wasOn=document.body.classList.contains('woodland-fullscene');if(on!==wasOn)lastLayout='';scene.hidden=!on;document.body.classList.toggle('woodland-fullscene',on);
+  if(scene.dataset.theme!==prefs.theme)scene.dataset.theme=prefs.theme;
   if(!on){document.body.classList.remove('woodland-information');return;}
   fit();const animate=draw();if(!visible())return;
   const interval=prefs.lowPower?60000:1000;timer=setTimeout(sync,interval-Date.now()%interval+1);
@@ -2372,6 +2806,7 @@ applyDisplay();
  document.addEventListener('visibilitychange',sync);get('settings').addEventListener('close',sync);
  new MutationObserver(sync).observe(get('settings'),{attributes:true,attributeFilter:['open']});
  window.addEventListener('resize',()=>{lastLayout='';sync();});window.addEventListener('desk-display-change',()=>{lastLayout='';sync();});media?.addEventListener?.('change',sync);
+ window.addEventListener('desk-weather-change',()=>{if(!greenhouse())return;weatherKey='';lastThermometer='';syncWeather();lastChapter='';sync();});
  window.WoodlandScene={sync,refresh,model:DeskWoodlandStory.sample,timing(date){const m=DeskWoodlandStory.sample(date,{format24:prefs.format24});m._minuteStart=date.getTime()-m.second*1000;const p=schedule(m);return {travel:p.travel,descent:p.descent,climbStart:p.climbStart,climbBout:p.climbBout};},get running(){return frame!==null;},get pending(){return timer!==null;}};sync();
 })();
 
