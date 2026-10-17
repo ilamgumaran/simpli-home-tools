@@ -170,6 +170,86 @@ async function verifyRoutineTransitions(browser,target,dpr){
   console.log('PASS community routine transitions:',target.startsWith('file:')?'portable':'hosted',`DPR${dpr}`, 'painted wrist, fixed bones, planted feet and spoon at eight boundaries.');
  }finally{await context.close();}
 }
+// Probe the painted child at both light boundaries and the organic layers at
+// clock discontinuities. Screen matrices are normalized to the character art
+// so unrelated world camera and chapter changes cannot mask a breathing snap.
+async function verifySproutContinuity(browser,target,dpr){
+ const context=await browser.newContext({viewport:{width:854,height:480},deviceScaleFactor:dpr,timezoneId:'America/New_York'}),page=await context.newPage(),errors=[];
+ try{
+  page.on('pageerror',error=>errors.push(error.message));
+  await page.route('https://**',route=>route.abort());
+  await page.route('https://api.open-meteo.com/**',route=>route.fulfill({json:{current:{temperature_2m:12,weather_code:65},daily:{temperature_2m_max:[16],temperature_2m_min:[8]}}}));
+  await freezeClock(page,stamp(10));
+  await page.addInitScript(()=>localStorage.setItem('orbit-settings',JSON.stringify({theme:'greenhouse1',unit:'celsius',format24:true,care:false,rest:false,night:false,lowPower:false,display:{woodlandView:'immersive',cameraMotion:'still'}})));
+  await page.goto(target);await page.waitForFunction(()=>DeskHabitatWeather?.get().status==='live');
+  const at=async instant=>{await page.clock.setSystemTime(new Date(instant));await page.evaluate(()=>WoodlandScene.sync());};
+  const sample=()=>page.evaluate(()=>{
+   const camp=document.querySelector('#woodland-immersive-community'),art=camp.querySelector('[data-child="sprout"] .character-art'),stick=art.parentElement.querySelector('[data-play-stick]');
+   const screen=(node,x,y)=>{const p=new DOMPoint(x,y).matrixTransform(node.getScreenCTM());return {x:p.x,y:p.y};};
+   const joints=node=>{const numbers=[...node.getAttribute('d').matchAll(/[-+]?\d*\.?\d+(?:e[-+]?\d+)?/gi)].map(match=>Number(match[0]));return [0,2,4].map(i=>screen(node,numbers[i],numbers[i+1]));};
+   const arms=['left','right'].map(side=>joints(art.querySelector(`[data-part="arm-${side}"]`))),legs=['left','right'].map(side=>joints(art.querySelector(`[data-part="leg-${side}"]`)));
+   const eyes=art.querySelector('[data-part="eyes"]'),box=eyes.getBBox(),eyeCorners=[[box.x,box.y],[box.x+box.width,box.y+box.height]].map(p=>screen(eyes,...p));
+   const stickShown=getComputedStyle(stick).display!=='none';
+   let tool=null;if(stickShown){const numbers=[...stick.getAttribute('d').matchAll(/[-+]?\d*\.?\d+(?:e[-+]?\d+)?/gi)].map(match=>Number(match[0]));tool={opacity:Number(getComputedStyle(stick).opacity),grip:screen(stick,numbers[0],numbers[1]),tip:screen(stick,numbers[2],numbers[3])};}
+   const base=art.getScreenCTM().inverse(),matrix=layer=>{const m=base.multiply(art.querySelector(`[data-layer="${layer}"]`).getScreenCTM());return [m.a,m.b,m.c,m.d,m.e,m.f];};
+   return {routine:camp.dataset.routine,arms,legs,eyes:eyeCorners,tool,organic:Object.fromEntries(['body','face','headwear','equipment-back'].map(layer=>[layer,matrix(layer)]))};
+  });
+  const distance=(a,b)=>Math.hypot(a.x-b.x,a.y-b.y),maxPointDelta=(a,b)=>Math.max(...a.flatMap((row,i)=>row.map((p,j)=>distance(p,b[i][j]))));
+  for(const viewport of [{width:854,height:480},{width:1280,height:720},{width:1920,height:1080},{width:390,height:844}]){
+   await page.setViewportSize(viewport);
+   for(const hour of [7,19]){
+    const boundary=+new Date(`2026-10-05T${String(hour).padStart(2,'0')}:00:00-04:00`),frames=[];
+    for(const offset of [-1,0,1,175,350,525,699,700,701]){await at(boundary+offset);frames.push({offset,...await sample()});}
+    const detail=JSON.stringify({viewport,dpr,hour,frames}),pairs=[[0,2],[6,8]];
+    for(const [i,j] of pairs){
+     assert.ok(maxPointDelta(frames[i].arms,frames[j].arms)<.05&&maxPointDelta(frames[i].legs,frames[j].legs)<.05,'Sprout painted joints jump at a light boundary: '+detail);
+     assert.ok(Math.max(...frames[i].eyes.map((p,k)=>distance(p,frames[j].eyes[k])))<.05,'Sprout painted eyes snap at a light boundary: '+detail);
+     assert.ok(Math.abs((frames[i].tool?.opacity||0)-(frames[j].tool?.opacity||0))<.005,'Sprout stick opacity snaps at a light boundary: '+detail);
+    }
+    assert.ok(frames.slice(3,6).every(frame=>frame.tool&&frame.tool.opacity>0&&frame.tool.opacity<1),'Sprout stick does not fade through the light boundary: '+detail);
+    assert.ok(frames.every(frame=>!frame.tool||distance(frame.tool.grip,frame.arms[1][2])<.06),'Sprout stick leaves the painted right hand: '+detail);
+    assert.ok(frames.every(frame=>frame.legs.every((leg,k)=>Math.abs(leg[2].y-frames[0].legs[k][2].y)<.06)),'Sprout feet leave their support plane: '+detail);
+    const lengths=frame=>[...frame.arms,...frame.legs].flatMap(points=>[distance(points[0],points[1]),distance(points[1],points[2])]);
+    const expected=[12,11,12,11,12,12,12,12].map(length=>length*38/66);
+    assert.ok(frames.every(frame=>lengths(frame).every((length,i)=>Math.abs(length-expected[i])<.025)),'Sprout painted bones change length: '+detail);
+    assert.ok(frames.every(frame=>!frame.tool||distance(frame.tool.grip,frame.tool.tip)>3),'Sprout stick collapses while visible: '+detail);
+   }
+  }
+  const adjacent=[
+   ['midnight','2026-10-05T23:59:59.999-04:00','2026-10-06T00:00:00.001-04:00'],
+   ['spring DST','2026-03-08T01:59:59.999-05:00','2026-03-08T03:00:00.001-04:00'],
+   ['fall DST','2026-11-01T01:59:59.999-04:00','2026-11-01T01:00:00.001-05:00']
+  ];
+  for(const viewport of [{width:854,height:480},{width:1280,height:720},{width:1920,height:1080},{width:390,height:844}]){
+   await page.setViewportSize(viewport);
+   for(const [name,beforeTime,afterTime] of adjacent){
+    await at(beforeTime);const before=await sample();await at(afterTime);const after=await sample();
+    for(const layer of ['body','face','headwear','equipment-back']){
+     const delta=Math.max(...before.organic[layer].map((value,i)=>Math.abs(value-after.organic[layer][i])));
+     assert.ok(delta<.0001,`Sprout ${layer} painted transform jumps at ${name}: `+JSON.stringify({viewport,dpr,beforeTime,afterTime,delta,before:before.organic[layer],after:after.organic[layer]}));
+    }
+   }
+  }
+  await page.emulateMedia({reducedMotion:'reduce'});await page.waitForFunction(()=>matchMedia('(prefers-reduced-motion: reduce)').matches);
+  for(const viewport of [{width:854,height:480},{width:1280,height:720},{width:1920,height:1080},{width:390,height:844}]){
+   await page.setViewportSize(viewport);
+   for(const hour of [7,19]){
+    const boundary=+new Date(`2026-10-05T${String(hour).padStart(2,'0')}:00:00-04:00`),frames=[];
+    for(const offset of [-1,0,1,350,699,700,701]){
+     await at(boundary+offset);
+     frames.push(await page.evaluate(()=>{
+      const child=document.querySelector('#woodland-immersive-community [data-child="sprout"]'),art=child.querySelector('.character-art'),stick=child.querySelector('[data-play-stick]');
+      return {frozen:document.querySelector('[data-layer="community-camp"]').dataset.frozen,limbs:['arm-left','arm-right','leg-left','leg-right'].map(name=>art.querySelector(`[data-part="${name}"]`).getAttribute('d')),eyes:art.querySelector('[data-part="eyes"]').getAttribute('d'),stick:getComputedStyle(stick).display,wrapper:child.getAttribute('transform'),body:art.querySelector('[data-layer="body"]').getAttribute('transform')};
+     }));
+    }
+    assert.ok(frames.every(frame=>frame.frozen==='true'&&frame.stick==='none'),'Reduced-motion Sprout is not frozen or hides no stick: '+JSON.stringify({viewport,dpr,hour,frames}));
+    assert.ok(frames.every(frame=>JSON.stringify(frame)===JSON.stringify(frames[0])),'Reduced-motion Sprout pose changes through a light boundary: '+JSON.stringify({viewport,dpr,hour,frames}));
+   }
+  }
+  assert.deepEqual(errors,[]);
+  console.log('PASS Sprout continuity:',target.startsWith('file:')?'portable':'hosted',`DPR${dpr}`,'painted joints, eyes, stick, planted feet and organic layers across light, midnight and DST boundaries.');
+ }finally{await context.close();}
+}
 // Hold a retained MQL stale after the OS preference changes; fresh queries still see the new value.
 async function verifyImmediateReducedMotion(browser,target){
  const context=await browser.newContext({viewport:{width:854,height:480},deviceScaleFactor:1,timezoneId:'America/New_York'}),page=await context.newPage(),errors=[];
@@ -221,4 +301,4 @@ async function verifyImmediateReducedMotion(browser,target){
   console.log('PASS immediate reduced-motion refresh:',target.startsWith('file:')?'portable':'hosted','stale cached MQL, immediate stop and stable supported infant.');
  }finally{await context.close();}
 }
-(async()=>{const browser=await engine.launch({...options,headless:true});try{for(const target of [url,portable])for(const dpr of [1,2]){await verify(browser,target,dpr);await verifyRoutineTransitions(browser,target,dpr);}for(const target of [url,portable])await verifyImmediateReducedMotion(browser,target);}finally{await browser.close();}})().catch(e=>{console.error(e);process.exit(1);});
+(async()=>{const browser=await engine.launch({...options,headless:true});try{for(const target of [url,portable])for(const dpr of [1,2]){await verify(browser,target,dpr);await verifyRoutineTransitions(browser,target,dpr);await verifySproutContinuity(browser,target,dpr);}for(const target of [url,portable])await verifyImmediateReducedMotion(browser,target);}finally{await browser.close();}})().catch(e=>{console.error(e);process.exit(1);});
