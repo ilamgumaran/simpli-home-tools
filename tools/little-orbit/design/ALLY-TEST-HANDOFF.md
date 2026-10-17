@@ -1,20 +1,20 @@
 # Green House 1: Ally installation and acceptance
 
-Prepared 2026-10-17. Green House 1 is the weather and tiny-community theme; Woodland retains its larger characters and terrain-engineering activities. Read the [current candidate results](../../../sessions/2026-10-10-weather-habitat/013-cloud-child-motion-results.md) first. Candidate application source is `b0c364743c355749185505491c64e8b7a15c033f`, with portable SHA-256 `a5d68f51ea0506650ecad516e0d7d7315a4701794b64777b3cfcf64c546f46b8`. The portable build and full Chrome/Firefox/Edge suites pass, including cadence and offline checks. Session 011's focused Sage-contact/browser results apply to its older candidate. Sustained and physical Ally/Vanadium checks remain unrun, and earlier intermittent stalls on `c827dba9` remain unexplained. Return findings as `004-ally-to-cloud.md` in the weather-habitat session thread. The [earlier fullscreen handoff](../../../sessions/2026-10-05-immersive-woodland/003-cloud-scene-ready.md) remains history.
+Prepared 2026-10-17. Green House 1 is the weather and tiny-community theme; Woodland retains its larger characters and terrain-engineering activities. Runtime candidate is `de43b318d7b62fdd67b90f589b91947d67d843bf`, with portable SHA-256 `3ce3de6658214d446368c3b1676ac4dd59a6ea0b2baf30e3f55c5d7032945b99`. Full Chrome/Firefox/Edge suites, cadence and offline portable checks pass; details are in the [session 015 handoff](../../../sessions/2026-10-10-weather-habitat/015-cloud-spacing-motion-results.md). Painted-group minimum sampled gaps are 46.54 CSS pixels between Sprout and the caregiver group and 39.42 pixels between the caregiver and Sage groups. The minimum horizontal viewport margin is 29.94 CSS pixels, above the 16-pixel requirement. Portrait origin 120 keeps the family within that clearance. Aster, Sage and Sprout use separate rhythms and 1.2-second quintic blends; Aster continues supporting Pebble. Earlier session results apply to their stated candidate revisions only. Sustained and physical Ally/Vanadium checks remain unrun. Return device findings as `004-ally-to-cloud.md` in the weather-habitat session thread. The [earlier fullscreen handoff](../../../sessions/2026-10-05-immersive-woodland/003-cloud-scene-ready.md) remains history.
 
-## Current candidate — browser suites pass; device validation pending
+## Current runtime — browser validation passed; device validation pending
 
 | Item | Value |
 | --- | --- |
 | Repository | `ilamgumaran/simpli-home-tools` |
 | Branch | `feature/woodland-weather-habitat` |
 | Pull request | [PR #11](https://github.com/ilamgumaran/simpli-home-tools/pull/11), draft; sustained/device acceptance pending |
-| Candidate runtime revision | `b0c364743c355749185505491c64e8b7a15c033f` |
+| Candidate runtime revision | `de43b318d7b62fdd67b90f589b91947d67d843bf` |
 | Canonical app | `tools/little-orbit/` |
-| Portable SHA-256 | `a5d68f51ea0506650ecad516e0d7d7315a4701794b64777b3cfcf64c546f46b8` |
-| Validation status | **FULL CHROME/FIREFOX/EDGE SUITES PASS** — sustained use and physical acceptance pending; earlier intermittent stalls remain unexplained |
+| Portable SHA-256 | `3ce3de6658214d446368c3b1676ac4dd59a6ea0b2baf30e3f55c5d7032945b99` |
+| Validation status | **FULL CHROME/FIREFOX/EDGE SUITES, CADENCE AND OFFLINE PORTABLE CHECKS PASS** — sustained use and physical acceptance pending |
 
-Candidate `b0c3647` retains the Green House 1 path and Sage's constrained routine contacts. It adds Sprout's 0.7-second sleep/play blend at actual shared 07:00/19:00 daylight, makes the stick follow the blended hand while preserving its authored grip-to-tip offset, keeps feet supported, and uses epoch-based breathing continuous across midnight and DST. Woodland daylight hours are shared runtime metadata; standalone community sampling defaults to 06:00/20:00, with no new user setting. The portable build and full Chrome/Firefox/Edge suites pass, including cadence and offline checks. Session 011 records the earlier Sage-contact browser evidence only; the [current handoff](../../../sessions/2026-10-10-weather-habitat/013-cloud-child-motion-results.md), [ownership record](../../../sessions/2026-10-10-weather-habitat/012-cloud-child-motion-ownership.md), and historical [session 010](../../../sessions/2026-10-10-weather-habitat/010-cloud-clock-rendering-results.md) carry separate evidence. Community routines recur from local time; persistent ecology and demographic changes remain future work.
+Runtime `de43b318d7b62fdd67b90f589b91947d67d843bf` has minimum sampled painted-group gaps of 46.54 CSS pixels between Sprout and the caregiver group and 39.42 pixels between the caregiver and Sage groups. The minimum horizontal viewport margin is 29.94 CSS pixels, above the 16-pixel requirement. Portrait origin 120 retains that clearance. Aster, Sage and Sprout use independent rhythms and 1.2-second quintic blends. Aster continues to support Pebble, Sage's task contacts remain, and epoch-based motion remains continuous across midnight and DST. Woodland daylight hours are shared runtime metadata; standalone community sampling defaults to 06:00/20:00, with no new user setting. Full Chrome/Firefox/Edge suites, cadence and offline portable checks pass; results are in [session 015](../../../sessions/2026-10-10-weather-habitat/015-cloud-spacing-motion-results.md). Sessions 011–013 describe prior candidates and their separate evidence. Community routines recur from local time; persistent ecology and demographic changes remain future work.
 
 ## Install while preserving the local display
 
@@ -25,11 +25,11 @@ git status --short
 git fetch origin refs/heads/feature/woodland-weather-habitat:refs/remotes/origin/feature/woodland-weather-habitat
 git switch feature/woodland-weather-habitat
 git pull --ff-only origin feature/woodland-weather-habitat
-$runtimeRevision = 'b0c364743c355749185505491c64e8b7a15c033f'
+$runtimeRevision = 'de43b318d7b62fdd67b90f589b91947d67d843bf'
 git merge-base --is-ancestor $runtimeRevision HEAD
 if ($LASTEXITCODE -ne 0) { throw "Tested runtime revision $runtimeRevision is not an ancestor of HEAD." }
 $portableHash = (Get-FileHash -LiteralPath 'tools/little-orbit/Little Orbit.html' -Algorithm SHA256).Hash.ToLowerInvariant()
-if ($portableHash -ne 'a5d68f51ea0506650ecad516e0d7d7315a4701794b64777b3cfcf64c546f46b8') { throw "Portable clock checksum does not match the current candidate." }
+if ($portableHash -ne '3ce3de6658214d446368c3b1676ac4dd59a6ea0b2baf30e3f55c5d7032945b99') { throw "Portable clock checksum does not match the current candidate." }
 git rev-parse HEAD
 ```
 
@@ -46,6 +46,6 @@ Cycle **Theme** to **Green House 1**. It always fills the screen; Woodland's Ful
 - Check true fullscreen fit, viewport-edge art, readable time/date/weather and controls at the device's actual CSS size and scaling. Review normal and low-power/native cadence during sustained use.
 - Exercise reduced motion, Still camera, companions off, hidden tab, Settings, screen rest, resume/sleep and offline portable behavior. Verify time stays current after each pause/resume.
 - In Green House 1, inspect clear hot/cold conditions, rain/snow and night, Celsius/Fahrenheit labels and cached/unavailable states. Check the tiny shelter, food/cooking, teaching, supported infant care, supervised Sprout play and remembrance of Fern. Companions off should retain the camp and weather while hiding people. Confirm weather and community layers clear when returning to Woodland.
-- Report Ally and Vanadium separately with the exact revision and checksum. Current candidate browser checks are pending; do not substitute session 011's earlier Sage-contact evidence. Earlier intermittent stalls remain unexplained. Physical results do not replace cloud outcomes. Current evidence is in [session 013](../../../sessions/2026-10-10-weather-habitat/013-cloud-child-motion-results.md), scope in [012](../../../sessions/2026-10-10-weather-habitat/012-cloud-child-motion-ownership.md), and historical browser results in [011](../../../sessions/2026-10-10-weather-habitat/011-cloud-camp-contact-motion.md) and [010](../../../sessions/2026-10-10-weather-habitat/010-cloud-clock-rendering-results.md). Physical Ally and Vanadium acceptance require device evidence.
+- Report Ally and Vanadium separately with the exact revision and checksum. Cloud browser/cadence/offline checks pass; do not substitute sessions 011–013's earlier evidence. Physical results do not replace cloud outcomes. Runtime ownership is in [session 014](../../../sessions/2026-10-10-weather-habitat/014-cloud-spacing-motion-ownership.md); results are in [015](../../../sessions/2026-10-10-weather-habitat/015-cloud-spacing-motion-results.md). Physical Ally and Vanadium acceptance require device evidence.
 
 Keep private screenshots, profiles and device paths out of Git. Report reproduction steps and distinguish display or clock failures from art feedback. No merge, release or device installation was performed. Physical Ally and Vanadium acceptance remain unrun; PR #11 remains draft while sustained and device acceptance is open.
