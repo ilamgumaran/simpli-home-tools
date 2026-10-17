@@ -2169,7 +2169,7 @@ applyDisplay();
  const staging=freeze({aster:-8,sage:78,sprout:-96});
  const workstationOffset=staging.sage-48,playPatchOffset=staging.sprout+68,lineRestX=68+workstationOffset,restLine=`M38 7L${lineRestX} -13`;
  const motion=freeze({transitionSeconds:1.2,rhythms:{aster:{period:7.2,offset:.11},sage:{period:8.4,offset:.37},sprout:{period:6.6,offset:.68}},organicPhaseOffsets:{aster:0,sage:.9,sprout:1.8}});
- const frame=freeze({actorPixels:54,originCss:{landscape:190,portrait:90},groundInset:10,bounds:{left:-140,top:-90,right:145,bottom:50},paddingCss:16});
+ const frame=freeze({actorPixels:54,originCss:{landscape:190,portrait:120},groundInset:10,bounds:{left:-140,top:-90,right:145,bottom:50},paddingCss:16});
  function paintFrame(layout){
   const sx=Number(layout?.sx),sy=Number(layout?.sy),ground=Number(layout?.ground);
   if(!Number.isFinite(sx)||sx<=0||!Number.isFinite(sy)||sy<=0||!Number.isFinite(ground)||ground<=0)return null;
