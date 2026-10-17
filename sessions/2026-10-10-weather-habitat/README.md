@@ -1,12 +1,15 @@
 # Green House 1 — weather-responsive habitat
 
-Current results: [013: child motion results](013-cloud-child-motion-results.md) tracks candidate `b0c364743c355749185505491c64e8b7a15c033f` (portable SHA-256 `a5d68f51ea0506650ecad516e0d7d7315a4701794b64777b3cfcf64c546f46b8`). Pure tests, portable build and focused Chrome, Firefox and Edge checks pass; full browser suites, cadence and offline portable checks pass. Session 012 records ownership and scope; 011 remains historical evidence for the earlier Sage-contact candidate.
+Local installation: [004: Ally results](004-ally-to-cloud.md) records the selected fullscreen Green House 1 build, passing local Edge/functional checks and two Firefox normal-mode cadence failures. Physical/sustained acceptance remains pending.
+
+Current cloud results: [013: child motion results](013-cloud-child-motion-results.md) tracks candidate `b0c364743c355749185505491c64e8b7a15c033f` (portable SHA-256 `a5d68f51ea0506650ecad516e0d7d7315a4701794b64777b3cfcf64c546f46b8`). Pure tests, portable build and focused Chrome, Firefox and Edge checks pass; full browser suites, cadence and offline portable checks pass. Session 012 records ownership and scope; 011 remains historical evidence for the earlier Sage-contact candidate.
 
 Status: current source candidate is `b0c364743c355749185505491c64e8b7a15c033f` (portable SHA-256 `a5d68f51ea0506650ecad516e0d7d7315a4701794b64777b3cfcf64c546f46b8`). It adds Sprout's 0.7-second day/night pose blend, supported feet, fixed-grip stick and epoch-based breathing phase while retaining Sage's task contacts, supported infant and quiet frozen mode. Pure tests, portable build and focused Chrome/Firefox/Edge validation pass; full browser suites, cadence and offline portable checks pass. Session 011 records historical Sage-contact browser results; prior intermittent stalls on `c827dba9` remain unexplained. Physical Ally/Vanadium acceptance remains pending. Woodland retains its larger-actor engineering terrain/time scene.
 
 | Message | Direction | Purpose |
 | --- | --- | --- |
 | [001-cloud-ownership.md](001-cloud-ownership.md) | Cloud → local Ally | Scope, ownership and coordination |
+| [004-ally-to-cloud.md](004-ally-to-cloud.md) | Ally → cloud | Installed candidate; local browser evidence, Firefox cadence limits and remaining milestones |
 | [003-cloud-install-ready.md](003-cloud-install-ready.md) | Cloud → local Ally | Initial draft metadata; superseded by 005 |
 | [005-cloud-rendering-followup.md](005-cloud-rendering-followup.md) | Cloud → local Ally | Prior candidate, initial rendering follow-up; status superseded by 006 |
 | [006-cloud-validation.md](006-cloud-validation.md) | Cloud → local Ally | Partial Edge/Firefox results, open cadence gates and next steps |
