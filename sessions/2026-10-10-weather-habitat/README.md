@@ -1,14 +1,12 @@
 # Green House 1 — weather-responsive habitat
 
-Active work: [016](016-cloud-meal-choreography-ownership.md) owns Sage’s connected meal sequence. Message 015 remains the last tested build until new results are published.
+Current candidate: [017 — Sage’s connected meal](017-cloud-meal-choreography-results.md). [016](016-cloud-meal-choreography-ownership.md) records ownership and the plan. [015](015-cloud-spacing-motion-results.md) preserves the preceding spacing/rhythm results.
 
-Current results: [015 — roomier camp and independent motion](015-cloud-spacing-motion-results.md). [014](014-cloud-spacing-motion-ownership.md) records ownership and the measured plan.
+Runtime source: `f02092b12a45d72cefe73ba68d5acd2f68932358`. Portable `Little Orbit.html` SHA-256: `046f02a9772a5060ac422b6acceee763fb29726a230df1ce1932a38611899ec6`. Verify runtime ancestry and checksum; later test/documentation commits can advance HEAD.
 
-Runtime source: `de43b318d7b62fdd67b90f589b91947d67d843bf`. Portable `Little Orbit.html` SHA-256: `3ce3de6658214d446368c3b1676ac4dd59a6ea0b2baf30e3f55c5d7032945b99`. Verify runtime ancestry and the checksum; later test/documentation commits can advance HEAD.
+During lunch and evening care, Sage gathers ingredients, brings them to the pot, cooks, carries a bowl to the serving stand, shares, rests and returns. Contact-based steps and continuous joint curves join all seven stages and the next minute. The wider family spacing and Aster’s support for Pebble remain. The camp sits clear of the handheld caption, with unrelated props fading during meal work.
 
-Independent painted character groups now sit about 39–47 CSS pixels apart. Sage's workstation and Sprout's play patch move with them, and portrait staging shifts inward. Aster continues supporting Pebble. Separate activity and breathing rhythms and 1.2-second quintic pose blends make movement gentler.
-
-Full Chrome/Firefox/Edge suites pass, including all 54 unchanged cadence cases and offline portable checks. Physical Ally/Vanadium acceptance remains unrun, and earlier intermittent stalls remain unexplained. Sessions 011–013 preserve earlier candidate evidence. Woodland retains its larger-actor engineering terrain/time scene.
+The full native Chrome, Firefox and Edge suites pass: nine pure programs per run, thirteen browser programs per engine, all offline portable checks and all 66 cadence cases (54 existing + twelve active meal). Actual contact, family spacing, glyph clearance and quiet/resume checks pass. Physical Ally/Vanadium and sustained acceptance remain unrun; earlier intermittent stalls remain unexplained. Woodland retains its larger-actor engineering terrain/time scene.
 
 | Message | Direction | Purpose |
 | --- | --- | --- |
@@ -23,7 +21,9 @@ Full Chrome/Firefox/Edge suites pass, including all 54 unchanged cadence cases a
 | [011-cloud-camp-contact-motion.md](011-cloud-camp-contact-motion.md) | Cloud → repository owner and local Ally | Historical candidate `58ac16a8`; Sage's routine contact fix and its focused browser/full-suite results; followed by the historical child-motion candidate 013 |
 | [012-cloud-child-motion-ownership.md](012-cloud-child-motion-ownership.md) | Cloud → repository owner and local Ally | Historical child-motion ownership, plan and validation requirements |
 | [013-cloud-child-motion-results.md](013-cloud-child-motion-results.md) | Cloud → repository owner and local Ally | Historical candidate `b0c3647` and its browser/full-suite results |
-| [014-cloud-spacing-motion-ownership.md](014-cloud-spacing-motion-ownership.md) | Cloud → repository owner and local Ally | Active spacing and organic rhythm work |
-| [015-cloud-spacing-motion-results.md](015-cloud-spacing-motion-results.md) | Cloud → repository owner and local Ally | Current runtime and portable checksum; full browser, cadence and offline checks pass |
+| [014-cloud-spacing-motion-ownership.md](014-cloud-spacing-motion-ownership.md) | Cloud → repository owner and local Ally | Historical spacing and organic rhythm ownership |
+| [015-cloud-spacing-motion-results.md](015-cloud-spacing-motion-results.md) | Cloud → repository owner and local Ally | Historical spacing candidate and its passing full browser results |
+| [016-cloud-meal-choreography-ownership.md](016-cloud-meal-choreography-ownership.md) | Cloud → repository owner and local Ally | Connected meal plan, ownership and validation requirements |
+| [017-cloud-meal-choreography-results.md](017-cloud-meal-choreography-results.md) | Cloud → repository owner and local Ally | Current meal candidate, checksum, passing full browser/offline/cadence results and device handoff |
 
-Work branch: `feature/woodland-weather-habitat`, based on `feature/woodland-immersive-story` / PR #9; draft PR #11. Published messages 001–015 are immutable; use 016 for the next follow-up. Reserve 002 for the initial device-session reply and 004 for local device findings. Message 011 is historical Sage-contact evidence, 012 records child-motion ownership, 013 records the previous tested candidate, 014 owns the spacing/motion work, and 015 records its tested candidate and passing full-suite results. Fetch the branch before reading.
+Work branch: `feature/woodland-weather-habitat`, based on `feature/woodland-immersive-story` / PR #9; draft PR #11. Published messages 001–017 are immutable; use 018 for the next follow-up. Reserve 002 for the initial device reply and 004 for local device findings. Fetch the branch before reading. Git does not notify another session automatically.
