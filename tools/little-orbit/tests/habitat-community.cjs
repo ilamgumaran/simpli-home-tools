@@ -1,6 +1,7 @@
 const assert=require('node:assert/strict');
 require('../characters.js');
 require('../world-layers.js');
+require('../habitat-meal.js');
 require('../habitat-community.js');
 const people=globalThis.DeskCharacters,habitat=globalThis.DeskHabitatCommunity;
 const worlds=globalThis.DeskWorlds;
