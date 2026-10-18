@@ -49,3 +49,7 @@ Cycle **Theme** to **Green House 1**. It always fills the screen; Woodland's Ful
 - Report Ally and Vanadium separately with the exact revision and checksum. Cloud browser/cadence/offline checks pass; do not substitute sessions 011–013's earlier evidence. Physical results do not replace cloud outcomes. Runtime ownership is in [session 014](../../../sessions/2026-10-10-weather-habitat/014-cloud-spacing-motion-ownership.md); results are in [015](../../../sessions/2026-10-10-weather-habitat/015-cloud-spacing-motion-results.md). Physical Ally and Vanadium acceptance require device evidence.
 
 Keep private screenshots, profiles and device paths out of Git. Report reproduction steps and distinguish display or clock failures from art feedback. No merge, release or device installation was performed. Physical Ally and Vanadium acceptance remain unrun; PR #11 remains draft while sustained and device acceptance is open.
+
+## Local update and restart — 2026-10-17
+
+[Session 016](../../../sessions/2026-10-10-weather-habitat/016-ally-spacing-install.md) records installation of the checksum-matching spacing build, the fullscreen restart and passing focused Edge/Firefox community/offline checks. Local full-suite/cadence checks were not repeated; prior Windows Firefox limits and sustained/native/Vanadium acceptance remain separate open evidence.
