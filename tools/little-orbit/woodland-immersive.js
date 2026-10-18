@@ -265,7 +265,7 @@
   const minuteKey=m.minuteKey+':'+m.time+':'+m.dateDigits;if(minuteKey!==lastMinute){numerals(m);lastMinute=minuteKey;}
   if(!habitat){const castKey=override(m).ids.join(':');if(castKey!==lastCast){cast(m);lastCast=castKey;}}
   fit();
-  const community=habitat?DeskHabitatCommunity.sample(now,{night:nightFor(m),weatherKind:weatherSnapshot?.kind,daylightHours:m.daylightHours}):null;
+  const community=habitat?DeskHabitatCommunity.sample(now,{night:nightFor(m),weatherKind:weatherSnapshot?.kind,daylightHours:m.daylightHours,frozen}):null;
   if(habitat&&!get('woodland-immersive-community')._communityCamp)DeskHabitatCommunity.create(get('woodland-immersive-community'));
   const communityHost=get('woodland-immersive-community'),display=habitat?'':'none';
   if(communityHost.style.display!==display)communityHost.style.display=display;
@@ -278,7 +278,7 @@
    attr('woodland-immersive-rope','d','');get('woodland-immersive-cast').style.display='none';
    const key=[weatherSnapshot?.revision,scene.dataset.night].join(':');if(key!==weatherKey){weatherKey=key;weatherGroup(weatherSnapshot,scene.dataset.night==='true');chapter(m);lastChapter=m.terrainKey;}
    text('woodland-immersive-title',`Green House 1 · ${m.time} ${m.period}`);text('woodland-immersive-place','Green House 1 · '+m.place.name);
-   text('woodland-immersive-chapter',community.label);text('woodland-immersive-story',community.caption+' Small acts of care make a shared home.');
+   text('woodland-immersive-chapter',community.label);text('woodland-immersive-story',community.meal?.active&&community.meal.weight>0?community.caption:community.caption+' Small acts of care make a shared home.');
    text('woodland-immersive-description',`Green House 1, ${m.time} ${m.period}, day ${m.dateDigits}. ${community.caption} Weather ${weatherSnapshot?.kind||'unavailable'}.`);
   }else{
   const z=size(),plan=schedule(m),{previous,from:previousLoc,to:leadLoc,travel,descent}=plan;
