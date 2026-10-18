@@ -113,6 +113,8 @@ All following recipes use the same current-time, contact, recovery and quiet-sta
 
 ### Industrial / engineering
 
+The [detailed mechanism](engineering/MECHANISM.md) now separates reserve power, regulator events and powered calendar/index loads. [Character choreography](engineering/CHARACTERS-AND-STORY.md) defines crank/treadle grips, release/rest, teaching and safe service. The proposed [priority coupler](engineering/DECISIONS.md#distinctive-proposal-three-reserve-priority-coupler) supplies timing reserve first and bounded demonstrations from surplus; its geometry and energy behavior require proof before implementation.
+
 | Activity | Preparation, contacts and tool attachment | Work, recovery and visible result |
 | --- | --- | --- |
 | Inspect gear train | Worker grounded on platform, isolated work section, measuring tool held at a reachable face | Measure/check → mark → step back; current numeral is a stable rail/segment arrangement, separate from rotating decoration |

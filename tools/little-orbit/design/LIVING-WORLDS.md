@@ -110,6 +110,8 @@ These are authored recurring episodes. They do not yet simulate births, aging, i
 
 ### Industrial / engineering world — proposed
 
+Detailed first-theme proposal: [Zero Workshop](engineering/README.md). Its mechanical calendar, finite people-powered reserves, hydraulic/air demonstrations, shared stick-human style and three zero-loop groups expand this recipe. Year/month/day/hour/minute/second reading remains current; finite mechanical register moves are masked beside the authoritative observer readout. The 80-record catalog, source status, decisions and E0–E8 stages are planned, with physical geometry/accuracy/lifetime unproven. This does not implement the industrial theme or supersede the shared anatomy foundation.
+
 **Composition:** Human workers with distinct engineering/maintenance roles, helmets or task-appropriate eye/hand protection, workwear and a tool kit. Steel channels and illuminated slot edges draw numerals; turning gears occupy the spaces around strokes rather than ambiguous tooth-shaped digits. Counterweights and linked shafts expose how a small action produces a larger result.
 
 **Hour chapters:** intake yard, machine hall, lift tower, power house, fabrication bench, repair bay, shared workroom, shutdown overlook. Show lockable stationary work areas, load supports and a safe pedestrian route. A geared machine is a clockwork miniature, not a claim of industrial hazard realism.

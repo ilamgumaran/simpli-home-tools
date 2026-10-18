@@ -37,6 +37,8 @@ Start with the [product guide](PRODUCT.md), [roadmap](ROADMAP.md), [design archi
 
 The next [shared anatomy and organic movement plan](design/ANATOMY-AND-ORGANIC-MOVEMENT.md) proposes palm/grip, ankle/heel/toe, joint-limit and supported-motion stages for the whole cast, including Candy’s separate art and Pebble’s swaddled support. Start with the compatible anatomy/workshop foundation. [Session 018](../../sessions/2026-10-10-weather-habitat/018-cloud-anatomy-movement-plan.md) carries the planning handoff; runtime and portable output remain unchanged.
 
+The proposed [engineering theme: Zero Workshop](design/engineering/README.md) has a detailed mechanical-calendar, energy, character, object and implementation plan. It adds no runtime; [engineering session 003](../../sessions/2026-10-18-engineering-complication/003-complete-plan-handoff.md) records research limitations and continuation tasks.
+
 ```sh
 npm ci
 npx playwright install chromium firefox

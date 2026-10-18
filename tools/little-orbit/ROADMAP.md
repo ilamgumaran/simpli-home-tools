@@ -101,9 +101,13 @@ Next Woodland expansion: contact-pinned rock/tree routes and specialist tree gea
 
 The [overall composition plan](design/LIVING-WORLDS.md) combines [visual layers](design/VISUAL-LAYERS.md), [actions/time/effort](design/ACTIONS-AND-TIME.md) and [stories/philosophy](design/STORIES-AND-PHILOSOPHY.md). Proposed implementation order after Woodland: industrial/engineering, farming, railway/station/junction, ant life. Weaving is fully planned; its implementation slot remains to be chosen. Do not begin later themes automatically.
 
+### Engineering detail — Zero Workshop planning complete
+
+The [engineering design package](design/engineering/README.md) now defines a proposed regulated calendar, people-powered reserves, priority coupler, hydraulic and air alternatives, 1°/2°/3° zero-loop groups, all six time/date fields and an 80-record functional-object catalog. Four pinned calendar/time sources and independent arithmetic support part of the plan; manufacturer/horology sources and dimensioned physical proofs remain open. E0–E8 cover reference completion, graph/geometry/energy studies, art, shared-character integration, clock lifecycle and validation. These are proposals, not a shipped or maintenance-free clock. See [the implementation stages](design/engineering/IMPLEMENTATION.md) and [session 003](../../sessions/2026-10-18-engineering-complication/003-complete-plan-handoff.md). The anatomy A0–A2 foundation remains the next shared-character slice; other theme ordering is unchanged.
+
 ### Future theme queue — proposed, not scheduled
 
-- Industrial/engineering → farming → railway/station/junction → ant life, preserving the existing proposed order.
+- [Industrial/engineering: Zero Workshop](design/engineering/README.md) → farming → railway/station/junction → ant life, preserving the existing proposed order.
 - Weaving: planned; slot TBD.
 - Sports scoreboard: baseball and football variants; slot TBD. Characters stage a scoring play that cues a visible scoreboard update at the current minute boundary. Hours can frame innings/periods/rounds and days a fixture/date board; actual HH:MM and date remain authoritative.
 
