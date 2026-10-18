@@ -22,4 +22,6 @@ Three design checkpoints are pushed. The documents below detail sources actually
 | [Decisions](DECISIONS.md) | Seventeen planning decisions, proposed priority coupler, alternatives and unresolved questions |
 | [Implementation stages](IMPLEMENTATION.md) | E0–E8, shared anatomy dependencies, independent proof/visual/performance gates and first tickets |
 
-Draft planning [PR #15](https://github.com/ilamgumaran/simpli-home-tools/pull/15) targets `feature/woodland-weather-habitat` / PR #11. It contains documentation only and does not merge or deploy a theme.
+Planning [PR #15](https://github.com/ilamgumaran/simpli-home-tools/pull/15) targets `feature/woodland-weather-habitat` / PR #11. It contains documentation only and does not merge or deploy a theme.
+
+The owner requested merge after independent review. [Review handoff 004](../../../../sessions/2026-10-18-engineering-complication/004-pr-review-and-merge-handoff.md) records the findings and existing CI limitations; check the PR for final merge status.
