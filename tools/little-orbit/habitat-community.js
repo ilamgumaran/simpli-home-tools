@@ -147,9 +147,9 @@
   setData(root,'routine',model.routine);setData(host,'routine',model.routine);setData(root,'frozen',!!frozen);
   const mealCue=model.meal,mealStage=frozen?'quiet':mealCue?.active&&mealCue.weight>0?mealCue.stage:'idle',mealWeight=frozen?0:mealCue?.active?mealCue.weight:0;
   setData(root,'mealStage',mealStage);setData(root,'mealWeight',Number(mealWeight||0).toFixed(3));setAttr(nodes.mealServedBowl,'opacity',frozen?'0':Number(mealCue?.active?(mealCue.meal.servedOpacity??mealCue.meal.bowlOpacity):0).toFixed(3));
-  setAttr(nodes.memorial,'opacity',model.routine==='remember'?'1':'.52');
+  setAttr(nodes.memorial,'opacity',model.routine==='remember'?'1':.52*(1-mealWeight));
   setAttr(nodes.cookPot,'opacity',['cook','care'].includes(model.routine)?'1':'.72');
-  setAttr(nodes.seedBoard,'opacity',model.routine==='teach'?'1':'.65');
+  setAttr(nodes.seedBoard,'opacity',model.routine==='teach'?'1':.65*(1-mealWeight));
   setAttr(nodes.canopy,'fill',['rain','storm'].includes(model.weatherKind)?'#687b78':model.weatherKind==='snow'?'#b9c9cc':'#c4a987');
   for(const node of Object.values(nodes.wrappers))setStyle(node,'display',companions?'':'none');
   if(!companions){setAttr(nodes.ridgeLine,'d',restLine);setAttr(nodes.ridgeLine,'opacity',model.routine==='shelter'?'1':'.25');return;}
