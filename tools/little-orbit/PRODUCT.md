@@ -10,6 +10,10 @@ This is the product's planning hub. Designs are proposals until explicitly marke
 
 The [shared anatomy and organic movement plan](design/ANATOMY-AND-ORGANIC-MOVEMENT.md) covers every current character and renderer: oriented palms and grips, ankle/heel/toe footwear, joint limits, supported gait and coordinated body movement. Start with a reviewed anatomy/workshop foundation, then migrate Sage’s meal and the family before the remaining consumers, including Candy’s separate artwork. Pebble stays swaddled and visibly supported. Each stage has independent geometry, visual, lifecycle and performance gates. This planning update changes no runtime behavior; [session 017](../../sessions/2026-10-10-weather-habitat/017-cloud-meal-choreography-results.md) remains the tested build.
 
+## Engineering theme — detailed proposal
+
+[Zero Workshop](design/engineering/README.md) expands the proposed industrial world into a people-powered mechanical calendar: full year/month/day/hour/minute/second reading, a regulated gear train, finite reserves and hydraulic/air demonstrations, three overlapping-zero character groups, and an 80-record visible/hidden object catalog. Source status, decisions and stages E0–E8 are recorded separately from claims of physical novelty, accuracy or long life. This is planning only; the shared anatomy foundation above remains the next character implementation, and no engineering runtime is added. [Engineering session 003](../../sessions/2026-10-18-engineering-complication/003-complete-plan-handoff.md) is the continuation handoff.
+
 ## Product principles
 
 The next character branch, `feature/woodland-walking-grips`, adds [planted survey walking and grounded tool grips](design/WALKING-AND-GRIPS.md). [Session outcome](../../sessions/2026-10-05-woodland-ally/004-walking-grips.md) records verification, deployment and remaining physical acceptance.

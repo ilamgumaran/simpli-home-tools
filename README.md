@@ -18,7 +18,7 @@ Start with [sessions/README.md](sessions/README.md) when continuing work in anot
 
 The next planned character work is [shared anatomy and organic movement](tools/little-orbit/design/ANATOMY-AND-ORGANIC-MOVEMENT.md), with staged palm/grip, heel/toe, joint-limit and whole-cast migration tasks. [Session 018](sessions/2026-10-10-weather-habitat/018-cloud-anatomy-movement-plan.md) is the planning handoff; the tested runtime remains session 017’s candidate.
 
-The [engineering complication planning thread](sessions/2026-10-18-engineering-complication/README.md) on `plan/engineering-complication` records the new people-powered mechanical-calendar proposal and research checkpoints.
+The [engineering complication planning thread](sessions/2026-10-18-engineering-complication/README.md) on `plan/engineering-complication` records the people-powered mechanical-calendar proposal and pushed research/design checkpoints. Start with [engineering handoff 003](sessions/2026-10-18-engineering-complication/003-complete-plan-handoff.md) and the [design hub](tools/little-orbit/design/engineering/README.md); draft [PR #15](https://github.com/ilamgumaran/simpli-home-tools/pull/15) contains the planning only.
 
 Fetch `feature/living-woodland-time` to read that handoff while PR #3 remains unmerged. Git does not notify sessions automatically; fetch and read the relevant thread before acting.
 

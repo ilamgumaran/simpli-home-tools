@@ -53,7 +53,7 @@ No new application tests are run for this documentation-only session. Implementa
 ## First execution tickets and model split
 
 1. **E0.1 reference completion:** retrieve the blocked target sources after environment policy publication, verify actual URLs/applicability and extract claims with source locations. Do not simply remove “unverified” labels.
-2. **E1.1 graph/units:** specify TR01→TR05 and PW07→RG01→RG06→index power, with explicit control/energy edges and independent fixtures. Expand PW04's priority selector into child records.
+2. **E1.1 graph/units:** specify TR01→TR05 plus separate energy branches PW07→RG01→RG06 (timing) and PW07→powered indexers/calendar. Timing supplies index events only; it does not power the heavy calendar. Include explicit control/energy edges and independent fixtures. Expand PW04's priority selector into child records.
 3. **E2.1 single meshing-pair study:** show one real gear pair at correct phase and a 30-tooth/two-half-step beat example; prove geometry before drawing the complete complication.
 4. **Shared A0–A2:** continue the already planned anatomy/workshop foundation. Later E5 starts after the required palm/sole/contact stages, without duplicating anatomy in this theme.
 

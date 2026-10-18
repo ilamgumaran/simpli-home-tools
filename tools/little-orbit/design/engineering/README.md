@@ -1,13 +1,13 @@
 <!-- SPDX-License-Identifier: LicenseRef-Simpli-Noncommercial-1.0 -->
 # Zero Workshop — engineering theme planning
 
-Status: **design/research in progress; no engineering theme implemented**. Working theme ID: `engineering1`. This expands the existing [industrial world proposal](../LIVING-WORLDS.md#industrial--engineering-world--proposed), rather than adding a competing theme. The product's existing clock and Green House 1 anatomy plan remain intact.
+Status: **conceptual planning complete; physical research/proof tasks remain open; no engineering theme implemented**. Working theme ID: `engineering1`. This expands the existing [industrial world proposal](../LIVING-WORLDS.md#industrial--engineering-world--proposed), rather than adding a competing theme. The product's existing clock and Green House 1 anatomy plan remain intact.
 
 The owner wants a large visible mechanical complication showing year, month, day, hour, minute and seconds, powered mainly by the work of tiny black stick people. Gears, turbines, air-assisted motion and hydraulic storage must have credible connections, functions and losses. Three groups wear overlapping zero-loop face marks with 1°, 2° or 3° incremental tilts. See [objectives and interpretation](OBJECTIVES.md).
 
 Working mechanism name: **Zero-Reserve Regulated Calendar**. This is a proposed arrangement to investigate, not a verified invention or a claim of patent novelty. Accuracy, energy autonomy and low maintenance are separate design questions. Centuries without maintenance is an aspiration requiring evidence; it is not a capability of this browser clock or an established physical mechanism.
 
-The scope and research/mechanism checkpoints are pushed. The documents below now detail sources actually read, engineering decisions, the 80-record functional-object catalog, character/story direction and staged implementation; final cross-document review and continuation handoff are in progress. Follow the [session thread](../../../../sessions/2026-10-18-engineering-complication/README.md) for immutable checkpoints and continuation instructions. Planning here does not start the theme runtime or supersede the [shared anatomy foundation](../ANATOMY-AND-ORGANIC-MOVEMENT.md).
+Three design checkpoints are pushed. The documents below detail sources actually read, engineering decisions, the 80-record functional-object catalog, character/story direction and staged implementation. Independent review separates checked arithmetic from unproven physical geometry, accuracy and longevity. The final [planning handoff](../../../../sessions/2026-10-18-engineering-complication/003-complete-plan-handoff.md) records continuation tasks. Follow the [session thread](../../../../sessions/2026-10-18-engineering-complication/README.md) for immutable checkpoints and continuation instructions. Planning here does not start the theme runtime or supersede the [shared anatomy foundation](../ANATOMY-AND-ORGANIC-MOVEMENT.md).
 
 ## Current design documents
 

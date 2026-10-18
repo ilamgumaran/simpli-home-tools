@@ -6,6 +6,7 @@ Start a new session with the [owner prompts and handoff](OWNER-PROMPTS.md). Plan
 
 | Design | Status | Preview |
 | --- | --- | --- |
+| [Engineering: Zero Workshop](engineering/README.md) | Detailed conceptual plan; E0–E8 proposed, physical proof/research open; no runtime | People-powered calendar, 80 object records, energy paths, three zero-loop groups and staged acceptance |
 | [Shared anatomy and organic movement](ANATOMY-AND-ORGANIC-MOVEMENT.md) | Planned; stages A0–A7, no runtime changes | Palm/grip and heel/toe anatomy, joint constraints, whole-cast rollout and independent acceptance |
 | [Sage’s connected meal](MEAL-CHOREOGRAPHY.md) | Implemented; full browser/offline and 66 cadence cases pass on session 017’s candidate | Gather, carry, cook, deliver, serve, rest and return |
 | [Organic character motion](ORGANIC-MOTION.md) | Implemented on `feature/woodland-organic-motion` | 30 fps low-power/native-frame rendering, paced planted travel, supported weight shifts and continuous contact/teaching transitions |
