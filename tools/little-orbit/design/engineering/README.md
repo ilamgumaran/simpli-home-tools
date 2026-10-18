@@ -7,7 +7,7 @@ The owner wants a large visible mechanical complication showing year, month, day
 
 Working mechanism name: **Zero-Reserve Regulated Calendar**. This is a proposed arrangement to investigate, not a verified invention or a claim of patent novelty. Accuracy, energy autonomy and low maintenance are separate design questions. Centuries without maintenance is an aspiration requiring evidence; it is not a capability of this browser clock or an established physical mechanism.
 
-This first checkpoint captures scope before detailed research and mechanism review. Further documents will record sources actually read, engineering decisions, object/interface inventories, character/story direction and staged implementation. Follow the [session thread](../../../../sessions/2026-10-18-engineering-complication/README.md) for immutable checkpoints and continuation instructions. Planning here does not start the theme runtime or supersede the [shared anatomy foundation](../ANATOMY-AND-ORGANIC-MOVEMENT.md).
+The scope and research/mechanism checkpoints are pushed. The documents below now detail sources actually read, engineering decisions, the 80-record functional-object catalog, character/story direction and staged implementation; final cross-document review and continuation handoff are in progress. Follow the [session thread](../../../../sessions/2026-10-18-engineering-complication/README.md) for immutable checkpoints and continuation instructions. Planning here does not start the theme runtime or supersede the [shared anatomy foundation](../ANATOMY-AND-ORGANIC-MOVEMENT.md).
 
 ## Current design documents
 
@@ -17,5 +17,9 @@ This first checkpoint captures scope before detailed research and mechanism revi
 | [Research register](RESEARCH.md) | Four retrieved pinned calendar/time references; blocked physical references; independent arithmetic |
 | [Mechanism proposal](MECHANISM.md) | Power/control paths, regulator convention, ratios, indexing and Gregorian calendar; physical geometry unproven |
 | [Energy and reliability](ENERGY-AND-RELIABILITY.md) | Finite reserves, hydraulic/air comparisons, loss/service model and accuracy limits |
+| [Characters and story](CHARACTERS-AND-STORY.md) | Shared stick-human style, three zero-loop groups, human work/rest and eight machine chapters |
+| [Object catalog](OBJECT-CATALOG.md) | 80 visible/cutaway/hidden functional records plus required child-part/interface details; not a finished hardware BOM |
+| [Decisions](DECISIONS.md) | Seventeen planning decisions, proposed priority coupler, alternatives and unresolved questions |
+| [Implementation stages](IMPLEMENTATION.md) | E0–E8, shared anatomy dependencies, independent proof/visual/performance gates and first tickets |
 
-Character/story and full object records, decision log, rollout stages and final continuation handoff are the next planning checkpoint.
+Draft planning [PR #15](https://github.com/ilamgumaran/simpli-home-tools/pull/15) targets `feature/woodland-weather-habitat` / PR #11. It contains documentation only and does not merge or deploy a theme.

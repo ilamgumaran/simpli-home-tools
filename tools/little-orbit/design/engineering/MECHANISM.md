@@ -7,7 +7,7 @@ Status: **reviewed conceptual kinematics, not a dimensioned or proven physical c
 
 ```mermaid
 flowchart LR
-  P[People: crank and treadle] --> C[Guarded one-way collection shaft]
+  P[People: crank and treadle] --> C[Guarded collection shaft and priority coupler]
   C --> W[Main lifted-weight reserve]
   W --> R[Small gravity remontoire]
   R --> T[Timing gear train and escapement]
@@ -27,6 +27,8 @@ flowchart LR
 ```
 
 Solid arrows are energy paths; dotted arrows are timing/control events. The regulator gates energy supplied by the reserve; the pendulum is not the motor for heavy date wheels. The timing and display branches are coupled through defined releases, with burst loads isolated from the regulator. Refill and carry events need reviewed torque isolation; a remontoire is a hypothesis to improve drive consistency, not a promise of accuracy.
+
+The proposed [Three-Reserve Priority Coupler](DECISIONS.md#distinctive-proposal-three-reserve-priority-coupler) prioritizes timing reserve, then hydraulic intermittent work, then a surplus air demonstration. It needs a real selector/linkage, clutch sequencing and hysteresis; the diagram is a conceptual energy/control graph, not proof that those parts are solved.
 
 Primary energy storage is a lifted weight. A small gravity remontoire gives the escapement a shorter, repeatable drive interval. Hydraulic and air branches demonstrate useful alternatives without silently loading the precision branch. The main machine can continue while the people rest only while finite reserve remains.
 
@@ -59,6 +61,8 @@ These ratios establish average kinematics only. Tooth profiles, center distances
 The **browser's current device/local clock remains authoritative**. The scene does not improve the host clock's synchronization. A physical free-running oscillator would have drift and require rate/setting correction. Calendar gearing alone does not know changing timezone law, DST or future UTC policy.
 
 The main glass reading panel presents complete current `HH:MM:SS` and `YYYY-MM-DD`, with HH:MM dominant and explicit 12/24/AM-PM treatment. This panel is the observer's current-time reading, not evidence that a simulated pendulum achieved that accuracy. Behind it, exposed mechanical registers show their stable current value; during finite-duration indexing their slots are shuttered so old/future/transitional values do not compete with the authoritative reading. A physically moving drum cannot change all visible digits instantaneously: this observer/mechanism distinction resolves that real constraint instead of pretending it away.
+
+The physical study must declare a uniform-time/fixed-offset basis. Its constant daily ratio cannot track a 23/25-hour DST day without an explicit correction. In the browser, local civil reading and uniform elapsed phases are separate inputs; a discontinuity reconstructs or deliberately corrects the illustrated state.
 
 Normal gear phases and carry sequences derive from one sampled clock snapshot. Events at seconds/minutes/midnight reconstruct deterministically; frame rate must not decide tooth counts or calendar state. Resume, resize, DST or manual jumps reconstruct a settled mechanism for the new reading without fast-forwarding thousands of crank cycles. In design/study views, explicitly identify reconstruction/correction; it is not energy-conserving physical motion. A future setting train would isolate drive, reposition registers and re-engage deliberately; its work and external time reference must be modeled if physical accuracy is claimed.
 
