@@ -165,3 +165,7 @@ Use these gates to tune the small first scene and each later story addition:
 10. **Cross-world fit:** later themes keep their own believable materials, tools, relationships and consequences; the ant theme uses insect anatomy and colony behavior rather than reskinned people.
 
 Before a richer episode is considered complete, review a morning intention, afternoon choice, 18:00 realization, evening care and midnight transition for the same cast. A polished single sunset screenshot is insufficient evidence of a coherent daily story.
+
+## Engineering story expansion — proposed
+
+[Zero Workshop’s three groups and daily episodes](engineering/CHARACTERS-AND-STORY.md) develop the industrial strand: shared input work builds finite reserve so people can stop, help, teach and watch the machine together. Overlapping zero loops vary by 1°, 2° or 3° between ellipses, while identity, membership and job remain separate. Long life comes from knowledge and care across generations, without claiming simulated births/aging or an untouched maintenance-free mechanism. No new story runtime is implemented here.

@@ -44,8 +44,9 @@ for(let sample=0;sample<=100;sample++){
   assert.ok(Math.hypot(grip.x-wrist.x,grip.y-wrist.y)<1e-8);
  }
 }
-assert.equal(Object.keys(worlds.recipes).length,6);
-assert.deepEqual(Object.entries(worlds.recipes).filter(([,v])=>v.status==='implemented').map(([id])=>id),['woodland']);
+assert.equal(Object.keys(worlds.recipes).length,7);
+assert.deepEqual(Object.entries(worlds.recipes).filter(([,v])=>v.status==='implemented').map(([id])=>id),['woodland','greenhouse1']);
+assert.deepEqual(worlds.recipes.greenhouse1.characters,['aster','sage','pebble','sprout']);
 assert.deepEqual(worlds.recipes.ants.characters,[]);
 assert.equal(new Set(Object.values(worlds.numerals)).size,10);
 for(const action of Object.values(worlds.actions))assert.ok(characters.roles[action.role].available.includes(action.tool));

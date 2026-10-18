@@ -3,6 +3,7 @@ require('../characters.js');
 const lib=globalThis.DeskCharacters;
 // Identity and equipment can move between themes without a second copy.
 for(const id of Object.keys(lib.identities))for(const role of Object.keys(lib.roles)){
+ if(!!lib.identities[id].infant!==(role==='infant')){assert.throws(()=>lib.create(id,{role}));continue;}
  const character=lib.create(id,{role});
  assert.equal(character.id,id);assert.equal(character.role,role);
  assert.ok(character.inventory.every(item=>lib.roles[role].available.includes(item)));
@@ -13,6 +14,7 @@ assert.ok(Object.values(lib.items).filter(item=>item.essential).every(item=>lib.
 globalThis.ORBIT_CONFIG={characters:{climber:'ridge',climber2:'candy',candy:'moss'}};
 assert.equal(lib.forTheme('climber').id,'ridge');assert.equal(lib.forTheme('climber2').id,'candy');assert.equal(lib.forTheme('climber2').role,'climbing');assert.equal(lib.forTheme('candy').id,'moss');assert.equal(lib.forTheme('orbit'),null);delete globalThis.ORBIT_CONFIG;
 assert.throws(()=>lib.create('missing'));assert.throws(()=>lib.create('toString'));assert.throws(()=>lib.create('ridge',{role:'constructor'}));assert.throws(()=>lib.create('ridge',{role:'missing'}));
+assert.throws(()=>lib.create('pebble'));assert.throws(()=>lib.create('aster',{role:'infant'}));
 assert.throws(()=>lib.create('ridge',{appearance:{skin:'red;display:none'}}));
 assert.throws(()=>lib.attachment(lib.create('ridge',{role:'play'})));
 const custom=lib.create('ridge',{appearance:{skin:'#82532d',jacket:'#6588ae'}});

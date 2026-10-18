@@ -269,29 +269,29 @@ body.screen-rest #climber-stage{display:none}
 #climber-note text{fill:#99b19c;font:8px monospace;letter-spacing:.3px}
 @media(prefers-reduced-motion:reduce){#climber-stage *{animation:none!important}}
 /* Time Climber II keeps all information outside the small terrain camera. */
-body:is([data-theme=climber2],[data-theme=woodland]) #display[data-layout]{display:grid;grid-template-columns:1fr 2fr;grid-template-areas:"clock clock" "mountain mountain" "weather fact" "footer footer";width:94vw;max-width:1540px;padding:12px 0;gap:min(var(--panel-gap,8px),14px)}
-body:is([data-theme=climber2],[data-theme=woodland]) #display .dashboard{display:contents}
-body:is([data-theme=climber2],[data-theme=woodland]) #display .clock-panel{grid-area:clock;padding:7px 14px;display:flex;align-items:center;justify-content:space-between;gap:12px;background:#070e0c;border-color:#293b30;min-width:0}
-body:is([data-theme=climber2],[data-theme=woodland]) #display .clock-panel>.eyebrow,body:is([data-theme=climber2],[data-theme=woodland]) #display .date-icon,body:is([data-theme=climber2],[data-theme=woodland]) #display .day-track,body:is([data-theme=climber2],[data-theme=woodland]) #display .clock-bottom{display:none}
-body:is([data-theme=climber2],[data-theme=woodland]) #display .time-row{margin:2px 0;flex:none}
-body:is([data-theme=climber2],[data-theme=woodland]) #display .clock-panel #time{font-size:calc(clamp(44px,6.5vw,94px) * var(--clock-scale,1));line-height:1;letter-spacing:-2px;text-shadow:none;color:#b0c9b0}
-body:is([data-theme=climber2],[data-theme=woodland]) #display .time-side{font-size:12px;gap:3px}
-body:is([data-theme=climber2],[data-theme=woodland]) #display .date-row{font-size:clamp(15px,1.8vw,24px);justify-content:flex-end;min-width:0;text-align:right}
-body:is([data-theme=climber2],[data-theme=woodland]) #display .weather-panel{grid-area:weather;min-width:0;padding:9px 12px;order:0}
-body:is([data-theme=climber2],[data-theme=woodland]) #display .fact-panel{grid-area:fact;min-width:0;padding:9px 13px;margin:0;order:0;align-items:flex-start}
-body:is([data-theme=climber2],[data-theme=woodland]) #display .fact-art{display:none}
-body:is([data-theme=climber2],[data-theme=woodland]) #display #location{margin:0;font-size:12px}
-body:is([data-theme=climber2],[data-theme=woodland]) #display .weather-panel>.eyebrow,body:is([data-theme=climber2],[data-theme=woodland]) #display .weather-details{display:none}
-body:is([data-theme=climber2],[data-theme=woodland]) #display .weather-main{margin:5px 0;gap:8px}
-body:is([data-theme=climber2],[data-theme=woodland]) #display #temperature{font-size:calc(clamp(36px,4.8vw,70px) * var(--weather-scale,1))}
-body:is([data-theme=climber2],[data-theme=woodland]) #display #weather-icon{font-size:calc(30px * var(--weather-scale,1))}
-body:is([data-theme=climber2],[data-theme=woodland]) #display #condition{font-size:calc(17px * var(--weather-scale,1));line-height:1.15}
-body:is([data-theme=climber2],[data-theme=woodland]) #display #weather-status{font-size:9px;margin-top:5px}
-body:is([data-theme=climber2],[data-theme=woodland]) #display .fact-content h1{font-size:calc(clamp(22px,2.1vw,34px) * var(--fact-scale,1));margin:5px 0;line-height:1.1}
-body:is([data-theme=climber2],[data-theme=woodland]) #display .fact-content p{font-size:calc(clamp(17px,1.5vw,24px) * var(--fact-scale,1));line-height:1.22}
-body:is([data-theme=climber2],[data-theme=woodland]) #display #fact-source{margin-top:5px}
-body:is([data-theme=climber2],[data-theme=woodland]) #display footer{grid-area:footer;margin:0;order:0}
-body:is([data-theme=climber2],[data-theme=woodland]) #display .credit,body:is([data-theme=climber2],[data-theme=woodland]) #display .footer-note{display:none}
+body:is([data-theme=climber2],[data-theme=woodland],[data-theme=greenhouse1]) #display[data-layout]{display:grid;grid-template-columns:1fr 2fr;grid-template-areas:"clock clock" "mountain mountain" "weather fact" "footer footer";width:94vw;max-width:1540px;padding:12px 0;gap:min(var(--panel-gap,8px),14px)}
+body:is([data-theme=climber2],[data-theme=woodland],[data-theme=greenhouse1]) #display .dashboard{display:contents}
+body:is([data-theme=climber2],[data-theme=woodland],[data-theme=greenhouse1]) #display .clock-panel{grid-area:clock;padding:7px 14px;display:flex;align-items:center;justify-content:space-between;gap:12px;background:#070e0c;border-color:#293b30;min-width:0}
+body:is([data-theme=climber2],[data-theme=woodland],[data-theme=greenhouse1]) #display .clock-panel>.eyebrow,body:is([data-theme=climber2],[data-theme=woodland],[data-theme=greenhouse1]) #display .date-icon,body:is([data-theme=climber2],[data-theme=woodland],[data-theme=greenhouse1]) #display .day-track,body:is([data-theme=climber2],[data-theme=woodland],[data-theme=greenhouse1]) #display .clock-bottom{display:none}
+body:is([data-theme=climber2],[data-theme=woodland],[data-theme=greenhouse1]) #display .time-row{margin:2px 0;flex:none}
+body:is([data-theme=climber2],[data-theme=woodland],[data-theme=greenhouse1]) #display .clock-panel #time{font-size:calc(clamp(44px,6.5vw,94px) * var(--clock-scale,1));line-height:1;letter-spacing:-2px;text-shadow:none;color:#b0c9b0}
+body:is([data-theme=climber2],[data-theme=woodland],[data-theme=greenhouse1]) #display .time-side{font-size:12px;gap:3px}
+body:is([data-theme=climber2],[data-theme=woodland],[data-theme=greenhouse1]) #display .date-row{font-size:clamp(15px,1.8vw,24px);justify-content:flex-end;min-width:0;text-align:right}
+body:is([data-theme=climber2],[data-theme=woodland],[data-theme=greenhouse1]) #display .weather-panel{grid-area:weather;min-width:0;padding:9px 12px;order:0}
+body:is([data-theme=climber2],[data-theme=woodland],[data-theme=greenhouse1]) #display .fact-panel{grid-area:fact;min-width:0;padding:9px 13px;margin:0;order:0;align-items:flex-start}
+body:is([data-theme=climber2],[data-theme=woodland],[data-theme=greenhouse1]) #display .fact-art{display:none}
+body:is([data-theme=climber2],[data-theme=woodland],[data-theme=greenhouse1]) #display #location{margin:0;font-size:12px}
+body:is([data-theme=climber2],[data-theme=woodland],[data-theme=greenhouse1]) #display .weather-panel>.eyebrow,body:is([data-theme=climber2],[data-theme=woodland],[data-theme=greenhouse1]) #display .weather-details{display:none}
+body:is([data-theme=climber2],[data-theme=woodland],[data-theme=greenhouse1]) #display .weather-main{margin:5px 0;gap:8px}
+body:is([data-theme=climber2],[data-theme=woodland],[data-theme=greenhouse1]) #display #temperature{font-size:calc(clamp(36px,4.8vw,70px) * var(--weather-scale,1))}
+body:is([data-theme=climber2],[data-theme=woodland],[data-theme=greenhouse1]) #display #weather-icon{font-size:calc(30px * var(--weather-scale,1))}
+body:is([data-theme=climber2],[data-theme=woodland],[data-theme=greenhouse1]) #display #condition{font-size:calc(17px * var(--weather-scale,1));line-height:1.15}
+body:is([data-theme=climber2],[data-theme=woodland],[data-theme=greenhouse1]) #display #weather-status{font-size:9px;margin-top:5px}
+body:is([data-theme=climber2],[data-theme=woodland],[data-theme=greenhouse1]) #display .fact-content h1{font-size:calc(clamp(22px,2.1vw,34px) * var(--fact-scale,1));margin:5px 0;line-height:1.1}
+body:is([data-theme=climber2],[data-theme=woodland],[data-theme=greenhouse1]) #display .fact-content p{font-size:calc(clamp(17px,1.5vw,24px) * var(--fact-scale,1));line-height:1.22}
+body:is([data-theme=climber2],[data-theme=woodland],[data-theme=greenhouse1]) #display #fact-source{margin-top:5px}
+body:is([data-theme=climber2],[data-theme=woodland],[data-theme=greenhouse1]) #display footer{grid-area:footer;margin:0;order:0}
+body:is([data-theme=climber2],[data-theme=woodland],[data-theme=greenhouse1]) #display .credit,body:is([data-theme=climber2],[data-theme=woodland],[data-theme=greenhouse1]) #display .footer-note{display:none}
 #time-mountain{grid-area:mountain;position:relative;min-width:0;min-height:0;overflow:hidden;border-radius:10px;background:#060d0e;color:#a6c6ae;order:1;height:180px;isolation:isolate}
 #mountain-world{position:absolute;inset:0;width:100%;height:100%;overflow:hidden}
 .mountain-horizon{position:absolute;right:18px;top:7px;display:flex;flex-direction:column;align-items:flex-end;gap:5px;font:11px monospace;color:#8eaaa0;z-index:1}
@@ -318,7 +318,7 @@ body.dim #time-mountain{opacity:.65}
 #time-mountain.mountain-compact .mountain-levels span:nth-child(2),#time-mountain.mountain-compact .mountain-levels span:last-child{font-size:12px}
 #time-mountain.mountain-compact .mountain-horizon{font-size:10px;gap:2px}
 #time-mountain.mountain-compact .mountain-horizon span:last-child{font-size:11px}
-@media(max-width:599px){body:is([data-theme=climber2],[data-theme=woodland]) #display[data-layout]{grid-template-columns:1fr;grid-template-areas:"clock" "mountain" "weather" "fact" "footer";gap:8px}body:is([data-theme=climber2],[data-theme=woodland]) #display .clock-panel{flex-wrap:wrap;gap:3px;justify-content:center}body:is([data-theme=climber2],[data-theme=woodland]) #display .date-row{font-size:14px;justify-content:center;width:100%;text-align:center}body:is([data-theme=climber2],[data-theme=woodland]) #display .clock-panel #time{font-size:calc(50px * var(--clock-scale,1))}body:is([data-theme=climber2],[data-theme=woodland]) #display .weather-main{display:inline-flex;margin:3px 8px 3px 0}body:is([data-theme=climber2],[data-theme=woodland]) #display #condition{display:inline;font-size:calc(16px * var(--weather-scale,1))}body:is([data-theme=climber2],[data-theme=woodland]) #display #weather-status{margin:0}.mountain-levels{font-size:11px;left:8px}.mountain-levels span:nth-child(2){font-size:12px}.mountain-levels span:last-child{font-size:13px}.mountain-horizon{right:8px}.mountain-caption{left:8px;right:8px;font-size:9px}}
+@media(max-width:599px){body:is([data-theme=climber2],[data-theme=woodland],[data-theme=greenhouse1]) #display[data-layout]{grid-template-columns:1fr;grid-template-areas:"clock" "mountain" "weather" "fact" "footer";gap:8px}body:is([data-theme=climber2],[data-theme=woodland],[data-theme=greenhouse1]) #display .clock-panel{flex-wrap:wrap;gap:3px;justify-content:center}body:is([data-theme=climber2],[data-theme=woodland],[data-theme=greenhouse1]) #display .date-row{font-size:14px;justify-content:center;width:100%;text-align:center}body:is([data-theme=climber2],[data-theme=woodland],[data-theme=greenhouse1]) #display .clock-panel #time{font-size:calc(50px * var(--clock-scale,1))}body:is([data-theme=climber2],[data-theme=woodland],[data-theme=greenhouse1]) #display .weather-main{display:inline-flex;margin:3px 8px 3px 0}body:is([data-theme=climber2],[data-theme=woodland],[data-theme=greenhouse1]) #display #condition{display:inline;font-size:calc(16px * var(--weather-scale,1))}body:is([data-theme=climber2],[data-theme=woodland],[data-theme=greenhouse1]) #display #weather-status{margin:0}.mountain-levels{font-size:11px;left:8px}.mountain-levels span:nth-child(2){font-size:12px}.mountain-levels span:last-child{font-size:13px}.mountain-horizon{right:8px}.mountain-caption{left:8px;right:8px;font-size:9px}}
 
 /* Original woodland artwork. Numeral trails stay above all moving companions. */
 body[data-theme=woodland]{--accent:#c4cca1;background:#16221d}
@@ -334,11 +334,16 @@ body[data-theme=woodland]{--accent:#c4cca1;background:#16221d}
 @media(max-width:599px){#woodland-world{height:calc(100% - 48px)}.woodland-label{display:none}}
 @media(max-width:599px){.woodland-caption{font-size:9px;top:5px;left:7px;right:7px}.woodland-caption span{padding:3px 4px}#woodland-story{font-size:10px;bottom:4px}}
 /* The immersive woodland is the viewport; information floats over the art. */
-#woodland-immersive[hidden],#woodland-thought-button{display:none}
+#woodland-immersive[hidden],#woodland-weather-thermometer[hidden],#woodland-thought-button{display:none}
 body.woodland-fullscene{margin:0;padding:0;overflow:hidden;background:#69897c}
 body.woodland-fullscene #display[data-layout]{display:block;position:relative;width:100vw;max-width:none;height:100dvh;min-height:100vh;margin:0;padding:0;transform:none!important;transition:none}
 body.woodland-fullscene #woodland-immersive{position:absolute;inset:0;overflow:hidden;border-radius:0;z-index:0;isolation:isolate}
 #woodland-immersive-world{width:100%;height:100%;display:block;overflow:visible;will-change:transform;transform-origin:0 0}
+#woodland-immersive-weather-layer,#woodland-immersive-reading,#woodland-immersive-actors,#woodland-immersive-light-layer{position:absolute;inset:0;width:100%;height:100%;display:block;overflow:visible;will-change:transform;transform-origin:0 0}
+/* The solid light wash uses a CSS color surface instead of a full-screen SVG
+   raster. Its box matches the old (-30,-30,860,420) rect in 800x360 coordinates. */
+#woodland-immersive-light{position:absolute;left:-3.75%;top:-8.3333333333%;width:107.5%;height:116.6666666667%;display:block;overflow:visible;will-change:opacity;background:#f5d9ad}
+#woodland-immersive-weather-layer,#woodland-immersive-reading,#woodland-immersive-light-layer{pointer-events:none}
 body.woodland-fullscene #display .dashboard{display:contents}
 body.woodland-fullscene #display .clock-panel,body.woodland-fullscene #display .weather-panel{position:absolute;z-index:2;background:#203e37c9;border:1px solid #c5d0ae55;border-radius:12px;box-shadow:0 2px 10px #152b2922;color:#f0edce;padding:9px 12px;transform:translate(var(--woodland-ui-x,0px),var(--woodland-ui-y,0px))!important;transition:none}
 body.woodland-fullscene #display .clock-panel{top:12px;left:24px;width:auto;max-width:44vw;display:block}
@@ -365,6 +370,10 @@ body.woodland-fullscene #woodland-thought-button{display:inline-block;font-size:
 #woodland-immersive-chapter{font:11px/1.3 system-ui,sans-serif}
 #woodland-immersive[data-night="true"] .immersive-heading,#woodland-immersive[data-night="true"] #woodland-immersive-story{color:#f0e8bd;text-shadow:0 1px 3px #172e2b}
 #woodland-immersive-story{position:absolute;bottom:76px;left:12%;right:12%;margin:0;text-align:center;font:500 12px/1.35 system-ui,sans-serif;color:#334b3b;text-shadow:0 1px #f2e7c788;pointer-events:none;transform:translate(var(--woodland-ui-x,0px),var(--woodland-ui-y,0px))}
+#woodland-weather-thermometer{position:absolute;z-index:2;top:104px;right:24px;width:74px;min-height:146px;box-sizing:border-box;padding:5px 3px 7px;display:flex;flex-direction:column;align-items:center;gap:2px;border:1px solid #c5d0ae55;border-radius:11px;background:#203e37c9;color:#f0edce;text-align:center;pointer-events:none;transform:translate(var(--woodland-ui-x,0px),var(--woodland-ui-y,0px))}
+.woodland-thermometer-glass{display:block;width:66px;height:82px;flex:none;overflow:visible}
+.thermometer-tube{fill:#dce8d8;fill-opacity:.34;stroke:#e7ebd2;stroke-width:2}.thermometer-bulb{fill:#dce8d8;fill-opacity:.34;stroke:#e7ebd2;stroke-width:2}.thermometer-fill,.thermometer-mercury{fill:#e98564}.thermometer-ticks path{fill:none;stroke:#e6e2c9;stroke-width:1.3}.thermometer-ticks text{fill:#f0edce;font:11px system-ui,sans-serif}
+#woodland-weather-value{font:700 12px/1.2 system-ui,sans-serif;white-space:nowrap}#woodland-weather-kind{max-width:68px;font:600 10px/1.15 system-ui,sans-serif;overflow-wrap:anywhere}#woodland-weather-freshness{font:9px/1.1 system-ui,sans-serif;color:#d0ddbf}
 body.woodland-fullscene.dim #woodland-immersive{filter:brightness(.60)}
 @media(max-width:599px){
  body.woodland-fullscene #display .clock-panel{left:21px;right:21px;max-width:none;width:auto;padding:7px 10px}
@@ -374,6 +383,9 @@ body.woodland-fullscene.dim #woodland-immersive{filter:brightness(.60)}
  body.woodland-fullscene #display #temperature,body.woodland-fullscene #display #weather-icon{font-size:19px}
  body.woodland-fullscene #display #condition{font-size:10px}
  body.woodland-fullscene #display #weather-status{font-size:7px;flex-basis:100%;margin:0}
+ #woodland-weather-thermometer{top:112px;right:12px;width:68px;min-height:0;padding:3px 2px 5px;gap:1px;border-radius:9px}
+ .woodland-thermometer-glass{width:56px;height:68px}
+ #woodland-weather-value{font-size:12px}#woodland-weather-kind{font-size:9px;line-height:1.05}#woodland-weather-freshness{font-size:8px}
  .immersive-heading{top:98px;left:23px;right:23px;gap:4px}
  #woodland-immersive-place{font-size:10px}#woodland-immersive-chapter{font-size:10px}
  body.woodland-fullscene #display footer{left:18px;right:18px;bottom:9px}

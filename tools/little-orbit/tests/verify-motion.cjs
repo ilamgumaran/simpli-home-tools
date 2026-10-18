@@ -39,7 +39,11 @@ async function verifyTransitions(browser,target){
     window.Date=class extends RealDate{constructor(...args){super(...(args.length?args:[base+performance.now()-start]));}static now(){return base+performance.now()-start;}};
     localStorage.setItem('orbit-settings',JSON.stringify({theme:'woodland',care:false,rest:false,night:false,lowPower:true,display:{woodlandView:'dashboard',companionInterval:60,companionDuration:20}}));
    });
-   await page.goto(target);await page.waitForTimeout(150);
+   await page.goto(target);
+   // Measure steady motion after fonts and first-paint/JIT work settle,
+   // with the real timers, full sample duration and all gates unchanged.
+   await page.evaluate(()=>document.fonts?.ready);
+   await page.waitForTimeout(1000);
    for(const lowPower of [true,false]){
     await page.evaluate(lowPower=>{prefs.lowPower=lowPower;WoodlandTime.sync();},lowPower);
     const result=await page.evaluate(async()=>{
