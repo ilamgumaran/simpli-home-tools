@@ -1,5 +1,7 @@
 # Green House 1 — weather-responsive habitat
 
+Active work: [016](016-cloud-meal-choreography-ownership.md) owns Sage’s connected meal sequence. Message 015 remains the last tested build until new results are published.
+
 Current results: [015 — roomier camp and independent motion](015-cloud-spacing-motion-results.md). [014](014-cloud-spacing-motion-ownership.md) records ownership and the measured plan.
 
 Runtime source: `de43b318d7b62fdd67b90f589b91947d67d843bf`. Portable `Little Orbit.html` SHA-256: `3ce3de6658214d446368c3b1676ac4dd59a6ea0b2baf30e3f55c5d7032945b99`. Verify runtime ancestry and the checksum; later test/documentation commits can advance HEAD.
