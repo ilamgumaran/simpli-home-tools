@@ -49,6 +49,12 @@ Each short ascent now has a recovery interval. Route progress holds while fatigu
 
 This is a stylized pose and effort model, not a complete physics/biology simulation. Support contacts are logical poses, not persistent world-space handholds. Route-aware planted feet/hands, center-of-mass balance, rope tension/pendulum dynamics, terrain-selected anchors, injuries, hydration/nutrition consumption, carrying weight and fatigue carried across expeditions are not implemented yet. The current per-ascent state is sampled deterministically rather than integrating missed frames after sleep. Reduced motion, hidden pages, settings and screen breaks continue to stop motion.
 
+## Planned next step — anatomical detail and organic mechanics
+
+The [staged anatomy plan](ANATOMY-AND-ORGANIC-MOVEMENT.md) defines the next work. Current hand/foot targets are wrist/ankle endpoints; gloves are circles and boots short strokes, without articulated palms, grasp surfaces or heel/toe roll. New shared anatomy profiles, joint limits and palm/sole landmarks will precede scene migration. The scope includes all six non-infant identities, Candy’s separate renderer and Pebble’s swaddled support variant. Preserve fixed bones, existing wrist/ankle API semantics and loaded contacts while migrating. No proposed anatomy changes are implemented by this document.
+
+The route-aware Woodland and meal contacts described below are implemented in selected consumers. General pose contact flags and Time Climber I/II do not establish universal terrain pinning or force simulation. The new plan keeps these distinctions explicit.
+
 ## Source and review
 
 ### Next character step: planted rock contacts

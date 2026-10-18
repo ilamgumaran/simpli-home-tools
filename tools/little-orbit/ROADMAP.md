@@ -1,6 +1,17 @@
 # Our Desk Clock roadmap
 
-Updated 2026-10-16. Milestones express intent, not promised delivery dates. The product owner sets priorities and authorizes deferred implementation.
+Updated 2026-10-18. Milestones express intent, not promised delivery dates. The product owner sets priorities and authorizes deferred implementation.
+
+## Next character priority — shared anatomy and organic movement (planned)
+
+The owner requested finer hands, palms, feet and legs across the cast. The [implementation plan](design/ANATOMY-AND-ORGANIC-MOVEMENT.md) records the source audit, all affected consumers, anatomical/contact contracts and stages A0–A7. No anatomy implementation has started; the tested meal runtime and portable artifact remain unchanged.
+
+1. **A0–A2:** reference/action baseline, reviewed anatomy profiles and joint limits, compatible palm/foot landmarks, visible hand/boot artwork and anatomy workshop. Review this foundation before enabling scenes.
+2. **A3–A4:** palm-based tools, bowl placement and infant support, followed by heel/sole/toe gait and supported starts, stops, turns and kneeling. Integrate Sage first; preserve all meal and family contacts.
+3. **A5–A6:** coherent body/climb/recovery mechanics, both Woodland views and climbers, then Candy’s bespoke run/bike/work adapter and complete cast/theme rollout. Mark any remaining route limitations explicitly.
+4. **A7:** candidate-specific geometry, visual-motion, full browser/offline/cadence results and separate sustained Ally/Vanadium acceptance. Keep existing gates unchanged; new anatomy error budgets require independent reference calibration and rendered-landmark checks before implementation acceptance.
+
+[Session 018](../../sessions/2026-10-10-weather-habitat/018-cloud-anatomy-movement-plan.md) is the planning handoff; [017](../../sessions/2026-10-10-weather-habitat/017-cloud-meal-choreography-results.md) remains the tested candidate. Other theme implementations and persistent ecosystem/family simulation remain deferred. This plan schedules no automatic execution.
 
 ## Woodland Ally validation — installation complete; device review in progress
 

@@ -6,6 +6,10 @@ Our Desk Clock is a configurable browser display for desks, families, spare scre
 
 This is the product's planning hub. Designs are proposals until explicitly marked implemented. The current Woodland scene is on `feature/woodland-immersive-story`; the [installation handoff](design/ALLY-TEST-HANDOFF.md) identifies its runtime and portable artifact. The initial five-theme foundation remains in [PR #3](https://github.com/ilamgumaran/simpli-home-tools/pull/3), stacked on the shared-character and original-clock PRs. No versioned release has been published yet. [Earlier local installation results](../../sessions/2026-10-05-woodland-ally/002-ally-to-cloud.md) distinguish browser checks from physical-device acceptance.
 
+## Next character work — planned, not implemented
+
+The [shared anatomy and organic movement plan](design/ANATOMY-AND-ORGANIC-MOVEMENT.md) covers every current character and renderer: oriented palms and grips, ankle/heel/toe footwear, joint limits, supported gait and coordinated body movement. Start with a reviewed anatomy/workshop foundation, then migrate Sage’s meal and the family before the remaining consumers, including Candy’s separate artwork. Pebble stays swaddled and visibly supported. Each stage has independent geometry, visual, lifecycle and performance gates. This planning update changes no runtime behavior; [session 017](../../sessions/2026-10-10-weather-habitat/017-cloud-meal-choreography-results.md) remains the tested build.
+
 ## Product principles
 
 The next character branch, `feature/woodland-walking-grips`, adds [planted survey walking and grounded tool grips](design/WALKING-AND-GRIPS.md). [Session outcome](../../sessions/2026-10-05-woodland-ally/004-walking-grips.md) records verification, deployment and remaining physical acceptance.

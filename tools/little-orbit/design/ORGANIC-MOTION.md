@@ -2,6 +2,8 @@
 
 Status: implemented on `feature/woodland-organic-motion`, integrating cloud visual refinement with the other session’s rock contacts, walking and tool grips. Device acceptance is recorded separately in the [session thread](../../../sessions/2026-10-05-organic-motion/README.md).
 
+Next planned refinement: [shared anatomy and organic movement](ANATOMY-AND-ORGANIC-MOVEMENT.md). That proposal adds palm/grip surfaces, ankle/heel/toe anatomy, joint constraints and coordinated whole-body motion through staged consumer migrations. It has not changed the implemented motion or its historical evidence below.
+
 ## Motion and pacing
 
 The Woodland renderer previously sampled low-power motion at about 10–12 frames per second and capped normal motion at 24. It now renders at 30 frames per second in low-power mode and follows the browser’s animation frames in normal mode. Remainder-preserving pacing avoids dropping every other eligible frame. Landscape composition and viewport measurement are cached; stable SVG markup is retained instead of replacing it on each frame.

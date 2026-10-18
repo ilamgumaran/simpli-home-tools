@@ -35,6 +35,8 @@ For session-to-session handoffs and replies, read the [session communication dir
 
 Start with the [product guide](PRODUCT.md), [roadmap](ROADMAP.md), [design archive](design/), and [changelog](CHANGELOG.md) for product status and planned work. The [model orchestration plan](design/MODEL-ORCHESTRATION.md) records planning, testing and execution roles. Six themes are implemented, including Woodland of Time and Green House 1; all earlier choices remain available. Green House 1's meal choreography is implemented and passed browser, cadence and portable checks; physical and sustained acceptance remain pending.
 
+The next [shared anatomy and organic movement plan](design/ANATOMY-AND-ORGANIC-MOVEMENT.md) proposes palm/grip, ankle/heel/toe, joint-limit and supported-motion stages for the whole cast, including Candy’s separate art and Pebble’s swaddled support. Start with the compatible anatomy/workshop foundation. [Session 018](../../sessions/2026-10-10-weather-habitat/018-cloud-anatomy-movement-plan.md) carries the planning handoff; runtime and portable output remain unchanged.
+
 ```sh
 npm ci
 npx playwright install chromium firefox
