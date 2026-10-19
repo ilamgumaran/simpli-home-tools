@@ -6,6 +6,10 @@ No tagged releases yet. Entries below describe implemented code on the developme
 
 ### Added
 
+- Combined cloud Woodland enlargement and blended choreography with local supported rock/walking/tool contacts. Shelter/crossing use reach-checked mallets; teaching alternates teacher/listener turns. Responsive worksite transforms preserve grips and travel arrival positions.
+
+- Woodland survey uses map-before-walk sequencing, planted alternating ground steps and destination rest. Gathering/cooking use grounded shared work rigs and wrist-attached sticks/spoons whose working ends meet authored sockets.
+- Woodland rock climbing now uses authored world-space hand/foot holds and a shared contact solver: one-limb transfers, four-contact body lifts, stationary recovery and a supported final stance, with fixed limb lengths and harness-connected protection.
 - Woodland of Time, the fifth theme: complete earth-trail HH:MM, distinct hourly woodland landmarks, twelve minute activities, six authored daily stories and a quiet daily reflection chapter.
 - Shared world/landscape/action/story/philosophy recipes, central learner Sprout, distinct gathering/building/water/cooking/teaching poses and shared map/spoon props. Woodland protected climbing includes stationary recovery and deadline-only optional assistance.
 - Living-world composition and specialist plans for industrial, weaving, farming, railway and ant themes; later implementations and deeper simulation remain proposed.

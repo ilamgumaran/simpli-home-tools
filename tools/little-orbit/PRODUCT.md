@@ -2,9 +2,13 @@
 
 Our Desk Clock is a configurable browser display for desks, families, spare screens, and handhelds. It combines readable time, date, local weather, daily learning, and quiet character scenes. The source directory remains `tools/little-orbit/` for compatibility.
 
-This is the product's planning hub. Designs are proposals until explicitly marked implemented; the portable clock and its tests describe shipped behavior. Current code is on the `add-little-orbit-clock` branch in [PR #1](https://github.com/ilamgumaran/simpli-home-tools/pull/1), pending merge. No versioned release has been published yet.
+This is the product's planning hub. Designs are proposals until explicitly marked implemented. The latest five-theme implementation is on `feature/living-woodland-time` in [PR #3](https://github.com/ilamgumaran/simpli-home-tools/pull/3), stacked on the shared-character and original-clock PRs. No versioned release has been published yet. [Local installation and verification results](../../sessions/2026-10-05-woodland-ally/002-ally-to-cloud.md) distinguish passed browser checks from pending physical-device checks.
 
 ## Product principles
+
+The next character branch, `feature/woodland-walking-grips`, adds [planted survey walking and grounded tool grips](design/WALKING-AND-GRIPS.md). [Session outcome](../../sessions/2026-10-05-woodland-ally/004-walking-grips.md) records verification, deployment and remaining physical acceptance.
+
+The character follow-up on `feature/woodland-character-contacts` adds [planted rock contacts](design/CHARACTER-CONTACTS.md) to the Woodland slice. [Progress and outcomes](../../sessions/2026-10-05-woodland-ally/003-character-contacts.md) distinguish implementation/browser checks from pending live-device acceptance.
 
 1. Read the clock at a glance. Time, date, weather, and facts must stay visible across device sizes and motion states.
 2. Browser first. Keep the runtime independent of OS helpers, accounts, installed packages, and external fonts. Preserve the single-file offline path.
@@ -55,3 +59,5 @@ The first character layer centralizes Pip, Moss, Ridge and Sprout in `characters
 Woodland of Time is implemented as the fifth theme on the living-world branch. Reusable landscape, action, story, philosophy and recipe definitions compose centrally defined characters into one woodland scene. All current time digits stay readable while hourly places, minute vignettes and six daily social episodes vary. The [living-world plan](design/LIVING-WORLDS.md) records the larger direction and specialist plans; five later worlds remain proposed. Complete contact physics, conserved resources and persistent family generations remain future work.
 
 Woodland now fills the available scene panel, with proportion-preserving trees, time digits and larger characters, smoother shared anatomical poses, detailed timber and curved mountain layers. Short authored travel connects worksites, with a protected rappel return for repeated climbing visits. Companion interval/duration controls the work bouts; each minute can also include up to three seconds of travel and a 0.35-second pose settle between bouts. Companion-off, reduced motion, hidden tabs, open settings and screen rest suppress those moving frames. This visual pass does not complete terrain-contact or rope-force simulation; browser and device review remain separate evidence.
+
+Woodland refinement now combines both development histories with responsive contact sites, shelter/crossing grips and reciprocal teaching. See [implemented scope and next milestones](design/REFINEMENT-AND-WORK.md). Physical acceptance remains pending.

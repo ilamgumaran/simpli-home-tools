@@ -17,6 +17,12 @@
   8:'M40 70L0 45V15L20 0H60L80 15V45L40 70L0 100V135L20 150H60L80 135V100Z',
   9:'M80 80H20L0 60V20L20 0H60L80 20V120L55 150H5'
  });
+ // Authored foreground boulder sockets; the rig samples these actual world holds.
+ const routes=freeze({woodlandWalk:{scale:.72,origin:{x:280,y:300},groundY:318.72,steps:10,stride:9},woodlandRock:{scale:.72,anchor:{x:58,y:206},stations:Array.from({length:8},(_,row)=>{
+  const root={x:57,y:301-row*8*.72},station={root};
+  for(const [name,x,y] of [['leftHand',-12,-20],['leftFoot',-12,26],['rightHand',12,-20],['rightFoot',12,26]])station[name]={id:`rock-${name}-${row}`,x:root.x+x*.72,y:root.y+y*.72};
+  return station;
+ })}});
  const landscapes=freeze({
   woodland:{status:'implemented',numeralMaterial:'Walkable earth trails, timber edging and stone stepping dots',places:[
    {name:'Mosswood',sky:'#dce6d3',hill:'#9aad83',forest:'#486655',ground:'#71885f',water:'#91b4ba',resource:'fallen timber'},
@@ -101,13 +107,13 @@
  }
  // Travel joins the previous endpoint to this visit without jumping to the glyph.
  // A repeated climbing visit begins with a protected return to its lower holds.
- function blocking(model,previous,performanceState,{duration=12,interval=60,reducedMotion=false}={}){
+ function blocking(model,previous,performanceState,{duration=12,interval=60,reducedMotion=false,siteAt=worksite}={}){
   const p=performanceState,visit=mod(model.hour*3600+model.minute*60+model.second,Math.max(30,interval)),travel=Math.min(3,duration*.25);
   const minuteMove=model.second<travel,elapsed=minuteMove?model.second:visit;
   const moving=!reducedMotion&&model.hour>=6&&(minuteMove||(p.running&&visit<travel));
   const before=minuteMove?performance(previous,{duration,interval}):{progress:1,climb:1,pose:model.action.role==='climbing'?'recover-climb':'rest'};
-  const target=worksite(model,p.progress,p.climb),prior=minuteMove?worksite(previous,before.progress,before.climb):worksite(model);
-  const source=visit+1e-7>=model.second?worksite(previous):worksite(model);
+  const target=siteAt(model,p.progress,p.climb),prior=minuteMove?siteAt(previous,before.progress,before.climb):siteAt(model);
+  const source=visit+1e-7>=model.second?siteAt(previous):siteAt(model);
   const travelAction=model.action.role==='climbing'&&source.x===target.x?'rappel':'walk';
   const amount=moving?ease(elapsed/travel):1;
   const position={x:prior.x+(target.x-prior.x)*amount,y:prior.y+(target.y-prior.y)*amount};
@@ -122,8 +128,8 @@
   }
   // Minute travel can occur between work visits, then settle without a pose snap.
   if(!moving&&!reducedMotion&&model.second>=travel&&model.second<travel+.35){from=travelAction;fromCycle=travel*1.25;blend=ease((model.second-travel)/.35);}
-  if(model.hour<6){action='sleep';position.x=worksite(model).x;position.y=300;}
+  if(model.hour<6){action='sleep';position.x=siteAt(model).x;position.y=300;}
   return {position,action,cycle,from,fromCycle,blend,moving,settling:from!==null&&blend<1};
  }
- globalThis.DeskWorlds=freeze({numerals,landscapes,actions,philosophies,stories,recipes,itinerary,clock,woodland,performance,blocking});
+ globalThis.DeskWorlds=freeze({numerals,routes,landscapes,actions,philosophies,stories,recipes,itinerary,clock,woodland,performance,blocking});
 })();

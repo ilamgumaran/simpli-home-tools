@@ -1,3 +1,7 @@
+# Current integration outcome
+
+The combined local/cloud branch is now `feature/woodland-refinement-contacts`. Read [the installation and implementation reply](../../../sessions/2026-10-05-woodland-refinement/002-ally-to-cloud.md) and [scope](REFINEMENT-AND-WORK.md) before further development. Artifact SHA-256: `c1b717aedaac46b5cb17a0f7778b79039a534ec8c883d8300b8792c9956023ba`. Edge/Firefox hosted and portable checks passed; the Ally mirror is updated and restarted. Physical touch/scaling/extended-operation acceptance remains pending. The cloud-only instructions below identify the historical input, not the newer combined artifact.
+
 # Woodland build: Ally installation and testing handoff
 
 Prepared 2026-10-05. Status: source, plans and portable build published for local device testing. Physical Ally testing has not been performed in the cloud session.

@@ -10,7 +10,7 @@
  <rect id="woodland-sky" width="800" height="360"/><circle id="woodland-light" cx="705" cy="55" r="25" fill="#f4e2ac"/>
  <g id="woodland-background"/><path id="woodland-ground" d="M0 240Q180 220 360 241T800 231V360H0Z"/>
  <path id="woodland-creek" d="M800 240Q600 229 552 276T344 340L300 360H365Q470 320 570 304T800 270Z"/>
- <g id="woodland-details"/><g id="woodland-props"/><path id="woodland-rope" fill="none" stroke="#ead6a8" stroke-width="1.6"/>
+ <g id="woodland-details"/><g id="woodland-holds"/><g id="woodland-props"/><g id="woodland-work-sockets"/><path id="woodland-rope" fill="none" stroke="#ead6a8" stroke-width="1.6"/>
  <circle id="woodland-anchor" cx="58" cy="206" r="3" fill="#e3d4ab" stroke="#485844" stroke-width="1"/><g id="woodland-cast"></g><g id="woodland-hand-tool"/><g id="woodland-minute-marker"/>
  <g id="woodland-numerals" fill="none" stroke-linecap="round" stroke-linejoin="round"></g>
  <g id="woodland-colon" fill="#eaddb3" stroke="#485844" stroke-width="3"><circle cx="400" cy="99" r="5"/><circle cx="400" cy="144" r="5"/></g>
@@ -20,6 +20,8 @@
  const motion=typeof matchMedia==='function'?matchMedia('(prefers-reduced-motion: reduce)'):null;
  let timer=null,frame=null,lastFrame=0,lastMinute='',lastTerrain='',lastCast='',sizing=false;
  const actors=[];
+ // Small supported rock route, authored entirely within the foreground boulder.
+ const rockRoute=DeskWorlds.routes.woodlandRock;
  const lead=m=>{const chosen=globalThis.ORBIT_CONFIG?.characters?.woodland;return Object.hasOwn(DeskCharacters.identities,chosen)&&!DeskCharacters.identities[chosen].young?chosen:m.story.cast[0];};
  const active=()=>prefs.theme==='woodland';
  const visible=()=>active()&&document.visibilityState==='visible'&&!get('settings').open&&!document.body.classList.contains('screen-rest');
@@ -32,8 +34,8 @@
   const budget=Math.max(90,innerHeight-(r.height+Math.max(12,r.top)+padding)-14);
   scene.style.height=Math.min(innerWidth<600?260:470,budget)+'px';scene.classList.toggle('woodland-compact',budget<165);sizing=false;
   // Landscape fills the panel; the cast compensates its Y stretch to stay human.
-  for(const {host,young} of actors){const size=characterSize(young);host.querySelector('.character-art').setAttribute('transform',`scale(${size.x} ${size.y})`);}
-  compose();
+  // Rendering owns actor/site transforms together; resizing must not apply scale twice.
+  compose();draw();
  }
  function compose(){
   const r=get('woodland-world').getBoundingClientRect();if(!r.width||!r.height)return;
@@ -66,7 +68,7 @@
    '<g fill="#7c8954">'+tree(140,283,.76,true)+tree(673,277,.73,true)+'</g><g fill="#c5a263"><circle cx="130" cy="241" r="4"/><circle cx="150" cy="233" r="4"/><circle cx="675" cy="237" r="4"/><circle cx="660" cy="247" r="4"/></g>',
    '<path d="M155 290v22m53 -22v22" stroke="#6d5a42" stroke-width="7"/>'+timber(144,288,75)+'<path d="M699 291l22 -36l24 36Z" fill="#bba478" stroke="#665c42" stroke-width="2"/>'
   ];
-  get('woodland-details').innerHTML=`<g fill="${p.forest}">${tree(58,260,1.4,m.hour%2===0)}${tree(758,256,1.5,m.hour%2!==0)}${tree(682,275,.9,true)}</g><path d="M17 331Q13 272 39 250Q69 214 86 246Q116 270 104 334Z" fill="#869180" stroke="#556654" stroke-width="3"/><path d="M31 290Q38 258 64 249M77 265Q100 290 93 319" fill="none" stroke="#bac1a6" stroke-width="2"/><g fill="#e2d7b6"><circle cx="493" cy="315" r="5"/><circle cx="516" cy="309" r="6"/><circle cx="539" cy="300" r="5"/></g><g fill="#5b7049"><path d="M145 340Q131 299 153 316Q167 300 167 335Z"/><path d="M636 334Q624 286 644 306Q665 295 658 335Z"/></g><g fill="#b16557"><circle cx="648" cy="312" r="3"/><circle cx="639" cy="316" r="3"/><circle cx="653" cy="321" r="3"/></g>${timber(187,325,33,-13)}${landmarks[m.hour%8]}`;
+  get('woodland-details').innerHTML=`<g fill="${p.forest}">${tree(58,260,1.4,m.hour%2===0)}${tree(758,256,1.5,m.hour%2!==0)}${tree(682,275,.9,true)}</g><g id="woodland-contact-boulder"><path d="M17 331Q13 272 39 250Q69 214 86 246Q116 270 104 334Z" fill="#869180" stroke="#556654" stroke-width="3"/><path d="M31 290Q38 258 64 249M77 265Q100 290 93 319" fill="none" stroke="#bac1a6" stroke-width="2"/></g><g fill="#e2d7b6"><circle cx="493" cy="315" r="5"/><circle cx="516" cy="309" r="6"/><circle cx="539" cy="300" r="5"/></g><g fill="#5b7049"><path d="M145 340Q131 299 153 316Q167 300 167 335Z"/><path d="M636 334Q624 286 644 306Q665 295 658 335Z"/></g><g fill="#b16557"><circle cx="648" cy="312" r="3"/><circle cx="639" cy="316" r="3"/><circle cx="653" cy="321" r="3"/></g>${timber(187,325,33,-13)}${landmarks[m.hour%8]}`;
   get('woodland-place').textContent=p.name+' · '+m.period;
  }
  function numerals(m){
@@ -103,7 +105,7 @@
    rest:'<path d="M284 331q17 -17 40 0Z" fill="#c1c0a0"/><path d="M336 326h13v-15h-13Z" fill="#8ec1c5"/>',
    teach:'<path d="M299 309l14 -3l15 3v19l-15 -4l-14 4Z" fill="#e6d7ad" stroke="#665c42"/><path d="M304 318q9 -12 18 3" fill="none" stroke="#71885f" stroke-width="2"/>'
   };
-  get('woodland-props').innerHTML=types[m.actionId]+(m.action.role==='climbing'?'<path d="M42 300h31M42 267h31" stroke="#c4c2a1" stroke-width="4"/>':'');
+  get('woodland-props').innerHTML=types[m.actionId]+(m.actionId==='tree'?'<path d="M42 300h31M42 267h31" stroke="#c4c2a1" stroke-width="4"/>':'');
  }
  function draw(){
   if(!active())return;
@@ -124,34 +126,69 @@
   get('woodland-story').textContent=caption+' '+m.philosophy;
   get('woodland-description').textContent=`${m.time} ${m.period}. ${m.place.name}. ${caption} ${activityLabel}. ${m.philosophy}`;
   props(m,p);
+  const contactMap=(model,q)=>{const z=characterSize(),x=model.actionId==='rock'?57:model.actionId==='survey'?280:model.actionId==='cook'?326:model.actionId==='bridge'?465:299;return {x:x+(q.x-x)*z.x/.72,y:340+(q.y-318.72)*z.y/.72};};
+  const siteAt=(model,progress=1,climb=1)=>{
+   if(model.hour<6)return {x:280,y:300};
+   const id=model.actionId;
+   if(id==='rock')return contactMap(model,DeskCharacters.climbContacts(rockRoute,climb).root);
+   if(id==='survey')return contactMap(model,DeskCharacters.walkContacts(DeskWorlds.routes.woodlandWalk,Math.max(0,Math.min(1,(progress-.4)/.5))).root);
+   if(['sticks','shelter','cook','bridge'].includes(id))return contactMap(model,{x:id==='cook'?326:id==='bridge'?465:299,y:id==='sticks'?303:300});
+   return {x:model.action.role==='climbing'?57:id==='water'?541:id==='forage'?586:280,y:model.action.role==='climbing'?301-climb*56:300};
+  };
   const previous=DeskWorlds.woodland(new Date(now.getTime()-m.second*1000-1),{format24:prefs.format24});
-  const b=DeskWorlds.blocking(m,previous,p,{duration:prefs.display.companionDuration,interval:prefs.display.companionInterval,reducedMotion:quiet});
+  const b=DeskWorlds.blocking(m,previous,p,{duration:prefs.display.companionDuration,interval:prefs.display.companionInterval,reducedMotion:quiet,siteAt});
   const climb=m.action.role==='climbing'&&m.hour>=6;
   const marker=p.phase==='mark'&&companions;
+  const size=characterSize(),site={x:m.actionId==='rock'?57:m.actionId==='survey'?280:m.actionId==='cook'?326:m.actionId==='bridge'?465:299,y:318.72};
+  const sx=size.x/.72,sy=size.y/.72,map=q=>({x:site.x+(q.x-site.x)*sx,y:340+(q.y-site.y)*sy});
+  const siteTransform=`translate(${site.x} 340) scale(${sx} ${sy}) translate(${-site.x} ${-site.y})`;
+  for(const id of ['woodland-holds','woodland-work-sockets','woodland-hand-tool'])attr(id,'transform',siteTransform);
+  const contactRig=climb&&m.actionId==='rock'&&!b.moving?DeskCharacters.climbContacts(rockRoute,p.climb,{resting:p.phase==='recover'||!p.running}):null;
+  const survey=m.actionId==='survey'&&m.hour>=6&&!b.moving;
+  const walkProgress=p.running?Math.max(0,Math.min(1,(p.progress-.4)/.5)):1;
+  const surveyPose=p.running&&p.progress<.4?'read-map':p.running&&p.progress<.9?'walk':'rest';
+  const walkRig=survey?DeskCharacters.walkContacts(DeskWorlds.routes.woodlandWalk,walkProgress,{action:surveyPose}):null;
+  const working=['sticks','cook','shelter','bridge'].includes(m.actionId)&&m.hour>=6&&!marker;
+  const workBase={sticks:{root:{x:299,y:303},x:303,y:319},cook:{root:{x:326,y:300},x:339,y:309},shelter:{root:{x:299,y:300},x:313,y:311},bridge:{root:{x:465,y:300},x:479,y:311}}[m.actionId];
+  const workSocket=working?{x:workBase.x+(p.running&&m.actionId!=='sticks'?Math.sin(p.progress*6*Math.PI)*2:0),y:workBase.y}:null;
+  const workRig=working?DeskCharacters.workContacts({root:workBase.root,scale:.72,groundY:318.72,work:workSocket,hand:['cook','shelter','bridge'].includes(m.actionId)?1:0,action:m.action.pose,cycle:p.running?p.progress*3:0,angle:Math.PI/2+(p.running?Math.sin(p.progress*6*Math.PI)*.12:0)}):null;
+  get('woodland-work-sockets').innerHTML=walkRig?'<path id="woodland-walk-ground" d="M270 318.72H380" fill="none" stroke="#bbaa7a" stroke-width="1.5"/>':workRig?`<circle id="woodland-work-target" cx="${workSocket.x}" cy="${workSocket.y}" r="1.5" fill="#dac897"/>`:'';
+  attr('woodland-props','transform',workRig?siteTransform:'');
+  attr('woodland-contact-boulder','transform',contactRig?siteTransform:'');
+  const protectionAnchor=contactRig?rockRoute.anchor:{x:58,y:206};
+  attr('woodland-anchor','cx',protectionAnchor.x);attr('woodland-anchor','cy',protectionAnchor.y);
+  get('woodland-holds').innerHTML=contactRig?rockRoute.stations.flatMap(station=>['leftHand','leftFoot','rightHand','rightFoot'].map(name=>{const hold=station[name];return `<path data-hold="${hold.id}" d="M${hold.x-2.5} ${hold.y}h5" fill="none" stroke="#d2d2b4" stroke-width="1.7" stroke-linecap="round"/>`;})).join(''):'';
   const lastTrail=get('woodland-numerals').querySelector('[data-index="3"] .woodland-trail');
   const joint=lastTrail.getPointAtLength(lastTrail.getTotalLength()*.95);
   const jointMatrix=get('woodland-world').getCTM().inverse().multiply(lastTrail.getCTM()),trailJoint={x:jointMatrix.a*joint.x+jointMatrix.c*joint.y+jointMatrix.e,y:jointMatrix.b*joint.x+jointMatrix.d*joint.y+jointMatrix.f};
-  const primary=b.position;
-  let leadPose=null;
+  const primary={x:climb?57:['water'].includes(m.actionId)?541:['forage'].includes(m.actionId)?586:m.actionId==='bridge'?453:280+(p.running&&m.actionId==='survey'?p.progress*90:0),y:climb?301-p.climb*56:300};
+  if(contactRig)Object.assign(primary,contactRig.root);
+  if(walkRig||workRig)Object.assign(primary,(walkRig||workRig).root);
+  const supported=contactRig||walkRig||workRig;
+  if(!supported)Object.assign(primary,b.position);
   actors.forEach(({host,young},i)=>{
-   const size=characterSize(young),pos=i===0?primary:{x:360+i*55,y:young?311:300};
-   const feet=get('woodland-world').getBoundingClientRect().height/360;
-   pos.y=Math.min(pos.y,360-35*size.y-4/feet);
-   host.setAttribute('transform',`translate(${pos.x.toFixed(3)} ${pos.y.toFixed(3)})`);
-   host.querySelector('.character-art').setAttribute('transform',`scale(${size.x} ${size.y})`);
-   const pose=m.hour<6?'sleep':i===0?b.action:m.actionId==='teach'?'teach':m.reflection?'rest':'camp';
-   const anchor={x:(58-pos.x)/size.x,y:(206-pos.y)/size.y};
-   const result=DeskCharacters.update(host,{action:pose,cycle:b.cycle,from:i===0?b.from:null,fromCycle:b.fromCycle,blend:b.blend,fatigue:i===0?p.fatigue:0,assisted:i===0&&p.assisted,item:m.actionId==='water'?'water':m.actionId==='cook'?'food':null,ropeAnchor:anchor});
-   if(i===0)leadPose=result;
+   const scale=young?.52:.72,social=['teach','water','cook','rest'].includes(m.actionId),pos=i===0?primary:{x:social?primary.x+45+i*25:360+i*39,y:young?311:300};
+   const supportedActor=i===0&&supported;
+   if(supportedActor){host.setAttribute('transform',`${siteTransform} translate(${pos.x} ${pos.y}) scale(${scale})`);host.querySelector('.character-art').removeAttribute('transform');}
+   else{const z=characterSize(young),height=get('woodland-world').getBoundingClientRect().height/360;if(i!==0||!['rock','survey','sticks','shelter','cook','bridge'].includes(m.actionId))pos.y=Math.min(pos.y,360-35*z.y-4/height);host.setAttribute('transform',`translate(${pos.x} ${pos.y})`);host.querySelector('.character-art').setAttribute('transform',`scale(${z.x} ${z.y})`);}
+   const teachingTurn=p.running&&Math.floor(p.progress*4)%2===1;
+   const pose=m.hour<6?'sleep':i===0?m.actionId==='teach'&&teachingTurn?'listen':(walkRig?surveyPose:workRig?m.action.pose:supported?p.pose:b.action):m.actionId==='teach'?(teachingTurn?'teach':'listen'):m.reflection?'rest':'camp';
+   const anchor={x:(protectionAnchor.x-pos.x)/scale,y:(protectionAnchor.y-pos.y)/scale};
+   const rig=i===0?(contactRig||walkRig||workRig):null;
+   host.dataset.contactHolds=contactRig&&i===0?JSON.stringify(contactRig.holds):'';host.dataset.movingLimb=rig?.moving||'';
+   host.dataset.groundContacts=walkRig&&i===0?JSON.stringify(Object.fromEntries(Object.entries(walkRig.holds).map(([name,q])=>[name,q?map(q):null]))):'';
+   DeskCharacters.update(host,{action:pose,cycle:supported?p.progress*3:b.cycle,from:!supported&&i===0?b.from:null,fromCycle:b.fromCycle,blend:b.blend,fatigue:i===0?p.fatigue:0,assisted:i===0&&p.assisted,item:m.actionId==='water'?'water':m.actionId==='cook'?'food':null,ropeAnchor:anchor,rig});
   });
   get('woodland-cast').style.display=companions?'':'none';
   const a=DeskCharacters.attachment(DeskCharacters.create('moss',{role:'climbing'}));
-  const size=characterSize();
-  attr('woodland-rope','d',`M58 206L${primary.x+a.x*size.x} ${primary.y+a.y*size.y}`);get('woodland-rope').style.display=companions&&climb&&(!b.moving||b.action==='rappel')?'':'none';get('woodland-anchor').style.display=get('woodland-rope').style.display;
+  const matrix=get('woodland-world').getScreenCTM().inverse().multiply(actors[0].host.querySelector('.character-art').getScreenCTM()),harness=new DOMPoint(a.x,a.y).matrixTransform(matrix),anchorPoint=contactRig?map(protectionAnchor):protectionAnchor;
+  attr('woodland-anchor','cx',anchorPoint.x);attr('woodland-anchor','cy',anchorPoint.y);
+  attr('woodland-rope','d',`M${anchorPoint.x} ${anchorPoint.y}L${harness.x} ${harness.y}`);get('woodland-rope').style.display=companions&&climb&&!marker?'':'none';get('woodland-anchor').style.display=get('woodland-rope').style.display;
   get('woodland-hand-tool').innerHTML='';
-  if(companions&&p.running&&!b.moving&&['sticks','shelter','bridge'].includes(m.actionId)){
-   const hand=leadPose.arms[0][2];
-   get('woodland-hand-tool').innerHTML=`<path d="M${primary.x+hand.x*size.x-12} ${primary.y+hand.y*size.y-4}l24 8" stroke="#d8bc83" stroke-width="3"/>`;
+  if(companions&&workRig&&m.actionId!=='cook'){
+   const hand=workRig.arms[workRig.toolHand][2],grip=DeskCharacters.toolGrip(hand,workRig.toolTarget);
+   get('woodland-hand-tool').innerHTML=`<g data-tool="${m.actionId==='sticks'?'fallen-stick':'mallet'}" transform="translate(${primary.x} ${primary.y}) scale(.72)"><g transform="translate(${grip.x} ${grip.y}) rotate(${grip.angle})"><path id="woodland-stick-grip" d="M0 0H14" stroke="#d8bc83" stroke-width="3" stroke-linecap="round"/>${m.actionId==='sticks'?'':'<path d="M14 -4V4" stroke="#718077" stroke-width="5" stroke-linecap="round"/>'}</g></g>`;
+
   }
   get('woodland-minute-marker').innerHTML=marker?`<g transform="translate(${trailJoint.x} ${trailJoint.y})"><path d="M0 4v12m-5 -8h10" stroke="#eedbad" stroke-width="3"/><circle cy="4" r="3" fill="#8a7150"/></g>`:'';
 
@@ -183,5 +220,6 @@
  new MutationObserver(sync).observe(get('settings'),{attributes:true,attributeFilter:['open']});
  window.addEventListener('resize',sync);window.addEventListener('desk-display-change',sync);motion?.addEventListener?.('change',sync);
  if(typeof ResizeObserver==='function'){const observer=new ResizeObserver(()=>{if(active())fit();});for(const selector of ['.clock-panel','.fact-panel','.weather-panel'])observer.observe(get('display').querySelector(selector));}
- window.WoodlandTime={sync,refresh,model:DeskWorlds.woodland,get running(){return frame!==null;},get pending(){return timer!==null;}};sync();
+ window.WoodlandTime={sync,refresh,model:DeskWorlds.woodland,rockRoute,get running(){return frame!==null;},get pending(){return timer!==null;}};sync();
 })();
+

@@ -1,6 +1,49 @@
 const assert=require('node:assert/strict');
 require('../characters.js');require('../world-layers.js');
 const worlds=globalThis.DeskWorlds,characters=globalThis.DeskCharacters;
+// Real terrain targets, not support booleans: fixed limbs reach the same authored hold.
+const route=worlds.routes.woodlandRock,holdMap=new Map(route.stations.flatMap(s=>['leftHand','rightHand','leftFoot','rightFoot'].map(name=>[s[name].id,s[name]])));
+let previousRig=null;
+for(let sample=0;sample<=1000;sample++){
+ const rig=characters.climbContacts(route,sample/1000);
+ assert.ok(Object.values(rig.contacts).filter(Boolean).length>=3);
+ for(const [names,limbs,lengths] of [[['leftHand','rightHand'],rig.arms,[12,11]],[['leftFoot','rightFoot'],rig.legs,[12,12]]])names.forEach((name,i)=>{
+  const limb=limbs[i];for(let bone=0;bone<2;bone++)assert.ok(Math.abs(Math.hypot(limb[bone+1].x-limb[bone].x,limb[bone+1].y-limb[bone].y)-lengths[bone])<1e-8);
+  const end={x:rig.root.x+limb[2].x*route.scale,y:rig.root.y+limb[2].y*route.scale};
+  assert.ok(Math.hypot(end.x-rig.targets[name].x,end.y-rig.targets[name].y)<1e-8);
+  if(rig.contacts[name]){const hold=holdMap.get(rig.holds[name]);assert.ok(Math.hypot(end.x-hold.x,end.y-hold.y)<1e-8);}
+ });
+ if(previousRig)assert.ok(Math.hypot(rig.root.x-previousRig.root.x,rig.root.y-previousRig.root.y)<.4,'Body jump between supported steps');
+ previousRig=rig;
+}
+const recoveryA=characters.climbContacts(route,characters.ascent(.35).progress,{resting:true}),recoveryB=characters.climbContacts(route,characters.ascent(.49).progress,{resting:true});
+assert.deepEqual(recoveryA,recoveryB);assert.equal(Object.values(recoveryA.contacts).filter(Boolean).length,4);
+assert.throws(()=>characters.climbContacts(route,NaN));
+const badRoute={...route,stations:route.stations.map(s=>({...s,leftHand:{...s.leftHand,x:500}}))};
+assert.throws(()=>characters.climbContacts(badRoute,0),/outside limb reach/);
+const walkRoute=worlds.routes.woodlandWalk;
+let lastWalk=null;
+for(let sample=0;sample<=1000;sample++){
+ const rig=characters.walkContacts(walkRoute,sample/1000);
+ ['leftFoot','rightFoot'].forEach((name,i)=>{
+  const limb=rig.legs[i],end={x:rig.root.x+limb[2].x*walkRoute.scale,y:rig.root.y+limb[2].y*walkRoute.scale};
+  assert.ok(Math.hypot(end.x-rig.targets[name].x,end.y-rig.targets[name].y)<1e-8);
+  assert.ok(end.y<=walkRoute.groundY+1e-8,'Swing foot passes through ground');
+  for(let bone=0;bone<2;bone++)assert.ok(Math.abs(Math.hypot(limb[bone+1].x-limb[bone].x,limb[bone+1].y-limb[bone].y)-12)<1e-8);
+  if(rig.holds[name]){assert.equal(end.y,walkRoute.groundY);if(lastWalk?.holds[name]&&Math.abs(lastWalk.holds[name].x-rig.holds[name].x)<.01)assert.ok(Math.hypot(end.x-lastWalk.targets[name].x,end.y-lastWalk.targets[name].y)<1e-8);}
+ });
+ assert.ok(rig.contacts.leftFoot||rig.contacts.rightFoot);lastWalk=rig;
+}
+assert.throws(()=>characters.walkContacts(walkRoute,NaN));
+for(let sample=0;sample<=100;sample++){
+ const angle=Math.PI/2+Math.sin(sample/100*Math.PI*6)*.12;
+ for(const [root,work,hand,action] of [[{x:299,y:303},{x:303,y:319},0,'gather'],[{x:326,y:300},{x:339,y:309},1,'cook'],[{x:299,y:300},{x:313,y:311},1,'build'],[{x:465,y:300},{x:479,y:311},1,'build']]){
+  if(action!=='gather')work.x+=Math.sin(sample/100*Math.PI*6)*2;
+  const rig=characters.workContacts({root,work,hand,action,scale:.72,groundY:318.72,angle}),wrist=rig.arms[hand][2],grip=characters.toolGrip(wrist,rig.toolTarget);
+  assert.ok(Math.hypot(grip.tip.x-rig.toolTarget.x,grip.tip.y-rig.toolTarget.y)<1e-8);
+  assert.ok(Math.hypot(grip.x-wrist.x,grip.y-wrist.y)<1e-8);
+ }
+}
 assert.equal(Object.keys(worlds.recipes).length,6);
 assert.deepEqual(Object.entries(worlds.recipes).filter(([,v])=>v.status==='implemented').map(([id])=>id),['woodland']);
 assert.deepEqual(worlds.recipes.ants.characters,[]);
