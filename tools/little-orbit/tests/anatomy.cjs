@@ -202,7 +202,7 @@ for(const {action,cycle,pose} of legacy.samples)
  compareLegacy(pose,globalThis.DeskCharacters.pose(action,cycle),`legacy ${action} cycle ${cycle}`);
 const nominal=globalThis.DeskCharacters.pose(legacy.samples[0].action,legacy.samples[0].cycle);
 const tinyVariation=structuredClone(nominal);tinyVariation.arms[0][2].x+=1e-12;
-compareLegacy(legacy.samples[0].pose,tinyVariation,'subpicometer numeric variation');
+compareLegacy(legacy.samples[0].pose,tinyVariation,'rounding-sized numeric variation');
 const changedWrist=structuredClone(nominal);changedWrist.arms[0][2].x+=1e-6;
 assert.throws(()=>compareLegacy(legacy.samples[0].pose,changedWrist,'perturbed wrist'),/legacy numeric value changed/);
 console.log('PASS anatomy: cast profiles, authored landmarks, transforms, constrained two-bone solves, references and frozen records.');

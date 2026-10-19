@@ -14,6 +14,13 @@ const near=(actual,expected,label,tol=.001)=>assert.ok(Math.abs(actual-expected)
 async function inspect(page,label,full){
  const errors=[];page.on('pageerror',e=>errors.push(e.message));
  await page.goto(label==='hosted'?url+'/design/character-study.html':studyFile);
+ if(label==='hosted')for(const file of ['ANATOMY-PROFILES.md','ANATOMY-BASELINE.md']){
+  const link=page.locator(`a[href="${file}"]`);
+  assert.equal(await link.count(),1,'workshop document link exists: '+file);
+  const response=await page.request.get(new URL(await link.getAttribute('href'),page.url()).href);
+  assert.equal(response.status(),200,'hosted workshop document serves: '+file);
+  assert.match(await response.text(),/Anatomy/,'hosted workshop document content: '+file);
+ }
  assert.equal(await page.locator('#character option').count(),7,'existing cast selector retained');
  assert.ok(await page.locator('#role').count(),'existing role control retained');
  assert.ok(await page.locator('#progress').count(),'existing motion scrubber retained');
