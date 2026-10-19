@@ -1,6 +1,6 @@
 # Our Desk Clock roadmap
 
-Updated 2026-10-18. Milestones express intent, not promised delivery dates. The product owner sets priorities and authorizes deferred implementation.
+Updated 2026-10-19. Milestones express intent, not promised delivery dates. The product owner sets priorities and authorizes deferred implementation.
 
 ## Character priority — anatomy foundation candidate, later rollout planned
 
@@ -11,7 +11,7 @@ The owner requested finer hands, palms, feet and legs across the cast. The [impl
 3. **A5–A6:** coherent body/climb/recovery mechanics, both Woodland views and climbers, then Candy’s bespoke run/bike/work adapter and complete cast/theme rollout. Mark any remaining route limitations explicitly.
 4. **A7:** candidate-specific geometry, visual-motion, full browser/offline/cadence results and separate sustained Ally/Vanadium acceptance. Keep existing gates unchanged; new anatomy error budgets require independent reference calibration and rendered-landmark checks before implementation acceptance.
 
-[Session 018](../../sessions/2026-10-10-weather-habitat/018-cloud-anatomy-movement-plan.md) preserves the original planning handoff; [019](../../sessions/2026-10-10-weather-habitat/019-cloud-anatomy-foundation-ownership.md) claims this implementation. [017](../../sessions/2026-10-10-weather-habitat/017-cloud-meal-choreography-results.md) remains historical meal evidence, not a test of the new module. Other theme implementations and persistent ecosystem/family simulation remain deferred. Continue A2 only after the current foundation review; A3/A4 must pass before live-scene migration.
+[Session 018](../../sessions/2026-10-10-weather-habitat/018-cloud-anatomy-movement-plan.md) preserves the original planning handoff; [019](../../sessions/2026-10-10-weather-habitat/019-cloud-anatomy-foundation-ownership.md) claims this implementation; [020](../../sessions/2026-10-10-weather-habitat/020-anatomy-foundation-results.md) records review, validation and the remaining hosted CI gates. [017](../../sessions/2026-10-10-weather-habitat/017-cloud-meal-choreography-results.md) remains historical meal evidence, not a test of the new module. Other theme implementations and persistent ecosystem/family simulation remain deferred. Continue A2 only after the current foundation review; A3/A4 must pass before live-scene migration.
 
 ## Woodland Ally validation — installation complete; device review in progress
 

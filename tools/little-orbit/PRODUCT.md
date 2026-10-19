@@ -10,7 +10,7 @@ This is the product's planning hub. Designs are proposals until explicitly marke
 
 The [shared anatomy and organic movement plan](design/ANATOMY-AND-ORGANIC-MOVEMENT.md) now has an additive foundation: [versioned anatomy profiles](design/ANATOMY-PROFILES.md), constrained two-bone reference geometry, named palm/thumb/heel/ball/toe landmarks, and a [workshop reference panel](design/character-study.html) for the seven identities. Adult, drop and learner proportions remain distinct; Pebble has support-only swaddled anatomy. The [baseline inventory](design/ANATOMY-BASELINE.md) and 120 captured legacy pose samples protect existing output.
 
-Live scenes retain their tested artwork, gait and wrist/ankle contact meanings. The new records and static workshop geometry prepare A2 silhouettes and later A3/A4 palm/sole adapters; natural new gait and infant palm support are not claimed yet. Complete scene/prop bounds and new contact acceptance remain before rollout. This preserves the meal behavior while the reusable anatomy is reviewed.
+Live scenes retain their tested artwork, gait and wrist/ankle contact meanings. The new records and static workshop geometry prepare A2 silhouettes and later A3/A4 palm/sole adapters; natural new gait and infant palm support are not claimed yet. Complete scene/prop bounds and new contact acceptance remain before rollout. This preserves the meal behavior while the reusable anatomy is reviewed. [Session 020](../../sessions/2026-10-10-weather-habitat/020-anatomy-foundation-results.md) records the candidate, independent review, local browser results and hosted CI gates. Earlier meal evidence below remains tied to its named runtime.
 
 ## Engineering theme — detailed proposal
 

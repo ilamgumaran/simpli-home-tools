@@ -9,6 +9,7 @@ No tagged releases yet. Implemented entries describe code on the development bra
 - Added shared versioned adult, drop, learner and swaddled profiles, pure palm/thumb and sole landmarks, constrained two-bone reference solves, stable bend choices and explicit unreachable-target diagnostics.
 - Extended the character workshop with seven static reference poses, front/turned/side envelopes, mirrored facing, landmark visibility and small/enlarged comparison. Pebble retains support anchors and covered limbs.
 - Kept live character rendering and scene contact semantics unchanged. Added independent geometry fixtures and a 120-frame legacy pose baseline; production silhouettes, palm grips, sole gait and full-body integration remain later stages.
+- [Session 020](../../sessions/2026-10-10-weather-habitat/020-anatomy-foundation-results.md) records local Chrome/Firefox/Edge verification and 66 passing cadence cases. Hosted Windows/macOS CI remains a merge gate; no device acceptance or new live gait is claimed.
 
 ### Unreleased — Green House 1 connected meal validated; device review pending
 
