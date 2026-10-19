@@ -2,16 +2,16 @@
 
 Updated 2026-10-18. Milestones express intent, not promised delivery dates. The product owner sets priorities and authorizes deferred implementation.
 
-## Next character priority — shared anatomy and organic movement (planned)
+## Character priority — anatomy foundation candidate, later rollout planned
 
-The owner requested finer hands, palms, feet and legs across the cast. The [implementation plan](design/ANATOMY-AND-ORGANIC-MOVEMENT.md) records the source audit, all affected consumers, anatomical/contact contracts and stages A0–A7. No anatomy implementation has started; the tested meal runtime and portable artifact remain unchanged.
+The owner requested finer hands, palms, feet and legs across the cast. The [implementation plan](design/ANATOMY-AND-ORGANIC-MOVEMENT.md) now has an A0 inventory / A1 additive candidate: versioned [profiles](design/ANATOMY-PROFILES.md), pure landmarks/constrained reference solves, a workshop inspection panel and legacy-output fixtures. The live meal, movement and renderer retain their existing semantics. Portable bytes change to include the new shared module; full scene/prop bounds still need capture before A2 artwork grows those bounds.
 
 1. **A0–A2:** reference/action baseline, reviewed anatomy profiles and joint limits, compatible palm/foot landmarks, visible hand/boot artwork and anatomy workshop. Review this foundation before enabling scenes.
 2. **A3–A4:** palm-based tools, bowl placement and infant support, followed by heel/sole/toe gait and supported starts, stops, turns and kneeling. Integrate Sage first; preserve all meal and family contacts.
 3. **A5–A6:** coherent body/climb/recovery mechanics, both Woodland views and climbers, then Candy’s bespoke run/bike/work adapter and complete cast/theme rollout. Mark any remaining route limitations explicitly.
 4. **A7:** candidate-specific geometry, visual-motion, full browser/offline/cadence results and separate sustained Ally/Vanadium acceptance. Keep existing gates unchanged; new anatomy error budgets require independent reference calibration and rendered-landmark checks before implementation acceptance.
 
-[Session 018](../../sessions/2026-10-10-weather-habitat/018-cloud-anatomy-movement-plan.md) is the planning handoff; [017](../../sessions/2026-10-10-weather-habitat/017-cloud-meal-choreography-results.md) remains the tested candidate. Other theme implementations and persistent ecosystem/family simulation remain deferred. This plan schedules no automatic execution.
+[Session 018](../../sessions/2026-10-10-weather-habitat/018-cloud-anatomy-movement-plan.md) preserves the original planning handoff; [019](../../sessions/2026-10-10-weather-habitat/019-cloud-anatomy-foundation-ownership.md) claims this implementation. [017](../../sessions/2026-10-10-weather-habitat/017-cloud-meal-choreography-results.md) remains historical meal evidence, not a test of the new module. Other theme implementations and persistent ecosystem/family simulation remain deferred. Continue A2 only after the current foundation review; A3/A4 must pass before live-scene migration.
 
 ## Woodland Ally validation — installation complete; device review in progress
 

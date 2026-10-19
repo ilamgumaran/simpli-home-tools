@@ -6,9 +6,11 @@ Our Desk Clock is a configurable browser display for desks, families, spare scre
 
 This is the product's planning hub. Designs are proposals until explicitly marked implemented. The current Woodland scene is on `feature/woodland-immersive-story`; the [installation handoff](design/ALLY-TEST-HANDOFF.md) identifies its runtime and portable artifact. The initial five-theme foundation remains in [PR #3](https://github.com/ilamgumaran/simpli-home-tools/pull/3), stacked on the shared-character and original-clock PRs. No versioned release has been published yet. [Earlier local installation results](../../sessions/2026-10-05-woodland-ally/002-ally-to-cloud.md) distinguish browser checks from physical-device acceptance.
 
-## Next character work — planned, not implemented
+## Shared anatomy — foundation and inspection candidate
 
-The [shared anatomy and organic movement plan](design/ANATOMY-AND-ORGANIC-MOVEMENT.md) covers every current character and renderer: oriented palms and grips, ankle/heel/toe footwear, joint limits, supported gait and coordinated body movement. Start with a reviewed anatomy/workshop foundation, then migrate Sage’s meal and the family before the remaining consumers, including Candy’s separate artwork. Pebble stays swaddled and visibly supported. Each stage has independent geometry, visual, lifecycle and performance gates. This planning update changes no runtime behavior; [session 017](../../sessions/2026-10-10-weather-habitat/017-cloud-meal-choreography-results.md) remains the tested build.
+The [shared anatomy and organic movement plan](design/ANATOMY-AND-ORGANIC-MOVEMENT.md) now has an additive foundation: [versioned anatomy profiles](design/ANATOMY-PROFILES.md), constrained two-bone reference geometry, named palm/thumb/heel/ball/toe landmarks, and a [workshop reference panel](design/character-study.html) for the seven identities. Adult, drop and learner proportions remain distinct; Pebble has support-only swaddled anatomy. The [baseline inventory](design/ANATOMY-BASELINE.md) and 120 captured legacy pose samples protect existing output.
+
+Live scenes retain their tested artwork, gait and wrist/ankle contact meanings. The new records and static workshop geometry prepare A2 silhouettes and later A3/A4 palm/sole adapters; natural new gait and infant palm support are not claimed yet. Complete scene/prop bounds and new contact acceptance remain before rollout. This preserves the meal behavior while the reusable anatomy is reviewed.
 
 ## Engineering theme — detailed proposal
 

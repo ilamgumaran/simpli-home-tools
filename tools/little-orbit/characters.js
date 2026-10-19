@@ -324,5 +324,11 @@
   <g class="candy-broom" stroke="${c.harness}" stroke-width="3" fill="${c.pack}"><path d="M65 29L53 63"/><path d="M48 59L59 63L60 73L43 68Z"/></g>
  </svg>`;}
  function mountCandy(host){const character=forTheme('candy');host.innerHTML=character.id==='candy'?candyArt(character):`<svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg"><g transform="translate(40 38) scale(.75)">${artwork(character)}</g></svg>`;host.dataset.character=character.id;host.dataset.role=character.role;if(character.id!=='candy'){host._deskCharacter=character;update(host,{action:'walk'});}}
- globalThis.DeskCharacters=freeze({identities,items,roles,themes,anatomy,infantSupportPoints,create,forTheme,joint,pose,ascent,climbContacts,walkContacts,workContacts,toolGrip,artwork,infantArtwork,mount,update,attachment,mountCandy});
+ // Additive A1 inspection only. Existing poses keep their wrist/ankle endpoints
+ // and legacy contact semantics until each scene's palm/sole adapter is verified.
+ function anatomyProfile(character){
+  if(!globalThis.DeskAnatomy)throw Error('Shared anatomy library is not loaded');
+  return globalThis.DeskAnatomy.profileFor(character);
+ }
+ globalThis.DeskCharacters=freeze({identities,items,roles,themes,anatomy,infantSupportPoints,create,forTheme,joint,pose,ascent,climbContacts,walkContacts,workContacts,toolGrip,artwork,infantArtwork,mount,update,attachment,mountCandy,anatomyProfile});
 })();

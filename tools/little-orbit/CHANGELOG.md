@@ -4,6 +4,12 @@ No tagged releases yet. Implemented entries describe code on the development bra
 
 ## Unreleased
 
+### Shared anatomy foundation — workshop inspection
+
+- Added shared versioned adult, drop, learner and swaddled profiles, pure palm/thumb and sole landmarks, constrained two-bone reference solves, stable bend choices and explicit unreachable-target diagnostics.
+- Extended the character workshop with seven static reference poses, front/turned/side envelopes, mirrored facing, landmark visibility and small/enlarged comparison. Pebble retains support anchors and covered limbs.
+- Kept live character rendering and scene contact semantics unchanged. Added independent geometry fixtures and a 120-frame legacy pose baseline; production silhouettes, palm grips, sole gait and full-body integration remain later stages.
+
 ### Unreleased — Green House 1 connected meal validated; device review pending
 
 - The shared fullscreen renderer now caches detailed clock art separately from scenery, weather, moving characters and lighting. Each SVG layer follows the same camera transform, and unchanged character/camp properties skip DOM writes. Slow scenery runs at 30 fps while characters and precipitation retain the main cadence.
