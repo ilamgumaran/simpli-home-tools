@@ -6,14 +6,14 @@ Status: first implementation on the character development branch, October 4, 202
 
 | Layer | Implemented | Extension point |
 | --- | --- | --- |
-| Identity | Pip (`candy`), Moss (`moss`), Ridge (`ridge`), temperament and body style | Add an identity once in `characters.js` |
+| Identity | Pip (`candy`), Moss (`moss`), Ridge (`ridge`), Sprout (`sprout`, younger learner), temperament and body style | Add an identity once in `characters.js` |
 | Appearance | Skin, clothing, legwear, headwear, backpack, footwear and hardware palette | `create(id, {appearance})`; colors accept six-digit hex only |
 | Body and pose | Separate head/face/torso, shoulders, elbows, hips, knees, hands and feet | Shared anatomical proportions and two-link joint solver |
 | Equipment | Catalog, role-specific available kit, smaller carried inventory and attachment points | Role entries reference catalog IDs |
 | Effort | Per-ascent fatigue, recovery hold, optional aid under late deadline pressure | Pure `ascent(progress, remainingSeconds)` |
 | Theme | Theme chooses identity and role; controls terrain, camera and schedule | Shared registry bindings plus `config.js` character map |
 
-The original Candy Quest art is stored in this library, with palette colors from Pip's identity. Orbit has no default mascot. All three identities can take any defined role; themes no longer contain their own body artwork. Time Climber uses Moss's drop-shaped torso and stick limbs. Time Climber II uses Ridge's comic human silhouette with warm brown skin, mint clothing, slate legwear, honey-colored helmet, coral backpack and dark boots. These choices are defaults, not identity constraints.
+The original Candy Quest art is stored in this library, with palette colors from Pip's identity. Orbit has no default mascot. All four identities can take any defined role; themes no longer contain their own body artwork. Time Climber uses Moss's drop-shaped torso and stick limbs. Time Climber II uses Ridge's comic human silhouette with warm brown skin, mint clothing, slate legwear, honey-colored helmet, coral backpack and dark boots. These choices are defaults, not identity constraints.
 
 The workshop lets a contributor inspect each identity/role combination and recolor skin, clothing, legwear, headwear and backpack without editing the running clock's preferences. It is a design study, not a new clock settings panel. Different theme defaults can be configured centrally:
 
@@ -54,3 +54,5 @@ This is a stylized pose and effort model, not a complete physics/biology simulat
 `characters.js` is loaded before theme code and embedded by `build-portable.cjs`. The static server serves the shared library and character study. `time-climber.js` and `time-climber-ii.js` mount the shared art and sample its poses/effort; they retain scene geometry, calendar behavior and lifecycle responsibility.
 
 Acceptance checks include cross-role identity reuse, catalog/kit validity, immutable appearance presets, bounded limb lengths, three-contact climbing poses, recovery progress/effort, deadline-only assistance, real SVG rope attachment, hosted/portable module loading, workshop role/appearance controls and reduced motion. Run `npm run build` and `npm test` from `tools/little-orbit`. Real-device Vanadium review and deeper terrain physics remain outstanding.
+
+Woodland uses the same library, adding a centrally defined Sprout identity, grounded learner scale, gathering/building/filtering/cooking/teaching poses, and held map/spoon props. Held food and bottle props remain visible for non-climbing roles. Protected woodland recovery keeps a hand raised with supported feet; full world-space contact pinning remains planned. Woodland accepts adult lead overrides and keeps learners off exposed climbs.

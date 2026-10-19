@@ -31,7 +31,9 @@ Candy Quest visits briefly and pauses between appearances, picks routes outside 
 
 ## Develop and test
 
-Start with the [product guide](PRODUCT.md), [roadmap](ROADMAP.md), [design archive](design/), and [changelog](CHANGELOG.md) for product status and planned work. Time Climber II is the fourth implemented theme; Orbit, Candy Quest and Time Climber remain available.
+For session-to-session handoffs and replies, read the [session communication directory](../../sessions/README.md). The [current cloud-to-Ally message](../../sessions/2026-10-05-woodland-refinement/001-cloud-to-ally.md) points to the built version and requests device feedback in Git.
+
+Start with the [product guide](PRODUCT.md), [roadmap](ROADMAP.md), [design archive](design/), and [changelog](CHANGELOG.md) for product status and planned work. Five themes are implemented, including Woodland of Time; all earlier choices remain available.
 
 ```sh
 npm ci
@@ -42,9 +44,11 @@ npm test
 
 Node 22 or later is used for contributor tooling; Linux may need `npx playwright install --with-deps chromium firefox`. Tests start their own loopback server on a free port and use mocked weather. They cover settings, touch lock, theme persistence, safe companion routes, all daily facts and rotating layouts, reduced motion, offline behavior, device presets, and the portable file. Tests write ignored output to `test-results/`.
 
-The browser runtime has no library dependencies. Playwright is a development dependency. `npm run build` embeds `config.js`, `style.css`, `app.js`, `display-settings.js`, `time-climber.js`, and `time-climber-ii.js` into the tracked portable file. Commit that file with source changes.
+The browser runtime has no library dependencies. Playwright is a development dependency. `npm run build` embeds `config.js`, `style.css`, `characters.js`, `world-layers.js`, `app.js`, `display-settings.js`, `time-climber.js`, `time-climber-ii.js`, and `woodland-time.js` into the tracked portable file. Commit that file with source changes.
 
 ## Windows helpers
+
+For the latest built version and physical Ally testing, follow the [installation handoff](design/ALLY-TEST-HANDOFF.md). It identifies the Git branch, tested revision, portable checksum and local update steps.
 
 `windows/Start Clock.cmd` opens a default-browser tab. `windows/Start Ally Display.cmd` opens a separate Edge fullscreen kiosk window. `windows/Restart Clock.cmd` restarts only that clock's Edge profile and server. These helpers require Node on PATH; they change no OS power plan. Close the kiosk with **Alt+F4**. They are optional and not required on macOS, Linux, or Android.
 
@@ -56,7 +60,7 @@ Default weather is Marietta, GA (30064), configurable in Settings. Facts are ori
 
 ### Time Climber
 
-Time Climber is retained as the third theme; existing saved theme choices are preserved. Use **Theme** to cycle Orbit → Candy Quest → Time Climber → Time Climber II. The companion follows live digit geometry and widget positions as panels glide. Default 60-second visits are aligned to start near :54, so the real minute changes during a climb. The first visit starts quickly so you can see the new theme. Time continues to follow the device clock.
+Time Climber is retained as the third theme; existing saved theme choices are preserved. Use **Theme** to cycle Orbit → Candy Quest → Time Climber → Time Climber II → Woodland of Time. The companion follows live digit geometry and widget positions as panels glide. Default 60-second visits are aligned to start near :54, so the real minute changes during a climb. The first visit starts quickly so you can see the new theme. Time continues to follow the device clock.
 
 Settings → Display & character controls the shared visit interval, visit duration, and character toggle. Quiet pauses remain between trips. Tent construction, picnics, water breaks, gear collection, and occasional summit snoozes vary across visits. Reduced motion uses a brief still campsite. Settings, hidden pages, disabled companions, and hourly screen breaks stop the scene. The artwork is original SVG and the scene uses bounded animation bursts without external game assets or libraries.
 
@@ -73,3 +77,11 @@ Settings → Display & character → **Time Climber II camera** offers Gentle or
 Character definitions now live in `characters.js`, including the original Candy Quest artwork, Moss and Ridge. The climbing themes use jointed human proportions, a visible harness and a rope tied to the shared belay loop. Recovery holds and late optional ascender assistance are independent of the clock.
 
 Open [the character workshop](design/character-study.html) from the checkout to inspect looks, colors and role inventories. [Design notes](design/CHARACTERS.md) distinguish the implemented appearance/effort layer from future terrain physics and food/bushcraft/farming/hunting actions.
+
+## Woodland of Time and the living-world layers
+
+The fifth theme, `woodland`, shows the complete current HH:MM as earth trails in woods. The place changes hourly; each minute selects trail work, shelter, water, foraging, protected climbing, cooking, crossing repair, rest or teaching. A central learner, Sprout, joins authored family and mentoring episodes. Six daily episodes and an 18:00 quiet chapter express urgency, attention and reciprocal care. Select it with **Theme: Woodland**; existing defaults and saved preferences remain preserved.
+
+`world-layers.js` separates landscape, action, story, philosophy and composition definitions; `woodland-time.js` renders the first scene using the shared character library. Minute glyphs change together immediately. Character visits follow the existing interval/duration controls; reduced motion or companions off retain current terrain time. Site configuration may select an adult woodland lead; by default the episode selects its cast.
+
+The [living-world plan](design/LIVING-WORLDS.md) links detailed visual, action and story plans for industrial/engineering, weaving, farming, railway and ant-life scenes. These later themes are proposals. Woodland is an authored illustration with articulated poses and sampled effort, not a complete contact/rope, metabolism, resource-conservation or generational simulation. Wildlife tracking/hunting choreography remains planned.
