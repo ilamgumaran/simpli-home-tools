@@ -9,6 +9,12 @@ medical measurements, forces, joint capability, or evidence of contact. The
 module does not change a live scene, renderer, gait, contact, prop, or legacy
 pose meaning. Later silhouette and scene-adapter stages remain separate work.
 
+The captured legacy pose fixtures require exact structures/contact flags and
+finite numeric geometry within `1e-9` rig units, allowing insignificant
+cross-platform trigonometric rounding. A `1e-6` endpoint perturbation fails the
+fixture check; the existing fixed-bone `1e-8` checks remain unchanged. This is
+separate from the future rendered-contact error budgets.
+
 ## Profile dimensions
 
 | Profile | Roots (left/right) | Arm / leg segment lengths | Hand (palm, width, fingers) | Foot (heel, ball, toe, sole) | Head (radius, center Y) |

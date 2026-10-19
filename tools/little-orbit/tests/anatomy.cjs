@@ -184,6 +184,25 @@ assertDeepFrozen(profiles);
 const legacy=require('./fixtures/anatomy-legacy-poses.json');
 assert.equal(legacy.schema,1);
 assert.ok(legacy.samples.length>20,'legacy fixture spans actions and cycles');
+function compareLegacy(expected,actual,label){
+ if(typeof expected==='number'){
+  assert.ok(Number.isFinite(actual)&&Math.abs(actual-expected)<=1e-9,
+   `${label}: legacy numeric value changed beyond 1e-9 (${expected} -> ${actual})`);
+ }else if(Array.isArray(expected)){
+  assert.ok(Array.isArray(actual),`${label}: expected array`);
+  assert.equal(actual.length,expected.length,`${label}: legacy array length`);
+  expected.forEach((value,index)=>compareLegacy(value,actual[index],`${label}[${index}]`));
+ }else if(expected&&typeof expected==='object'){
+  assert.ok(actual&&typeof actual==='object'&&!Array.isArray(actual),`${label}: expected object`);
+  assert.deepEqual(Object.keys(actual).sort(),Object.keys(expected).sort(),`${label}: legacy keys`);
+  for(const [key,value] of Object.entries(expected))compareLegacy(value,actual[key],`${label}.${key}`);
+ }else assert.strictEqual(actual,expected,`${label}: legacy scalar`);
+}
 for(const {action,cycle,pose} of legacy.samples)
- assert.deepEqual(globalThis.DeskCharacters.pose(action,cycle),pose,`legacy ${action} cycle ${cycle} is preserved exactly`);
+ compareLegacy(pose,globalThis.DeskCharacters.pose(action,cycle),`legacy ${action} cycle ${cycle}`);
+const nominal=globalThis.DeskCharacters.pose(legacy.samples[0].action,legacy.samples[0].cycle);
+const tinyVariation=structuredClone(nominal);tinyVariation.arms[0][2].x+=1e-12;
+compareLegacy(legacy.samples[0].pose,tinyVariation,'subpicometer numeric variation');
+const changedWrist=structuredClone(nominal);changedWrist.arms[0][2].x+=1e-6;
+assert.throws(()=>compareLegacy(legacy.samples[0].pose,changedWrist,'perturbed wrist'),/legacy numeric value changed/);
 console.log('PASS anatomy: cast profiles, authored landmarks, transforms, constrained two-bone solves, references and frozen records.');
