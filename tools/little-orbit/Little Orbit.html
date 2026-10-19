@@ -371,22 +371,6 @@ body.screen-rest #climber-stage{display:none}
 #climber-rope,#climber-camp-link{stroke:#b6a47e;stroke-width:1.5;fill:none;stroke-linecap:round}
 #climber-anchor{stroke:#bac7b3;fill:#4a6150;stroke-width:1}
 #climber-hook{fill:none;stroke:#bdd1c1;stroke-width:1.5}
-.climber-limbs{stroke:#c2a4b0;stroke-width:3.5;fill:none;stroke-linecap:round;stroke-linejoin:round}
-.climber-pack{fill:#536e60;stroke:#a4b3a1;stroke-width:1.5}
-.climber-pack path,.climber-pack circle{fill:none}
-.climber-drop{fill:#b597a9;stroke:#d2b4c1;stroke-width:1.5}
-.climber-shine{fill:none;stroke:#e0c9d2;stroke-width:2.5;stroke-linecap:round}
-.climber-face{fill:none;stroke:#302534;stroke-width:2;stroke-linecap:round}
-.climber-helmet{fill:#b7a575;stroke:#d4c290;stroke-width:1.5}
-.climber-harness{fill:none;stroke:#6f5148;stroke-width:3}
-.climber-buckle{fill:#c0cbbc;stroke:#60746a;stroke-width:1.5}
-.climber-held-bottle{display:none;fill:#7da2aa;stroke:#b0d1cf;stroke-width:1.5}
-#climber-stage[data-state=collect] .climber-held-bottle,#climber-stage[data-state=camp] .climber-held-bottle{display:block}
-#climber-stage[data-state=climb] .climb-arm-a,#climber-stage[data-state=climb] .climb-leg-b{animation:climber-reach .65s ease-in-out infinite alternate;transform-origin:0 0}
-#climber-stage[data-state=climb] .climb-arm-b,#climber-stage[data-state=climb] .climb-leg-a{animation:climber-reach .65s ease-in-out infinite alternate-reverse;transform-origin:0 0}
-#climber-stage[data-state=cast] .climb-arm-a{animation:climber-throw .8s ease-in-out infinite alternate;transform-origin:-10px -9px}
-#climber-stage[data-state=camp] #climber-rig,#climber-stage[data-state=sleep] #climber-rig{transform:rotate(-12deg)}
-#climber-stage[data-state=sleep] .climber-face{transform:scaleY(.3)}
 #climber-camp .tent-cables,#climber-camp .tent-seam{fill:none;stroke:#a3b4a0;stroke-width:1.5}
 #climber-camp .tent-platform{stroke:#b8c6ae;stroke-width:3}
 #climber-camp .tent-shell{fill:#86764e;stroke:#c0ad77;stroke-width:1.5}
@@ -398,14 +382,7 @@ body.screen-rest #climber-stage{display:none}
 #climber-supply[data-item=gear] .supply-gear{display:block;fill:#ac9b70}
 #climber-note rect{fill:#101b14;stroke:#354a3a;stroke-width:1}
 #climber-note text{fill:#99b19c;font:8px monospace;letter-spacing:.3px}
-@keyframes climber-reach{from{transform:rotate(-12deg)}to{transform:rotate(12deg)}}
-@keyframes climber-throw{from{transform:rotate(-25deg)}to{transform:rotate(55deg)}}
 @media(prefers-reduced-motion:reduce){#climber-stage *{animation:none!important}}
-#climber-stage .climber-held-bottle,#climber-stage .climber-held-food,#climber-stage .climber-held-gear{display:none}
-#climber-stage[data-item=water][data-state=collect] .climber-held-bottle,#climber-stage[data-item=water][data-state=camp] .climber-held-bottle{display:block}
-#climber-stage[data-item=food][data-state=collect] .climber-held-food,#climber-stage[data-item=food][data-state=camp] .climber-held-food{display:block;fill:#ad7c6b;stroke:#d1b49a;stroke-width:1.5}
-#climber-stage[data-item=gear][data-state=collect] .climber-held-gear{display:block;fill:#aa9874;stroke:#d4c29d;stroke-width:1.5}
-#climber-stage[data-state=build] .climb-arm-a{animation:climber-reach .6s ease-in-out infinite alternate}
 /* Time Climber II keeps all information outside the small terrain camera. */
 body[data-theme=climber2] #display[data-layout]{display:grid;grid-template-columns:1fr 2fr;grid-template-areas:"clock clock" "mountain mountain" "weather fact" "footer footer";width:94vw;max-width:1540px;padding:12px 0;gap:min(var(--panel-gap,8px),14px)}
 body[data-theme=climber2] #display .dashboard{display:contents}
@@ -442,13 +419,8 @@ body[data-theme=climber2] #display .credit,body[data-theme=climber2] #display .f
 #mountain-depth{fill:none;stroke:#243c36;stroke-width:29;stroke-linecap:round;stroke-linejoin:round}
 #mountain-trail,.mountain-neighbor-trail{fill:none;stroke:#b2c3a0;stroke-width:1.8;stroke-dasharray:3 4;stroke-linecap:round;stroke-linejoin:round}
 #mountain-neighbor{opacity:.6}
-#mountain-rope,.mountain-tent-lines{fill:none;stroke:#baad88;stroke-width:1.2}
+#mountain-rope,#mountain-camp-link,.mountain-tent-lines{fill:none;stroke:#baad88;stroke-width:1.2}
 #mountain-anchor{fill:#a8b7a7;stroke:#102019;stroke-width:1}
-#mountain-arms,#mountain-legs{fill:none;stroke:#eadcb6;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
-.mountain-backpack,.mountain-helmet{fill:#c78c7a;stroke:#132620;stroke-width:1}
-.mountain-jacket{fill:#a8c8a2;stroke:#132620;stroke-width:1}
-.mountain-face{fill:#e2cfaa;stroke:#132620;stroke-width:1}
-.mountain-coil{fill:none;stroke:#b4a17b;stroke-width:1}
 .mountain-tent-shell{fill:#8b8352;stroke:#bcb085;stroke-width:1}.mountain-tent-door{fill:#12231b}
 .mountain-tent-floor{stroke:#bdc4ac;stroke-width:2}
 #mountain-pickup>path{display:none;stroke:#c0c6ad;stroke-width:1;fill:#759f9d}
@@ -475,18 +447,7 @@ body.dim #time-mountain{opacity:.65}
  <footer><span class="footer-note"><span class="led"></span> <span id="protection-status">SCREEN CARE ON</span><span class="divider">/</span><span id="wake-status">READY TO EXPLORE</span></span><nav aria-label="Display controls"><button id="theme-button" title="Cycle display themes">✦ <span>Theme: Candy</span></button><button id="settings-button">⚙ <span>Settings</span></button><button id="power-button" aria-pressed="true">⌁ <span>Low power</span></button><button id="dim-button" aria-pressed="false">☾ <span>Dim</span></button><button id="lock-button">♧ <span>Touch lock</span></button><button id="fullscreen-button">⛶ <span>Full screen</span></button></nav></footer>
  <div class="credit">WEATHER BY <a href="https://open-meteo.com/" target="_blank" rel="noopener noreferrer">OPEN-METEO</a> <span>•</span> MADE FOR CURIOUS MINDS</div>
 </main>
-<div id="candy-stage" aria-hidden="true" hidden><div id="candy-pal">
- <svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
-  <g class="candy-bike" fill="none" stroke="#89bba3" stroke-width="3"><circle cx="18" cy="63" r="12"/><circle cx="64" cy="63" r="12"/><path d="M18 63L32 43L46 63H18L41 43L64 63M59 38L64 63M55 38H64M27 42H38"/></g>
-  <g class="candy-legs" fill="none" stroke="#ab92b9" stroke-width="4" stroke-linecap="round"><path class="leg-a" d="M34 48L28 64L20 65"/><path class="leg-b" d="M44 48L50 63L58 65"/></g>
-  <g class="candy-body"><path d="M39 8C36 20 18 26 18 39C18 53 30 59 40 59C54 59 61 50 61 39C61 26 44 20 39 8Z" fill="#ad8fad" stroke="#d1aaba" stroke-width="2"/>
-   <path d="M30 29Q26 32 26 37" fill="none" stroke="#d5b7c5" stroke-width="3" stroke-linecap="round"/>
-   <ellipse cx="33" cy="40" rx="2.5" ry="4" fill="#17141e"/><ellipse cx="46" cy="40" rx="2.5" ry="4" fill="#17141e"/><path d="M35 48Q40 52 45 48" fill="none" stroke="#342737" stroke-width="2" stroke-linecap="round"/>
-   <path d="M19 41L10 35M60 41L67 35" stroke="#ad8fad" stroke-width="4" stroke-linecap="round"/>
-  </g>
-  <g class="candy-broom" stroke="#bba778" stroke-width="3" fill="#958563"><path d="M65 29L53 63"/><path d="M48 59L59 63L60 73L43 68Z"/></g>
- </svg>
-</div></div>
+<div id="candy-stage" aria-hidden="true" hidden><div id="candy-pal"></div></div>
 <div id="lock-overlay" hidden><button id="unlock-button">◇ Hold 2 seconds to unlock</button></div>
 <button id="rest-overlay" aria-label="Screen rest active. Tap to wake." hidden></button>
 <dialog id="settings"><form id="settings-form"><div class="dialog-top"><h2>Mission control</h2><button type="button" id="close-settings" aria-label="Close settings">✕</button></div><label>Weather city or ZIP<input id="city" placeholder="Marietta or 30064" autocomplete="off"></label><div id="city-results"></div><button type="button" id="search-city">Find city</button> <button type="button" id="geolocate">Use my location</button><p id="settings-status" role="status"></p><label>Temperature<select id="unit"><option value="fahrenheit">Fahrenheit · °F</option><option value="celsius">Celsius · °C</option></select></label><label class="check"><input id="format24" type="checkbox">24-hour clock</label><label class="check"><input id="lowPower" type="checkbox">Low power · darker theme, minute updates</label><label class="check"><input id="care" type="checkbox">Screen care · shift & rearrange panels</label><label class="check"><input id="rest" type="checkbox">One-minute black-screen break each hour</label><label class="check"><input id="night" type="checkbox">Auto-dim from 9 PM to 7 AM</label><fieldset class="display-settings"><legend>Display &amp; character</legend><label>Device preset<select id="display-profile"><option value="auto">Automatic · current window</option><option value="handheld">Handheld · ROG Ally</option><option value="desktop">Desktop / TV</option><option value="tablet">Tablet / small display</option></select></label><p class="hint" id="viewport-info"></p><label>Time size <output id="clockScale-value"></output><input id="clockScale" type="range" min="0.65" max="1.2" step="0.05"></label><label>Weather size <output id="weatherScale-value"></output><input id="weatherScale" type="range" min="0.65" max="1.2" step="0.05"></label><label>Fact size <output id="factScale-value"></output><input id="factScale" type="range" min="0.65" max="1.2" step="0.05"></label><label>Panel spacing <output id="gap-value"></output><input id="gap" type="range" min="4" max="24" step="1"></label><label>Character visits every <output id="companionInterval-value"></output><input id="companionInterval" type="range" min="30" max="300" step="15"></label><label>Character visit length <output id="companionDuration-value"></output><input id="companionDuration" type="range" min="4" max="20" step="1"></label><label class="check"><input id="companion" type="checkbox">Character in Candy Quest / Time Climber I &amp; II</label><label>Time Climber II camera<select id="camera-motion"><option value="gentle">Gentle perspective changes</option><option value="still">Still camera</option></select></label><button id="reset-display" type="button">Reset display sizes</button><p class="hint">If larger text needs more space, reduce another size or spacing. Saved settings apply to this browser only.</p></fieldset><p class="hint about-license">Our Desk Clock © 2026 ilamgumaran and contributors. Noncommercial use, sharing and modification permitted. Commercial use requires written permission; no warranty. <a href="https://github.com/ilamgumaran/simpli-home-tools/blob/add-little-orbit-clock/LICENSE" target="_blank" rel="noopener noreferrer">License</a> · <a href="https://github.com/ilamgumaran/simpli-home-tools/tree/main/tools/little-orbit" target="_blank" rel="noopener noreferrer">Source &amp; contribute</a></p><p class="hint">Panels glide each minute, swap every 10 minutes, and spotlight the fact every 5 minutes. Screen breaks run at :59; tap to wake. Clock uses this device’s timezone. Touch lock covers this page only. These measures cannot guarantee against display wear.</p><button class="primary" type="submit">Save & return to orbit</button></form></dialog>
@@ -497,6 +458,7 @@ body.dim #time-mountain{opacity:.65}
 // After editing, run `npm run build` to update the single-file clock.
 window.ORBIT_CONFIG = {
   theme: 'climber2',
+  characters: {candy: 'candy', climber: 'moss', climber2: 'ridge'},
   unit: 'fahrenheit',
   format24: false,
   lowPower: true,
@@ -521,7 +483,152 @@ window.ORBIT_CONFIG = {
 <script>
 // SPDX-License-Identifier: LicenseRef-Simpli-Noncommercial-1.0
 // Copyright (C) 2026 ilamgumaran and contributors
+// Shared identities, appearance, role kits and anatomical poses. No theme owns a character.
+(()=>{
+ 'use strict';
+ const freeze=value=>{if(value&&typeof value==='object'){Object.values(value).forEach(freeze);Object.freeze(value);}return value;};
+ const clamp=(n,a=0,b=1)=>Math.max(a,Math.min(b,n)),lerp=(a,b,t)=>a+(b-a)*t;
+ const palette={skin:'#c68d67',jacket:'#91bbaa',trousers:'#68758c',helmet:'#e6b567',pack:'#bd7f70',boots:'#394d48',harness:'#dfc784',metal:'#c3d4d2',rope:'#d6b77a',ink:'#182a29',outline:'#d1aaba',highlight:'#d5b7c5',eyes:'#182a29'};
+ const identities=freeze({
+  candy:{name:'Pip',body:'drop',face:'cheerful',appearance:{...palette,skin:'#ad8fad',jacket:'#89bba3',trousers:'#ab92b9',helmet:'#b7a575',pack:'#958563',harness:'#bba778',ink:'#342737',eyes:'#17141e'},temperament:'Playful, curious, happy to help.'},
+  moss:{name:'Moss',body:'drop',face:'cheerful',appearance:{...palette,jacket:'#b597a9',pack:'#718f70'},temperament:'Patient trail companion; celebrates small gains.'},
+  ridge:{name:'Ridge',body:'human',face:'cheerful',appearance:{...palette},temperament:'Comic, determined climber; takes recovery seriously.'}
+ });
+ // A catalog is available equipment, not a claim that one person carries all of it.
+ const groups={
+  protection:[['helmet','Climbing helmet','head'],['harness','Waist belt and two leg loops','hips'],['locking-carabiner','Locking carabiner','belay-loop'],['belay-device','Belay / rappel device','belay-loop'],['dynamic-rope','Dynamic climbing rope','pack'],['climbing-shoes','Climbing shoes','feet'],['personal-tether','Personal anchor tether','harness'],['gloves','Belay gloves','hands']],
+  climbing:[['quickdraws','Quickdraw rack','gear-loop'],['nuts','Passive nut rack','gear-loop'],['cams','Cam rack','gear-loop'],['slings','Sewn slings','pack'],['cordelette','Anchor cordelette','pack'],['chalk','Chalk bag','hips'],['brush','Hold brush','pack'],['ascender','Mechanical ascender','gear-loop'],['foot-loop','Ascender foot loop','pack'],['pulley','Hauling pulley','gear-loop'],['static-rope','Fixed / haul line','pack'],['portaledge','Suspended portaledge','haul-bag'],['haul-bag','Haul bag','separate-load']],
+  alpine:[['ice-axe','Ice axe','pack'],['crampons','Crampons','pack'],['ice-screws','Ice screw rack','gear-loop'],['snow-anchor','Snow anchor','pack'],['beacon','Avalanche transceiver','torso'],['probe','Avalanche probe','pack'],['shovel','Snow shovel','pack']],
+  trail:[['trail-shoes','Trail shoes','feet'],['poles','Trekking poles','pack'],['map','Terrain map','pack'],['compass','Compass','pack'],['headlamp','Headlamp','head'],['rain-shell','Rain shell','pack'],['sun-hat','Sun hat','head'],['sun-care','Sun protection','pack'],['repair-kit','Repair kit','pack']],
+  backpacking:[['backpack','Fitted backpack with shoulder and waist straps','back'],['bottle','Water bottle','pack-side'],['filter','Water filter','pack'],['sleeping-bag','Sleeping bag','pack'],['sleeping-mat','Sleeping mat','pack'],['shelter','Lightweight shelter','pack'],['first-aid','First aid kit','pack'],['emergency-blanket','Emergency blanket','pack'],['whistle','Signal whistle','chest'],['communicator','Emergency communicator','pack'],['thermal-layer','Warm layer','pack'],['dry-bag','Dry bag','pack']],
+  food:[['trail-mix','Trail mix','pack'],['energy-bar','Energy bar','pack'],['dried-fruit','Dried fruit','pack'],['oats','Oats','pack'],['rice','Rice / grain','pack'],['beans','Beans / lentils','pack'],['electrolytes','Electrolytes','pack'],['fresh-produce','Fresh produce','pack'],['stove','Camp stove','pack'],['fuel','Stove fuel','pack'],['pot','Cooking pot','pack'],['spoon','Spoon','pack'],['food-bag','Food storage bag','pack']],
+  bushcraft:[['tarp','Tarp','pack'],['cord','Utility cord','pack'],['firesteel','Firesteel','pack'],['tinder','Dry tinder','pack'],['knife','Sheathed utility knife','pack'],['saw','Folding saw','pack'],['hatchet','Sheathed hatchet','pack'],['work-gloves','Work gloves','hands'],['sewing-kit','Sewing kit','pack']],
+  farming:[['trowel','Hand trowel','pack'],['hoe','Compact hoe','separate-load'],['seeds','Seed packets','pack'],['watering-can','Watering can','separate-load'],['harvest-basket','Harvest basket','separate-load'],['pruning-shears','Covered pruning shears','pack']],
+  hunting:[['bow','Unstrung hunting bow','separate-load'],['quiver','Covered quiver','pack'],['binoculars','Binoculars','pack'],['fishing-rod','Packed fishing rod','pack'],['fishing-kit','Covered fishing tackle','pack'],['field-kit','Food preparation kit','pack']]
+ };
+ const items=freeze(Object.fromEntries(Object.entries(groups).flatMap(([category,rows])=>rows.map(([id,name,attachment])=>[id,{id,name,category,attachment,essential:category==='protection',use:category==='protection'?'always':id==='ascender'?'deadline-assistance':'activity'}]))));
+ const roles=freeze({
+  climbing:{name:'Rock climber',available:[...groups.protection,...groups.climbing,...groups.alpine,...groups.backpacking,...groups.food].map(row=>row[0]),carried:['helmet','harness','locking-carabiner','belay-device','dynamic-rope','climbing-shoes','personal-tether','gloves','backpack','bottle','energy-bar','chalk','quickdraws','nuts','cams','static-rope','ascender','foot-loop','first-aid'],optionalAid:'ascender'},
+  trail:{name:'Trail / trials explorer',available:[...groups.trail,...groups.backpacking,...groups.food].map(row=>row[0]),carried:['trail-shoes','poles','map','compass','backpack','bottle','filter','trail-mix','rain-shell','first-aid','headlamp']},
+  backpacking:{name:'Backpacker',available:[...groups.backpacking,...groups.trail,...groups.food].map(row=>row[0]),carried:['backpack','trail-shoes','bottle','filter','map','compass','sleeping-bag','sleeping-mat','shelter','stove','fuel','pot','oats','first-aid']},
+  bushcraft:{name:'Bushcraft cook',available:[...groups.bushcraft,...groups.backpacking,...groups.food].map(row=>row[0]),carried:['backpack','bottle','filter','tarp','cord','knife','saw','work-gloves','firesteel','tinder','pot','rice','beans','first-aid']},
+  farming:{name:'Grower',available:[...groups.farming,...groups.backpacking,...groups.food].map(row=>row[0]),carried:['trowel','seeds','backpack','bottle','fresh-produce','first-aid']},
+  hunting:{name:'Forager / hunter',available:[...groups.hunting,...groups.backpacking,...groups.food].map(row=>row[0]),carried:['backpack','bottle','binoculars','fishing-kit','field-kit','food-bag','first-aid']},
+  play:{name:'Playful helper',available:[],carried:[]}
+ });
+ const themes=freeze({orbit:null,candy:{character:'candy',role:'play'},climber:{character:'moss',role:'climbing'},climber2:{character:'ridge',role:'climbing'}});
+ const anatomy=freeze({shoulders:[{x:-6,y:-10},{x:6,y:-10}],hips:[{x:-4,y:8},{x:4,y:8}],upperArm:12,forearm:11,thigh:12,shin:12,belayLoop:{x:0,y:9}});
+ function create(id,{role='climbing',appearance={}}={}){
+  if(!identities[id]||!roles[role])throw Error('Unknown character or role');
+  const colors={...identities[id].appearance};
+  for(const key of Object.keys(appearance)){
+   if(!(key in colors)||!/^#[0-9a-f]{6}$/i.test(appearance[key]))throw Error('Appearance expects a known color and six-digit hex value');
+   colors[key]=appearance[key];
+  }
+  return freeze({id,...identities[id],appearance:colors,role,inventory:[...roles[role].carried]});
+ }
+ function forTheme(theme){
+  const binding=themes[theme];if(!binding)return null;
+  const chosen=globalThis.ORBIT_CONFIG?.characters?.[theme]||binding.character;
+  return create(identities[chosen]?chosen:binding.character,{role:binding.role});
+ }
+ // Two-link inverse kinematics: targets are clamped to anatomical reach.
+ function joint(root,target,a,b,bend=1){
+  const dx=target.x-root.x,dy=target.y-root.y,d=clamp(Math.hypot(dx,dy),Math.abs(a-b)+.01,a+b-.01),angle=Math.atan2(dy,dx);
+  const offset=Math.acos(clamp((a*a+d*d-b*b)/(2*a*d),-1,1));
+  const middle={x:root.x+a*Math.cos(angle+bend*offset),y:root.y+a*Math.sin(angle+bend*offset)};
+  return [root,middle,{x:root.x+d*Math.cos(angle),y:root.y+d*Math.sin(angle)}];
+ }
+ function pose(action='camp',cycle=0){
+  const climbing=['climb','assist','rappel'].includes(action),rest=['rest','camp','sleep','collect'].includes(action);
+  const c=((cycle%1)+1)%1,step=Math.floor(c*4),t=(c*4)%1,lift=Math.sin(t*Math.PI);
+  const hands=climbing?[{x:-12,y:-27},{x:12,y:-24}]:[{x:-13,y:2},{x:13,y:2}];
+  const feet=rest?[{x:-15,y:23},{x:15,y:23}]:[{x:-8,y:30},{x:8,y:30}];
+  const contacts={leftHand:climbing,rightHand:climbing,leftFoot:true,rightFoot:true};
+  if(climbing){
+   // Move one appendage at a time: the other three remain supporting contacts.
+   if(step===0){hands[0].y+=lift*5;contacts.leftHand=lift<.001;}
+   if(step===1){feet[0].y-=lift*7;contacts.leftFoot=lift<.001;}
+   if(step===2){hands[1].y+=lift*5;contacts.rightHand=lift<.001;}
+   if(step===3){feet[1].y-=lift*7;contacts.rightFoot=lift<.001;}
+  }else if(action==='walk'||action==='traverse'){
+   feet[0].x+=Math.sin(c*Math.PI*2)*4;feet[1].x-=Math.sin(c*Math.PI*2)*4;
+   feet[step<2?0:1].y-=lift*3;
+  }else if(action==='cast'){hands[0]={x:-11,y:-24};}
+  const arms=hands.map((p,i)=>joint(anatomy.shoulders[i],p,anatomy.upperArm,anatomy.forearm,i?-1:1));
+  const legs=feet.map((p,i)=>joint(anatomy.hips[i],p,anatomy.thigh,anatomy.shin,i?1:-1));
+  return {arms,legs,contacts,resting:rest};
+ }
+ // Stylized effort model per ascent: a mandatory hold-and-recover interval.
+ // Pure progress sampling avoids integrating hidden-tab time or missed frames.
+ function ascent(progress,remainingSeconds=Infinity){
+  const p=clamp(progress),resting=p>=.34&&p<.5;
+  let distance,fatigue;
+  if(p<.34){distance=p/.34*.4;fatigue=lerp(.12,.72,p/.34);}
+  else if(p<.5){distance=.4;fatigue=lerp(.72,.24,(p-.34)/.16);}
+  else{distance=lerp(.4,1,(p-.5)/.5);fatigue=lerp(.24,.76,(p-.5)/.5);}
+  const assisted=!resting&&p>.85&&remainingSeconds>=0&&remainingSeconds<1.5;
+  return {progress:distance,fatigue,resting,assisted,action:resting?'rest':assisted?'assist':'climb'};
+ }
+ const path=points=>points.map((p,i)=>`${i?'L':'M'}${p.x.toFixed(2)} ${p.y.toFixed(2)}`).join(' ');
+ function artwork(character){
+  const c=character.appearance,climbing=character.role==='climbing',has=id=>character.inventory.includes(id);
+  const body=character.body==='drop'?'M0 -19C-3 -13 -10 -9 -9 -2Q-9 10 0 10Q10 10 10 -2C10 -9 3 -13 0 -19Z':'M-6 -13Q0 -16 6 -13L8 7Q0 11 -8 7Z';
+  return `<g class="character-art" data-character="${character.id}" data-role="${character.role}" style="--character-skin:${c.skin};--character-ink:${c.ink}">
+   <g data-layer="equipment-back"><g class="character-pack" ${has('backpack')?'':'display="none"'} fill="${c.pack}" stroke="${c.ink}" stroke-width="1.2"><rect x="7" y="-14" width="10" height="22" rx="4"/><path d="M9 -8H15M10 -14V-18H15V-14" fill="none"/><rect x="8" y="-21" width="12" height="5" rx="2" fill="${c.trousers}"/><rect x="16" y="-3" width="3" height="7" rx="1" fill="#82b9c1"/></g></g>
+   <g data-layer="appendages" fill="none" stroke="${c.skin}" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path data-part="arm-left"/><path data-part="arm-right"/><g stroke="${c.trousers}"><path data-part="leg-left"/><path data-part="leg-right"/></g></g>
+   <g data-layer="body"><path d="${body}" fill="${c.jacket}" stroke="${c.ink}" stroke-width="1.2"/><path d="M-5 -12L-3 4M5 -12L3 4" fill="none" stroke="${c.pack}" stroke-width="1.5"/><path d="M0 -11V4" stroke="${c.ink}" stroke-width=".8"/></g>
+   <g data-layer="face"><circle cy="-23" r="7.3" fill="${c.skin}" stroke="${c.ink}" stroke-width="1.2"/><path data-part="eyes" d="M-3 -24V-22M3 -24V-22" fill="none" stroke="${c.ink}" stroke-width="1.2" stroke-linecap="round"/><path data-part="mouth" d="M-3 -19Q0 -16 3 -19" fill="none" stroke="${c.ink}" stroke-width="1"/><path d="M-5 -20H-4M4 -20H5" stroke="${c.pack}"/><path data-part="sweat" d="M10 -24Q7 -19 10 -19Q13 -19 10 -24" fill="#9ac6cc" display="none"/></g>
+   <g data-layer="headwear"><path d="${climbing?'M-8 -26Q-7 -34 0 -34Q7 -34 8 -26Z':'M-8 -26Q-6 -32 1 -31L6 -26L11 -25H-8Z'}" fill="${c.helmet}" stroke="${c.ink}" stroke-width="1.2"/><path ${climbing?'':'display="none"'} d="M-6 -26L-5 -17H5L6 -26" fill="none" stroke="${c.harness}" stroke-width="1"/><path d="M-4 -30H-2M2 -30H4" stroke="${c.ink}" stroke-width="1"/></g>
+   <g data-layer="equipment-front" ${climbing?'':'display="none"'}>
+    <g class="character-harness" fill="none" stroke="${c.harness}" stroke-width="2"><path d="M-8 4H8M-7 8Q-8 15 -2 14L-1 7M7 8Q8 15 2 14L1 7M-5 5L0 9L5 5"/><ellipse cx="0" cy="9" rx="1.8" ry="3"/></g>
+    <g stroke="${c.metal}" stroke-width="1" fill="none"><path d="M-9 3Q-15 3 -14 8Q-12 11 -9 7ZM9 3Q15 3 14 8Q12 11 9 7Z"/><path d="M-11 4V7M11 4V7"/><rect x="-2" y="11" width="4" height="3" rx="1"/></g>
+    <path d="M9 -7Q20 -11 20 -4Q20 3 13 0Q9 -2 13 -5Q18 -8 18 -3" fill="none" stroke="${c.rope}" stroke-width="1.5"/>
+    <path data-part="fixed-line" display="none" fill="none" stroke="${c.rope}" stroke-width="1"/><path data-part="aid-tether" display="none" fill="none" stroke="${c.harness}" stroke-width="1"/><path data-part="aid-foot-loop" display="none" fill="none" stroke="${c.harness}" stroke-width="1"/><g data-part="ascender" display="none"><rect x="-2" y="-3" width="4" height="7" rx="1" fill="${c.metal}" stroke="${c.ink}" stroke-width=".7"/></g>
+   <g data-part="glove-left" fill="${c.boots}"><circle r="2"/></g><g data-part="glove-right" fill="${c.boots}"><circle r="2"/></g><g data-part="held-bottle" display="none" fill="#82b9c1" stroke="${c.ink}" stroke-width=".8"><rect x="-2" y="-5" width="4" height="7" rx="1"/><path d="M-1 -7H1V-5H-1Z"/></g><g data-part="held-food" display="none" fill="${c.helmet}" stroke="${c.ink}" stroke-width=".8"><rect x="-3" y="-2" width="6" height="3" rx="1"/></g><g data-part="held-gear" display="none" fill="none" stroke="${c.metal}" stroke-width="1"><path d="M-2 -3Q3 -5 3 0Q2 4 -2 2Z"/></g></g><g data-layer="footwear" stroke="${c.boots}" stroke-width="3.8" stroke-linecap="round"><path data-part="boot-left"/><path data-part="boot-right"/></g>
+  </g>`;
+ }
+ function mount(host,character){host.innerHTML=artwork(character);host._deskCharacter=character;update(host,{action:'camp'});return host;}
+ function update(host,{action='camp',cycle=0,fatigue=0,assisted=false,item=null,ropeAnchor={x:0,y:-40}}={}){
+  const root=host.querySelector('.character-art');if(!root)return;
+  const character=host._deskCharacter,p=pose(action,cycle),part=name=>root.querySelector(`[data-part="${name}"]`);
+  ['left','right'].forEach((side,i)=>{part('arm-'+side).setAttribute('d',path(p.arms[i]));part('leg-'+side).setAttribute('d',path(p.legs[i]));const foot=p.legs[i][2];part('boot-'+side).setAttribute('d',path([foot,{x:foot.x+(i?4:-4),y:foot.y}]));});
+  ['left','right'].forEach((side,i)=>{const hand=p.arms[i][2];part('glove-'+side).setAttribute('transform',`translate(${hand.x} ${hand.y})`);part('glove-'+side).setAttribute('display',character.inventory.includes('gloves')?'':'none');});
+  for(const [name,kind,inventory] of [['held-bottle','water','bottle'],['held-food','food','energy-bar'],['held-gear','gear','locking-carabiner']]){const hand=p.arms[0][2];part(name).setAttribute('transform',`translate(${hand.x} ${hand.y})`);part(name).setAttribute('display',['collect','camp'].includes(action)&&item===kind&&character.inventory.includes(inventory)?'':'none');}
+  root.dataset.action=action;root.dataset.fatigue=clamp(fatigue).toFixed(3);root.dataset.support=String(Object.values(p.contacts).filter(Boolean).length);
+  part('sweat').setAttribute('display',fatigue>.55&&!p.resting?'':'none');
+  part('eyes').setAttribute('d',action==='sleep'?'M-4 -23H-1M1 -23H4':'M-3 -24V-22M3 -24V-22');
+  part('mouth').setAttribute('d',fatigue>.55&&!p.resting?'M-2 -19Q0 -22 2 -19Q0 -17 -2 -19':'M-3 -19Q0 -16 3 -19');
+  const aid=action==='assist'&&assisted&&character.inventory.includes('ascender')&&character.inventory.includes('static-rope');
+  const loop=anatomy.belayLoop,dx=ropeAnchor.x-loop.x,dy=ropeAnchor.y-loop.y,d=Math.hypot(dx,dy)||1,device={x:loop.x+dx/d*19-dy/d*3,y:loop.y+dy/d*19+dx/d*3};
+  part('ascender').setAttribute('transform',`translate(${device.x} ${device.y})`);
+  part('fixed-line').setAttribute('d',path([{x:ropeAnchor.x-dy/d*3,y:ropeAnchor.y+dx/d*3},{x:loop.x-dx/d*20-dy/d*3,y:loop.y-dy/d*20+dx/d*3}]));
+  part('aid-tether').setAttribute('d',path([device,loop]));part('aid-foot-loop').setAttribute('d',path([device,p.legs[0][2]]));
+  for(const name of ['ascender','aid-tether','aid-foot-loop','fixed-line'])part(name).setAttribute('display',aid?'':'none');
+  root.dataset.ropeSystem=aid?'protected-fixed-line':'dynamic-protection';
+  return p;
+ }
+ function attachment(character){if(!character.inventory.includes('harness'))throw Error('Rope-bearing roles require a harness');return {...anatomy.belayLoop};}
+ function candyArt(character){const c=character.appearance;return `<svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
+  <g class="candy-bike" fill="none" stroke="${c.jacket}" stroke-width="3"><circle cx="18" cy="63" r="12"/><circle cx="64" cy="63" r="12"/><path d="M18 63L32 43L46 63H18L41 43L64 63M59 38L64 63M55 38H64M27 42H38"/></g>
+  <g class="candy-legs" fill="none" stroke="${c.trousers}" stroke-width="4" stroke-linecap="round"><path class="leg-a" d="M34 48L28 64L20 65"/><path class="leg-b" d="M44 48L50 63L58 65"/></g>
+  <g class="candy-body"><path d="M39 8C36 20 18 26 18 39C18 53 30 59 40 59C54 59 61 50 61 39C61 26 44 20 39 8Z" fill="${c.skin}" stroke="${c.outline}" stroke-width="2"/>
+   <path d="M30 29Q26 32 26 37" fill="none" stroke="${c.highlight}" stroke-width="3" stroke-linecap="round"/>
+   <ellipse cx="33" cy="40" rx="2.5" ry="4" fill="${c.eyes}"/><ellipse cx="46" cy="40" rx="2.5" ry="4" fill="${c.eyes}"/><path d="M35 48Q40 52 45 48" fill="none" stroke="${c.ink}" stroke-width="2" stroke-linecap="round"/>
+   <path d="M19 41L10 35M60 41L67 35" stroke="${c.skin}" stroke-width="4" stroke-linecap="round"/>
+  </g>
+  <g class="candy-broom" stroke="${c.harness}" stroke-width="3" fill="${c.pack}"><path d="M65 29L53 63"/><path d="M48 59L59 63L60 73L43 68Z"/></g>
+ </svg>`;}
+ function mountCandy(host){const character=forTheme('candy');host.innerHTML=character.id==='candy'?candyArt(character):`<svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg"><g transform="translate(40 38) scale(.75)">${artwork(character)}</g></svg>`;host.dataset.character=character.id;host.dataset.role=character.role;if(character.id!=='candy'){host._deskCharacter=character;update(host,{action:'walk'});}}
+ globalThis.DeskCharacters=freeze({identities,items,roles,themes,anatomy,create,forTheme,joint,pose,ascent,artwork,mount,update,attachment,mountCandy});
+})();
+
+</script>
+<script>
+// SPDX-License-Identifier: LicenseRef-Simpli-Noncommercial-1.0
+// Copyright (C) 2026 ilamgumaran and contributors
 'use strict';
+DeskCharacters.mountCandy(document.getElementById('candy-pal'));
 const $ = id => document.getElementById(id);
 const defaultDisplay={profile:'auto',clockScale:1,weatherScale:1,factScale:1,gap:8,companionInterval:60,companionDuration:12,companion:true,cameraMotion:'gentle'};
 const siteConfig=window.ORBIT_CONFIG||{};
@@ -775,23 +882,15 @@ applyDisplay();
 (()=>{
  const stage=document.createElement('div');stage.id='climber-stage';stage.hidden=true;stage.setAttribute('aria-hidden','true');
  stage.innerHTML=`<svg id="climber-world" xmlns="http://www.w3.org/2000/svg">
-  <path id="climber-rope"/><path id="climber-camp-link"/><circle id="climber-anchor" r="3"/><path id="climber-hook" d="M-5 0Q-5 -9 3 -7L6 -3"/>
+  <path id="climber-rope"/><path id="climber-camp-link"/><circle id="climber-anchor" r="3"/><path id="climber-hook" d="M-3 -5Q4 -8 4 -1L1 5Q-5 6 -4 0ZM0 -4L2 2"/>
   <g id="climber-supply"><g class="supply-water"><rect x="-5" y="-12" width="10" height="15" rx="3"/><path d="M-3 -14H3M-4 -3H4"/></g><g class="supply-food"><path d="M0 -10C-12 -17 -13 3 -3 3L0 2L3 3C13 3 12 -17 0 -10Z"/><path d="M0 -10L3 -16"/></g><g class="supply-gear"><rect x="-7" y="-10" width="14" height="13" rx="3"/><path d="M-2 -10V-14H2V-10M-7 -4H7"/></g></g>
   <g id="climber-camp"><path class="tent-cables" d="M0 -50L-32 0M0 -50L32 0"/><path class="tent-platform" d="M-36 3H36"/><path class="tent-shell" d="M-32 0L-18 -24L10 -24L32 0Z"/><path class="tent-door" d="M-11 0L-4 -22L7 0Z"/><path class="tent-seam" d="M10 -24L21 0"/><path class="tent-roll" d="M-20 -29H0"/></g>
-  <g id="climber-person"><g id="climber-rig">
-   <g class="climber-limbs"><path class="climb-arm-a" d="M-10 -9L-19 -23L-15 -34"/><path class="climb-arm-b" d="M9 -9L19 -17L23 -27"/><path class="climb-leg-a" d="M-6 8L-16 18L-19 29L-26 29"/><path class="climb-leg-b" d="M6 8L16 16L12 29L19 29"/></g>
-   <g class="climber-pack"><rect x="7" y="-23" width="17" height="30" rx="5"/><path d="M8 -15H24M11 -7H20M13 -24V-28H21V-24"/><rect x="9" y="-31" width="18" height="6" rx="3"/><circle cx="22" cy="0" r="5"/></g>
-   <path class="climber-drop" d="M-1 -33C-3 -22 -14 -20 -14 -8C-14 4 -7 11 1 11C11 11 15 4 15 -7C15 -20 3 -23 -1 -33Z"/>
-   <path class="climber-shine" d="M-7 -18Q-10 -14 -9 -10"/>
-   <g class="climber-face"><path d="M-5 -7V-3M5 -7V-3"/><path class="climber-smile" d="M-3 1Q1 5 5 1"/></g>
-   <path class="climber-helmet" d="M-12 -19Q0 -35 12 -19Z"/><path class="climber-harness" d="M-12 1L0 7L13 1M0 7V12"/><circle class="climber-buckle" cx="0" cy="7" r="3"/>
-   <path class="climber-held-bottle" d="M-21 -12H-14V1H-21ZM-19 -16H-16V-12"/>
-   <circle class="climber-held-food" cx="-18" cy="-4" r="5"/><rect class="climber-held-gear" x="-22" y="-10" width="8" height="10" rx="2"/>
-  </g></g>
+  <g id="climber-person"><g id="climber-rig"></g></g>
   <g id="climber-note"><rect x="-44" y="-12" width="88" height="20" rx="7"/><text id="climber-caption" text-anchor="middle" y="2">BASE CAMP</text></g>
  </svg>`;
  document.body.append(stage);
  const get=id=>document.getElementById(id),svg=get('climber-world');
+ const character=DeskCharacters.forTheme('climber');DeskCharacters.mount(get('climber-rig'),character);
  let timer=null,frame=null,lastFrame=0,scene=null,trip=0,nextVisit=0;
  const motion=matchMedia('(prefers-reduced-motion: reduce)');
  const glyphCanvas=document.createElement('canvas'),glyphContext=glyphCanvas.getContext('2d');
@@ -836,19 +935,23 @@ applyDisplay();
   svg.setAttribute('viewBox',`0 0 ${innerWidth} ${innerHeight}`);
   const {anchor,start,middle,ledge,camp,scale}=land;
   const camping=scene.trip%3===2,climbEnd=camping?.48:.65,castEnd=.12,collectEnd=climbEnd+.1,campEnd=.94;
+  const effort=DeskCharacters.ascent(clamp((progress-castEnd)/(climbEnd-castEnd),0,1),Math.max(0,(climbEnd-progress)*scene.duration/1000));
   let p,state;
   if(progress<castEnd){p=start;state='cast';}
-  else if(progress<climbEnd){const t=(progress-castEnd)/(climbEnd-castEnd);p=t<.55?point(start,middle,t/.55):point(middle,ledge,(t-.55)/.45);state='climb';}
+  else if(progress<climbEnd){const t=effort.progress;p=t<.55?point(start,middle,t/.55):point(middle,ledge,(t-.55)/.45);state='climb';}
   else if(progress<collectEnd){p=ledge;state='collect';}
   else if(progress<campEnd){p=land.widget?ledge:point(ledge,{x:camp.x-8*scale,y:camp.y-10*scale},clamp((progress-collectEnd)/.08,0,1));state=camping?'sleep':'camp';}
   else{p=point({x:camp.x-8*scale,y:camp.y-10*scale},start,(progress-campEnd)/(1-campEnd));state='rappel';}
   if(state==='camp'&&progress<collectEnd+.08&&!land.widget)state='build';
   stage.dataset.state=state;stage.dataset.target=land.widget?'widget':'digit';stage.dataset.digit=land.digit;stage.dataset.item=['water','food','gear'][scene.trip%3];
   place(get('climber-person'),p,`scale(${scale})`);
-  const hook=state==='cast'?point(start,anchor,progress/castEnd):anchor;
+  const action=state==='climb'?effort.action:state;
+  DeskCharacters.update(get('climber-rig'),{action,cycle:progress*8,fatigue:state==='climb'?effort.fatigue:.12,assisted:state==='climb'&&effort.assisted,ropeAnchor:{x:(anchor.x-p.x)/scale,y:(anchor.y-p.y)/scale},item:['water','food','gear'][scene.trip%3]});
+  stage.dataset.character=character.id;stage.dataset.action=action;
+  const hook=anchor;
   place(get('climber-hook'),hook);
-  const hand={x:p.x-12*scale,y:p.y-22*scale};
-  const sway=state==='cast'?Math.sin(progress/castEnd*Math.PI)*45*scale:state==='camp'||state==='sleep'?Math.sin(progress*12)*5*scale:5*scale;
+  const loop=DeskCharacters.attachment(character),hand={x:p.x+loop.x*scale,y:p.y+loop.y*scale};
+  const sway=['climb','rappel'].includes(state)?0:3*scale;
   get('climber-rope').setAttribute('d',`M${hook.x} ${hook.y} Q${mix(hook.x,hand.x,.5)+sway} ${mix(hook.y,hand.y,.5)+Math.abs(sway)} ${hand.x} ${hand.y}`);
   place(get('climber-anchor'),anchor);
   place(get('climber-supply'),{x:ledge.x+16*scale,y:ledge.y+15*scale},`scale(${scale})`);
@@ -859,8 +962,8 @@ applyDisplay();
   get('climber-camp-link').setAttribute('d',`M${anchor.x} ${anchor.y} L${camp.x} ${camp.y-50*scale}`);
   place(get('climber-camp'),camp,`scale(${scale}) rotate(${motion.matches?0:Math.sin(progress*14)*2})`);
   for(const part of get('climber-camp').querySelectorAll('.tent-shell,.tent-door,.tent-seam'))part.setAttribute('transform',`scale(1 ${clamp((progress-collectEnd)/.08,0,1)})`);
-  const captions={cast:'ROPE READY',climb:'TIME TO CLIMB',collect:['WATER BREAK','SNACK FOUND','GEAR CHECK'][scene.trip%3],build:'MAKING CAMP',camp:land.widget?'LEDGE PICNIC':'HANGING CAMP',sleep:'SUMMIT SNOOZE',rappel:'SEE YOU UP TOP'};
-  get('climber-caption').textContent=captions[state];
+  const captions={cast:'ANCHOR CHECK',climb:'TIME TO CLIMB',collect:['WATER BREAK','SNACK FOUND','GEAR CHECK'][scene.trip%3],build:'MAKING CAMP',camp:land.widget?'LEDGE PICNIC':'HANGING CAMP',sleep:'SUMMIT SNOOZE',rappel:'SEE YOU UP TOP'};
+  get('climber-caption').textContent=action==='rest'?'REST & RECOVER':action==='assist'?'ASCENDER ASSIST':captions[state];
   // Small labels belong in the margin; leave facts, weather and date unobstructed.
   place(get('climber-note'),{x:clamp(p.x,48,innerWidth-48),y:innerHeight-13});
   get('climber-note').style.display=innerHeight<650?'none':'';
@@ -910,13 +1013,14 @@ applyDisplay();
  expedition.setAttribute('aria-label','Mountain of Time');
  expedition.innerHTML=`<div class="mountain-horizon"><span id="mountain-year"></span><span id="mountain-month"></span></div><div class="mountain-levels"><span id="mountain-day"></span><span id="mountain-hour"></span><span id="mountain-minute"></span></div>
  <svg id="mountain-world" xmlns="${ns}" aria-hidden="true"><path id="mountain-far"/><path id="mountain-near"/><g id="mountain-camera"><g id="mountain-neighbor"/><g id="mountain-digit"><path id="mountain-depth"/><path id="mountain-rock"/><path id="mountain-trail"/></g></g>
- <path id="mountain-rope"/><circle id="mountain-anchor" r="2.5"/>
+ <path id="mountain-rope"/><path id="mountain-camp-link"/><circle id="mountain-anchor" r="2.5"/>
  <g id="mountain-pickup"><path class="mountain-bottle" d="M-3 -6H3V3H-3ZM-2 -9H2V-6"/><path class="mountain-apple" d="M0 -4C-8 -10 -9 3 -2 3L0 2L2 3C9 3 8 -10 0 -4ZM0 -4L2 -8"/><path class="mountain-gear" d="M-5 -6H5V3H-5ZM-2 -6V-9H2V-6"/></g>
  <g id="mountain-tent"><path class="mountain-tent-lines" d="M0 -28L-17 0M0 -28L17 0"/><path class="mountain-tent-shell" d="M-17 0L-9 -13H5L17 0Z"/><path class="mountain-tent-door" d="M-5 0L0 -12L5 0Z"/><path class="mountain-tent-floor" d="M-20 2H20"/></g>
- <g id="mountain-explorer"><path id="mountain-arms"/><path id="mountain-legs"/><rect class="mountain-backpack" x="-7" y="-7" width="6" height="9" rx="2"/><path class="mountain-jacket" d="M-3 -7H3L4 1H-4Z"/><circle class="mountain-face" cy="-11" r="3.7"/><path class="mountain-helmet" d="M-5 -12Q0 -19 5 -12Z"/><path class="mountain-coil" d="M-7 -3Q-11 -6 -10 0Q-8 4 -6 0"/></g></svg>
+ <g id="mountain-explorer"></g></svg>
  <div class="mountain-caption"><span id="mountain-focus"></span><span id="mountain-action"></span></div>`;
  get('display').insertBefore(expedition,get('display').querySelector('.fact-panel'));
  const svg=get('mountain-world'),actor=get('mountain-explorer');
+ const character=DeskCharacters.forTheme('climber2');DeskCharacters.mount(actor,character);
  const motion=typeof matchMedia==='function'?matchMedia('(prefers-reduced-motion: reduce)'):null;
  const clamp=(n,a=0,b=1)=>Math.max(a,Math.min(b,n)),mix=(a,b,t)=>a+(b-a)*t,ease=t=>t*t*(3-2*t);
  const definitions={
@@ -948,7 +1052,7 @@ applyDisplay();
  function active(){return prefs.theme==='climber2';}
  function allowed(){return active()&&prefs.display.companion!==false&&document.visibilityState==='visible'&&!get('settings').open&&!document.body.classList.contains('screen-rest');}
  function still(){return motion?.matches||prefs.display.cameraMotion==='still'||typeof requestAnimationFrame!=='function';}
- function stop(){clearTimeout(timer);timer=null;if(frame!==null)cancelAnimationFrame(frame);frame=null;scene=null;actor.style.display='none';get('mountain-rope').style.display='none';get('mountain-tent').style.display='none';}
+ function stop(){clearTimeout(timer);timer=null;if(frame!==null)cancelAnimationFrame(frame);frame=null;scene=null;actor.style.display='none';get('mountain-rope').style.display='none';get('mountain-tent').style.display='none';get('mountain-camp-link').style.display='none';}
  function fit(){
   if(!active()||sizing)return;sizing=true;
   // Deduct natural content height so enlarged facts/presets get space before scenery.
@@ -976,9 +1080,11 @@ applyDisplay();
   const camera=still()?'cliff':local<.3?'trail':local<.7?'cliff':'traverse';
   const phase=!scene?'camp':local<.12?'cast':local<.3?'walk':local<.64?'climb':local<.74?'collect':local<.83?'build':local<.96?'camp':'traverse';
   expedition.dataset.view=camera;expedition.dataset.state=phase;expedition.dataset.level=level;expedition.dataset.digit=digit;
-  const unitProgress=level==='minute'?clamp((local-.12)/.52):clamp(data.progress+(local-.12)*({hour:.1,day:.035,month:.018,year:.008}[level]));
-  const scale=Math.max(.3,Math.min(h*.64/150,w*.22/80)),zoom=run?1+.12*Math.sin(local*Math.PI):1;
-  const turn=ease(clamp((local-.24)/.2)),around=ease(clamp((local-.67)/.2));
+  const effort=DeskCharacters.ascent(clamp((local-.3)/.34),scene?Math.max(0,(.64-local)*scene.duration/1000/count):Infinity);
+  const routeLocal=phase==='climb'?.3+effort.progress*.34:local;
+  const unitProgress=level==='minute'?clamp((routeLocal-.12)/.52):clamp(data.progress+(routeLocal-.12)*({hour:.1,day:.035,month:.018,year:.008}[level]));
+  const scale=Math.max(.3,Math.min(h*.64/150,w*.22/80)),zoom=run?1+.12*Math.sin(routeLocal*Math.PI):1;
+  const turn=ease(clamp((routeLocal-.24)/.2)),around=ease(clamp((routeLocal-.67)/.2));
   const skew=still()?0:mix(-.24,0,turn)+.12*around,vertical=still()?1:mix(.76,1,turn);
   const lead=position(currentRoute,unitProgress),panX=run?clamp((40-lead.x)*scale,-w*.025,w*.025):0,panY=run?clamp((75-lead.y)*scale,-h*.08,h*.08):0;
   // Keep the whole number together and in reading order as its focal digit changes.
@@ -999,22 +1105,25 @@ applyDisplay();
   let p=project(position(currentRoute,unitProgress));
   if(morph?.actor&&blend<1&&run)p={x:mix(morph.actor.x,p.x,ease(blend)),y:mix(morph.actor.y,p.y,ease(blend))};
   p.x=clamp(p.x,20,w-22);p.y=clamp(p.y,27,h-34);lastActor=p;
-  const explorerScale=innerWidth<600?1:1.05;place('mountain-explorer',p,`scale(${explorerScale})`);
-  const limb=phase==='walk'||phase==='climb'?Math.sin(local*36)*3:0;
-  attr('mountain-arms','d',`M-2 -5L${-7-limb} -10M2 -5L${7+limb} -12`);attr('mountain-legs','d',`M-2 1L${-5+limb} 8L${-8+limb} 8M2 1L${5-limb} 7L${8-limb} 7`);
+  const explorerScale=innerWidth<600?.36:.4;place('mountain-explorer',p,`scale(${explorerScale})`);
+  const anchor=project(position(currentRoute,clamp(unitProgress+.16)));
+  const action=phase==='climb'?effort.action:phase;
+  DeskCharacters.update(actor,{action,cycle:local*8,fatigue:phase==='climb'?effort.fatigue:.12,assisted:phase==='climb'&&effort.assisted,ropeAnchor:{x:(anchor.x-p.x)/explorerScale,y:(anchor.y-p.y)/explorerScale},item:['water','food','gear'][visits%3]});
+  expedition.dataset.character=character.id;expedition.dataset.action=action;
   actor.style.display=allowed()?'':'none';
-  const anchor=project(position(currentRoute,clamp(unitProgress+.16))),camp={x:clamp(p.x+25,25,w-25),y:clamp(p.y+18,45,h-12)};
+  const camp={x:clamp(p.x+25,25,w-25),y:clamp(p.y+18,45,h-12)};
   const tent=['build','camp'].includes(phase)&&allowed();get('mountain-tent').style.display=tent?'':'none';place('mountain-tent',camp);
-  const rope=allowed()&&(camera!=='trail'||tent||phase==='cast');get('mountain-rope').style.display=rope?'':'none';get('mountain-anchor').style.display=rope?'':'none';place('mountain-anchor',anchor);
-  const end=tent?{x:camp.x,y:camp.y-28}:p;
-  const swing=phase==='cast'?Math.sin(local/.12*Math.PI)*12:0;
-  attr('mountain-rope','d',`M${anchor.x.toFixed(2)} ${anchor.y.toFixed(2)}Q${(mix(anchor.x,end.x,.5)+swing).toFixed(2)} ${(mix(anchor.y,end.y,.5)+7).toFixed(2)} ${end.x.toFixed(2)} ${end.y.toFixed(2)}`);
+  get('mountain-camp-link').style.display=tent?'':'none';attr('mountain-camp-link','d',`M${anchor.x} ${anchor.y}L${camp.x} ${camp.y-28}`);
+  const rope=allowed()&&(camera!=='trail'||tent||phase==='cast'||phase==='climb');get('mountain-rope').style.display=rope?'':'none';get('mountain-anchor').style.display=rope?'':'none';place('mountain-anchor',anchor);
+  const loop=DeskCharacters.attachment(character),end={x:p.x+loop.x*explorerScale,y:p.y+loop.y*explorerScale};
+  const swing=phase==='cast'?Math.sin(local/.12*Math.PI)*3:0;
+  attr('mountain-rope','d',`M${anchor.x.toFixed(2)} ${anchor.y.toFixed(2)}Q${(mix(anchor.x,end.x,.5)+swing).toFixed(2)} ${(mix(anchor.y,end.y,.5)+(phase==='climb'?0:3)).toFixed(2)} ${end.x.toFixed(2)} ${end.y.toFixed(2)}`);
   get('mountain-tent').style.opacity=phase==='build'?String(clamp((local-.74)/.09)): '1';
   const supply=project(position(currentRoute,clamp(unitProgress+.06)));place('mountain-pickup',supply);get('mountain-pickup').dataset.item=['water','food','gear'][visits%3];get('mountain-pickup').style.display=phase==='collect'||phase==='build'?'':'none';
   get('mountain-year').textContent=`YEAR · ${model.year.value}`;get('mountain-month').textContent=`${model.month.name.toUpperCase()} · ${model.month.value}`;
   get('mountain-day').textContent=`DAY ${model.day.value}`;get('mountain-hour').textContent=`HOURS ${model.hour.value}`;get('mountain-minute').textContent=`MINUTES ${model.minute.value}`;
   get('mountain-focus').textContent=`${level.toUpperCase()} ${data.value} · DIGIT ${focus+1}/${count}`;
-  get('mountain-action').textContent=({cast:'Rope ready',walk:'Walking the trail',climb:'Cliff ascent',collect:['Water stop','Snack found','Gear check'][visits%3],build:'Pitching a portaledge',camp:'Quiet camp',traverse:'Next ridge'}[phase]);
+  get('mountain-action').textContent=(action==='rest'?'Rest and recover':action==='assist'?'Deadline · ascender assist':{cast:'Checking anchor',walk:'Walking the trail',climb:'Cliff ascent',collect:['Water stop','Snack found','Gear check'][visits%3],build:'Pitching a portaledge',camp:'Quiet camp',traverse:'Next ridge'}[phase]);
   lastSignature=[model.minute.value,model.hour.value,model.day.value,model.month.value,model.year.value,prefs.format24,prefs.display.companion,prefs.display.cameraMotion].join('|');
  }
  function schedule(delay){if(allowed())timer=setTimeout(start,delay??Math.max(2000,(prefs.display.companionInterval-prefs.display.companionDuration)*1000));}

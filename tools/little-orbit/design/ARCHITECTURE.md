@@ -6,6 +6,7 @@
 | --- | --- |
 | `index.html` / `style.css` | Clock content, controls, layouts and theme styling |
 | `app.js` | Real time/date, facts, weather, storage, core controls, theme registry and Candy Quest |
+| `characters.js` | Shared identities, appearance palettes, anatomical poses, role/equipment kits and per-ascent effort |
 | `config.js` | Shared defaults, overridden by browser-saved settings |
 | `display-settings.js` | Device/display settings and live layout changes |
 | `time-climber.js` | Time Climber scene, digit geometry, routes and animation lifecycle |
@@ -30,3 +31,7 @@ The following is an intended boundary, not a completed refactor:
 For Time Climber II, keep calendar progress calculations and digit route data pure/testable. Store route progress rather than long-lived animation timelines. On wake/resize/time jumps, recompute from current time and enter a safe scene state. Keep the fixed readout outside camera transforms.
 
 Use feature detection and browser viewport sizes, not OS or browser-name branches. Keep mutable user configuration out of shared source defaults. Never couple clock functionality to Windows power or kiosk tools.
+
+## Shared character boundary
+
+Characters are now independent of theme scenes. `characters.js` owns all character artwork and exposes immutable identities/roles, per-instance appearance, reusable mounts, poses and an effort model. Scenes own routes, camera, time and lifecycle; they attach ropes through the shared belay-loop coordinate. `config.js` maps theme defaults to shared identities. [Character design](CHARACTERS.md) describes the first implementation and what remains deferred. The workshop and the portable clock use the same module.

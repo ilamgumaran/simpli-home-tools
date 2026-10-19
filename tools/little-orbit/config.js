@@ -3,6 +3,7 @@
 // After editing, run `npm run build` to update the single-file clock.
 window.ORBIT_CONFIG = {
   theme: 'climber2',
+  characters: {candy: 'candy', climber: 'moss', climber2: 'ridge'},
   unit: 'fahrenheit',
   format24: false,
   lowPower: true,

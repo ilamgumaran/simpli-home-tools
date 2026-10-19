@@ -1,6 +1,7 @@
 // SPDX-License-Identifier: LicenseRef-Simpli-Noncommercial-1.0
 // Copyright (C) 2026 ilamgumaran and contributors
 'use strict';
+DeskCharacters.mountCandy(document.getElementById('candy-pal'));
 const $ = id => document.getElementById(id);
 const defaultDisplay={profile:'auto',clockScale:1,weatherScale:1,factScale:1,gap:8,companionInterval:60,companionDuration:12,companion:true,cameraMotion:'gentle'};
 const siteConfig=window.ORBIT_CONFIG||{};
