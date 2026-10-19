@@ -1,0 +1,87 @@
+const path=require('node:path');
+
+const {engine,options,url}=require('./runtime.cjs');
+const assert=require('node:assert/strict');
+(async()=>{
+ const browser=await engine.launch({...options,headless:true});
+ const page=await browser.newPage({viewport:{width:1280,height:720},timezoneId:'America/New_York'});
+ const errors=[];page.on('pageerror',e=>errors.push(e.message));
+ // Start in daylight before navigation; CI may run during the real :59 screen break.
+ await page.clock.install({time:new Date('2026-10-04T12:00:00-04:00')});
+ await page.addInitScript(()=>{if(!localStorage.getItem('orbit-settings'))localStorage.setItem('orbit-settings',JSON.stringify({theme:'climber'}));});
+ await page.route('https://api.open-meteo.com/**',r=>r.fulfill({json:{current:{temperature_2m:72,apparent_temperature:70,weather_code:2},daily:{temperature_2m_max:[78],temperature_2m_min:[58]}}}));
+ await page.goto(url);
+ await page.waitForFunction(()=>document.getElementById('time').textContent!=='00:00');
+ await page.waitForFunction(()=>!document.getElementById('condition').textContent.includes('Checking'),{},{timeout:18000});
+ console.log('Weather:',await page.locator('#temperature').innerText(),await page.locator('#condition').innerText(),await page.locator('#weather-status').innerText());
+ assert.match(await page.locator('#date').innerText(),/\d{4}/);
+ assert.ok((await page.locator('#fact-text').innerText()).length>20);
+ assert.equal(await page.locator('body').evaluate(e=>e.scrollWidth<=innerWidth),true);
+ if(await page.locator('body').evaluate(e=>e.scrollHeight>innerHeight)){console.log(await page.locator('body').evaluate(e=>({height:e.scrollHeight,width:e.scrollWidth})));await page.screenshot({path:'layout-overflow.png',fullPage:true});}assert.equal(await page.locator('body').evaluate(e=>e.scrollHeight<=innerHeight),true);
+ await page.screenshot({path:'preview.png'});
+ await page.getByRole('button',{name:'Settings',exact:false}).click();
+ await page.locator('#format24').check();
+ await page.locator('#unit').selectOption('celsius');
+ await page.getByRole('button',{name:'Save & return to orbit'}).click();
+ assert.equal(await page.locator('#period').innerText(),'24H');
+ await page.reload();
+ assert.equal(await page.locator('#period').innerText(),'24H');
+ await page.getByRole('button',{name:'Touch lock',exact:false}).click();
+ assert.equal(await page.locator('#lock-overlay').isVisible(),true);
+ const rect=await page.locator('#unlock-button').boundingBox();
+ await page.mouse.move(rect.x+rect.width/2,rect.y+rect.height/2);await page.mouse.down();await page.waitForTimeout(250);await page.mouse.up();
+ assert.equal(await page.locator('#lock-overlay').isVisible(),true);
+ await page.mouse.down();await page.waitForTimeout(2200);await page.mouse.up();
+ assert.equal(await page.locator('#lock-overlay').isVisible(),false);
+ await page.getByRole('button',{name:'Settings',exact:false}).click();await page.locator('#format24').uncheck();await page.locator('#unit').selectOption('fahrenheit');await page.getByRole('button',{name:'Save & return to orbit'}).click();
+ await page.setViewportSize({width:1920,height:1080});assert.equal(await page.locator('body').evaluate(e=>e.scrollHeight<=innerHeight&&e.scrollWidth<=innerWidth),true);
+ await page.setViewportSize({width:390,height:844});if(await page.locator('body').evaluate(e=>e.scrollWidth>innerWidth)){console.log(await page.locator('body').evaluate(e=>({width:e.scrollWidth,height:e.scrollHeight})));await page.screenshot({path:'mobile-overflow.png',fullPage:true});}assert.equal(await page.locator('body').evaluate(e=>e.scrollWidth<=innerWidth),true);
+ await page.route('https://api.open-meteo.com/**',route=>route.abort());await page.reload();await page.waitForFunction(()=>document.getElementById('weather-status').textContent.includes('Offline')||document.getElementById('weather-status').textContent.includes('No connection'));
+ assert.ok((await page.locator('#time').innerText()).includes(':'));
+ await page.clock.setSystemTime(new Date('2026-10-04T12:00:00-04:00'));
+ await page.clock.pauseAt(new Date('2026-10-04T12:00:01-04:00'));
+ await page.setViewportSize({width:1280,height:720});await page.reload();
+ assert.equal(await page.locator('#seconds').isVisible(),false);
+ assert.equal(await page.locator('#power-button').getAttribute('aria-pressed'),'true');
+ const layouts=[];
+ const normalTimeSize=await page.locator('#time').evaluate(e=>parseFloat(getComputedStyle(e).fontSize));
+ const normalFactSize=await page.locator('#fact-text').evaluate(e=>parseFloat(getComputedStyle(e).fontSize));
+ let sawLargeFact=false;
+ await page.emulateMedia({reducedMotion:'reduce'});
+ for(let i=0;i<8;i++){
+   const c=await page.locator('.clock-panel').boundingBox(),w=await page.locator('.weather-panel').boundingBox(),f=await page.locator('.fact-panel').boundingBox();
+   layouts.push([w.x<f.x,f.y<c.y]);
+   if(await page.locator('body').evaluate(e=>e.classList.contains('fact-focus'))){
+    sawLargeFact=true;
+    assert.ok(await page.locator('#time').evaluate(e=>parseFloat(getComputedStyle(e).fontSize))<normalTimeSize);
+    assert.ok(await page.locator('#fact-text').evaluate(e=>parseFloat(getComputedStyle(e).fontSize))>normalFactSize);
+    if(i===1)await page.screenshot({path:'fact-focus-preview.png'});
+   }
+   const fit=await page.locator('body').evaluate(e=>({height:e.scrollHeight,width:e.scrollWidth,fits:e.scrollHeight<=innerHeight&&e.scrollWidth<=innerWidth}));
+   if(!fit.fits){console.log({layout:i,...fit});await page.screenshot({path:'layout-overflow.png',fullPage:true});}
+   assert.equal(fit.fits,true);
+   await page.setViewportSize({width:1920,height:1080});assert.equal(await page.locator('body').evaluate(e=>e.scrollHeight<=innerHeight&&e.scrollWidth<=innerWidth),true);
+   await page.setViewportSize({width:854,height:480});assert.equal(await page.locator('body').evaluate(e=>e.scrollHeight<=innerHeight&&e.scrollWidth<=innerWidth),true);
+   const longFactOverflow=await page.evaluate(()=>{const title=document.getElementById('fact-title'),text=document.getElementById('fact-text'),saved=[title.textContent,text.textContent],overflow=[];for(const fact of facts){title.textContent=fact[0];text.textContent=fact[1];if(document.body.scrollHeight>innerHeight||document.body.scrollWidth>innerWidth)overflow.push(fact[0]);}title.textContent=saved[0];text.textContent=saved[1];return overflow;});
+   assert.deepEqual(longFactOverflow,[]);
+   await page.setViewportSize({width:390,height:844});const mobileFit=await page.locator('body').evaluate(e=>({height:e.scrollHeight,width:e.scrollWidth,fits:e.scrollHeight<=innerHeight&&e.scrollWidth<=innerWidth}));if(!mobileFit.fits){console.log({layout:i,...mobileFit});await page.screenshot({path:'mobile-overflow.png',fullPage:true});}assert.equal(mobileFit.fits,true);
+   await page.setViewportSize({width:1280,height:720});await page.clock.fastForward(300000);
+ }
+ assert.equal(new Set(layouts.map(JSON.stringify)).size,4);
+ assert.equal(sawLargeFact,true);
+ await page.emulateMedia({reducedMotion:'no-preference'});
+ assert.match(await page.locator('.clock-panel').evaluate(e=>getComputedStyle(e).transitionDuration),/8s/);
+ await page.emulateMedia({reducedMotion:'reduce'});
+ await page.clock.setSystemTime(new Date('2026-10-04T12:58:01-04:00'));await page.clock.fastForward(60000);
+ assert.equal(await page.locator('#rest-overlay').isVisible(),true);
+ await page.locator('#rest-overlay').click();assert.equal(await page.locator('#rest-overlay').isVisible(),false);
+ await page.clock.setSystemTime(new Date('2026-10-04T21:29:01-04:00'));await page.clock.fastForward(60000);
+ assert.equal(await page.locator('body').evaluate(e=>e.classList.contains('dim')),true);
+ const previousFact=await page.locator('#fact-title').innerText();
+ await page.clock.setSystemTime(new Date('2026-10-05T00:00:01-04:00'));await page.clock.fastForward(60000);
+ assert.notEqual(await page.locator('#fact-title').innerText(),previousFact);
+ await page.getByRole('button',{name:'Low power'}).click();assert.equal(await page.locator('#seconds').isVisible(),true);
+ await page.getByRole('button',{name:'Low power'}).click();
+ assert.deepEqual(errors,[]);console.log('PASS: mocked weather, touch lock, eight clock/fact focus layouts at 720p/1080p/mobile, glide and reduced-motion support, hourly rest, night dimming, midnight rollover, low power, offline fallback, no JS errors.');
+ await browser.close();
+})().catch(e=>{console.error(e);process.exit(1);});
