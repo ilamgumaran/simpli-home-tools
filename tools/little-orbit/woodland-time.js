@@ -10,7 +10,7 @@
  <rect id="woodland-sky" width="800" height="360"/><circle id="woodland-light" cx="705" cy="55" r="25" fill="#f4e2ac"/>
  <g id="woodland-background"/><path id="woodland-ground" d="M0 240Q180 220 360 241T800 231V360H0Z"/>
  <path id="woodland-creek" d="M800 240Q600 229 552 276T344 340L300 360H365Q470 320 570 304T800 270Z"/>
- <g id="woodland-details"/><g id="woodland-props"/><path id="woodland-rope" fill="none" stroke="#ead6a8" stroke-width="1.6"/>
+ <g id="woodland-details"/><g id="woodland-holds"/><g id="woodland-props"/><path id="woodland-rope" fill="none" stroke="#ead6a8" stroke-width="1.6"/>
  <circle id="woodland-anchor" cx="58" cy="206" r="3" fill="#e3d4ab" stroke="#485844" stroke-width="1"/><g id="woodland-cast"></g><g id="woodland-hand-tool"/><g id="woodland-minute-marker"/>
  <g id="woodland-numerals" fill="none" stroke-linecap="round" stroke-linejoin="round"></g>
  <g fill="#eaddb3" stroke="#485844" stroke-width="3"><circle cx="400" cy="99" r="5"/><circle cx="400" cy="144" r="5"/></g>
@@ -20,6 +20,8 @@
  const motion=typeof matchMedia==='function'?matchMedia('(prefers-reduced-motion: reduce)'):null;
  let timer=null,frame=null,lastFrame=0,lastMinute='',lastTerrain='',lastCast='',sizing=false;
  const actors=[];
+ // Small supported rock route, authored entirely within the foreground boulder.
+ const rockRoute=DeskWorlds.routes.woodlandRock;
  const lead=m=>{const chosen=globalThis.ORBIT_CONFIG?.characters?.woodland;return Object.hasOwn(DeskCharacters.identities,chosen)&&!DeskCharacters.identities[chosen].young?chosen:m.story.cast[0];};
  const active=()=>prefs.theme==='woodland';
  const visible=()=>active()&&document.visibilityState==='visible'&&!get('settings').open&&!document.body.classList.contains('screen-rest');
@@ -83,7 +85,7 @@
    rest:'<path d="M284 331q17 -17 40 0Z" fill="#c1c0a0"/><path d="M336 326h13v-15h-13Z" fill="#8ec1c5"/>',
    teach:'<path d="M299 309l14 -3l15 3v19l-15 -4l-14 4Z" fill="#e6d7ad" stroke="#665c42"/><path d="M304 318q9 -12 18 3" fill="none" stroke="#71885f" stroke-width="2"/>'
   };
-  get('woodland-props').innerHTML=types[m.actionId]+(m.action.role==='climbing'?'<path d="M42 300h31M42 267h31" stroke="#c4c2a1" stroke-width="4"/>':'');
+  get('woodland-props').innerHTML=types[m.actionId]+(m.actionId==='tree'?'<path d="M42 300h31M42 267h31" stroke="#c4c2a1" stroke-width="4"/>':'');
  }
  function draw(){
   if(!active())return;
@@ -104,21 +106,28 @@
   props(m,p);
   const climb=m.action.role==='climbing'&&m.hour>=6;
   const marker=p.phase==='mark'&&companions;
+  const contactRig=climb&&m.actionId==='rock'&&!marker?DeskCharacters.climbContacts(rockRoute,p.climb,{resting:p.phase==='recover'||!p.running}):null;
+  const protectionAnchor=contactRig?rockRoute.anchor:{x:58,y:206};
+  attr('woodland-anchor','cx',protectionAnchor.x);attr('woodland-anchor','cy',protectionAnchor.y);
+  get('woodland-holds').innerHTML=contactRig?rockRoute.stations.flatMap(station=>['leftHand','leftFoot','rightHand','rightFoot'].map(name=>{const hold=station[name];return `<path data-hold="${hold.id}" d="M${hold.x-2.5} ${hold.y}h5" fill="none" stroke="#d2d2b4" stroke-width="1.7" stroke-linecap="round"/>`;})).join(''):'';
   const lastTrail=get('woodland-numerals').querySelector('[data-index="3"] .woodland-trail');
   const joint=lastTrail.getPointAtLength(lastTrail.getTotalLength()*.95);
   const trailJoint={x:546+joint.x,y:52+joint.y};
   const primary={x:climb?57:['water'].includes(m.actionId)?541:['forage'].includes(m.actionId)?586:m.actionId==='bridge'?453:280+(p.running&&m.actionId==='survey'?p.progress*90:0),y:climb?301-p.climb*56:300};
+  if(contactRig)Object.assign(primary,contactRig.root);
   if(marker){primary.x=trailJoint.x+12;primary.y=trailJoint.y+12;}
   actors.forEach(({host,young},i)=>{
    const scale=young?.52:.72,social=['teach','water','cook','rest'].includes(m.actionId),pos=i===0?primary:{x:social?primary.x+45+i*25:360+i*39,y:young?311:300};
    host.setAttribute('transform',`translate(${pos.x.toFixed(2)} ${pos.y.toFixed(2)}) scale(${scale})`);
    const pose=m.hour<6?'sleep':i===0?(marker?'build':p.pose):m.actionId==='teach'?'teach':m.reflection?'rest':'camp';
-   const anchor={x:(58-pos.x)/scale,y:(206-pos.y)/scale};
-   DeskCharacters.update(host,{action:pose,cycle:p.progress*3,fatigue:i===0?p.fatigue:0,assisted:i===0&&p.assisted,item:m.actionId==='water'?'water':m.actionId==='cook'?'food':null,ropeAnchor:anchor});
+   const anchor={x:(protectionAnchor.x-pos.x)/scale,y:(protectionAnchor.y-pos.y)/scale};
+   const rig=i===0?contactRig:null;
+   host.dataset.contactHolds=rig?JSON.stringify(rig.holds):'';host.dataset.movingLimb=rig?.moving||'';
+   DeskCharacters.update(host,{action:pose,cycle:p.progress*3,fatigue:i===0?p.fatigue:0,assisted:i===0&&p.assisted,item:m.actionId==='water'?'water':m.actionId==='cook'?'food':null,ropeAnchor:anchor,rig});
   });
   get('woodland-cast').style.display=companions?'':'none';
   const a=DeskCharacters.attachment(DeskCharacters.create('moss',{role:'climbing'}));
-  attr('woodland-rope','d',`M58 206L${primary.x+a.x*.72} ${primary.y+a.y*.72}`);get('woodland-rope').style.display=companions&&climb&&!marker?'':'none';get('woodland-anchor').style.display=get('woodland-rope').style.display;
+  attr('woodland-rope','d',`M${protectionAnchor.x} ${protectionAnchor.y}L${primary.x+a.x*.72} ${primary.y+a.y*.72}`);get('woodland-rope').style.display=companions&&climb&&!marker?'':'none';get('woodland-anchor').style.display=get('woodland-rope').style.display;
   get('woodland-hand-tool').innerHTML='';
   if(companions&&p.running&&!marker&&['sticks','shelter','bridge'].includes(m.actionId)){
    const hand=DeskCharacters.pose(p.pose,p.progress*3).arms[0][2];
@@ -155,5 +164,5 @@
  new MutationObserver(sync).observe(get('settings'),{attributes:true,attributeFilter:['open']});
  window.addEventListener('resize',sync);window.addEventListener('desk-display-change',sync);motion?.addEventListener?.('change',sync);
  if(typeof ResizeObserver==='function'){const observer=new ResizeObserver(()=>{if(active())fit();});for(const selector of ['.clock-panel','.fact-panel','.weather-panel'])observer.observe(get('display').querySelector(selector));}
- window.WoodlandTime={sync,refresh,model:DeskWorlds.woodland,get running(){return frame!==null;},get pending(){return timer!==null;}};sync();
+ window.WoodlandTime={sync,refresh,model:DeskWorlds.woodland,rockRoute,get running(){return frame!==null;},get pending(){return timer!==null;}};sync();
 })();

@@ -8,7 +8,7 @@ Git records communication but does not automatically notify another running sess
 
 | Thread | Branch carrying the handoff | Latest message | State |
 | --- | --- | --- | --- |
-| [Woodland installation and Ally testing](2026-10-05-woodland-ally/README.md) | Reply: `local/woodland-ally-check`; runtime: `feature/living-woodland-time` / [PR #3](https://github.com/ilamgumaran/simpli-home-tools/pull/3) | [002: Ally → cloud](2026-10-05-woodland-ally/002-ally-to-cloud.md) | Installed; browser checks passed; live interaction pending |
+| [Woodland installation and Ally testing](2026-10-05-woodland-ally/README.md) | Latest character step/reply: `feature/woodland-character-contacts`; preceding installation: `local/woodland-ally-check` | [003: character contacts](2026-10-05-woodland-ally/003-character-contacts.md) | Planted rock contacts implemented, verified and deployed; physical acceptance pending |
 
 ## Read and reply
 

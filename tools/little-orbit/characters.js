@@ -95,6 +95,32 @@
   const assisted=!resting&&p>.85&&remainingSeconds>=0&&remainingSeconds<1.5;
   return {progress:distance,fatigue,resting,assisted,action:resting?'rest':assisted?'assist':'climb'};
  }
+ // Authored world-space stations: four limb transfers, then a supported body lift.
+ // Sampling stays deterministic across resize, clock jumps and missed frames.
+ function climbContacts(route,progress,{resting=false}={}){
+  const names=['leftHand','leftFoot','rightHand','rightFoot'],stations=route.stations;
+  if(!Number.isFinite(progress)||!(route.scale>0)||stations.length<2)throw Error('Invalid contact route');
+  const at=clamp(progress)*(stations.length-1),index=Math.min(stations.length-2,Math.floor(at));
+  const local=at-index,stage=Math.min(4,Math.floor(local*5+1e-9)),t=clamp(local*5-stage),smooth=t*t*(3-2*t);
+  const before=stations[index],after=stations[index+1];
+  const root=stage===4?{x:lerp(before.root.x,after.root.x,smooth),y:lerp(before.root.y,after.root.y,smooth)}:{...before.root};
+  const targets={},contacts={},holds={};
+  names.forEach((name,i)=>{
+   const completed=i<stage,current=i===stage&&stage<4,start=before[name],end=after[name];
+   targets[name]=completed?{x:end.x,y:end.y}:current?{x:lerp(start.x,end.x,smooth)+(name.endsWith('Foot')?Math.sin(t*Math.PI)*route.scale*2:0),y:lerp(start.y,end.y,smooth)}:{x:start.x,y:start.y};
+   contacts[name]=!current||t===0||t===1;
+   holds[name]=contacts[name]?(completed||t===1?end.id:start.id):null;
+  });
+  const relative=name=>({x:(targets[name].x-root.x)/route.scale,y:(targets[name].y-root.y)/route.scale});
+  const solve=(origin,target,a,b,bend)=>{
+   const distance=Math.hypot(target.x-origin.x,target.y-origin.y);
+   if(distance>a+b-.01||distance<Math.abs(a-b)+.01)throw Error('Authored hold outside limb reach');
+   return joint(origin,target,a,b,bend);
+  };
+  const arms=['leftHand','rightHand'].map((name,i)=>solve(anatomy.shoulders[i],relative(name),anatomy.upperArm,anatomy.forearm,i?-1:1));
+  const legs=['leftFoot','rightFoot'].map((name,i)=>solve(anatomy.hips[i],relative(name),anatomy.thigh,anatomy.shin,i?1:-1));
+  return {root,targets,holds,stage,moving:stage<4&&t>0&&t<1?names[stage]:null,arms,legs,contacts,resting};
+ }
  const path=points=>points.map((p,i)=>`${i?'L':'M'}${p.x.toFixed(2)} ${p.y.toFixed(2)}`).join(' ');
  function artwork(character){
   const c=character.appearance,climbing=character.role==='climbing',has=id=>character.inventory.includes(id);
@@ -114,9 +140,9 @@
   </g>`;
  }
  function mount(host,character){host.innerHTML=artwork(character);host._deskCharacter=character;update(host,{action:'camp'});return host;}
- function update(host,{action='camp',cycle=0,fatigue=0,assisted=false,item=null,ropeAnchor={x:0,y:-40}}={}){
+ function update(host,{action='camp',cycle=0,fatigue=0,assisted=false,item=null,ropeAnchor={x:0,y:-40},rig=null}={}){
   const root=host.querySelector('.character-art');if(!root)return;
-  const character=host._deskCharacter,p=pose(action,cycle),part=name=>root.querySelector(`[data-part="${name}"]`);
+  const character=host._deskCharacter,p=rig||pose(action,cycle),part=name=>root.querySelector(`[data-part="${name}"]`);
   ['left','right'].forEach((side,i)=>{part('arm-'+side).setAttribute('d',path(p.arms[i]));part('leg-'+side).setAttribute('d',path(p.legs[i]));const foot=p.legs[i][2];part('boot-'+side).setAttribute('d',path([foot,{x:foot.x+(i?4:-4),y:foot.y}]));});
   ['left','right'].forEach((side,i)=>{const hand=p.arms[i][2];part('glove-'+side).setAttribute('transform',`translate(${hand.x} ${hand.y})`);part('glove-'+side).setAttribute('display',(character.inventory.includes('gloves')||character.inventory.includes('work-gloves'))?'':'none');});
   for(const [name,kind,inventory] of [['held-bottle','water','bottle'],['held-food','food','energy-bar'],['held-gear','gear','locking-carabiner']]){const hand=p.arms[0][2];part(name).setAttribute('transform',`translate(${hand.x} ${hand.y})`);part(name).setAttribute('display',['collect','camp','water','cook'].includes(action)&&item===kind&&(character.inventory.includes(inventory)||(kind==='food'&&character.inventory.some(id=>['rice','beans','trail-mix'].includes(id))))?'':'none');}
@@ -146,5 +172,5 @@
   <g class="candy-broom" stroke="${c.harness}" stroke-width="3" fill="${c.pack}"><path d="M65 29L53 63"/><path d="M48 59L59 63L60 73L43 68Z"/></g>
  </svg>`;}
  function mountCandy(host){const character=forTheme('candy');host.innerHTML=character.id==='candy'?candyArt(character):`<svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg"><g transform="translate(40 38) scale(.75)">${artwork(character)}</g></svg>`;host.dataset.character=character.id;host.dataset.role=character.role;if(character.id!=='candy'){host._deskCharacter=character;update(host,{action:'walk'});}}
- globalThis.DeskCharacters=freeze({identities,items,roles,themes,anatomy,create,forTheme,joint,pose,ascent,artwork,mount,update,attachment,mountCandy});
+ globalThis.DeskCharacters=freeze({identities,items,roles,themes,anatomy,create,forTheme,joint,pose,ascent,climbContacts,artwork,mount,update,attachment,mountCandy});
 })();

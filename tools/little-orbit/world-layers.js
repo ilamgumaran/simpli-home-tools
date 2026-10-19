@@ -17,6 +17,12 @@
   8:'M40 70L0 45V15L20 0H60L80 15V45L40 70L0 100V135L20 150H60L80 135V100Z',
   9:'M80 80H20L0 60V20L20 0H60L80 20V120L55 150H5'
  });
+ // Authored foreground boulder sockets; the rig samples these actual world holds.
+ const routes=freeze({woodlandRock:{scale:.72,anchor:{x:58,y:206},stations:Array.from({length:8},(_,row)=>{
+  const root={x:57,y:301-row*8*.72},station={root};
+  for(const [name,x,y] of [['leftHand',-12,-20],['leftFoot',-12,26],['rightHand',12,-20],['rightFoot',12,26]])station[name]={id:`rock-${name}-${row}`,x:root.x+x*.72,y:root.y+y*.72};
+  return station;
+ })}});
  const landscapes=freeze({
   woodland:{status:'implemented',numeralMaterial:'Walkable earth trails, timber edging and stone stepping dots',places:[
    {name:'Mosswood',sky:'#dce6d3',hill:'#9aad83',forest:'#486655',ground:'#71885f',water:'#91b4ba',resource:'fallen timber'},
@@ -95,5 +101,5 @@
   return {running,progress,phase:model.second<3&&!reducedMotion&&model.hour>=6?'mark':effort?.resting?'recover':running?'work':'observe',
    pose:model.hour<6?'sleep':effort?.resting?'recover-climb':effort?.action||(!running?(model.action.pose==='climb'?'recover-climb':'rest'):model.action.pose),fatigue:effort?.fatigue||0,assisted:effort?.assisted||false,climb:effort?.progress??(model.action.pose==='climb'?1:0)};
  }
- globalThis.DeskWorlds=freeze({numerals,landscapes,actions,philosophies,stories,recipes,itinerary,clock,woodland,performance});
+ globalThis.DeskWorlds=freeze({numerals,routes,landscapes,actions,philosophies,stories,recipes,itinerary,clock,woodland,performance});
 })();
