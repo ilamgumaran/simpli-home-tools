@@ -35,8 +35,10 @@ lowPowerBoolean)` once per callback. It schedules no timers and draws nothing.
 - Require at least 24 ms between paced paints. This prevents the prior naive
   accumulator's 50/16 ms catch-up pair. The minimum bounds paced RAF decisions;
   immediate synchronous clock/layout snapshots remain allowed.
-- Advance the phase by one period after a paint. When more than one period
-  behind, rebase the next due time to the current callback plus one period.
+- Advance from the earlier of the previous due time and accepted callback,
+  plus one period. An early accepted callback discards early timing debt; a
+  late callback preserves its remainder. When more than one period behind,
+  rebase the next due time to the current callback plus one period.
   Emit at most one decision per callback; never replay missed frames.
 - Normal mode accepts every callback and establishes the next low-power phase
   from the latest normal paint. Reset or a backward callback rebases the state;
@@ -45,7 +47,9 @@ lowPowerBoolean)` once per callback. It schedules no timers and draws nothing.
 The 4 ms allowance covers small callback jitter; the 24 ms floor excludes the
 known 16 ms catch-up failure while allowing necessary 26.7/40 ms sampling at
 75 Hz. These are rendering policy constants, not joint/anatomy parameters or
-relaxed test thresholds. A synthetic jitter trace still contains an occasional
+relaxed test thresholds. Quantized callback streams can settle slightly above
+the nominal target (32 updates/s at exactly 64 native callbacks/s); 30 Hz is
+a target, not an exact cap. Normal mode still follows every native callback. A synthetic jitter trace still contains an occasional
 57 ms gap, so mean cadence alone is insufficient for acceptance.
 
 Both Woodland loops use this helper. They continue to calculate scene/pose/time
@@ -57,7 +61,7 @@ bursts; long idle periods rebase on the next callback.
 
 ## Verification and boundaries
 
-Independent pure fixtures cover 60/75/120/144 Hz, ordered seeded jitter, fixed
+Independent pure fixtures cover 60/64/75/120/144 Hz, ordered seeded jitter, fixed
 catch-up/outage boundaries, mode switches, reset, backward skipped callbacks,
 instance isolation and invalid input. A 20 Hz callback fixture documents that
 pacing cannot invent missing rendering opportunities.
@@ -83,3 +87,22 @@ latest, macOS Intel and Windows. Its performance values are research data; the
 production `npm test` gates remain required. Hidden controls never change shipped
 art or establish production passes. [Session 023](../../../sessions/2026-10-10-weather-habitat/023-rendering-control-probe.md)
 records the candidate failures motivating this comparison.
+
+## Quantized Windows callbacks
+
+The public Windows trace in `tests/fixtures/frame-cadence-windows.json` records
+131 original callback gaps, dominated by 15.62/15.64 ms with occasional gaps near
+18 ms. It belongs to run 39375609716, check 118472943947, source `897d0b0`.
+Keeping early-frame debt passes only 47 of 101 replayed starting phases; discarding
+that debt passes all 101 at 30.22–30.68 updates/s, p95 33.94 ms and minimum gap
+31.24 ms. The test retains the original 2151 ms measurement duration; the shorter
+callback span is not substituted as its denominator.
+
+The earlier `897d0b0` runtime passed complete native Chrome/Firefox/Edge suites
+and all 66 browser cadence cases locally. The final one-line Windows correction
+has a new portable artifact and receives its own full verification. Read
+[session 024](../../../sessions/2026-10-10-weather-habitat/024-quantized-pacing-candidate.md)
+for the candidate boundary. Neither Intel pinning nor a Chromium-channel change
+is justified by the first controls: even blank-page frame delivery varied on
+both macOS runner architectures. A separate headful-window comparison investigates
+the remaining timing prerequisite. Main application gates stay unchanged.

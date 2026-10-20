@@ -2,7 +2,7 @@
 
 Updated 2026-10-20. Milestones express intent, not promised delivery dates. The product owner sets priorities and authorizes deferred implementation.
 
-Before anatomy artwork rollout, complete the [bounded phase cadence candidate](design/FRAME-CADENCE.md)'s hosted/portable and cross-platform gates. [Session 022](../../sessions/2026-10-10-weather-habitat/022-bounded-frame-cadence-candidate.md) records scope and pending evidence. No performance threshold changes are planned.
+Before anatomy artwork rollout, complete the [bounded phase cadence candidate](design/FRAME-CADENCE.md)'s hosted/portable and cross-platform gates. [Session 024](../../sessions/2026-10-10-weather-habitat/024-quantized-pacing-candidate.md) records the Windows correction and pending verification. No performance threshold changes are planned.
 
 ## Character priority — anatomy foundation candidate, later rollout planned
 

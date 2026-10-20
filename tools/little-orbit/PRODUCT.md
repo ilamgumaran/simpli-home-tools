@@ -8,7 +8,7 @@ This is the product's planning hub. Designs are proposals until explicitly marke
 
 ## Woodland/Green House 1 cadence candidate
 
-The [bounded phase pacing design](design/FRAME-CADENCE.md) addresses a low-power limiter that amplifies native callback jitter into skipped character updates. Both Woodland renderers now share the candidate policy; full browser/CI acceptance is in progress. Scene art, body contacts and gait curves remain unchanged. [Session 022](../../sessions/2026-10-10-weather-habitat/022-bounded-frame-cadence-candidate.md) pins the rebuilt portable file and remaining gates.
+The [bounded phase pacing design](design/FRAME-CADENCE.md) addresses a low-power limiter that amplifies native callback jitter into skipped character updates. Both Woodland renderers now share the candidate policy; full browser/CI acceptance is in progress. Scene art, body contacts and gait curves remain unchanged. [Session 024](../../sessions/2026-10-10-weather-habitat/024-quantized-pacing-candidate.md) pins the final quantized-timestamp correction, rebuilt portable file and remaining gates.
 
 ## Shared anatomy — foundation and inspection candidate
 

@@ -47,7 +47,9 @@
       if (at < due - EARLY_TOLERANCE || at - last < MINIMUM_GAP) return false;
 
       last = at;
-      due += PERIOD;
+      // Early callbacks cannot accumulate timing debt under quantized timestamps;
+      // late frames still retain their phase remainder.
+      due = Math.min(due, at) + PERIOD;
       if (due < at - PERIOD) due = at + PERIOD;
       return true;
     }

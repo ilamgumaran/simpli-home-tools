@@ -1,5 +1,6 @@
 const assert = require('node:assert/strict');
 const {create} = require('../frame-cadence.js');
+const windowsRaf = require('./fixtures/frame-cadence-windows.json');
 
 const period = 1000 / 30;
 function times(hz, seconds = 30, jitter = 0) {
@@ -9,10 +10,10 @@ function times(hz, seconds = 30, jitter = 0) {
   assert.ok(frames.every((at, i) => i === 0 || at > frames[i - 1]), 'Fixture RAF callbacks must be ordered');
   return frames.map(at => at - frames[0]);
 }
-function sample(callbacks, shouldDraw) {
+function sample(callbacks, shouldDraw, elapsed = callbacks.at(-1) - callbacks[0]) {
   const painted = callbacks.filter(shouldDraw);
   const gaps = painted.slice(1).map((at, i) => at - painted[i]).sort((a, b) => a - b);
-  return {fps: painted.length * 1000 / (callbacks.at(-1) - callbacks[0]),
+  return {fps: painted.length * 1000 / elapsed,
     min: gaps[0], p95: gaps[Math.floor(gaps.length * .95)], max: gaps.at(-1), painted};
 }
 
@@ -28,6 +29,30 @@ for (const [label, callbacks] of [
   assert.ok(result.p95 <= 46, `${label}: p95 gap ${result.p95}ms`);
   assert.ok(result.min >= 24 - 1e-8, `${label}: catch-up gap ${result.min}ms`);
   assert.ok(result.max < 100, `${label}: max gap ${result.max}ms`);
+}
+
+// At 64Hz, painting every second callback is 32fps. A strict 30Hz phase
+// would add 46.875ms triplets often enough to fail the unchanged p95 gate.
+const quantized = create();
+const at64 = sample(times(64), at => quantized.shouldDraw(at, true));
+assert.ok(at64.fps >= 31.5 && at64.fps <= 32.5, `64Hz quantization: ${at64.fps} updates/s`);
+assert.ok(at64.p95 <= 46 && at64.min >= 24, `64Hz gaps: ${at64.p95} / ${at64.min}ms`);
+
+// Measured Windows CI callback times have 15.6ms pairs with 18ms variation.
+// Discarding debt from a frame accepted up to 4ms early should avoid repeated
+// 49ms triplets; test every initial phase rather than one lucky alignment.
+assert.equal(windowsRaf.nominalGapsMs.length, 131);
+assert.ok(windowsRaf.nominalGapsMs.every(gap => gap > 0 && gap < 24));
+const windowsCallbacks = [period];
+for (const gap of windowsRaf.nominalGapsMs) windowsCallbacks.push(windowsCallbacks.at(-1) + gap);
+for (let step = 0; step <= 100; step++) {
+  const phase = step * period / 100;
+  const cadence = create();
+  assert.equal(cadence.shouldDraw(period - phase, true), true);
+  const result = sample(windowsCallbacks, at => cadence.shouldDraw(at, true), windowsRaf.elapsedMs);
+  assert.ok(result.fps >= 26 && result.fps <= 31, `Windows phase ${step}: ${result.fps} updates/s`);
+  assert.ok(result.p95 <= 46 && result.max < 100, `Windows phase ${step}: p95 ${result.p95}, max ${result.max}ms`);
+  assert.ok(result.min >= 24 - 1e-8, `Windows phase ${step}: short catch-up ${result.min}ms`);
 }
 
 // The former reset-to-now limiter misses paint slots on ordered, jittered RAF.

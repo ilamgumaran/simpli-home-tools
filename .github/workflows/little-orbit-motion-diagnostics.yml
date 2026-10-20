@@ -30,4 +30,5 @@ jobs:
       - name: Measure browser and scene cadence
         env:
           CLOCK_TEST_CHANNEL: chromium
+          CLOCK_DIAGNOSTIC_HEADLESS: 'false'
         run: node tests/diagnose-motion-control.cjs

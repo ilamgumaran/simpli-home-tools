@@ -100,7 +100,8 @@ async function runCase(engine,browserName,name,url,mode){
   },mode);
   if(errors.length)throw new Error(`${browserName} ${name} page errors: ${errors.join(' | ')}`);
   const channel=browserName==='chromium'?(process.env.CLOCK_TEST_CHANNEL||'default'):'default';
-  const record={platform:process.platform,architecture:process.arch,browser:browserName,browserVersion:engine.version(),channel,case:name,...result};
+  const headless=process.env.CLOCK_DIAGNOSTIC_HEADLESS!=='false';
+  const record={platform:process.platform,architecture:process.arch,browser:browserName,browserVersion:engine.version(),channel,headless,case:name,...result};
   const json=JSON.stringify(record);
   if(json.length>2800)throw new Error(`${browserName} ${name} diagnostic exceeded annotation limit`);
   console.log(json);
@@ -114,7 +115,7 @@ async function runCase(engine,browserName,name,url,mode){
  const server=await startServer();
  try{
   for(const [name,engine] of [['chromium',chromium],['firefox',firefox]]){
-   const options={headless:true};
+   const options={headless:process.env.CLOCK_DIAGNOSTIC_HEADLESS!=='false'};
    if(name==='chromium'&&process.env.CLOCK_TEST_CHANNEL)options.channel=process.env.CLOCK_TEST_CHANNEL;
    const browser=await engine.launch(options);
    try{
