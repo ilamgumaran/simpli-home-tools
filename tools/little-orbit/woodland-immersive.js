@@ -39,7 +39,8 @@
  thought.onclick=()=>{if(locked)return;const show=document.body.classList.toggle('woodland-information');thought.setAttribute('aria-expanded',String(show));};
  const media=typeof matchMedia==='function'?matchMedia('(prefers-reduced-motion: reduce)'):null;
  let reducedMotion=!!media?.matches;
- let frame=null,timer=null,lastFrame=0,lastChapter='',lastMinute='',lastCast='',lastLayout='',lastClock='',lastLabel='',weatherSnapshot=null,weatherKey='',lastThermometer='';
+ let frame=null,timer=null,lastChapter='',lastMinute='',lastCast='',lastLayout='',lastClock='',lastLabel='',weatherSnapshot=null,weatherKey='',lastThermometer='';
+ const cadence=DeskFrameCadence.create();
  let lastAmbientBeat=null,lastAmbientFrozen=null;
  let layout={width:800,height:360,sx:1,sy:1,portrait:false,ground:322},slots=[],actors=[],paths=[];
  const greenhouse=()=>prefs.theme==='greenhouse1';
@@ -432,11 +433,9 @@
  }
  function stop(){clearTimeout(timer);timer=null;if(frame!==null)cancelAnimationFrame(frame);frame=null;}
  function loop(at){
-  frame=null;if(!visible())return;const period=1000/30;
-  if(prefs.lowPower&&at-lastFrame<period-2){frame=requestAnimationFrame(loop);return;}
-  // Pace from the frame actually shown. Catching up an ideal phase after a
-  // late frame produces a visible 50ms/16ms alternation on a 60Hz display.
-  lastFrame=at;
+  frame=null;if(!visible())return;
+  // A bounded phase allowance handles callback jitter without a 16ms catch-up draw.
+  if(!cadence.shouldDraw(at,!!prefs.lowPower)){frame=requestAnimationFrame(loop);return;}
   if(draw())frame=requestAnimationFrame(loop);
  }
  function sync(){

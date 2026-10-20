@@ -33,7 +33,7 @@ Candy Quest visits briefly and pauses between appearances, picks routes outside 
 
 For session-to-session handoffs and replies, read the [session communication directory](../../sessions/README.md). The [organic-motion thread](../../sessions/2026-10-05-organic-motion/README.md) records motion ownership, the next build and device feedback; [motion design](design/ORGANIC-MOTION.md) explains pacing and verification.
 
-The current [anatomy foundation handoff](../../sessions/2026-10-10-weather-habitat/020-anatomy-foundation-results.md) identifies the PR, portable checksum, browser results and remaining gates.
+The latest [cadence candidate handoff](../../sessions/2026-10-10-weather-habitat/022-bounded-frame-cadence-candidate.md) records the pacing change, new portable checksum and pending validation. The earlier [anatomy foundation handoff](../../sessions/2026-10-10-weather-habitat/020-anatomy-foundation-results.md) identifies the PR, portable checksum, browser results and remaining gates.
 
 Start with the [product guide](PRODUCT.md), [roadmap](ROADMAP.md), [design archive](design/), and [changelog](CHANGELOG.md) for product status and planned work. The [model orchestration plan](design/MODEL-ORCHESTRATION.md) records planning, testing and execution roles. Six themes are implemented, including Woodland of Time and Green House 1; all earlier choices remain available. Green House 1's meal choreography is implemented and passed browser, cadence and portable checks; physical and sustained acceptance remain pending.
 

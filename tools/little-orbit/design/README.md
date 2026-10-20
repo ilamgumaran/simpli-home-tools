@@ -26,3 +26,5 @@ The preview has a fixed sample clock and manually selected focus/viewpoints. It 
 See [architecture](ARCHITECTURE.md), [decision log](DECISIONS.md), [product guide](../PRODUCT.md), and [roadmap](../ROADMAP.md) for context. Keep originals/license notices with artwork. Do not save personal screen captures, device profiles, private settings, credentials, or OS power state here.
 
 - [Woodland refinement and supported work](REFINEMENT-AND-WORK.md): merged size/motion and contact histories, shelter/crossing sockets, teaching and remaining milestones.
+
+[Bounded frame pacing](FRAME-CADENCE.md) records the Woodland/Green House 1 cadence candidate, evidence and unchanged acceptance gates.

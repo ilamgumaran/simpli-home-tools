@@ -4,6 +4,12 @@ No tagged releases yet. Implemented entries describe code on the development bra
 
 ## Unreleased
 
+### Bounded Woodland/Green House 1 cadence — validation candidate
+
+- Added shared phase pacing for the low-power 30 Hz target, with a minimum paced gap to prevent short catch-up pairs and a rebase after long pauses. Normal mode follows every native RAF callback; scenes still derive poses and time from current time.
+- Added independent refresh-rate/jitter/stall fixtures and native callback diagnostics. The older climber test now waits for the reduced-motion change event before its existing quiet-visit assertion. All performance limits remain unchanged.
+- [Session 022](../../sessions/2026-10-10-weather-habitat/022-bounded-frame-cadence-candidate.md) identifies the rebuilt candidate and pending full browser/CI gates; earlier anatomy-only results do not validate the changed pacing.
+
 ### Shared anatomy foundation — workshop inspection
 
 - Added shared versioned adult, drop, learner and swaddled profiles, pure palm/thumb and sole landmarks, constrained two-bone reference solves, stable bend choices and explicit unreachable-target diagnostics.

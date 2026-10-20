@@ -58,7 +58,7 @@ async function verifyTransitions(browser,target){
      const summarize=values=>{const sorted=values.slice().sort((a,b)=>a-b);return {p95:sorted[Math.floor(sorted.length*.95)],max:sorted.at(-1)};};
      const nominal=callbacks.slice(1).map((item,i)=>item[0]-callbacks[i][0]),actual=callbacks.slice(1).map((item,i)=>item[1]-callbacks[i][1]);
      const round=value=>Number.isFinite(value)?Math.round(value*100)/100:null,nominalSummary=summarize(nominal),actualSummary=summarize(actual);
-     return {fps:frames.length*1000/elapsed,p95:gaps[Math.floor(gaps.length*.95)],maxGap:gaps.at(-1),frames:frames.length,callback:{count:callbacks.length,fps:callbacks.length*1000/elapsed,nominalP95:round(nominalSummary.p95),nominalMax:round(nominalSummary.max),actualP95:round(actualSummary.p95),actualMax:round(actualSummary.max),largestNominalGaps:nominal.slice().sort((a,b)=>b-a).slice(0,8).map(round)}};
+     return {fps:frames.length*1000/elapsed,p95:gaps[Math.floor(gaps.length*.95)],maxGap:gaps.at(-1),frames:frames.length,callback:{count:callbacks.length,fps:callbacks.length*1000/elapsed,nominalP95:round(nominalSummary.p95),nominalMax:round(nominalSummary.max),actualP95:round(actualSummary.p95),actualMax:round(actualSummary.max),tailNominalGaps:nominal.slice(-160).map(round),largestNominalGaps:nominal.slice().sort((a,b)=>b-a).slice(0,8).map(round)}};
     });
     assert.ok(result.fps>=(lowPower?26:45),JSON.stringify({lowPower,result}));
     assert.ok(result.p95<=(lowPower?46:31)&&result.maxGap<100,JSON.stringify({lowPower,result}));

@@ -2060,6 +2060,68 @@ applyDisplay();
 <script>
 // SPDX-License-Identifier: LicenseRef-Simpli-Noncommercial-1.0
 // Copyright (C) 2026 ilamgumaran and contributors
+((root, factory) => {
+  const api = factory();
+  if (typeof module === 'object' && module.exports) module.exports = api;
+  if (root) root.DeskFrameCadence = api;
+})(typeof globalThis === 'object' ? globalThis : this, () => {
+  const PERIOD = 1000 / 30;
+  const EARLY_TOLERANCE = 4;
+  const MINIMUM_GAP = 24;
+
+  function create() {
+    let last = null;
+    let due = null;
+    let previous = null;
+
+    function reset() {
+      last = null;
+      due = null;
+      previous = null;
+    }
+
+    function shouldDraw(at, lowPower) {
+      if (typeof at !== 'number' || !Number.isFinite(at) || at < 0) {
+        throw new RangeError('RAF timestamp must be a finite nonnegative number');
+      }
+      if (typeof lowPower !== 'boolean') {
+        throw new TypeError('lowPower must be a boolean');
+      }
+
+      const backwards = previous !== null && at < previous;
+      previous = at;
+      if (last === null || backwards) {
+        last = at;
+        due = at + PERIOD;
+        return true;
+      }
+      if (!lowPower) {
+        last = at;
+        due = at + PERIOD;
+        return true;
+      }
+
+      // A 4ms phase allowance absorbs callback jitter while the 24ms floor
+      // prevents a second draw near 16ms; reset after a long pause instead of
+      // carrying missed periods forward or trying to catch up in a draw loop.
+      if (at < due - EARLY_TOLERANCE || at - last < MINIMUM_GAP) return false;
+
+      last = at;
+      due += PERIOD;
+      if (due < at - PERIOD) due = at + PERIOD;
+      return true;
+    }
+
+    return Object.freeze({ reset, shouldDraw });
+  }
+
+  return Object.freeze({ create: Object.freeze(create) });
+});
+
+</script>
+<script>
+// SPDX-License-Identifier: LicenseRef-Simpli-Noncommercial-1.0
+// Copyright (C) 2026 ilamgumaran and contributors
 // The landscape states the time. Work celebrates each change; it never delays it.
 (()=>{
  'use strict';
@@ -2078,7 +2140,8 @@ applyDisplay();
  </svg><div class="woodland-caption"><span id="woodland-place"></span><span id="woodland-action"></span></div><p id="woodland-story"></p>`;
  get('display').insertBefore(scene,get('display').querySelector('.fact-panel'));
  const motion=typeof matchMedia==='function'?matchMedia('(prefers-reduced-motion: reduce)'):null;
- let timer=null,frame=null,lastFrame=0,lastMinute='',lastTerrain='',lastCast='',sizing=false,lastFit='',lastClock='';
+ let timer=null,frame=null,lastMinute='',lastTerrain='',lastCast='',sizing=false,lastFit='',lastClock='';
+ const cadence=DeskFrameCadence.create();
  let layout={width:800,height:360};
  const actors=[];
  // Small supported rock route, authored entirely within the foreground boulder.
@@ -2321,9 +2384,7 @@ applyDisplay();
  function stop(){clearTimeout(timer);timer=null;if(frame!==null)cancelAnimationFrame(frame);frame=null;}
  function loop(now){
   frame=null;if(!visible())return;
-  const period=1000/30;
-  if(prefs.lowPower&&now-lastFrame<period-2){frame=requestAnimationFrame(loop);return;}
-  lastFrame=now;
+  if(!cadence.shouldDraw(now,!!prefs.lowPower)){frame=requestAnimationFrame(loop);return;}
   if(draw())frame=requestAnimationFrame(loop);
  }
  function schedule(){
@@ -2692,7 +2753,8 @@ applyDisplay();
  thought.onclick=()=>{if(locked)return;const show=document.body.classList.toggle('woodland-information');thought.setAttribute('aria-expanded',String(show));};
  const media=typeof matchMedia==='function'?matchMedia('(prefers-reduced-motion: reduce)'):null;
  let reducedMotion=!!media?.matches;
- let frame=null,timer=null,lastFrame=0,lastChapter='',lastMinute='',lastCast='',lastLayout='',lastClock='',lastLabel='',weatherSnapshot=null,weatherKey='',lastThermometer='';
+ let frame=null,timer=null,lastChapter='',lastMinute='',lastCast='',lastLayout='',lastClock='',lastLabel='',weatherSnapshot=null,weatherKey='',lastThermometer='';
+ const cadence=DeskFrameCadence.create();
  let lastAmbientBeat=null,lastAmbientFrozen=null;
  let layout={width:800,height:360,sx:1,sy:1,portrait:false,ground:322},slots=[],actors=[],paths=[];
  const greenhouse=()=>prefs.theme==='greenhouse1';
@@ -3085,11 +3147,9 @@ applyDisplay();
  }
  function stop(){clearTimeout(timer);timer=null;if(frame!==null)cancelAnimationFrame(frame);frame=null;}
  function loop(at){
-  frame=null;if(!visible())return;const period=1000/30;
-  if(prefs.lowPower&&at-lastFrame<period-2){frame=requestAnimationFrame(loop);return;}
-  // Pace from the frame actually shown. Catching up an ideal phase after a
-  // late frame produces a visible 50ms/16ms alternation on a 60Hz display.
-  lastFrame=at;
+  frame=null;if(!visible())return;
+  // A bounded phase allowance handles callback jitter without a 16ms catch-up draw.
+  if(!cadence.shouldDraw(at,!!prefs.lowPower)){frame=requestAnimationFrame(loop);return;}
   if(draw())frame=requestAnimationFrame(loop);
  }
  function sync(){

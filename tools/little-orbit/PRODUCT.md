@@ -6,6 +6,10 @@ Our Desk Clock is a configurable browser display for desks, families, spare scre
 
 This is the product's planning hub. Designs are proposals until explicitly marked implemented. The current Woodland scene is on `feature/woodland-immersive-story`; the [installation handoff](design/ALLY-TEST-HANDOFF.md) identifies its runtime and portable artifact. The initial five-theme foundation remains in [PR #3](https://github.com/ilamgumaran/simpli-home-tools/pull/3), stacked on the shared-character and original-clock PRs. No versioned release has been published yet. [Earlier local installation results](../../sessions/2026-10-05-woodland-ally/002-ally-to-cloud.md) distinguish browser checks from physical-device acceptance.
 
+## Woodland/Green House 1 cadence candidate
+
+The [bounded phase pacing design](design/FRAME-CADENCE.md) addresses a low-power limiter that amplifies native callback jitter into skipped character updates. Both Woodland renderers now share the candidate policy; full browser/CI acceptance is in progress. Scene art, body contacts and gait curves remain unchanged. [Session 022](../../sessions/2026-10-10-weather-habitat/022-bounded-frame-cadence-candidate.md) pins the rebuilt portable file and remaining gates.
+
 ## Shared anatomy — foundation and inspection candidate
 
 The [shared anatomy and organic movement plan](design/ANATOMY-AND-ORGANIC-MOVEMENT.md) now has an additive foundation: [versioned anatomy profiles](design/ANATOMY-PROFILES.md), constrained two-bone reference geometry, named palm/thumb/heel/ball/toe landmarks, and a [workshop reference panel](design/character-study.html) for the seven identities. Adult, drop and learner proportions remain distinct; Pebble has support-only swaddled anatomy. The [baseline inventory](design/ANATOMY-BASELINE.md) and 120 captured legacy pose samples protect existing output.
