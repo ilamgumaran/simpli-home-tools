@@ -73,3 +73,13 @@ Build, pure fixtures and integration review pass. Full hosted/portable browser
 and cross-platform CI results are pending at this checkpoint. No Ally/Vanadium,
 sustained-operation or new live-anatomy acceptance is claimed. Review actual
 walking/climbing motion as well as cadence metrics before physical acceptance.
+
+## Read-only controls
+
+`node tests/diagnose-motion-control.cjs` compares native callback delivery in an
+empty page with the real dashboard and two hidden-art controls. A separate motion
+diagnostics workflow records browser versions and runner architecture on macOS
+latest, macOS Intel and Windows. Its performance values are research data; the
+production `npm test` gates remain required. Hidden controls never change shipped
+art or establish production passes. [Session 023](../../../sessions/2026-10-10-weather-habitat/023-rendering-control-probe.md)
+records the candidate failures motivating this comparison.

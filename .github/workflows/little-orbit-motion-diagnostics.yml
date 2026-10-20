@@ -1,0 +1,31 @@
+name: Little Orbit motion diagnostics
+on:
+  push:
+    paths:
+      - 'tools/little-orbit/tests/diagnose-motion-control.cjs'
+      - '.github/workflows/little-orbit-motion-diagnostics.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  motion-diagnostics:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [macos-latest, macos-15-intel, windows-latest]
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 15
+    defaults:
+      run:
+        working-directory: tools/little-orbit
+    steps:
+      - uses: actions/checkout@v7.0.1
+      - uses: actions/setup-node@v7.0.0
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: tools/little-orbit/package-lock.json
+      - run: npm ci
+      - run: npx playwright install chromium firefox
+      - name: Measure browser and scene cadence
+        run: node tests/diagnose-motion-control.cjs

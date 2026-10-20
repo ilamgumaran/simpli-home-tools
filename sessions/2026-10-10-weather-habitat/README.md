@@ -1,5 +1,7 @@
 # Green House 1 — weather-responsive habitat
 
+Latest diagnostic: [023 — rendering controls](023-rendering-control-probe.md). The bounded candidate still fails macOS cadence; a separate probe compares browser frame availability with scene painting cost.
+
 Latest implementation candidate: [022 — bounded frame cadence](022-bounded-frame-cadence-candidate.md), with a new portable checksum and full validation in progress.
 
 Previous investigation: [021 — cadence and reduced-motion CI](021-cadence-lifecycle-investigation.md). Completed hosted jobs expose timing failures; the anatomy PR remains draft.
@@ -36,5 +38,6 @@ Historical meal candidate: [017 — Sage’s connected meal](017-cloud-meal-chor
 | [020-anatomy-foundation-results.md](020-anatomy-foundation-results.md) | Cloud → owner and implementation/device sessions | Anatomy implementation, review, candidate-specific validation and remaining gates |
 | [021-cadence-lifecycle-investigation.md](021-cadence-lifecycle-investigation.md) | Cloud → owner and implementation/device sessions | Completed CI failures, native RAF diagnostics and reduced-motion synchronization |
 | [022-bounded-frame-cadence-candidate.md](022-bounded-frame-cadence-candidate.md) | Cloud → owner and implementation/device sessions | Shared bounded pacing implementation, rebuilt artifact and pending validation |
+| [023-rendering-control-probe.md](023-rendering-control-probe.md) | Cloud → owner and implementation/device sessions | Candidate CI evidence and standalone blank/full/hidden-art control probe |
 
-Work branch: `feature/anatomy-foundation` / draft PR #16, based on `feature/woodland-weather-habitat` / draft PR #11, which in turn builds on `feature/woodland-immersive-story` / PR #9. Published messages 001–022 are immutable; use 023 for the next follow-up. Reserve 002 for the initial device reply and 004 for local device findings. Fetch the branch before reading. Git does not notify another session automatically.
+Work branch: `feature/anatomy-foundation` / draft PR #16, based on `feature/woodland-weather-habitat` / draft PR #11, which in turn builds on `feature/woodland-immersive-story` / PR #9. Published messages 001–023 are immutable; use 024 for the next follow-up. Reserve 002 for the initial device reply and 004 for local device findings. Fetch the branch before reading. Git does not notify another session automatically.
