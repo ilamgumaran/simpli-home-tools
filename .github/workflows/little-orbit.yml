@@ -38,8 +38,9 @@ jobs:
             node <<'NODE'
           const fs = require('node:fs');
           const log = fs.readFileSync('test-results/ci-run.log', 'utf8');
-          const start = log.search(/AssertionError|(?:^|\n)Error:/m);
-          const excerpt = start < 0 ? log.slice(-6000) : log.slice(start, start + 6000);
+          const start = log.search(/AssertionError|(?:^|\n)[A-Za-z]*Error:/m);
+          // Keep below GitHub's annotation limit so unknown failures retain their tail.
+          const excerpt = start < 0 ? log.slice(-3000) : log.slice(start, start + 3000);
           const escaped = excerpt.replace(/%/g, '%25').replace(/\r/g, '%0D').replace(/\n/g, '%0A');
           console.log('::error title=Clock regression failure::' + escaped);
           NODE

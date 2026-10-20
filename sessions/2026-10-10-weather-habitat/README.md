@@ -1,5 +1,7 @@
 # Green House 1 — weather-responsive habitat
 
+Latest investigation: [021 — cadence and reduced-motion CI](021-cadence-lifecycle-investigation.md). Completed hosted jobs expose timing failures; the anatomy PR remains draft.
+
 Current development candidate: [020 — anatomy foundation and verification](020-anatomy-foundation-results.md), on `feature/anatomy-foundation` / [draft PR #16](https://github.com/ilamgumaran/simpli-home-tools/pull/16), targeting `feature/woodland-weather-habitat`. [019](019-cloud-anatomy-foundation-ownership.md) records ownership; [018](018-cloud-anatomy-movement-plan.md) defines the staged plan.
 
 A0 inventory and the additive A1 geometry/workshop foundation are implemented. Shared profiles define adult, drop, learner and swaddled proportions, reference joint envelopes and palm/sole landmarks. Static workshop references expose infeasible targets. Live artwork, gait and existing contacts remain on the legacy path. A2 silhouettes and A3/A4 contact/gait work are next after the remaining bounds and CI gates.
@@ -30,5 +32,6 @@ Historical meal candidate: [017 — Sage’s connected meal](017-cloud-meal-chor
 | [018-cloud-anatomy-movement-plan.md](018-cloud-anatomy-movement-plan.md) | Cloud → owner and implementation/device sessions | Whole-cast anatomy plan, staged tickets, migration scope and proposed acceptance |
 | [019-cloud-anatomy-foundation-ownership.md](019-cloud-anatomy-foundation-ownership.md) | Cloud → owner and implementation/device sessions | A0/A1 ownership, bounded implementation and validation contract |
 | [020-anatomy-foundation-results.md](020-anatomy-foundation-results.md) | Cloud → owner and implementation/device sessions | Anatomy implementation, review, candidate-specific validation and remaining gates |
+| [021-cadence-lifecycle-investigation.md](021-cadence-lifecycle-investigation.md) | Cloud → owner and implementation/device sessions | Completed CI failures, native RAF diagnostics and reduced-motion synchronization |
 
-Work branch: `feature/anatomy-foundation` / draft PR #16, based on `feature/woodland-weather-habitat` / draft PR #11, which in turn builds on `feature/woodland-immersive-story` / PR #9. Published messages 001–020 are immutable; use 021 for the next follow-up. Reserve 002 for the initial device reply and 004 for local device findings. Fetch the branch before reading. Git does not notify another session automatically.
+Work branch: `feature/anatomy-foundation` / draft PR #16, based on `feature/woodland-weather-habitat` / draft PR #11, which in turn builds on `feature/woodland-immersive-story` / PR #9. Published messages 001–021 are immutable; use 022 for the next follow-up. Reserve 002 for the initial device reply and 004 for local device findings. Fetch the branch before reading. Git does not notify another session automatically.
