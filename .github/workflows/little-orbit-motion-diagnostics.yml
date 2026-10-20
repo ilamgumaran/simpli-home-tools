@@ -5,6 +5,20 @@ on:
       - 'tools/little-orbit/tests/diagnose-motion-control.cjs'
       - '.github/workflows/little-orbit-motion-diagnostics.yml'
   workflow_dispatch:
+    inputs:
+      headless:
+        description: Run browsers without a visible window
+        type: boolean
+        required: true
+        default: true
+      chromium_channel:
+        description: Chromium launcher backend
+        type: choice
+        required: true
+        default: default
+        options:
+          - default
+          - chromium
 permissions:
   contents: read
 jobs:
@@ -29,6 +43,6 @@ jobs:
       - run: npx playwright install chromium firefox
       - name: Measure browser and scene cadence
         env:
-          CLOCK_TEST_CHANNEL: chromium
-          CLOCK_DIAGNOSTIC_HEADLESS: 'false'
+          CLOCK_TEST_CHANNEL: ${{ github.event_name == 'workflow_dispatch' && inputs.chromium_channel == 'chromium' && 'chromium' || '' }}
+          CLOCK_DIAGNOSTIC_HEADLESS: ${{ github.event_name == 'workflow_dispatch' && inputs.headless == false && 'false' || 'true' }}
         run: node tests/diagnose-motion-control.cjs
