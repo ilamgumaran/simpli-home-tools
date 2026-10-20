@@ -99,7 +99,8 @@ async function runCase(engine,browserName,name,url,mode){
    return {durationMs:round(elapsed),callback,geometry:painted};
   },mode);
   if(errors.length)throw new Error(`${browserName} ${name} page errors: ${errors.join(' | ')}`);
-  const record={platform:process.platform,architecture:process.arch,browser:browserName,browserVersion:engine.version(),case:name,...result};
+  const channel=browserName==='chromium'?(process.env.CLOCK_TEST_CHANNEL||'default'):'default';
+  const record={platform:process.platform,architecture:process.arch,browser:browserName,browserVersion:engine.version(),channel,case:name,...result};
   const json=JSON.stringify(record);
   if(json.length>2800)throw new Error(`${browserName} ${name} diagnostic exceeded annotation limit`);
   console.log(json);
@@ -113,7 +114,9 @@ async function runCase(engine,browserName,name,url,mode){
  const server=await startServer();
  try{
   for(const [name,engine] of [['chromium',chromium],['firefox',firefox]]){
-   const browser=await engine.launch({headless:true});
+   const options={headless:true};
+   if(name==='chromium'&&process.env.CLOCK_TEST_CHANNEL)options.channel=process.env.CLOCK_TEST_CHANNEL;
+   const browser=await engine.launch(options);
    try{
     for(const [label,mode] of [['blank','blank'],['dashboard','full'],['dashboard-static-art-hidden','static-hidden'],['dashboard-world-hidden','world-hidden']]){
      // Hiding art diagnoses raster load only; it does not replace the production motion gates.
@@ -122,4 +125,9 @@ async function runCase(engine,browserName,name,url,mode){
    }finally{await browser.close();}
   }
  }finally{await server.stop();}
-})().catch(error=>{console.error(error);process.exitCode=1;});
+})().catch(error=>{
+ console.error(error);
+ const details=(error?.stack||String(error)).replace(/%/g,'%25').replace(/\r/g,'%0D').replace(/\n/g,'%0A');
+ console.log(`::error title=Motion diagnostic failure::${details.slice(0,2800)}`);
+ process.exitCode=1;
+});

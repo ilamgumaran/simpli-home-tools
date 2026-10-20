@@ -28,4 +28,6 @@ jobs:
       - run: npm ci
       - run: npx playwright install chromium firefox
       - name: Measure browser and scene cadence
+        env:
+          CLOCK_TEST_CHANNEL: chromium
         run: node tests/diagnose-motion-control.cjs
