@@ -9,7 +9,7 @@ No tagged releases yet. Implemented entries describe code on the development bra
 - Added shared phase pacing for the low-power 30 Hz target, with a minimum paced gap to prevent short catch-up pairs and a rebase after long pauses. Normal mode follows every native RAF callback; scenes still derive poses and time from current time.
 - Corrected early-frame timing debt using a public Windows callback fixture and 101 start phases; quantized refresh can run slightly above the nominal 30 Hz target.
 - Added independent refresh-rate/jitter/stall fixtures and native callback diagnostics. The older climber test now waits for the reduced-motion change event before its existing quiet-visit assertion. All performance limits remain unchanged.
-- [Session 022](../../sessions/2026-10-10-weather-habitat/022-bounded-frame-cadence-candidate.md) identifies the rebuilt candidate and pending full browser/CI gates; earlier anatomy-only results do not validate the changed pacing.
+- [Session 025](../../sessions/2026-10-10-weather-habitat/025-cadence-verification-handoff.md) records final corrected-runtime coverage: Chrome/Edge 22 cadence passes each, Firefox 21 passes/1 hosted DPR2 rain failure. Combined Chrome/Firefox npm exits 1; native Edge exits 0; remaining functional/offline coverage completed separately. Required Windows/macOS timing checks remain failed. Added a [rain profiling investigation and task split](design/RAIN-CADENCE-INVESTIGATION.md); no further runtime changes from that probe.
 
 ### Shared anatomy foundation — workshop inspection
 

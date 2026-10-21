@@ -73,8 +73,14 @@ native callback timestamps and bounded gap diagnostics. The reduced-motion
 climber test awaits media-query event dispatch before starting its quiet visit;
 its original hidden-state assertion remains.
 
-Build, pure fixtures and integration review pass. Full hosted/portable browser
-and cross-platform CI results are pending at this checkpoint. No Ally/Vanadium,
+Build, pure fixtures and integration review pass. Corrected-runtime local coverage
+is complete: Chrome/Edge pass 22 cadence cases each; Firefox passes 21 with one
+hosted DPR2 normal-rain failure (p95 33 ms, limit 31 ms). All functional programs
+and offline checks have coverage, but the combined Chrome/Firefox npm run exits 1.
+Native Edge npm exits 0. Required hosted Windows/macOS cadence checks also fail.
+[Session 025](../../../sessions/2026-10-10-weather-habitat/025-cadence-verification-handoff.md)
+records results; the [rain investigation](RAIN-CADENCE-INVESTIGATION.md) defines
+the next profiling tasks. PR #16 remains draft. No Ally/Vanadium,
 sustained-operation or new live-anatomy acceptance is claimed. Review actual
 walking/climbing motion as well as cadence metrics before physical acceptance.
 
@@ -100,9 +106,9 @@ callback span is not substituted as its denominator.
 
 The earlier `897d0b0` runtime passed complete native Chrome/Firefox/Edge suites
 and all 66 browser cadence cases locally. The final one-line Windows correction
-has a new portable artifact and receives its own full verification. Read
+has a new portable artifact and its own verification, completed in session 025. Read
 [session 024](../../../sessions/2026-10-10-weather-habitat/024-quantized-pacing-candidate.md)
 for the candidate boundary. Neither Intel pinning nor a Chromium-channel change
 is justified by the first controls: even blank-page frame delivery varied on
-both macOS runner architectures. A separate headful-window comparison investigates
-the remaining timing prerequisite. Main application gates stay unchanged.
+both macOS runner architectures. Full Chromium and headful-window controls also
+failed to restore native delivery consistently. Main application gates stay unchanged.

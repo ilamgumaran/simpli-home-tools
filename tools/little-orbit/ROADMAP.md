@@ -1,8 +1,8 @@
 # Our Desk Clock roadmap
 
-Updated 2026-10-20. Milestones express intent, not promised delivery dates. The product owner sets priorities and authorizes deferred implementation.
+Updated 2026-10-21. Milestones express intent, not promised delivery dates. The product owner sets priorities and authorizes deferred implementation.
 
-Before anatomy artwork rollout, complete the [bounded phase cadence candidate](design/FRAME-CADENCE.md)'s hosted/portable and cross-platform gates. [Session 024](../../sessions/2026-10-10-weather-habitat/024-quantized-pacing-candidate.md) records the Windows correction and pending verification. No performance threshold changes are planned.
+Before anatomy artwork rollout, complete the [bounded phase cadence candidate](design/FRAME-CADENCE.md)'s hosted/portable and cross-platform gates. [Session 025](../../sessions/2026-10-10-weather-habitat/025-cadence-verification-handoff.md) records 65/66 local cadence passes and the remaining Firefox rain plus hosted Windows/macOS failures. Next, [profile the DPR2 rainy scene](design/RAIN-CADENCE-INVESTIGATION.md) before choosing a source change. No performance threshold changes are planned.
 
 ## Character priority — anatomy foundation candidate, later rollout planned
 

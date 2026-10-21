@@ -27,4 +27,4 @@ See [architecture](ARCHITECTURE.md), [decision log](DECISIONS.md), [product guid
 
 - [Woodland refinement and supported work](REFINEMENT-AND-WORK.md): merged size/motion and contact histories, shelter/crossing sockets, teaching and remaining milestones.
 
-[Bounded frame pacing](FRAME-CADENCE.md) records the Woodland/Green House 1 cadence candidate, evidence and unchanged acceptance gates.
+[Bounded frame pacing](FRAME-CADENCE.md) records the Woodland/Green House 1 cadence candidate, evidence and unchanged acceptance gates. The [DPR2 rain investigation](RAIN-CADENCE-INVESTIGATION.md) records an isolated native-callback/geometry probe and the next profiling tasks; it does not replace the failed acceptance result.
