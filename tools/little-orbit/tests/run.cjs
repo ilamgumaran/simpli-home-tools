@@ -1,6 +1,8 @@
 const {spawn,spawnSync}=require('node:child_process');
 const path=require('node:path');
 const root=path.join(__dirname,'..');
+if(spawnSync(process.execPath,[path.join(__dirname,'frame-cadence.cjs')],{stdio:'inherit'}).status!==0)process.exit(1);
+if(spawnSync(process.execPath,[path.join(__dirname,'anatomy.cjs')],{stdio:'inherit'}).status!==0)process.exit(1);
 if(spawnSync(process.execPath,[path.join(__dirname,'characters.cjs')],{stdio:'inherit'}).status!==0)process.exit(1);
 if(spawnSync(process.execPath,[path.join(__dirname,'worlds.cjs')],{stdio:'inherit'}).status!==0)process.exit(1);
 if(spawnSync(process.execPath,[path.join(__dirname,'organic-contacts.cjs')],{stdio:'inherit'}).status!==0)process.exit(1);
@@ -20,7 +22,7 @@ server.stdout.on('data',data=>{
  started=true;clearTimeout(timeout);
  try{
   for(const engine of (process.env.CLOCK_TEST_BROWSER?[process.env.CLOCK_TEST_BROWSER]:['chromium','firefox'])){
-   for(const script of ['verify.cjs','verify-themes.cjs','verify-config.cjs','verify-climber.cjs','verify-mountain.cjs','verify-characters.cjs','verify-woodland.cjs','verify-motion.cjs','verify-immersive.cjs','verify-immersive-motion.cjs','verify-weather-habitat.cjs','verify-community-habitat.cjs','verify-meal.cjs']){
+   for(const script of ['verify.cjs','verify-themes.cjs','verify-config.cjs','verify-climber.cjs','verify-mountain.cjs','verify-characters.cjs','verify-anatomy.cjs','verify-woodland.cjs','verify-motion.cjs','verify-immersive.cjs','verify-immersive-motion.cjs','verify-weather-habitat.cjs','verify-community-habitat.cjs','verify-meal.cjs']){
     console.log(`\n${engine}: ${script}`);
     const result=spawnSync(process.execPath,[path.join(__dirname,script)],{env:{...process.env,CLOCK_TEST_URL:match[0],CLOCK_TEST_BROWSER:engine},stdio:'inherit'});
     if(result.status!==0)throw Error(`${engine} ${script} failed`);

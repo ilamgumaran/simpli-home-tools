@@ -26,6 +26,25 @@ jobs:
           cache-dependency-path: tools/little-orbit/package-lock.json
       - run: npm ci
       - run: npx playwright install --with-deps chromium firefox
-      - run: npm test
+      - name: Run npm test
+        shell: bash
+        run: |
+          mkdir -p test-results
+          set +e
+          npm test > test-results/ci-run.log 2>&1
+          clock_test_status=$?
+          cat test-results/ci-run.log
+          if [ "$clock_test_status" -ne 0 ]; then
+            node <<'NODE'
+          const fs = require('node:fs');
+          const log = fs.readFileSync('test-results/ci-run.log', 'utf8');
+          const start = log.search(/AssertionError|(?:^|\n)[A-Za-z]*Error:/m);
+          // Keep below GitHub's annotation limit so unknown failures retain their tail.
+          const excerpt = start < 0 ? log.slice(-3000) : log.slice(start, start + 3000);
+          const escaped = excerpt.replace(/%/g, '%25').replace(/\r/g, '%0D').replace(/\n/g, '%0A');
+          console.log('::error title=Clock regression failure::' + escaped);
+          NODE
+          fi
+          exit "$clock_test_status"
       - name: Portable build must be current
         run: git diff --exit-code -- 'Little Orbit.html'

@@ -1,14 +1,22 @@
 # Green House 1 — weather-responsive habitat
 
-Next development plan: [018 — shared anatomy and organic movement](018-cloud-anatomy-movement-plan.md). Planning is complete; stages A0–A7 are proposed and no anatomy runtime changes have started. Begin with the A0–A2 anatomy/workshop foundation.
+Latest verification: [025 — corrected pacing results and remaining gates](025-cadence-verification-handoff.md). Runtime `236fb12`: Chrome and Edge pass 22 cadence cases each; Firefox passes 21 with one hosted DPR2 rain failure. All functional programs and offline checks have coverage; the combined Chrome/Firefox run exits 1. Required Windows/macOS timing checks remain failed; PR #16 stays draft. The portable checksum and next profiling tasks are in 025.
 
-Current tested candidate: [017 — Sage’s connected meal](017-cloud-meal-choreography-results.md). [016](016-cloud-meal-choreography-ownership.md) records ownership and the plan. [015](015-cloud-spacing-motion-results.md) preserves the preceding spacing/rhythm results.
+Previous diagnostic: [023 — rendering controls](023-rendering-control-probe.md). The bounded candidate still fails macOS cadence; a separate probe compares browser frame availability with scene painting cost.
 
-Runtime source: `f02092b12a45d72cefe73ba68d5acd2f68932358`. Portable `Little Orbit.html` SHA-256: `046f02a9772a5060ac422b6acceee763fb29726a230df1ce1932a38611899ec6`. Verify runtime ancestry and checksum; later test/documentation commits can advance HEAD.
+Earlier implementation candidate: [022 — bounded frame cadence](022-bounded-frame-cadence-candidate.md), superseded by the corrected runtime and results in 024–025.
 
-During lunch and evening care, Sage gathers ingredients, brings them to the pot, cooks, carries a bowl to the serving stand, shares, rests and returns. Contact-based steps and continuous joint curves join all seven stages and the next minute. The wider family spacing and Aster’s support for Pebble remain. The camp sits clear of the handheld caption, with unrelated props fading during meal work.
+Previous investigation: [021 — cadence and reduced-motion CI](021-cadence-lifecycle-investigation.md). Completed hosted jobs expose timing failures; the anatomy PR remains draft.
 
-The full native Chrome, Firefox and Edge suites pass: nine pure programs per run, thirteen browser programs per engine, all offline portable checks and all 66 cadence cases (54 existing + twelve active meal). Actual contact, family spacing, glyph clearance and quiet/resume checks pass. Physical Ally/Vanadium and sustained acceptance remain unrun; earlier intermittent stalls remain unexplained. Woodland retains its larger-actor engineering terrain/time scene.
+Current development candidate: [020 — anatomy foundation and verification](020-anatomy-foundation-results.md), on `feature/anatomy-foundation` / [draft PR #16](https://github.com/ilamgumaran/simpli-home-tools/pull/16), targeting `feature/woodland-weather-habitat`. [019](019-cloud-anatomy-foundation-ownership.md) records ownership; [018](018-cloud-anatomy-movement-plan.md) defines the staged plan.
+
+A0 inventory and the additive A1 geometry/workshop foundation are implemented. Shared profiles define adult, drop, learner and swaddled proportions, reference joint envelopes and palm/sole landmarks. Static workshop references expose infeasible targets. Live artwork, gait and existing contacts remain on the legacy path. A2 silhouettes and A3/A4 contact/gait work are next after the remaining bounds and CI gates.
+
+Historical anatomy-only runtime/module/workshop source: `87d71b169789c817819e11a85849d16a598823f7`; later test and documentation commits advance HEAD. Portable `Little Orbit.html` SHA-256: `5227d26b9c3d6df44c373831f5538252a525c13c96f23d8b39d5ea2bd23dd9ea`.
+
+Historical anatomy-only local Chrome, Firefox and Edge verification covers ten pure programs, fourteen browser programs per engine, offline portable checks and all 66 cadence cases. Focused final workshop and linked-document checks pass in all three browsers. Hosted Windows/macOS CI remains a merge gate; see 020 for exact evidence and diagnosis. Physical Ally/Vanadium and sustained acceptance remain unrun.
+
+Historical meal candidate: [017 — Sage’s connected meal](017-cloud-meal-choreography-results.md), runtime `f02092b12a45d72cefe73ba68d5acd2f68932358`, checksum `046f02a9772a5060ac422b6acceee763fb29726a230df1ce1932a38611899ec6`. Its test results describe that earlier candidate. The connected meal, family spacing and Aster/Pebble support continue unchanged in the anatomy candidate.
 
 | Message | Direction | Purpose |
 | --- | --- | --- |
@@ -26,7 +34,14 @@ The full native Chrome, Firefox and Edge suites pass: nine pure programs per run
 | [014-cloud-spacing-motion-ownership.md](014-cloud-spacing-motion-ownership.md) | Cloud → repository owner and local Ally | Historical spacing and organic rhythm ownership |
 | [015-cloud-spacing-motion-results.md](015-cloud-spacing-motion-results.md) | Cloud → repository owner and local Ally | Historical spacing candidate and its passing full browser results |
 | [016-cloud-meal-choreography-ownership.md](016-cloud-meal-choreography-ownership.md) | Cloud → repository owner and local Ally | Connected meal plan, ownership and validation requirements |
-| [017-cloud-meal-choreography-results.md](017-cloud-meal-choreography-results.md) | Cloud → repository owner and local Ally | Current meal candidate, checksum, passing full browser/offline/cadence results and device handoff |
+| [017-cloud-meal-choreography-results.md](017-cloud-meal-choreography-results.md) | Cloud → repository owner and local Ally | Historical meal candidate, checksum, passing full browser/offline/cadence results and device handoff |
 | [018-cloud-anatomy-movement-plan.md](018-cloud-anatomy-movement-plan.md) | Cloud → owner and implementation/device sessions | Whole-cast anatomy plan, staged tickets, migration scope and proposed acceptance |
+| [019-cloud-anatomy-foundation-ownership.md](019-cloud-anatomy-foundation-ownership.md) | Cloud → owner and implementation/device sessions | A0/A1 ownership, bounded implementation and validation contract |
+| [020-anatomy-foundation-results.md](020-anatomy-foundation-results.md) | Cloud → owner and implementation/device sessions | Anatomy implementation, review, candidate-specific validation and remaining gates |
+| [021-cadence-lifecycle-investigation.md](021-cadence-lifecycle-investigation.md) | Cloud → owner and implementation/device sessions | Completed CI failures, native RAF diagnostics and reduced-motion synchronization |
+| [022-bounded-frame-cadence-candidate.md](022-bounded-frame-cadence-candidate.md) | Cloud → owner and implementation/device sessions | Shared bounded pacing implementation, rebuilt artifact and pending validation |
+| [023-rendering-control-probe.md](023-rendering-control-probe.md) | Cloud → owner and implementation/device sessions | Candidate CI evidence and standalone blank/full/hidden-art control probe |
+| [024-quantized-pacing-candidate.md](024-quantized-pacing-candidate.md) | Cloud → owner and implementation/device sessions | Recorded Windows timing regression, final phase correction and new portable artifact |
+| [025-cadence-verification-handoff.md](025-cadence-verification-handoff.md) | Cloud → owner and implementation/device sessions | Corrected runtime: 65/66 cadence passes, preserved failure, completed coverage and rain profiling tasks |
 
-Work branch: `feature/woodland-weather-habitat`, based on `feature/woodland-immersive-story` / PR #9; draft PR #11. Published messages 001–018 are immutable; use 019 for the next follow-up. Reserve 002 for the initial device reply and 004 for local device findings. Fetch the branch before reading. Git does not notify another session automatically.
+Work branch: `feature/anatomy-foundation` / draft PR #16, based on `feature/woodland-weather-habitat` / draft PR #11, which in turn builds on `feature/woodland-immersive-story` / PR #9. Published messages 001–025 are immutable; use 026 for the next follow-up. Reserve 002 for the initial device reply and 004 for local device findings. Fetch the branch before reading. Git does not notify another session automatically.

@@ -7,7 +7,7 @@ Start a new session with the [owner prompts and handoff](OWNER-PROMPTS.md). Plan
 | Design | Status | Preview |
 | --- | --- | --- |
 | [Engineering: Zero Workshop](engineering/README.md) | Detailed conceptual plan; E0–E8 proposed, physical proof/research open; no runtime | People-powered calendar, 80 object records, energy paths, three zero-loop groups and staged acceptance |
-| [Shared anatomy and organic movement](ANATOMY-AND-ORGANIC-MOVEMENT.md) | Planned; stages A0–A7, no runtime changes | Palm/grip and heel/toe anatomy, joint constraints, whole-cast rollout and independent acceptance |
+| [Shared anatomy and organic movement](ANATOMY-AND-ORGANIC-MOVEMENT.md) | A0 inventory / A1 additive foundation candidate; live scenes remain legacy | [Profiles](ANATOMY-PROFILES.md), [baseline](ANATOMY-BASELINE.md), static workshop skeleton/landmarks; silhouettes and contact/gait rollout pending |
 | [Sage’s connected meal](MEAL-CHOREOGRAPHY.md) | Implemented; full browser/offline and 66 cadence cases pass on session 017’s candidate | Gather, carry, cook, deliver, serve, rest and return |
 | [Organic character motion](ORGANIC-MOTION.md) | Implemented on `feature/woodland-organic-motion` | 30 fps low-power/native-frame rendering, paced planted travel, supported weight shifts and continuous contact/teaching transitions |
 | [Planted walking and tool grips](WALKING-AND-GRIPS.md) | Implemented on `feature/woodland-walking-grips` | Survey ground contacts, map stowing and reachable gathering/cooking work |
@@ -26,3 +26,5 @@ The preview has a fixed sample clock and manually selected focus/viewpoints. It 
 See [architecture](ARCHITECTURE.md), [decision log](DECISIONS.md), [product guide](../PRODUCT.md), and [roadmap](../ROADMAP.md) for context. Keep originals/license notices with artwork. Do not save personal screen captures, device profiles, private settings, credentials, or OS power state here.
 
 - [Woodland refinement and supported work](REFINEMENT-AND-WORK.md): merged size/motion and contact histories, shelter/crossing sockets, teaching and remaining milestones.
+
+[Bounded frame pacing](FRAME-CADENCE.md) records the Woodland/Green House 1 cadence candidate, evidence and unchanged acceptance gates. The [DPR2 rain investigation](RAIN-CADENCE-INVESTIGATION.md) records an isolated native-callback/geometry probe and the next profiling tasks; it does not replace the failed acceptance result.

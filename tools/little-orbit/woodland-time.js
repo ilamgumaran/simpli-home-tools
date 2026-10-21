@@ -18,7 +18,8 @@
  </svg><div class="woodland-caption"><span id="woodland-place"></span><span id="woodland-action"></span></div><p id="woodland-story"></p>`;
  get('display').insertBefore(scene,get('display').querySelector('.fact-panel'));
  const motion=typeof matchMedia==='function'?matchMedia('(prefers-reduced-motion: reduce)'):null;
- let timer=null,frame=null,lastFrame=0,lastMinute='',lastTerrain='',lastCast='',sizing=false,lastFit='',lastClock='';
+ let timer=null,frame=null,lastMinute='',lastTerrain='',lastCast='',sizing=false,lastFit='',lastClock='';
+ const cadence=DeskFrameCadence.create();
  let layout={width:800,height:360};
  const actors=[];
  // Small supported rock route, authored entirely within the foreground boulder.
@@ -261,9 +262,7 @@
  function stop(){clearTimeout(timer);timer=null;if(frame!==null)cancelAnimationFrame(frame);frame=null;}
  function loop(now){
   frame=null;if(!visible())return;
-  const period=1000/30;
-  if(prefs.lowPower&&now-lastFrame<period-2){frame=requestAnimationFrame(loop);return;}
-  lastFrame=now;
+  if(!cadence.shouldDraw(now,!!prefs.lowPower)){frame=requestAnimationFrame(loop);return;}
   if(draw())frame=requestAnimationFrame(loop);
  }
  function schedule(){
