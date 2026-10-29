@@ -1,0 +1,3597 @@
+{
+  "schemaVersion": 1,
+  "kind": "reading-camera-visual-geometry-parity",
+  "candidate": "3daae2ad48be0d880297c74f9d1e3e0aafbc0a05",
+  "baseline": "1628b82",
+  "scope": "24 hosted and two portable pairs per browser; fixed authored Date, mocked rain, moving/still/reduced modes, four viewports and DPR1/2. Screenshot/geometry equality does not establish live presentation cadence.",
+  "cases": [
+    {
+      "label": "hosted-firefox-854x480-dpr1-moving",
+      "options": {
+        "viewport": {
+          "width": 854,
+          "height": 480
+        },
+        "dpr": 1,
+        "mode": "moving"
+      },
+      "pageErrors": {
+        "old": [],
+        "new": []
+      },
+      "particleCount": {
+        "old": 20,
+        "new": 20
+      },
+      "sameLayerMarkup": {
+        "world": true,
+        "weather-layer": true,
+        "reading": true,
+        "actors": true,
+        "light-layer": true
+      },
+      "sameLayerXY": {
+        "world": true,
+        "weather-layer": true,
+        "reading": true,
+        "actors": true,
+        "light-layer": true
+      },
+      "sameLandmarks": true,
+      "oldReadingTransform": "translate(-5.125px, -0.9375px)",
+      "newReadingTransform": "translate3d(-5.125px, -0.9375px, 0px)",
+      "layerTransforms": {
+        "world": {
+          "old": "translate(-5.125px, -0.9375px)",
+          "new": "translate(-5.125px, -0.9375px)"
+        },
+        "weather-layer": {
+          "old": "translate(-5.125px, -0.9375px)",
+          "new": "translate(-5.125px, -0.9375px)"
+        },
+        "reading": {
+          "old": "translate(-5.125px, -0.9375px)",
+          "new": "translate3d(-5.125px, -0.9375px, 0px)"
+        },
+        "actors": {
+          "old": "translate(-5.125px, -0.9375px)",
+          "new": "translate(-5.125px, -0.9375px)"
+        },
+        "light-layer": {
+          "old": "translate(-5.125px, -0.9375px)",
+          "new": "translate(-5.125px, -0.9375px)"
+        }
+      },
+      "pixelDiff": {
+        "identical": true,
+        "absoluteErrorPixels": 0,
+        "meanAbsoluteError": 0
+      },
+      "imageSHA256": {
+        "old": "69b0f59fe8275e5f9b04d08b281325ecf8b6ed01ac93c2e3d0d3da76321cd034",
+        "new": "69b0f59fe8275e5f9b04d08b281325ecf8b6ed01ac93c2e3d0d3da76321cd034"
+      },
+      "browserVersion": "153.0",
+      "browser": "firefox"
+    },
+    {
+      "label": "hosted-firefox-854x480-dpr1-still",
+      "options": {
+        "viewport": {
+          "width": 854,
+          "height": 480
+        },
+        "dpr": 1,
+        "mode": "still"
+      },
+      "pageErrors": {
+        "old": [],
+        "new": []
+      },
+      "particleCount": {
+        "old": 20,
+        "new": 20
+      },
+      "sameLayerMarkup": {
+        "world": true,
+        "weather-layer": true,
+        "reading": true,
+        "actors": true,
+        "light-layer": true
+      },
+      "sameLayerXY": {
+        "world": true,
+        "weather-layer": true,
+        "reading": true,
+        "actors": true,
+        "light-layer": true
+      },
+      "sameLandmarks": true,
+      "oldReadingTransform": "translate(0px)",
+      "newReadingTransform": "translate3d(0px, 0px, 0px)",
+      "layerTransforms": {
+        "world": {
+          "old": "translate(0px)",
+          "new": "translate(0px)"
+        },
+        "weather-layer": {
+          "old": "translate(0px)",
+          "new": "translate(0px)"
+        },
+        "reading": {
+          "old": "translate(0px)",
+          "new": "translate3d(0px, 0px, 0px)"
+        },
+        "actors": {
+          "old": "translate(0px)",
+          "new": "translate(0px)"
+        },
+        "light-layer": {
+          "old": "translate(0px)",
+          "new": "translate(0px)"
+        }
+      },
+      "pixelDiff": {
+        "identical": true,
+        "absoluteErrorPixels": 0,
+        "meanAbsoluteError": 0
+      },
+      "imageSHA256": {
+        "old": "6288087e748b41c7ac6d67c93fb937073013c5aa83466e4c7a8734229e099370",
+        "new": "6288087e748b41c7ac6d67c93fb937073013c5aa83466e4c7a8734229e099370"
+      },
+      "browserVersion": "153.0",
+      "browser": "firefox"
+    },
+    {
+      "label": "hosted-firefox-854x480-dpr1-reduced",
+      "options": {
+        "viewport": {
+          "width": 854,
+          "height": 480
+        },
+        "dpr": 1,
+        "mode": "reduced"
+      },
+      "pageErrors": {
+        "old": [],
+        "new": []
+      },
+      "particleCount": {
+        "old": 20,
+        "new": 20
+      },
+      "sameLayerMarkup": {
+        "world": true,
+        "weather-layer": true,
+        "reading": true,
+        "actors": true,
+        "light-layer": true
+      },
+      "sameLayerXY": {
+        "world": true,
+        "weather-layer": true,
+        "reading": true,
+        "actors": true,
+        "light-layer": true
+      },
+      "sameLandmarks": true,
+      "oldReadingTransform": "translate(0px)",
+      "newReadingTransform": "translate3d(0px, 0px, 0px)",
+      "layerTransforms": {
+        "world": {
+          "old": "translate(0px)",
+          "new": "translate(0px)"
+        },
+        "weather-layer": {
+          "old": "translate(0px)",
+          "new": "translate(0px)"
+        },
+        "reading": {
+          "old": "translate(0px)",
+          "new": "translate3d(0px, 0px, 0px)"
+        },
+        "actors": {
+          "old": "translate(0px)",
+          "new": "translate(0px)"
+        },
+        "light-layer": {
+          "old": "translate(0px)",
+          "new": "translate(0px)"
+        }
+      },
+      "pixelDiff": {
+        "identical": true,
+        "absoluteErrorPixels": 0,
+        "meanAbsoluteError": 0
+      },
+      "imageSHA256": {
+        "old": "52ff39812ec0fdd7f1563e9d0e64f52eecc908e430ed269f5c43eabb67631102",
+        "new": "52ff39812ec0fdd7f1563e9d0e64f52eecc908e430ed269f5c43eabb67631102"
+      },
+      "browserVersion": "153.0",
+      "browser": "firefox"
+    },
+    {
+      "label": "hosted-firefox-1280x720-dpr1-moving",
+      "options": {
+        "viewport": {
+          "width": 1280,
+          "height": 720
+        },
+        "dpr": 1,
+        "mode": "moving"
+      },
+      "pageErrors": {
+        "old": [],
+        "new": []
+      },
+      "particleCount": {
+        "old": 20,
+        "new": 20
+      },
+      "sameLayerMarkup": {
+        "world": true,
+        "weather-layer": true,
+        "reading": true,
+        "actors": true,
+        "light-layer": true
+      },
+      "sameLayerXY": {
+        "world": true,
+        "weather-layer": true,
+        "reading": true,
+        "actors": true,
+        "light-layer": true
+      },
+      "sameLandmarks": true,
+      "oldReadingTransform": "translate(-7.625px, -1.4375px)",
+      "newReadingTransform": "translate3d(-7.625px, -1.4375px, 0px)",
+      "layerTransforms": {
+        "world": {
+          "old": "translate(-7.625px, -1.4375px)",
+          "new": "translate(-7.625px, -1.4375px)"
+        },
+        "weather-layer": {
+          "old": "translate(-7.625px, -1.4375px)",
+          "new": "translate(-7.625px, -1.4375px)"
+        },
+        "reading": {
+          "old": "translate(-7.625px, -1.4375px)",
+          "new": "translate3d(-7.625px, -1.4375px, 0px)"
+        },
+        "actors": {
+          "old": "translate(-7.625px, -1.4375px)",
+          "new": "translate(-7.625px, -1.4375px)"
+        },
+        "light-layer": {
+          "old": "translate(-7.625px, -1.4375px)",
+          "new": "translate(-7.625px, -1.4375px)"
+        }
+      },
+      "pixelDiff": {
+        "identical": true,
+        "absoluteErrorPixels": 0,
+        "meanAbsoluteError": 0
+      },
+      "imageSHA256": {
+        "old": "94cacc7831feb6ee30014ce02fad2a2e6b003ed9716b9ec449f1c12258c655ef",
+        "new": "94cacc7831feb6ee30014ce02fad2a2e6b003ed9716b9ec449f1c12258c655ef"
+      },
+      "browserVersion": "153.0",
+      "browser": "firefox"
+    },
+    {
+      "label": "hosted-firefox-1280x720-dpr1-still",
+      "options": {
+        "viewport": {
+          "width": 1280,
+          "height": 720
+        },
+        "dpr": 1,
+        "mode": "still"
+      },
+      "pageErrors": {
+        "old": [],
+        "new": []
+      },
+      "particleCount": {
+        "old": 20,
+        "new": 20
+      },
+      "sameLayerMarkup": {
+        "world": true,
+        "weather-layer": true,
+        "reading": true,
+        "actors": true,
+        "light-layer": true
+      },
+      "sameLayerXY": {
+        "world": true,
+        "weather-layer": true,
+        "reading": true,
+        "actors": true,
+        "light-layer": true
+      },
+      "sameLandmarks": true,
+      "oldReadingTransform": "translate(0px)",
+      "newReadingTransform": "translate3d(0px, 0px, 0px)",
+      "layerTransforms": {
+        "world": {
+          "old": "translate(0px)",
+          "new": "translate(0px)"
+        },
+        "weather-layer": {
+          "old": "translate(0px)",
+          "new": "translate(0px)"
+        },
+        "reading": {
+          "old": "translate(0px)",
+          "new": "translate3d(0px, 0px, 0px)"
+        },
+        "actors": {
+          "old": "translate(0px)",
+          "new": "translate(0px)"
+        },
+        "light-layer": {
+          "old": "translate(0px)",
+          "new": "translate(0px)"
+        }
+      },
+      "pixelDiff": {
+        "identical": true,
+        "absoluteErrorPixels": 0,
+        "meanAbsoluteError": 0
+      },
+      "imageSHA256": {
+        "old": "78b6fdd0b4ccce849150f97cdd1564776d2ddd7e23b36a2ef12145485a18ed36",
+        "new": "78b6fdd0b4ccce849150f97cdd1564776d2ddd7e23b36a2ef12145485a18ed36"
+      },
+      "browserVersion": "153.0",
+      "browser": "firefox"
+    },
+    {
+      "label": "hosted-firefox-1280x720-dpr1-reduced",
+      "options": {
+        "viewport": {
+          "width": 1280,
+          "height": 720
+        },
+        "dpr": 1,
+        "mode": "reduced"
+      },
+      "pageErrors": {
+        "old": [],
+        "new": []
+      },
+      "particleCount": {
+        "old": 20,
+        "new": 20
+      },
+      "sameLayerMarkup": {
+        "world": true,
+        "weather-layer": true,
+        "reading": true,
+        "actors": true,
+        "light-layer": true
+      },
+      "sameLayerXY": {
+        "world": true,
+        "weather-layer": true,
+        "reading": true,
+        "actors": true,
+        "light-layer": true
+      },
+      "sameLandmarks": true,
+      "oldReadingTransform": "translate(0px)",
+      "newReadingTransform": "translate3d(0px, 0px, 0px)",
+      "layerTransforms": {
+        "world": {
+          "old": "translate(0px)",
+          "new": "translate(0px)"
+        },
+        "weather-layer": {
+          "old": "translate(0px)",
+          "new": "translate(0px)"
+        },
+        "reading": {
+          "old": "translate(0px)",
+          "new": "translate3d(0px, 0px, 0px)"
+        },
+        "actors": {
+          "old": "translate(0px)",
+          "new": "translate(0px)"
+        },
+        "light-layer": {
+          "old": "translate(0px)",
+          "new": "translate(0px)"
+        }
+      },
+      "pixelDiff": {
+        "identical": true,
+        "absoluteErrorPixels": 0,
+        "meanAbsoluteError": 0
+      },
+      "imageSHA256": {
+        "old": "bd3a05425ef576e9b8e4f1ea17027d01a9f4dc4096b8730c46420b0bd4717ef8",
+        "new": "bd3a05425ef576e9b8e4f1ea17027d01a9f4dc4096b8730c46420b0bd4717ef8"
+      },
+      "browserVersion": "153.0",
+      "browser": "firefox"
+    },
+    {
+      "label": "hosted-firefox-1920x1080-dpr1-moving",
+      "options": {
+        "viewport": {
+          "width": 1920,
+          "height": 1080
+        },
+        "dpr": 1,
+        "mode": "moving"
+      },
+      "pageErrors": {
+        "old": [],
+        "new": []
+      },
+      "particleCount": {
+        "old": 20,
+        "new": 20
+      },
+      "sameLayerMarkup": {
+        "world": true,
+        "weather-layer": true,
+        "reading": true,
+        "actors": true,
+        "light-layer": true
+      },
+      "sameLayerXY": {
+        "world": true,
+        "weather-layer": true,
+        "reading": true,
+        "actors": true,
+        "light-layer": true
+      },
+      "sameLandmarks": true,
+      "oldReadingTransform": "translate(-11.4375px, -2.125px)",
+      "newReadingTransform": "translate3d(-11.4375px, -2.125px, 0px)",
+      "layerTransforms": {
+        "world": {
+          "old": "translate(-11.4375px, -2.125px)",
+          "new": "translate(-11.4375px, -2.125px)"
+        },
+        "weather-layer": {
+          "old": "translate(-11.4375px, -2.125px)",
+          "new": "translate(-11.4375px, -2.125px)"
+        },
+        "reading": {
+          "old": "translate(-11.4375px, -2.125px)",
+          "new": "translate3d(-11.4375px, -2.125px, 0px)"
+        },
+        "actors": {
+          "old": "translate(-11.4375px, -2.125px)",
+          "new": "translate(-11.4375px, -2.125px)"
+        },
+        "light-layer": {
+          "old": "translate(-11.4375px, -2.125px)",
+          "new": "translate(-11.4375px, -2.125px)"
+        }
+      },
+      "pixelDiff": {
+        "identical": true,
+        "absoluteErrorPixels": 0,
+        "meanAbsoluteError": 0
+      },
+      "imageSHA256": {
+        "old": "8fa24e796ef95a5233a8e7977d56813709ee017865ef798c9fd887ed9d23f007",
+        "new": "8fa24e796ef95a5233a8e7977d56813709ee017865ef798c9fd887ed9d23f007"
+      },
+      "browserVersion": "153.0",
+      "browser": "firefox"
+    },
+    {
+      "label": "hosted-firefox-1920x1080-dpr1-still",
+      "options": {
+        "viewport": {
+          "width": 1920,
+          "height": 1080
+        },
+        "dpr": 1,
+        "mode": "still"
+      },
+      "pageErrors": {
+        "old": [],
+        "new": []
+      },
+      "particleCount": {
+        "old": 20,
+        "new": 20
+      },
+      "sameLayerMarkup": {
+        "world": true,
+        "weather-layer": true,
+        "reading": true,
+        "actors": true,
+        "light-layer": true
+      },
+      "sameLayerXY": {
+        "world": true,
+        "weather-layer": true,
+        "reading": true,
+        "actors": true,
+        "light-layer": true
+      },
+      "sameLandmarks": true,
+      "oldReadingTransform": "translate(0px)",
+      "newReadingTransform": "translate3d(0px, 0px, 0px)",
+      "layerTransforms": {
+        "world": {
+          "old": "translate(0px)",
+          "new": "translate(0px)"
+        },
+        "weather-layer": {
+          "old": "translate(0px)",
+          "new": "translate(0px)"
+        },
+        "reading": {
+          "old": "translate(0px)",
+          "new": "translate3d(0px, 0px, 0px)"
+        },
+        "actors": {
+          "old": "translate(0px)",
+          "new": "translate(0px)"
+        },
+        "light-layer": {
+          "old": "translate(0px)",
+          "new": "translate(0px)"
+        }
+      },
+      "pixelDiff": {
+        "identical": true,
+        "absoluteErrorPixels": 0,
+        "meanAbsoluteError": 0
+      },
+      "imageSHA256": {
+        "old": "73b406fcfda02396c5436e5ebc1337fde4902fc3916fe71c5ffb7b8b36049792",
+        "new": "73b406fcfda02396c5436e5ebc1337fde4902fc3916fe71c5ffb7b8b36049792"
+      },
+      "browserVersion": "153.0",
+      "browser": "firefox"
+    },
+    {
+      "label": "hosted-firefox-1920x1080-dpr1-reduced",
+      "options": {
+        "viewport": {
+          "width": 1920,
+          "height": 1080
+        },
+        "dpr": 1,
+        "mode": "reduced"
+      },
+      "pageErrors": {
+        "old": [],
+        "new": []
+      },
+      "particleCount": {
+        "old": 20,
+        "new": 20
+      },
+      "sameLayerMarkup": {
+        "world": true,
+        "weather-layer": true,
+        "reading": true,
+        "actors": true,
+        "light-layer": true
+      },
+      "sameLayerXY": {
+        "world": true,
+        "weather-layer": true,
+        "reading": true,
+        "actors": true,
+        "light-layer": true
+      },
+      "sameLandmarks": true,
+      "oldReadingTransform": "translate(0px)",
+      "newReadingTransform": "translate3d(0px, 0px, 0px)",
+      "layerTransforms": {
+        "world": {
+          "old": "translate(0px)",
+          "new": "translate(0px)"
+        },
+        "weather-layer": {
+          "old": "translate(0px)",
+          "new": "translate(0px)"
+        },
+        "reading": {
+          "old": "translate(0px)",
+          "new": "translate3d(0px, 0px, 0px)"
+        },
+        "actors": {
+          "old": "translate(0px)",
+          "new": "translate(0px)"
+        },
+        "light-layer": {
+          "old": "translate(0px)",
+          "new": "translate(0px)"
+        }
+      },
+      "pixelDiff": {
+        "identical": true,
+        "absoluteErrorPixels": 0,
+        "meanAbsoluteError": 0
+      },
+      "imageSHA256": {
+        "old": "c80122108e39c312425c0071ffd592c49c368693994d686faef08c596fa123cd",
+        "new": "c80122108e39c312425c0071ffd592c49c368693994d686faef08c596fa123cd"
+      },
+      "browserVersion": "153.0",
+      "browser": "firefox"
+    },
+    {
+      "label": "hosted-firefox-390x844-dpr1-moving",
+      "options": {
+        "viewport": {
+          "width": 390,
+          "height": 844
+        },
+        "dpr": 1,
+        "mode": "moving"
+      },
+      "pageErrors": {
+        "old": [],
+        "new": []
+      },
+      "particleCount": {
+        "old": 20,
+        "new": 20
+      },
+      "sameLayerMarkup": {
+        "world": true,
+        "weather-layer": true,
+        "reading": true,
+        "actors": true,
+        "light-layer": true
+      },
+      "sameLayerXY": {
+        "world": true,
+        "weather-layer": true,
+        "reading": true,
+        "actors": true,
+        "light-layer": true
+      },
+      "sameLandmarks": true,
+      "oldReadingTransform": "translate(-2.3125px, -1.6875px)",
+      "newReadingTransform": "translate3d(-2.3125px, -1.6875px, 0px)",
+      "layerTransforms": {
+        "world": {
+          "old": "translate(-2.3125px, -1.6875px)",
+          "new": "translate(-2.3125px, -1.6875px)"
+        },
+        "weather-layer": {
+          "old": "translate(-2.3125px, -1.6875px)",
+          "new": "translate(-2.3125px, -1.6875px)"
+        },
+        "reading": {
+          "old": "translate(-2.3125px, -1.6875px)",
+          "new": "translate3d(-2.3125px, -1.6875px, 0px)"
+        },
+        "actors": {
+          "old": "translate(-2.3125px, -1.6875px)",
+          "new": "translate(-2.3125px, -1.6875px)"
+        },
+        "light-layer": {
+          "old": "translate(-2.3125px, -1.6875px)",
+          "new": "translate(-2.3125px, -1.6875px)"
+        }
+      },
+      "pixelDiff": {
+        "identical": true,
+        "absoluteErrorPixels": 0,
+        "meanAbsoluteError": 0
+      },
+      "imageSHA256": {
+        "old": "545c3585f5aecf0d99aeee199497ee49c5234a70dd2a9315a517df8462a6b2ac",
+        "new": "545c3585f5aecf0d99aeee199497ee49c5234a70dd2a9315a517df8462a6b2ac"
+      },
+      "browserVersion": "153.0",
+      "browser": "firefox"
+    },
+    {
+      "label": "hosted-firefox-390x844-dpr1-still",
+      "options": {
+        "viewport": {
+          "width": 390,
+          "height": 844
+        },
+        "dpr": 1,
+        "mode": "still"
+      },
+      "pageErrors": {
+        "old": [],
+        "new": []
+      },
+      "particleCount": {
+        "old": 20,
+        "new": 20
+      },
+      "sameLayerMarkup": {
+        "world": true,
+        "weather-layer": true,
+        "reading": true,
+        "actors": true,
+        "light-layer": true
+      },
+      "sameLayerXY": {
+        "world": true,
+        "weather-layer": true,
+        "reading": true,
+        "actors": true,
+        "light-layer": true
+      },
+      "sameLandmarks": true,
+      "oldReadingTransform": "translate(0px)",
+      "newReadingTransform": "translate3d(0px, 0px, 0px)",
+      "layerTransforms": {
+        "world": {
+          "old": "translate(0px)",
+          "new": "translate(0px)"
+        },
+        "weather-layer": {
+          "old": "translate(0px)",
+          "new": "translate(0px)"
+        },
+        "reading": {
+          "old": "translate(0px)",
+          "new": "translate3d(0px, 0px, 0px)"
+        },
+        "actors": {
+          "old": "translate(0px)",
+          "new": "translate(0px)"
+        },
+        "light-layer": {
+          "old": "translate(0px)",
+          "new": "translate(0px)"
+        }
+      },
+      "pixelDiff": {
+        "identical": true,
+        "absoluteErrorPixels": 0,
+        "meanAbsoluteError": 0
+      },
+      "imageSHA256": {
+        "old": "5994e00b77f61546c96caffdc465a5bd727efa1ce662f0e8b55f7e2fd8c853b4",
+        "new": "5994e00b77f61546c96caffdc465a5bd727efa1ce662f0e8b55f7e2fd8c853b4"
+      },
+      "browserVersion": "153.0",
+      "browser": "firefox"
+    },
+    {
+      "label": "hosted-firefox-390x844-dpr1-reduced",
+      "options": {
+        "viewport": {
+          "width": 390,
+          "height": 844
+        },
+        "dpr": 1,
+        "mode": "reduced"
+      },
+      "pageErrors": {
+        "old": [],
+        "new": []
+      },
+      "particleCount": {
+        "old": 20,
+        "new": 20
+      },
+      "sameLayerMarkup": {
+        "world": true,
+        "weather-layer": true,
+        "reading": true,
+        "actors": true,
+        "light-layer": true
+      },
+      "sameLayerXY": {
+        "world": true,
+        "weather-layer": true,
+        "reading": true,
+        "actors": true,
+        "light-layer": true
+      },
+      "sameLandmarks": true,
+      "oldReadingTransform": "translate(0px)",
+      "newReadingTransform": "translate3d(0px, 0px, 0px)",
+      "layerTransforms": {
+        "world": {
+          "old": "translate(0px)",
+          "new": "translate(0px)"
+        },
+        "weather-layer": {
+          "old": "translate(0px)",
+          "new": "translate(0px)"
+        },
+        "reading": {
+          "old": "translate(0px)",
+          "new": "translate3d(0px, 0px, 0px)"
+        },
+        "actors": {
+          "old": "translate(0px)",
+          "new": "translate(0px)"
+        },
+        "light-layer": {
+          "old": "translate(0px)",
+          "new": "translate(0px)"
+        }
+      },
+      "pixelDiff": {
+        "identical": true,
+        "absoluteErrorPixels": 0,
+        "meanAbsoluteError": 0
+      },
+      "imageSHA256": {
+        "old": "d28d0302bd8c872e77edc25a6e7beb8967d3534a11b339469142409484d6d0f4",
+        "new": "d28d0302bd8c872e77edc25a6e7beb8967d3534a11b339469142409484d6d0f4"
+      },
+      "browserVersion": "153.0",
+      "browser": "firefox"
+    },
+    {
+      "label": "hosted-firefox-854x480-dpr2-moving",
+      "options": {
+        "viewport": {
+          "width": 854,
+          "height": 480
+        },
+        "dpr": 2,
+        "mode": "moving"
+      },
+      "pageErrors": {
+        "old": [],
+        "new": []
+      },
+      "particleCount": {
+        "old": 20,
+        "new": 20
+      },
+      "sameLayerMarkup": {
+        "world": true,
+        "weather-layer": true,
+        "reading": true,
+        "actors": true,
+        "light-layer": true
+      },
+      "sameLayerXY": {
+        "world": true,
+        "weather-layer": true,
+        "reading": true,
+        "actors": true,
+        "light-layer": true
+      },
+      "sameLandmarks": true,
+      "oldReadingTransform": "translate(-5.09375px, -0.9375px)",
+      "newReadingTransform": "translate3d(-5.09375px, -0.9375px, 0px)",
+      "layerTransforms": {
+        "world": {
+          "old": "translate(-5.09375px, -0.9375px)",
+          "new": "translate(-5.09375px, -0.9375px)"
+        },
+        "weather-layer": {
+          "old": "translate(-5.09375px, -0.9375px)",
+          "new": "translate(-5.09375px, -0.9375px)"
+        },
+        "reading": {
+          "old": "translate(-5.09375px, -0.9375px)",
+          "new": "translate3d(-5.09375px, -0.9375px, 0px)"
+        },
+        "actors": {
+          "old": "translate(-5.09375px, -0.9375px)",
+          "new": "translate(-5.09375px, -0.9375px)"
+        },
+        "light-layer": {
+          "old": "translate(-5.09375px, -0.9375px)",
+          "new": "translate(-5.09375px, -0.9375px)"
+        }
+      },
+      "pixelDiff": {
+        "identical": true,
+        "absoluteErrorPixels": 0,
+        "meanAbsoluteError": 0
+      },
+      "imageSHA256": {
+        "old": "20e6a7f06924443de56acc77671f6dd21fd6981707171532490a62412c15db5d",
+        "new": "20e6a7f06924443de56acc77671f6dd21fd6981707171532490a62412c15db5d"
+      },
+      "browserVersion": "153.0",
+      "browser": "firefox"
+    },
+    {
+      "label": "hosted-firefox-854x480-dpr2-still",
+      "options": {
+        "viewport": {
+          "width": 854,
+          "height": 480
+        },
+        "dpr": 2,
+        "mode": "still"
+      },
+      "pageErrors": {
+        "old": [],
+        "new": []
+      },
+      "particleCount": {
+        "old": 20,
+        "new": 20
+      },
+      "sameLayerMarkup": {
+        "world": true,
+        "weather-layer": true,
+        "reading": true,
+        "actors": true,
+        "light-layer": true
+      },
+      "sameLayerXY": {
+        "world": true,
+        "weather-layer": true,
+        "reading": true,
+        "actors": true,
+        "light-layer": true
+      },
+      "sameLandmarks": true,
+      "oldReadingTransform": "translate(0px)",
+      "newReadingTransform": "translate3d(0px, 0px, 0px)",
+      "layerTransforms": {
+        "world": {
+          "old": "translate(0px)",
+          "new": "translate(0px)"
+        },
+        "weather-layer": {
+          "old": "translate(0px)",
+          "new": "translate(0px)"
+        },
+        "reading": {
+          "old": "translate(0px)",
+          "new": "translate3d(0px, 0px, 0px)"
+        },
+        "actors": {
+          "old": "translate(0px)",
+          "new": "translate(0px)"
+        },
+        "light-layer": {
+          "old": "translate(0px)",
+          "new": "translate(0px)"
+        }
+      },
+      "pixelDiff": {
+        "identical": true,
+        "absoluteErrorPixels": 0,
+        "meanAbsoluteError": 0
+      },
+      "imageSHA256": {
+        "old": "973b5943982c2cfd5974122564c07558c1423a0b712584997ceed95e6eee23a7",
+        "new": "973b5943982c2cfd5974122564c07558c1423a0b712584997ceed95e6eee23a7"
+      },
+      "browserVersion": "153.0",
+      "browser": "firefox"
+    },
+    {
+      "label": "hosted-firefox-854x480-dpr2-reduced",
+      "options": {
+        "viewport": {
+          "width": 854,
+          "height": 480
+        },
+        "dpr": 2,
+        "mode": "reduced"
+      },
+      "pageErrors": {
+        "old": [],
+        "new": []
+      },
+      "particleCount": {
+        "old": 20,
+        "new": 20
+      },
+      "sameLayerMarkup": {
+        "world": true,
+        "weather-layer": true,
+        "reading": true,
+        "actors": true,
+        "light-layer": true
+      },
+      "sameLayerXY": {
+        "world": true,
+        "weather-layer": true,
+        "reading": true,
+        "actors": true,
+        "light-layer": true
+      },
+      "sameLandmarks": true,
+      "oldReadingTransform": "translate(0px)",
+      "newReadingTransform": "translate3d(0px, 0px, 0px)",
+      "layerTransforms": {
+        "world": {
+          "old": "translate(0px)",
+          "new": "translate(0px)"
+        },
+        "weather-layer": {
+          "old": "translate(0px)",
+          "new": "translate(0px)"
+        },
+        "reading": {
+          "old": "translate(0px)",
+          "new": "translate3d(0px, 0px, 0px)"
+        },
+        "actors": {
+          "old": "translate(0px)",
+          "new": "translate(0px)"
+        },
+        "light-layer": {
+          "old": "translate(0px)",
+          "new": "translate(0px)"
+        }
+      },
+      "pixelDiff": {
+        "identical": true,
+        "absoluteErrorPixels": 0,
+        "meanAbsoluteError": 0
+      },
+      "imageSHA256": {
+        "old": "f0d2c58de0dc80211f377995fa02072e1573b5566ac0e6e405fb1a54c7e30448",
+        "new": "f0d2c58de0dc80211f377995fa02072e1573b5566ac0e6e405fb1a54c7e30448"
+      },
+      "browserVersion": "153.0",
+      "browser": "firefox"
+    },
+    {
+      "label": "hosted-firefox-1280x720-dpr2-moving",
+      "options": {
+        "viewport": {
+          "width": 1280,
+          "height": 720
+        },
+        "dpr": 2,
+        "mode": "moving"
+      },
+      "pageErrors": {
+        "old": [],
+        "new": []
+      },
+      "particleCount": {
+        "old": 20,
+        "new": 20
+      },
+      "sameLayerMarkup": {
+        "world": true,
+        "weather-layer": true,
+        "reading": true,
+        "actors": true,
+        "light-layer": true
+      },
+      "sameLayerXY": {
+        "world": true,
+        "weather-layer": true,
+        "reading": true,
+        "actors": true,
+        "light-layer": true
+      },
+      "sameLandmarks": true,
+      "oldReadingTransform": "translate(-7.625px, -1.40625px)",
+      "newReadingTransform": "translate3d(-7.625px, -1.40625px, 0px)",
+      "layerTransforms": {
+        "world": {
+          "old": "translate(-7.625px, -1.40625px)",
+          "new": "translate(-7.625px, -1.40625px)"
+        },
+        "weather-layer": {
+          "old": "translate(-7.625px, -1.40625px)",
+          "new": "translate(-7.625px, -1.40625px)"
+        },
+        "reading": {
+          "old": "translate(-7.625px, -1.40625px)",
+          "new": "translate3d(-7.625px, -1.40625px, 0px)"
+        },
+        "actors": {
+          "old": "translate(-7.625px, -1.40625px)",
+          "new": "translate(-7.625px, -1.40625px)"
+        },
+        "light-layer": {
+          "old": "translate(-7.625px, -1.40625px)",
+          "new": "translate(-7.625px, -1.40625px)"
+        }
+      },
+      "pixelDiff": {
+        "identical": true,
+        "absoluteErrorPixels": 0,
+        "meanAbsoluteError": 0
+      },
+      "imageSHA256": {
+        "old": "b9b0a2345e636c2abfaff146e09c4b5ba1b31ebca64eef7f857c8aabe0f12fcb",
+        "new": "b9b0a2345e636c2abfaff146e09c4b5ba1b31ebca64eef7f857c8aabe0f12fcb"
+      },
+      "browserVersion": "153.0",
+      "browser": "firefox"
+    },
+    {
+      "label": "hosted-firefox-1280x720-dpr2-still",
+      "options": {
+        "viewport": {
+          "width": 1280,
+          "height": 720
+        },
+        "dpr": 2,
+        "mode": "still"
+      },
+      "pageErrors": {
+        "old": [],
+        "new": []
+      },
+      "particleCount": {
+        "old": 20,
+        "new": 20
+      },
+      "sameLayerMarkup": {
+        "world": true,
+        "weather-layer": true,
+        "reading": true,
+        "actors": true,
+        "light-layer": true
+      },
+      "sameLayerXY": {
+        "world": true,
+        "weather-layer": true,
+        "reading": true,
+        "actors": true,
+        "light-layer": true
+      },
+      "sameLandmarks": true,
+      "oldReadingTransform": "translate(0px)",
+      "newReadingTransform": "translate3d(0px, 0px, 0px)",
+      "layerTransforms": {
+        "world": {
+          "old": "translate(0px)",
+          "new": "translate(0px)"
+        },
+        "weather-layer": {
+          "old": "translate(0px)",
+          "new": "translate(0px)"
+        },
+        "reading": {
+          "old": "translate(0px)",
+          "new": "translate3d(0px, 0px, 0px)"
+        },
+        "actors": {
+          "old": "translate(0px)",
+          "new": "translate(0px)"
+        },
+        "light-layer": {
+          "old": "translate(0px)",
+          "new": "translate(0px)"
+        }
+      },
+      "pixelDiff": {
+        "identical": true,
+        "absoluteErrorPixels": 0,
+        "meanAbsoluteError": 0
+      },
+      "imageSHA256": {
+        "old": "40551df3dee4ae91c24a4641118b39e205a4c8338b6e0ecc28b81de966f4d6ee",
+        "new": "40551df3dee4ae91c24a4641118b39e205a4c8338b6e0ecc28b81de966f4d6ee"
+      },
+      "browserVersion": "153.0",
+      "browser": "firefox"
+    },
+    {
+      "label": "hosted-firefox-1280x720-dpr2-reduced",
+      "options": {
+        "viewport": {
+          "width": 1280,
+          "height": 720
+        },
+        "dpr": 2,
+        "mode": "reduced"
+      },
+      "pageErrors": {
+        "old": [],
+        "new": []
+      },
+      "particleCount": {
+        "old": 20,
+        "new": 20
+      },
+      "sameLayerMarkup": {
+        "world": true,
+        "weather-layer": true,
+        "reading": true,
+        "actors": true,
+        "light-layer": true
+      },
+      "sameLayerXY": {
+        "world": true,
+        "weather-layer": true,
+        "reading": true,
+        "actors": true,
+        "light-layer": true
+      },
+      "sameLandmarks": true,
+      "oldReadingTransform": "translate(0px)",
+      "newReadingTransform": "translate3d(0px, 0px, 0px)",
+      "layerTransforms": {
+        "world": {
+          "old": "translate(0px)",
+          "new": "translate(0px)"
+        },
+        "weather-layer": {
+          "old": "translate(0px)",
+          "new": "translate(0px)"
+        },
+        "reading": {
+          "old": "translate(0px)",
+          "new": "translate3d(0px, 0px, 0px)"
+        },
+        "actors": {
+          "old": "translate(0px)",
+          "new": "translate(0px)"
+        },
+        "light-layer": {
+          "old": "translate(0px)",
+          "new": "translate(0px)"
+        }
+      },
+      "pixelDiff": {
+        "identical": true,
+        "absoluteErrorPixels": 0,
+        "meanAbsoluteError": 0
+      },
+      "imageSHA256": {
+        "old": "313facbca5223134570256ab8a068a7765e68ce5181dfd6175050fce5a4bd32d",
+        "new": "313facbca5223134570256ab8a068a7765e68ce5181dfd6175050fce5a4bd32d"
+      },
+      "browserVersion": "153.0",
+      "browser": "firefox"
+    },
+    {
+      "label": "hosted-firefox-1920x1080-dpr2-moving",
+      "options": {
+        "viewport": {
+          "width": 1920,
+          "height": 1080
+        },
+        "dpr": 2,
+        "mode": "moving"
+      },
+      "pageErrors": {
+        "old": [],
+        "new": []
+      },
+      "particleCount": {
+        "old": 20,
+        "new": 20
+      },
+      "sameLayerMarkup": {
+        "world": true,
+        "weather-layer": true,
+        "reading": true,
+        "actors": true,
+        "light-layer": true
+      },
+      "sameLayerXY": {
+        "world": true,
+        "weather-layer": true,
+        "reading": true,
+        "actors": true,
+        "light-layer": true
+      },
+      "sameLandmarks": true,
+      "oldReadingTransform": "translate(-11.4375px, -2.125px)",
+      "newReadingTransform": "translate3d(-11.4375px, -2.125px, 0px)",
+      "layerTransforms": {
+        "world": {
+          "old": "translate(-11.4375px, -2.125px)",
+          "new": "translate(-11.4375px, -2.125px)"
+        },
+        "weather-layer": {
+          "old": "translate(-11.4375px, -2.125px)",
+          "new": "translate(-11.4375px, -2.125px)"
+        },
+        "reading": {
+          "old": "translate(-11.4375px, -2.125px)",
+          "new": "translate3d(-11.4375px, -2.125px, 0px)"
+        },
+        "actors": {
+          "old": "translate(-11.4375px, -2.125px)",
+          "new": "translate(-11.4375px, -2.125px)"
+        },
+        "light-layer": {
+          "old": "translate(-11.4375px, -2.125px)",
+          "new": "translate(-11.4375px, -2.125px)"
+        }
+      },
+      "pixelDiff": {
+        "identical": true,
+        "absoluteErrorPixels": 0,
+        "meanAbsoluteError": 0
+      },
+      "imageSHA256": {
+        "old": "0676ce90e3090661c0ddba35cffdf9d7c6c84d5d7ebf97ade444935abce1a5ee",
+        "new": "0676ce90e3090661c0ddba35cffdf9d7c6c84d5d7ebf97ade444935abce1a5ee"
+      },
+      "browserVersion": "153.0",
+      "browser": "firefox"
+    },
+    {
+      "label": "hosted-firefox-1920x1080-dpr2-still",
+      "options": {
+        "viewport": {
+          "width": 1920,
+          "height": 1080
+        },
+        "dpr": 2,
+        "mode": "still"
+      },
+      "pageErrors": {
+        "old": [],
+        "new": []
+      },
+      "particleCount": {
+        "old": 20,
+        "new": 20
+      },
+      "sameLayerMarkup": {
+        "world": true,
+        "weather-layer": true,
+        "reading": true,
+        "actors": true,
+        "light-layer": true
+      },
+      "sameLayerXY": {
+        "world": true,
+        "weather-layer": true,
+        "reading": true,
+        "actors": true,
+        "light-layer": true
+      },
+      "sameLandmarks": true,
+      "oldReadingTransform": "translate(0px)",
+      "newReadingTransform": "translate3d(0px, 0px, 0px)",
+      "layerTransforms": {
+        "world": {
+          "old": "translate(0px)",
+          "new": "translate(0px)"
+        },
+        "weather-layer": {
+          "old": "translate(0px)",
+          "new": "translate(0px)"
+        },
+        "reading": {
+          "old": "translate(0px)",
+          "new": "translate3d(0px, 0px, 0px)"
+        },
+        "actors": {
+          "old": "translate(0px)",
+          "new": "translate(0px)"
+        },
+        "light-layer": {
+          "old": "translate(0px)",
+          "new": "translate(0px)"
+        }
+      },
+      "pixelDiff": {
+        "identical": true,
+        "absoluteErrorPixels": 0,
+        "meanAbsoluteError": 0
+      },
+      "imageSHA256": {
+        "old": "55463a3fbc710d690afa89052f1159ba5648305b23a7696295c2d6b7b097ef28",
+        "new": "55463a3fbc710d690afa89052f1159ba5648305b23a7696295c2d6b7b097ef28"
+      },
+      "browserVersion": "153.0",
+      "browser": "firefox"
+    },
+    {
+      "label": "hosted-firefox-1920x1080-dpr2-reduced",
+      "options": {
+        "viewport": {
+          "width": 1920,
+          "height": 1080
+        },
+        "dpr": 2,
+        "mode": "reduced"
+      },
+      "pageErrors": {
+        "old": [],
+        "new": []
+      },
+      "particleCount": {
+        "old": 20,
+        "new": 20
+      },
+      "sameLayerMarkup": {
+        "world": true,
+        "weather-layer": true,
+        "reading": true,
+        "actors": true,
+        "light-layer": true
+      },
+      "sameLayerXY": {
+        "world": true,
+        "weather-layer": true,
+        "reading": true,
+        "actors": true,
+        "light-layer": true
+      },
+      "sameLandmarks": true,
+      "oldReadingTransform": "translate(0px)",
+      "newReadingTransform": "translate3d(0px, 0px, 0px)",
+      "layerTransforms": {
+        "world": {
+          "old": "translate(0px)",
+          "new": "translate(0px)"
+        },
+        "weather-layer": {
+          "old": "translate(0px)",
+          "new": "translate(0px)"
+        },
+        "reading": {
+          "old": "translate(0px)",
+          "new": "translate3d(0px, 0px, 0px)"
+        },
+        "actors": {
+          "old": "translate(0px)",
+          "new": "translate(0px)"
+        },
+        "light-layer": {
+          "old": "translate(0px)",
+          "new": "translate(0px)"
+        }
+      },
+      "pixelDiff": {
+        "identical": true,
+        "absoluteErrorPixels": 0,
+        "meanAbsoluteError": 0
+      },
+      "imageSHA256": {
+        "old": "13347d3ab738ef40b00ea4132ae4a2c9ed46dfd9eaed672377447d9898fbf579",
+        "new": "13347d3ab738ef40b00ea4132ae4a2c9ed46dfd9eaed672377447d9898fbf579"
+      },
+      "browserVersion": "153.0",
+      "browser": "firefox"
+    },
+    {
+      "label": "hosted-firefox-390x844-dpr2-moving",
+      "options": {
+        "viewport": {
+          "width": 390,
+          "height": 844
+        },
+        "dpr": 2,
+        "mode": "moving"
+      },
+      "pageErrors": {
+        "old": [],
+        "new": []
+      },
+      "particleCount": {
+        "old": 20,
+        "new": 20
+      },
+      "sameLayerMarkup": {
+        "world": true,
+        "weather-layer": true,
+        "reading": true,
+        "actors": true,
+        "light-layer": true
+      },
+      "sameLayerXY": {
+        "world": true,
+        "weather-layer": true,
+        "reading": true,
+        "actors": true,
+        "light-layer": true
+      },
+      "sameLandmarks": true,
+      "oldReadingTransform": "translate(-2.3125px, -1.65625px)",
+      "newReadingTransform": "translate3d(-2.3125px, -1.65625px, 0px)",
+      "layerTransforms": {
+        "world": {
+          "old": "translate(-2.3125px, -1.65625px)",
+          "new": "translate(-2.3125px, -1.65625px)"
+        },
+        "weather-layer": {
+          "old": "translate(-2.3125px, -1.65625px)",
+          "new": "translate(-2.3125px, -1.65625px)"
+        },
+        "reading": {
+          "old": "translate(-2.3125px, -1.65625px)",
+          "new": "translate3d(-2.3125px, -1.65625px, 0px)"
+        },
+        "actors": {
+          "old": "translate(-2.3125px, -1.65625px)",
+          "new": "translate(-2.3125px, -1.65625px)"
+        },
+        "light-layer": {
+          "old": "translate(-2.3125px, -1.65625px)",
+          "new": "translate(-2.3125px, -1.65625px)"
+        }
+      },
+      "pixelDiff": {
+        "identical": true,
+        "absoluteErrorPixels": 0,
+        "meanAbsoluteError": 0
+      },
+      "imageSHA256": {
+        "old": "5329b8199a4579226ab64e9fb29fef67fa12766b68625c0e8e63b3a5e9642edf",
+        "new": "5329b8199a4579226ab64e9fb29fef67fa12766b68625c0e8e63b3a5e9642edf"
+      },
+      "browserVersion": "153.0",
+      "browser": "firefox"
+    },
+    {
+      "label": "hosted-firefox-390x844-dpr2-still",
+      "options": {
+        "viewport": {
+          "width": 390,
+          "height": 844
+        },
+        "dpr": 2,
+        "mode": "still"
+      },
+      "pageErrors": {
+        "old": [],
+        "new": []
+      },
+      "particleCount": {
+        "old": 20,
+        "new": 20
+      },
+      "sameLayerMarkup": {
+        "world": true,
+        "weather-layer": true,
+        "reading": true,
+        "actors": true,
+        "light-layer": true
+      },
+      "sameLayerXY": {
+        "world": true,
+        "weather-layer": true,
+        "reading": true,
+        "actors": true,
+        "light-layer": true
+      },
+      "sameLandmarks": true,
+      "oldReadingTransform": "translate(0px)",
+      "newReadingTransform": "translate3d(0px, 0px, 0px)",
+      "layerTransforms": {
+        "world": {
+          "old": "translate(0px)",
+          "new": "translate(0px)"
+        },
+        "weather-layer": {
+          "old": "translate(0px)",
+          "new": "translate(0px)"
+        },
+        "reading": {
+          "old": "translate(0px)",
+          "new": "translate3d(0px, 0px, 0px)"
+        },
+        "actors": {
+          "old": "translate(0px)",
+          "new": "translate(0px)"
+        },
+        "light-layer": {
+          "old": "translate(0px)",
+          "new": "translate(0px)"
+        }
+      },
+      "pixelDiff": {
+        "identical": true,
+        "absoluteErrorPixels": 0,
+        "meanAbsoluteError": 0
+      },
+      "imageSHA256": {
+        "old": "d929b833f7cb65ce76806a553d066123e4fe5731967d864896f58f15ae12827b",
+        "new": "d929b833f7cb65ce76806a553d066123e4fe5731967d864896f58f15ae12827b"
+      },
+      "browserVersion": "153.0",
+      "browser": "firefox"
+    },
+    {
+      "label": "hosted-firefox-390x844-dpr2-reduced",
+      "options": {
+        "viewport": {
+          "width": 390,
+          "height": 844
+        },
+        "dpr": 2,
+        "mode": "reduced"
+      },
+      "pageErrors": {
+        "old": [],
+        "new": []
+      },
+      "particleCount": {
+        "old": 20,
+        "new": 20
+      },
+      "sameLayerMarkup": {
+        "world": true,
+        "weather-layer": true,
+        "reading": true,
+        "actors": true,
+        "light-layer": true
+      },
+      "sameLayerXY": {
+        "world": true,
+        "weather-layer": true,
+        "reading": true,
+        "actors": true,
+        "light-layer": true
+      },
+      "sameLandmarks": true,
+      "oldReadingTransform": "translate(0px)",
+      "newReadingTransform": "translate3d(0px, 0px, 0px)",
+      "layerTransforms": {
+        "world": {
+          "old": "translate(0px)",
+          "new": "translate(0px)"
+        },
+        "weather-layer": {
+          "old": "translate(0px)",
+          "new": "translate(0px)"
+        },
+        "reading": {
+          "old": "translate(0px)",
+          "new": "translate3d(0px, 0px, 0px)"
+        },
+        "actors": {
+          "old": "translate(0px)",
+          "new": "translate(0px)"
+        },
+        "light-layer": {
+          "old": "translate(0px)",
+          "new": "translate(0px)"
+        }
+      },
+      "pixelDiff": {
+        "identical": true,
+        "absoluteErrorPixels": 0,
+        "meanAbsoluteError": 0
+      },
+      "imageSHA256": {
+        "old": "5c3bf2df1e8d98d8fb92b5b2b3ab0def15c2e4c10544e3d1e9d71348fa0f4838",
+        "new": "5c3bf2df1e8d98d8fb92b5b2b3ab0def15c2e4c10544e3d1e9d71348fa0f4838"
+      },
+      "browserVersion": "153.0",
+      "browser": "firefox"
+    },
+    {
+      "label": "portable-firefox-1280x720-dpr2-moving",
+      "options": {
+        "viewport": {
+          "width": 1280,
+          "height": 720
+        },
+        "dpr": 2,
+        "mode": "moving"
+      },
+      "pageErrors": {
+        "old": [],
+        "new": []
+      },
+      "particleCount": {
+        "old": 20,
+        "new": 20
+      },
+      "sameLayerMarkup": {
+        "world": true,
+        "weather-layer": true,
+        "reading": true,
+        "actors": true,
+        "light-layer": true
+      },
+      "sameLayerXY": {
+        "world": true,
+        "weather-layer": true,
+        "reading": true,
+        "actors": true,
+        "light-layer": true
+      },
+      "sameLandmarks": true,
+      "oldReadingTransform": "translate(-7.625px, -1.40625px)",
+      "newReadingTransform": "translate3d(-7.625px, -1.40625px, 0px)",
+      "layerTransforms": {
+        "world": {
+          "old": "translate(-7.625px, -1.40625px)",
+          "new": "translate(-7.625px, -1.40625px)"
+        },
+        "weather-layer": {
+          "old": "translate(-7.625px, -1.40625px)",
+          "new": "translate(-7.625px, -1.40625px)"
+        },
+        "reading": {
+          "old": "translate(-7.625px, -1.40625px)",
+          "new": "translate3d(-7.625px, -1.40625px, 0px)"
+        },
+        "actors": {
+          "old": "translate(-7.625px, -1.40625px)",
+          "new": "translate(-7.625px, -1.40625px)"
+        },
+        "light-layer": {
+          "old": "translate(-7.625px, -1.40625px)",
+          "new": "translate(-7.625px, -1.40625px)"
+        }
+      },
+      "pixelDiff": {
+        "identical": true,
+        "absoluteErrorPixels": 0,
+        "meanAbsoluteError": 0
+      },
+      "imageSHA256": {
+        "old": "b9b0a2345e636c2abfaff146e09c4b5ba1b31ebca64eef7f857c8aabe0f12fcb",
+        "new": "b9b0a2345e636c2abfaff146e09c4b5ba1b31ebca64eef7f857c8aabe0f12fcb"
+      },
+      "browserVersion": "153.0",
+      "browser": "firefox"
+    },
+    {
+      "label": "portable-firefox-390x844-dpr1-reduced",
+      "options": {
+        "viewport": {
+          "width": 390,
+          "height": 844
+        },
+        "dpr": 1,
+        "mode": "reduced"
+      },
+      "pageErrors": {
+        "old": [],
+        "new": []
+      },
+      "particleCount": {
+        "old": 20,
+        "new": 20
+      },
+      "sameLayerMarkup": {
+        "world": true,
+        "weather-layer": true,
+        "reading": true,
+        "actors": true,
+        "light-layer": true
+      },
+      "sameLayerXY": {
+        "world": true,
+        "weather-layer": true,
+        "reading": true,
+        "actors": true,
+        "light-layer": true
+      },
+      "sameLandmarks": true,
+      "oldReadingTransform": "translate(0px)",
+      "newReadingTransform": "translate3d(0px, 0px, 0px)",
+      "layerTransforms": {
+        "world": {
+          "old": "translate(0px)",
+          "new": "translate(0px)"
+        },
+        "weather-layer": {
+          "old": "translate(0px)",
+          "new": "translate(0px)"
+        },
+        "reading": {
+          "old": "translate(0px)",
+          "new": "translate3d(0px, 0px, 0px)"
+        },
+        "actors": {
+          "old": "translate(0px)",
+          "new": "translate(0px)"
+        },
+        "light-layer": {
+          "old": "translate(0px)",
+          "new": "translate(0px)"
+        }
+      },
+      "pixelDiff": {
+        "identical": true,
+        "absoluteErrorPixels": 0,
+        "meanAbsoluteError": 0
+      },
+      "imageSHA256": {
+        "old": "d28d0302bd8c872e77edc25a6e7beb8967d3534a11b339469142409484d6d0f4",
+        "new": "d28d0302bd8c872e77edc25a6e7beb8967d3534a11b339469142409484d6d0f4"
+      },
+      "browserVersion": "153.0",
+      "browser": "firefox"
+    },
+    {
+      "label": "hosted-chromium-854x480-dpr1-moving",
+      "options": {
+        "viewport": {
+          "width": 854,
+          "height": 480
+        },
+        "dpr": 1,
+        "mode": "moving"
+      },
+      "pageErrors": {
+        "old": [],
+        "new": []
+      },
+      "particleCount": {
+        "old": 20,
+        "new": 20
+      },
+      "sameLayerMarkup": {
+        "world": true,
+        "weather-layer": true,
+        "reading": true,
+        "actors": true,
+        "light-layer": true
+      },
+      "sameLayerXY": {
+        "world": true,
+        "weather-layer": true,
+        "reading": true,
+        "actors": true,
+        "light-layer": true
+      },
+      "sameLandmarks": true,
+      "oldReadingTransform": "translate(-5.125px, -0.9375px)",
+      "newReadingTransform": "translate3d(-5.125px, -0.9375px, 0px)",
+      "layerTransforms": {
+        "world": {
+          "old": "translate(-5.125px, -0.9375px)",
+          "new": "translate(-5.125px, -0.9375px)"
+        },
+        "weather-layer": {
+          "old": "translate(-5.125px, -0.9375px)",
+          "new": "translate(-5.125px, -0.9375px)"
+        },
+        "reading": {
+          "old": "translate(-5.125px, -0.9375px)",
+          "new": "translate3d(-5.125px, -0.9375px, 0px)"
+        },
+        "actors": {
+          "old": "translate(-5.125px, -0.9375px)",
+          "new": "translate(-5.125px, -0.9375px)"
+        },
+        "light-layer": {
+          "old": "translate(-5.125px, -0.9375px)",
+          "new": "translate(-5.125px, -0.9375px)"
+        }
+      },
+      "pixelDiff": {
+        "identical": true,
+        "absoluteErrorPixels": 0,
+        "meanAbsoluteError": 0
+      },
+      "imageSHA256": {
+        "old": "356d795924ea323ffcba8fda7c4cddf61457ee5e8409dfa5987452d5bde9da2f",
+        "new": "356d795924ea323ffcba8fda7c4cddf61457ee5e8409dfa5987452d5bde9da2f"
+      },
+      "browserVersion": "151.0.7922.34",
+      "browser": "chromium"
+    },
+    {
+      "label": "hosted-chromium-854x480-dpr1-still",
+      "options": {
+        "viewport": {
+          "width": 854,
+          "height": 480
+        },
+        "dpr": 1,
+        "mode": "still"
+      },
+      "pageErrors": {
+        "old": [],
+        "new": []
+      },
+      "particleCount": {
+        "old": 20,
+        "new": 20
+      },
+      "sameLayerMarkup": {
+        "world": true,
+        "weather-layer": true,
+        "reading": true,
+        "actors": true,
+        "light-layer": true
+      },
+      "sameLayerXY": {
+        "world": true,
+        "weather-layer": true,
+        "reading": true,
+        "actors": true,
+        "light-layer": true
+      },
+      "sameLandmarks": true,
+      "oldReadingTransform": "translate(0px, 0px)",
+      "newReadingTransform": "translate3d(0px, 0px, 0px)",
+      "layerTransforms": {
+        "world": {
+          "old": "translate(0px, 0px)",
+          "new": "translate(0px, 0px)"
+        },
+        "weather-layer": {
+          "old": "translate(0px, 0px)",
+          "new": "translate(0px, 0px)"
+        },
+        "reading": {
+          "old": "translate(0px, 0px)",
+          "new": "translate3d(0px, 0px, 0px)"
+        },
+        "actors": {
+          "old": "translate(0px, 0px)",
+          "new": "translate(0px, 0px)"
+        },
+        "light-layer": {
+          "old": "translate(0px, 0px)",
+          "new": "translate(0px, 0px)"
+        }
+      },
+      "pixelDiff": {
+        "identical": true,
+        "absoluteErrorPixels": 0,
+        "meanAbsoluteError": 0
+      },
+      "imageSHA256": {
+        "old": "efddc5fc66a4b7bd6a745b053ba2ad86929a6312728b96f0ff824dec3bc06499",
+        "new": "efddc5fc66a4b7bd6a745b053ba2ad86929a6312728b96f0ff824dec3bc06499"
+      },
+      "browserVersion": "151.0.7922.34",
+      "browser": "chromium"
+    },
+    {
+      "label": "hosted-chromium-854x480-dpr1-reduced",
+      "options": {
+        "viewport": {
+          "width": 854,
+          "height": 480
+        },
+        "dpr": 1,
+        "mode": "reduced"
+      },
+      "pageErrors": {
+        "old": [],
+        "new": []
+      },
+      "particleCount": {
+        "old": 20,
+        "new": 20
+      },
+      "sameLayerMarkup": {
+        "world": true,
+        "weather-layer": true,
+        "reading": true,
+        "actors": true,
+        "light-layer": true
+      },
+      "sameLayerXY": {
+        "world": true,
+        "weather-layer": true,
+        "reading": true,
+        "actors": true,
+        "light-layer": true
+      },
+      "sameLandmarks": true,
+      "oldReadingTransform": "translate(0px, 0px)",
+      "newReadingTransform": "translate3d(0px, 0px, 0px)",
+      "layerTransforms": {
+        "world": {
+          "old": "translate(0px, 0px)",
+          "new": "translate(0px, 0px)"
+        },
+        "weather-layer": {
+          "old": "translate(0px, 0px)",
+          "new": "translate(0px, 0px)"
+        },
+        "reading": {
+          "old": "translate(0px, 0px)",
+          "new": "translate3d(0px, 0px, 0px)"
+        },
+        "actors": {
+          "old": "translate(0px, 0px)",
+          "new": "translate(0px, 0px)"
+        },
+        "light-layer": {
+          "old": "translate(0px, 0px)",
+          "new": "translate(0px, 0px)"
+        }
+      },
+      "pixelDiff": {
+        "identical": true,
+        "absoluteErrorPixels": 0,
+        "meanAbsoluteError": 0
+      },
+      "imageSHA256": {
+        "old": "f1504797fb57dcf58efae75afefe550f84b613ce22848c4ca1ccfa2da1479543",
+        "new": "f1504797fb57dcf58efae75afefe550f84b613ce22848c4ca1ccfa2da1479543"
+      },
+      "browserVersion": "151.0.7922.34",
+      "browser": "chromium"
+    },
+    {
+      "label": "hosted-chromium-1280x720-dpr1-moving",
+      "options": {
+        "viewport": {
+          "width": 1280,
+          "height": 720
+        },
+        "dpr": 1,
+        "mode": "moving"
+      },
+      "pageErrors": {
+        "old": [],
+        "new": []
+      },
+      "particleCount": {
+        "old": 20,
+        "new": 20
+      },
+      "sameLayerMarkup": {
+        "world": true,
+        "weather-layer": true,
+        "reading": true,
+        "actors": true,
+        "light-layer": true
+      },
+      "sameLayerXY": {
+        "world": true,
+        "weather-layer": true,
+        "reading": true,
+        "actors": true,
+        "light-layer": true
+      },
+      "sameLandmarks": true,
+      "oldReadingTransform": "translate(-7.625px, -1.4375px)",
+      "newReadingTransform": "translate3d(-7.625px, -1.4375px, 0px)",
+      "layerTransforms": {
+        "world": {
+          "old": "translate(-7.625px, -1.4375px)",
+          "new": "translate(-7.625px, -1.4375px)"
+        },
+        "weather-layer": {
+          "old": "translate(-7.625px, -1.4375px)",
+          "new": "translate(-7.625px, -1.4375px)"
+        },
+        "reading": {
+          "old": "translate(-7.625px, -1.4375px)",
+          "new": "translate3d(-7.625px, -1.4375px, 0px)"
+        },
+        "actors": {
+          "old": "translate(-7.625px, -1.4375px)",
+          "new": "translate(-7.625px, -1.4375px)"
+        },
+        "light-layer": {
+          "old": "translate(-7.625px, -1.4375px)",
+          "new": "translate(-7.625px, -1.4375px)"
+        }
+      },
+      "pixelDiff": {
+        "identical": true,
+        "absoluteErrorPixels": 0,
+        "meanAbsoluteError": 0
+      },
+      "imageSHA256": {
+        "old": "3f77a5692591cb719679fcf244c11c7ca56aa4e67b97046f97b2f228c590411c",
+        "new": "3f77a5692591cb719679fcf244c11c7ca56aa4e67b97046f97b2f228c590411c"
+      },
+      "browserVersion": "151.0.7922.34",
+      "browser": "chromium"
+    },
+    {
+      "label": "hosted-chromium-1280x720-dpr1-still",
+      "options": {
+        "viewport": {
+          "width": 1280,
+          "height": 720
+        },
+        "dpr": 1,
+        "mode": "still"
+      },
+      "pageErrors": {
+        "old": [],
+        "new": []
+      },
+      "particleCount": {
+        "old": 20,
+        "new": 20
+      },
+      "sameLayerMarkup": {
+        "world": true,
+        "weather-layer": true,
+        "reading": true,
+        "actors": true,
+        "light-layer": true
+      },
+      "sameLayerXY": {
+        "world": true,
+        "weather-layer": true,
+        "reading": true,
+        "actors": true,
+        "light-layer": true
+      },
+      "sameLandmarks": true,
+      "oldReadingTransform": "translate(0px, 0px)",
+      "newReadingTransform": "translate3d(0px, 0px, 0px)",
+      "layerTransforms": {
+        "world": {
+          "old": "translate(0px, 0px)",
+          "new": "translate(0px, 0px)"
+        },
+        "weather-layer": {
+          "old": "translate(0px, 0px)",
+          "new": "translate(0px, 0px)"
+        },
+        "reading": {
+          "old": "translate(0px, 0px)",
+          "new": "translate3d(0px, 0px, 0px)"
+        },
+        "actors": {
+          "old": "translate(0px, 0px)",
+          "new": "translate(0px, 0px)"
+        },
+        "light-layer": {
+          "old": "translate(0px, 0px)",
+          "new": "translate(0px, 0px)"
+        }
+      },
+      "pixelDiff": {
+        "identical": true,
+        "absoluteErrorPixels": 0,
+        "meanAbsoluteError": 0
+      },
+      "imageSHA256": {
+        "old": "55733eaf4b2e87ae4ee5688ea02b7881afb5da03439296734e0580544062aae0",
+        "new": "55733eaf4b2e87ae4ee5688ea02b7881afb5da03439296734e0580544062aae0"
+      },
+      "browserVersion": "151.0.7922.34",
+      "browser": "chromium"
+    },
+    {
+      "label": "hosted-chromium-1280x720-dpr1-reduced",
+      "options": {
+        "viewport": {
+          "width": 1280,
+          "height": 720
+        },
+        "dpr": 1,
+        "mode": "reduced"
+      },
+      "pageErrors": {
+        "old": [],
+        "new": []
+      },
+      "particleCount": {
+        "old": 20,
+        "new": 20
+      },
+      "sameLayerMarkup": {
+        "world": true,
+        "weather-layer": true,
+        "reading": true,
+        "actors": true,
+        "light-layer": true
+      },
+      "sameLayerXY": {
+        "world": true,
+        "weather-layer": true,
+        "reading": true,
+        "actors": true,
+        "light-layer": true
+      },
+      "sameLandmarks": true,
+      "oldReadingTransform": "translate(0px, 0px)",
+      "newReadingTransform": "translate3d(0px, 0px, 0px)",
+      "layerTransforms": {
+        "world": {
+          "old": "translate(0px, 0px)",
+          "new": "translate(0px, 0px)"
+        },
+        "weather-layer": {
+          "old": "translate(0px, 0px)",
+          "new": "translate(0px, 0px)"
+        },
+        "reading": {
+          "old": "translate(0px, 0px)",
+          "new": "translate3d(0px, 0px, 0px)"
+        },
+        "actors": {
+          "old": "translate(0px, 0px)",
+          "new": "translate(0px, 0px)"
+        },
+        "light-layer": {
+          "old": "translate(0px, 0px)",
+          "new": "translate(0px, 0px)"
+        }
+      },
+      "pixelDiff": {
+        "identical": true,
+        "absoluteErrorPixels": 0,
+        "meanAbsoluteError": 0
+      },
+      "imageSHA256": {
+        "old": "99ef20da2e6dd7695b6c55f28b69570f03b0c07dddcb4b45b9638befa10be3fe",
+        "new": "99ef20da2e6dd7695b6c55f28b69570f03b0c07dddcb4b45b9638befa10be3fe"
+      },
+      "browserVersion": "151.0.7922.34",
+      "browser": "chromium"
+    },
+    {
+      "label": "hosted-chromium-1920x1080-dpr1-moving",
+      "options": {
+        "viewport": {
+          "width": 1920,
+          "height": 1080
+        },
+        "dpr": 1,
+        "mode": "moving"
+      },
+      "pageErrors": {
+        "old": [],
+        "new": []
+      },
+      "particleCount": {
+        "old": 20,
+        "new": 20
+      },
+      "sameLayerMarkup": {
+        "world": true,
+        "weather-layer": true,
+        "reading": true,
+        "actors": true,
+        "light-layer": true
+      },
+      "sameLayerXY": {
+        "world": true,
+        "weather-layer": true,
+        "reading": true,
+        "actors": true,
+        "light-layer": true
+      },
+      "sameLandmarks": true,
+      "oldReadingTransform": "translate(-11.4375px, -2.125px)",
+      "newReadingTransform": "translate3d(-11.4375px, -2.125px, 0px)",
+      "layerTransforms": {
+        "world": {
+          "old": "translate(-11.4375px, -2.125px)",
+          "new": "translate(-11.4375px, -2.125px)"
+        },
+        "weather-layer": {
+          "old": "translate(-11.4375px, -2.125px)",
+          "new": "translate(-11.4375px, -2.125px)"
+        },
+        "reading": {
+          "old": "translate(-11.4375px, -2.125px)",
+          "new": "translate3d(-11.4375px, -2.125px, 0px)"
+        },
+        "actors": {
+          "old": "translate(-11.4375px, -2.125px)",
+          "new": "translate(-11.4375px, -2.125px)"
+        },
+        "light-layer": {
+          "old": "translate(-11.4375px, -2.125px)",
+          "new": "translate(-11.4375px, -2.125px)"
+        }
+      },
+      "pixelDiff": {
+        "identical": true,
+        "absoluteErrorPixels": 0,
+        "meanAbsoluteError": 0
+      },
+      "imageSHA256": {
+        "old": "d176f3082bae3d2e0b28e4ea2431e67ee156850dc75364e796fe1289c63c154b",
+        "new": "d176f3082bae3d2e0b28e4ea2431e67ee156850dc75364e796fe1289c63c154b"
+      },
+      "browserVersion": "151.0.7922.34",
+      "browser": "chromium"
+    },
+    {
+      "label": "hosted-chromium-1920x1080-dpr1-still",
+      "options": {
+        "viewport": {
+          "width": 1920,
+          "height": 1080
+        },
+        "dpr": 1,
+        "mode": "still"
+      },
+      "pageErrors": {
+        "old": [],
+        "new": []
+      },
+      "particleCount": {
+        "old": 20,
+        "new": 20
+      },
+      "sameLayerMarkup": {
+        "world": true,
+        "weather-layer": true,
+        "reading": true,
+        "actors": true,
+        "light-layer": true
+      },
+      "sameLayerXY": {
+        "world": true,
+        "weather-layer": true,
+        "reading": true,
+        "actors": true,
+        "light-layer": true
+      },
+      "sameLandmarks": true,
+      "oldReadingTransform": "translate(0px, 0px)",
+      "newReadingTransform": "translate3d(0px, 0px, 0px)",
+      "layerTransforms": {
+        "world": {
+          "old": "translate(0px, 0px)",
+          "new": "translate(0px, 0px)"
+        },
+        "weather-layer": {
+          "old": "translate(0px, 0px)",
+          "new": "translate(0px, 0px)"
+        },
+        "reading": {
+          "old": "translate(0px, 0px)",
+          "new": "translate3d(0px, 0px, 0px)"
+        },
+        "actors": {
+          "old": "translate(0px, 0px)",
+          "new": "translate(0px, 0px)"
+        },
+        "light-layer": {
+          "old": "translate(0px, 0px)",
+          "new": "translate(0px, 0px)"
+        }
+      },
+      "pixelDiff": {
+        "identical": true,
+        "absoluteErrorPixels": 0,
+        "meanAbsoluteError": 0
+      },
+      "imageSHA256": {
+        "old": "3330b6fdcdd72343000a02bc24374d9f60d047f18f8c46e46598ff3aad27e915",
+        "new": "3330b6fdcdd72343000a02bc24374d9f60d047f18f8c46e46598ff3aad27e915"
+      },
+      "browserVersion": "151.0.7922.34",
+      "browser": "chromium"
+    },
+    {
+      "label": "hosted-chromium-1920x1080-dpr1-reduced",
+      "options": {
+        "viewport": {
+          "width": 1920,
+          "height": 1080
+        },
+        "dpr": 1,
+        "mode": "reduced"
+      },
+      "pageErrors": {
+        "old": [],
+        "new": []
+      },
+      "particleCount": {
+        "old": 20,
+        "new": 20
+      },
+      "sameLayerMarkup": {
+        "world": true,
+        "weather-layer": true,
+        "reading": true,
+        "actors": true,
+        "light-layer": true
+      },
+      "sameLayerXY": {
+        "world": true,
+        "weather-layer": true,
+        "reading": true,
+        "actors": true,
+        "light-layer": true
+      },
+      "sameLandmarks": true,
+      "oldReadingTransform": "translate(0px, 0px)",
+      "newReadingTransform": "translate3d(0px, 0px, 0px)",
+      "layerTransforms": {
+        "world": {
+          "old": "translate(0px, 0px)",
+          "new": "translate(0px, 0px)"
+        },
+        "weather-layer": {
+          "old": "translate(0px, 0px)",
+          "new": "translate(0px, 0px)"
+        },
+        "reading": {
+          "old": "translate(0px, 0px)",
+          "new": "translate3d(0px, 0px, 0px)"
+        },
+        "actors": {
+          "old": "translate(0px, 0px)",
+          "new": "translate(0px, 0px)"
+        },
+        "light-layer": {
+          "old": "translate(0px, 0px)",
+          "new": "translate(0px, 0px)"
+        }
+      },
+      "pixelDiff": {
+        "identical": true,
+        "absoluteErrorPixels": 0,
+        "meanAbsoluteError": 0
+      },
+      "imageSHA256": {
+        "old": "dfa4f35abc1bbc3e421f60235e5ec72d6a1117c7ed18103b00548f8434a36860",
+        "new": "dfa4f35abc1bbc3e421f60235e5ec72d6a1117c7ed18103b00548f8434a36860"
+      },
+      "browserVersion": "151.0.7922.34",
+      "browser": "chromium"
+    },
+    {
+      "label": "hosted-chromium-390x844-dpr1-moving",
+      "options": {
+        "viewport": {
+          "width": 390,
+          "height": 844
+        },
+        "dpr": 1,
+        "mode": "moving"
+      },
+      "pageErrors": {
+        "old": [],
+        "new": []
+      },
+      "particleCount": {
+        "old": 20,
+        "new": 20
+      },
+      "sameLayerMarkup": {
+        "world": true,
+        "weather-layer": true,
+        "reading": true,
+        "actors": true,
+        "light-layer": true
+      },
+      "sameLayerXY": {
+        "world": true,
+        "weather-layer": true,
+        "reading": true,
+        "actors": true,
+        "light-layer": true
+      },
+      "sameLandmarks": true,
+      "oldReadingTransform": "translate(-2.3125px, -1.6875px)",
+      "newReadingTransform": "translate3d(-2.3125px, -1.6875px, 0px)",
+      "layerTransforms": {
+        "world": {
+          "old": "translate(-2.3125px, -1.6875px)",
+          "new": "translate(-2.3125px, -1.6875px)"
+        },
+        "weather-layer": {
+          "old": "translate(-2.3125px, -1.6875px)",
+          "new": "translate(-2.3125px, -1.6875px)"
+        },
+        "reading": {
+          "old": "translate(-2.3125px, -1.6875px)",
+          "new": "translate3d(-2.3125px, -1.6875px, 0px)"
+        },
+        "actors": {
+          "old": "translate(-2.3125px, -1.6875px)",
+          "new": "translate(-2.3125px, -1.6875px)"
+        },
+        "light-layer": {
+          "old": "translate(-2.3125px, -1.6875px)",
+          "new": "translate(-2.3125px, -1.6875px)"
+        }
+      },
+      "pixelDiff": {
+        "identical": true,
+        "absoluteErrorPixels": 0,
+        "meanAbsoluteError": 0
+      },
+      "imageSHA256": {
+        "old": "e157948e5572465fae2706a22c6740fbf2481afcb9f4850c4486d1eb6e43f5c1",
+        "new": "e157948e5572465fae2706a22c6740fbf2481afcb9f4850c4486d1eb6e43f5c1"
+      },
+      "browserVersion": "151.0.7922.34",
+      "browser": "chromium"
+    },
+    {
+      "label": "hosted-chromium-390x844-dpr1-still",
+      "options": {
+        "viewport": {
+          "width": 390,
+          "height": 844
+        },
+        "dpr": 1,
+        "mode": "still"
+      },
+      "pageErrors": {
+        "old": [],
+        "new": []
+      },
+      "particleCount": {
+        "old": 20,
+        "new": 20
+      },
+      "sameLayerMarkup": {
+        "world": true,
+        "weather-layer": true,
+        "reading": true,
+        "actors": true,
+        "light-layer": true
+      },
+      "sameLayerXY": {
+        "world": true,
+        "weather-layer": true,
+        "reading": true,
+        "actors": true,
+        "light-layer": true
+      },
+      "sameLandmarks": true,
+      "oldReadingTransform": "translate(0px, 0px)",
+      "newReadingTransform": "translate3d(0px, 0px, 0px)",
+      "layerTransforms": {
+        "world": {
+          "old": "translate(0px, 0px)",
+          "new": "translate(0px, 0px)"
+        },
+        "weather-layer": {
+          "old": "translate(0px, 0px)",
+          "new": "translate(0px, 0px)"
+        },
+        "reading": {
+          "old": "translate(0px, 0px)",
+          "new": "translate3d(0px, 0px, 0px)"
+        },
+        "actors": {
+          "old": "translate(0px, 0px)",
+          "new": "translate(0px, 0px)"
+        },
+        "light-layer": {
+          "old": "translate(0px, 0px)",
+          "new": "translate(0px, 0px)"
+        }
+      },
+      "pixelDiff": {
+        "identical": true,
+        "absoluteErrorPixels": 0,
+        "meanAbsoluteError": 0
+      },
+      "imageSHA256": {
+        "old": "c173a19d31ae568e8a7a5c4a0a6129f42e6269f20db9240404b99f2449b880e4",
+        "new": "c173a19d31ae568e8a7a5c4a0a6129f42e6269f20db9240404b99f2449b880e4"
+      },
+      "browserVersion": "151.0.7922.34",
+      "browser": "chromium"
+    },
+    {
+      "label": "hosted-chromium-390x844-dpr1-reduced",
+      "options": {
+        "viewport": {
+          "width": 390,
+          "height": 844
+        },
+        "dpr": 1,
+        "mode": "reduced"
+      },
+      "pageErrors": {
+        "old": [],
+        "new": []
+      },
+      "particleCount": {
+        "old": 20,
+        "new": 20
+      },
+      "sameLayerMarkup": {
+        "world": true,
+        "weather-layer": true,
+        "reading": true,
+        "actors": true,
+        "light-layer": true
+      },
+      "sameLayerXY": {
+        "world": true,
+        "weather-layer": true,
+        "reading": true,
+        "actors": true,
+        "light-layer": true
+      },
+      "sameLandmarks": true,
+      "oldReadingTransform": "translate(0px, 0px)",
+      "newReadingTransform": "translate3d(0px, 0px, 0px)",
+      "layerTransforms": {
+        "world": {
+          "old": "translate(0px, 0px)",
+          "new": "translate(0px, 0px)"
+        },
+        "weather-layer": {
+          "old": "translate(0px, 0px)",
+          "new": "translate(0px, 0px)"
+        },
+        "reading": {
+          "old": "translate(0px, 0px)",
+          "new": "translate3d(0px, 0px, 0px)"
+        },
+        "actors": {
+          "old": "translate(0px, 0px)",
+          "new": "translate(0px, 0px)"
+        },
+        "light-layer": {
+          "old": "translate(0px, 0px)",
+          "new": "translate(0px, 0px)"
+        }
+      },
+      "pixelDiff": {
+        "identical": true,
+        "absoluteErrorPixels": 0,
+        "meanAbsoluteError": 0
+      },
+      "imageSHA256": {
+        "old": "dec1e8df2497d5dba7606cd90ae638db2ca8989062de87f192ad9be443e9f771",
+        "new": "dec1e8df2497d5dba7606cd90ae638db2ca8989062de87f192ad9be443e9f771"
+      },
+      "browserVersion": "151.0.7922.34",
+      "browser": "chromium"
+    },
+    {
+      "label": "hosted-chromium-854x480-dpr2-moving",
+      "options": {
+        "viewport": {
+          "width": 854,
+          "height": 480
+        },
+        "dpr": 2,
+        "mode": "moving"
+      },
+      "pageErrors": {
+        "old": [],
+        "new": []
+      },
+      "particleCount": {
+        "old": 20,
+        "new": 20
+      },
+      "sameLayerMarkup": {
+        "world": true,
+        "weather-layer": true,
+        "reading": true,
+        "actors": true,
+        "light-layer": true
+      },
+      "sameLayerXY": {
+        "world": true,
+        "weather-layer": true,
+        "reading": true,
+        "actors": true,
+        "light-layer": true
+      },
+      "sameLandmarks": true,
+      "oldReadingTransform": "translate(-5.09375px, -0.9375px)",
+      "newReadingTransform": "translate3d(-5.09375px, -0.9375px, 0px)",
+      "layerTransforms": {
+        "world": {
+          "old": "translate(-5.09375px, -0.9375px)",
+          "new": "translate(-5.09375px, -0.9375px)"
+        },
+        "weather-layer": {
+          "old": "translate(-5.09375px, -0.9375px)",
+          "new": "translate(-5.09375px, -0.9375px)"
+        },
+        "reading": {
+          "old": "translate(-5.09375px, -0.9375px)",
+          "new": "translate3d(-5.09375px, -0.9375px, 0px)"
+        },
+        "actors": {
+          "old": "translate(-5.09375px, -0.9375px)",
+          "new": "translate(-5.09375px, -0.9375px)"
+        },
+        "light-layer": {
+          "old": "translate(-5.09375px, -0.9375px)",
+          "new": "translate(-5.09375px, -0.9375px)"
+        }
+      },
+      "pixelDiff": {
+        "identical": true,
+        "absoluteErrorPixels": 0,
+        "meanAbsoluteError": 0
+      },
+      "imageSHA256": {
+        "old": "632a21aac4b0d1f0797abf52e98557980e7f33716e794b8e1c12fc4b43f748e4",
+        "new": "632a21aac4b0d1f0797abf52e98557980e7f33716e794b8e1c12fc4b43f748e4"
+      },
+      "browserVersion": "151.0.7922.34",
+      "browser": "chromium"
+    },
+    {
+      "label": "hosted-chromium-854x480-dpr2-still",
+      "options": {
+        "viewport": {
+          "width": 854,
+          "height": 480
+        },
+        "dpr": 2,
+        "mode": "still"
+      },
+      "pageErrors": {
+        "old": [],
+        "new": []
+      },
+      "particleCount": {
+        "old": 20,
+        "new": 20
+      },
+      "sameLayerMarkup": {
+        "world": true,
+        "weather-layer": true,
+        "reading": true,
+        "actors": true,
+        "light-layer": true
+      },
+      "sameLayerXY": {
+        "world": true,
+        "weather-layer": true,
+        "reading": true,
+        "actors": true,
+        "light-layer": true
+      },
+      "sameLandmarks": true,
+      "oldReadingTransform": "translate(0px, 0px)",
+      "newReadingTransform": "translate3d(0px, 0px, 0px)",
+      "layerTransforms": {
+        "world": {
+          "old": "translate(0px, 0px)",
+          "new": "translate(0px, 0px)"
+        },
+        "weather-layer": {
+          "old": "translate(0px, 0px)",
+          "new": "translate(0px, 0px)"
+        },
+        "reading": {
+          "old": "translate(0px, 0px)",
+          "new": "translate3d(0px, 0px, 0px)"
+        },
+        "actors": {
+          "old": "translate(0px, 0px)",
+          "new": "translate(0px, 0px)"
+        },
+        "light-layer": {
+          "old": "translate(0px, 0px)",
+          "new": "translate(0px, 0px)"
+        }
+      },
+      "pixelDiff": {
+        "identical": true,
+        "absoluteErrorPixels": 0,
+        "meanAbsoluteError": 0
+      },
+      "imageSHA256": {
+        "old": "506c31844eb10d80b31eae60c8a2462173260cf8aefd15f89c25ce504eb982b1",
+        "new": "506c31844eb10d80b31eae60c8a2462173260cf8aefd15f89c25ce504eb982b1"
+      },
+      "browserVersion": "151.0.7922.34",
+      "browser": "chromium"
+    },
+    {
+      "label": "hosted-chromium-854x480-dpr2-reduced",
+      "options": {
+        "viewport": {
+          "width": 854,
+          "height": 480
+        },
+        "dpr": 2,
+        "mode": "reduced"
+      },
+      "pageErrors": {
+        "old": [],
+        "new": []
+      },
+      "particleCount": {
+        "old": 20,
+        "new": 20
+      },
+      "sameLayerMarkup": {
+        "world": true,
+        "weather-layer": true,
+        "reading": true,
+        "actors": true,
+        "light-layer": true
+      },
+      "sameLayerXY": {
+        "world": true,
+        "weather-layer": true,
+        "reading": true,
+        "actors": true,
+        "light-layer": true
+      },
+      "sameLandmarks": true,
+      "oldReadingTransform": "translate(0px, 0px)",
+      "newReadingTransform": "translate3d(0px, 0px, 0px)",
+      "layerTransforms": {
+        "world": {
+          "old": "translate(0px, 0px)",
+          "new": "translate(0px, 0px)"
+        },
+        "weather-layer": {
+          "old": "translate(0px, 0px)",
+          "new": "translate(0px, 0px)"
+        },
+        "reading": {
+          "old": "translate(0px, 0px)",
+          "new": "translate3d(0px, 0px, 0px)"
+        },
+        "actors": {
+          "old": "translate(0px, 0px)",
+          "new": "translate(0px, 0px)"
+        },
+        "light-layer": {
+          "old": "translate(0px, 0px)",
+          "new": "translate(0px, 0px)"
+        }
+      },
+      "pixelDiff": {
+        "identical": true,
+        "absoluteErrorPixels": 0,
+        "meanAbsoluteError": 0
+      },
+      "imageSHA256": {
+        "old": "325c683d416ca561ff7a7643dff87064a2f5a298842d6c5b3c9d48a5f3f8f6d1",
+        "new": "325c683d416ca561ff7a7643dff87064a2f5a298842d6c5b3c9d48a5f3f8f6d1"
+      },
+      "browserVersion": "151.0.7922.34",
+      "browser": "chromium"
+    },
+    {
+      "label": "hosted-chromium-1280x720-dpr2-moving",
+      "options": {
+        "viewport": {
+          "width": 1280,
+          "height": 720
+        },
+        "dpr": 2,
+        "mode": "moving"
+      },
+      "pageErrors": {
+        "old": [],
+        "new": []
+      },
+      "particleCount": {
+        "old": 20,
+        "new": 20
+      },
+      "sameLayerMarkup": {
+        "world": true,
+        "weather-layer": true,
+        "reading": true,
+        "actors": true,
+        "light-layer": true
+      },
+      "sameLayerXY": {
+        "world": true,
+        "weather-layer": true,
+        "reading": true,
+        "actors": true,
+        "light-layer": true
+      },
+      "sameLandmarks": true,
+      "oldReadingTransform": "translate(-7.625px, -1.40625px)",
+      "newReadingTransform": "translate3d(-7.625px, -1.40625px, 0px)",
+      "layerTransforms": {
+        "world": {
+          "old": "translate(-7.625px, -1.40625px)",
+          "new": "translate(-7.625px, -1.40625px)"
+        },
+        "weather-layer": {
+          "old": "translate(-7.625px, -1.40625px)",
+          "new": "translate(-7.625px, -1.40625px)"
+        },
+        "reading": {
+          "old": "translate(-7.625px, -1.40625px)",
+          "new": "translate3d(-7.625px, -1.40625px, 0px)"
+        },
+        "actors": {
+          "old": "translate(-7.625px, -1.40625px)",
+          "new": "translate(-7.625px, -1.40625px)"
+        },
+        "light-layer": {
+          "old": "translate(-7.625px, -1.40625px)",
+          "new": "translate(-7.625px, -1.40625px)"
+        }
+      },
+      "pixelDiff": {
+        "identical": true,
+        "absoluteErrorPixels": 0,
+        "meanAbsoluteError": 0
+      },
+      "imageSHA256": {
+        "old": "0d021c32f3a43a4b8ec786a23b01272cfe5c230a4034dfce9d28e351ef3a8295",
+        "new": "0d021c32f3a43a4b8ec786a23b01272cfe5c230a4034dfce9d28e351ef3a8295"
+      },
+      "browserVersion": "151.0.7922.34",
+      "browser": "chromium"
+    },
+    {
+      "label": "hosted-chromium-1280x720-dpr2-still",
+      "options": {
+        "viewport": {
+          "width": 1280,
+          "height": 720
+        },
+        "dpr": 2,
+        "mode": "still"
+      },
+      "pageErrors": {
+        "old": [],
+        "new": []
+      },
+      "particleCount": {
+        "old": 20,
+        "new": 20
+      },
+      "sameLayerMarkup": {
+        "world": true,
+        "weather-layer": true,
+        "reading": true,
+        "actors": true,
+        "light-layer": true
+      },
+      "sameLayerXY": {
+        "world": true,
+        "weather-layer": true,
+        "reading": true,
+        "actors": true,
+        "light-layer": true
+      },
+      "sameLandmarks": true,
+      "oldReadingTransform": "translate(0px, 0px)",
+      "newReadingTransform": "translate3d(0px, 0px, 0px)",
+      "layerTransforms": {
+        "world": {
+          "old": "translate(0px, 0px)",
+          "new": "translate(0px, 0px)"
+        },
+        "weather-layer": {
+          "old": "translate(0px, 0px)",
+          "new": "translate(0px, 0px)"
+        },
+        "reading": {
+          "old": "translate(0px, 0px)",
+          "new": "translate3d(0px, 0px, 0px)"
+        },
+        "actors": {
+          "old": "translate(0px, 0px)",
+          "new": "translate(0px, 0px)"
+        },
+        "light-layer": {
+          "old": "translate(0px, 0px)",
+          "new": "translate(0px, 0px)"
+        }
+      },
+      "pixelDiff": {
+        "identical": true,
+        "absoluteErrorPixels": 0,
+        "meanAbsoluteError": 0
+      },
+      "imageSHA256": {
+        "old": "3fe30f7c6eb18cd321b84d897c2dff1691d5d499bddb3fb960b5737100603de6",
+        "new": "3fe30f7c6eb18cd321b84d897c2dff1691d5d499bddb3fb960b5737100603de6"
+      },
+      "browserVersion": "151.0.7922.34",
+      "browser": "chromium"
+    },
+    {
+      "label": "hosted-chromium-1280x720-dpr2-reduced",
+      "options": {
+        "viewport": {
+          "width": 1280,
+          "height": 720
+        },
+        "dpr": 2,
+        "mode": "reduced"
+      },
+      "pageErrors": {
+        "old": [],
+        "new": []
+      },
+      "particleCount": {
+        "old": 20,
+        "new": 20
+      },
+      "sameLayerMarkup": {
+        "world": true,
+        "weather-layer": true,
+        "reading": true,
+        "actors": true,
+        "light-layer": true
+      },
+      "sameLayerXY": {
+        "world": true,
+        "weather-layer": true,
+        "reading": true,
+        "actors": true,
+        "light-layer": true
+      },
+      "sameLandmarks": true,
+      "oldReadingTransform": "translate(0px, 0px)",
+      "newReadingTransform": "translate3d(0px, 0px, 0px)",
+      "layerTransforms": {
+        "world": {
+          "old": "translate(0px, 0px)",
+          "new": "translate(0px, 0px)"
+        },
+        "weather-layer": {
+          "old": "translate(0px, 0px)",
+          "new": "translate(0px, 0px)"
+        },
+        "reading": {
+          "old": "translate(0px, 0px)",
+          "new": "translate3d(0px, 0px, 0px)"
+        },
+        "actors": {
+          "old": "translate(0px, 0px)",
+          "new": "translate(0px, 0px)"
+        },
+        "light-layer": {
+          "old": "translate(0px, 0px)",
+          "new": "translate(0px, 0px)"
+        }
+      },
+      "pixelDiff": {
+        "identical": true,
+        "absoluteErrorPixels": 0,
+        "meanAbsoluteError": 0
+      },
+      "imageSHA256": {
+        "old": "df20e74c8f087b4cd7aebf7889d4497e841c83a7634a619f1fda38c7cafb83ba",
+        "new": "df20e74c8f087b4cd7aebf7889d4497e841c83a7634a619f1fda38c7cafb83ba"
+      },
+      "browserVersion": "151.0.7922.34",
+      "browser": "chromium"
+    },
+    {
+      "label": "hosted-chromium-1920x1080-dpr2-moving",
+      "options": {
+        "viewport": {
+          "width": 1920,
+          "height": 1080
+        },
+        "dpr": 2,
+        "mode": "moving"
+      },
+      "pageErrors": {
+        "old": [],
+        "new": []
+      },
+      "particleCount": {
+        "old": 20,
+        "new": 20
+      },
+      "sameLayerMarkup": {
+        "world": true,
+        "weather-layer": true,
+        "reading": true,
+        "actors": true,
+        "light-layer": true
+      },
+      "sameLayerXY": {
+        "world": true,
+        "weather-layer": true,
+        "reading": true,
+        "actors": true,
+        "light-layer": true
+      },
+      "sameLandmarks": true,
+      "oldReadingTransform": "translate(-11.4375px, -2.125px)",
+      "newReadingTransform": "translate3d(-11.4375px, -2.125px, 0px)",
+      "layerTransforms": {
+        "world": {
+          "old": "translate(-11.4375px, -2.125px)",
+          "new": "translate(-11.4375px, -2.125px)"
+        },
+        "weather-layer": {
+          "old": "translate(-11.4375px, -2.125px)",
+          "new": "translate(-11.4375px, -2.125px)"
+        },
+        "reading": {
+          "old": "translate(-11.4375px, -2.125px)",
+          "new": "translate3d(-11.4375px, -2.125px, 0px)"
+        },
+        "actors": {
+          "old": "translate(-11.4375px, -2.125px)",
+          "new": "translate(-11.4375px, -2.125px)"
+        },
+        "light-layer": {
+          "old": "translate(-11.4375px, -2.125px)",
+          "new": "translate(-11.4375px, -2.125px)"
+        }
+      },
+      "pixelDiff": {
+        "identical": true,
+        "absoluteErrorPixels": 0,
+        "meanAbsoluteError": 0
+      },
+      "imageSHA256": {
+        "old": "7f90371611b5b52348c90ce3cb6ce2681bf8c39ce4e89664e765c84b8dafe3ec",
+        "new": "7f90371611b5b52348c90ce3cb6ce2681bf8c39ce4e89664e765c84b8dafe3ec"
+      },
+      "browserVersion": "151.0.7922.34",
+      "browser": "chromium"
+    },
+    {
+      "label": "hosted-chromium-1920x1080-dpr2-still",
+      "options": {
+        "viewport": {
+          "width": 1920,
+          "height": 1080
+        },
+        "dpr": 2,
+        "mode": "still"
+      },
+      "pageErrors": {
+        "old": [],
+        "new": []
+      },
+      "particleCount": {
+        "old": 20,
+        "new": 20
+      },
+      "sameLayerMarkup": {
+        "world": true,
+        "weather-layer": true,
+        "reading": true,
+        "actors": true,
+        "light-layer": true
+      },
+      "sameLayerXY": {
+        "world": true,
+        "weather-layer": true,
+        "reading": true,
+        "actors": true,
+        "light-layer": true
+      },
+      "sameLandmarks": true,
+      "oldReadingTransform": "translate(0px, 0px)",
+      "newReadingTransform": "translate3d(0px, 0px, 0px)",
+      "layerTransforms": {
+        "world": {
+          "old": "translate(0px, 0px)",
+          "new": "translate(0px, 0px)"
+        },
+        "weather-layer": {
+          "old": "translate(0px, 0px)",
+          "new": "translate(0px, 0px)"
+        },
+        "reading": {
+          "old": "translate(0px, 0px)",
+          "new": "translate3d(0px, 0px, 0px)"
+        },
+        "actors": {
+          "old": "translate(0px, 0px)",
+          "new": "translate(0px, 0px)"
+        },
+        "light-layer": {
+          "old": "translate(0px, 0px)",
+          "new": "translate(0px, 0px)"
+        }
+      },
+      "pixelDiff": {
+        "identical": true,
+        "absoluteErrorPixels": 0,
+        "meanAbsoluteError": 0
+      },
+      "imageSHA256": {
+        "old": "096c4f79cee4bcb98762bd459b4c66b3d426fcebec8e7725a1bd52be3d9859e4",
+        "new": "096c4f79cee4bcb98762bd459b4c66b3d426fcebec8e7725a1bd52be3d9859e4"
+      },
+      "browserVersion": "151.0.7922.34",
+      "browser": "chromium"
+    },
+    {
+      "label": "hosted-chromium-1920x1080-dpr2-reduced",
+      "options": {
+        "viewport": {
+          "width": 1920,
+          "height": 1080
+        },
+        "dpr": 2,
+        "mode": "reduced"
+      },
+      "pageErrors": {
+        "old": [],
+        "new": []
+      },
+      "particleCount": {
+        "old": 20,
+        "new": 20
+      },
+      "sameLayerMarkup": {
+        "world": true,
+        "weather-layer": true,
+        "reading": true,
+        "actors": true,
+        "light-layer": true
+      },
+      "sameLayerXY": {
+        "world": true,
+        "weather-layer": true,
+        "reading": true,
+        "actors": true,
+        "light-layer": true
+      },
+      "sameLandmarks": true,
+      "oldReadingTransform": "translate(0px, 0px)",
+      "newReadingTransform": "translate3d(0px, 0px, 0px)",
+      "layerTransforms": {
+        "world": {
+          "old": "translate(0px, 0px)",
+          "new": "translate(0px, 0px)"
+        },
+        "weather-layer": {
+          "old": "translate(0px, 0px)",
+          "new": "translate(0px, 0px)"
+        },
+        "reading": {
+          "old": "translate(0px, 0px)",
+          "new": "translate3d(0px, 0px, 0px)"
+        },
+        "actors": {
+          "old": "translate(0px, 0px)",
+          "new": "translate(0px, 0px)"
+        },
+        "light-layer": {
+          "old": "translate(0px, 0px)",
+          "new": "translate(0px, 0px)"
+        }
+      },
+      "pixelDiff": {
+        "identical": true,
+        "absoluteErrorPixels": 0,
+        "meanAbsoluteError": 0
+      },
+      "imageSHA256": {
+        "old": "f9c87a239e1d3af988dbc8d7258dc7a0ed4614ac3d4185ed36bf24b9a63528a1",
+        "new": "f9c87a239e1d3af988dbc8d7258dc7a0ed4614ac3d4185ed36bf24b9a63528a1"
+      },
+      "browserVersion": "151.0.7922.34",
+      "browser": "chromium"
+    },
+    {
+      "label": "hosted-chromium-390x844-dpr2-moving",
+      "options": {
+        "viewport": {
+          "width": 390,
+          "height": 844
+        },
+        "dpr": 2,
+        "mode": "moving"
+      },
+      "pageErrors": {
+        "old": [],
+        "new": []
+      },
+      "particleCount": {
+        "old": 20,
+        "new": 20
+      },
+      "sameLayerMarkup": {
+        "world": true,
+        "weather-layer": true,
+        "reading": true,
+        "actors": true,
+        "light-layer": true
+      },
+      "sameLayerXY": {
+        "world": true,
+        "weather-layer": true,
+        "reading": true,
+        "actors": true,
+        "light-layer": true
+      },
+      "sameLandmarks": true,
+      "oldReadingTransform": "translate(-2.3125px, -1.65625px)",
+      "newReadingTransform": "translate3d(-2.3125px, -1.65625px, 0px)",
+      "layerTransforms": {
+        "world": {
+          "old": "translate(-2.3125px, -1.65625px)",
+          "new": "translate(-2.3125px, -1.65625px)"
+        },
+        "weather-layer": {
+          "old": "translate(-2.3125px, -1.65625px)",
+          "new": "translate(-2.3125px, -1.65625px)"
+        },
+        "reading": {
+          "old": "translate(-2.3125px, -1.65625px)",
+          "new": "translate3d(-2.3125px, -1.65625px, 0px)"
+        },
+        "actors": {
+          "old": "translate(-2.3125px, -1.65625px)",
+          "new": "translate(-2.3125px, -1.65625px)"
+        },
+        "light-layer": {
+          "old": "translate(-2.3125px, -1.65625px)",
+          "new": "translate(-2.3125px, -1.65625px)"
+        }
+      },
+      "pixelDiff": {
+        "identical": true,
+        "absoluteErrorPixels": 0,
+        "meanAbsoluteError": 0
+      },
+      "imageSHA256": {
+        "old": "d38599ce30b6951e8b2b0644d2e26610eef0d674c7ce653f2ca2b5df6af871e1",
+        "new": "d38599ce30b6951e8b2b0644d2e26610eef0d674c7ce653f2ca2b5df6af871e1"
+      },
+      "browserVersion": "151.0.7922.34",
+      "browser": "chromium"
+    },
+    {
+      "label": "hosted-chromium-390x844-dpr2-still",
+      "options": {
+        "viewport": {
+          "width": 390,
+          "height": 844
+        },
+        "dpr": 2,
+        "mode": "still"
+      },
+      "pageErrors": {
+        "old": [],
+        "new": []
+      },
+      "particleCount": {
+        "old": 20,
+        "new": 20
+      },
+      "sameLayerMarkup": {
+        "world": true,
+        "weather-layer": true,
+        "reading": true,
+        "actors": true,
+        "light-layer": true
+      },
+      "sameLayerXY": {
+        "world": true,
+        "weather-layer": true,
+        "reading": true,
+        "actors": true,
+        "light-layer": true
+      },
+      "sameLandmarks": true,
+      "oldReadingTransform": "translate(0px, 0px)",
+      "newReadingTransform": "translate3d(0px, 0px, 0px)",
+      "layerTransforms": {
+        "world": {
+          "old": "translate(0px, 0px)",
+          "new": "translate(0px, 0px)"
+        },
+        "weather-layer": {
+          "old": "translate(0px, 0px)",
+          "new": "translate(0px, 0px)"
+        },
+        "reading": {
+          "old": "translate(0px, 0px)",
+          "new": "translate3d(0px, 0px, 0px)"
+        },
+        "actors": {
+          "old": "translate(0px, 0px)",
+          "new": "translate(0px, 0px)"
+        },
+        "light-layer": {
+          "old": "translate(0px, 0px)",
+          "new": "translate(0px, 0px)"
+        }
+      },
+      "pixelDiff": {
+        "identical": true,
+        "absoluteErrorPixels": 0,
+        "meanAbsoluteError": 0
+      },
+      "imageSHA256": {
+        "old": "8564fe5f7ecdd490e8f067f73e8b9f6c87695f6073a248bc078b9fe963427bf6",
+        "new": "8564fe5f7ecdd490e8f067f73e8b9f6c87695f6073a248bc078b9fe963427bf6"
+      },
+      "browserVersion": "151.0.7922.34",
+      "browser": "chromium"
+    },
+    {
+      "label": "hosted-chromium-390x844-dpr2-reduced",
+      "options": {
+        "viewport": {
+          "width": 390,
+          "height": 844
+        },
+        "dpr": 2,
+        "mode": "reduced"
+      },
+      "pageErrors": {
+        "old": [],
+        "new": []
+      },
+      "particleCount": {
+        "old": 20,
+        "new": 20
+      },
+      "sameLayerMarkup": {
+        "world": true,
+        "weather-layer": true,
+        "reading": true,
+        "actors": true,
+        "light-layer": true
+      },
+      "sameLayerXY": {
+        "world": true,
+        "weather-layer": true,
+        "reading": true,
+        "actors": true,
+        "light-layer": true
+      },
+      "sameLandmarks": true,
+      "oldReadingTransform": "translate(0px, 0px)",
+      "newReadingTransform": "translate3d(0px, 0px, 0px)",
+      "layerTransforms": {
+        "world": {
+          "old": "translate(0px, 0px)",
+          "new": "translate(0px, 0px)"
+        },
+        "weather-layer": {
+          "old": "translate(0px, 0px)",
+          "new": "translate(0px, 0px)"
+        },
+        "reading": {
+          "old": "translate(0px, 0px)",
+          "new": "translate3d(0px, 0px, 0px)"
+        },
+        "actors": {
+          "old": "translate(0px, 0px)",
+          "new": "translate(0px, 0px)"
+        },
+        "light-layer": {
+          "old": "translate(0px, 0px)",
+          "new": "translate(0px, 0px)"
+        }
+      },
+      "pixelDiff": {
+        "identical": true,
+        "absoluteErrorPixels": 0,
+        "meanAbsoluteError": 0
+      },
+      "imageSHA256": {
+        "old": "3ce74e7499d753040737b225c3c68eaa13e6a51258a96970f08ca9406a6590f6",
+        "new": "3ce74e7499d753040737b225c3c68eaa13e6a51258a96970f08ca9406a6590f6"
+      },
+      "browserVersion": "151.0.7922.34",
+      "browser": "chromium"
+    },
+    {
+      "label": "portable-chromium-1280x720-dpr2-moving",
+      "options": {
+        "viewport": {
+          "width": 1280,
+          "height": 720
+        },
+        "dpr": 2,
+        "mode": "moving"
+      },
+      "pageErrors": {
+        "old": [],
+        "new": []
+      },
+      "particleCount": {
+        "old": 20,
+        "new": 20
+      },
+      "sameLayerMarkup": {
+        "world": true,
+        "weather-layer": true,
+        "reading": true,
+        "actors": true,
+        "light-layer": true
+      },
+      "sameLayerXY": {
+        "world": true,
+        "weather-layer": true,
+        "reading": true,
+        "actors": true,
+        "light-layer": true
+      },
+      "sameLandmarks": true,
+      "oldReadingTransform": "translate(-7.625px, -1.40625px)",
+      "newReadingTransform": "translate3d(-7.625px, -1.40625px, 0px)",
+      "layerTransforms": {
+        "world": {
+          "old": "translate(-7.625px, -1.40625px)",
+          "new": "translate(-7.625px, -1.40625px)"
+        },
+        "weather-layer": {
+          "old": "translate(-7.625px, -1.40625px)",
+          "new": "translate(-7.625px, -1.40625px)"
+        },
+        "reading": {
+          "old": "translate(-7.625px, -1.40625px)",
+          "new": "translate3d(-7.625px, -1.40625px, 0px)"
+        },
+        "actors": {
+          "old": "translate(-7.625px, -1.40625px)",
+          "new": "translate(-7.625px, -1.40625px)"
+        },
+        "light-layer": {
+          "old": "translate(-7.625px, -1.40625px)",
+          "new": "translate(-7.625px, -1.40625px)"
+        }
+      },
+      "pixelDiff": {
+        "identical": true,
+        "absoluteErrorPixels": 0,
+        "meanAbsoluteError": 0
+      },
+      "imageSHA256": {
+        "old": "0d021c32f3a43a4b8ec786a23b01272cfe5c230a4034dfce9d28e351ef3a8295",
+        "new": "0d021c32f3a43a4b8ec786a23b01272cfe5c230a4034dfce9d28e351ef3a8295"
+      },
+      "browserVersion": "151.0.7922.34",
+      "browser": "chromium"
+    },
+    {
+      "label": "portable-chromium-390x844-dpr1-reduced",
+      "options": {
+        "viewport": {
+          "width": 390,
+          "height": 844
+        },
+        "dpr": 1,
+        "mode": "reduced"
+      },
+      "pageErrors": {
+        "old": [],
+        "new": []
+      },
+      "particleCount": {
+        "old": 20,
+        "new": 20
+      },
+      "sameLayerMarkup": {
+        "world": true,
+        "weather-layer": true,
+        "reading": true,
+        "actors": true,
+        "light-layer": true
+      },
+      "sameLayerXY": {
+        "world": true,
+        "weather-layer": true,
+        "reading": true,
+        "actors": true,
+        "light-layer": true
+      },
+      "sameLandmarks": true,
+      "oldReadingTransform": "translate(0px, 0px)",
+      "newReadingTransform": "translate3d(0px, 0px, 0px)",
+      "layerTransforms": {
+        "world": {
+          "old": "translate(0px, 0px)",
+          "new": "translate(0px, 0px)"
+        },
+        "weather-layer": {
+          "old": "translate(0px, 0px)",
+          "new": "translate(0px, 0px)"
+        },
+        "reading": {
+          "old": "translate(0px, 0px)",
+          "new": "translate3d(0px, 0px, 0px)"
+        },
+        "actors": {
+          "old": "translate(0px, 0px)",
+          "new": "translate(0px, 0px)"
+        },
+        "light-layer": {
+          "old": "translate(0px, 0px)",
+          "new": "translate(0px, 0px)"
+        }
+      },
+      "pixelDiff": {
+        "identical": true,
+        "absoluteErrorPixels": 0,
+        "meanAbsoluteError": 0
+      },
+      "imageSHA256": {
+        "old": "dec1e8df2497d5dba7606cd90ae638db2ca8989062de87f192ad9be443e9f771",
+        "new": "dec1e8df2497d5dba7606cd90ae638db2ca8989062de87f192ad9be443e9f771"
+      },
+      "browserVersion": "151.0.7922.34",
+      "browser": "chromium"
+    }
+  ]
+}

@@ -8,7 +8,16 @@ This is the product's planning hub. Designs are proposals until explicitly marke
 
 ## Woodland/Green House 1 cadence candidate
 
-The [bounded phase pacing design](design/FRAME-CADENCE.md) addresses a low-power limiter that amplifies native callback jitter into skipped character updates. Both Woodland renderers share the candidate policy. Scene art, body contacts and gait curves remain unchanged. [Session 025](../../sessions/2026-10-10-weather-habitat/025-cadence-verification-handoff.md) records the corrected runtime: 65 of 66 local cadence cases pass, with one Firefox hosted DPR2 rain failure; functional/offline coverage is complete, but the combined npm run exits 1. Required Windows/macOS checks remain failed. The [rain investigation](design/RAIN-CADENCE-INVESTIGATION.md) defines profiling tasks; PR #16 remains draft.
+The [bounded phase pacing design](design/FRAME-CADENCE.md) addresses a low-power limiter that amplifies native callback jitter into skipped character updates. Both Woodland renderers share the candidate policy. Scene art, body contacts and gait curves remain unchanged. [Session 025](../../sessions/2026-10-10-weather-habitat/025-cadence-verification-handoff.md) records the earlier corrected runtime: 65 of 66 local cadence cases pass, with one Firefox hosted DPR2 rain failure; functional/offline coverage is complete, but the combined npm run exits 1. Required Windows/macOS checks remain failed. The [rain investigation](design/RAIN-CADENCE-INVESTIGATION.md) defines profiling tasks; PR #16 remains draft.
+
+The reading-layer camera candidate `9993133` preserves the existing x/y path
+and uses a zero-depth 3D transform only for the reading/clock SVG while the camera moves. Still and reduced-motion modes retain planar transforms. Balanced
+Firefox rain controls and targeted comparisons support this bounded change;
+they do not prove compositor presentation or a universal performance gain.
+The [rain investigation](design/RAIN-CADENCE-INVESTIGATION.md) retains 35 layer/transform samples and
+12 matched meal samples and a reusable layer-measurement command. Candidate
+validation and remaining gates are recorded in
+[session 028](../../sessions/2026-10-10-weather-habitat/028-reading-camera-results.md).
 
 ## Shared anatomy — foundation and inspection candidate
 

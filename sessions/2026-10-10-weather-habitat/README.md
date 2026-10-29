@@ -1,8 +1,8 @@
 # Green House 1 — weather-responsive habitat
 
-Current work: [027 — rain profiling resumed](027-rain-profiling-resumed.md). The owner resumed clock work independently of pending Search Simpli Mac packaging. Balanced layer measurements precede any source change; 025 remains the runtime evidence baseline.
+Current candidate: [028 — reading-camera measurement and validation](028-reading-camera-results.md). Runtime `9993133` preserves artwork and camera coordinates, with a moving-only zero-depth reading-layer transform. The owner resumed clock work independently of pending Search Simpli Mac packaging. Message 025 preserves historical timing failures; candidate outcomes are in 028.
 
-Latest verification: [025 — corrected pacing results and remaining gates](025-cadence-verification-handoff.md). Runtime `236fb12`: Chrome and Edge pass 22 cadence cases each; Firefox passes 21 with one hosted DPR2 rain failure. All functional programs and offline checks have coverage; the combined Chrome/Firefox run exits 1. Required Windows/macOS timing checks remain failed; PR #16 stays draft. The portable checksum and next profiling tasks are in 025.
+Historical verification: [025 — corrected pacing results and remaining gates](025-cadence-verification-handoff.md). Runtime `236fb12`: Chrome and Edge pass 22 cadence cases each; Firefox passes 21 with one hosted DPR2 rain failure. All functional programs and offline checks have coverage; the combined Chrome/Firefox run exits 1. Required Windows/macOS timing checks remain failed; PR #16 stays draft. The portable checksum and next profiling tasks are in 025.
 
 Previous diagnostic: [023 — rendering controls](023-rendering-control-probe.md). The bounded candidate still fails macOS cadence; a separate probe compares browser frame availability with scene painting cost.
 
@@ -45,7 +45,7 @@ Historical meal candidate: [017 — Sage’s connected meal](017-cloud-meal-chor
 | [023-rendering-control-probe.md](023-rendering-control-probe.md) | Cloud → owner and implementation/device sessions | Candidate CI evidence and standalone blank/full/hidden-art control probe |
 | [024-quantized-pacing-candidate.md](024-quantized-pacing-candidate.md) | Cloud → owner and implementation/device sessions | Recorded Windows timing regression, final phase correction and new portable artifact |
 | [025-cadence-verification-handoff.md](025-cadence-verification-handoff.md) | Cloud → owner and implementation/device sessions | Corrected runtime: 65/66 cadence passes, preserved failure, completed coverage and rain profiling tasks |
-
-Work branch: `feature/anatomy-foundation` / draft PR #16, based on `feature/woodland-weather-habitat` / draft PR #11, which in turn builds on `feature/woodland-immersive-story` / PR #9. Published messages 001–025 are immutable; use 026 for the next follow-up. Reserve 002 for the initial device reply and 004 for local device findings. Fetch the branch before reading. Git does not notify another session automatically.
-
 | [027-rain-profiling-resumed.md](027-rain-profiling-resumed.md) | Cloud → owner and implementation/device sessions | Resumed DPR2 profiling ownership, model split and preserved acceptance gates |
+| [028-reading-camera-results.md](028-reading-camera-results.md) | Cloud → owner and implementation/device sessions | Balanced layer/transform evidence, reading-camera source and portable candidate, parity and suite outcomes |
+
+Work branch: `feature/anatomy-foundation` / draft PR #16, based on `feature/woodland-weather-habitat` / draft PR #11, which in turn builds on `feature/woodland-immersive-story` / PR #9. Published messages 001–025 and 027–028 are immutable; use 029 for the next cloud follow-up. Message 026 remains reserved for device feedback. Reserve 002 for the initial device reply and 004 for local device findings. Fetch the branch before reading. Git does not notify another session automatically.

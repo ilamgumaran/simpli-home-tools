@@ -1,8 +1,35 @@
 # Green House 1: Ally installation and acceptance
 
-Prepared 2026-10-18. Green House 1 is the weather and tiny-community theme; Woodland retains its larger characters and terrain-engineering activities. Current runtime `f02092b12a45d72cefe73ba68d5acd2f68932358`, portable SHA-256 `046f02a9772a5060ac422b6acceee763fb29726a230df1ce1932a38611899ec6`. Both `npm test` runs exit 0 (combined Chrome/Firefox and native Edge; runner `7bfe736`): all 9 pure programs, 13 browser programs per engine, offline portable checks and all 66 cadence cases pass. Focused meal (4 functional + 4 cadence per engine), community (14 groups per engine), caption clearance across seven stages, quiet mode across four views at DPR 1/2, and >=30 CSS-pixel group-gap / >=16 CSS-pixel viewport-margin gates pass. No full-run failures or retries. Session 017 contains the full results. Physical Ally/Vanadium and sustained acceptance remain pending; earlier intermittent stalls remain unexplained. The meal runs in the 11:00–13:00 and 20:00–22:00 windows. Use a browser-only mock preview at 11:08 and sample seconds 4, 11, 28, 40, 47, 51 and 57 to inspect the stages; do not change the operating-system clock. Return device findings as `004-ally-to-cloud.md` in the weather-habitat session thread. The [earlier fullscreen handoff](../../../sessions/2026-10-05-immersive-woodland/003-cloud-scene-ready.md) remains history.
+## New cloud candidate — 2026-10-29
 
-## Current runtime — browser and portable validation passed; device review pending
+The current development branch is `feature/anatomy-foundation`, [draft PR #16](https://github.com/ilamgumaran/simpli-home-tools/pull/16).
+Runtime `99931338f12d5111ea0321cc2690d6588ef59ab9` uses a zero-depth 3D
+transform on the reading/clock layer only while the camera moves. Still and
+reduced-motion paths retain planar transforms. Artwork, camera coordinates,
+weather, story and character contacts are preserved.
+
+Portable SHA-256:
+`1e36b79704ac3046230644555ffc5fc691cc5229ac2df067a61d2901e0169d8b`.
+
+[Session 028](../../../sessions/2026-10-10-weather-habitat/028-reading-camera-results.md)
+records this candidate's exact browser outcomes, preserved failures and remaining
+hosted gates. Both browser engines matched baseline images/geometry in 52 final
+comparisons. Required hosted checks remain open; this candidate has no physical
+Ally/Vanadium or sustained-display acceptance. Fetch this branch and verify the
+runtime ancestry and checksum before testing it. Record device feedback in
+reserved message 026; a later cloud follow-up uses 029.
+
+The earlier installation instructions below stay pinned to their named meal
+runtime. They are historical evidence, not validation or installation instructions
+for the new candidate. Preserve local configuration and the existing installed
+build while evaluating a separate candidate.
+
+## Earlier meal handoff
+
+
+Prepared 2026-10-18 for the earlier meal handoff. Green House 1 is the weather and tiny-community theme; Woodland retains its larger characters and terrain-engineering activities. Earlier runtime `f02092b12a45d72cefe73ba68d5acd2f68932358`, portable SHA-256 `046f02a9772a5060ac422b6acceee763fb29726a230df1ce1932a38611899ec6`. Both `npm test` runs exit 0 (combined Chrome/Firefox and native Edge; runner `7bfe736`): all 9 pure programs, 13 browser programs per engine, offline portable checks and all 66 cadence cases pass. Focused meal (4 functional + 4 cadence per engine), community (14 groups per engine), caption clearance across seven stages, quiet mode across four views at DPR 1/2, and >=30 CSS-pixel group-gap / >=16 CSS-pixel viewport-margin gates pass. No full-run failures or retries. Session 017 contains the full results. Physical Ally/Vanadium and sustained acceptance remain pending; earlier intermittent stalls remain unexplained. The meal runs in the 11:00–13:00 and 20:00–22:00 windows. Use a browser-only mock preview at 11:08 and sample seconds 4, 11, 28, 40, 47, 51 and 57 to inspect the stages; do not change the operating-system clock. Return device findings as `004-ally-to-cloud.md` in the weather-habitat session thread. The [earlier fullscreen handoff](../../../sessions/2026-10-05-immersive-woodland/003-cloud-scene-ready.md) remains history.
+
+## Earlier runtime — recorded browser/portable passes; device acceptance unrun
 
 | Item | Value |
 | --- | --- |

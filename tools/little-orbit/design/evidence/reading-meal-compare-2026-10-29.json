@@ -1,0 +1,164 @@
+{
+  "schemaVersion": 1,
+  "baseline": "1628b82",
+  "candidate": "3daae2a",
+  "scope": "Portable1280x720DPR2, Still camera, Celsius rain12. Six fresh Firefox cases; four-second warm-up and one-second settling, low then normal each2100ms. Does not erase failed full run.",
+  "samples": [
+    {
+      "label": "baseline",
+      "browserVersion": "153.0",
+      "samples": [
+        {
+          "lowPower": true,
+          "fps": 30.24747937671861,
+          "p95": 34,
+          "maxGap": 35,
+          "frames": 66,
+          "stageBefore": "deliver",
+          "stageAfter": "deliver",
+          "moved": true
+        },
+        {
+          "lowPower": false,
+          "fps": 58.03996194100856,
+          "p95": 24,
+          "maxGap": 39,
+          "frames": 122,
+          "stageBefore": "deliver",
+          "stageAfter": "deliver",
+          "moved": true
+        }
+      ]
+    },
+    {
+      "label": "candidate",
+      "browserVersion": "153.0",
+      "samples": [
+        {
+          "lowPower": true,
+          "fps": 30.274361400189214,
+          "p95": 37,
+          "maxGap": 39,
+          "frames": 64,
+          "stageBefore": "deliver",
+          "stageAfter": "deliver",
+          "moved": true
+        },
+        {
+          "lowPower": false,
+          "fps": 59.01951451689671,
+          "p95": 24,
+          "maxGap": 44,
+          "frames": 124,
+          "stageBefore": "deliver",
+          "stageAfter": "deliver",
+          "moved": true
+        }
+      ]
+    },
+    {
+      "label": "candidate",
+      "browserVersion": "153.0",
+      "samples": [
+        {
+          "lowPower": true,
+          "fps": 30.28868906767629,
+          "p95": 34,
+          "maxGap": 35,
+          "frames": 64,
+          "stageBefore": "deliver",
+          "stageAfter": "deliver",
+          "moved": true
+        },
+        {
+          "lowPower": false,
+          "fps": 60,
+          "p95": 19,
+          "maxGap": 34,
+          "frames": 126,
+          "stageBefore": "deliver",
+          "stageAfter": "deliver",
+          "moved": true
+        }
+      ]
+    },
+    {
+      "label": "baseline",
+      "browserVersion": "153.0",
+      "samples": [
+        {
+          "lowPower": true,
+          "fps": 30,
+          "p95": 34,
+          "maxGap": 37,
+          "frames": 63,
+          "stageBefore": "deliver",
+          "stageAfter": "deliver",
+          "moved": true
+        },
+        {
+          "lowPower": false,
+          "fps": 60.447405997144216,
+          "p95": 21,
+          "maxGap": 33,
+          "frames": 127,
+          "stageBefore": "deliver",
+          "stageAfter": "deliver",
+          "moved": true
+        }
+      ]
+    },
+    {
+      "label": "baseline",
+      "browserVersion": "153.0",
+      "samples": [
+        {
+          "lowPower": true,
+          "fps": 29.985721085197525,
+          "p95": 34,
+          "maxGap": 36,
+          "frames": 63,
+          "stageBefore": "deliver",
+          "stageAfter": "deliver",
+          "moved": true
+        },
+        {
+          "lowPower": false,
+          "fps": 60.476190476190474,
+          "p95": 19,
+          "maxGap": 33,
+          "frames": 127,
+          "stageBefore": "deliver",
+          "stageAfter": "deliver",
+          "moved": true
+        }
+      ]
+    },
+    {
+      "label": "candidate",
+      "browserVersion": "153.0",
+      "samples": [
+        {
+          "lowPower": true,
+          "fps": 29.985721085197525,
+          "p95": 35,
+          "maxGap": 35,
+          "frames": 63,
+          "stageBefore": "deliver",
+          "stageAfter": "deliver",
+          "moved": true
+        },
+        {
+          "lowPower": false,
+          "fps": 59.495478343645885,
+          "p95": 21,
+          "maxGap": 33,
+          "frames": 125,
+          "stageBefore": "deliver",
+          "stageAfter": "deliver",
+          "moved": true
+        }
+      ]
+    }
+  ]
+}

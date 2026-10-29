@@ -1,5 +1,17 @@
 # Our Desk Clock changelog
 
+### Rain reading-layer camera candidate
+
+- Kept the camera's quantized x/y path, but gave only the reading/clock SVG a
+  zero-depth 3D transform only while the camera moves; Still/reduced-motion and the other layers retain their planar transforms. Added a zero-coordinate mode-switch regression check.
+- Recorded 21 balanced layer-control samples and 14 targeted transform samples,
+  including slower and inconsistent cases. Added a reusable rain-layer
+  diagnostic with versioned reports and explicit measurement errors.
+- See [session 028](../../sessions/2026-10-10-weather-habitat/028-reading-camera-results.md)
+  for candidate validation. Earlier failures remain in session 025; neither
+  native callbacks nor DOM mutations establish physical-display smoothness.
+
+
 No tagged releases yet. Implemented entries describe code on the development branch; planning notes describe proposals tracked in [ROADMAP.md](ROADMAP.md).
 
 ## Unreleased

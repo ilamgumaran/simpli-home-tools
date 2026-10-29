@@ -1,8 +1,15 @@
 # Our Desk Clock roadmap
 
-Updated 2026-10-21. Milestones express intent, not promised delivery dates. The product owner sets priorities and authorizes deferred implementation.
+Updated 2026-10-29. Milestones express intent, not promised delivery dates. The product owner sets priorities and authorizes deferred implementation.
 
-Before anatomy artwork rollout, complete the [bounded phase cadence candidate](design/FRAME-CADENCE.md)'s hosted/portable and cross-platform gates. [Session 025](../../sessions/2026-10-10-weather-habitat/025-cadence-verification-handoff.md) records 65/66 local cadence passes and the remaining Firefox rain plus hosted Windows/macOS failures. Next, [profile the DPR2 rainy scene](design/RAIN-CADENCE-INVESTIGATION.md) before choosing a source change. No performance threshold changes are planned.
+Before anatomy artwork rollout, complete the [bounded phase cadence candidate](design/FRAME-CADENCE.md)'s hosted/portable and cross-platform gates. [Session 025](../../sessions/2026-10-10-weather-habitat/025-cadence-verification-handoff.md) preserves the earlier 65/66 local cadence passes and Firefox rain plus hosted Windows/macOS failures. The [DPR2 investigation](design/RAIN-CADENCE-INVESTIGATION.md) now records balanced profiling and the reading-camera candidate below. Performance thresholds remain unchanged.
+
+The reading-only camera candidate `9993133` is implemented:
+identical quantized x/y movement, moving-only zero-depth 3D transform, unchanged
+art and motion gates. [Session 028](../../sessions/2026-10-10-weather-habitat/028-reading-camera-results.md)
+records validation and remaining work. The [layer/transform investigation](design/RAIN-CADENCE-INVESTIGATION.md)
+and reusable diagnostic retain failed/historical evidence. Continue A2 anatomy
+after the validation boundary is resolved or the owner changes priority.
 
 ## Character priority — anatomy foundation candidate, later rollout planned
 
