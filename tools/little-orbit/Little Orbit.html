@@ -2772,11 +2772,10 @@ applyDisplay();
  const data=(el,name,value)=>{const next=String(value);if(el.dataset[name]!==next)el.dataset[name]=next;};
  const cameraLayers=['woodland-immersive-world','woodland-immersive-weather-layer','woodland-immersive-reading','woodland-immersive-actors','woodland-immersive-light-layer'];
  let lastCameraTransform='';
- // Keep the reading SVG on its own 3D transform surface; this may avoid extra
- // rendering work on neighboring layers while preserving the same x/y motion.
- const setCameraTransform=(x,y)=>{
-  const value=`${x},${y}`;if(value===lastCameraTransform)return;
-  const planar=`translate(${x},${y})`,reading=`translate3d(${x},${y},0px)`;
+ // Use a 3D transform on the reading layer only while the camera is moving.
+ const setCameraTransform=(x,y,moving=false)=>{
+  const value=`${x},${y}|${moving}`;if(value===lastCameraTransform)return;
+  const planar=`translate(${x},${y})`,reading=moving?`translate3d(${x},${y},0px)`:planar;
   for(const id of cameraLayers)get(id).style.transform=id==='woodland-immersive-reading'?reading:planar;
   lastCameraTransform=value;
  };
@@ -3137,7 +3136,7 @@ applyDisplay();
    // Translate the outer SVG in CSS so its cached art can be composited.
    // An inner SVG camera transform rerasterizes the moving forest at high DPR.
    const cameraX=`${compositorPosition(Math.sin(t/47)*9*layout.sx)}px`,cameraY=`${compositorPosition(Math.sin(t/61)*3*layout.sy)}px`;
-   setCameraTransform(cameraX,cameraY);
+   setCameraTransform(cameraX,cameraY,true);
    driftUI(compositorPosition(Math.sin(t/53)*10)+'px',compositorPosition(Math.sin(t/79)*4)+'px');
   }else{setCameraTransform('0px','0px');driftUI('0px','0px');}
   attr('woodland-immersive-light','opacity',frozen?'0':(.016+.012*Math.sin(t/39)).toFixed(4));
