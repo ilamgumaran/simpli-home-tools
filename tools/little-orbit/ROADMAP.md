@@ -1,6 +1,6 @@
 # Our Desk Clock roadmap
 
-Updated 2026-10-29. Milestones express intent, not promised delivery dates. The product owner sets priorities and authorizes deferred implementation.
+Updated 2026-10-30. Milestones express intent, not promised delivery dates. The product owner sets priorities and authorizes deferred implementation.
 
 Before anatomy artwork rollout, complete the [bounded phase cadence candidate](design/FRAME-CADENCE.md)'s hosted/portable and cross-platform gates. [Session 025](../../sessions/2026-10-10-weather-habitat/025-cadence-verification-handoff.md) preserves the earlier 65/66 local cadence passes and Firefox rain plus hosted Windows/macOS failures. The [DPR2 investigation](design/RAIN-CADENCE-INVESTIGATION.md) now records balanced profiling and the reading-camera candidate below. Performance thresholds remain unchanged.
 
@@ -10,6 +10,11 @@ art and motion gates. [Session 028](../../sessions/2026-10-10-weather-habitat/02
 records validation and remaining work. The [layer/transform investigation](design/RAIN-CADENCE-INVESTIGATION.md)
 and reusable diagnostic retain failed/historical evidence. Continue A2 anatomy
 after the validation boundary is resolved or the owner changes priority.
+
+The next hosted-boundary slice adds test-only callback/decision/geometry and
+navigation evidence; [ownership 029](../../sessions/2026-10-10-weather-habitat/029-ci-trace-ownership.md)
+records the unchanged runtime and gates. Fresh failing platform traces must
+support any later limiter or render change.
 
 ## Character priority — anatomy foundation candidate, later rollout planned
 

@@ -19,6 +19,10 @@ The [rain investigation](design/RAIN-CADENCE-INVESTIGATION.md) retains 35 layer/
 validation and remaining gates are recorded in
 [session 028](../../sessions/2026-10-10-weather-habitat/028-reading-camera-results.md).
 
+The hosted-boundary follow-up adds test-only failure tracing, preserving the
+current display. [Session 029](../../sessions/2026-10-10-weather-habitat/029-ci-trace-ownership.md)
+claims the investigation; a diagnostic record is not a performance acceptance.
+
 ## Shared anatomy — foundation and inspection candidate
 
 The [shared anatomy and organic movement plan](design/ANATOMY-AND-ORGANIC-MOVEMENT.md) now has an additive foundation: [versioned anatomy profiles](design/ANATOMY-PROFILES.md), constrained two-bone reference geometry, named palm/thumb/heel/ball/toe landmarks, and a [workshop reference panel](design/character-study.html) for the seven identities. Adult, drop and learner proportions remain distinct; Pebble has support-only swaddled anatomy. The [baseline inventory](design/ANATOMY-BASELINE.md) and 120 captured legacy pose samples protect existing output.

@@ -1,5 +1,13 @@
 # Our Desk Clock changelog
 
+### Cross-platform failure evidence
+
+- Added test-only native callback, app pacing-decision and geometry traces with
+  complete failure notices and CI artifacts, plus bounded navigation evidence.
+- Kept application bytes, timing gates and navigation behavior unchanged.
+  [Session 029](../../sessions/2026-10-10-weather-habitat/029-ci-trace-ownership.md)
+  records review and the pending browser/CI boundary.
+
 ### Rain reading-layer camera candidate
 
 - Kept the camera's quantized x/y path, but gave only the reading/clock SVG a

@@ -1,5 +1,7 @@
 # Green House 1 — weather-responsive habitat
 
+Current investigation: [029 — cross-platform tracing ownership](029-ci-trace-ownership.md). Test-only native/app/geometry and navigation records are under verification; runtime remains `9993133` and hosted gates stay open.
+
 Current candidate: [028 — reading-camera measurement and validation](028-reading-camera-results.md). Runtime `9993133` preserves artwork and camera coordinates, with a moving-only zero-depth reading-layer transform. The owner resumed clock work independently of pending Search Simpli Mac packaging. Message 025 preserves historical timing failures; candidate outcomes are in 028.
 
 Historical verification: [025 — corrected pacing results and remaining gates](025-cadence-verification-handoff.md). Runtime `236fb12`: Chrome and Edge pass 22 cadence cases each; Firefox passes 21 with one hosted DPR2 rain failure. All functional programs and offline checks have coverage; the combined Chrome/Firefox run exits 1. Required Windows/macOS timing checks remain failed; PR #16 stays draft. The portable checksum and next profiling tasks are in 025.
@@ -47,5 +49,6 @@ Historical meal candidate: [017 — Sage’s connected meal](017-cloud-meal-chor
 | [025-cadence-verification-handoff.md](025-cadence-verification-handoff.md) | Cloud → owner and implementation/device sessions | Corrected runtime: 65/66 cadence passes, preserved failure, completed coverage and rain profiling tasks |
 | [027-rain-profiling-resumed.md](027-rain-profiling-resumed.md) | Cloud → owner and implementation/device sessions | Resumed DPR2 profiling ownership, model split and preserved acceptance gates |
 | [028-reading-camera-results.md](028-reading-camera-results.md) | Cloud → owner and implementation/device sessions | Balanced layer/transform evidence, reading-camera source and portable candidate, parity and suite outcomes |
+| [029-ci-trace-ownership.md](029-ci-trace-ownership.md) | Cloud → owner and implementation/device sessions | Exact callback/decision/geometry and bounded navigation tracing; browser/CI outcomes pending |
 
-Work branch: `feature/anatomy-foundation` / draft PR #16, based on `feature/woodland-weather-habitat` / draft PR #11, which in turn builds on `feature/woodland-immersive-story` / PR #9. Published messages 001–025 and 027–028 are immutable; use 029 for the next cloud follow-up. Message 026 remains reserved for device feedback. Reserve 002 for the initial device reply and 004 for local device findings. Fetch the branch before reading. Git does not notify another session automatically.
+Work branch: `feature/anatomy-foundation` / draft PR #16, based on `feature/woodland-weather-habitat` / draft PR #11, which in turn builds on `feature/woodland-immersive-story` / PR #9. Published messages 001–025 and 027–028 are immutable; use 030 for the next cloud follow-up. Message 026 remains reserved for device feedback. Reserve 002 for the initial device reply and 004 for local device findings. Fetch the branch before reading. Git does not notify another session automatically.

@@ -48,3 +48,13 @@ jobs:
           exit "$clock_test_status"
       - name: Portable build must be current
         run: git diff --exit-code -- 'Little Orbit.html'
+      - name: Preserve browser diagnostics
+        if: always()
+        uses: actions/upload-artifact@v7.0.2
+        with:
+          name: little-orbit-diagnostics-${{ matrix.os }}-${{ github.run_attempt }}
+          path: |
+            tools/little-orbit/test-results/ci-run.log
+            tools/little-orbit/test-results/clock-diagnostics.jsonl
+          if-no-files-found: ignore
+          retention-days: 7
