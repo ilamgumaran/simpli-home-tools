@@ -4,6 +4,13 @@
 Status: implementation candidate on `feature/anatomy-foundation`, PR #16.
 The browser cadence gates remain required; physical acceptance is separate.
 
+The [2026-10-30 exact CI traces](CI-FAILURE-TRACING.md) capture native callbacks,
+app decisions and geometry together. [Results 030](../../../sessions/2026-10-10-weather-habitat/030-ci-trace-results.md)
+reproduce both Windows/macOS failures: callback opportunities arrive too early
+for the existing minimum and later opportunities arrive late. No app callback
+or geometry observation is missing in those samples. This evidence does not
+identify the underlying delivery stall or authorize a weaker gate.
+
 ## Problem and evidence
 
 The former low-power limiter waits until a callback is at least 31.333 ms after

@@ -5,8 +5,9 @@
 - Added test-only native callback, app pacing-decision and geometry traces with
   complete failure notices and CI artifacts, plus bounded navigation evidence.
 - Kept application bytes, timing gates and navigation behavior unchanged.
-  [Session 029](../../sessions/2026-10-10-weather-habitat/029-ci-trace-ownership.md)
-  records review and the pending browser/CI boundary.
+  [Session 030](../../sessions/2026-10-10-weather-habitat/030-ci-trace-results.md)
+  records 66 local cadence passes, four recovered exact platform failures and
+  the remaining CI boundary. Added a pure trace analyzer and recovery guide.
 
 ### Rain reading-layer camera candidate
 

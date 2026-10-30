@@ -1,0 +1,1679 @@
+{
+  "schemaVersion": 1,
+  "runtimeRevision": "99931338f12d5111ea0321cc2690d6588ef59ab9",
+  "diagnosticCheckpoint": "d58f040a098d87ebd7c3cf07fd454e1ebd279dc2",
+  "portableSHA256": "1e36b79704ac3046230644555ffc5fc691cc5229ac2df067a61d2901e0169d8b",
+  "localNpmExits": {"chrome-firefox": 0, "edge": 0},
+  "browserVersions": {"Chrome": "151.0.7922.34", "Firefox": "153.0", "Edge": "154.0.4258.53"},
+  "helperDigest": "1d30900bac964615c28e073df16c659d2e8dc4fbcf9b81019b8a6858dfd579be",
+  "cadenceCounts": {"Chrome": 22, "Firefox": 22, "Edge": 22},
+  "cadenceCases": [
+    {
+      "browser": "Chrome",
+      "case": "PASS live motion cadence: hosted low-power",
+      "metrics": {
+        "fps": 29.995714897914294,
+        "p95": 33.79999999701977,
+        "maxGap": 33.899999998509884,
+        "frames": 63,
+        "callback": {
+          "count": 126,
+          "fps": 59.99142979582859,
+          "nominalP95": 16.8,
+          "nominalMax": 16.8,
+          "actualP95": 17.6,
+          "actualMax": 18.3,
+          "tailNominalGaps": [16.6, 16.6, 16.7, 16.7, 16.6, 16.7, 16.7, 16.7, 16.6, 16.7, 16.6, 16.8, 16.6, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.7, 16.7, 16.6, 16.6, 16.8, 16.6, 16.6, 16.7, 16.7, 16.6, 16.7, 16.6, 16.8, 16.6, 16.7, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.6, 16.7, 16.7, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.6, 16.7, 16.7, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.6, 16.8, 16.6, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.6, 16.8, 16.6, 16.6, 16.8, 16.6, 16.6, 16.7, 16.7, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.6, 16.8, 16.6, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.7, 16.7, 16.6, 16.7],
+          "largestNominalGaps": [16.8, 16.8, 16.8, 16.8, 16.8, 16.8, 16.8, 16.7]
+        }
+      }
+    },
+    {
+      "browser": "Chrome",
+      "case": "PASS live motion cadence: hosted normal",
+      "metrics": {
+        "fps": 59.99714299314823,
+        "p95": 17.200000002980232,
+        "maxGap": 18.900000005960464,
+        "frames": 126,
+        "callback": {
+          "count": 126,
+          "fps": 59.99714299314823,
+          "nominalP95": 16.8,
+          "nominalMax": 16.8,
+          "actualP95": 17.2,
+          "actualMax": 18.9,
+          "tailNominalGaps": [16.7, 16.7, 16.6, 16.8, 16.6, 16.7, 16.6, 16.7, 16.6, 16.7, 16.7, 16.7, 16.6, 16.7, 16.6, 16.7, 16.6, 16.8, 16.6, 16.7, 16.6, 16.7, 16.6, 16.8, 16.6, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.6, 16.7, 16.7, 16.7, 16.6, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.6, 16.7, 16.8, 16.6, 16.6, 16.7, 16.7, 16.7, 16.6, 16.7, 16.6, 16.7, 16.6, 16.7, 16.7, 16.7, 16.7, 16.7, 16.6, 16.6, 16.7, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.6, 16.7, 16.7, 16.6, 16.8, 16.6, 16.6, 16.7, 16.7, 16.7, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.6, 16.7, 16.6, 16.7, 16.7, 16.7, 16.6, 16.7, 16.6, 16.7, 16.7, 16.7, 16.6, 16.7, 16.6, 16.7, 16.7, 16.7, 16.6, 16.7, 16.7, 16.7, 16.6, 16.7, 16.6, 16.6, 16.7, 16.8, 16.5, 16.7, 16.8, 16.6, 16.6, 16.7, 16.7, 16.6, 16.7, 16.6, 16.7, 16.7],
+          "largestNominalGaps": [16.8, 16.8, 16.8, 16.8, 16.8, 16.8, 16.8, 16.7]
+        }
+      }
+    },
+    {
+      "browser": "Chrome",
+      "case": "PASS live motion cadence: portable low-power",
+      "metrics": {
+        "fps": 29.99857149668054,
+        "p95": 33.900000005960464,
+        "maxGap": 38.79999999701977,
+        "frames": 63,
+        "callback": {
+          "count": 126,
+          "fps": 59.99714299336108,
+          "nominalP95": 16.7,
+          "nominalMax": 16.8,
+          "actualP95": 17.8,
+          "actualMax": 22.9,
+          "tailNominalGaps": [16.6, 16.7, 16.7, 16.7, 16.6, 16.6, 16.7, 16.7, 16.6, 16.7, 16.7, 16.7, 16.7, 16.6, 16.6, 16.7, 16.7, 16.7, 16.6, 16.7, 16.6, 16.8, 16.6, 16.6, 16.8, 16.5, 16.8, 16.7, 16.6, 16.6, 16.8, 16.6, 16.6, 16.7, 16.7, 16.7, 16.6, 16.6, 16.8, 16.6, 16.6, 16.8, 16.6, 16.6, 16.7, 16.7, 16.7, 16.6, 16.7, 16.6, 16.7, 16.7, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.7, 16.7, 16.6, 16.7, 16.6, 16.7, 16.7, 16.7, 16.6, 16.6, 16.7, 16.7, 16.7, 16.6, 16.7, 16.7, 16.7, 16.6, 16.7, 16.6, 16.7, 16.7, 16.7, 16.6, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.6, 16.7, 16.7, 16.7, 16.6, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.7, 16.7, 16.6, 16.6, 16.7, 16.7, 16.7, 16.6, 16.7, 16.7, 16.7, 16.6, 16.6, 16.7, 16.7, 16.7, 16.7, 16.6, 16.7, 16.6],
+          "largestNominalGaps": [16.8, 16.8, 16.8, 16.8, 16.8, 16.8, 16.7, 16.7]
+        }
+      }
+    },
+    {
+      "browser": "Chrome",
+      "case": "PASS live motion cadence: portable normal",
+      "metrics": {
+        "fps": 59.99142979561578,
+        "p95": 17.099999994039536,
+        "maxGap": 19.299999997019768,
+        "frames": 126,
+        "callback": {
+          "count": 126,
+          "fps": 59.99142979561578,
+          "nominalP95": 16.8,
+          "nominalMax": 16.8,
+          "actualP95": 17.1,
+          "actualMax": 19.3,
+          "tailNominalGaps": [16.7, 16.7, 16.6, 16.7, 16.7, 16.7, 16.6, 16.6, 16.8, 16.6, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.6, 16.8, 16.6, 16.7, 16.7, 16.6, 16.7, 16.7, 16.7, 16.5, 16.8, 16.7, 16.6, 16.7, 16.6, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.6, 16.7, 16.7, 16.7, 16.7, 16.6, 16.6, 16.7, 16.7, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.6, 16.7, 16.7, 16.7, 16.6, 16.7, 16.6, 16.7, 16.7, 16.7, 16.6, 16.7, 16.7, 16.7, 16.5, 16.7, 16.7, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.7, 16.7, 16.6, 16.7, 16.6, 16.7, 16.6, 16.8, 16.6, 16.7, 16.6, 16.7, 16.6, 16.7, 16.7, 16.7, 16.6, 16.7, 16.6, 16.8, 16.6, 16.6, 16.7, 16.7, 16.6, 16.7, 16.7, 16.6, 16.8, 16.6, 16.7, 16.6, 16.6, 16.7, 16.8, 16.6, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.6, 16.7, 16.7, 16.7, 16.6],
+          "largestNominalGaps": [16.8, 16.8, 16.8, 16.8, 16.8, 16.8, 16.8, 16.7]
+        }
+      }
+    },
+    {
+      "browser": "Chrome",
+      "case": "PASS immersive frame cadence: hosted 854×480 DPR1 30fps low-power",
+      "metrics": {"fps": 29.995714897914294, "p95": 33.900000005960464, "maxGap": 34.900000005960464}
+    },
+    {
+      "browser": "Chrome",
+      "case": "PASS immersive frame cadence: hosted 854×480 DPR1 60fps normal",
+      "metrics": {"fps": 60.9494785964303, "p95": 17, "maxGap": 17.200000002980232}
+    },
+    {
+      "browser": "Chrome",
+      "case": "PASS immersive frame cadence: portable 854×480 DPR1 30fps low-power",
+      "metrics": {"fps": 29.997143129183222, "p95": 33.900000005960464, "maxGap": 35.79999999701977}
+    },
+    {
+      "browser": "Chrome",
+      "case": "PASS immersive frame cadence: portable 854×480 DPR1 60fps normal",
+      "metrics": {"fps": 60.94947859621408, "p95": 17.399999998509884, "maxGap": 24.899999998509884}
+    },
+    {
+      "browser": "Chrome",
+      "case": "PASS immersive frame cadence: hosted 1280×720 DPR2 30fps low-power",
+      "metrics": {"fps": 29.997143129289636, "p95": 33.80000000447035, "maxGap": 34}
+    },
+    {
+      "browser": "Chrome",
+      "case": "PASS immersive frame cadence: hosted 1280×720 DPR2 60fps normal",
+      "metrics": {"fps": 60.94947859621408, "p95": 18.099999994039536, "maxGap": 20}
+    },
+    {
+      "browser": "Chrome",
+      "case": "PASS rainy habitat cadence: hosted 854×480 DPR1 30fps low-power",
+      "metrics": {"fps": 29.992858843132588, "p95": 33.899999998509884, "maxGap": 43.5}
+    },
+    {
+      "browser": "Chrome",
+      "case": "PASS rainy habitat cadence: hosted 854×480 DPR1 60fps normal",
+      "metrics": {"fps": 60.47043138761562, "p95": 17.100000001490116, "maxGap": 33.899999998509884}
+    },
+    {
+      "browser": "Chrome",
+      "case": "PASS rainy habitat cadence: hosted 1280×720 DPR2 30fps low-power",
+      "metrics": {"fps": 29.98286693324483, "p95": 33.79999999701977, "maxGap": 36.79999999701977}
+    },
+    {
+      "browser": "Chrome",
+      "case": "PASS rainy habitat cadence: hosted 1280×720 DPR2 60fps normal",
+      "metrics": {"fps": 60.946576516435755, "p95": 19.600000001490116, "maxGap": 23.100000001490116}
+    },
+    {
+      "browser": "Chrome",
+      "case": "PASS rainy habitat cadence: portable 854×480 DPR1 30fps low-power",
+      "metrics": {"fps": 29.997143129289636, "p95": 33.900000005960464, "maxGap": 34.29999999701977}
+    },
+    {
+      "browser": "Chrome",
+      "case": "PASS rainy habitat cadence: portable 854×480 DPR1 60fps normal",
+      "metrics": {"fps": 60.9494785964303, "p95": 17.200000002980232, "maxGap": 18.299999997019768}
+    },
+    {
+      "browser": "Chrome",
+      "case": "PASS rainy habitat cadence: portable 1280×720 DPR2 30fps low-power",
+      "metrics": {"fps": 29.981440060957194, "p95": 33.80000000447035, "maxGap": 34.19999999552965}
+    },
+    {
+      "browser": "Chrome",
+      "case": "PASS rainy habitat cadence: portable 1280×720 DPR2 60fps normal",
+      "metrics": {"fps": 60.946576516651966, "p95": 17.200000002980232, "maxGap": 25.799999997019768}
+    },
+    {
+      "browser": "Chrome",
+      "case": "PASS active meal cadence: hosted 854×480 DPR1 30fps low-power",
+      "metrics": {"fps": 29.997143129183222, "p95": 34.30000000447035, "maxGap": 34.899999998509884, "frames": 63, "stageBefore": "deliver", "stageAfter": "deliver", "moved": true}
+    },
+    {
+      "browser": "Chrome",
+      "case": "PASS active meal cadence: hosted 854×480 DPR1 60fps normal",
+      "metrics": {"fps": 60.94947859621408, "p95": 17.200000002980232, "maxGap": 21.200000002980232, "frames": 128, "stageBefore": "deliver", "stageAfter": "deliver", "moved": true}
+    },
+    {
+      "browser": "Chrome",
+      "case": "PASS active meal cadence: portable 1280×720 DPR2 30fps low-power",
+      "metrics": {"fps": 29.997143129183222, "p95": 33.900000005960464, "maxGap": 35, "frames": 63, "stageBefore": "deliver", "stageAfter": "deliver", "moved": true}
+    },
+    {
+      "browser": "Chrome",
+      "case": "PASS active meal cadence: portable 1280×720 DPR2 60fps normal",
+      "metrics": {"fps": 60.9494785964303, "p95": 17.399999998509884, "maxGap": 21, "frames": 128, "stageBefore": "deliver", "stageAfter": "deliver", "moved": true}
+    },
+    {
+      "browser": "Firefox",
+      "case": "PASS live motion cadence: hosted low-power",
+      "metrics": {
+        "fps": 30.014292520247736,
+        "p95": 34,
+        "maxGap": 35,
+        "frames": 63,
+        "callback": {
+          "count": 126,
+          "fps": 60.02858504049547,
+          "nominalP95": 17.16,
+          "nominalMax": 17.18,
+          "actualP95": 18,
+          "actualMax": 19,
+          "tailNominalGaps": [16.7, 16.12, 17.12, 16.12, 17.12, 17.08, 16.16, 17.14, 16.14, 17.14, 16.16, 17.16, 16.12, 17.12, 16.14, 17.1, 16.12, 17.14, 17.04, 16.18, 17.12, 16.12, 17.12, 16.16, 17.1, 16.14, 17.12, 16.12, 17.14, 16.12, 17.14, 17.08, 16.14, 17.14, 16.12, 17.16, 16.14, 17.14, 16.12, 17.12, 16.14, 17.14, 16.12, 17.14, 17.04, 16.22, 17.12, 16.16, 17.14, 16.12, 17.16, 16.12, 17.12, 16.16, 17.12, 16.14, 17.12, 16.14, 17.18, 16.14, 17.14, 17.04, 16.26, 17.08, 16.24, 17.08, 16.16, 17.14, 16.14, 17.12, 16.12, 17.14, 16.12, 17.12, 16.16, 17.16, 16.12, 17.14, 17.04, 16.22, 17.1, 16.2, 17.12, 16.16, 17.12, 16.12, 17.14, 16.14, 17.14, 16.18, 17.16, 16.14, 17.14, 16.14, 17.14, 16.14, 17.14, 16.12, 17.18, 17.06, 16.18, 17.14, 16.14, 17.16, 16.12, 17.14, 16.12, 17.14, 16.12, 17.14, 16.14, 17.18, 16.14, 17.14, 16.12, 17.14, 17.06, 16.22, 17.12, 16.2, 17.12, 16.14, 17.14, 16.14, 17.14],
+          "largestNominalGaps": [17.18, 17.18, 17.18, 17.16, 17.16, 17.16, 17.16, 17.16]
+        }
+      }
+    },
+    {
+      "browser": "Firefox",
+      "case": "PASS live motion cadence: hosted normal",
+      "metrics": {
+        "fps": 60,
+        "p95": 18,
+        "maxGap": 21,
+        "frames": 126,
+        "callback": {
+          "count": 126,
+          "fps": 60,
+          "nominalP95": 17.2,
+          "nominalMax": 17.28,
+          "actualP95": 18,
+          "actualMax": 21,
+          "tailNominalGaps": [16.12, 17.12, 17.06, 16.26, 17.08, 16.2, 17.12, 16.16, 17.12, 16.14, 17.12, 16.18, 17.14, 16.12, 17.14, 16.14, 17.2, 16.18, 17.14, 16.12, 17.14, 16.14, 17.18, 16.14, 17.16, 16.14, 17.16, 17.06, 16.22, 17.1, 16.22, 17.12, 16.2, 17.14, 16.12, 17.12, 16.12, 17.12, 16.16, 17.16, 16.14, 17.12, 16.14, 17.12, 16.12, 17.18, 17.04, 16.24, 17.1, 16.22, 17.1, 16.16, 17.18, 16.16, 17.16, 16.16, 17.16, 16.12, 17.12, 16.14, 17.2, 16.2, 17.14, 16.16, 17.16, 16.14, 17.28, 16.26, 17.1, 16.2, 17.14, 16.16, 17.18, 16.16, 17.14, 16.14, 17.16, 16.14, 17.26, 16.28, 17.04, 16.22, 17.12, 16.16, 17.12, 16.12, 17.14, 16.12, 17.12, 16.16, 17.12, 16.14, 17.18, 16.16, 17.12, 16.12, 17.22, 16.14, 17.14, 17.06, 16.2, 17.1, 16.14, 17.14, 16.14, 17.1, 16.12, 17.2, 16.12, 17.24, 16.26, 17.14, 16.12, 17.12, 16.12, 17.14, 16.18, 17.14, 16.12, 17.18, 16.12, 17.12, 17.06, 16.22, 17.12],
+          "largestNominalGaps": [17.28, 17.26, 17.24, 17.22, 17.2, 17.2, 17.2, 17.18]
+        }
+      }
+    },
+    {
+      "browser": "Firefox",
+      "case": "PASS live motion cadence: portable low-power",
+      "metrics": {
+        "fps": 30.303030303030305,
+        "p95": 34,
+        "maxGap": 34,
+        "frames": 65,
+        "callback": {
+          "count": 129,
+          "fps": 60.13986013986014,
+          "nominalP95": 17.16,
+          "nominalMax": 17.22,
+          "actualP95": 19,
+          "actualMax": 19,
+          "tailNominalGaps": [17.16, 16.18, 16.68, 17.14, 16.5, 16.24, 16.96, 16.34, 17.1, 16.28, 17.14, 16.14, 17.2, 16.26, 17.14, 16.14, 17.16, 16.2, 17.2, 16.12, 17.12, 16.14, 17.1, 16.12, 17.1, 16.1, 17.14, 17.06, 16.22, 17.1, 16.14, 17.1, 16.12, 17.14, 16.12, 17.14, 16.12, 17.12, 16.36, 17.16, 16.16, 17.1, 16.14, 17.2, 16.14, 17.12, 16.16, 17.12, 16.16, 17.16, 16.12, 17.14, 17.1, 16.14, 17.14, 16.18, 17.14, 16.1, 17.12, 16.12, 17.12, 16.14, 17.14, 16.14, 17.12, 17.06, 16.18, 17.12, 16.1, 17.16, 16.18, 17.12, 16.12, 17.14, 16.12, 17.12, 16.14, 17.12, 17.06, 16.22, 17.1, 16.14, 17.1, 16.12, 17.12, 16.16, 17.12, 16.14, 17.12, 16.22, 17.1, 16.14, 17.14, 17.06, 16.22, 17.1, 16.16, 17.1, 16.12, 17.14, 16.14, 17.12, 16.12, 17.16, 16.12, 17.14, 16.14, 17.12, 17.1, 16.6, 16.12, 17.12, 16.14, 17.1, 16.12, 17.14, 16.16, 17.2, 16.12, 17.22, 16.96, 16.66, 16.22, 17.12, 16.12, 17.12, 16.18, 17.14],
+          "largestNominalGaps": [17.22, 17.2, 17.2, 17.2, 17.2, 17.16, 17.16, 17.16]
+        }
+      }
+    },
+    {
+      "browser": "Firefox",
+      "case": "PASS live motion cadence: portable normal",
+      "metrics": {
+        "fps": 59.687351965892944,
+        "p95": 18,
+        "maxGap": 25,
+        "frames": 126,
+        "callback": {
+          "count": 126,
+          "fps": 59.687351965892944,
+          "nominalP95": 17.2,
+          "nominalMax": 17.54,
+          "actualP95": 18,
+          "actualMax": 25,
+          "tailNominalGaps": [16.12, 17.12, 16.1, 17.16, 16.12, 17.14, 17.1, 16.22, 16.5, 16.66, 17.18, 16.16, 16.62, 17.1, 16.1, 17.14, 16.12, 17.14, 17.06, 16.18, 17.1, 16.18, 17.12, 16.16, 17.12, 16.14, 17.34, 16.26, 17.06, 16.26, 17.08, 16.18, 17.12, 16.14, 17.2, 16.18, 17.18, 16.14, 17.18, 16.18, 17.16, 16.26, 16.24, 17.12, 17.06, 16.22, 17.1, 16.12, 17.16, 16.12, 17.12, 16.12, 17.16, 16.12, 17.14, 16.12, 17.14, 16.38, 17.22, 16.2, 17.22, 16.18, 16.3, 17.3, 16.36, 17.2, 16.26, 16.2, 17.16, 16.14, 17.12, 17.12, 16.26, 17.06, 16.26, 17.08, 16.18, 17.12, 16.1, 17.14, 16.1, 17.16, 16.1, 17.1, 16.16, 17.16, 16.16, 17.14, 17.04, 16.2, 17.12, 16.1, 17.14, 16.12, 17.14, 16.1, 17.16, 16.1, 17.16, 16.12, 17.3, 16.16, 17.2, 16.22, 17.18, 16.18, 17.12, 16.18, 17.12, 16.16, 17.18, 16.18, 17.12, 16.14, 17.1, 16.14, 17.1, 17.08, 16.56, 16.46, 16.52, 16.52, 16.56, 16.52, 17.54],
+          "largestNominalGaps": [17.54, 17.34, 17.3, 17.3, 17.22, 17.22, 17.2, 17.2]
+        }
+      }
+    },
+    {
+      "browser": "Firefox",
+      "case": "PASS immersive frame cadence: hosted 854×480 DPR1 30fps low-power",
+      "metrics": {"fps": 30, "p95": 34, "maxGap": 35}
+    },
+    {
+      "browser": "Firefox",
+      "case": "PASS immersive frame cadence: hosted 854×480 DPR1 60fps normal",
+      "metrics": {"fps": 60.92336982389338, "p95": 18, "maxGap": 20}
+    },
+    {
+      "browser": "Firefox",
+      "case": "PASS immersive frame cadence: portable 854×480 DPR1 30fps low-power",
+      "metrics": {"fps": 30.346135609293505, "p95": 34, "maxGap": 38}
+    },
+    {
+      "browser": "Firefox",
+      "case": "PASS immersive frame cadence: portable 854×480 DPR1 60fps normal",
+      "metrics": {"fps": 61.05063890203502, "p95": 18, "maxGap": 19}
+    },
+    {
+      "browser": "Firefox",
+      "case": "PASS immersive frame cadence: hosted 1280×720 DPR2 30fps low-power",
+      "metrics": {"fps": 29.85781990521327, "p95": 34, "maxGap": 36}
+    },
+    {
+      "browser": "Firefox",
+      "case": "PASS immersive frame cadence: hosted 1280×720 DPR2 60fps normal",
+      "metrics": {"fps": 59.26979611190138, "p95": 22, "maxGap": 34}
+    },
+    {
+      "browser": "Firefox",
+      "case": "PASS rainy habitat cadence: hosted 854×480 DPR1 30fps low-power",
+      "metrics": {"fps": 29.985721085197525, "p95": 35, "maxGap": 35}
+    },
+    {
+      "browser": "Firefox",
+      "case": "PASS rainy habitat cadence: hosted 854×480 DPR1 60fps normal",
+      "metrics": {"fps": 60.95238095238095, "p95": 18, "maxGap": 23}
+    },
+    {
+      "browser": "Firefox",
+      "case": "PASS rainy habitat cadence: hosted 1280×720 DPR2 30fps low-power",
+      "metrics": {"fps": 29.702970297029704, "p95": 36, "maxGap": 39}
+    },
+    {
+      "browser": "Firefox",
+      "case": "PASS rainy habitat cadence: hosted 1280×720 DPR2 60fps normal",
+      "metrics": {"fps": 58.06758686339838, "p95": 21, "maxGap": 40}
+    },
+    {
+      "browser": "Firefox",
+      "case": "PASS rainy habitat cadence: portable 854×480 DPR1 30fps low-power",
+      "metrics": {"fps": 29.985721085197525, "p95": 34, "maxGap": 35}
+    },
+    {
+      "browser": "Firefox",
+      "case": "PASS rainy habitat cadence: portable 854×480 DPR1 60fps normal",
+      "metrics": {"fps": 60.92336982389338, "p95": 18, "maxGap": 21}
+    },
+    {
+      "browser": "Firefox",
+      "case": "PASS rainy habitat cadence: portable 1280×720 DPR2 30fps low-power",
+      "metrics": {"fps": 29.971455756422454, "p95": 35, "maxGap": 37}
+    },
+    {
+      "browser": "Firefox",
+      "case": "PASS rainy habitat cadence: portable 1280×720 DPR2 60fps normal",
+      "metrics": {"fps": 59.97144217039505, "p95": 20, "maxGap": 27}
+    },
+    {
+      "browser": "Firefox",
+      "case": "PASS active meal cadence: hosted 854×480 DPR1 30fps low-power",
+      "metrics": {"fps": 30.014292520247736, "p95": 35, "maxGap": 37, "frames": 63, "stageBefore": "deliver", "stageAfter": "deliver", "moved": true}
+    },
+    {
+      "browser": "Firefox",
+      "case": "PASS active meal cadence: hosted 854×480 DPR1 60fps normal",
+      "metrics": {"fps": 60.92336982389338, "p95": 18, "maxGap": 19, "frames": 128, "stageBefore": "deliver", "stageAfter": "deliver", "moved": true}
+    },
+    {
+      "browser": "Firefox",
+      "case": "PASS active meal cadence: portable 1280×720 DPR2 30fps low-power",
+      "metrics": {"fps": 29.94296577946768, "p95": 35, "maxGap": 35, "frames": 63, "stageBefore": "deliver", "stageAfter": "deliver", "moved": true}
+    },
+    {
+      "browser": "Firefox",
+      "case": "PASS active meal cadence: portable 1280×720 DPR2 60fps normal",
+      "metrics": {"fps": 60.476190476190474, "p95": 20, "maxGap": 28, "frames": 127, "stageBefore": "deliver", "stageAfter": "deliver", "moved": true}
+    },
+    {
+      "browser": "Edge",
+      "case": "PASS live motion cadence: hosted low-power",
+      "metrics": {
+        "fps": 29.997143129289636,
+        "p95": 33.70000000298023,
+        "maxGap": 33.899999998509884,
+        "frames": 63,
+        "callback": {
+          "count": 126,
+          "fps": 59.99428625857927,
+          "nominalP95": 16.7,
+          "nominalMax": 16.8,
+          "actualP95": 17.6,
+          "actualMax": 18.1,
+          "tailNominalGaps": [16.7, 16.6, 16.6, 16.7, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.7, 16.7, 16.7, 16.6, 16.7, 16.7, 16.6, 16.6, 16.7, 16.7, 16.6, 16.7, 16.7, 16.7, 16.6, 16.7, 16.6, 16.8, 16.5, 16.8, 16.6, 16.6, 16.7, 16.8, 16.6, 16.6, 16.7, 16.7, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.6, 16.7, 16.7, 16.7, 16.6, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.6, 16.7, 16.7, 16.6, 16.8, 16.6, 16.6, 16.8, 16.5, 16.7, 16.7, 16.7, 16.7, 16.6, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.7, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.7, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.6, 16.7],
+          "largestNominalGaps": [16.8, 16.8, 16.8, 16.8, 16.8, 16.7, 16.7, 16.7]
+        }
+      }
+    },
+    {
+      "browser": "Edge",
+      "case": "PASS live motion cadence: hosted normal",
+      "metrics": {
+        "fps": 59.99714299314823,
+        "p95": 17,
+        "maxGap": 17.30000000447035,
+        "frames": 126,
+        "callback": {
+          "count": 126,
+          "fps": 59.99714299314823,
+          "nominalP95": 16.7,
+          "nominalMax": 16.8,
+          "actualP95": 17.1,
+          "actualMax": 17.3,
+          "tailNominalGaps": [16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.6, 16.7, 16.7, 16.7, 16.6, 16.7, 16.7, 16.7, 16.6, 16.7, 16.6, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.7, 16.7, 16.6, 16.7, 16.7, 16.7, 16.6, 16.7, 16.7, 16.6, 16.6, 16.7, 16.7, 16.7, 16.7, 16.6, 16.6, 16.7, 16.7, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.7, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.6, 16.7, 16.7, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.6, 16.7, 16.7, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.7, 16.7, 16.6, 16.7, 16.6, 16.8, 16.6, 16.6, 16.7, 16.7, 16.7, 16.6, 16.6, 16.8, 16.6, 16.6, 16.7],
+          "largestNominalGaps": [16.8, 16.8, 16.7, 16.7, 16.7, 16.7, 16.7, 16.7]
+        }
+      }
+    },
+    {
+      "browser": "Edge",
+      "case": "PASS live motion cadence: portable low-power",
+      "metrics": {
+        "fps": 29.995714897914294,
+        "p95": 33.79999999701977,
+        "maxGap": 36.80000000447035,
+        "frames": 63,
+        "callback": {
+          "count": 126,
+          "fps": 59.99142979582859,
+          "nominalP95": 16.8,
+          "nominalMax": 16.8,
+          "actualP95": 17.8,
+          "actualMax": 21.3,
+          "tailNominalGaps": [16.7, 16.6, 16.6, 16.7, 16.7, 16.7, 16.6, 16.6, 16.7, 16.7, 16.7, 16.7, 16.6, 16.7, 16.6, 16.7, 16.7, 16.7, 16.7, 16.6, 16.7, 16.6, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.7, 16.7, 16.6, 16.6, 16.7, 16.7, 16.6, 16.7, 16.7, 16.7, 16.6, 16.7, 16.7, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.7, 16.7, 16.5, 16.7, 16.8, 16.6, 16.6, 16.7, 16.7, 16.7, 16.6, 16.7, 16.7, 16.6, 16.6, 16.8, 16.6, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.7, 16.7, 16.7, 16.6, 16.6, 16.7, 16.7, 16.7, 16.6, 16.6, 16.8, 16.6, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.6, 16.8, 16.6, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.7, 16.7, 16.6, 16.6, 16.7, 16.7, 16.6, 16.7, 16.6, 16.8, 16.6, 16.7, 16.6, 16.8, 16.5, 16.8, 16.6],
+          "largestNominalGaps": [16.8, 16.8, 16.8, 16.8, 16.8, 16.8, 16.8, 16.7]
+        }
+      }
+    },
+    {
+      "browser": "Edge",
+      "case": "PASS live motion cadence: portable normal",
+      "metrics": {
+        "fps": 59.99714299314823,
+        "p95": 17.100000001490116,
+        "maxGap": 18.19999999552965,
+        "frames": 126,
+        "callback": {
+          "count": 126,
+          "fps": 59.99714299314823,
+          "nominalP95": 16.7,
+          "nominalMax": 16.8,
+          "actualP95": 17.2,
+          "actualMax": 18.2,
+          "tailNominalGaps": [16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.7, 16.6, 16.8, 16.6, 16.7, 16.6, 16.7, 16.7, 16.7, 16.6, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.6, 16.7, 16.6, 16.7, 16.7, 16.7, 16.7, 16.6, 16.7, 16.6, 16.7, 16.7, 16.7, 16.6, 16.7, 16.6, 16.7, 16.7, 16.7, 16.6, 16.7, 16.6, 16.7, 16.6, 16.8, 16.6, 16.7, 16.7, 16.7, 16.6, 16.6, 16.7, 16.7, 16.7, 16.6, 16.7, 16.6, 16.7, 16.6, 16.7, 16.7, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.6, 16.7, 16.7, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.6, 16.8, 16.6, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.7, 16.7, 16.6, 16.7, 16.6, 16.7, 16.6, 16.7, 16.7, 16.7, 16.6, 16.7, 16.6, 16.7, 16.7, 16.7, 16.6, 16.7],
+          "largestNominalGaps": [16.8, 16.8, 16.8, 16.7, 16.7, 16.7, 16.7, 16.7]
+        }
+      }
+    },
+    {
+      "browser": "Edge",
+      "case": "PASS immersive frame cadence: hosted 854×480 DPR1 30fps low-power",
+      "metrics": {"fps": 29.997143129289636, "p95": 33.69999999552965, "maxGap": 34}
+    },
+    {
+      "browser": "Edge",
+      "case": "PASS immersive frame cadence: hosted 854×480 DPR1 60fps normal",
+      "metrics": {"fps": 60.946576516435755, "p95": 17.899999998509884, "maxGap": 28.5}
+    },
+    {
+      "browser": "Edge",
+      "case": "PASS immersive frame cadence: portable 854×480 DPR1 30fps low-power",
+      "metrics": {"fps": 29.998571496574115, "p95": 34.20000000298023, "maxGap": 35.70000000298023}
+    },
+    {
+      "browser": "Edge",
+      "case": "PASS immersive frame cadence: portable 854×480 DPR1 60fps normal",
+      "metrics": {"fps": 60.946576516435755, "p95": 17.600000001490116, "maxGap": 22.30000000447035}
+    },
+    {
+      "browser": "Edge",
+      "case": "PASS immersive frame cadence: hosted 1280×720 DPR2 30fps low-power",
+      "metrics": {"fps": 30.426927831044328, "p95": 33.900000005960464, "maxGap": 37}
+    },
+    {
+      "browser": "Edge",
+      "case": "PASS immersive frame cadence: hosted 1280×720 DPR2 60fps normal",
+      "metrics": {"fps": 60.9494785964303, "p95": 18.5, "maxGap": 22}
+    },
+    {
+      "browser": "Edge",
+      "case": "PASS rainy habitat cadence: hosted 854×480 DPR1 30fps low-power",
+      "metrics": {"fps": 29.995714897914294, "p95": 33.899999998509884, "maxGap": 35.20000000298023}
+    },
+    {
+      "browser": "Edge",
+      "case": "PASS rainy habitat cadence: hosted 854×480 DPR1 60fps normal",
+      "metrics": {"fps": 61.49479659413434, "p95": 17.700000002980232, "maxGap": 22.30000000447035}
+    },
+    {
+      "browser": "Edge",
+      "case": "PASS rainy habitat cadence: hosted 1280×720 DPR2 30fps low-power",
+      "metrics": {"fps": 29.99571489780789, "p95": 34, "maxGap": 35.30000000447035}
+    },
+    {
+      "browser": "Edge",
+      "case": "PASS rainy habitat cadence: hosted 1280×720 DPR2 60fps normal",
+      "metrics": {"fps": 60.946576516651966, "p95": 18.700000002980232, "maxGap": 29.80000000447035}
+    },
+    {
+      "browser": "Edge",
+      "case": "PASS rainy habitat cadence: portable 854×480 DPR1 30fps low-power",
+      "metrics": {"fps": 29.997143129183222, "p95": 34.100000001490116, "maxGap": 35.29999999701977}
+    },
+    {
+      "browser": "Edge",
+      "case": "PASS rainy habitat cadence: portable 854×480 DPR1 60fps normal",
+      "metrics": {"fps": 61.329276409448724, "p95": 17, "maxGap": 17.5}
+    },
+    {
+      "browser": "Edge",
+      "case": "PASS rainy habitat cadence: portable 1280×720 DPR2 30fps low-power",
+      "metrics": {"fps": 29.995714897914294, "p95": 34.399999998509884, "maxGap": 40}
+    },
+    {
+      "browser": "Edge",
+      "case": "PASS rainy habitat cadence: portable 1280×720 DPR2 60fps normal",
+      "metrics": {"fps": 60.9436747132227, "p95": 17.200000002980232, "maxGap": 24.700000002980232}
+    },
+    {
+      "browser": "Edge",
+      "case": "PASS active meal cadence: hosted 854×480 DPR1 30fps low-power",
+      "metrics": {"fps": 29.99857149668054, "p95": 33.80000000447035, "maxGap": 36.20000000298023, "frames": 63, "stageBefore": "deliver", "stageAfter": "deliver", "moved": true}
+    },
+    {
+      "browser": "Edge",
+      "case": "PASS active meal cadence: hosted 854×480 DPR1 60fps normal",
+      "metrics": {"fps": 60.94947859621408, "p95": 17.299999997019768, "maxGap": 21.299999997019768, "frames": 128, "stageBefore": "deliver", "stageAfter": "deliver", "moved": true}
+    },
+    {
+      "browser": "Edge",
+      "case": "PASS active meal cadence: portable 1280×720 DPR2 30fps low-power",
+      "metrics": {"fps": 29.994286802535086, "p95": 33.79999999701977, "maxGap": 35.899999998509884, "frames": 63, "stageBefore": "deliver", "stageAfter": "deliver", "moved": true}
+    },
+    {
+      "browser": "Edge",
+      "case": "PASS active meal cadence: portable 1280×720 DPR2 60fps normal",
+      "metrics": {"fps": 60.47043138761562, "p95": 17.200000002980232, "maxGap": 33.70000000298023, "frames": 127, "stageBefore": "deliver", "stageAfter": "deliver", "moved": true}
+    }
+  ],
+  "instrumentedCadenceSamples": [
+    {
+      "browser": "Chrome",
+      "context": {
+        "suite": "dashboard",
+        "form": "hosted",
+        "browser": "chromium",
+        "browserVersion": "151.0.7922.34",
+        "lowPower": true,
+        "deviceScaleFactor": 1,
+        "dpr": 1,
+        "viewport": {"width": 854, "height": 480}
+      },
+      "metrics": {
+        "fps": 29.995714897914294,
+        "p95": 33.79999999701977,
+        "maxGap": 33.899999998509884,
+        "frames": 63,
+        "callback": {
+          "count": 126,
+          "fps": 59.99142979582859,
+          "nominalP95": 16.8,
+          "nominalMax": 16.8,
+          "actualP95": 17.6,
+          "actualMax": 18.3,
+          "tailNominalGaps": [16.6, 16.6, 16.7, 16.7, 16.6, 16.7, 16.7, 16.7, 16.6, 16.7, 16.6, 16.8, 16.6, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.7, 16.7, 16.6, 16.6, 16.8, 16.6, 16.6, 16.7, 16.7, 16.6, 16.7, 16.6, 16.8, 16.6, 16.7, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.6, 16.7, 16.7, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.6, 16.7, 16.7, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.6, 16.8, 16.6, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.6, 16.8, 16.6, 16.6, 16.8, 16.6, 16.6, 16.7, 16.7, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.6, 16.8, 16.6, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.7, 16.7, 16.6, 16.7],
+          "largestNominalGaps": [16.8, 16.8, 16.8, 16.8, 16.8, 16.8, 16.8, 16.7]
+        }
+      },
+      "rawGeometryCount": 63,
+      "nativeCount": 126,
+      "appCount": 126,
+      "metricsRecomputeMatches": true
+    },
+    {
+      "browser": "Chrome",
+      "context": {
+        "suite": "dashboard",
+        "form": "hosted",
+        "browser": "chromium",
+        "browserVersion": "151.0.7922.34",
+        "lowPower": false,
+        "deviceScaleFactor": 1,
+        "dpr": 1,
+        "viewport": {"width": 854, "height": 480}
+      },
+      "metrics": {
+        "fps": 59.99714299314823,
+        "p95": 17.200000002980232,
+        "maxGap": 18.900000005960464,
+        "frames": 126,
+        "callback": {
+          "count": 126,
+          "fps": 59.99714299314823,
+          "nominalP95": 16.8,
+          "nominalMax": 16.8,
+          "actualP95": 17.2,
+          "actualMax": 18.9,
+          "tailNominalGaps": [16.7, 16.7, 16.6, 16.8, 16.6, 16.7, 16.6, 16.7, 16.6, 16.7, 16.7, 16.7, 16.6, 16.7, 16.6, 16.7, 16.6, 16.8, 16.6, 16.7, 16.6, 16.7, 16.6, 16.8, 16.6, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.6, 16.7, 16.7, 16.7, 16.6, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.6, 16.7, 16.8, 16.6, 16.6, 16.7, 16.7, 16.7, 16.6, 16.7, 16.6, 16.7, 16.6, 16.7, 16.7, 16.7, 16.7, 16.7, 16.6, 16.6, 16.7, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.6, 16.7, 16.7, 16.6, 16.8, 16.6, 16.6, 16.7, 16.7, 16.7, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.6, 16.7, 16.6, 16.7, 16.7, 16.7, 16.6, 16.7, 16.6, 16.7, 16.7, 16.7, 16.6, 16.7, 16.6, 16.7, 16.7, 16.7, 16.6, 16.7, 16.7, 16.7, 16.6, 16.7, 16.6, 16.6, 16.7, 16.8, 16.5, 16.7, 16.8, 16.6, 16.6, 16.7, 16.7, 16.6, 16.7, 16.6, 16.7, 16.7],
+          "largestNominalGaps": [16.8, 16.8, 16.8, 16.8, 16.8, 16.8, 16.8, 16.7]
+        }
+      },
+      "rawGeometryCount": 126,
+      "nativeCount": 126,
+      "appCount": 126,
+      "metricsRecomputeMatches": true
+    },
+    {
+      "browser": "Chrome",
+      "context": {
+        "suite": "dashboard",
+        "form": "portable",
+        "browser": "chromium",
+        "browserVersion": "151.0.7922.34",
+        "lowPower": true,
+        "deviceScaleFactor": 1,
+        "dpr": 1,
+        "viewport": {"width": 854, "height": 480}
+      },
+      "metrics": {
+        "fps": 29.99857149668054,
+        "p95": 33.900000005960464,
+        "maxGap": 38.79999999701977,
+        "frames": 63,
+        "callback": {
+          "count": 126,
+          "fps": 59.99714299336108,
+          "nominalP95": 16.7,
+          "nominalMax": 16.8,
+          "actualP95": 17.8,
+          "actualMax": 22.9,
+          "tailNominalGaps": [16.6, 16.7, 16.7, 16.7, 16.6, 16.6, 16.7, 16.7, 16.6, 16.7, 16.7, 16.7, 16.7, 16.6, 16.6, 16.7, 16.7, 16.7, 16.6, 16.7, 16.6, 16.8, 16.6, 16.6, 16.8, 16.5, 16.8, 16.7, 16.6, 16.6, 16.8, 16.6, 16.6, 16.7, 16.7, 16.7, 16.6, 16.6, 16.8, 16.6, 16.6, 16.8, 16.6, 16.6, 16.7, 16.7, 16.7, 16.6, 16.7, 16.6, 16.7, 16.7, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.7, 16.7, 16.6, 16.7, 16.6, 16.7, 16.7, 16.7, 16.6, 16.6, 16.7, 16.7, 16.7, 16.6, 16.7, 16.7, 16.7, 16.6, 16.7, 16.6, 16.7, 16.7, 16.7, 16.6, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.6, 16.7, 16.7, 16.7, 16.6, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.7, 16.7, 16.6, 16.6, 16.7, 16.7, 16.7, 16.6, 16.7, 16.7, 16.7, 16.6, 16.6, 16.7, 16.7, 16.7, 16.7, 16.6, 16.7, 16.6],
+          "largestNominalGaps": [16.8, 16.8, 16.8, 16.8, 16.8, 16.8, 16.7, 16.7]
+        }
+      },
+      "rawGeometryCount": 63,
+      "nativeCount": 126,
+      "appCount": 126,
+      "metricsRecomputeMatches": true
+    },
+    {
+      "browser": "Chrome",
+      "context": {
+        "suite": "dashboard",
+        "form": "portable",
+        "browser": "chromium",
+        "browserVersion": "151.0.7922.34",
+        "lowPower": false,
+        "deviceScaleFactor": 1,
+        "dpr": 1,
+        "viewport": {"width": 854, "height": 480}
+      },
+      "metrics": {
+        "fps": 59.99142979561578,
+        "p95": 17.099999994039536,
+        "maxGap": 19.299999997019768,
+        "frames": 126,
+        "callback": {
+          "count": 126,
+          "fps": 59.99142979561578,
+          "nominalP95": 16.8,
+          "nominalMax": 16.8,
+          "actualP95": 17.1,
+          "actualMax": 19.3,
+          "tailNominalGaps": [16.7, 16.7, 16.6, 16.7, 16.7, 16.7, 16.6, 16.6, 16.8, 16.6, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.6, 16.8, 16.6, 16.7, 16.7, 16.6, 16.7, 16.7, 16.7, 16.5, 16.8, 16.7, 16.6, 16.7, 16.6, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.6, 16.7, 16.7, 16.7, 16.7, 16.6, 16.6, 16.7, 16.7, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.6, 16.7, 16.7, 16.7, 16.6, 16.7, 16.6, 16.7, 16.7, 16.7, 16.6, 16.7, 16.7, 16.7, 16.5, 16.7, 16.7, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.7, 16.7, 16.6, 16.7, 16.6, 16.7, 16.6, 16.8, 16.6, 16.7, 16.6, 16.7, 16.6, 16.7, 16.7, 16.7, 16.6, 16.7, 16.6, 16.8, 16.6, 16.6, 16.7, 16.7, 16.6, 16.7, 16.7, 16.6, 16.8, 16.6, 16.7, 16.6, 16.6, 16.7, 16.8, 16.6, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.6, 16.7, 16.7, 16.7, 16.6],
+          "largestNominalGaps": [16.8, 16.8, 16.8, 16.8, 16.8, 16.8, 16.8, 16.7]
+        }
+      },
+      "rawGeometryCount": 126,
+      "nativeCount": 126,
+      "appCount": 126,
+      "metricsRecomputeMatches": true
+    },
+    {
+      "browser": "Chrome",
+      "context": {
+        "suite": "immersive",
+        "form": "hosted",
+        "browser": "chromium",
+        "browserVersion": "151.0.7922.34",
+        "lowPower": true,
+        "deviceScaleFactor": 1,
+        "dpr": 1,
+        "viewport": {"width": 854, "height": 480}
+      },
+      "metrics": {"fps": 29.995714897914294, "p95": 33.900000005960464, "maxGap": 34.900000005960464},
+      "rawGeometryCount": 63,
+      "nativeCount": 126,
+      "appCount": 126,
+      "metricsRecomputeMatches": true
+    },
+    {
+      "browser": "Chrome",
+      "context": {
+        "suite": "immersive",
+        "form": "hosted",
+        "browser": "chromium",
+        "browserVersion": "151.0.7922.34",
+        "lowPower": false,
+        "deviceScaleFactor": 1,
+        "dpr": 1,
+        "viewport": {"width": 854, "height": 480}
+      },
+      "metrics": {"fps": 60.9494785964303, "p95": 17, "maxGap": 17.200000002980232},
+      "rawGeometryCount": 128,
+      "nativeCount": 126,
+      "appCount": 126,
+      "metricsRecomputeMatches": true
+    },
+    {
+      "browser": "Chrome",
+      "context": {
+        "suite": "immersive",
+        "form": "portable",
+        "browser": "chromium",
+        "browserVersion": "151.0.7922.34",
+        "lowPower": true,
+        "deviceScaleFactor": 1,
+        "dpr": 1,
+        "viewport": {"width": 854, "height": 480}
+      },
+      "metrics": {"fps": 29.997143129183222, "p95": 33.900000005960464, "maxGap": 35.79999999701977},
+      "rawGeometryCount": 63,
+      "nativeCount": 126,
+      "appCount": 126,
+      "metricsRecomputeMatches": true
+    },
+    {
+      "browser": "Chrome",
+      "context": {
+        "suite": "immersive",
+        "form": "portable",
+        "browser": "chromium",
+        "browserVersion": "151.0.7922.34",
+        "lowPower": false,
+        "deviceScaleFactor": 1,
+        "dpr": 1,
+        "viewport": {"width": 854, "height": 480}
+      },
+      "metrics": {"fps": 60.94947859621408, "p95": 17.399999998509884, "maxGap": 24.899999998509884},
+      "rawGeometryCount": 128,
+      "nativeCount": 126,
+      "appCount": 126,
+      "metricsRecomputeMatches": true
+    },
+    {
+      "browser": "Chrome",
+      "context": {
+        "suite": "immersive",
+        "form": "hosted",
+        "browser": "chromium",
+        "browserVersion": "151.0.7922.34",
+        "lowPower": true,
+        "deviceScaleFactor": 2,
+        "dpr": 2,
+        "viewport": {"width": 1280, "height": 720}
+      },
+      "metrics": {"fps": 29.997143129289636, "p95": 33.80000000447035, "maxGap": 34},
+      "rawGeometryCount": 63,
+      "nativeCount": 126,
+      "appCount": 126,
+      "metricsRecomputeMatches": true
+    },
+    {
+      "browser": "Chrome",
+      "context": {
+        "suite": "immersive",
+        "form": "hosted",
+        "browser": "chromium",
+        "browserVersion": "151.0.7922.34",
+        "lowPower": false,
+        "deviceScaleFactor": 2,
+        "dpr": 2,
+        "viewport": {"width": 1280, "height": 720}
+      },
+      "metrics": {"fps": 60.94947859621408, "p95": 18.099999994039536, "maxGap": 20},
+      "rawGeometryCount": 128,
+      "nativeCount": 126,
+      "appCount": 126,
+      "metricsRecomputeMatches": true
+    },
+    {
+      "browser": "Chrome",
+      "context": {
+        "suite": "rain",
+        "form": "hosted",
+        "browser": "chromium",
+        "browserVersion": "151.0.7922.34",
+        "lowPower": true,
+        "deviceScaleFactor": 1,
+        "dpr": 1,
+        "viewport": {"width": 854, "height": 480}
+      },
+      "metrics": {"fps": 29.992858843132588, "p95": 33.899999998509884, "maxGap": 43.5},
+      "rawGeometryCount": 63,
+      "nativeCount": 126,
+      "appCount": 126,
+      "metricsRecomputeMatches": true
+    },
+    {
+      "browser": "Chrome",
+      "context": {
+        "suite": "rain",
+        "form": "hosted",
+        "browser": "chromium",
+        "browserVersion": "151.0.7922.34",
+        "lowPower": false,
+        "deviceScaleFactor": 1,
+        "dpr": 1,
+        "viewport": {"width": 854, "height": 480}
+      },
+      "metrics": {"fps": 60.47043138761562, "p95": 17.100000001490116, "maxGap": 33.899999998509884},
+      "rawGeometryCount": 127,
+      "nativeCount": 125,
+      "appCount": 125,
+      "metricsRecomputeMatches": true
+    },
+    {
+      "browser": "Chrome",
+      "context": {
+        "suite": "rain",
+        "form": "hosted",
+        "browser": "chromium",
+        "browserVersion": "151.0.7922.34",
+        "lowPower": true,
+        "deviceScaleFactor": 2,
+        "dpr": 2,
+        "viewport": {"width": 1280, "height": 720}
+      },
+      "metrics": {"fps": 29.98286693324483, "p95": 33.79999999701977, "maxGap": 36.79999999701977},
+      "rawGeometryCount": 63,
+      "nativeCount": 126,
+      "appCount": 126,
+      "metricsRecomputeMatches": true
+    },
+    {
+      "browser": "Chrome",
+      "context": {
+        "suite": "rain",
+        "form": "hosted",
+        "browser": "chromium",
+        "browserVersion": "151.0.7922.34",
+        "lowPower": false,
+        "deviceScaleFactor": 2,
+        "dpr": 2,
+        "viewport": {"width": 1280, "height": 720}
+      },
+      "metrics": {"fps": 60.946576516435755, "p95": 19.600000001490116, "maxGap": 23.100000001490116},
+      "rawGeometryCount": 128,
+      "nativeCount": 126,
+      "appCount": 126,
+      "metricsRecomputeMatches": true
+    },
+    {
+      "browser": "Chrome",
+      "context": {
+        "suite": "rain",
+        "form": "portable",
+        "browser": "chromium",
+        "browserVersion": "151.0.7922.34",
+        "lowPower": true,
+        "deviceScaleFactor": 1,
+        "dpr": 1,
+        "viewport": {"width": 854, "height": 480}
+      },
+      "metrics": {"fps": 29.997143129289636, "p95": 33.900000005960464, "maxGap": 34.29999999701977},
+      "rawGeometryCount": 63,
+      "nativeCount": 126,
+      "appCount": 126,
+      "metricsRecomputeMatches": true
+    },
+    {
+      "browser": "Chrome",
+      "context": {
+        "suite": "rain",
+        "form": "portable",
+        "browser": "chromium",
+        "browserVersion": "151.0.7922.34",
+        "lowPower": false,
+        "deviceScaleFactor": 1,
+        "dpr": 1,
+        "viewport": {"width": 854, "height": 480}
+      },
+      "metrics": {"fps": 60.9494785964303, "p95": 17.200000002980232, "maxGap": 18.299999997019768},
+      "rawGeometryCount": 128,
+      "nativeCount": 126,
+      "appCount": 126,
+      "metricsRecomputeMatches": true
+    },
+    {
+      "browser": "Chrome",
+      "context": {
+        "suite": "rain",
+        "form": "portable",
+        "browser": "chromium",
+        "browserVersion": "151.0.7922.34",
+        "lowPower": true,
+        "deviceScaleFactor": 2,
+        "dpr": 2,
+        "viewport": {"width": 1280, "height": 720}
+      },
+      "metrics": {"fps": 29.981440060957194, "p95": 33.80000000447035, "maxGap": 34.19999999552965},
+      "rawGeometryCount": 63,
+      "nativeCount": 126,
+      "appCount": 126,
+      "metricsRecomputeMatches": true
+    },
+    {
+      "browser": "Chrome",
+      "context": {
+        "suite": "rain",
+        "form": "portable",
+        "browser": "chromium",
+        "browserVersion": "151.0.7922.34",
+        "lowPower": false,
+        "deviceScaleFactor": 2,
+        "dpr": 2,
+        "viewport": {"width": 1280, "height": 720}
+      },
+      "metrics": {"fps": 60.946576516651966, "p95": 17.200000002980232, "maxGap": 25.799999997019768},
+      "rawGeometryCount": 128,
+      "nativeCount": 126,
+      "appCount": 126,
+      "metricsRecomputeMatches": true
+    },
+    {
+      "browser": "Firefox",
+      "context": {
+        "suite": "dashboard",
+        "form": "hosted",
+        "browser": "firefox",
+        "browserVersion": "153.0",
+        "lowPower": true,
+        "deviceScaleFactor": 1,
+        "dpr": 1,
+        "viewport": {"width": 854, "height": 480}
+      },
+      "metrics": {
+        "fps": 30.014292520247736,
+        "p95": 34,
+        "maxGap": 35,
+        "frames": 63,
+        "callback": {
+          "count": 126,
+          "fps": 60.02858504049547,
+          "nominalP95": 17.16,
+          "nominalMax": 17.18,
+          "actualP95": 18,
+          "actualMax": 19,
+          "tailNominalGaps": [16.7, 16.12, 17.12, 16.12, 17.12, 17.08, 16.16, 17.14, 16.14, 17.14, 16.16, 17.16, 16.12, 17.12, 16.14, 17.1, 16.12, 17.14, 17.04, 16.18, 17.12, 16.12, 17.12, 16.16, 17.1, 16.14, 17.12, 16.12, 17.14, 16.12, 17.14, 17.08, 16.14, 17.14, 16.12, 17.16, 16.14, 17.14, 16.12, 17.12, 16.14, 17.14, 16.12, 17.14, 17.04, 16.22, 17.12, 16.16, 17.14, 16.12, 17.16, 16.12, 17.12, 16.16, 17.12, 16.14, 17.12, 16.14, 17.18, 16.14, 17.14, 17.04, 16.26, 17.08, 16.24, 17.08, 16.16, 17.14, 16.14, 17.12, 16.12, 17.14, 16.12, 17.12, 16.16, 17.16, 16.12, 17.14, 17.04, 16.22, 17.1, 16.2, 17.12, 16.16, 17.12, 16.12, 17.14, 16.14, 17.14, 16.18, 17.16, 16.14, 17.14, 16.14, 17.14, 16.14, 17.14, 16.12, 17.18, 17.06, 16.18, 17.14, 16.14, 17.16, 16.12, 17.14, 16.12, 17.14, 16.12, 17.14, 16.14, 17.18, 16.14, 17.14, 16.12, 17.14, 17.06, 16.22, 17.12, 16.2, 17.12, 16.14, 17.14, 16.14, 17.14],
+          "largestNominalGaps": [17.18, 17.18, 17.18, 17.16, 17.16, 17.16, 17.16, 17.16]
+        }
+      },
+      "rawGeometryCount": 63,
+      "nativeCount": 126,
+      "appCount": 126,
+      "metricsRecomputeMatches": true
+    },
+    {
+      "browser": "Firefox",
+      "context": {
+        "suite": "dashboard",
+        "form": "hosted",
+        "browser": "firefox",
+        "browserVersion": "153.0",
+        "lowPower": false,
+        "deviceScaleFactor": 1,
+        "dpr": 1,
+        "viewport": {"width": 854, "height": 480}
+      },
+      "metrics": {
+        "fps": 60,
+        "p95": 18,
+        "maxGap": 21,
+        "frames": 126,
+        "callback": {
+          "count": 126,
+          "fps": 60,
+          "nominalP95": 17.2,
+          "nominalMax": 17.28,
+          "actualP95": 18,
+          "actualMax": 21,
+          "tailNominalGaps": [16.12, 17.12, 17.06, 16.26, 17.08, 16.2, 17.12, 16.16, 17.12, 16.14, 17.12, 16.18, 17.14, 16.12, 17.14, 16.14, 17.2, 16.18, 17.14, 16.12, 17.14, 16.14, 17.18, 16.14, 17.16, 16.14, 17.16, 17.06, 16.22, 17.1, 16.22, 17.12, 16.2, 17.14, 16.12, 17.12, 16.12, 17.12, 16.16, 17.16, 16.14, 17.12, 16.14, 17.12, 16.12, 17.18, 17.04, 16.24, 17.1, 16.22, 17.1, 16.16, 17.18, 16.16, 17.16, 16.16, 17.16, 16.12, 17.12, 16.14, 17.2, 16.2, 17.14, 16.16, 17.16, 16.14, 17.28, 16.26, 17.1, 16.2, 17.14, 16.16, 17.18, 16.16, 17.14, 16.14, 17.16, 16.14, 17.26, 16.28, 17.04, 16.22, 17.12, 16.16, 17.12, 16.12, 17.14, 16.12, 17.12, 16.16, 17.12, 16.14, 17.18, 16.16, 17.12, 16.12, 17.22, 16.14, 17.14, 17.06, 16.2, 17.1, 16.14, 17.14, 16.14, 17.1, 16.12, 17.2, 16.12, 17.24, 16.26, 17.14, 16.12, 17.12, 16.12, 17.14, 16.18, 17.14, 16.12, 17.18, 16.12, 17.12, 17.06, 16.22, 17.12],
+          "largestNominalGaps": [17.28, 17.26, 17.24, 17.22, 17.2, 17.2, 17.2, 17.18]
+        }
+      },
+      "rawGeometryCount": 126,
+      "nativeCount": 126,
+      "appCount": 126,
+      "metricsRecomputeMatches": true
+    },
+    {
+      "browser": "Firefox",
+      "context": {
+        "suite": "dashboard",
+        "form": "portable",
+        "browser": "firefox",
+        "browserVersion": "153.0",
+        "lowPower": true,
+        "deviceScaleFactor": 1,
+        "dpr": 1,
+        "viewport": {"width": 854, "height": 480}
+      },
+      "metrics": {
+        "fps": 30.303030303030305,
+        "p95": 34,
+        "maxGap": 34,
+        "frames": 65,
+        "callback": {
+          "count": 129,
+          "fps": 60.13986013986014,
+          "nominalP95": 17.16,
+          "nominalMax": 17.22,
+          "actualP95": 19,
+          "actualMax": 19,
+          "tailNominalGaps": [17.16, 16.18, 16.68, 17.14, 16.5, 16.24, 16.96, 16.34, 17.1, 16.28, 17.14, 16.14, 17.2, 16.26, 17.14, 16.14, 17.16, 16.2, 17.2, 16.12, 17.12, 16.14, 17.1, 16.12, 17.1, 16.1, 17.14, 17.06, 16.22, 17.1, 16.14, 17.1, 16.12, 17.14, 16.12, 17.14, 16.12, 17.12, 16.36, 17.16, 16.16, 17.1, 16.14, 17.2, 16.14, 17.12, 16.16, 17.12, 16.16, 17.16, 16.12, 17.14, 17.1, 16.14, 17.14, 16.18, 17.14, 16.1, 17.12, 16.12, 17.12, 16.14, 17.14, 16.14, 17.12, 17.06, 16.18, 17.12, 16.1, 17.16, 16.18, 17.12, 16.12, 17.14, 16.12, 17.12, 16.14, 17.12, 17.06, 16.22, 17.1, 16.14, 17.1, 16.12, 17.12, 16.16, 17.12, 16.14, 17.12, 16.22, 17.1, 16.14, 17.14, 17.06, 16.22, 17.1, 16.16, 17.1, 16.12, 17.14, 16.14, 17.12, 16.12, 17.16, 16.12, 17.14, 16.14, 17.12, 17.1, 16.6, 16.12, 17.12, 16.14, 17.1, 16.12, 17.14, 16.16, 17.2, 16.12, 17.22, 16.96, 16.66, 16.22, 17.12, 16.12, 17.12, 16.18, 17.14],
+          "largestNominalGaps": [17.22, 17.2, 17.2, 17.2, 17.2, 17.16, 17.16, 17.16]
+        }
+      },
+      "rawGeometryCount": 65,
+      "nativeCount": 129,
+      "appCount": 129,
+      "metricsRecomputeMatches": true
+    },
+    {
+      "browser": "Firefox",
+      "context": {
+        "suite": "dashboard",
+        "form": "portable",
+        "browser": "firefox",
+        "browserVersion": "153.0",
+        "lowPower": false,
+        "deviceScaleFactor": 1,
+        "dpr": 1,
+        "viewport": {"width": 854, "height": 480}
+      },
+      "metrics": {
+        "fps": 59.687351965892944,
+        "p95": 18,
+        "maxGap": 25,
+        "frames": 126,
+        "callback": {
+          "count": 126,
+          "fps": 59.687351965892944,
+          "nominalP95": 17.2,
+          "nominalMax": 17.54,
+          "actualP95": 18,
+          "actualMax": 25,
+          "tailNominalGaps": [16.12, 17.12, 16.1, 17.16, 16.12, 17.14, 17.1, 16.22, 16.5, 16.66, 17.18, 16.16, 16.62, 17.1, 16.1, 17.14, 16.12, 17.14, 17.06, 16.18, 17.1, 16.18, 17.12, 16.16, 17.12, 16.14, 17.34, 16.26, 17.06, 16.26, 17.08, 16.18, 17.12, 16.14, 17.2, 16.18, 17.18, 16.14, 17.18, 16.18, 17.16, 16.26, 16.24, 17.12, 17.06, 16.22, 17.1, 16.12, 17.16, 16.12, 17.12, 16.12, 17.16, 16.12, 17.14, 16.12, 17.14, 16.38, 17.22, 16.2, 17.22, 16.18, 16.3, 17.3, 16.36, 17.2, 16.26, 16.2, 17.16, 16.14, 17.12, 17.12, 16.26, 17.06, 16.26, 17.08, 16.18, 17.12, 16.1, 17.14, 16.1, 17.16, 16.1, 17.1, 16.16, 17.16, 16.16, 17.14, 17.04, 16.2, 17.12, 16.1, 17.14, 16.12, 17.14, 16.1, 17.16, 16.1, 17.16, 16.12, 17.3, 16.16, 17.2, 16.22, 17.18, 16.18, 17.12, 16.18, 17.12, 16.16, 17.18, 16.18, 17.12, 16.14, 17.1, 16.14, 17.1, 17.08, 16.56, 16.46, 16.52, 16.52, 16.56, 16.52, 17.54],
+          "largestNominalGaps": [17.54, 17.34, 17.3, 17.3, 17.22, 17.22, 17.2, 17.2]
+        }
+      },
+      "rawGeometryCount": 126,
+      "nativeCount": 126,
+      "appCount": 126,
+      "metricsRecomputeMatches": true
+    },
+    {
+      "browser": "Firefox",
+      "context": {
+        "suite": "immersive",
+        "form": "hosted",
+        "browser": "firefox",
+        "browserVersion": "153.0",
+        "lowPower": true,
+        "deviceScaleFactor": 1,
+        "dpr": 1,
+        "viewport": {"width": 854, "height": 480}
+      },
+      "metrics": {"fps": 30, "p95": 34, "maxGap": 35},
+      "rawGeometryCount": 63,
+      "nativeCount": 126,
+      "appCount": 126,
+      "metricsRecomputeMatches": true
+    },
+    {
+      "browser": "Firefox",
+      "context": {
+        "suite": "immersive",
+        "form": "hosted",
+        "browser": "firefox",
+        "browserVersion": "153.0",
+        "lowPower": false,
+        "deviceScaleFactor": 1,
+        "dpr": 1,
+        "viewport": {"width": 854, "height": 480}
+      },
+      "metrics": {"fps": 60.92336982389338, "p95": 18, "maxGap": 20},
+      "rawGeometryCount": 128,
+      "nativeCount": 126,
+      "appCount": 126,
+      "metricsRecomputeMatches": true
+    },
+    {
+      "browser": "Firefox",
+      "context": {
+        "suite": "immersive",
+        "form": "portable",
+        "browser": "firefox",
+        "browserVersion": "153.0",
+        "lowPower": true,
+        "deviceScaleFactor": 1,
+        "dpr": 1,
+        "viewport": {"width": 854, "height": 480}
+      },
+      "metrics": {"fps": 30.346135609293505, "p95": 34, "maxGap": 38},
+      "rawGeometryCount": 64,
+      "nativeCount": 127,
+      "appCount": 127,
+      "metricsRecomputeMatches": true
+    },
+    {
+      "browser": "Firefox",
+      "context": {
+        "suite": "immersive",
+        "form": "portable",
+        "browser": "firefox",
+        "browserVersion": "153.0",
+        "lowPower": false,
+        "deviceScaleFactor": 1,
+        "dpr": 1,
+        "viewport": {"width": 854, "height": 480}
+      },
+      "metrics": {"fps": 61.05063890203502, "p95": 18, "maxGap": 19},
+      "rawGeometryCount": 129,
+      "nativeCount": 127,
+      "appCount": 127,
+      "metricsRecomputeMatches": true
+    },
+    {
+      "browser": "Firefox",
+      "context": {
+        "suite": "immersive",
+        "form": "hosted",
+        "browser": "firefox",
+        "browserVersion": "153.0",
+        "lowPower": true,
+        "deviceScaleFactor": 2,
+        "dpr": 2,
+        "viewport": {"width": 1280, "height": 720}
+      },
+      "metrics": {"fps": 29.85781990521327, "p95": 34, "maxGap": 36},
+      "rawGeometryCount": 63,
+      "nativeCount": 127,
+      "appCount": 127,
+      "metricsRecomputeMatches": true
+    },
+    {
+      "browser": "Firefox",
+      "context": {
+        "suite": "immersive",
+        "form": "hosted",
+        "browser": "firefox",
+        "browserVersion": "153.0",
+        "lowPower": false,
+        "deviceScaleFactor": 2,
+        "dpr": 2,
+        "viewport": {"width": 1280, "height": 720}
+      },
+      "metrics": {"fps": 59.26979611190138, "p95": 22, "maxGap": 34},
+      "rawGeometryCount": 125,
+      "nativeCount": 123,
+      "appCount": 123,
+      "metricsRecomputeMatches": true
+    },
+    {
+      "browser": "Firefox",
+      "context": {
+        "suite": "rain",
+        "form": "hosted",
+        "browser": "firefox",
+        "browserVersion": "153.0",
+        "lowPower": true,
+        "deviceScaleFactor": 1,
+        "dpr": 1,
+        "viewport": {"width": 854, "height": 480}
+      },
+      "metrics": {"fps": 29.985721085197525, "p95": 35, "maxGap": 35},
+      "rawGeometryCount": 63,
+      "nativeCount": 126,
+      "appCount": 126,
+      "metricsRecomputeMatches": true
+    },
+    {
+      "browser": "Firefox",
+      "context": {
+        "suite": "rain",
+        "form": "hosted",
+        "browser": "firefox",
+        "browserVersion": "153.0",
+        "lowPower": false,
+        "deviceScaleFactor": 1,
+        "dpr": 1,
+        "viewport": {"width": 854, "height": 480}
+      },
+      "metrics": {"fps": 60.95238095238095, "p95": 18, "maxGap": 23},
+      "rawGeometryCount": 128,
+      "nativeCount": 126,
+      "appCount": 126,
+      "metricsRecomputeMatches": true
+    },
+    {
+      "browser": "Firefox",
+      "context": {
+        "suite": "rain",
+        "form": "hosted",
+        "browser": "firefox",
+        "browserVersion": "153.0",
+        "lowPower": true,
+        "deviceScaleFactor": 2,
+        "dpr": 2,
+        "viewport": {"width": 1280, "height": 720}
+      },
+      "metrics": {"fps": 29.702970297029704, "p95": 36, "maxGap": 39},
+      "rawGeometryCount": 63,
+      "nativeCount": 126,
+      "appCount": 126,
+      "metricsRecomputeMatches": true
+    },
+    {
+      "browser": "Firefox",
+      "context": {
+        "suite": "rain",
+        "form": "hosted",
+        "browser": "firefox",
+        "browserVersion": "153.0",
+        "lowPower": false,
+        "deviceScaleFactor": 2,
+        "dpr": 2,
+        "viewport": {"width": 1280, "height": 720}
+      },
+      "metrics": {"fps": 58.06758686339838, "p95": 21, "maxGap": 40},
+      "rawGeometryCount": 122,
+      "nativeCount": 120,
+      "appCount": 120,
+      "metricsRecomputeMatches": true
+    },
+    {
+      "browser": "Firefox",
+      "context": {
+        "suite": "rain",
+        "form": "portable",
+        "browser": "firefox",
+        "browserVersion": "153.0",
+        "lowPower": true,
+        "deviceScaleFactor": 1,
+        "dpr": 1,
+        "viewport": {"width": 854, "height": 480}
+      },
+      "metrics": {"fps": 29.985721085197525, "p95": 34, "maxGap": 35},
+      "rawGeometryCount": 63,
+      "nativeCount": 126,
+      "appCount": 126,
+      "metricsRecomputeMatches": true
+    },
+    {
+      "browser": "Firefox",
+      "context": {
+        "suite": "rain",
+        "form": "portable",
+        "browser": "firefox",
+        "browserVersion": "153.0",
+        "lowPower": false,
+        "deviceScaleFactor": 1,
+        "dpr": 1,
+        "viewport": {"width": 854, "height": 480}
+      },
+      "metrics": {"fps": 60.92336982389338, "p95": 18, "maxGap": 21},
+      "rawGeometryCount": 128,
+      "nativeCount": 126,
+      "appCount": 126,
+      "metricsRecomputeMatches": true
+    },
+    {
+      "browser": "Firefox",
+      "context": {
+        "suite": "rain",
+        "form": "portable",
+        "browser": "firefox",
+        "browserVersion": "153.0",
+        "lowPower": true,
+        "deviceScaleFactor": 2,
+        "dpr": 2,
+        "viewport": {"width": 1280, "height": 720}
+      },
+      "metrics": {"fps": 29.971455756422454, "p95": 35, "maxGap": 37},
+      "rawGeometryCount": 63,
+      "nativeCount": 126,
+      "appCount": 126,
+      "metricsRecomputeMatches": true
+    },
+    {
+      "browser": "Firefox",
+      "context": {
+        "suite": "rain",
+        "form": "portable",
+        "browser": "firefox",
+        "browserVersion": "153.0",
+        "lowPower": false,
+        "deviceScaleFactor": 2,
+        "dpr": 2,
+        "viewport": {"width": 1280, "height": 720}
+      },
+      "metrics": {"fps": 59.97144217039505, "p95": 20, "maxGap": 27},
+      "rawGeometryCount": 126,
+      "nativeCount": 124,
+      "appCount": 124,
+      "metricsRecomputeMatches": true
+    },
+    {
+      "browser": "Edge",
+      "context": {
+        "suite": "dashboard",
+        "form": "hosted",
+        "browser": "chromium",
+        "browserVersion": "154.0.4258.53",
+        "lowPower": true,
+        "deviceScaleFactor": 1,
+        "dpr": 1,
+        "viewport": {"width": 854, "height": 480}
+      },
+      "metrics": {
+        "fps": 29.997143129289636,
+        "p95": 33.70000000298023,
+        "maxGap": 33.899999998509884,
+        "frames": 63,
+        "callback": {
+          "count": 126,
+          "fps": 59.99428625857927,
+          "nominalP95": 16.7,
+          "nominalMax": 16.8,
+          "actualP95": 17.6,
+          "actualMax": 18.1,
+          "tailNominalGaps": [16.7, 16.6, 16.6, 16.7, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.7, 16.7, 16.7, 16.6, 16.7, 16.7, 16.6, 16.6, 16.7, 16.7, 16.6, 16.7, 16.7, 16.7, 16.6, 16.7, 16.6, 16.8, 16.5, 16.8, 16.6, 16.6, 16.7, 16.8, 16.6, 16.6, 16.7, 16.7, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.6, 16.7, 16.7, 16.7, 16.6, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.6, 16.7, 16.7, 16.6, 16.8, 16.6, 16.6, 16.8, 16.5, 16.7, 16.7, 16.7, 16.7, 16.6, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.7, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.7, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.6, 16.7],
+          "largestNominalGaps": [16.8, 16.8, 16.8, 16.8, 16.8, 16.7, 16.7, 16.7]
+        }
+      },
+      "rawGeometryCount": 63,
+      "nativeCount": 126,
+      "appCount": 126,
+      "metricsRecomputeMatches": true
+    },
+    {
+      "browser": "Edge",
+      "context": {
+        "suite": "dashboard",
+        "form": "hosted",
+        "browser": "chromium",
+        "browserVersion": "154.0.4258.53",
+        "lowPower": false,
+        "deviceScaleFactor": 1,
+        "dpr": 1,
+        "viewport": {"width": 854, "height": 480}
+      },
+      "metrics": {
+        "fps": 59.99714299314823,
+        "p95": 17,
+        "maxGap": 17.30000000447035,
+        "frames": 126,
+        "callback": {
+          "count": 126,
+          "fps": 59.99714299314823,
+          "nominalP95": 16.7,
+          "nominalMax": 16.8,
+          "actualP95": 17.1,
+          "actualMax": 17.3,
+          "tailNominalGaps": [16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.6, 16.7, 16.7, 16.7, 16.6, 16.7, 16.7, 16.7, 16.6, 16.7, 16.6, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.7, 16.7, 16.6, 16.7, 16.7, 16.7, 16.6, 16.7, 16.7, 16.6, 16.6, 16.7, 16.7, 16.7, 16.7, 16.6, 16.6, 16.7, 16.7, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.7, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.6, 16.7, 16.7, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.6, 16.7, 16.7, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.7, 16.7, 16.6, 16.7, 16.6, 16.8, 16.6, 16.6, 16.7, 16.7, 16.7, 16.6, 16.6, 16.8, 16.6, 16.6, 16.7],
+          "largestNominalGaps": [16.8, 16.8, 16.7, 16.7, 16.7, 16.7, 16.7, 16.7]
+        }
+      },
+      "rawGeometryCount": 126,
+      "nativeCount": 126,
+      "appCount": 126,
+      "metricsRecomputeMatches": true
+    },
+    {
+      "browser": "Edge",
+      "context": {
+        "suite": "dashboard",
+        "form": "portable",
+        "browser": "chromium",
+        "browserVersion": "154.0.4258.53",
+        "lowPower": true,
+        "deviceScaleFactor": 1,
+        "dpr": 1,
+        "viewport": {"width": 854, "height": 480}
+      },
+      "metrics": {
+        "fps": 29.995714897914294,
+        "p95": 33.79999999701977,
+        "maxGap": 36.80000000447035,
+        "frames": 63,
+        "callback": {
+          "count": 126,
+          "fps": 59.99142979582859,
+          "nominalP95": 16.8,
+          "nominalMax": 16.8,
+          "actualP95": 17.8,
+          "actualMax": 21.3,
+          "tailNominalGaps": [16.7, 16.6, 16.6, 16.7, 16.7, 16.7, 16.6, 16.6, 16.7, 16.7, 16.7, 16.7, 16.6, 16.7, 16.6, 16.7, 16.7, 16.7, 16.7, 16.6, 16.7, 16.6, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.7, 16.7, 16.6, 16.6, 16.7, 16.7, 16.6, 16.7, 16.7, 16.7, 16.6, 16.7, 16.7, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.7, 16.7, 16.5, 16.7, 16.8, 16.6, 16.6, 16.7, 16.7, 16.7, 16.6, 16.7, 16.7, 16.6, 16.6, 16.8, 16.6, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.7, 16.7, 16.7, 16.6, 16.6, 16.7, 16.7, 16.7, 16.6, 16.6, 16.8, 16.6, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.6, 16.8, 16.6, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.7, 16.7, 16.6, 16.6, 16.7, 16.7, 16.6, 16.7, 16.6, 16.8, 16.6, 16.7, 16.6, 16.8, 16.5, 16.8, 16.6],
+          "largestNominalGaps": [16.8, 16.8, 16.8, 16.8, 16.8, 16.8, 16.8, 16.7]
+        }
+      },
+      "rawGeometryCount": 63,
+      "nativeCount": 126,
+      "appCount": 126,
+      "metricsRecomputeMatches": true
+    },
+    {
+      "browser": "Edge",
+      "context": {
+        "suite": "dashboard",
+        "form": "portable",
+        "browser": "chromium",
+        "browserVersion": "154.0.4258.53",
+        "lowPower": false,
+        "deviceScaleFactor": 1,
+        "dpr": 1,
+        "viewport": {"width": 854, "height": 480}
+      },
+      "metrics": {
+        "fps": 59.99714299314823,
+        "p95": 17.100000001490116,
+        "maxGap": 18.19999999552965,
+        "frames": 126,
+        "callback": {
+          "count": 126,
+          "fps": 59.99714299314823,
+          "nominalP95": 16.7,
+          "nominalMax": 16.8,
+          "actualP95": 17.2,
+          "actualMax": 18.2,
+          "tailNominalGaps": [16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.7, 16.6, 16.8, 16.6, 16.7, 16.6, 16.7, 16.7, 16.7, 16.6, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.6, 16.7, 16.6, 16.7, 16.7, 16.7, 16.7, 16.6, 16.7, 16.6, 16.7, 16.7, 16.7, 16.6, 16.7, 16.6, 16.7, 16.7, 16.7, 16.6, 16.7, 16.6, 16.7, 16.6, 16.8, 16.6, 16.7, 16.7, 16.7, 16.6, 16.6, 16.7, 16.7, 16.7, 16.6, 16.7, 16.6, 16.7, 16.6, 16.7, 16.7, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.6, 16.7, 16.7, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.6, 16.8, 16.6, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.7, 16.7, 16.6, 16.7, 16.6, 16.7, 16.6, 16.7, 16.7, 16.7, 16.6, 16.7, 16.6, 16.7, 16.7, 16.7, 16.6, 16.7],
+          "largestNominalGaps": [16.8, 16.8, 16.8, 16.7, 16.7, 16.7, 16.7, 16.7]
+        }
+      },
+      "rawGeometryCount": 126,
+      "nativeCount": 126,
+      "appCount": 126,
+      "metricsRecomputeMatches": true
+    },
+    {
+      "browser": "Edge",
+      "context": {
+        "suite": "immersive",
+        "form": "hosted",
+        "browser": "chromium",
+        "browserVersion": "154.0.4258.53",
+        "lowPower": true,
+        "deviceScaleFactor": 1,
+        "dpr": 1,
+        "viewport": {"width": 854, "height": 480}
+      },
+      "metrics": {"fps": 29.997143129289636, "p95": 33.69999999552965, "maxGap": 34},
+      "rawGeometryCount": 63,
+      "nativeCount": 126,
+      "appCount": 126,
+      "metricsRecomputeMatches": true
+    },
+    {
+      "browser": "Edge",
+      "context": {
+        "suite": "immersive",
+        "form": "hosted",
+        "browser": "chromium",
+        "browserVersion": "154.0.4258.53",
+        "lowPower": false,
+        "deviceScaleFactor": 1,
+        "dpr": 1,
+        "viewport": {"width": 854, "height": 480}
+      },
+      "metrics": {"fps": 60.946576516435755, "p95": 17.899999998509884, "maxGap": 28.5},
+      "rawGeometryCount": 128,
+      "nativeCount": 126,
+      "appCount": 126,
+      "metricsRecomputeMatches": true
+    },
+    {
+      "browser": "Edge",
+      "context": {
+        "suite": "immersive",
+        "form": "portable",
+        "browser": "chromium",
+        "browserVersion": "154.0.4258.53",
+        "lowPower": true,
+        "deviceScaleFactor": 1,
+        "dpr": 1,
+        "viewport": {"width": 854, "height": 480}
+      },
+      "metrics": {"fps": 29.998571496574115, "p95": 34.20000000298023, "maxGap": 35.70000000298023},
+      "rawGeometryCount": 63,
+      "nativeCount": 126,
+      "appCount": 126,
+      "metricsRecomputeMatches": true
+    },
+    {
+      "browser": "Edge",
+      "context": {
+        "suite": "immersive",
+        "form": "portable",
+        "browser": "chromium",
+        "browserVersion": "154.0.4258.53",
+        "lowPower": false,
+        "deviceScaleFactor": 1,
+        "dpr": 1,
+        "viewport": {"width": 854, "height": 480}
+      },
+      "metrics": {"fps": 60.946576516435755, "p95": 17.600000001490116, "maxGap": 22.30000000447035},
+      "rawGeometryCount": 128,
+      "nativeCount": 126,
+      "appCount": 126,
+      "metricsRecomputeMatches": true
+    },
+    {
+      "browser": "Edge",
+      "context": {
+        "suite": "immersive",
+        "form": "hosted",
+        "browser": "chromium",
+        "browserVersion": "154.0.4258.53",
+        "lowPower": true,
+        "deviceScaleFactor": 2,
+        "dpr": 2,
+        "viewport": {"width": 1280, "height": 720}
+      },
+      "metrics": {"fps": 30.426927831044328, "p95": 33.900000005960464, "maxGap": 37},
+      "rawGeometryCount": 64,
+      "nativeCount": 127,
+      "appCount": 127,
+      "metricsRecomputeMatches": true
+    },
+    {
+      "browser": "Edge",
+      "context": {
+        "suite": "immersive",
+        "form": "hosted",
+        "browser": "chromium",
+        "browserVersion": "154.0.4258.53",
+        "lowPower": false,
+        "deviceScaleFactor": 2,
+        "dpr": 2,
+        "viewport": {"width": 1280, "height": 720}
+      },
+      "metrics": {"fps": 60.9494785964303, "p95": 18.5, "maxGap": 22},
+      "rawGeometryCount": 128,
+      "nativeCount": 126,
+      "appCount": 126,
+      "metricsRecomputeMatches": true
+    },
+    {
+      "browser": "Edge",
+      "context": {
+        "suite": "rain",
+        "form": "hosted",
+        "browser": "chromium",
+        "browserVersion": "154.0.4258.53",
+        "lowPower": true,
+        "deviceScaleFactor": 1,
+        "dpr": 1,
+        "viewport": {"width": 854, "height": 480}
+      },
+      "metrics": {"fps": 29.995714897914294, "p95": 33.899999998509884, "maxGap": 35.20000000298023},
+      "rawGeometryCount": 63,
+      "nativeCount": 126,
+      "appCount": 126,
+      "metricsRecomputeMatches": true
+    },
+    {
+      "browser": "Edge",
+      "context": {
+        "suite": "rain",
+        "form": "hosted",
+        "browser": "chromium",
+        "browserVersion": "154.0.4258.53",
+        "lowPower": false,
+        "deviceScaleFactor": 1,
+        "dpr": 1,
+        "viewport": {"width": 854, "height": 480}
+      },
+      "metrics": {"fps": 61.49479659413434, "p95": 17.700000002980232, "maxGap": 22.30000000447035},
+      "rawGeometryCount": 130,
+      "nativeCount": 128,
+      "appCount": 128,
+      "metricsRecomputeMatches": true
+    },
+    {
+      "browser": "Edge",
+      "context": {
+        "suite": "rain",
+        "form": "hosted",
+        "browser": "chromium",
+        "browserVersion": "154.0.4258.53",
+        "lowPower": true,
+        "deviceScaleFactor": 2,
+        "dpr": 2,
+        "viewport": {"width": 1280, "height": 720}
+      },
+      "metrics": {"fps": 29.99571489780789, "p95": 34, "maxGap": 35.30000000447035},
+      "rawGeometryCount": 63,
+      "nativeCount": 126,
+      "appCount": 126,
+      "metricsRecomputeMatches": true
+    },
+    {
+      "browser": "Edge",
+      "context": {
+        "suite": "rain",
+        "form": "hosted",
+        "browser": "chromium",
+        "browserVersion": "154.0.4258.53",
+        "lowPower": false,
+        "deviceScaleFactor": 2,
+        "dpr": 2,
+        "viewport": {"width": 1280, "height": 720}
+      },
+      "metrics": {"fps": 60.946576516651966, "p95": 18.700000002980232, "maxGap": 29.80000000447035},
+      "rawGeometryCount": 128,
+      "nativeCount": 126,
+      "appCount": 126,
+      "metricsRecomputeMatches": true
+    },
+    {
+      "browser": "Edge",
+      "context": {
+        "suite": "rain",
+        "form": "portable",
+        "browser": "chromium",
+        "browserVersion": "154.0.4258.53",
+        "lowPower": true,
+        "deviceScaleFactor": 1,
+        "dpr": 1,
+        "viewport": {"width": 854, "height": 480}
+      },
+      "metrics": {"fps": 29.997143129183222, "p95": 34.100000001490116, "maxGap": 35.29999999701977},
+      "rawGeometryCount": 63,
+      "nativeCount": 126,
+      "appCount": 126,
+      "metricsRecomputeMatches": true
+    },
+    {
+      "browser": "Edge",
+      "context": {
+        "suite": "rain",
+        "form": "portable",
+        "browser": "chromium",
+        "browserVersion": "154.0.4258.53",
+        "lowPower": false,
+        "deviceScaleFactor": 1,
+        "dpr": 1,
+        "viewport": {"width": 854, "height": 480}
+      },
+      "metrics": {"fps": 61.329276409448724, "p95": 17, "maxGap": 17.5},
+      "rawGeometryCount": 129,
+      "nativeCount": 127,
+      "appCount": 127,
+      "metricsRecomputeMatches": true
+    },
+    {
+      "browser": "Edge",
+      "context": {
+        "suite": "rain",
+        "form": "portable",
+        "browser": "chromium",
+        "browserVersion": "154.0.4258.53",
+        "lowPower": true,
+        "deviceScaleFactor": 2,
+        "dpr": 2,
+        "viewport": {"width": 1280, "height": 720}
+      },
+      "metrics": {"fps": 29.995714897914294, "p95": 34.399999998509884, "maxGap": 40},
+      "rawGeometryCount": 63,
+      "nativeCount": 125,
+      "appCount": 125,
+      "metricsRecomputeMatches": true
+    },
+    {
+      "browser": "Edge",
+      "context": {
+        "suite": "rain",
+        "form": "portable",
+        "browser": "chromium",
+        "browserVersion": "154.0.4258.53",
+        "lowPower": false,
+        "deviceScaleFactor": 2,
+        "dpr": 2,
+        "viewport": {"width": 1280, "height": 720}
+      },
+      "metrics": {"fps": 60.9436747132227, "p95": 17.200000002980232, "maxGap": 24.700000002980232},
+      "rawGeometryCount": 128,
+      "nativeCount": 126,
+      "appCount": 126,
+      "metricsRecomputeMatches": true
+    }
+  ],
+  "navigationSuccessRecords": 6,
+  "independentAnalyzerUnitCases": 15,
+  "limits": "Local passing suites and exact recording/recomputation checks; hosted Windows/macOS gates still fail. Data are instrumented DOM/native traces, not compositor or physical-device acceptance. Raw passing local records remain in workspace .onboarding, while all4 hosted failing rawrecords are archived in Git."
+}

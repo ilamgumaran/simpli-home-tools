@@ -20,8 +20,12 @@ validation and remaining gates are recorded in
 [session 028](../../sessions/2026-10-10-weather-habitat/028-reading-camera-results.md).
 
 The hosted-boundary follow-up adds test-only failure tracing, preserving the
-current display. [Session 029](../../sessions/2026-10-10-weather-habitat/029-ci-trace-ownership.md)
-claims the investigation; a diagnostic record is not a performance acceptance.
+current display. [Session 030](../../sessions/2026-10-10-weather-habitat/030-ci-trace-results.md)
+records all 66 local cadence passes and four exact Windows/macOS failures.
+Native callbacks reach the app and accepted draws reach geometry. With the
+current minimum, accepted RAF timing already fails before geometry observation. The underlying browser,
+paint or host cause is not isolated. The [capture guide](design/CI-FAILURE-TRACING.md)
+and raw records support the next policy replay/control study; hosted gates remain open.
 
 ## Shared anatomy — foundation and inspection candidate
 

@@ -11,10 +11,11 @@ records validation and remaining work. The [layer/transform investigation](desig
 and reusable diagnostic retain failed/historical evidence. Continue A2 anatomy
 after the validation boundary is resolved or the owner changes priority.
 
-The next hosted-boundary slice adds test-only callback/decision/geometry and
-navigation evidence; [ownership 029](../../sessions/2026-10-10-weather-habitat/029-ci-trace-ownership.md)
-records the unchanged runtime and gates. Fresh failing platform traces must
-support any later limiter or render change.
+The hosted-boundary tracing slice is complete: [results 030](../../sessions/2026-10-10-weather-habitat/030-ci-trace-results.md)
+records 66 local cadence passes and exact failures from both Windows/macOS runs.
+The display runtime and gates are unchanged. Next, replay proposed policy changes
+against these new native sequences and compare matched native-delivery controls
+on the failing runner before choosing another runtime change.
 
 ## Character priority — anatomy foundation candidate, later rollout planned
 

@@ -1,7 +1,7 @@
 const {spawn,spawnSync}=require('node:child_process');
 const path=require('node:path');
 const root=path.join(__dirname,'..');
-for(const script of ['cadence-trace-unit.cjs','navigation-trace-unit.cjs']){
+for(const script of ['cadence-trace-unit.cjs','navigation-trace-unit.cjs','analyze-cadence-trace-unit.cjs']){
  if(spawnSync(process.execPath,[path.join(__dirname,script)],{stdio:'inherit'}).status!==0)process.exit(1);
 }
 if(spawnSync(process.execPath,[path.join(__dirname,'frame-cadence.cjs')],{stdio:'inherit'}).status!==0)process.exit(1);

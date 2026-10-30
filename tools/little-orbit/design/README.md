@@ -28,3 +28,5 @@ See [architecture](ARCHITECTURE.md), [decision log](DECISIONS.md), [product guid
 - [Woodland refinement and supported work](REFINEMENT-AND-WORK.md): merged size/motion and contact histories, shelter/crossing sockets, teaching and remaining milestones.
 
 [Bounded frame pacing](FRAME-CADENCE.md) records the Woodland/Green House 1 cadence candidate, evidence and unchanged acceptance gates. The [DPR2 rain investigation](RAIN-CADENCE-INVESTIGATION.md) records an isolated native-callback/geometry probe and the next profiling tasks; it does not replace the failed acceptance result.
+
+[Exact CI failure tracing](CI-FAILURE-TRACING.md) documents synchronized native/app/geometry evidence, bounded navigation records, complete notice recovery and pure analysis. [Session 030](../../../sessions/2026-10-10-weather-habitat/030-ci-trace-results.md) records four recovered platform failures and passing local checks; production animation and hosted acceptance gates remain unchanged.
