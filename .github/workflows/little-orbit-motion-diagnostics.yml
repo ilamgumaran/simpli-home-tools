@@ -4,6 +4,7 @@ on:
     paths:
       - 'tools/little-orbit/tests/diagnose-motion-control.cjs'
       - 'tools/little-orbit/tests/motion-control-*.cjs'
+      - 'tools/little-orbit/tests/analyze-motion-controls*.cjs'
       - 'tools/little-orbit/tests/cadence-trace.cjs'
       - '.github/workflows/little-orbit-motion-diagnostics.yml'
   workflow_dispatch:
@@ -50,7 +51,10 @@ jobs:
       - run: npm ci
       - run: npx playwright install chromium firefox
       - name: Verify balanced control plan
-        run: node tests/motion-control-unit.cjs
+        run: |
+          node tests/motion-control-unit.cjs
+          node tests/motion-control-notices-unit.cjs
+          node tests/analyze-motion-controls-unit.cjs
       # Separate steps keep complete raw notice chunks recoverable per round.
       # Continue research after a sample error; the final completeness check fails
       # for any missing/error record. Production browser gates are unchanged.

@@ -4,7 +4,8 @@
 
 - Added exact, balanced blank/full/hidden-art research samples for Windows
   Firefox normal, macOS Chromium low-power and local DPR2 immersive normal.
-- Added complete raw-record notices/artifacts, sample-error retention, explicit
+- Added complete compressed round notices/artifacts, strict recovery and analysis,
+  sample-error retention, explicit
   profile configuration and completeness checks. Production timing gates and
   display bytes remain unchanged; [control study](design/MATCHED-MOTION-CONTROLS.md).
 

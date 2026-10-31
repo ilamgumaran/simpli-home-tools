@@ -7,7 +7,8 @@ const path = require('node:path');
 const {spawn} = require('node:child_process');
 const {createHash} = require('node:crypto');
 const playwright = require(process.env.PLAYWRIGHT_MODULE || 'playwright');
-const {installCadenceTrace, emitTrace} = require('./cadence-trace.cjs');
+const {installCadenceTrace} = require('./cadence-trace.cjs');
+const {emitBatch} = require('./motion-control-notices.cjs');
 const {profiles, conditions, makeSchedule, readConfig, makeRecord, summarize} = require('./motion-control-plan.cjs');
 
 const root = path.join(__dirname, '..');
@@ -75,7 +76,6 @@ function getProvenance() {
 function appendRecord(record) {
   fs.mkdirSync(path.dirname(outputPath), {recursive: true});
   fs.appendFileSync(outputPath, `${JSON.stringify(record)}\n`, 'utf8');
-  emitTrace(record);
 }
 
 async function configurePage(page, profile, condition, url) {
@@ -254,12 +254,18 @@ async function main() {
   fs.mkdirSync(path.dirname(outputPath), {recursive: true});
   if (config.round === null || config.round === 0) fs.writeFileSync(outputPath, '', 'utf8');
   const server = await startServer();
-  let failures = 0;
+  let failures = 0, batch = [];
   try {
     for (const item of schedule) {
       const record = await runCase(server.address, item, config, provenance);
       appendRecord(record);
       if (record.data.errors.length) failures++;
+      batch.push(record);
+      if (batch.length === 4) {
+        const transport = emitBatch(batch);
+        console.log(`Round evidence: ${transport.parts} lossless notice chunks for four records.`);
+        batch = [];
+      }
     }
   } finally {
     await server.stop();

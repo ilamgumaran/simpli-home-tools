@@ -75,11 +75,36 @@ Every schema-1 `motion-control` record in
   decisions, raw geometry times, sample endpoints, columns and visibility.
 - Exact summaries, per-case errors and a canonical full-record trace hash.
 
-Only concise summaries go to ordinary stdout. Complete base64 record notices
-use the existing chunked trace format; the
-[capture guide's recovery command](CI-FAILURE-TRACING.md) reconstructs them.
-The research workflow separates rounds into steps to bound notice volume and
-uploads raw JSONL for seven days, including failures. A final check requires
+Only concise summaries go to ordinary stdout. Complete round batches of four
+records are losslessly gzip-compressed, hash-checked and base64-encoded into
+at most ten notices per step, each <=2400 characters. Emission fails before
+writing if this limit cannot hold the complete batch. Recovery rejects missing
+or conflicting chunks, invalid compression, payload hashes and record hashes.
+
+The initial `171fe55` individual-record notices exceeded GitHub's observed
+per-step cap: the three successful jobs retained only 6/11/8 complete records
+of 16 on ARM/Intel/Windows. The backing artifact host returned 403. Those
+incomplete subsets cannot establish a balanced comparison. Compressed round
+transport corrects that evidence-delivery failure; original sample values are
+preserved exactly rather than rounded or reduced.
+
+```sh
+gh api repos/ilamgumaran/simpli-home-tools/check-runs/CHECK_ID/annotations \
+  --paginate --jq '.[]' > annotations.jsonl
+node tests/motion-control-notices.cjs annotations.jsonl recovered.jsonl
+node tests/analyze-motion-controls.cjs recovered.jsonl > analysis.json
+```
+
+The decoder requires every part of each seen batch. The analyzer separately
+requires every planned condition/round/position: an entirely absent batch must
+also fail completeness. It verifies schemas, record hashes and exact summary
+recomputation, retains errors, and separates actual platform/architecture,
+Node/browser version, modes, dimensions and source/helper identities. It reports
+condition ranges/medians, accepted app timing, geometry observation timing and
+paired round differences without assigning a cause.
+
+The research workflow separates rounds into steps and uploads raw JSONL for
+seven days, including failures. A final check requires
 all 16 planned keys exactly once and no sample errors; timing numbers remain
 research data. Passing this diagnostic does not pass a production timing gate.
 
@@ -95,9 +120,13 @@ an optimization. Preserve every failed acceptance sample when later runs pass.
 
 A bounded local method probe checked the repeated dashboard trail reads in
 `woodland-time.js`. Across four 2100 ms low-power samples per engine, Chrome
-151 and Firefox 153 each delivered about 126 callbacks and 63–64 geometry
-updates. Total `getTotalLength`/`getPointAtLength`/`getCTM` costs were only a few
+151 and Firefox 153 each delivered about 126 callbacks and 63–64 calls per
+queried trail method. Total `getTotalLength`/`getPointAtLength`/`getCTM` costs were only a few
 milliseconds per window; maximum instrumented app callback was 2.3 ms Chrome
 and 3 ms Firefox. This establishes repeated work, not a cause for the observed
 32–55 ms gaps. No production geometry cache follows from that measurement.
-The temporary probe is research instrumentation, not browser acceptance.
+The [archived probe](evidence/dashboard-method-probe-2026-10-31.json) retains
+setup, exact instrumentation source and all eight summarized measurements. It
+uses one browser per engine and fresh contexts per sample, unlike the fresh
+browsers in the main controls. It records method calls rather than geometry
+observations and remains research instrumentation, not browser acceptance.
