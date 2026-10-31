@@ -1,5 +1,7 @@
 # Green House 1: Ally installation and acceptance
 
+Local installation update: [reserved session 026](../../../sessions/2026-10-10-weather-habitat/026-ally-efficiency-install.md) records the October 31 candidate installed/restarted with rollback retained and passing focused checks. Broader hosted/native/sustained acceptance remains open.
+
 ## Current efficiency candidate — 2026-10-31
 
 Fetch `feature/anatomy-foundation` / [draft PR #16](https://github.com/ilamgumaran/simpli-home-tools/pull/16).
