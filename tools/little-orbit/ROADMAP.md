@@ -27,6 +27,10 @@ The latest local run retains a normal-mode 113.1 ms maximum gap. Next, collect
 matched native/full/hidden-art controls; do not infer a production fix from
 replaying callback selection alone.
 
+[Matched controls](design/MATCHED-MOTION-CONTROLS.md) are implemented for the
+three observed modes, with complete raw evidence and balanced order. Complete
+the samples and independent review before selecting a production optimization.
+
 ## Character priority — anatomy foundation candidate, later rollout planned
 
 The owner requested finer hands, palms, feet and legs across the cast. The [implementation plan](design/ANATOMY-AND-ORGANIC-MOVEMENT.md) now has an A0 inventory / A1 additive candidate: versioned [profiles](design/ANATOMY-PROFILES.md), pure landmarks/constrained reference solves, a workshop inspection panel and legacy-output fixtures. The live meal, movement and renderer retain their existing semantics. Portable bytes change to include the new shared module; full scene/prop bounds still need capture before A2 artwork grows those bounds.

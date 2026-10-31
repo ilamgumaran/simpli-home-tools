@@ -1,5 +1,13 @@
 # Our Desk Clock changelog
 
+### Matched frame-delivery controls
+
+- Added exact, balanced blank/full/hidden-art research samples for Windows
+  Firefox normal, macOS Chromium low-power and local DPR2 immersive normal.
+- Added complete raw-record notices/artifacts, sample-error retention, explicit
+  profile configuration and completeness checks. Production timing gates and
+  display bytes remain unchanged; [control study](design/MATCHED-MOTION-CONTROLS.md).
+
 ### Exact callback policy replay
 
 - Added a standalone test-only policy comparison and exhaustive hindsight bound

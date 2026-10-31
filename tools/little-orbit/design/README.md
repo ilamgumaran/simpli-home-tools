@@ -6,6 +6,7 @@ Start a new session with the [owner prompts and handoff](OWNER-PROMPTS.md). Plan
 
 | Design | Status | Preview |
 | --- | --- | --- |
+| [Matched frame-delivery controls](MATCHED-MOTION-CONTROLS.md) | Test-only investigation; balanced samples in progress | Exact native/app/geometry records, fresh browsers and explicit failing-mode profiles |
 | [Exact callback policy replay](CADENCE-POLICY-REPLAY.md) | Test-only study; production policy unchanged | Cold-start alternatives and independent nominal/entry hindsight bounds on exact CI failures |
 | [Engineering: Zero Workshop](engineering/README.md) | Detailed conceptual plan; E0–E8 proposed, physical proof/research open; no runtime | People-powered calendar, 80 object records, energy paths, three zero-loop groups and staged acceptance |
 | [Shared anatomy and organic movement](ANATOMY-AND-ORGANIC-MOVEMENT.md) | A0 inventory / A1 additive foundation candidate; live scenes remain legacy | [Profiles](ANATOMY-PROFILES.md), [baseline](ANATOMY-BASELINE.md), static workshop skeleton/landmarks; silhouettes and contact/gait rollout pending |

@@ -34,6 +34,11 @@ clocks remain separate from geometry and physical presentation. The latest
 Windows normal-mode failure already accepts every callback, so it cannot be
 repaired by a low-power limiter change.
 
+The [matched-control study](design/MATCHED-MOTION-CONTROLS.md) now implements
+the next investigation: balanced blank/full/hidden conditions with exact timing
+records and explicit Windows, macOS and local DPR2 profiles. Runtime remains
+unchanged while delivery versus rendering costs are measured.
+
 ## Shared anatomy — foundation and inspection candidate
 
 The [shared anatomy and organic movement plan](design/ANATOMY-AND-ORGANIC-MOVEMENT.md) now has an additive foundation: [versioned anatomy profiles](design/ANATOMY-PROFILES.md), constrained two-bone reference geometry, named palm/thumb/heel/ball/toe landmarks, and a [workshop reference panel](design/character-study.html) for the seven identities. Adult, drop and learner proportions remain distinct; Pebble has support-only swaddled anatomy. The [baseline inventory](design/ANATOMY-BASELINE.md) and 120 captured legacy pose samples protect existing output.

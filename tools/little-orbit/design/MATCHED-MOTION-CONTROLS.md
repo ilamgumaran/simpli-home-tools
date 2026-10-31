@@ -1,0 +1,103 @@
+<!-- SPDX-License-Identifier: LicenseRef-Simpli-Noncommercial-1.0 -->
+# Matched native delivery and scene controls
+
+Status: test-only investigation following [policy replay](CADENCE-POLICY-REPLAY.md).
+The app, portable bytes, limiter and required browser workflow are unchanged.
+[Ownership 032](../../../sessions/2026-10-10-weather-habitat/032-matched-controls-ownership.md)
+records scope; results will be a separate numbered handoff.
+
+## Controls
+
+The probe uses three profiles for the observed failure modes. Names identify
+intended target platforms; `provenance.platform` records where a sample actually
+ran. Running all profiles on Linux does not test Windows or macOS.
+
+| Target | Browser | View / viewport / DPR | Power |
+| --- | --- | --- | --- |
+| Windows | Firefox | Dashboard / 854×480 / 1 | Normal |
+| macOS | Chromium | Dashboard / 854×480 / 1 | Low |
+| Local Linux | Chromium | Immersive / 1280×720 / 2 | Normal |
+
+Each profile has four conditions: blank page, complete scene, static scenery and
+numerals hidden, and all scene SVG layers hidden. Hidden controls use
+`visibility:hidden`, keeping scene work and geometry updates running. They
+isolate some paint/compositing work; they do not remove the scene's JavaScript.
+Dashboard static-hidden hides its sky, light, background, ground, creek,
+details and numerals. Immersive static-hidden hides backdrop, river, foreground,
+camp, structures and the reading SVG. World-hidden hides the dashboard SVG or
+all five immersive scene layers; the surrounding clock UI remains visible.
+
+Each sample starts a fresh browser, settles a blank page for 4000 ms, then
+creates a new context, loads the condition, waits for fonts and settles for
+1000 ms **after** visibility changes. Four rounds use a Williams order so each
+condition occupies each position once and each ordered adjacent pair appears
+once. All samples run sequentially on a host. Sample errors are retained; the
+batch continues and exits unsuccessfully if any sample has an error.
+
+These are matched research conditions, not an exact reproduction of the
+acceptance suite's earlier-page history or normal-mode transition from a prior
+low-power sample. Context explicitly labels `modeEntry: direct-normal` (or
+`direct-low-power`); normal power is configured from page startup. The app calendar advances from the existing dashboard or
+immersive cadence-test instant. RAF, `performance.now()` and 2100 ms elapsed
+measurement remain real. Every compared page uses the same capture helper's
+native sampler. Blank includes the real inert policy factory solely to enable
+the shared hook; it makes no app decisions. App pages also have the existing
+geometry observer, which adds work absent from an empty blank page. Normal-mode
+synchronous scene refreshes may produce more geometry observations than RAF
+policy calls. Neither native nor DOM observation establishes presentation.
+
+## Reproduction and evidence
+
+From `tools/little-orbit/`, with installed Playwright browsers:
+
+```sh
+node tests/motion-control-unit.cjs
+node tests/diagnose-motion-control.cjs
+CLOCK_DIAGNOSTIC_PROFILE=all node tests/diagnose-motion-control.cjs
+```
+
+`CLOCK_DIAGNOSTIC_PROFILE` defaults to `platform`; `all` exercises all three
+profiles on the current machine. `CLOCK_DIAGNOSTIC_REPEATS` is 4 by default or 8.
+`CLOCK_DIAGNOSTIC_ROUND=0` through `repeats-1` runs one four-condition round.
+Round 0 or an unfiltered run starts a new file; later filtered rounds append.
+Do not run independent batches concurrently against the same file or browser
+host. `PLAYWRIGHT_MODULE`, `CLOCK_TEST_CHANNEL` and
+`CLOCK_DIAGNOSTIC_HEADLESS=false` retain existing launcher controls.
+
+Every schema-1 `motion-control` record in
+`test-results/motion-controls.jsonl` retains:
+
+- Actual platform, architecture, Node and Git revision, plus capture helper,
+  diagnostic source and plan source SHA-256s.
+- Profile, condition, round, position, browser/version, viewport/DPR, mode, view,
+  launcher channel and headless setting.
+- Ordered native nominal/actual tuples, app policy tuples with original
+  decisions, raw geometry times, sample endpoints, columns and visibility.
+- Exact summaries, per-case errors and a canonical full-record trace hash.
+
+Only concise summaries go to ordinary stdout. Complete base64 record notices
+use the existing chunked trace format; the
+[capture guide's recovery command](CI-FAILURE-TRACING.md) reconstructs them.
+The research workflow separates rounds into steps to bound notice volume and
+uploads raw JSONL for seven days, including failures. A final check requires
+all 16 planned keys exactly once and no sample errors; timing numbers remain
+research data. Passing this diagnostic does not pass a production timing gate.
+
+Keep raw samples with browser/checkout identity. Compare each condition across
+all rounds, including outliers, and report ranges/medians without claiming a
+four-sample statistical guarantee. Distinguish nominal callback intervals,
+actual callback-entry intervals, accepted intervals and geometry observations.
+A blank/native failure is evidence about delivery on that run, not proof of an
+operating-system cause. A full/hidden difference needs profiling before choosing
+an optimization. Preserve every failed acceptance sample when later runs pass.
+
+## Separate geometry-read probe
+
+A bounded local method probe checked the repeated dashboard trail reads in
+`woodland-time.js`. Across four 2100 ms low-power samples per engine, Chrome
+151 and Firefox 153 each delivered about 126 callbacks and 63–64 geometry
+updates. Total `getTotalLength`/`getPointAtLength`/`getCTM` costs were only a few
+milliseconds per window; maximum instrumented app callback was 2.3 ms Chrome
+and 3 ms Firefox. This establishes repeated work, not a cause for the observed
+32–55 ms gaps. No production geometry cache follows from that measurement.
+The temporary probe is research instrumentation, not browser acceptance.
