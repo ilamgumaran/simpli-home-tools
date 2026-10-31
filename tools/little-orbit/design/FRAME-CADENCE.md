@@ -11,6 +11,10 @@ for the existing minimum and later opportunities arrive late. No app callback
 or geometry observation is missing in those samples. This evidence does not
 identify the underlying delivery stall or authorize a weaker gate.
 
+The [policy replay study](CADENCE-POLICY-REPLAY.md) continues this evidence
+without changing the limiter. It also retains a later Windows normal-mode
+failure, where accepting every callback still fails the 31 ms gate.
+
 ## Problem and evidence
 
 The former low-power limiter waits until a callback is at least 31.333 ms after

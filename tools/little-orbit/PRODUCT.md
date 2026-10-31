@@ -27,6 +27,13 @@ current minimum, accepted RAF timing already fails before geometry observation. 
 paint or host cause is not isolated. The [capture guide](design/CI-FAILURE-TRACING.md)
 and raw records support the next policy replay/control study; hosted gates remain open.
 
+The [policy replay study](design/CADENCE-POLICY-REPLAY.md) now compares exact
+callback streams without changing production pacing. Hindsight bounds separate
+a scheduling choice from missing opportunities; nominal and callback-entry
+clocks remain separate from geometry and physical presentation. The latest
+Windows normal-mode failure already accepts every callback, so it cannot be
+repaired by a low-power limiter change.
+
 ## Shared anatomy — foundation and inspection candidate
 
 The [shared anatomy and organic movement plan](design/ANATOMY-AND-ORGANIC-MOVEMENT.md) now has an additive foundation: [versioned anatomy profiles](design/ANATOMY-PROFILES.md), constrained two-bone reference geometry, named palm/thumb/heel/ball/toe landmarks, and a [workshop reference panel](design/character-study.html) for the seven identities. Adult, drop and learner proportions remain distinct; Pebble has support-only swaddled anatomy. The [baseline inventory](design/ANATOMY-BASELINE.md) and 120 captured legacy pose samples protect existing output.

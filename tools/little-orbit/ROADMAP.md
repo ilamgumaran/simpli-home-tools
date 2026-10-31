@@ -1,6 +1,6 @@
 # Our Desk Clock roadmap
 
-Updated 2026-10-30. Milestones express intent, not promised delivery dates. The product owner sets priorities and authorizes deferred implementation.
+Updated 2026-10-31. Milestones express intent, not promised delivery dates. The product owner sets priorities and authorizes deferred implementation.
 
 Before anatomy artwork rollout, complete the [bounded phase cadence candidate](design/FRAME-CADENCE.md)'s hosted/portable and cross-platform gates. [Session 025](../../sessions/2026-10-10-weather-habitat/025-cadence-verification-handoff.md) preserves the earlier 65/66 local cadence passes and Firefox rain plus hosted Windows/macOS failures. The [DPR2 investigation](design/RAIN-CADENCE-INVESTIGATION.md) now records balanced profiling and the reading-camera candidate below. Performance thresholds remain unchanged.
 
@@ -15,7 +15,17 @@ The hosted-boundary tracing slice is complete: [results 030](../../sessions/2026
 records 66 local cadence passes and exact failures from both Windows/macOS runs.
 The display runtime and gates are unchanged. Next, replay proposed policy changes
 against these new native sequences and compare matched native-delivery controls
-on the failing runner before choosing another runtime change.
+on the failing runner before choosing another runtime change. The
+[test-only policy replay](design/CADENCE-POLICY-REPLAY.md) implements the first
+step, including separate nominal/entry-time hindsight bounds. No low-power
+phase change addresses the newly retained normal-mode Windows failure.
+
+[Session 031](../../sessions/2026-10-10-weather-habitat/031-policy-replay-results.md)
+completes the replay slice: no macOS recorded low-power stream has a feasible
+nominal or callback-entry subsequence under the current floor and fixed delivery.
+The latest local run retains a normal-mode 113.1 ms maximum gap. Next, collect
+matched native/full/hidden-art controls; do not infer a production fix from
+replaying callback selection alone.
 
 ## Character priority — anatomy foundation candidate, later rollout planned
 

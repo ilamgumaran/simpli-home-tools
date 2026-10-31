@@ -113,3 +113,7 @@ late, a render rewrite or tolerance adjustment is not established by that fact
 alone. Compare native delivery with blank/hidden/full-art controls on the same
 runner before choosing another production change. Required checks and physical
 Ally/Vanadium acceptance remain separate.
+
+The next [policy replay study](CADENCE-POLICY-REPLAY.md) uses these records
+without predicting geometry or changing application pacing. It retains four
+additional failures from the final tracing revision, including normal mode.

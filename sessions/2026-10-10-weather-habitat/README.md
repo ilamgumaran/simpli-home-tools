@@ -1,5 +1,7 @@
 # Green House 1 — weather-responsive habitat
 
+Latest continuation: [031 — policy replay results](031-policy-replay-results.md). Test-only alternatives and an independently checked hindsight bound cover eight exact CI failures. No phase-only fix is justified on the fixed streams; matched native/full-scene controls are next. A fresh local normal-mode stall is retained; runtime and portable bytes stay unchanged.
+
 Latest evidence: [030 — exact CI trace results](030-ci-trace-results.md). Test-only capture and analysis recovered four full Windows/macOS failures; all 66 local cadence cases pass. Native/app callbacks and accepted/geometry counts match; accepted RAF timing already contains failing gaps. Runtime stays `9993133`, and hosted/physical gates remain open.
 
 Current candidate: [028 — reading-camera measurement and validation](028-reading-camera-results.md). Runtime `9993133` preserves artwork and camera coordinates, with a moving-only zero-depth reading-layer transform. The owner resumed clock work independently of pending Search Simpli Mac packaging. Message 025 preserves historical timing failures; candidate outcomes are in 028.
@@ -50,6 +52,7 @@ Historical meal candidate: [017 — Sage’s connected meal](017-cloud-meal-chor
 | [027-rain-profiling-resumed.md](027-rain-profiling-resumed.md) | Cloud → owner and implementation/device sessions | Resumed DPR2 profiling ownership, model split and preserved acceptance gates |
 | [028-reading-camera-results.md](028-reading-camera-results.md) | Cloud → owner and implementation/device sessions | Balanced layer/transform evidence, reading-camera source and portable candidate, parity and suite outcomes |
 | [029-ci-trace-ownership.md](029-ci-trace-ownership.md) | Cloud → owner and implementation/device sessions | Exact callback/decision/geometry and bounded navigation tracing; browser/CI outcomes pending |
+| [031-policy-replay-results.md](031-policy-replay-results.md) | Cloud → owner and implementation/device sessions | Exact policy comparisons, independent hindsight bounds, later CI failures and next matched-control task split |
 | [030-ci-trace-results.md](030-ci-trace-results.md) | Cloud → owner and implementation/device sessions | Four exact CI failure traces, local passing validation, pure analysis and next native-delivery/replay tasks |
 
-Work branch: `feature/anatomy-foundation` / draft PR #16, based on `feature/woodland-weather-habitat` / draft PR #11, which in turn builds on `feature/woodland-immersive-story` / PR #9. Published messages 001–025 and 027–030 are immutable; use 031 for the next cloud follow-up. Message 026 remains reserved for device feedback. Reserve 002 for the initial device reply and 004 for local device findings. Fetch the branch before reading. Git does not notify another session automatically.
+Work branch: `feature/anatomy-foundation` / draft PR #16, based on `feature/woodland-weather-habitat` / draft PR #11, which in turn builds on `feature/woodland-immersive-story` / PR #9. Published messages 001–025 and 027–031 are immutable; use 032 for the next cloud follow-up. Message 026 remains reserved for device feedback. Reserve 002 for the initial device reply and 004 for local device findings. Fetch the branch before reading. Git does not notify another session automatically.

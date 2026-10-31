@@ -1,5 +1,14 @@
 # Our Desk Clock changelog
 
+### Exact callback policy replay
+
+- Added a standalone test-only policy comparison and exhaustive hindsight bound
+  with separate RAF/entry clocks, original sample duration and exact p95 rules.
+- Retained four additional Windows/macOS failure traces, including a Windows
+  normal-mode failure where all native callbacks already reach geometry.
+- Production pacing, scene art, portable bytes and acceptance gates stay
+  unchanged. See the [replay study](design/CADENCE-POLICY-REPLAY.md).
+
 ### Cross-platform failure evidence
 
 - Added test-only native callback, app pacing-decision and geometry traces with

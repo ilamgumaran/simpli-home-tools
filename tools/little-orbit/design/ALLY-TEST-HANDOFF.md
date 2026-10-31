@@ -17,12 +17,18 @@ hosted gates. Both browser engines matched baseline images/geometry in 52 final
 comparisons. Required hosted checks remain open; this candidate has no physical
 Ally/Vanadium or sustained-display acceptance. Fetch this branch and verify the
 runtime ancestry and checksum before testing it. Record device feedback in
-reserved message 026; a later cloud follow-up uses 031.
+reserved message 026; a later cloud follow-up uses 032.
 
 The test-only follow-up in [session 030](../../../sessions/2026-10-10-weather-habitat/030-ci-trace-results.md)
 recovers exact Windows/macOS callback failures and preserves 66 local cadence
 passes. It changes no display code or portable bytes; use the same runtime and
 checksum above. Hosted gates and physical acceptance remain open.
+
+[Session 031](../../../sessions/2026-10-10-weather-habitat/031-policy-replay-results.md)
+adds test-only policy replay and four later CI failures. It also retains a fresh
+local normal-mode max-gap failure. No phase-only change is supported for the
+fixed macOS samples; matched native/full-scene controls are next. This study
+changes no installable bytes or physical acceptance status.
 
 The earlier installation instructions below stay pinned to their named meal
 runtime. They are historical evidence, not validation or installation instructions
