@@ -1,5 +1,12 @@
 # Our Desk Clock changelog
 
+### Firefox attribution research
+
+- Added native-profile and profiler-disabled controls following the dashboard
+  low-to-normal sample history, with explicit UserTiming alignment and correct
+  Gecko interval phases. Complete raw timing and bounded profile evidence
+  survive lossless notices; production bytes and timing gates are unchanged.
+
 ### Skip hidden minute-marker geometry work
 
 - Dashboard draws now read the final trail geometry only during the visible

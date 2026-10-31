@@ -35,6 +35,10 @@ guard is implemented as an efficiency candidate. [Results 033](../../sessions/20
 records 48 local cadence passes and complete reference checks; hosted
 Windows/macOS gates and target-device profiling remain open.
 
+[Firefox attribution](design/FIREFOX-STALL-ATTRIBUTION.md) now implements the
+next bounded Windows investigation. Complete its balanced samples and metric/
+clock-alignment review before inferring an avoidable runtime expense.
+
 ## Character priority — anatomy foundation candidate, later rollout planned
 
 The owner requested finer hands, palms, feet and legs across the cast. The [implementation plan](design/ANATOMY-AND-ORGANIC-MOVEMENT.md) now has an A0 inventory / A1 additive candidate: versioned [profiles](design/ANATOMY-PROFILES.md), pure landmarks/constrained reference solves, a workshop inspection panel and legacy-output fixtures. The live meal, movement and renderer retain their existing semantics. Portable bytes change to include the new shared module; full scene/prop bounds still need capture before A2 artwork grows those bounds.

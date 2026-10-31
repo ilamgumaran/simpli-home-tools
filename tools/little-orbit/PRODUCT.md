@@ -41,6 +41,10 @@ records and explicit Windows, macOS and local DPR2 profiles. The complete
 A bounded dashboard efficiency candidate now skips unused minute-marker SVG
 queries while hidden; visible geometry remains fresh.
 
+The next [Firefox attribution study](design/FIREFOX-STALL-ATTRIBUTION.md)
+compares full/hidden scenes with and without native profiling and aligns
+Gecko content-thread events to the clock sample. It changes no display code.
+
 ## Shared anatomy — foundation and inspection candidate
 
 The [shared anatomy and organic movement plan](design/ANATOMY-AND-ORGANIC-MOVEMENT.md) now has an additive foundation: [versioned anatomy profiles](design/ANATOMY-PROFILES.md), constrained two-bone reference geometry, named palm/thumb/heel/ball/toe landmarks, and a [workshop reference panel](design/character-study.html) for the seven identities. Adult, drop and learner proportions remain distinct; Pebble has support-only swaddled anatomy. The [baseline inventory](design/ANATOMY-BASELINE.md) and 120 captured legacy pose samples protect existing output.

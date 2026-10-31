@@ -1,7 +1,7 @@
 const {spawn,spawnSync}=require('node:child_process');
 const path=require('node:path');
 const root=path.join(__dirname,'..');
-for(const script of ['cadence-trace-unit.cjs','navigation-trace-unit.cjs','analyze-cadence-trace-unit.cjs','replay-cadence-policy-unit.cjs','motion-control-unit.cjs','motion-control-notices-unit.cjs','analyze-motion-controls-unit.cjs']){
+for(const script of ['cadence-trace-unit.cjs','navigation-trace-unit.cjs','analyze-cadence-trace-unit.cjs','replay-cadence-policy-unit.cjs','motion-control-unit.cjs','motion-control-notices-unit.cjs','analyze-motion-controls-unit.cjs','firefox-stall-profile-unit.cjs','firefox-stall-notices-unit.cjs','analyze-firefox-stalls-unit.cjs']){
  if(spawnSync(process.execPath,[path.join(__dirname,script)],{stdio:'inherit'}).status!==0)process.exit(1);
 }
 if(spawnSync(process.execPath,[path.join(__dirname,'frame-cadence.cjs')],{stdio:'inherit'}).status!==0)process.exit(1);
