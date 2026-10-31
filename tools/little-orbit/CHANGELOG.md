@@ -1,5 +1,14 @@
 # Our Desk Clock changelog
 
+### Skip hidden minute-marker geometry work
+
+- Dashboard draws now read the final trail geometry only during the visible
+  minute marker. Visible positions still use fresh geometry after digit changes
+  and resize. This removes measured unused work; native delivery stalls remain
+  a separate boundary.
+- Added hosted/portable reference and zero-hidden-read checks across all minute
+  ones digits, the 3-second edge, four viewports and lifecycle controls.
+
 ### Matched frame-delivery controls
 
 - Added exact, balanced blank/full/hidden-art research samples for Windows
