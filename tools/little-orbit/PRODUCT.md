@@ -36,8 +36,10 @@ repaired by a low-power limiter change.
 
 The [matched-control study](design/MATCHED-MOTION-CONTROLS.md) now implements
 the next investigation: balanced blank/full/hidden conditions with exact timing
-records and explicit Windows, macOS and local DPR2 profiles. Runtime remains
-unchanged while delivery versus rendering costs are measured.
+records and explicit Windows, macOS and local DPR2 profiles. The complete
+96-record study preserves native-delivery limits without claiming a stall fix.
+A bounded dashboard efficiency candidate now skips unused minute-marker SVG
+queries while hidden; visible geometry remains fresh.
 
 ## Shared anatomy — foundation and inspection candidate
 

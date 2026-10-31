@@ -1,10 +1,13 @@
 <!-- SPDX-License-Identifier: LicenseRef-Simpli-Noncommercial-1.0 -->
 # Matched native delivery and scene controls
 
-Status: test-only investigation following [policy replay](CADENCE-POLICY-REPLAY.md).
-The app, portable bytes, limiter and required browser workflow are unchanged.
+Status: complete research controls and a locally validated hidden-marker
+efficiency candidate; hosted/device gates remain open. The controls themselves
+changed no runtime or required gate. The later marker guard changes the app and
+portable build as described below; limiter and timing gates stay unchanged.
 [Ownership 032](../../../sessions/2026-10-10-weather-habitat/032-matched-controls-ownership.md)
-records scope; results will be a separate numbered handoff.
+records scope; [results 033](../../../sessions/2026-10-10-weather-habitat/033-matched-controls-results.md)
+records complete evidence and candidate validation.
 
 ## Controls
 
@@ -130,3 +133,35 @@ setup, exact instrumentation source and all eight summarized measurements. It
 uses one browser per engine and fresh contexts per sample, unlike the fresh
 browsers in the main controls. It records method calls rather than geometry
 observations and remains research instrumentation, not browser acceptance.
+
+## Hidden-marker efficiency candidate
+
+Complete controls now retain 48 local and 48 hosted records; their
+[index and hashes](evidence/motion-controls-2026-10-31-index.json) distinguish
+complete groups from the first run's incomplete subsets. The
+[results handoff](../../../sessions/2026-10-10-weather-habitat/033-matched-controls-results.md)
+records ranges and remaining limits. These samples do not isolate a consistent
+scene expense responsible for the retained stalls.
+
+A separately measured cleanup is implemented in `woodland-time.js`: trail
+length, point and matrix reads run only while the minute marker is visible.
+The value is otherwise unused. Visible marker geometry is recalculated at its
+original point in the draw, preserving current digit/layout changes. The
+baseline second-9 probe performed 63–64 calls to each of four SVG methods per
+sample despite the marker being absent. This guard removes that unused work;
+it does not establish a remedy for native callback outages.
+
+`tests/verify-minute-marker.cjs` checks visible reference coordinates against
+native SVG methods, hidden read counts, all ten minute ones digits, both sides
+of the three-second boundary, four viewport sizes, backward clock changes and
+quiet/companion settings. It uses a paused clock only for deterministic geometry;
+performance gates continue using real timers. Chrome, Firefox and Edge focused
+hosted/portable checks pass. The standard runner includes this program.
+
+The [after-guard probe](evidence/dashboard-method-probe-after-guard-2026-10-31.json)
+uses the same script/setup and records zero method calls in all eight samples,
+versus 2,020 before. This measures removed work without establishing a cadence
+gain. [Candidate validation](evidence/marker-candidate-local-validation-2026-10-31.json)
+records full Chrome/Firefox and affected Edge passes (48 cadence cases), plus
+40 exact raw metric recomputations. Required hosted Windows/macOS gates still
+fail; current source and build identity are in session 033 and the Ally handoff.

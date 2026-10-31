@@ -1,6 +1,30 @@
 # Green House 1: Ally installation and acceptance
 
-## New cloud candidate — 2026-10-29
+## Current efficiency candidate — 2026-10-31
+
+Fetch `feature/anatomy-foundation` / [draft PR #16](https://github.com/ilamgumaran/simpli-home-tools/pull/16).
+Runtime `dd6e9d53694d6b5c4667bd0c778635b2779c746e` skips dashboard trail geometry
+reads while the minute marker is hidden. Visible positions still use fresh SVG
+geometry after minute changes and resizing. It preserves scene art and motion.
+
+Portable SHA-256:
+`0accb9737b218f4e4d202b368d0277355d114c21758163ae09cb57f61e142b85`.
+
+[Session 033](../../../sessions/2026-10-10-weather-habitat/033-matched-controls-results.md)
+records 96 complete control samples, the source review and exact limits. Current
+local coverage passes full Chrome/Firefox suites (18 pure, 15 browser programs
+per engine, offline, 44 cadence cases), plus Edge focused marker and affected
+dashboard checks (four cadence cases). Hosted Windows/macOS timing gates still
+fail. This is an efficiency candidate, not a confirmed native-stall fix.
+
+Physical Ally/Vanadium and sustained operation remain unrun. Test a separate
+candidate while preserving the existing installation/profile, verify the hash,
+and inspect the first three seconds of minute changes, resize/rotation and
+extended motion. Record device feedback in reserved 026; the next cloud message
+is 034. No installation or release was performed by this cloud slice.
+
+
+## Earlier reading-camera candidate — 2026-10-29
 
 The current development branch is `feature/anatomy-foundation`, [draft PR #16](https://github.com/ilamgumaran/simpli-home-tools/pull/16).
 Runtime `99931338f12d5111ea0321cc2690d6588ef59ab9` uses a zero-depth 3D
@@ -17,7 +41,7 @@ hosted gates. Both browser engines matched baseline images/geometry in 52 final
 comparisons. Required hosted checks remain open; this candidate has no physical
 Ally/Vanadium or sustained-display acceptance. Fetch this branch and verify the
 runtime ancestry and checksum before testing it. Record device feedback in
-reserved message 026; a later cloud follow-up uses 032.
+reserved message 026; a later cloud follow-up uses 034.
 
 The test-only follow-up in [session 030](../../../sessions/2026-10-10-weather-habitat/030-ci-trace-results.md)
 recovers exact Windows/macOS callback failures and preserves 66 local cadence

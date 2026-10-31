@@ -6,7 +6,7 @@ Start a new session with the [owner prompts and handoff](OWNER-PROMPTS.md). Plan
 
 | Design | Status | Preview |
 | --- | --- | --- |
-| [Matched frame-delivery controls](MATCHED-MOTION-CONTROLS.md) | Test-only investigation; balanced samples in progress | Exact native/app/geometry records, fresh browsers and explicit failing-mode profiles |
+| [Matched frame-delivery controls](MATCHED-MOTION-CONTROLS.md) | Complete 96-record study; efficiency candidate validated locally | Exact native/app/geometry records, fresh browsers and explicit failing-mode profiles |
 | [Exact callback policy replay](CADENCE-POLICY-REPLAY.md) | Test-only study; production policy unchanged | Cold-start alternatives and independent nominal/entry hindsight bounds on exact CI failures |
 | [Engineering: Zero Workshop](engineering/README.md) | Detailed conceptual plan; E0–E8 proposed, physical proof/research open; no runtime | People-powered calendar, 80 object records, energy paths, three zero-loop groups and staged acceptance |
 | [Shared anatomy and organic movement](ANATOMY-AND-ORGANIC-MOVEMENT.md) | A0 inventory / A1 additive foundation candidate; live scenes remain legacy | [Profiles](ANATOMY-PROFILES.md), [baseline](ANATOMY-BASELINE.md), static workshop skeleton/landmarks; silhouettes and contact/gait rollout pending |
@@ -15,7 +15,7 @@ Start a new session with the [owner prompts and handoff](OWNER-PROMPTS.md). Plan
 | [Planted walking and tool grips](WALKING-AND-GRIPS.md) | Implemented on `feature/woodland-walking-grips` | Survey ground contacts, map stowing and reachable gathering/cooking work |
 | [Planted Woodland rock contacts](CHARACTER-CONTACTS.md) | Next character step implemented on `feature/woodland-character-contacts` | Authored sockets, one-limb steps, supported body lifts and recovery |
 | [Local installation results](../../../sessions/2026-10-05-woodland-ally/002-ally-to-cloud.md) | Woodland installed; Windows browser suites passed; live inspection pending | Compact-scene feedback and five validation milestones |
-| [Ally install and testing handoff](ALLY-TEST-HANDOFF.md) | Session 017: full Chrome/Firefox/Edge, offline and cadence checks pass; physical Ally/Vanadium unrun | Tested source ancestry, portable checksum and Windows instructions |
+| [Ally install and testing handoff](ALLY-TEST-HANDOFF.md) | Session 033: local full Chrome/Firefox and affected Edge pass; hosted and physical gates open | Current marker-efficiency runtime, portable checksum and separate device checks |
 | [Living-world composition](LIVING-WORLDS.md) | Woodland and Green House 1 implemented; five other worlds proposed | Actual clock: select Woodland |
 | [Green House 1 weather habitat](WEATHER-HABITAT.md) | Session 017 candidate: full browser/offline/cadence checks pass; sustained/device acceptance pending | Existing cached weather drives authored light and precipitation |
 | [Green House 1 community habitat](COMMUNITY-HABITAT.md) | Session 017 candidate: meal/community and full browser/offline/cadence checks pass; sustained/device acceptance pending | Recurring family routines, supervised child play and quiet remembrance |

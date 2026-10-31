@@ -28,8 +28,12 @@ matched native/full/hidden-art controls; do not infer a production fix from
 replaying callback selection alone.
 
 [Matched controls](design/MATCHED-MOTION-CONTROLS.md) are implemented for the
-three observed modes, with complete raw evidence and balanced order. Complete
-the samples and independent review before selecting a production optimization.
+three observed modes, with complete raw evidence and balanced order. All
+96 complete samples and independent analysis are archived. They do not isolate
+a consistent scene expense behind the stalls. A measured hidden-marker read
+guard is implemented as an efficiency candidate. [Results 033](../../sessions/2026-10-10-weather-habitat/033-matched-controls-results.md)
+records 48 local cadence passes and complete reference checks; hosted
+Windows/macOS gates and target-device profiling remain open.
 
 ## Character priority — anatomy foundation candidate, later rollout planned
 

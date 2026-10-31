@@ -1,0 +1,1912 @@
+{
+  "schemaVersion": 1,
+  "kind": "motion-control-analysis",
+  "inputFiles": ["tools/little-orbit/design/evidence/motion-controls-local-171fe55-2026-10-31.jsonl"],
+  "totalRecords": 48,
+  "groups": [
+    {
+      "identity": {
+        "platform": "linux",
+        "arch": "x64",
+        "node": "v24.19.0",
+        "browser": "firefox",
+        "browserVersion": "153.0",
+        "profile": "windows-firefox-dashboard-normal",
+        "lowPower": false,
+        "view": "dashboard",
+        "viewport": {"width":854,"height":480},
+        "dpr": 1,
+        "channel": "default",
+        "headless": true,
+        "modeEntry": "direct-normal",
+        "gitSHA": "171fe5543f61277b0beb22c3712776ea1474051c",
+        "diagnosticDigest": "38aaf1f2719fe43c819005aaf1b0df3098e86f28978a88260d2444b4f34b1c3d",
+        "planDigest": "118d4f51712dfb8bbffca42bf30ea08d9cfe9e5c5b600d8c113577e4a5bbd777",
+        "helperDigest": "1d30900bac964615c28e073df16c659d2e8dc4fbcf9b81019b8a6858dfd579be"
+      },
+      "completeness": {
+        "expectedRepeats": 4,
+        "expectedRecords": 16,
+        "presentRecords": 16,
+        "missingKeys": [],
+        "duplicateKeys": []
+      },
+      "conditions": {
+        "blank": {
+          "usableSamples": 4,
+          "errors": 0,
+          "nativeNominal": {
+            "fps": {"n":4,"min":60.89438629876308,"median":60.92336982389338,"max":60.92336982389338},
+            "p95": {"n":4,"min":17.140000000000327,"median":17.159999999999968,"max":17.199999999999818},
+            "maxGap": {"n":4,"min":17.240000000000236,"median":17.27000000000021,"max":17.320000000000164}
+          },
+          "nativeActual": {
+            "p95": {"n":4,"min":18,"median":18,"max":18},
+            "maxGap": {"n":4,"min":18,"median":18,"max":19}
+          },
+          "acceptedAppNominal": {
+            "fps": {"n":0,"min":null,"median":null,"max":null},
+            "p95": {"n":0,"min":null,"median":null,"max":null},
+            "maxGap": {"n":0,"min":null,"median":null,"max":null}
+          },
+          "acceptedAppPerformanceAtEntry": {
+            "fps": {"n":0,"min":null,"median":null,"max":null},
+            "p95": {"n":0,"min":null,"median":null,"max":null},
+            "maxGap": {"n":0,"min":null,"median":null,"max":null}
+          },
+          "geometryObservations": {
+            "observationsPerSecond": {"n":0,"min":null,"median":null,"max":null},
+            "p95GapMs": {"n":0,"min":null,"median":null,"max":null},
+            "maxGapMs": {"n":0,"min":null,"median":null,"max":null}
+          }
+        },
+        "full": {
+          "usableSamples": 4,
+          "errors": 0,
+          "nativeNominal": {
+            "fps": {"n":4,"min":59.97144217039505,"median":59.985721085197525,"max":60},
+            "p95": {"n":4,"min":17.18000000000029,"median":17.19000000000017,"max":17.259999999999764},
+            "maxGap": {"n":4,"min":17.26000000000022,"median":17.37000000000012,"max":17.40000000000009}
+          },
+          "nativeActual": {
+            "p95": {"n":4,"min":18,"median":18,"max":18},
+            "maxGap": {"n":4,"min":18,"median":19.5,"max":21}
+          },
+          "acceptedAppNominal": {
+            "fps": {"n":4,"min":59.97144217039505,"median":59.985721085197525,"max":60},
+            "p95": {"n":4,"min":17.18000000000029,"median":17.19000000000017,"max":17.259999999999764},
+            "maxGap": {"n":4,"min":17.26000000000022,"median":17.37000000000012,"max":17.40000000000009}
+          },
+          "acceptedAppPerformanceAtEntry": {
+            "fps": {"n":4,"min":59.97144217039505,"median":59.985721085197525,"max":60},
+            "p95": {"n":4,"min":18,"median":18,"max":18},
+            "maxGap": {"n":4,"min":18,"median":19.5,"max":20}
+          },
+          "geometryObservations": {
+            "observationsPerSecond": {"n":4,"min":60.92336982389338,"median":60.937875388137165,"max":60.95238095238095},
+            "p95GapMs": {"n":4,"min":18,"median":18,"max":18},
+            "maxGapMs": {"n":4,"min":19,"median":20.5,"max":21}
+          }
+        },
+        "static-hidden": {
+          "usableSamples": 4,
+          "errors": 0,
+          "nativeNominal": {
+            "fps": {"n":4,"min":60,"median":60,"max":60},
+            "p95": {"n":4,"min":17.1400000000001,"median":17.15000000000009,"max":17.159999999999854},
+            "maxGap": {"n":4,"min":17.25999999999999,"median":17.310000000000173,"max":17.38000000000011}
+          },
+          "nativeActual": {
+            "p95": {"n":4,"min":18,"median":18,"max":18},
+            "maxGap": {"n":4,"min":18,"median":19,"max":20}
+          },
+          "acceptedAppNominal": {
+            "fps": {"n":4,"min":60,"median":60,"max":60},
+            "p95": {"n":4,"min":17.1400000000001,"median":17.15000000000009,"max":17.159999999999854},
+            "maxGap": {"n":4,"min":17.25999999999999,"median":17.310000000000173,"max":17.38000000000011}
+          },
+          "acceptedAppPerformanceAtEntry": {
+            "fps": {"n":4,"min":60,"median":60,"max":60},
+            "p95": {"n":4,"min":18,"median":18,"max":18},
+            "maxGap": {"n":4,"min":19,"median":19,"max":20}
+          },
+          "geometryObservations": {
+            "observationsPerSecond": {"n":4,"min":60.476190476190474,"median":60.95238095238095,"max":60.95238095238095},
+            "p95GapMs": {"n":4,"min":18,"median":18,"max":18},
+            "maxGapMs": {"n":4,"min":19,"median":19.5,"max":23}
+          }
+        },
+        "world-hidden": {
+          "usableSamples": 4,
+          "errors": 0,
+          "nativeNominal": {
+            "fps": {"n":4,"min":59.523809523809526,"median":60,"max":60},
+            "p95": {"n":4,"min":17.159999999999854,"median":17.179999999999836,"max":17.25999999999999},
+            "maxGap": {"n":4,"min":17.220000000000255,"median":17.379999999999995,"max":33.26000000000022}
+          },
+          "nativeActual": {
+            "p95": {"n":4,"min":18,"median":18,"max":18},
+            "maxGap": {"n":4,"min":20,"median":24.5,"max":31}
+          },
+          "acceptedAppNominal": {
+            "fps": {"n":4,"min":59.523809523809526,"median":60,"max":60},
+            "p95": {"n":4,"min":17.159999999999854,"median":17.179999999999836,"max":17.25999999999999},
+            "maxGap": {"n":4,"min":17.220000000000255,"median":17.379999999999995,"max":33.26000000000022}
+          },
+          "acceptedAppPerformanceAtEntry": {
+            "fps": {"n":4,"min":59.523809523809526,"median":60,"max":60},
+            "p95": {"n":4,"min":18,"median":18,"max":18},
+            "maxGap": {"n":4,"min":19,"median":19.5,"max":29}
+          },
+          "geometryObservations": {
+            "observationsPerSecond": {"n":4,"min":60.476190476190474,"median":60.95238095238095,"max":60.95238095238095},
+            "p95GapMs": {"n":4,"min":18,"median":18,"max":18},
+            "maxGapMs": {"n":4,"min":19,"median":24,"max":31}
+          }
+        }
+      },
+      "pairedRounds": [
+        {
+          "round": 0,
+          "fullMinusBlankNativeActualP95Ms": 0,
+          "staticHiddenMinusFull": {"nativeActualP95Ms":0,"geometryP95Ms":0},
+          "worldHiddenMinusFull": {"nativeActualP95Ms":0,"geometryP95Ms":0}
+        },
+        {
+          "round": 1,
+          "fullMinusBlankNativeActualP95Ms": 0,
+          "staticHiddenMinusFull": {"nativeActualP95Ms":0,"geometryP95Ms":0},
+          "worldHiddenMinusFull": {"nativeActualP95Ms":0,"geometryP95Ms":0}
+        },
+        {
+          "round": 2,
+          "fullMinusBlankNativeActualP95Ms": 0,
+          "staticHiddenMinusFull": {"nativeActualP95Ms":0,"geometryP95Ms":0},
+          "worldHiddenMinusFull": {"nativeActualP95Ms":0,"geometryP95Ms":0}
+        },
+        {
+          "round": 3,
+          "fullMinusBlankNativeActualP95Ms": 0,
+          "staticHiddenMinusFull": {"nativeActualP95Ms":0,"geometryP95Ms":0},
+          "worldHiddenMinusFull": {"nativeActualP95Ms":0,"geometryP95Ms":0}
+        }
+      ],
+      "errors": []
+    },
+    {
+      "identity": {
+        "platform": "linux",
+        "arch": "x64",
+        "node": "v24.19.0",
+        "browser": "chromium",
+        "browserVersion": "151.0.7922.34",
+        "profile": "macos-chromium-dashboard-low",
+        "lowPower": true,
+        "view": "dashboard",
+        "viewport": {"width":854,"height":480},
+        "dpr": 1,
+        "channel": "default",
+        "headless": true,
+        "modeEntry": "direct-low-power",
+        "gitSHA": "171fe5543f61277b0beb22c3712776ea1474051c",
+        "diagnosticDigest": "38aaf1f2719fe43c819005aaf1b0df3098e86f28978a88260d2444b4f34b1c3d",
+        "planDigest": "118d4f51712dfb8bbffca42bf30ea08d9cfe9e5c5b600d8c113577e4a5bbd777",
+        "helperDigest": "1d30900bac964615c28e073df16c659d2e8dc4fbcf9b81019b8a6858dfd579be"
+      },
+      "completeness": {
+        "expectedRepeats": 4,
+        "expectedRecords": 16,
+        "presentRecords": 16,
+        "missingKeys": [],
+        "duplicateKeys": []
+      },
+      "conditions": {
+        "blank": {
+          "usableSamples": 4,
+          "errors": 0,
+          "nativeNominal": {
+            "fps": {"n":4,"min":60.46755225495465,"median":60.46755225495465,"max":60.46755225495465},
+            "p95": {"n":4,"min":16.700000000000273,"median":16.750000000000114,"max":16.799999999999955},
+            "maxGap": {"n":4,"min":16.800000000000182,"median":16.800000000000182,"max":16.800000000000182}
+          },
+          "nativeActual": {
+            "p95": {"n":4,"min":16.80000001192093,"median":16.80000001192093,"max":16.900000005960464},
+            "maxGap": {"n":4,"min":16.900000005960464,"median":17.299999997019768,"max":30.400000005960464}
+          },
+          "acceptedAppNominal": {
+            "fps": {"n":0,"min":null,"median":null,"max":null},
+            "p95": {"n":0,"min":null,"median":null,"max":null},
+            "maxGap": {"n":0,"min":null,"median":null,"max":null}
+          },
+          "acceptedAppPerformanceAtEntry": {
+            "fps": {"n":0,"min":null,"median":null,"max":null},
+            "p95": {"n":0,"min":null,"median":null,"max":null},
+            "maxGap": {"n":0,"min":null,"median":null,"max":null}
+          },
+          "geometryObservations": {
+            "observationsPerSecond": {"n":0,"min":null,"median":null,"max":null},
+            "p95GapMs": {"n":0,"min":null,"median":null,"max":null},
+            "maxGapMs": {"n":0,"min":null,"median":null,"max":null}
+          }
+        },
+        "full": {
+          "usableSamples": 4,
+          "errors": 0,
+          "nativeNominal": {
+            "fps": {"n":4,"min":59.99142979625422,"median":59.994286258366444,"max":59.99428625879211},
+            "p95": {"n":4,"min":16.700000000000273,"median":16.700000000000273,"max":16.799999999999727},
+            "maxGap": {"n":4,"min":16.800000000000182,"median":16.800000000000182,"max":16.800000000000182}
+          },
+          "nativeActual": {
+            "p95": {"n":4,"min":17.5,"median":17.700000002980232,"max":17.700000017881393},
+            "maxGap": {"n":4,"min":17.700000017881393,"median":18.150000005960464,"max":19.599999994039536}
+          },
+          "acceptedAppNominal": {
+            "fps": {"n":4,"min":29.99571489812711,"median":29.997143129183222,"max":29.997143129396054},
+            "p95": {"n":4,"min":33.40000000000009,"median":33.40000000000009,"max":33.40000000000009},
+            "maxGap": {"n":4,"min":33.40000000000009,"median":33.40000000000009,"max":33.5}
+          },
+          "acceptedAppPerformanceAtEntry": {
+            "fps": {"n":4,"min":29.99571489812711,"median":29.997143129183222,"max":29.997143129396054},
+            "p95": {"n":4,"min":33.5,"median":33.5,"max":34},
+            "maxGap": {"n":4,"min":33.69999998807907,"median":34.04999999701977,"max":35.79999998211861}
+          },
+          "geometryObservations": {
+            "observationsPerSecond": {"n":4,"min":29.99571489812711,"median":29.997143129183222,"max":29.997143129396054},
+            "p95GapMs": {"n":4,"min":33.599999994039536,"median":33.80000001192093,"max":34.099999994039536},
+            "maxGapMs": {"n":4,"min":33.80000001192093,"median":34.1000000089407,"max":35.69999998807907}
+          }
+        },
+        "static-hidden": {
+          "usableSamples": 4,
+          "errors": 0,
+          "nativeNominal": {
+            "fps": {"n":4,"min":59.985717686265176,"median":59.994286258366444,"max":60.46755225495465},
+            "p95": {"n":4,"min":16.700000000000273,"median":16.79999999999984,"max":16.800000000000182},
+            "maxGap": {"n":4,"min":16.799999999999955,"median":16.800000000000182,"max":16.800000000000182}
+          },
+          "nativeActual": {
+            "p95": {"n":4,"min":17.5,"median":17.5,"max":17.599999994039536},
+            "maxGap": {"n":4,"min":17.799999982118607,"median":17.950000002980232,"max":19.599999994039536}
+          },
+          "acceptedAppNominal": {
+            "fps": {"n":4,"min":29.992858843132588,"median":29.99642901354875,"max":29.997143129396054},
+            "p95": {"n":4,"min":33.40000000000009,"median":33.40000000000009,"max":33.40000000000009},
+            "maxGap": {"n":4,"min":33.40000000000009,"median":33.40000000000009,"max":33.5}
+          },
+          "acceptedAppPerformanceAtEntry": {
+            "fps": {"n":4,"min":29.992858843132588,"median":29.99642901354875,"max":29.997143129396054},
+            "p95": {"n":4,"min":33.5,"median":33.5,"max":33.5},
+            "maxGap": {"n":4,"min":33.5,"median":33.80000001192093,"max":34.19999998807907}
+          },
+          "geometryObservations": {
+            "observationsPerSecond": {"n":4,"min":29.992858843132588,"median":29.99642901354875,"max":29.997143129396054},
+            "p95GapMs": {"n":4,"min":33.60000002384186,"median":33.74999998509884,"max":33.89999997615814},
+            "maxGapMs": {"n":4,"min":33.80000001192093,"median":33.95000000298023,"max":35.599999994039536}
+          }
+        },
+        "world-hidden": {
+          "usableSamples": 4,
+          "errors": 0,
+          "nativeNominal": {
+            "fps": {"n":4,"min":59.99142979625422,"median":59.99428625879211,"max":59.99714299336108},
+            "p95": {"n":4,"min":16.700000000000273,"median":16.700000000000273,"max":16.799999999999955},
+            "maxGap": {"n":4,"min":16.799999999999955,"median":16.800000000000182,"max":16.800000000000182}
+          },
+          "nativeActual": {
+            "p95": {"n":4,"min":17.5,"median":17.599999994039536,"max":17.799999982118607},
+            "maxGap": {"n":4,"min":18.399999976158142,"median":18.5,"max":21.5}
+          },
+          "acceptedAppNominal": {
+            "fps": {"n":4,"min":29.99571489812711,"median":29.997143129396054,"max":29.99857149668054},
+            "p95": {"n":4,"min":33.40000000000009,"median":33.40000000000009,"max":33.40000000000009},
+            "maxGap": {"n":4,"min":33.40000000000009,"median":33.40000000000009,"max":33.5}
+          },
+          "acceptedAppPerformanceAtEntry": {
+            "fps": {"n":4,"min":29.99571489812711,"median":29.997143129396054,"max":29.99857149668054},
+            "p95": {"n":4,"min":33.599999994039536,"median":33.599999994039536,"max":33.69999998807907},
+            "maxGap": {"n":4,"min":34,"median":34.20000000298023,"max":34.30000001192093}
+          },
+          "geometryObservations": {
+            "observationsPerSecond": {"n":4,"min":29.99571489812711,"median":29.997143129396054,"max":29.99857149668054},
+            "p95GapMs": {"n":4,"min":33.70000001788139,"median":33.79999999701977,"max":33.900000005960464},
+            "maxGapMs": {"n":4,"min":33.900000005960464,"median":34.25,"max":35.099999994039536}
+          }
+        }
+      },
+      "pairedRounds": [
+        {
+          "round": 0,
+          "fullMinusBlankNativeActualP95Ms": 0.7999999821186066,
+          "staticHiddenMinusFull": {"nativeActualP95Ms":-0.19999998807907104,"geometryP95Ms":0.19999995827674866},
+          "worldHiddenMinusFull": {"nativeActualP95Ms":0.09999999403953552,"geometryP95Ms":0.09999999403953552}
+        },
+        {
+          "round": 1,
+          "fullMinusBlankNativeActualP95Ms": 0.9000000059604645,
+          "staticHiddenMinusFull": {"nativeActualP95Ms":-0.10000002384185791,"geometryP95Ms":-0.10000002384185791},
+          "worldHiddenMinusFull": {"nativeActualP95Ms":-0.10000002384185791,"geometryP95Ms":0}
+        },
+        {
+          "round": 2,
+          "fullMinusBlankNativeActualP95Ms": 0.9000000059604645,
+          "staticHiddenMinusFull": {"nativeActualP95Ms":-0.20000001788139343,"geometryP95Ms":-0.4999999701976776},
+          "worldHiddenMinusFull": {"nativeActualP95Ms":-0.20000001788139343,"geometryP95Ms":-0.3999999761581421}
+        },
+        {
+          "round": 3,
+          "fullMinusBlankNativeActualP95Ms": 0.699999988079071,
+          "staticHiddenMinusFull": {"nativeActualP95Ms":0,"geometryP95Ms":0.09999999403953552},
+          "worldHiddenMinusFull": {"nativeActualP95Ms":0.09999999403953552,"geometryP95Ms":0.19999998807907104}
+        }
+      ],
+      "errors": []
+    },
+    {
+      "identity": {
+        "platform": "linux",
+        "arch": "x64",
+        "node": "v24.19.0",
+        "browser": "chromium",
+        "browserVersion": "151.0.7922.34",
+        "profile": "linux-chromium-immersive-normal",
+        "lowPower": false,
+        "view": "immersive",
+        "viewport": {"width":1280,"height":720},
+        "dpr": 2,
+        "channel": "default",
+        "headless": true,
+        "modeEntry": "direct-normal",
+        "gitSHA": "171fe5543f61277b0beb22c3712776ea1474051c",
+        "diagnosticDigest": "38aaf1f2719fe43c819005aaf1b0df3098e86f28978a88260d2444b4f34b1c3d",
+        "planDigest": "118d4f51712dfb8bbffca42bf30ea08d9cfe9e5c5b600d8c113577e4a5bbd777",
+        "helperDigest": "1d30900bac964615c28e073df16c659d2e8dc4fbcf9b81019b8a6858dfd579be"
+      },
+      "completeness": {
+        "expectedRepeats": 4,
+        "expectedRecords": 16,
+        "presentRecords": 16,
+        "missingKeys": [],
+        "duplicateKeys": []
+      },
+      "conditions": {
+        "blank": {
+          "usableSamples": 4,
+          "errors": 0,
+          "nativeNominal": {
+            "fps": {"n":4,"min":60.464673395372124,"median":60.46755225452564,"max":60.473310794895696},
+            "p95": {"n":4,"min":16.700000000000273,"median":16.75,"max":16.799999999999955},
+            "maxGap": {"n":4,"min":16.800000000000182,"median":16.800000000000182,"max":16.800000000000182}
+          },
+          "nativeActual": {
+            "p95": {"n":4,"min":16.799999982118607,"median":16.80000001192093,"max":16.899999976158142},
+            "maxGap": {"n":4,"min":16.80000001192093,"median":17,"max":17.5}
+          },
+          "acceptedAppNominal": {
+            "fps": {"n":0,"min":null,"median":null,"max":null},
+            "p95": {"n":0,"min":null,"median":null,"max":null},
+            "maxGap": {"n":0,"min":null,"median":null,"max":null}
+          },
+          "acceptedAppPerformanceAtEntry": {
+            "fps": {"n":0,"min":null,"median":null,"max":null},
+            "p95": {"n":0,"min":null,"median":null,"max":null},
+            "maxGap": {"n":0,"min":null,"median":null,"max":null}
+          },
+          "geometryObservations": {
+            "observationsPerSecond": {"n":0,"min":null,"median":null,"max":null},
+            "p95GapMs": {"n":0,"min":null,"median":null,"max":null},
+            "maxGapMs": {"n":0,"min":null,"median":null,"max":null}
+          }
+        },
+        "full": {
+          "usableSamples": 4,
+          "errors": 0,
+          "nativeNominal": {
+            "fps": {"n":4,"min":59.99428625794078,"median":59.994286258366444,"max":59.99714299336108},
+            "p95": {"n":4,"min":16.700000000000273,"median":16.799999999999727,"max":16.799999999999727},
+            "maxGap": {"n":4,"min":16.800000000000182,"median":16.800000000000182,"max":16.800000000000182}
+          },
+          "nativeActual": {
+            "p95": {"n":4,"min":17,"median":17.150000005960464,"max":17.30000001192093},
+            "maxGap": {"n":4,"min":17.899999976158142,"median":18.350000008940697,"max":19.099999994039536}
+          },
+          "acceptedAppNominal": {
+            "fps": {"n":4,"min":59.99428625794078,"median":59.994286258366444,"max":59.99714299336108},
+            "p95": {"n":4,"min":16.700000000000273,"median":16.799999999999727,"max":16.799999999999727},
+            "maxGap": {"n":4,"min":16.800000000000182,"median":16.800000000000182,"max":16.800000000000182}
+          },
+          "acceptedAppPerformanceAtEntry": {
+            "fps": {"n":4,"min":59.99428625794078,"median":59.994286258366444,"max":59.99714299336108},
+            "p95": {"n":4,"min":16.80000001192093,"median":16.900000005960464,"max":17},
+            "maxGap": {"n":4,"min":17.30000001192093,"median":18.150000005960464,"max":18.899999976158142}
+          },
+          "geometryObservations": {
+            "observationsPerSecond": {"n":4,"min":61.89886677406588,"median":61.89886677450506,"max":61.90181419949953},
+            "p95GapMs": {"n":4,"min":17,"median":17.299999997019768,"max":17.399999976158142},
+            "maxGapMs": {"n":4,"min":18.100000023841858,"median":18.649999991059303,"max":19.099999994039536}
+          }
+        },
+        "static-hidden": {
+          "usableSamples": 4,
+          "errors": 0,
+          "nativeNominal": {
+            "fps": {"n":4,"min":59.52097519182647,"median":59.99428625879211,"max":60.44452905638013},
+            "p95": {"n":4,"min":16.700000000000273,"median":16.799999999999727,"max":16.799999999999955},
+            "maxGap": {"n":4,"min":16.800000000000182,"median":16.800000000000182,"max":33.299999999999955}
+          },
+          "nativeActual": {
+            "p95": {"n":4,"min":17,"median":17.100000008940697,"max":17.900000005960464},
+            "maxGap": {"n":4,"min":17.5,"median":18.850000008940697,"max":29.200000017881393}
+          },
+          "acceptedAppNominal": {
+            "fps": {"n":4,"min":59.52097519182647,"median":59.99428625879211,"max":60.44452905638013},
+            "p95": {"n":4,"min":16.700000000000273,"median":16.799999999999727,"max":16.799999999999955},
+            "maxGap": {"n":4,"min":16.800000000000182,"median":16.800000000000182,"max":33.299999999999955}
+          },
+          "acceptedAppPerformanceAtEntry": {
+            "fps": {"n":4,"min":59.52097519182647,"median":59.99428625879211,"max":60.44452905638013},
+            "p95": {"n":4,"min":16.80000001192093,"median":17,"max":17.099999994039536},
+            "maxGap": {"n":4,"min":17,"median":18.700000002980232,"max":29.5}
+          },
+          "geometryObservations": {
+            "observationsPerSecond": {"n":4,"min":61.42564639796492,"median":61.89886677494424,"max":62.348293751069264},
+            "p95GapMs": {"n":4,"min":17.099999994039536,"median":17.200000002980232,"max":17.900000005960464},
+            "maxGapMs": {"n":4,"min":18.5,"median":19.150000005960464,"max":29.200000017881393}
+          }
+        },
+        "world-hidden": {
+          "usableSamples": 4,
+          "errors": 0,
+          "nativeNominal": {
+            "fps": {"n":4,"min":59.99428625794078,"median":59.99428625879211,"max":59.99714299336108},
+            "p95": {"n":4,"min":16.700000000000273,"median":16.75,"max":16.799999999999955},
+            "maxGap": {"n":4,"min":16.800000000000182,"median":16.800000000000182,"max":16.800000000000182}
+          },
+          "nativeActual": {
+            "p95": {"n":4,"min":16.900000005960464,"median":17.100000008940697,"max":17.200000017881393},
+            "maxGap": {"n":4,"min":17.599999994039536,"median":18.5,"max":19}
+          },
+          "acceptedAppNominal": {
+            "fps": {"n":4,"min":59.99428625794078,"median":59.99428625879211,"max":59.99714299336108},
+            "p95": {"n":4,"min":16.700000000000273,"median":16.75,"max":16.799999999999955},
+            "maxGap": {"n":4,"min":16.800000000000182,"median":16.800000000000182,"max":16.800000000000182}
+          },
+          "acceptedAppPerformanceAtEntry": {
+            "fps": {"n":4,"min":59.99428625794078,"median":59.99428625879211,"max":59.99714299336108},
+            "p95": {"n":4,"min":16.899999976158142,"median":16.899999991059303,"max":17},
+            "maxGap": {"n":4,"min":17.099999994039536,"median":18.5,"max":18.69999998807907}
+          },
+          "geometryObservations": {
+            "observationsPerSecond": {"n":4,"min":60.9494785964303,"median":61.89886677450506,"max":61.89886677494424},
+            "p95GapMs": {"n":4,"min":17.099999994039536,"median":17.200000002980232,"max":17.599999994039536},
+            "maxGapMs": {"n":4,"min":17.599999994039536,"median":18.75,"max":20.19999998807907}
+          }
+        }
+      },
+      "pairedRounds": [
+        {
+          "round": 0,
+          "fullMinusBlankNativeActualP95Ms": 0.19999998807907104,
+          "staticHiddenMinusFull": {"nativeActualP95Ms":0.20000001788139343,"geometryP95Ms":0.20000001788139343},
+          "worldHiddenMinusFull": {"nativeActualP95Ms":0.20000001788139343,"geometryP95Ms":0.5999999940395355}
+        },
+        {
+          "round": 1,
+          "fullMinusBlankNativeActualP95Ms": 0.30000004172325134,
+          "staticHiddenMinusFull": {"nativeActualP95Ms":0.7999999821186066,"geometryP95Ms":0.699999988079071},
+          "worldHiddenMinusFull": {"nativeActualP95Ms":-0.10000002384185791,"geometryP95Ms":-0.09999999403953552}
+        },
+        {
+          "round": 2,
+          "fullMinusBlankNativeActualP95Ms": 0.30000001192092896,
+          "staticHiddenMinusFull": {"nativeActualP95Ms":-0.19999998807907104,"geometryP95Ms":-0.29999998211860657},
+          "worldHiddenMinusFull": {"nativeActualP95Ms":2.9802322387695312e-08,"geometryP95Ms":-0.09999999403953552}
+        },
+        {
+          "round": 3,
+          "fullMinusBlankNativeActualP95Ms": 0.5,
+          "staticHiddenMinusFull": {"nativeActualP95Ms":-0.30000001192092896,"geometryP95Ms":-0.19999998807907104},
+          "worldHiddenMinusFull": {"nativeActualP95Ms":-0.4000000059604645,"geometryP95Ms":-0.29999998211860657}
+        }
+      ],
+      "errors": []
+    }
+  ],
+  "records": [
+    {
+      "source": "tools/little-orbit/design/evidence/motion-controls-local-171fe55-2026-10-31.jsonl",
+      "line": 1,
+      "traceID": "21e5ac7cc0f212daf019b43f5e5266dd0c45d249bc0e92b68bc53fc9a828476d",
+      "identity": {
+        "platform": "linux",
+        "arch": "x64",
+        "node": "v24.19.0",
+        "browser": "firefox",
+        "browserVersion": "153.0",
+        "profile": "windows-firefox-dashboard-normal",
+        "lowPower": false,
+        "view": "dashboard",
+        "viewport": {"width":854,"height":480},
+        "dpr": 1,
+        "channel": "default",
+        "headless": true,
+        "modeEntry": "direct-normal",
+        "gitSHA": "171fe5543f61277b0beb22c3712776ea1474051c",
+        "diagnosticDigest": "38aaf1f2719fe43c819005aaf1b0df3098e86f28978a88260d2444b4f34b1c3d",
+        "planDigest": "118d4f51712dfb8bbffca42bf30ea08d9cfe9e5c5b600d8c113577e4a5bbd777",
+        "helperDigest": "1d30900bac964615c28e073df16c659d2e8dc4fbcf9b81019b8a6858dfd579be"
+      },
+      "condition": "blank",
+      "round": 0,
+      "position": 0,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "source": "tools/little-orbit/design/evidence/motion-controls-local-171fe55-2026-10-31.jsonl",
+      "line": 2,
+      "traceID": "df2b546ea774e0203e5a1c3ca2788cb5ad9d3bb0bcf536580556b8cc2d2f4c0e",
+      "identity": {
+        "platform": "linux",
+        "arch": "x64",
+        "node": "v24.19.0",
+        "browser": "firefox",
+        "browserVersion": "153.0",
+        "profile": "windows-firefox-dashboard-normal",
+        "lowPower": false,
+        "view": "dashboard",
+        "viewport": {"width":854,"height":480},
+        "dpr": 1,
+        "channel": "default",
+        "headless": true,
+        "modeEntry": "direct-normal",
+        "gitSHA": "171fe5543f61277b0beb22c3712776ea1474051c",
+        "diagnosticDigest": "38aaf1f2719fe43c819005aaf1b0df3098e86f28978a88260d2444b4f34b1c3d",
+        "planDigest": "118d4f51712dfb8bbffca42bf30ea08d9cfe9e5c5b600d8c113577e4a5bbd777",
+        "helperDigest": "1d30900bac964615c28e073df16c659d2e8dc4fbcf9b81019b8a6858dfd579be"
+      },
+      "condition": "full",
+      "round": 0,
+      "position": 1,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "source": "tools/little-orbit/design/evidence/motion-controls-local-171fe55-2026-10-31.jsonl",
+      "line": 3,
+      "traceID": "89c4f4edf01a2b2ce3effddd21371e34095510c3ba07a23decc401baec996e45",
+      "identity": {
+        "platform": "linux",
+        "arch": "x64",
+        "node": "v24.19.0",
+        "browser": "firefox",
+        "browserVersion": "153.0",
+        "profile": "windows-firefox-dashboard-normal",
+        "lowPower": false,
+        "view": "dashboard",
+        "viewport": {"width":854,"height":480},
+        "dpr": 1,
+        "channel": "default",
+        "headless": true,
+        "modeEntry": "direct-normal",
+        "gitSHA": "171fe5543f61277b0beb22c3712776ea1474051c",
+        "diagnosticDigest": "38aaf1f2719fe43c819005aaf1b0df3098e86f28978a88260d2444b4f34b1c3d",
+        "planDigest": "118d4f51712dfb8bbffca42bf30ea08d9cfe9e5c5b600d8c113577e4a5bbd777",
+        "helperDigest": "1d30900bac964615c28e073df16c659d2e8dc4fbcf9b81019b8a6858dfd579be"
+      },
+      "condition": "world-hidden",
+      "round": 0,
+      "position": 2,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "source": "tools/little-orbit/design/evidence/motion-controls-local-171fe55-2026-10-31.jsonl",
+      "line": 4,
+      "traceID": "d62b6ed37e41ca2aa4dd7b44280a4f7cda99d6a36b19fc9b7f533ba11a7a73ca",
+      "identity": {
+        "platform": "linux",
+        "arch": "x64",
+        "node": "v24.19.0",
+        "browser": "firefox",
+        "browserVersion": "153.0",
+        "profile": "windows-firefox-dashboard-normal",
+        "lowPower": false,
+        "view": "dashboard",
+        "viewport": {"width":854,"height":480},
+        "dpr": 1,
+        "channel": "default",
+        "headless": true,
+        "modeEntry": "direct-normal",
+        "gitSHA": "171fe5543f61277b0beb22c3712776ea1474051c",
+        "diagnosticDigest": "38aaf1f2719fe43c819005aaf1b0df3098e86f28978a88260d2444b4f34b1c3d",
+        "planDigest": "118d4f51712dfb8bbffca42bf30ea08d9cfe9e5c5b600d8c113577e4a5bbd777",
+        "helperDigest": "1d30900bac964615c28e073df16c659d2e8dc4fbcf9b81019b8a6858dfd579be"
+      },
+      "condition": "static-hidden",
+      "round": 0,
+      "position": 3,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "source": "tools/little-orbit/design/evidence/motion-controls-local-171fe55-2026-10-31.jsonl",
+      "line": 5,
+      "traceID": "16b7566beb5bd27ac25f4f4e30ae4c6f7e8764902d034f5d6f7f5e6f0b08e50a",
+      "identity": {
+        "platform": "linux",
+        "arch": "x64",
+        "node": "v24.19.0",
+        "browser": "firefox",
+        "browserVersion": "153.0",
+        "profile": "windows-firefox-dashboard-normal",
+        "lowPower": false,
+        "view": "dashboard",
+        "viewport": {"width":854,"height":480},
+        "dpr": 1,
+        "channel": "default",
+        "headless": true,
+        "modeEntry": "direct-normal",
+        "gitSHA": "171fe5543f61277b0beb22c3712776ea1474051c",
+        "diagnosticDigest": "38aaf1f2719fe43c819005aaf1b0df3098e86f28978a88260d2444b4f34b1c3d",
+        "planDigest": "118d4f51712dfb8bbffca42bf30ea08d9cfe9e5c5b600d8c113577e4a5bbd777",
+        "helperDigest": "1d30900bac964615c28e073df16c659d2e8dc4fbcf9b81019b8a6858dfd579be"
+      },
+      "condition": "full",
+      "round": 1,
+      "position": 0,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "source": "tools/little-orbit/design/evidence/motion-controls-local-171fe55-2026-10-31.jsonl",
+      "line": 6,
+      "traceID": "04c04018dd80baf2171dee6dfb00a71feefdb1ed6811a30cd37b466f71f87fcd",
+      "identity": {
+        "platform": "linux",
+        "arch": "x64",
+        "node": "v24.19.0",
+        "browser": "firefox",
+        "browserVersion": "153.0",
+        "profile": "windows-firefox-dashboard-normal",
+        "lowPower": false,
+        "view": "dashboard",
+        "viewport": {"width":854,"height":480},
+        "dpr": 1,
+        "channel": "default",
+        "headless": true,
+        "modeEntry": "direct-normal",
+        "gitSHA": "171fe5543f61277b0beb22c3712776ea1474051c",
+        "diagnosticDigest": "38aaf1f2719fe43c819005aaf1b0df3098e86f28978a88260d2444b4f34b1c3d",
+        "planDigest": "118d4f51712dfb8bbffca42bf30ea08d9cfe9e5c5b600d8c113577e4a5bbd777",
+        "helperDigest": "1d30900bac964615c28e073df16c659d2e8dc4fbcf9b81019b8a6858dfd579be"
+      },
+      "condition": "static-hidden",
+      "round": 1,
+      "position": 1,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "source": "tools/little-orbit/design/evidence/motion-controls-local-171fe55-2026-10-31.jsonl",
+      "line": 7,
+      "traceID": "950c70b561a2c01ede48101888b2332959bc45e1e1858991b04bc7f6d0239721",
+      "identity": {
+        "platform": "linux",
+        "arch": "x64",
+        "node": "v24.19.0",
+        "browser": "firefox",
+        "browserVersion": "153.0",
+        "profile": "windows-firefox-dashboard-normal",
+        "lowPower": false,
+        "view": "dashboard",
+        "viewport": {"width":854,"height":480},
+        "dpr": 1,
+        "channel": "default",
+        "headless": true,
+        "modeEntry": "direct-normal",
+        "gitSHA": "171fe5543f61277b0beb22c3712776ea1474051c",
+        "diagnosticDigest": "38aaf1f2719fe43c819005aaf1b0df3098e86f28978a88260d2444b4f34b1c3d",
+        "planDigest": "118d4f51712dfb8bbffca42bf30ea08d9cfe9e5c5b600d8c113577e4a5bbd777",
+        "helperDigest": "1d30900bac964615c28e073df16c659d2e8dc4fbcf9b81019b8a6858dfd579be"
+      },
+      "condition": "blank",
+      "round": 1,
+      "position": 2,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "source": "tools/little-orbit/design/evidence/motion-controls-local-171fe55-2026-10-31.jsonl",
+      "line": 8,
+      "traceID": "881126900e33254db7ad2a51a748906891c03d36e207c3b4d5d5c87f0b6ea88f",
+      "identity": {
+        "platform": "linux",
+        "arch": "x64",
+        "node": "v24.19.0",
+        "browser": "firefox",
+        "browserVersion": "153.0",
+        "profile": "windows-firefox-dashboard-normal",
+        "lowPower": false,
+        "view": "dashboard",
+        "viewport": {"width":854,"height":480},
+        "dpr": 1,
+        "channel": "default",
+        "headless": true,
+        "modeEntry": "direct-normal",
+        "gitSHA": "171fe5543f61277b0beb22c3712776ea1474051c",
+        "diagnosticDigest": "38aaf1f2719fe43c819005aaf1b0df3098e86f28978a88260d2444b4f34b1c3d",
+        "planDigest": "118d4f51712dfb8bbffca42bf30ea08d9cfe9e5c5b600d8c113577e4a5bbd777",
+        "helperDigest": "1d30900bac964615c28e073df16c659d2e8dc4fbcf9b81019b8a6858dfd579be"
+      },
+      "condition": "world-hidden",
+      "round": 1,
+      "position": 3,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "source": "tools/little-orbit/design/evidence/motion-controls-local-171fe55-2026-10-31.jsonl",
+      "line": 9,
+      "traceID": "e67fcc8c389e0da5497916d7c31aaf6802cc1f1c8a076a504a1b901f67d4e70e",
+      "identity": {
+        "platform": "linux",
+        "arch": "x64",
+        "node": "v24.19.0",
+        "browser": "firefox",
+        "browserVersion": "153.0",
+        "profile": "windows-firefox-dashboard-normal",
+        "lowPower": false,
+        "view": "dashboard",
+        "viewport": {"width":854,"height":480},
+        "dpr": 1,
+        "channel": "default",
+        "headless": true,
+        "modeEntry": "direct-normal",
+        "gitSHA": "171fe5543f61277b0beb22c3712776ea1474051c",
+        "diagnosticDigest": "38aaf1f2719fe43c819005aaf1b0df3098e86f28978a88260d2444b4f34b1c3d",
+        "planDigest": "118d4f51712dfb8bbffca42bf30ea08d9cfe9e5c5b600d8c113577e4a5bbd777",
+        "helperDigest": "1d30900bac964615c28e073df16c659d2e8dc4fbcf9b81019b8a6858dfd579be"
+      },
+      "condition": "static-hidden",
+      "round": 2,
+      "position": 0,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "source": "tools/little-orbit/design/evidence/motion-controls-local-171fe55-2026-10-31.jsonl",
+      "line": 10,
+      "traceID": "d2bb543cbea2b29c95640e799be8cad86c028200af1d401cfd9243f556e36b07",
+      "identity": {
+        "platform": "linux",
+        "arch": "x64",
+        "node": "v24.19.0",
+        "browser": "firefox",
+        "browserVersion": "153.0",
+        "profile": "windows-firefox-dashboard-normal",
+        "lowPower": false,
+        "view": "dashboard",
+        "viewport": {"width":854,"height":480},
+        "dpr": 1,
+        "channel": "default",
+        "headless": true,
+        "modeEntry": "direct-normal",
+        "gitSHA": "171fe5543f61277b0beb22c3712776ea1474051c",
+        "diagnosticDigest": "38aaf1f2719fe43c819005aaf1b0df3098e86f28978a88260d2444b4f34b1c3d",
+        "planDigest": "118d4f51712dfb8bbffca42bf30ea08d9cfe9e5c5b600d8c113577e4a5bbd777",
+        "helperDigest": "1d30900bac964615c28e073df16c659d2e8dc4fbcf9b81019b8a6858dfd579be"
+      },
+      "condition": "world-hidden",
+      "round": 2,
+      "position": 1,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "source": "tools/little-orbit/design/evidence/motion-controls-local-171fe55-2026-10-31.jsonl",
+      "line": 11,
+      "traceID": "9265b5b0106daaaf41125f090bcfaf7a3857fef2b7e16c51e61b7e8f12fb014d",
+      "identity": {
+        "platform": "linux",
+        "arch": "x64",
+        "node": "v24.19.0",
+        "browser": "firefox",
+        "browserVersion": "153.0",
+        "profile": "windows-firefox-dashboard-normal",
+        "lowPower": false,
+        "view": "dashboard",
+        "viewport": {"width":854,"height":480},
+        "dpr": 1,
+        "channel": "default",
+        "headless": true,
+        "modeEntry": "direct-normal",
+        "gitSHA": "171fe5543f61277b0beb22c3712776ea1474051c",
+        "diagnosticDigest": "38aaf1f2719fe43c819005aaf1b0df3098e86f28978a88260d2444b4f34b1c3d",
+        "planDigest": "118d4f51712dfb8bbffca42bf30ea08d9cfe9e5c5b600d8c113577e4a5bbd777",
+        "helperDigest": "1d30900bac964615c28e073df16c659d2e8dc4fbcf9b81019b8a6858dfd579be"
+      },
+      "condition": "full",
+      "round": 2,
+      "position": 2,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "source": "tools/little-orbit/design/evidence/motion-controls-local-171fe55-2026-10-31.jsonl",
+      "line": 12,
+      "traceID": "7205da495f69570ca7b9d67980da00a655d9a40f621513490b6b924c0081e0c0",
+      "identity": {
+        "platform": "linux",
+        "arch": "x64",
+        "node": "v24.19.0",
+        "browser": "firefox",
+        "browserVersion": "153.0",
+        "profile": "windows-firefox-dashboard-normal",
+        "lowPower": false,
+        "view": "dashboard",
+        "viewport": {"width":854,"height":480},
+        "dpr": 1,
+        "channel": "default",
+        "headless": true,
+        "modeEntry": "direct-normal",
+        "gitSHA": "171fe5543f61277b0beb22c3712776ea1474051c",
+        "diagnosticDigest": "38aaf1f2719fe43c819005aaf1b0df3098e86f28978a88260d2444b4f34b1c3d",
+        "planDigest": "118d4f51712dfb8bbffca42bf30ea08d9cfe9e5c5b600d8c113577e4a5bbd777",
+        "helperDigest": "1d30900bac964615c28e073df16c659d2e8dc4fbcf9b81019b8a6858dfd579be"
+      },
+      "condition": "blank",
+      "round": 2,
+      "position": 3,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "source": "tools/little-orbit/design/evidence/motion-controls-local-171fe55-2026-10-31.jsonl",
+      "line": 13,
+      "traceID": "878f233c51bc0e4a6f12cdc20a6a8395359f8b56c9af95fb2301392fa5fed241",
+      "identity": {
+        "platform": "linux",
+        "arch": "x64",
+        "node": "v24.19.0",
+        "browser": "firefox",
+        "browserVersion": "153.0",
+        "profile": "windows-firefox-dashboard-normal",
+        "lowPower": false,
+        "view": "dashboard",
+        "viewport": {"width":854,"height":480},
+        "dpr": 1,
+        "channel": "default",
+        "headless": true,
+        "modeEntry": "direct-normal",
+        "gitSHA": "171fe5543f61277b0beb22c3712776ea1474051c",
+        "diagnosticDigest": "38aaf1f2719fe43c819005aaf1b0df3098e86f28978a88260d2444b4f34b1c3d",
+        "planDigest": "118d4f51712dfb8bbffca42bf30ea08d9cfe9e5c5b600d8c113577e4a5bbd777",
+        "helperDigest": "1d30900bac964615c28e073df16c659d2e8dc4fbcf9b81019b8a6858dfd579be"
+      },
+      "condition": "world-hidden",
+      "round": 3,
+      "position": 0,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "source": "tools/little-orbit/design/evidence/motion-controls-local-171fe55-2026-10-31.jsonl",
+      "line": 14,
+      "traceID": "8d4c3d477c2154c60364673028edb0678f88f1e5ea59f9e98a5697aedecd94fe",
+      "identity": {
+        "platform": "linux",
+        "arch": "x64",
+        "node": "v24.19.0",
+        "browser": "firefox",
+        "browserVersion": "153.0",
+        "profile": "windows-firefox-dashboard-normal",
+        "lowPower": false,
+        "view": "dashboard",
+        "viewport": {"width":854,"height":480},
+        "dpr": 1,
+        "channel": "default",
+        "headless": true,
+        "modeEntry": "direct-normal",
+        "gitSHA": "171fe5543f61277b0beb22c3712776ea1474051c",
+        "diagnosticDigest": "38aaf1f2719fe43c819005aaf1b0df3098e86f28978a88260d2444b4f34b1c3d",
+        "planDigest": "118d4f51712dfb8bbffca42bf30ea08d9cfe9e5c5b600d8c113577e4a5bbd777",
+        "helperDigest": "1d30900bac964615c28e073df16c659d2e8dc4fbcf9b81019b8a6858dfd579be"
+      },
+      "condition": "blank",
+      "round": 3,
+      "position": 1,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "source": "tools/little-orbit/design/evidence/motion-controls-local-171fe55-2026-10-31.jsonl",
+      "line": 15,
+      "traceID": "bf3e0e56a06ccd53e9a08985be758df2df4c8660786e98cf6a9aa698a89cb6a7",
+      "identity": {
+        "platform": "linux",
+        "arch": "x64",
+        "node": "v24.19.0",
+        "browser": "firefox",
+        "browserVersion": "153.0",
+        "profile": "windows-firefox-dashboard-normal",
+        "lowPower": false,
+        "view": "dashboard",
+        "viewport": {"width":854,"height":480},
+        "dpr": 1,
+        "channel": "default",
+        "headless": true,
+        "modeEntry": "direct-normal",
+        "gitSHA": "171fe5543f61277b0beb22c3712776ea1474051c",
+        "diagnosticDigest": "38aaf1f2719fe43c819005aaf1b0df3098e86f28978a88260d2444b4f34b1c3d",
+        "planDigest": "118d4f51712dfb8bbffca42bf30ea08d9cfe9e5c5b600d8c113577e4a5bbd777",
+        "helperDigest": "1d30900bac964615c28e073df16c659d2e8dc4fbcf9b81019b8a6858dfd579be"
+      },
+      "condition": "static-hidden",
+      "round": 3,
+      "position": 2,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "source": "tools/little-orbit/design/evidence/motion-controls-local-171fe55-2026-10-31.jsonl",
+      "line": 16,
+      "traceID": "3495d36d34bdac6195d18933c91078a4a37a5849c26caa2a1d03a0a566f95b86",
+      "identity": {
+        "platform": "linux",
+        "arch": "x64",
+        "node": "v24.19.0",
+        "browser": "firefox",
+        "browserVersion": "153.0",
+        "profile": "windows-firefox-dashboard-normal",
+        "lowPower": false,
+        "view": "dashboard",
+        "viewport": {"width":854,"height":480},
+        "dpr": 1,
+        "channel": "default",
+        "headless": true,
+        "modeEntry": "direct-normal",
+        "gitSHA": "171fe5543f61277b0beb22c3712776ea1474051c",
+        "diagnosticDigest": "38aaf1f2719fe43c819005aaf1b0df3098e86f28978a88260d2444b4f34b1c3d",
+        "planDigest": "118d4f51712dfb8bbffca42bf30ea08d9cfe9e5c5b600d8c113577e4a5bbd777",
+        "helperDigest": "1d30900bac964615c28e073df16c659d2e8dc4fbcf9b81019b8a6858dfd579be"
+      },
+      "condition": "full",
+      "round": 3,
+      "position": 3,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "source": "tools/little-orbit/design/evidence/motion-controls-local-171fe55-2026-10-31.jsonl",
+      "line": 17,
+      "traceID": "89b0e8c33168c2b971ba92165c1f9ca152771442b4c4dac9c5c10adaf6334241",
+      "identity": {
+        "platform": "linux",
+        "arch": "x64",
+        "node": "v24.19.0",
+        "browser": "chromium",
+        "browserVersion": "151.0.7922.34",
+        "profile": "macos-chromium-dashboard-low",
+        "lowPower": true,
+        "view": "dashboard",
+        "viewport": {"width":854,"height":480},
+        "dpr": 1,
+        "channel": "default",
+        "headless": true,
+        "modeEntry": "direct-low-power",
+        "gitSHA": "171fe5543f61277b0beb22c3712776ea1474051c",
+        "diagnosticDigest": "38aaf1f2719fe43c819005aaf1b0df3098e86f28978a88260d2444b4f34b1c3d",
+        "planDigest": "118d4f51712dfb8bbffca42bf30ea08d9cfe9e5c5b600d8c113577e4a5bbd777",
+        "helperDigest": "1d30900bac964615c28e073df16c659d2e8dc4fbcf9b81019b8a6858dfd579be"
+      },
+      "condition": "blank",
+      "round": 0,
+      "position": 0,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "source": "tools/little-orbit/design/evidence/motion-controls-local-171fe55-2026-10-31.jsonl",
+      "line": 18,
+      "traceID": "c20f31e1a50224b7c99c06e61ac3174c8f51a7cee7725bebc34c622a37e8c075",
+      "identity": {
+        "platform": "linux",
+        "arch": "x64",
+        "node": "v24.19.0",
+        "browser": "chromium",
+        "browserVersion": "151.0.7922.34",
+        "profile": "macos-chromium-dashboard-low",
+        "lowPower": true,
+        "view": "dashboard",
+        "viewport": {"width":854,"height":480},
+        "dpr": 1,
+        "channel": "default",
+        "headless": true,
+        "modeEntry": "direct-low-power",
+        "gitSHA": "171fe5543f61277b0beb22c3712776ea1474051c",
+        "diagnosticDigest": "38aaf1f2719fe43c819005aaf1b0df3098e86f28978a88260d2444b4f34b1c3d",
+        "planDigest": "118d4f51712dfb8bbffca42bf30ea08d9cfe9e5c5b600d8c113577e4a5bbd777",
+        "helperDigest": "1d30900bac964615c28e073df16c659d2e8dc4fbcf9b81019b8a6858dfd579be"
+      },
+      "condition": "full",
+      "round": 0,
+      "position": 1,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "source": "tools/little-orbit/design/evidence/motion-controls-local-171fe55-2026-10-31.jsonl",
+      "line": 19,
+      "traceID": "7510fa070a0811df8734abaf2fc86d1ab631b580e76de8fae5f11ec4e362221d",
+      "identity": {
+        "platform": "linux",
+        "arch": "x64",
+        "node": "v24.19.0",
+        "browser": "chromium",
+        "browserVersion": "151.0.7922.34",
+        "profile": "macos-chromium-dashboard-low",
+        "lowPower": true,
+        "view": "dashboard",
+        "viewport": {"width":854,"height":480},
+        "dpr": 1,
+        "channel": "default",
+        "headless": true,
+        "modeEntry": "direct-low-power",
+        "gitSHA": "171fe5543f61277b0beb22c3712776ea1474051c",
+        "diagnosticDigest": "38aaf1f2719fe43c819005aaf1b0df3098e86f28978a88260d2444b4f34b1c3d",
+        "planDigest": "118d4f51712dfb8bbffca42bf30ea08d9cfe9e5c5b600d8c113577e4a5bbd777",
+        "helperDigest": "1d30900bac964615c28e073df16c659d2e8dc4fbcf9b81019b8a6858dfd579be"
+      },
+      "condition": "world-hidden",
+      "round": 0,
+      "position": 2,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "source": "tools/little-orbit/design/evidence/motion-controls-local-171fe55-2026-10-31.jsonl",
+      "line": 20,
+      "traceID": "4918ad6af8c0e545df7ce757703191c5bf097986b74fbeec9adf886e00f1a37e",
+      "identity": {
+        "platform": "linux",
+        "arch": "x64",
+        "node": "v24.19.0",
+        "browser": "chromium",
+        "browserVersion": "151.0.7922.34",
+        "profile": "macos-chromium-dashboard-low",
+        "lowPower": true,
+        "view": "dashboard",
+        "viewport": {"width":854,"height":480},
+        "dpr": 1,
+        "channel": "default",
+        "headless": true,
+        "modeEntry": "direct-low-power",
+        "gitSHA": "171fe5543f61277b0beb22c3712776ea1474051c",
+        "diagnosticDigest": "38aaf1f2719fe43c819005aaf1b0df3098e86f28978a88260d2444b4f34b1c3d",
+        "planDigest": "118d4f51712dfb8bbffca42bf30ea08d9cfe9e5c5b600d8c113577e4a5bbd777",
+        "helperDigest": "1d30900bac964615c28e073df16c659d2e8dc4fbcf9b81019b8a6858dfd579be"
+      },
+      "condition": "static-hidden",
+      "round": 0,
+      "position": 3,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "source": "tools/little-orbit/design/evidence/motion-controls-local-171fe55-2026-10-31.jsonl",
+      "line": 21,
+      "traceID": "0c665cb045a435965fcb332e2c7f6a8e208800df83498201657c260eb014c293",
+      "identity": {
+        "platform": "linux",
+        "arch": "x64",
+        "node": "v24.19.0",
+        "browser": "chromium",
+        "browserVersion": "151.0.7922.34",
+        "profile": "macos-chromium-dashboard-low",
+        "lowPower": true,
+        "view": "dashboard",
+        "viewport": {"width":854,"height":480},
+        "dpr": 1,
+        "channel": "default",
+        "headless": true,
+        "modeEntry": "direct-low-power",
+        "gitSHA": "171fe5543f61277b0beb22c3712776ea1474051c",
+        "diagnosticDigest": "38aaf1f2719fe43c819005aaf1b0df3098e86f28978a88260d2444b4f34b1c3d",
+        "planDigest": "118d4f51712dfb8bbffca42bf30ea08d9cfe9e5c5b600d8c113577e4a5bbd777",
+        "helperDigest": "1d30900bac964615c28e073df16c659d2e8dc4fbcf9b81019b8a6858dfd579be"
+      },
+      "condition": "full",
+      "round": 1,
+      "position": 0,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "source": "tools/little-orbit/design/evidence/motion-controls-local-171fe55-2026-10-31.jsonl",
+      "line": 22,
+      "traceID": "376f82dcd7bf645e1c2d0d8d2d89670612b7a24138e8d2a46a7a2d993942e276",
+      "identity": {
+        "platform": "linux",
+        "arch": "x64",
+        "node": "v24.19.0",
+        "browser": "chromium",
+        "browserVersion": "151.0.7922.34",
+        "profile": "macos-chromium-dashboard-low",
+        "lowPower": true,
+        "view": "dashboard",
+        "viewport": {"width":854,"height":480},
+        "dpr": 1,
+        "channel": "default",
+        "headless": true,
+        "modeEntry": "direct-low-power",
+        "gitSHA": "171fe5543f61277b0beb22c3712776ea1474051c",
+        "diagnosticDigest": "38aaf1f2719fe43c819005aaf1b0df3098e86f28978a88260d2444b4f34b1c3d",
+        "planDigest": "118d4f51712dfb8bbffca42bf30ea08d9cfe9e5c5b600d8c113577e4a5bbd777",
+        "helperDigest": "1d30900bac964615c28e073df16c659d2e8dc4fbcf9b81019b8a6858dfd579be"
+      },
+      "condition": "static-hidden",
+      "round": 1,
+      "position": 1,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "source": "tools/little-orbit/design/evidence/motion-controls-local-171fe55-2026-10-31.jsonl",
+      "line": 23,
+      "traceID": "45d8e5abbe28d8121f3b239a803ec3f50d154de77eb927dd498900957f4c1a8f",
+      "identity": {
+        "platform": "linux",
+        "arch": "x64",
+        "node": "v24.19.0",
+        "browser": "chromium",
+        "browserVersion": "151.0.7922.34",
+        "profile": "macos-chromium-dashboard-low",
+        "lowPower": true,
+        "view": "dashboard",
+        "viewport": {"width":854,"height":480},
+        "dpr": 1,
+        "channel": "default",
+        "headless": true,
+        "modeEntry": "direct-low-power",
+        "gitSHA": "171fe5543f61277b0beb22c3712776ea1474051c",
+        "diagnosticDigest": "38aaf1f2719fe43c819005aaf1b0df3098e86f28978a88260d2444b4f34b1c3d",
+        "planDigest": "118d4f51712dfb8bbffca42bf30ea08d9cfe9e5c5b600d8c113577e4a5bbd777",
+        "helperDigest": "1d30900bac964615c28e073df16c659d2e8dc4fbcf9b81019b8a6858dfd579be"
+      },
+      "condition": "blank",
+      "round": 1,
+      "position": 2,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "source": "tools/little-orbit/design/evidence/motion-controls-local-171fe55-2026-10-31.jsonl",
+      "line": 24,
+      "traceID": "2b3dbbd5df898bc22ce5e66f5463ca3da42c429aa73dda753065893732281fe6",
+      "identity": {
+        "platform": "linux",
+        "arch": "x64",
+        "node": "v24.19.0",
+        "browser": "chromium",
+        "browserVersion": "151.0.7922.34",
+        "profile": "macos-chromium-dashboard-low",
+        "lowPower": true,
+        "view": "dashboard",
+        "viewport": {"width":854,"height":480},
+        "dpr": 1,
+        "channel": "default",
+        "headless": true,
+        "modeEntry": "direct-low-power",
+        "gitSHA": "171fe5543f61277b0beb22c3712776ea1474051c",
+        "diagnosticDigest": "38aaf1f2719fe43c819005aaf1b0df3098e86f28978a88260d2444b4f34b1c3d",
+        "planDigest": "118d4f51712dfb8bbffca42bf30ea08d9cfe9e5c5b600d8c113577e4a5bbd777",
+        "helperDigest": "1d30900bac964615c28e073df16c659d2e8dc4fbcf9b81019b8a6858dfd579be"
+      },
+      "condition": "world-hidden",
+      "round": 1,
+      "position": 3,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "source": "tools/little-orbit/design/evidence/motion-controls-local-171fe55-2026-10-31.jsonl",
+      "line": 25,
+      "traceID": "fd44807e3b0a227f7722b579c7dec77c3317d4e5e4bb419b973fa645a5c5c143",
+      "identity": {
+        "platform": "linux",
+        "arch": "x64",
+        "node": "v24.19.0",
+        "browser": "chromium",
+        "browserVersion": "151.0.7922.34",
+        "profile": "macos-chromium-dashboard-low",
+        "lowPower": true,
+        "view": "dashboard",
+        "viewport": {"width":854,"height":480},
+        "dpr": 1,
+        "channel": "default",
+        "headless": true,
+        "modeEntry": "direct-low-power",
+        "gitSHA": "171fe5543f61277b0beb22c3712776ea1474051c",
+        "diagnosticDigest": "38aaf1f2719fe43c819005aaf1b0df3098e86f28978a88260d2444b4f34b1c3d",
+        "planDigest": "118d4f51712dfb8bbffca42bf30ea08d9cfe9e5c5b600d8c113577e4a5bbd777",
+        "helperDigest": "1d30900bac964615c28e073df16c659d2e8dc4fbcf9b81019b8a6858dfd579be"
+      },
+      "condition": "static-hidden",
+      "round": 2,
+      "position": 0,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "source": "tools/little-orbit/design/evidence/motion-controls-local-171fe55-2026-10-31.jsonl",
+      "line": 26,
+      "traceID": "a90eafe97cf09dd0966d0aa79a86d5110a1040fd7c1df941088f7429a3e4e26f",
+      "identity": {
+        "platform": "linux",
+        "arch": "x64",
+        "node": "v24.19.0",
+        "browser": "chromium",
+        "browserVersion": "151.0.7922.34",
+        "profile": "macos-chromium-dashboard-low",
+        "lowPower": true,
+        "view": "dashboard",
+        "viewport": {"width":854,"height":480},
+        "dpr": 1,
+        "channel": "default",
+        "headless": true,
+        "modeEntry": "direct-low-power",
+        "gitSHA": "171fe5543f61277b0beb22c3712776ea1474051c",
+        "diagnosticDigest": "38aaf1f2719fe43c819005aaf1b0df3098e86f28978a88260d2444b4f34b1c3d",
+        "planDigest": "118d4f51712dfb8bbffca42bf30ea08d9cfe9e5c5b600d8c113577e4a5bbd777",
+        "helperDigest": "1d30900bac964615c28e073df16c659d2e8dc4fbcf9b81019b8a6858dfd579be"
+      },
+      "condition": "world-hidden",
+      "round": 2,
+      "position": 1,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "source": "tools/little-orbit/design/evidence/motion-controls-local-171fe55-2026-10-31.jsonl",
+      "line": 27,
+      "traceID": "539349c6b78b00229cefc34d2d1eaa3757dc2664b045938a2297e5d1987d522a",
+      "identity": {
+        "platform": "linux",
+        "arch": "x64",
+        "node": "v24.19.0",
+        "browser": "chromium",
+        "browserVersion": "151.0.7922.34",
+        "profile": "macos-chromium-dashboard-low",
+        "lowPower": true,
+        "view": "dashboard",
+        "viewport": {"width":854,"height":480},
+        "dpr": 1,
+        "channel": "default",
+        "headless": true,
+        "modeEntry": "direct-low-power",
+        "gitSHA": "171fe5543f61277b0beb22c3712776ea1474051c",
+        "diagnosticDigest": "38aaf1f2719fe43c819005aaf1b0df3098e86f28978a88260d2444b4f34b1c3d",
+        "planDigest": "118d4f51712dfb8bbffca42bf30ea08d9cfe9e5c5b600d8c113577e4a5bbd777",
+        "helperDigest": "1d30900bac964615c28e073df16c659d2e8dc4fbcf9b81019b8a6858dfd579be"
+      },
+      "condition": "full",
+      "round": 2,
+      "position": 2,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "source": "tools/little-orbit/design/evidence/motion-controls-local-171fe55-2026-10-31.jsonl",
+      "line": 28,
+      "traceID": "047713583621dab23d24f296bf1848858e884feeb7699daab495ce6911c885c3",
+      "identity": {
+        "platform": "linux",
+        "arch": "x64",
+        "node": "v24.19.0",
+        "browser": "chromium",
+        "browserVersion": "151.0.7922.34",
+        "profile": "macos-chromium-dashboard-low",
+        "lowPower": true,
+        "view": "dashboard",
+        "viewport": {"width":854,"height":480},
+        "dpr": 1,
+        "channel": "default",
+        "headless": true,
+        "modeEntry": "direct-low-power",
+        "gitSHA": "171fe5543f61277b0beb22c3712776ea1474051c",
+        "diagnosticDigest": "38aaf1f2719fe43c819005aaf1b0df3098e86f28978a88260d2444b4f34b1c3d",
+        "planDigest": "118d4f51712dfb8bbffca42bf30ea08d9cfe9e5c5b600d8c113577e4a5bbd777",
+        "helperDigest": "1d30900bac964615c28e073df16c659d2e8dc4fbcf9b81019b8a6858dfd579be"
+      },
+      "condition": "blank",
+      "round": 2,
+      "position": 3,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "source": "tools/little-orbit/design/evidence/motion-controls-local-171fe55-2026-10-31.jsonl",
+      "line": 29,
+      "traceID": "c5e454c6c24e84ceec106bd40b34486b33e8e4b0002618b053ea5bbce250bd1b",
+      "identity": {
+        "platform": "linux",
+        "arch": "x64",
+        "node": "v24.19.0",
+        "browser": "chromium",
+        "browserVersion": "151.0.7922.34",
+        "profile": "macos-chromium-dashboard-low",
+        "lowPower": true,
+        "view": "dashboard",
+        "viewport": {"width":854,"height":480},
+        "dpr": 1,
+        "channel": "default",
+        "headless": true,
+        "modeEntry": "direct-low-power",
+        "gitSHA": "171fe5543f61277b0beb22c3712776ea1474051c",
+        "diagnosticDigest": "38aaf1f2719fe43c819005aaf1b0df3098e86f28978a88260d2444b4f34b1c3d",
+        "planDigest": "118d4f51712dfb8bbffca42bf30ea08d9cfe9e5c5b600d8c113577e4a5bbd777",
+        "helperDigest": "1d30900bac964615c28e073df16c659d2e8dc4fbcf9b81019b8a6858dfd579be"
+      },
+      "condition": "world-hidden",
+      "round": 3,
+      "position": 0,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "source": "tools/little-orbit/design/evidence/motion-controls-local-171fe55-2026-10-31.jsonl",
+      "line": 30,
+      "traceID": "e001b102c5cf5642e5a654c9026ba9e366d7138cf7a7d9dc8e4601bc122b9573",
+      "identity": {
+        "platform": "linux",
+        "arch": "x64",
+        "node": "v24.19.0",
+        "browser": "chromium",
+        "browserVersion": "151.0.7922.34",
+        "profile": "macos-chromium-dashboard-low",
+        "lowPower": true,
+        "view": "dashboard",
+        "viewport": {"width":854,"height":480},
+        "dpr": 1,
+        "channel": "default",
+        "headless": true,
+        "modeEntry": "direct-low-power",
+        "gitSHA": "171fe5543f61277b0beb22c3712776ea1474051c",
+        "diagnosticDigest": "38aaf1f2719fe43c819005aaf1b0df3098e86f28978a88260d2444b4f34b1c3d",
+        "planDigest": "118d4f51712dfb8bbffca42bf30ea08d9cfe9e5c5b600d8c113577e4a5bbd777",
+        "helperDigest": "1d30900bac964615c28e073df16c659d2e8dc4fbcf9b81019b8a6858dfd579be"
+      },
+      "condition": "blank",
+      "round": 3,
+      "position": 1,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "source": "tools/little-orbit/design/evidence/motion-controls-local-171fe55-2026-10-31.jsonl",
+      "line": 31,
+      "traceID": "462c9ea349951206bfc6a1680dbf9a11a64fc15d4129a8ad5f26c1b72fa70790",
+      "identity": {
+        "platform": "linux",
+        "arch": "x64",
+        "node": "v24.19.0",
+        "browser": "chromium",
+        "browserVersion": "151.0.7922.34",
+        "profile": "macos-chromium-dashboard-low",
+        "lowPower": true,
+        "view": "dashboard",
+        "viewport": {"width":854,"height":480},
+        "dpr": 1,
+        "channel": "default",
+        "headless": true,
+        "modeEntry": "direct-low-power",
+        "gitSHA": "171fe5543f61277b0beb22c3712776ea1474051c",
+        "diagnosticDigest": "38aaf1f2719fe43c819005aaf1b0df3098e86f28978a88260d2444b4f34b1c3d",
+        "planDigest": "118d4f51712dfb8bbffca42bf30ea08d9cfe9e5c5b600d8c113577e4a5bbd777",
+        "helperDigest": "1d30900bac964615c28e073df16c659d2e8dc4fbcf9b81019b8a6858dfd579be"
+      },
+      "condition": "static-hidden",
+      "round": 3,
+      "position": 2,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "source": "tools/little-orbit/design/evidence/motion-controls-local-171fe55-2026-10-31.jsonl",
+      "line": 32,
+      "traceID": "ec86c11adc191a6dd771a025711ab22af2de835d8c4ed3fac93229fc2f5b075a",
+      "identity": {
+        "platform": "linux",
+        "arch": "x64",
+        "node": "v24.19.0",
+        "browser": "chromium",
+        "browserVersion": "151.0.7922.34",
+        "profile": "macos-chromium-dashboard-low",
+        "lowPower": true,
+        "view": "dashboard",
+        "viewport": {"width":854,"height":480},
+        "dpr": 1,
+        "channel": "default",
+        "headless": true,
+        "modeEntry": "direct-low-power",
+        "gitSHA": "171fe5543f61277b0beb22c3712776ea1474051c",
+        "diagnosticDigest": "38aaf1f2719fe43c819005aaf1b0df3098e86f28978a88260d2444b4f34b1c3d",
+        "planDigest": "118d4f51712dfb8bbffca42bf30ea08d9cfe9e5c5b600d8c113577e4a5bbd777",
+        "helperDigest": "1d30900bac964615c28e073df16c659d2e8dc4fbcf9b81019b8a6858dfd579be"
+      },
+      "condition": "full",
+      "round": 3,
+      "position": 3,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "source": "tools/little-orbit/design/evidence/motion-controls-local-171fe55-2026-10-31.jsonl",
+      "line": 33,
+      "traceID": "86121bcfc40d29a101c4f374c54ddf5d8c02ea4fcb62dd6aad350f9746e473e0",
+      "identity": {
+        "platform": "linux",
+        "arch": "x64",
+        "node": "v24.19.0",
+        "browser": "chromium",
+        "browserVersion": "151.0.7922.34",
+        "profile": "linux-chromium-immersive-normal",
+        "lowPower": false,
+        "view": "immersive",
+        "viewport": {"width":1280,"height":720},
+        "dpr": 2,
+        "channel": "default",
+        "headless": true,
+        "modeEntry": "direct-normal",
+        "gitSHA": "171fe5543f61277b0beb22c3712776ea1474051c",
+        "diagnosticDigest": "38aaf1f2719fe43c819005aaf1b0df3098e86f28978a88260d2444b4f34b1c3d",
+        "planDigest": "118d4f51712dfb8bbffca42bf30ea08d9cfe9e5c5b600d8c113577e4a5bbd777",
+        "helperDigest": "1d30900bac964615c28e073df16c659d2e8dc4fbcf9b81019b8a6858dfd579be"
+      },
+      "condition": "blank",
+      "round": 0,
+      "position": 0,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "source": "tools/little-orbit/design/evidence/motion-controls-local-171fe55-2026-10-31.jsonl",
+      "line": 34,
+      "traceID": "3dd0455587cd83f0e5ee4b730579143483f8e4741044e00012cf45ac5d7c228a",
+      "identity": {
+        "platform": "linux",
+        "arch": "x64",
+        "node": "v24.19.0",
+        "browser": "chromium",
+        "browserVersion": "151.0.7922.34",
+        "profile": "linux-chromium-immersive-normal",
+        "lowPower": false,
+        "view": "immersive",
+        "viewport": {"width":1280,"height":720},
+        "dpr": 2,
+        "channel": "default",
+        "headless": true,
+        "modeEntry": "direct-normal",
+        "gitSHA": "171fe5543f61277b0beb22c3712776ea1474051c",
+        "diagnosticDigest": "38aaf1f2719fe43c819005aaf1b0df3098e86f28978a88260d2444b4f34b1c3d",
+        "planDigest": "118d4f51712dfb8bbffca42bf30ea08d9cfe9e5c5b600d8c113577e4a5bbd777",
+        "helperDigest": "1d30900bac964615c28e073df16c659d2e8dc4fbcf9b81019b8a6858dfd579be"
+      },
+      "condition": "full",
+      "round": 0,
+      "position": 1,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "source": "tools/little-orbit/design/evidence/motion-controls-local-171fe55-2026-10-31.jsonl",
+      "line": 35,
+      "traceID": "ce93826e4058a80329dcc97f2dabefa36f2bee1924e0ec920d12371c0f0e07cf",
+      "identity": {
+        "platform": "linux",
+        "arch": "x64",
+        "node": "v24.19.0",
+        "browser": "chromium",
+        "browserVersion": "151.0.7922.34",
+        "profile": "linux-chromium-immersive-normal",
+        "lowPower": false,
+        "view": "immersive",
+        "viewport": {"width":1280,"height":720},
+        "dpr": 2,
+        "channel": "default",
+        "headless": true,
+        "modeEntry": "direct-normal",
+        "gitSHA": "171fe5543f61277b0beb22c3712776ea1474051c",
+        "diagnosticDigest": "38aaf1f2719fe43c819005aaf1b0df3098e86f28978a88260d2444b4f34b1c3d",
+        "planDigest": "118d4f51712dfb8bbffca42bf30ea08d9cfe9e5c5b600d8c113577e4a5bbd777",
+        "helperDigest": "1d30900bac964615c28e073df16c659d2e8dc4fbcf9b81019b8a6858dfd579be"
+      },
+      "condition": "world-hidden",
+      "round": 0,
+      "position": 2,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "source": "tools/little-orbit/design/evidence/motion-controls-local-171fe55-2026-10-31.jsonl",
+      "line": 36,
+      "traceID": "5a43d7840414684ec046ec63d719c7c7176ca75dec3389b338eb72f76f0a88ff",
+      "identity": {
+        "platform": "linux",
+        "arch": "x64",
+        "node": "v24.19.0",
+        "browser": "chromium",
+        "browserVersion": "151.0.7922.34",
+        "profile": "linux-chromium-immersive-normal",
+        "lowPower": false,
+        "view": "immersive",
+        "viewport": {"width":1280,"height":720},
+        "dpr": 2,
+        "channel": "default",
+        "headless": true,
+        "modeEntry": "direct-normal",
+        "gitSHA": "171fe5543f61277b0beb22c3712776ea1474051c",
+        "diagnosticDigest": "38aaf1f2719fe43c819005aaf1b0df3098e86f28978a88260d2444b4f34b1c3d",
+        "planDigest": "118d4f51712dfb8bbffca42bf30ea08d9cfe9e5c5b600d8c113577e4a5bbd777",
+        "helperDigest": "1d30900bac964615c28e073df16c659d2e8dc4fbcf9b81019b8a6858dfd579be"
+      },
+      "condition": "static-hidden",
+      "round": 0,
+      "position": 3,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "source": "tools/little-orbit/design/evidence/motion-controls-local-171fe55-2026-10-31.jsonl",
+      "line": 37,
+      "traceID": "27b7e1cbcceed3f4aaaddc491e88b18496e392fe781be6b8554f25e2f03870f8",
+      "identity": {
+        "platform": "linux",
+        "arch": "x64",
+        "node": "v24.19.0",
+        "browser": "chromium",
+        "browserVersion": "151.0.7922.34",
+        "profile": "linux-chromium-immersive-normal",
+        "lowPower": false,
+        "view": "immersive",
+        "viewport": {"width":1280,"height":720},
+        "dpr": 2,
+        "channel": "default",
+        "headless": true,
+        "modeEntry": "direct-normal",
+        "gitSHA": "171fe5543f61277b0beb22c3712776ea1474051c",
+        "diagnosticDigest": "38aaf1f2719fe43c819005aaf1b0df3098e86f28978a88260d2444b4f34b1c3d",
+        "planDigest": "118d4f51712dfb8bbffca42bf30ea08d9cfe9e5c5b600d8c113577e4a5bbd777",
+        "helperDigest": "1d30900bac964615c28e073df16c659d2e8dc4fbcf9b81019b8a6858dfd579be"
+      },
+      "condition": "full",
+      "round": 1,
+      "position": 0,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "source": "tools/little-orbit/design/evidence/motion-controls-local-171fe55-2026-10-31.jsonl",
+      "line": 38,
+      "traceID": "653cc98d86608f5896c4f81fc1068b26118409e251c328bf38249c97e7ec7df0",
+      "identity": {
+        "platform": "linux",
+        "arch": "x64",
+        "node": "v24.19.0",
+        "browser": "chromium",
+        "browserVersion": "151.0.7922.34",
+        "profile": "linux-chromium-immersive-normal",
+        "lowPower": false,
+        "view": "immersive",
+        "viewport": {"width":1280,"height":720},
+        "dpr": 2,
+        "channel": "default",
+        "headless": true,
+        "modeEntry": "direct-normal",
+        "gitSHA": "171fe5543f61277b0beb22c3712776ea1474051c",
+        "diagnosticDigest": "38aaf1f2719fe43c819005aaf1b0df3098e86f28978a88260d2444b4f34b1c3d",
+        "planDigest": "118d4f51712dfb8bbffca42bf30ea08d9cfe9e5c5b600d8c113577e4a5bbd777",
+        "helperDigest": "1d30900bac964615c28e073df16c659d2e8dc4fbcf9b81019b8a6858dfd579be"
+      },
+      "condition": "static-hidden",
+      "round": 1,
+      "position": 1,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "source": "tools/little-orbit/design/evidence/motion-controls-local-171fe55-2026-10-31.jsonl",
+      "line": 39,
+      "traceID": "8b4aff02346b64c2ec003b4ba6fa276b53d9834796e0d393471a6174b39940f6",
+      "identity": {
+        "platform": "linux",
+        "arch": "x64",
+        "node": "v24.19.0",
+        "browser": "chromium",
+        "browserVersion": "151.0.7922.34",
+        "profile": "linux-chromium-immersive-normal",
+        "lowPower": false,
+        "view": "immersive",
+        "viewport": {"width":1280,"height":720},
+        "dpr": 2,
+        "channel": "default",
+        "headless": true,
+        "modeEntry": "direct-normal",
+        "gitSHA": "171fe5543f61277b0beb22c3712776ea1474051c",
+        "diagnosticDigest": "38aaf1f2719fe43c819005aaf1b0df3098e86f28978a88260d2444b4f34b1c3d",
+        "planDigest": "118d4f51712dfb8bbffca42bf30ea08d9cfe9e5c5b600d8c113577e4a5bbd777",
+        "helperDigest": "1d30900bac964615c28e073df16c659d2e8dc4fbcf9b81019b8a6858dfd579be"
+      },
+      "condition": "blank",
+      "round": 1,
+      "position": 2,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "source": "tools/little-orbit/design/evidence/motion-controls-local-171fe55-2026-10-31.jsonl",
+      "line": 40,
+      "traceID": "df8a79eaa1fca30b8c46c0e2da53f78813165a5e8534892ac226d65235ebe4b9",
+      "identity": {
+        "platform": "linux",
+        "arch": "x64",
+        "node": "v24.19.0",
+        "browser": "chromium",
+        "browserVersion": "151.0.7922.34",
+        "profile": "linux-chromium-immersive-normal",
+        "lowPower": false,
+        "view": "immersive",
+        "viewport": {"width":1280,"height":720},
+        "dpr": 2,
+        "channel": "default",
+        "headless": true,
+        "modeEntry": "direct-normal",
+        "gitSHA": "171fe5543f61277b0beb22c3712776ea1474051c",
+        "diagnosticDigest": "38aaf1f2719fe43c819005aaf1b0df3098e86f28978a88260d2444b4f34b1c3d",
+        "planDigest": "118d4f51712dfb8bbffca42bf30ea08d9cfe9e5c5b600d8c113577e4a5bbd777",
+        "helperDigest": "1d30900bac964615c28e073df16c659d2e8dc4fbcf9b81019b8a6858dfd579be"
+      },
+      "condition": "world-hidden",
+      "round": 1,
+      "position": 3,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "source": "tools/little-orbit/design/evidence/motion-controls-local-171fe55-2026-10-31.jsonl",
+      "line": 41,
+      "traceID": "138ee8c54c3468e85d85cb787c5020cc7764f9e74ae8b1b78c31ffe858f0bb34",
+      "identity": {
+        "platform": "linux",
+        "arch": "x64",
+        "node": "v24.19.0",
+        "browser": "chromium",
+        "browserVersion": "151.0.7922.34",
+        "profile": "linux-chromium-immersive-normal",
+        "lowPower": false,
+        "view": "immersive",
+        "viewport": {"width":1280,"height":720},
+        "dpr": 2,
+        "channel": "default",
+        "headless": true,
+        "modeEntry": "direct-normal",
+        "gitSHA": "171fe5543f61277b0beb22c3712776ea1474051c",
+        "diagnosticDigest": "38aaf1f2719fe43c819005aaf1b0df3098e86f28978a88260d2444b4f34b1c3d",
+        "planDigest": "118d4f51712dfb8bbffca42bf30ea08d9cfe9e5c5b600d8c113577e4a5bbd777",
+        "helperDigest": "1d30900bac964615c28e073df16c659d2e8dc4fbcf9b81019b8a6858dfd579be"
+      },
+      "condition": "static-hidden",
+      "round": 2,
+      "position": 0,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "source": "tools/little-orbit/design/evidence/motion-controls-local-171fe55-2026-10-31.jsonl",
+      "line": 42,
+      "traceID": "69ddc05ee051bd9e0b91467aa0cb653a8715cabcd629d72f7c34e9176394193f",
+      "identity": {
+        "platform": "linux",
+        "arch": "x64",
+        "node": "v24.19.0",
+        "browser": "chromium",
+        "browserVersion": "151.0.7922.34",
+        "profile": "linux-chromium-immersive-normal",
+        "lowPower": false,
+        "view": "immersive",
+        "viewport": {"width":1280,"height":720},
+        "dpr": 2,
+        "channel": "default",
+        "headless": true,
+        "modeEntry": "direct-normal",
+        "gitSHA": "171fe5543f61277b0beb22c3712776ea1474051c",
+        "diagnosticDigest": "38aaf1f2719fe43c819005aaf1b0df3098e86f28978a88260d2444b4f34b1c3d",
+        "planDigest": "118d4f51712dfb8bbffca42bf30ea08d9cfe9e5c5b600d8c113577e4a5bbd777",
+        "helperDigest": "1d30900bac964615c28e073df16c659d2e8dc4fbcf9b81019b8a6858dfd579be"
+      },
+      "condition": "world-hidden",
+      "round": 2,
+      "position": 1,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "source": "tools/little-orbit/design/evidence/motion-controls-local-171fe55-2026-10-31.jsonl",
+      "line": 43,
+      "traceID": "725e1b687e480f14da88aeccfdec6d3ba16c81f68d781b541a3f38ceee3965be",
+      "identity": {
+        "platform": "linux",
+        "arch": "x64",
+        "node": "v24.19.0",
+        "browser": "chromium",
+        "browserVersion": "151.0.7922.34",
+        "profile": "linux-chromium-immersive-normal",
+        "lowPower": false,
+        "view": "immersive",
+        "viewport": {"width":1280,"height":720},
+        "dpr": 2,
+        "channel": "default",
+        "headless": true,
+        "modeEntry": "direct-normal",
+        "gitSHA": "171fe5543f61277b0beb22c3712776ea1474051c",
+        "diagnosticDigest": "38aaf1f2719fe43c819005aaf1b0df3098e86f28978a88260d2444b4f34b1c3d",
+        "planDigest": "118d4f51712dfb8bbffca42bf30ea08d9cfe9e5c5b600d8c113577e4a5bbd777",
+        "helperDigest": "1d30900bac964615c28e073df16c659d2e8dc4fbcf9b81019b8a6858dfd579be"
+      },
+      "condition": "full",
+      "round": 2,
+      "position": 2,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "source": "tools/little-orbit/design/evidence/motion-controls-local-171fe55-2026-10-31.jsonl",
+      "line": 44,
+      "traceID": "ef446eb7fb9c966fb6095c881e1327efbb2dc18677aa440acecd592ba895ec97",
+      "identity": {
+        "platform": "linux",
+        "arch": "x64",
+        "node": "v24.19.0",
+        "browser": "chromium",
+        "browserVersion": "151.0.7922.34",
+        "profile": "linux-chromium-immersive-normal",
+        "lowPower": false,
+        "view": "immersive",
+        "viewport": {"width":1280,"height":720},
+        "dpr": 2,
+        "channel": "default",
+        "headless": true,
+        "modeEntry": "direct-normal",
+        "gitSHA": "171fe5543f61277b0beb22c3712776ea1474051c",
+        "diagnosticDigest": "38aaf1f2719fe43c819005aaf1b0df3098e86f28978a88260d2444b4f34b1c3d",
+        "planDigest": "118d4f51712dfb8bbffca42bf30ea08d9cfe9e5c5b600d8c113577e4a5bbd777",
+        "helperDigest": "1d30900bac964615c28e073df16c659d2e8dc4fbcf9b81019b8a6858dfd579be"
+      },
+      "condition": "blank",
+      "round": 2,
+      "position": 3,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "source": "tools/little-orbit/design/evidence/motion-controls-local-171fe55-2026-10-31.jsonl",
+      "line": 45,
+      "traceID": "426d02d13f7bce5661211400acff4052a56e8ec7843b46476e28ba0de758f177",
+      "identity": {
+        "platform": "linux",
+        "arch": "x64",
+        "node": "v24.19.0",
+        "browser": "chromium",
+        "browserVersion": "151.0.7922.34",
+        "profile": "linux-chromium-immersive-normal",
+        "lowPower": false,
+        "view": "immersive",
+        "viewport": {"width":1280,"height":720},
+        "dpr": 2,
+        "channel": "default",
+        "headless": true,
+        "modeEntry": "direct-normal",
+        "gitSHA": "171fe5543f61277b0beb22c3712776ea1474051c",
+        "diagnosticDigest": "38aaf1f2719fe43c819005aaf1b0df3098e86f28978a88260d2444b4f34b1c3d",
+        "planDigest": "118d4f51712dfb8bbffca42bf30ea08d9cfe9e5c5b600d8c113577e4a5bbd777",
+        "helperDigest": "1d30900bac964615c28e073df16c659d2e8dc4fbcf9b81019b8a6858dfd579be"
+      },
+      "condition": "world-hidden",
+      "round": 3,
+      "position": 0,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "source": "tools/little-orbit/design/evidence/motion-controls-local-171fe55-2026-10-31.jsonl",
+      "line": 46,
+      "traceID": "edbf40ea028db08eb3e34c1efc63cd51d6737bf8aeb188240bfaf69728af099b",
+      "identity": {
+        "platform": "linux",
+        "arch": "x64",
+        "node": "v24.19.0",
+        "browser": "chromium",
+        "browserVersion": "151.0.7922.34",
+        "profile": "linux-chromium-immersive-normal",
+        "lowPower": false,
+        "view": "immersive",
+        "viewport": {"width":1280,"height":720},
+        "dpr": 2,
+        "channel": "default",
+        "headless": true,
+        "modeEntry": "direct-normal",
+        "gitSHA": "171fe5543f61277b0beb22c3712776ea1474051c",
+        "diagnosticDigest": "38aaf1f2719fe43c819005aaf1b0df3098e86f28978a88260d2444b4f34b1c3d",
+        "planDigest": "118d4f51712dfb8bbffca42bf30ea08d9cfe9e5c5b600d8c113577e4a5bbd777",
+        "helperDigest": "1d30900bac964615c28e073df16c659d2e8dc4fbcf9b81019b8a6858dfd579be"
+      },
+      "condition": "blank",
+      "round": 3,
+      "position": 1,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "source": "tools/little-orbit/design/evidence/motion-controls-local-171fe55-2026-10-31.jsonl",
+      "line": 47,
+      "traceID": "674e75099d297a73802afe21f504ea7452bf1afed694cf28ec357a6b6c6e4d1a",
+      "identity": {
+        "platform": "linux",
+        "arch": "x64",
+        "node": "v24.19.0",
+        "browser": "chromium",
+        "browserVersion": "151.0.7922.34",
+        "profile": "linux-chromium-immersive-normal",
+        "lowPower": false,
+        "view": "immersive",
+        "viewport": {"width":1280,"height":720},
+        "dpr": 2,
+        "channel": "default",
+        "headless": true,
+        "modeEntry": "direct-normal",
+        "gitSHA": "171fe5543f61277b0beb22c3712776ea1474051c",
+        "diagnosticDigest": "38aaf1f2719fe43c819005aaf1b0df3098e86f28978a88260d2444b4f34b1c3d",
+        "planDigest": "118d4f51712dfb8bbffca42bf30ea08d9cfe9e5c5b600d8c113577e4a5bbd777",
+        "helperDigest": "1d30900bac964615c28e073df16c659d2e8dc4fbcf9b81019b8a6858dfd579be"
+      },
+      "condition": "static-hidden",
+      "round": 3,
+      "position": 2,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "source": "tools/little-orbit/design/evidence/motion-controls-local-171fe55-2026-10-31.jsonl",
+      "line": 48,
+      "traceID": "201fe59e8b50707afc1d1e5fac35228a632395218662b60a85060b2ec78f0eaa",
+      "identity": {
+        "platform": "linux",
+        "arch": "x64",
+        "node": "v24.19.0",
+        "browser": "chromium",
+        "browserVersion": "151.0.7922.34",
+        "profile": "linux-chromium-immersive-normal",
+        "lowPower": false,
+        "view": "immersive",
+        "viewport": {"width":1280,"height":720},
+        "dpr": 2,
+        "channel": "default",
+        "headless": true,
+        "modeEntry": "direct-normal",
+        "gitSHA": "171fe5543f61277b0beb22c3712776ea1474051c",
+        "diagnosticDigest": "38aaf1f2719fe43c819005aaf1b0df3098e86f28978a88260d2444b4f34b1c3d",
+        "planDigest": "118d4f51712dfb8bbffca42bf30ea08d9cfe9e5c5b600d8c113577e4a5bbd777",
+        "helperDigest": "1d30900bac964615c28e073df16c659d2e8dc4fbcf9b81019b8a6858dfd579be"
+      },
+      "condition": "full",
+      "round": 3,
+      "position": 3,
+      "errors": [],
+      "warnings": []
+    }
+  ],
+  "sampleErrors": [],
+  "validationErrors": [],
+  "warnings": []
+}
