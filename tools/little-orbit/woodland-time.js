@@ -18,7 +18,8 @@
  </svg><div class="woodland-caption"><span id="woodland-place"></span><span id="woodland-action"></span></div><p id="woodland-story"></p>`;
  get('display').insertBefore(scene,get('display').querySelector('.fact-panel'));
  const motion=typeof matchMedia==='function'?matchMedia('(prefers-reduced-motion: reduce)'):null;
- let timer=null,frame=null,lastFrame=0,lastMinute='',lastTerrain='',lastCast='',sizing=false,lastFit='',lastClock='';
+ let timer=null,frame=null,lastMinute='',lastTerrain='',lastCast='',sizing=false,lastFit='',lastClock='';
+ const cadence=DeskFrameCadence.create();
  let layout={width:800,height:360};
  const actors=[];
  // Small supported rock route, authored entirely within the foreground boulder.
@@ -219,9 +220,14 @@
    markup('woodland-work-sockets','<circle id="woodland-work-target" r="1.5" fill="#dac897"/>');const point=sample.project(sample.socket);attr('woodland-work-target','cx',point.x);attr('woodland-work-target','cy',point.y);
   }else markup('woodland-work-sockets','');
   attr('woodland-props','transform',sample.kind==='work'?sample.transform:'');
-  const lastTrail=get('woodland-numerals').querySelector('[data-index="3"] .woodland-trail');
-  const joint=lastTrail.getPointAtLength(lastTrail.getTotalLength()*.95),jointMatrix=get('woodland-world').getCTM().inverse().multiply(lastTrail.getCTM());
-  const trailJoint={x:jointMatrix.a*joint.x+jointMatrix.c*joint.y+jointMatrix.e,y:jointMatrix.b*joint.x+jointMatrix.d*joint.y+jointMatrix.f},primary=b.position;
+  const primary=b.position;
+  let trailJoint=null;
+  // The minute marker needs fresh trail geometry only while it is visible.
+  if(marker){
+   const lastTrail=get('woodland-numerals').querySelector('[data-index="3"] .woodland-trail');
+   const joint=lastTrail.getPointAtLength(lastTrail.getTotalLength()*.95),jointMatrix=get('woodland-world').getCTM().inverse().multiply(lastTrail.getCTM());
+   trailJoint={x:jointMatrix.a*joint.x+jointMatrix.c*joint.y+jointMatrix.e,y:jointMatrix.b*joint.x+jointMatrix.d*joint.y+jointMatrix.f};
+  }
   const travelPose=b.moving?blendRig(source.rig||DeskCharacters.pose(m.second>=prefs.display.companionInterval?m.action.role==='climbing'?'recover-climb':'rest':previous.hour<6?'sleep':previous.action.role==='climbing'?'recover-climb':'rest',0),journey.rig,ease(b.elapsed/.35)):DeskCharacters.pose(b.action,b.cycle,b);
   let leadPose=null;
   actors.forEach(({host,young},i)=>{
@@ -261,9 +267,7 @@
  function stop(){clearTimeout(timer);timer=null;if(frame!==null)cancelAnimationFrame(frame);frame=null;}
  function loop(now){
   frame=null;if(!visible())return;
-  const period=1000/30;
-  if(prefs.lowPower&&now-lastFrame<period-2){frame=requestAnimationFrame(loop);return;}
-  lastFrame=now;
+  if(!cadence.shouldDraw(now,!!prefs.lowPower)){frame=requestAnimationFrame(loop);return;}
   if(draw())frame=requestAnimationFrame(loop);
  }
  function schedule(){

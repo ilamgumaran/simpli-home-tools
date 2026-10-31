@@ -1,0 +1,127 @@
+{
+  "schemaVersion": 1,
+  "dateUTC": "2026-10-31",
+  "incompleteRun": {
+    "id": 41165345832,
+    "sourceRevision": "171fe5543f61277b0beb22c3712776ea1474051c",
+    "artifactRecovery": "403 backing host; no signed URL retained",
+    "limits": "Complete individual records only; incomplete/unbalanced subsets, not used for balanced conclusions",
+    "hosts": {
+      "macos-arm": {
+        "source": "GitHub check-run 124431604515 annotations",
+        "annotationCount": 41,
+        "traceIDs": 10,
+        "completeRecords": 6,
+        "incompleteRecords": 4,
+        "incomplete": [
+          {
+            "traceID": "957ba0fbef0f19ff0bfb35af43bffc5f94b1529d7ac3422e39f17367817fbd02",
+            "expectedChunks": 6,
+            "presentChunks": [1],
+            "missingChunks": [2,3,4,5,6],
+            "conflicts": []
+          },
+          {
+            "traceID": "c208f0d3b11e26446a8668b2dad3ad6c53acc9e6aa3822e7ff50c967d3411e52",
+            "expectedChunks": 5,
+            "presentChunks": [1,2,3,4],
+            "missingChunks": [5],
+            "conflicts": []
+          },
+          {
+            "traceID": "4b7a92f182cd30ef75fb7f1b31be63d796b6cbd83d2c51f26433140f069d99a1",
+            "expectedChunks": 6,
+            "presentChunks": [1,2,3,4],
+            "missingChunks": [5,6],
+            "conflicts": []
+          },
+          {
+            "traceID": "ebfe6fc782da04a8f5d7a6b83750a15d885cc97accc6c253d18d8ff469465b22",
+            "expectedChunks": 5,
+            "presentChunks": [1],
+            "missingChunks": [2,3,4,5],
+            "conflicts": []
+          }
+        ]
+      },
+      "macos-intel": {
+        "source": "GitHub check-run 124431604724 annotations",
+        "annotationCount": 40,
+        "traceIDs": 15,
+        "completeRecords": 11,
+        "incompleteRecords": 4,
+        "incomplete": [
+          {
+            "traceID": "32fd2b36594e94217a044f5fb08df277ebff01ba3173ef889b308e74eba6cb43",
+            "expectedChunks": 3,
+            "presentChunks": [1,2],
+            "missingChunks": [3],
+            "conflicts": []
+          },
+          {
+            "traceID": "efcf9b09b4c356a031936d72693296d464dbe62e76098a8c45d1ca51d1e1c429",
+            "expectedChunks": 4,
+            "presentChunks": [1,2,3],
+            "missingChunks": [4],
+            "conflicts": []
+          },
+          {
+            "traceID": "641fa27eae930f92b6270fd59c3ff500810cd99fb5fe12dfa80a5e3b70c96b2d",
+            "expectedChunks": 4,
+            "presentChunks": [1,2],
+            "missingChunks": [3,4],
+            "conflicts": []
+          },
+          {
+            "traceID": "b5d1ef4d6bd1c06e688a1c973f46145b40b4c3a081dfbeeb882039abadd68c03",
+            "expectedChunks": 4,
+            "presentChunks": [1],
+            "missingChunks": [2,3,4],
+            "conflicts": []
+          }
+        ]
+      },
+      "windows": {
+        "source": "GitHub check-run 124431604755 annotations",
+        "annotationCount": 40,
+        "traceIDs": 10,
+        "completeRecords": 8,
+        "incompleteRecords": 2,
+        "incomplete": [
+          {
+            "traceID": "22ef5248cbd1c0d4065fe10ec5d9dcc7718275f6d3ac302dac86eaee3bed43f1",
+            "expectedChunks": 5,
+            "presentChunks": [1,2,3],
+            "missingChunks": [4,5],
+            "conflicts": []
+          },
+          {
+            "traceID": "a7c25ad3a985830917a381c382838fc92c4b0e9ab2c791397d50a7986ed30337",
+            "expectedChunks": 5,
+            "presentChunks": [1,2,3],
+            "missingChunks": [4,5],
+            "conflicts": []
+          }
+        ]
+      }
+    }
+  },
+  "completeRun": {
+    "id": 41165879762,
+    "sourceRevision": "ef70fefc759d7d28b81140e8af4d2750d835029a",
+    "transport": "four lossless gzip batches per host; complete per-batch and per-record hashes validated",
+    "jobs": {"macos-arm":124433223994,"macos-intel":124433223862,"windows":124433223983},
+    "recordsPerHost": 16
+  },
+  "local": {"sourceRevision":"171fe5543f61277b0beb22c3712776ea1474051c","records":48,"actualPlatform":"linux","limits":"Profile target names do not imply local Windows/macOS testing"},
+  "analysis": "Group by actual platform/architecture, Node/browser versions, profile/mode/view/dimensions and source/helper identity. Descriptive four-sample ranges, not a statistical guarantee.",
+  "files": [
+    {"name":"motion-controls-ci-41165879762-macos-arm.jsonl","sha256":"d09dd20353c7d26a7d00d85a7b5214ad9c37bf77afc176ffc166e7aeb7971da8"},
+    {"name":"motion-controls-ci-41165879762-macos-intel.jsonl","sha256":"8a97916f738e21a11802d8b5b497762543488c48a79caeec7534aba6ddb35a92"},
+    {"name":"motion-controls-ci-41165879762-windows.jsonl","sha256":"22a5c19d05255ae7505872ecb36393c2884170039951609b4c628d12a383e4f2"},
+    {"name":"motion-controls-incomplete-41165345832-macos-arm.jsonl","sha256":"13c410a4ca0c94c3fbe0f0fce759204f37574153a38d66328a763e3977983e67"},
+    {"name":"motion-controls-incomplete-41165345832-macos-intel.jsonl","sha256":"4a99959a0898372261797ec9253f8760e86259d33a733b59312a2ca99721103b"},
+    {"name":"motion-controls-incomplete-41165345832-windows.jsonl","sha256":"914c72d2b156c64cb5dc875503d67b7fc9280101abe2833b050516b2d902298c"},
+    {"name":"motion-controls-local-171fe55-2026-10-31.jsonl","sha256":"6b68debe5c876b1fa429c68db2443e758e1d724151c908d831180fd527639fe3"}
+  ]
+}

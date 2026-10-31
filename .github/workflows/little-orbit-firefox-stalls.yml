@@ -1,0 +1,93 @@
+name: Little Orbit Firefox stall profiles
+on:
+  push:
+    paths:
+      - 'tools/little-orbit/tests/diagnose-firefox-stalls.cjs'
+      - 'tools/little-orbit/tests/firefox-stall-*.cjs'
+      - 'tools/little-orbit/tests/analyze-firefox-stalls*.cjs'
+      - 'tools/little-orbit/tests/cadence-trace.cjs'
+      - '.github/workflows/little-orbit-firefox-stalls.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  firefox-stall-research:
+    runs-on: windows-latest
+    timeout-minutes: 15
+    defaults:
+      run:
+        working-directory: tools/little-orbit
+        shell: bash
+    steps:
+      - uses: actions/checkout@v7.0.1
+      - uses: actions/setup-node@v7.0.0
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: tools/little-orbit/package-lock.json
+      - run: npm ci
+      - run: npx playwright install firefox
+      - name: Verify extraction and evidence recovery
+        run: |
+          node tests/firefox-stall-profile-unit.cjs
+          node tests/firefox-stall-notices-unit.cjs
+          node tests/analyze-firefox-stalls-unit.cjs
+      - name: Profile balanced sample pair 0
+        continue-on-error: true
+        env:
+          CLOCK_STALL_SLOT: '0'
+        run: node tests/diagnose-firefox-stalls.cjs
+      - name: Profile balanced sample pair 1
+        continue-on-error: true
+        env:
+          CLOCK_STALL_SLOT: '1'
+        run: node tests/diagnose-firefox-stalls.cjs
+      - name: Profile balanced sample pair 2
+        continue-on-error: true
+        env:
+          CLOCK_STALL_SLOT: '2'
+        run: node tests/diagnose-firefox-stalls.cjs
+      - name: Profile balanced sample pair 3
+        continue-on-error: true
+        env:
+          CLOCK_STALL_SLOT: '3'
+        run: node tests/diagnose-firefox-stalls.cjs
+      - name: Profile balanced sample pair 4
+        continue-on-error: true
+        env:
+          CLOCK_STALL_SLOT: '4'
+        run: node tests/diagnose-firefox-stalls.cjs
+      - name: Profile balanced sample pair 5
+        continue-on-error: true
+        env:
+          CLOCK_STALL_SLOT: '5'
+        run: node tests/diagnose-firefox-stalls.cjs
+      - name: Profile balanced sample pair 6
+        continue-on-error: true
+        env:
+          CLOCK_STALL_SLOT: '6'
+        run: node tests/diagnose-firefox-stalls.cjs
+      - name: Profile balanced sample pair 7
+        continue-on-error: true
+        env:
+          CLOCK_STALL_SLOT: '7'
+        run: node tests/diagnose-firefox-stalls.cjs
+      - name: Require all sample pairs and retain errors
+        if: always()
+        run: |
+          set +e
+          node tests/analyze-firefox-stalls.cjs test-results/firefox-stalls.jsonl > test-results/firefox-stalls-analysis.json
+          clock_profile_status=$?
+          node -e "const r=require('./test-results/firefox-stalls-analysis.json'); console.log(JSON.stringify({totals:r.totals,errors:r.validationErrors.slice(0,10)}))"
+          exit "$clock_profile_status"
+      - name: Preserve timing and native profiler evidence
+        if: always()
+        uses: actions/upload-artifact@v7.0.2
+        with:
+          name: firefox-stall-profiles-${{ github.run_attempt }}
+          path: |
+            tools/little-orbit/test-results/firefox-stalls.jsonl
+            tools/little-orbit/test-results/firefox-stalls-analysis.json
+            tools/little-orbit/test-results/firefox-stall-profiles/**/profile.json
+          if-no-files-found: warn
+          retention-days: 3

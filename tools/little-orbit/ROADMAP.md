@@ -1,17 +1,54 @@
 # Our Desk Clock roadmap
 
-Updated 2026-10-18. Milestones express intent, not promised delivery dates. The product owner sets priorities and authorizes deferred implementation.
+Updated 2026-10-31. Milestones express intent, not promised delivery dates. The product owner sets priorities and authorizes deferred implementation.
 
-## Next character priority — shared anatomy and organic movement (planned)
+Before anatomy artwork rollout, complete the [bounded phase cadence candidate](design/FRAME-CADENCE.md)'s hosted/portable and cross-platform gates. [Session 025](../../sessions/2026-10-10-weather-habitat/025-cadence-verification-handoff.md) preserves the earlier 65/66 local cadence passes and Firefox rain plus hosted Windows/macOS failures. The [DPR2 investigation](design/RAIN-CADENCE-INVESTIGATION.md) now records balanced profiling and the reading-camera candidate below. Performance thresholds remain unchanged.
 
-The owner requested finer hands, palms, feet and legs across the cast. The [implementation plan](design/ANATOMY-AND-ORGANIC-MOVEMENT.md) records the source audit, all affected consumers, anatomical/contact contracts and stages A0–A7. No anatomy implementation has started; the tested meal runtime and portable artifact remain unchanged.
+The reading-only camera candidate `9993133` is implemented:
+identical quantized x/y movement, moving-only zero-depth 3D transform, unchanged
+art and motion gates. [Session 028](../../sessions/2026-10-10-weather-habitat/028-reading-camera-results.md)
+records validation and remaining work. The [layer/transform investigation](design/RAIN-CADENCE-INVESTIGATION.md)
+and reusable diagnostic retain failed/historical evidence. Continue A2 anatomy
+after the validation boundary is resolved or the owner changes priority.
+
+The hosted-boundary tracing slice is complete: [results 030](../../sessions/2026-10-10-weather-habitat/030-ci-trace-results.md)
+records 66 local cadence passes and exact failures from both Windows/macOS runs.
+The display runtime and gates are unchanged. Next, replay proposed policy changes
+against these new native sequences and compare matched native-delivery controls
+on the failing runner before choosing another runtime change. The
+[test-only policy replay](design/CADENCE-POLICY-REPLAY.md) implements the first
+step, including separate nominal/entry-time hindsight bounds. No low-power
+phase change addresses the newly retained normal-mode Windows failure.
+
+[Session 031](../../sessions/2026-10-10-weather-habitat/031-policy-replay-results.md)
+completes the replay slice: no macOS recorded low-power stream has a feasible
+nominal or callback-entry subsequence under the current floor and fixed delivery.
+The latest local run retains a normal-mode 113.1 ms maximum gap. Next, collect
+matched native/full/hidden-art controls; do not infer a production fix from
+replaying callback selection alone.
+
+[Matched controls](design/MATCHED-MOTION-CONTROLS.md) are implemented for the
+three observed modes, with complete raw evidence and balanced order. All
+96 complete samples and independent analysis are archived. They do not isolate
+a consistent scene expense behind the stalls. A measured hidden-marker read
+guard is implemented as an efficiency candidate. [Results 033](../../sessions/2026-10-10-weather-habitat/033-matched-controls-results.md)
+records 48 local cadence passes and complete reference checks; hosted
+Windows/macOS gates and target-device profiling remain open.
+
+[Firefox attribution](design/FIREFOX-STALL-ATTRIBUTION.md) now implements the
+next bounded Windows investigation. Complete its balanced samples and metric/
+clock-alignment review before inferring an avoidable runtime expense.
+
+## Character priority — anatomy foundation candidate, later rollout planned
+
+The owner requested finer hands, palms, feet and legs across the cast. The [implementation plan](design/ANATOMY-AND-ORGANIC-MOVEMENT.md) now has an A0 inventory / A1 additive candidate: versioned [profiles](design/ANATOMY-PROFILES.md), pure landmarks/constrained reference solves, a workshop inspection panel and legacy-output fixtures. The live meal, movement and renderer retain their existing semantics. Portable bytes change to include the new shared module; full scene/prop bounds still need capture before A2 artwork grows those bounds.
 
 1. **A0–A2:** reference/action baseline, reviewed anatomy profiles and joint limits, compatible palm/foot landmarks, visible hand/boot artwork and anatomy workshop. Review this foundation before enabling scenes.
 2. **A3–A4:** palm-based tools, bowl placement and infant support, followed by heel/sole/toe gait and supported starts, stops, turns and kneeling. Integrate Sage first; preserve all meal and family contacts.
 3. **A5–A6:** coherent body/climb/recovery mechanics, both Woodland views and climbers, then Candy’s bespoke run/bike/work adapter and complete cast/theme rollout. Mark any remaining route limitations explicitly.
 4. **A7:** candidate-specific geometry, visual-motion, full browser/offline/cadence results and separate sustained Ally/Vanadium acceptance. Keep existing gates unchanged; new anatomy error budgets require independent reference calibration and rendered-landmark checks before implementation acceptance.
 
-[Session 018](../../sessions/2026-10-10-weather-habitat/018-cloud-anatomy-movement-plan.md) is the planning handoff; [017](../../sessions/2026-10-10-weather-habitat/017-cloud-meal-choreography-results.md) remains the tested candidate. Other theme implementations and persistent ecosystem/family simulation remain deferred. This plan schedules no automatic execution.
+[Session 018](../../sessions/2026-10-10-weather-habitat/018-cloud-anatomy-movement-plan.md) preserves the original planning handoff; [019](../../sessions/2026-10-10-weather-habitat/019-cloud-anatomy-foundation-ownership.md) claims this implementation; [020](../../sessions/2026-10-10-weather-habitat/020-anatomy-foundation-results.md) records review, validation and the remaining hosted CI gates. [017](../../sessions/2026-10-10-weather-habitat/017-cloud-meal-choreography-results.md) remains historical meal evidence, not a test of the new module. Other theme implementations and persistent ecosystem/family simulation remain deferred. Continue A2 only after the current foundation review; A3/A4 must pass before live-scene migration.
 
 ## Woodland Ally validation — installation complete; device review in progress
 

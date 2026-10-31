@@ -1,0 +1,326 @@
+{
+  "analyses": [
+    {
+      "skipped": false,
+      "traceID": "bcb1b91e44c4ae83b427d088f72af5fbe73d1f8368b76a239cbcc077e4d8594e",
+      "suite": "dashboard",
+      "form": "hosted",
+      "browser": "chromium",
+      "lowPower": true,
+      "recomputed": {"fps": 26.44378334986128, "p95": 55.199999999953434, "maxGap": 57.300000000046566, "frames": 56, "elapsedMs": 2117.6999999999534},
+      "reportedCheck": {"fps": true, "p95": true, "maxGap": true, "frames": true},
+      "thresholds": {"fps": 26, "p95": 46, "maxGap": 100},
+      "acceptance": {"fps": true, "p95": false, "maxGap": true},
+      "counts": {"geometry": 56, "native": 113, "app": 113, "activePolicies": 1},
+      "activePolicyIDs": [1],
+      "appCountByPolicy": {"1": 113},
+      "nativeNominalGapsMs": [16.90000000000009, 16.899999999999864, 20.800000000000182, 27.799999999999955, 19.700000000000045, 30.399999999999864, 18, 37.100000000000136, 14.099999999999909, 20.200000000000045, 14.5, 29.399999999999864, 16.300000000000182, 17.699999999999818, 15.600000000000136, 34.59999999999991, 19.200000000000045, 30.09999999999991, 22.200000000000045, 10.5, 19, 13.100000000000136, 25.299999999999955, 9.799999999999955, 19.90000000000009, 13.099999999999909, 18.299999999999955, 17.40000000000009, 17.200000000000045, 14.599999999999909, 18.299999999999955, 15.400000000000091, 15.899999999999864, 18.40000000000009, 21.299999999999955, 12.600000000000136, 16.59999999999991, 12.400000000000091, 22.09999999999991, 15.400000000000091, 14.899999999999864, 18.40000000000009, 14.200000000000045, 23, 33.69999999999982, 12.100000000000136, 15.299999999999955, 15.699999999999818, 23.700000000000273, 12.699999999999818, 32.90000000000009, 14, 17.199999999999818, 17.700000000000273, 20.59999999999991, 13.199999999999818, 17.300000000000182, 16.40000000000009, 21.09999999999991, 12.599999999999909, 16.300000000000182, 17, 19.299999999999727, 36.100000000000364, 9.5, 23.199999999999818, 10.599999999999909, 16.200000000000273, 19, 34.899999999999636, 15.900000000000091, 32.30000000000018, 14.799999999999727, 21.200000000000273, 14.699999999999818, 15.599999999999909, 14, 19.40000000000009, 15.400000000000091, 18.40000000000009, 12, 19.09999999999991, 16.300000000000182, 18.699999999999818, 15.800000000000182, 15.5, 16, 19.299999999999727, 15.300000000000182, 21.299999999999727, 13.600000000000364, 16.5, 16.799999999999727, 19.90000000000009, 11.300000000000182, 16.799999999999727, 18.800000000000182, 13.900000000000091, 20.899999999999636, 36.5, 9.600000000000364, 18.899999999999636, 17.5, 15.100000000000364, 17.5, 17.59999999999991, 19, 13.5, 20.40000000000009, 12, 21.199999999999818, 12.599999999999909],
+      "nativeMissingFromApp": [],
+      "nativeAppMatchBoundaryPolicy": "first and last native samples excluded for sample-boundary ambiguity",
+      "lowPowerInvariantViolations": [],
+      "longGeometryGaps": [
+        {
+          "fromMs": 1181.2000000000116,
+          "toMs": 1229.899999999965,
+          "gapMs": 48.699999999953434,
+          "nearestPrecedingAccepted": {"time": 1180.7999999999884, "at": 1180.6, "policyID": 1, "lowPower": true, "accepted": true},
+          "latestAcceptedAtGapEnd": {"time": 1229.5, "at": 1229.2, "policyID": 1, "lowPower": true, "accepted": true},
+          "nearestFollowingAccepted": {"time": 1279.399999999965, "at": 1279.3, "policyID": 1, "lowPower": true, "accepted": true},
+          "surroundingEventCount": 10,
+          "surroundingEventsTruncated": false,
+          "surroundingEvents": [
+            {"source": "native", "time": 1164, "timestamp": 1163.7, "index": 1},
+            {"source": "app", "time": 1164, "policyID": 1, "at": 1163.7, "lowPower": true, "accepted": false, "index": 1},
+            {"source": "app", "time": 1180.7999999999884, "policyID": 1, "at": 1180.6, "lowPower": true, "accepted": true, "index": 2},
+            {"source": "native", "time": 1181.2000000000116, "timestamp": 1180.6, "index": 2},
+            {"source": "native", "time": 1201.5999999999767, "timestamp": 1201.4, "index": 3},
+            {"source": "app", "time": 1201.5999999999767, "policyID": 1, "at": 1201.4, "lowPower": true, "accepted": false, "index": 3},
+            {"source": "app", "time": 1229.5, "policyID": 1, "at": 1229.2, "lowPower": true, "accepted": true, "index": 4},
+            {"source": "native", "time": 1229.899999999965, "timestamp": 1229.2, "index": 4},
+            {"source": "native", "time": 1249, "timestamp": 1248.9, "index": 5},
+            {"source": "app", "time": 1249, "policyID": 1, "at": 1248.9, "lowPower": true, "accepted": false, "index": 5}
+          ]
+        },
+        {
+          "fromMs": 1229.899999999965,
+          "toMs": 1279.7000000000116,
+          "gapMs": 49.800000000046566,
+          "nearestPrecedingAccepted": {"time": 1229.5, "at": 1229.2, "policyID": 1, "lowPower": true, "accepted": true},
+          "latestAcceptedAtGapEnd": {"time": 1279.399999999965, "at": 1279.3, "policyID": 1, "lowPower": true, "accepted": true},
+          "nearestFollowingAccepted": {"time": 1334.5999999999767, "at": 1334.4, "policyID": 1, "lowPower": true, "accepted": true},
+          "surroundingEventCount": 8,
+          "surroundingEventsTruncated": false,
+          "surroundingEvents": [
+            {"source": "app", "time": 1229.5, "policyID": 1, "at": 1229.2, "lowPower": true, "accepted": true, "index": 4},
+            {"source": "native", "time": 1229.899999999965, "timestamp": 1229.2, "index": 4},
+            {"source": "native", "time": 1249, "timestamp": 1248.9, "index": 5},
+            {"source": "app", "time": 1249, "policyID": 1, "at": 1248.9, "lowPower": true, "accepted": false, "index": 5},
+            {"source": "app", "time": 1279.399999999965, "policyID": 1, "at": 1279.3, "lowPower": true, "accepted": true, "index": 6},
+            {"source": "native", "time": 1279.7000000000116, "timestamp": 1279.3, "index": 6},
+            {"source": "native", "time": 1297.5, "timestamp": 1297.3, "index": 7},
+            {"source": "app", "time": 1297.5, "policyID": 1, "at": 1297.3, "lowPower": true, "accepted": false, "index": 7}
+          ]
+        },
+        {
+          "fromMs": 1279.7000000000116,
+          "toMs": 1334.899999999965,
+          "gapMs": 55.199999999953434,
+          "nearestPrecedingAccepted": {"time": 1279.399999999965, "at": 1279.3, "policyID": 1, "lowPower": true, "accepted": true},
+          "latestAcceptedAtGapEnd": {"time": 1334.5999999999767, "at": 1334.4, "policyID": 1, "lowPower": true, "accepted": true},
+          "nearestFollowingAccepted": {"time": 1368.899999999965, "at": 1368.7, "policyID": 1, "lowPower": true, "accepted": true},
+          "surroundingEventCount": 8,
+          "surroundingEventsTruncated": false,
+          "surroundingEvents": [
+            {"source": "app", "time": 1279.399999999965, "policyID": 1, "at": 1279.3, "lowPower": true, "accepted": true, "index": 6},
+            {"source": "native", "time": 1279.7000000000116, "timestamp": 1279.3, "index": 6},
+            {"source": "native", "time": 1297.5, "timestamp": 1297.3, "index": 7},
+            {"source": "app", "time": 1297.5, "policyID": 1, "at": 1297.3, "lowPower": true, "accepted": false, "index": 7},
+            {"source": "app", "time": 1334.5999999999767, "policyID": 1, "at": 1334.4, "lowPower": true, "accepted": true, "index": 8},
+            {"source": "native", "time": 1335, "timestamp": 1334.4, "index": 8},
+            {"source": "native", "time": 1348.7000000000116, "timestamp": 1348.5, "index": 9},
+            {"source": "app", "time": 1348.7000000000116, "policyID": 1, "at": 1348.5, "lowPower": true, "accepted": false, "index": 9}
+          ]
+        },
+        {
+          "fromMs": 1447.0999999999767,
+          "toMs": 1497.5999999999767,
+          "gapMs": 50.5,
+          "nearestPrecedingAccepted": {"time": 1446.7999999999884, "at": 1446.6, "policyID": 1, "lowPower": true, "accepted": true},
+          "latestAcceptedAtGapEnd": {"time": 1497.0999999999767, "at": 1496.8, "policyID": 1, "lowPower": true, "accepted": true},
+          "nearestFollowingAccepted": {"time": 1546.2000000000116, "at": 1546.1, "policyID": 1, "lowPower": true, "accepted": true},
+          "surroundingEventCount": 10,
+          "surroundingEventsTruncated": false,
+          "surroundingEvents": [
+            {"source": "native", "time": 1429, "timestamp": 1428.9, "index": 13},
+            {"source": "app", "time": 1429, "policyID": 1, "at": 1428.9, "lowPower": true, "accepted": false, "index": 13},
+            {"source": "app", "time": 1446.7999999999884, "policyID": 1, "at": 1446.6, "lowPower": true, "accepted": true, "index": 14},
+            {"source": "native", "time": 1447.0999999999767, "timestamp": 1446.6, "index": 14},
+            {"source": "native", "time": 1462.2999999999884, "timestamp": 1462.2, "index": 15},
+            {"source": "app", "time": 1462.2999999999884, "policyID": 1, "at": 1462.2, "lowPower": true, "accepted": false, "index": 15},
+            {"source": "app", "time": 1497.0999999999767, "policyID": 1, "at": 1496.8, "lowPower": true, "accepted": true, "index": 16},
+            {"source": "native", "time": 1497.5999999999767, "timestamp": 1496.8, "index": 16},
+            {"source": "native", "time": 1516.2999999999884, "timestamp": 1516, "index": 17},
+            {"source": "app", "time": 1516.2999999999884, "policyID": 1, "at": 1516, "lowPower": true, "accepted": false, "index": 17}
+          ]
+        },
+        {
+          "fromMs": 1497.5999999999767,
+          "toMs": 1546.7000000000116,
+          "gapMs": 49.100000000034925,
+          "nearestPrecedingAccepted": {"time": 1497.0999999999767, "at": 1496.8, "policyID": 1, "lowPower": true, "accepted": true},
+          "latestAcceptedAtGapEnd": {"time": 1546.2000000000116, "at": 1546.1, "policyID": 1, "lowPower": true, "accepted": true},
+          "nearestFollowingAccepted": {"time": 1597.899999999965, "at": 1578.8, "policyID": 1, "lowPower": true, "accepted": true},
+          "surroundingEventCount": 6,
+          "surroundingEventsTruncated": false,
+          "surroundingEvents": [
+            {"source": "app", "time": 1497.0999999999767, "policyID": 1, "at": 1496.8, "lowPower": true, "accepted": true, "index": 16},
+            {"source": "native", "time": 1497.5999999999767, "timestamp": 1496.8, "index": 16},
+            {"source": "native", "time": 1516.2999999999884, "timestamp": 1516, "index": 17},
+            {"source": "app", "time": 1516.2999999999884, "policyID": 1, "at": 1516, "lowPower": true, "accepted": false, "index": 17},
+            {"source": "app", "time": 1546.2000000000116, "policyID": 1, "at": 1546.1, "lowPower": true, "accepted": true, "index": 18},
+            {"source": "native", "time": 1546.7000000000116, "timestamp": 1546.1, "index": 18}
+          ]
+        },
+        {
+          "fromMs": 1546.7000000000116,
+          "toMs": 1598.2999999999884,
+          "gapMs": 51.59999999997672,
+          "nearestPrecedingAccepted": {"time": 1546.2000000000116, "at": 1546.1, "policyID": 1, "lowPower": true, "accepted": true},
+          "latestAcceptedAtGapEnd": {"time": 1597.899999999965, "at": 1578.8, "policyID": 1, "lowPower": true, "accepted": true},
+          "nearestFollowingAccepted": {"time": 1611, "at": 1610.9, "policyID": 1, "lowPower": true, "accepted": true},
+          "surroundingEventCount": 10,
+          "surroundingEventsTruncated": false,
+          "surroundingEvents": [
+            {"source": "app", "time": 1546.2000000000116, "policyID": 1, "at": 1546.1, "lowPower": true, "accepted": true, "index": 18},
+            {"source": "native", "time": 1546.7000000000116, "timestamp": 1546.1, "index": 18},
+            {"source": "app", "time": 1568.5, "policyID": 1, "at": 1568.3, "lowPower": true, "accepted": false, "index": 19},
+            {"source": "native", "time": 1568.5999999999767, "timestamp": 1568.3, "index": 19},
+            {"source": "app", "time": 1597.899999999965, "policyID": 1, "at": 1578.8, "lowPower": true, "accepted": true, "index": 20},
+            {"source": "native", "time": 1598.2999999999884, "timestamp": 1578.8, "index": 20},
+            {"source": "native", "time": 1598.7999999999884, "timestamp": 1597.8, "index": 21},
+            {"source": "app", "time": 1598.7999999999884, "policyID": 1, "at": 1597.8, "lowPower": true, "accepted": false, "index": 21},
+            {"source": "app", "time": 1611, "policyID": 1, "at": 1610.9, "lowPower": true, "accepted": true, "index": 22},
+            {"source": "native", "time": 1611.2000000000116, "timestamp": 1610.9, "index": 22}
+          ]
+        },
+        {
+          "fromMs": 1900.7000000000116,
+          "toMs": 1949.0999999999767,
+          "gapMs": 48.399999999965075,
+          "nearestPrecedingAccepted": {"time": 1899.899999999965, "at": 1899.5, "policyID": 1, "lowPower": true, "accepted": true},
+          "latestAcceptedAtGapEnd": {"time": 1948.399999999965, "at": 1929.8, "policyID": 1, "lowPower": true, "accepted": true},
+          "nearestFollowingAccepted": {"time": 1962.5999999999767, "at": 1962.4, "policyID": 1, "lowPower": true, "accepted": true},
+          "surroundingEventCount": 10,
+          "surroundingEventsTruncated": false,
+          "surroundingEvents": [
+            {"source": "app", "time": 1899.899999999965, "policyID": 1, "at": 1899.5, "lowPower": true, "accepted": true, "index": 39},
+            {"source": "native", "time": 1900.7000000000116, "timestamp": 1899.5, "index": 39},
+            {"source": "native", "time": 1915.2000000000116, "timestamp": 1914.9, "index": 40},
+            {"source": "app", "time": 1915.2000000000116, "policyID": 1, "at": 1914.9, "lowPower": true, "accepted": false, "index": 40},
+            {"source": "app", "time": 1948.399999999965, "policyID": 1, "at": 1929.8, "lowPower": true, "accepted": true, "index": 41},
+            {"source": "native", "time": 1949.0999999999767, "timestamp": 1929.8, "index": 41},
+            {"source": "native", "time": 1950.5, "timestamp": 1948.2, "index": 42},
+            {"source": "app", "time": 1950.5, "policyID": 1, "at": 1948.2, "lowPower": true, "accepted": false, "index": 42},
+            {"source": "app", "time": 1962.5999999999767, "policyID": 1, "at": 1962.4, "lowPower": true, "accepted": true, "index": 43},
+            {"source": "native", "time": 1963.399999999965, "timestamp": 1962.4, "index": 43}
+          ]
+        },
+        {
+          "fromMs": 1963.399999999965,
+          "toMs": 2020.7000000000116,
+          "gapMs": 57.300000000046566,
+          "nearestPrecedingAccepted": {"time": 1962.5999999999767, "at": 1962.4, "policyID": 1, "lowPower": true, "accepted": true},
+          "latestAcceptedAtGapEnd": {"time": 2019.2999999999884, "at": 2019.1, "policyID": 1, "lowPower": true, "accepted": true},
+          "nearestFollowingAccepted": {"time": 2060.5999999999767, "at": 2046.5, "policyID": 1, "lowPower": true, "accepted": true},
+          "surroundingEventCount": 12,
+          "surroundingEventsTruncated": false,
+          "surroundingEvents": [
+            {"source": "app", "time": 1948.399999999965, "policyID": 1, "at": 1929.8, "lowPower": true, "accepted": true, "index": 41},
+            {"source": "native", "time": 1949.0999999999767, "timestamp": 1929.8, "index": 41},
+            {"source": "native", "time": 1950.5, "timestamp": 1948.2, "index": 42},
+            {"source": "app", "time": 1950.5, "policyID": 1, "at": 1948.2, "lowPower": true, "accepted": false, "index": 42},
+            {"source": "app", "time": 1962.5999999999767, "policyID": 1, "at": 1962.4, "lowPower": true, "accepted": true, "index": 43},
+            {"source": "native", "time": 1963.399999999965, "timestamp": 1962.4, "index": 43},
+            {"source": "native", "time": 1985.7999999999884, "timestamp": 1985.4, "index": 44},
+            {"source": "app", "time": 1985.7999999999884, "policyID": 1, "at": 1985.4, "lowPower": true, "accepted": false, "index": 44},
+            {"source": "app", "time": 2019.2999999999884, "policyID": 1, "at": 2019.1, "lowPower": true, "accepted": true, "index": 45},
+            {"source": "native", "time": 2020.7000000000116, "timestamp": 2019.1, "index": 45},
+            {"source": "app", "time": 2031.399999999965, "policyID": 1, "at": 2031.2, "lowPower": true, "accepted": false, "index": 46},
+            {"source": "native", "time": 2031.5, "timestamp": 2031.2, "index": 46}
+          ]
+        },
+        {
+          "fromMs": 2269.899999999965,
+          "toMs": 2316.0999999999767,
+          "gapMs": 46.20000000001164,
+          "nearestPrecedingAccepted": {"time": 2269.2000000000116, "at": 2269, "policyID": 1, "lowPower": true, "accepted": true},
+          "latestAcceptedAtGapEnd": {"time": 2315.399999999965, "at": 2314.9, "policyID": 1, "lowPower": true, "accepted": true},
+          "nearestFollowingAccepted": {"time": 2370.7000000000116, "at": 2370.3, "policyID": 1, "lowPower": true, "accepted": true},
+          "surroundingEventCount": 10,
+          "surroundingEventsTruncated": false,
+          "surroundingEvents": [
+            {"source": "app", "time": 2269.2000000000116, "policyID": 1, "at": 2269, "lowPower": true, "accepted": true, "index": 59},
+            {"source": "native", "time": 2269.899999999965, "timestamp": 2269, "index": 59},
+            {"source": "native", "time": 2281.899999999965, "timestamp": 2281.6, "index": 60},
+            {"source": "app", "time": 2281.899999999965, "policyID": 1, "at": 2281.6, "lowPower": true, "accepted": false, "index": 60},
+            {"source": "app", "time": 2315.2000000000116, "policyID": 1, "at": 2297.9, "lowPower": true, "accepted": false, "index": 61},
+            {"source": "native", "time": 2315.2999999999884, "timestamp": 2297.9, "index": 61},
+            {"source": "app", "time": 2315.399999999965, "policyID": 1, "at": 2314.9, "lowPower": true, "accepted": true, "index": 62},
+            {"source": "native", "time": 2316.0999999999767, "timestamp": 2314.9, "index": 62},
+            {"source": "native", "time": 2334.5999999999767, "timestamp": 2334.2, "index": 63},
+            {"source": "app", "time": 2334.5999999999767, "policyID": 1, "at": 2334.2, "lowPower": true, "accepted": false, "index": 63}
+          ]
+        },
+        {
+          "fromMs": 2316.0999999999767,
+          "toMs": 2371.399999999965,
+          "gapMs": 55.29999999998836,
+          "nearestPrecedingAccepted": {"time": 2315.399999999965, "at": 2314.9, "policyID": 1, "lowPower": true, "accepted": true},
+          "latestAcceptedAtGapEnd": {"time": 2370.7000000000116, "at": 2370.3, "policyID": 1, "lowPower": true, "accepted": true},
+          "nearestFollowingAccepted": {"time": 2403.5, "at": 2403, "policyID": 1, "lowPower": true, "accepted": true},
+          "surroundingEventCount": 10,
+          "surroundingEventsTruncated": false,
+          "surroundingEvents": [
+            {"source": "app", "time": 2315.2000000000116, "policyID": 1, "at": 2297.9, "lowPower": true, "accepted": false, "index": 61},
+            {"source": "native", "time": 2315.2999999999884, "timestamp": 2297.9, "index": 61},
+            {"source": "app", "time": 2315.399999999965, "policyID": 1, "at": 2314.9, "lowPower": true, "accepted": true, "index": 62},
+            {"source": "native", "time": 2316.0999999999767, "timestamp": 2314.9, "index": 62},
+            {"source": "native", "time": 2334.5999999999767, "timestamp": 2334.2, "index": 63},
+            {"source": "app", "time": 2334.5999999999767, "policyID": 1, "at": 2334.2, "lowPower": true, "accepted": false, "index": 63},
+            {"source": "app", "time": 2370.7000000000116, "policyID": 1, "at": 2370.3, "lowPower": true, "accepted": true, "index": 64},
+            {"source": "native", "time": 2371.399999999965, "timestamp": 2370.3, "index": 64},
+            {"source": "native", "time": 2380.0999999999767, "timestamp": 2379.8, "index": 65},
+            {"source": "app", "time": 2380.0999999999767, "policyID": 1, "at": 2379.8, "lowPower": true, "accepted": false, "index": 65}
+          ]
+        },
+        {
+          "fromMs": 2436.7999999999884,
+          "toMs": 2485,
+          "gapMs": 48.20000000001164,
+          "nearestPrecedingAccepted": {"time": 2435.899999999965, "at": 2429.8, "policyID": 1, "lowPower": true, "accepted": true},
+          "latestAcceptedAtGapEnd": {"time": 2484.2000000000116, "at": 2483.7, "policyID": 1, "lowPower": true, "accepted": true},
+          "nearestFollowingAccepted": {"time": 2532.0999999999767, "at": 2531.9, "policyID": 1, "lowPower": true, "accepted": true},
+          "surroundingEventCount": 8,
+          "surroundingEventsTruncated": false,
+          "surroundingEvents": [
+            {"source": "app", "time": 2435.899999999965, "policyID": 1, "at": 2429.8, "lowPower": true, "accepted": true, "index": 68},
+            {"source": "native", "time": 2436.7999999999884, "timestamp": 2429.8, "index": 68},
+            {"source": "app", "time": 2449.0999999999767, "policyID": 1, "at": 2448.8, "lowPower": true, "accepted": false, "index": 69},
+            {"source": "native", "time": 2449.2000000000116, "timestamp": 2448.8, "index": 69},
+            {"source": "app", "time": 2484.2000000000116, "policyID": 1, "at": 2483.7, "lowPower": true, "accepted": true, "index": 70},
+            {"source": "native", "time": 2485, "timestamp": 2483.7, "index": 70},
+            {"source": "app", "time": 2500, "policyID": 1, "at": 2499.6, "lowPower": true, "accepted": false, "index": 71},
+            {"source": "native", "time": 2500.0999999999767, "timestamp": 2499.6, "index": 71}
+          ]
+        },
+        {
+          "fromMs": 2485,
+          "toMs": 2533.0999999999767,
+          "gapMs": 48.09999999997672,
+          "nearestPrecedingAccepted": {"time": 2484.2000000000116, "at": 2483.7, "policyID": 1, "lowPower": true, "accepted": true},
+          "latestAcceptedAtGapEnd": {"time": 2532.0999999999767, "at": 2531.9, "policyID": 1, "lowPower": true, "accepted": true},
+          "nearestFollowingAccepted": {"time": 2568.2000000000116, "at": 2567.9, "policyID": 1, "lowPower": true, "accepted": true},
+          "surroundingEventCount": 8,
+          "surroundingEventsTruncated": false,
+          "surroundingEvents": [
+            {"source": "app", "time": 2484.2000000000116, "policyID": 1, "at": 2483.7, "lowPower": true, "accepted": true, "index": 70},
+            {"source": "native", "time": 2485, "timestamp": 2483.7, "index": 70},
+            {"source": "app", "time": 2500, "policyID": 1, "at": 2499.6, "lowPower": true, "accepted": false, "index": 71},
+            {"source": "native", "time": 2500.0999999999767, "timestamp": 2499.6, "index": 71},
+            {"source": "app", "time": 2532.0999999999767, "policyID": 1, "at": 2531.9, "lowPower": true, "accepted": true, "index": 72},
+            {"source": "native", "time": 2533.0999999999767, "timestamp": 2531.9, "index": 72},
+            {"source": "native", "time": 2546.899999999965, "timestamp": 2546.7, "index": 73},
+            {"source": "app", "time": 2546.899999999965, "policyID": 1, "at": 2546.7, "lowPower": true, "accepted": false, "index": 73}
+          ]
+        },
+        {
+          "fromMs": 2732.7000000000116,
+          "toMs": 2779.399999999965,
+          "gapMs": 46.699999999953434,
+          "nearestPrecedingAccepted": {"time": 2731.899999999965, "at": 2731.5, "policyID": 1, "lowPower": true, "accepted": true},
+          "latestAcceptedAtGapEnd": {"time": 2778.7000000000116, "at": 2762.8, "policyID": 1, "lowPower": true, "accepted": true},
+          "nearestFollowingAccepted": {"time": 2798.399999999965, "at": 2798.1, "policyID": 1, "lowPower": true, "accepted": true},
+          "surroundingEventCount": 11,
+          "surroundingEventsTruncated": false,
+          "surroundingEvents": [
+            {"source": "native", "time": 2713.0999999999767, "timestamp": 2712.8, "index": 83},
+            {"source": "app", "time": 2713.0999999999767, "policyID": 1, "at": 2712.8, "lowPower": true, "accepted": false, "index": 83},
+            {"source": "app", "time": 2731.899999999965, "policyID": 1, "at": 2731.5, "lowPower": true, "accepted": true, "index": 84},
+            {"source": "native", "time": 2732.7000000000116, "timestamp": 2731.5, "index": 84},
+            {"source": "native", "time": 2747.5999999999767, "timestamp": 2747.3, "index": 85},
+            {"source": "app", "time": 2747.5999999999767, "policyID": 1, "at": 2747.3, "lowPower": true, "accepted": false, "index": 85},
+            {"source": "app", "time": 2778.7000000000116, "policyID": 1, "at": 2762.8, "lowPower": true, "accepted": true, "index": 86},
+            {"source": "native", "time": 2779.399999999965, "timestamp": 2762.8, "index": 86},
+            {"source": "app", "time": 2781.2999999999884, "policyID": 1, "at": 2778.8, "lowPower": true, "accepted": false, "index": 87},
+            {"source": "native", "time": 2781.399999999965, "timestamp": 2778.8, "index": 87},
+            {"source": "app", "time": 2798.399999999965, "policyID": 1, "at": 2798.1, "lowPower": true, "accepted": true, "index": 88}
+          ]
+        },
+        {
+          "fromMs": 2967.7999999999884,
+          "toMs": 3021.7000000000116,
+          "gapMs": 53.90000000002328,
+          "nearestPrecedingAccepted": {"time": 2966.899999999965, "at": 2962.3, "policyID": 1, "lowPower": true, "accepted": true},
+          "latestAcceptedAtGapEnd": {"time": 3020.0999999999767, "at": 3019.7, "policyID": 1, "lowPower": true, "accepted": true},
+          "nearestFollowingAccepted": {"time": 3066, "at": 3065.7, "policyID": 1, "lowPower": true, "accepted": true},
+          "surroundingEventCount": 10,
+          "surroundingEventsTruncated": false,
+          "surroundingEvents": [
+            {"source": "native", "time": 2948.7999999999884, "timestamp": 2948.4, "index": 97},
+            {"source": "app", "time": 2948.7999999999884, "policyID": 1, "at": 2948.4, "lowPower": true, "accepted": false, "index": 97},
+            {"source": "app", "time": 2966.899999999965, "policyID": 1, "at": 2962.3, "lowPower": true, "accepted": true, "index": 98},
+            {"source": "native", "time": 2967.7999999999884, "timestamp": 2962.3, "index": 98},
+            {"source": "app", "time": 2983.7000000000116, "policyID": 1, "at": 2983.2, "lowPower": true, "accepted": false, "index": 99},
+            {"source": "native", "time": 2983.7999999999884, "timestamp": 2983.2, "index": 99},
+            {"source": "app", "time": 3020.0999999999767, "policyID": 1, "at": 3019.7, "lowPower": true, "accepted": true, "index": 100},
+            {"source": "native", "time": 3021.7999999999884, "timestamp": 3019.7, "index": 100},
+            {"source": "native", "time": 3029.7000000000116, "timestamp": 3029.3, "index": 101},
+            {"source": "app", "time": 3029.7000000000116, "policyID": 1, "at": 3029.3, "lowPower": true, "accepted": false, "index": 101}
+          ]
+        }
+      ],
+      "warnings": []
+    }
+  ],
+  "parseWarnings": []
+}

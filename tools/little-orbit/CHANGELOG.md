@@ -1,8 +1,77 @@
 # Our Desk Clock changelog
 
+### Firefox attribution research
+
+- Added native-profile and profiler-disabled controls following the dashboard
+  low-to-normal sample history, with explicit UserTiming alignment and correct
+  Gecko interval phases. Complete raw timing and bounded profile evidence
+  survive lossless notices; production bytes and timing gates are unchanged.
+
+### Skip hidden minute-marker geometry work
+
+- Dashboard draws now read the final trail geometry only during the visible
+  minute marker. Visible positions still use fresh geometry after digit changes
+  and resize. This removes measured unused work; native delivery stalls remain
+  a separate boundary.
+- Added hosted/portable reference and zero-hidden-read checks across all minute
+  ones digits, the 3-second edge, four viewports and lifecycle controls.
+
+### Matched frame-delivery controls
+
+- Added exact, balanced blank/full/hidden-art research samples for Windows
+  Firefox normal, macOS Chromium low-power and local DPR2 immersive normal.
+- Added complete compressed round notices/artifacts, strict recovery and analysis,
+  sample-error retention, explicit
+  profile configuration and completeness checks. Production timing gates and
+  display bytes remain unchanged; [control study](design/MATCHED-MOTION-CONTROLS.md).
+
+### Exact callback policy replay
+
+- Added a standalone test-only policy comparison and exhaustive hindsight bound
+  with separate RAF/entry clocks, original sample duration and exact p95 rules.
+- Retained four additional Windows/macOS failure traces, including a Windows
+  normal-mode failure where all native callbacks already reach geometry.
+- Production pacing, scene art, portable bytes and acceptance gates stay
+  unchanged. See the [replay study](design/CADENCE-POLICY-REPLAY.md).
+
+### Cross-platform failure evidence
+
+- Added test-only native callback, app pacing-decision and geometry traces with
+  complete failure notices and CI artifacts, plus bounded navigation evidence.
+- Kept application bytes, timing gates and navigation behavior unchanged.
+  [Session 030](../../sessions/2026-10-10-weather-habitat/030-ci-trace-results.md)
+  records 66 local cadence passes, four recovered exact platform failures and
+  the remaining CI boundary. Added a pure trace analyzer and recovery guide.
+
+### Rain reading-layer camera candidate
+
+- Kept the camera's quantized x/y path, but gave only the reading/clock SVG a
+  zero-depth 3D transform only while the camera moves; Still/reduced-motion and the other layers retain their planar transforms. Added a zero-coordinate mode-switch regression check.
+- Recorded 21 balanced layer-control samples and 14 targeted transform samples,
+  including slower and inconsistent cases. Added a reusable rain-layer
+  diagnostic with versioned reports and explicit measurement errors.
+- See [session 028](../../sessions/2026-10-10-weather-habitat/028-reading-camera-results.md)
+  for candidate validation. Earlier failures remain in session 025; neither
+  native callbacks nor DOM mutations establish physical-display smoothness.
+
+
 No tagged releases yet. Implemented entries describe code on the development branch; planning notes describe proposals tracked in [ROADMAP.md](ROADMAP.md).
 
 ## Unreleased
+
+### Bounded Woodland/Green House 1 cadence — validation candidate
+
+- Added shared phase pacing for the low-power 30 Hz target, with a minimum paced gap to prevent short catch-up pairs and a rebase after long pauses. Normal mode follows every native RAF callback; scenes still derive poses and time from current time.
+- Corrected early-frame timing debt using a public Windows callback fixture and 101 start phases; quantized refresh can run slightly above the nominal 30 Hz target.
+- Added independent refresh-rate/jitter/stall fixtures and native callback diagnostics. The older climber test now waits for the reduced-motion change event before its existing quiet-visit assertion. All performance limits remain unchanged.
+- [Session 025](../../sessions/2026-10-10-weather-habitat/025-cadence-verification-handoff.md) records final corrected-runtime coverage: Chrome/Edge 22 cadence passes each, Firefox 21 passes/1 hosted DPR2 rain failure. Combined Chrome/Firefox npm exits 1; native Edge exits 0; remaining functional/offline coverage completed separately. Required Windows/macOS timing checks remain failed. Added a [rain profiling investigation and task split](design/RAIN-CADENCE-INVESTIGATION.md); no further runtime changes from that probe.
+
+### Shared anatomy foundation — workshop inspection
+
+- Added shared versioned adult, drop, learner and swaddled profiles, pure palm/thumb and sole landmarks, constrained two-bone reference solves, stable bend choices and explicit unreachable-target diagnostics.
+- Extended the character workshop with seven static reference poses, front/turned/side envelopes, mirrored facing, landmark visibility and small/enlarged comparison. Pebble retains support anchors and covered limbs.
+- Kept live character rendering and scene contact semantics unchanged. Added independent geometry fixtures and a 120-frame legacy pose baseline; production silhouettes, palm grips, sole gait and full-body integration remain later stages.
+- [Session 020](../../sessions/2026-10-10-weather-habitat/020-anatomy-foundation-results.md) records local Chrome/Firefox/Edge verification and 66 passing cadence cases. Hosted Windows/macOS CI remains a merge gate; no device acceptance or new live gait is claimed.
 
 ### Unreleased — Green House 1 connected meal validated; device review pending
 

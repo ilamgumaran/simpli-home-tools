@@ -1,0 +1,104 @@
+name: Little Orbit motion diagnostics
+on:
+  push:
+    paths:
+      - 'tools/little-orbit/tests/diagnose-motion-control.cjs'
+      - 'tools/little-orbit/tests/motion-control-*.cjs'
+      - 'tools/little-orbit/tests/analyze-motion-controls*.cjs'
+      - 'tools/little-orbit/tests/cadence-trace.cjs'
+      - '.github/workflows/little-orbit-motion-diagnostics.yml'
+  workflow_dispatch:
+    inputs:
+      headless:
+        description: Run browsers without a visible window
+        type: boolean
+        required: true
+        default: true
+      chromium_channel:
+        description: Chromium launcher backend
+        type: choice
+        required: true
+        default: default
+        options:
+          - default
+          - chromium
+permissions:
+  contents: read
+jobs:
+  motion-diagnostics:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [macos-latest, macos-15-intel, windows-latest]
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 15
+    defaults:
+      run:
+        working-directory: tools/little-orbit
+        shell: bash
+    env:
+      CLOCK_DIAGNOSTIC_PROFILE: platform
+      CLOCK_DIAGNOSTIC_REPEATS: '4'
+      CLOCK_TEST_CHANNEL: ${{ github.event_name == 'workflow_dispatch' && inputs.chromium_channel == 'chromium' && 'chromium' || '' }}
+      CLOCK_DIAGNOSTIC_HEADLESS: ${{ github.event_name == 'workflow_dispatch' && inputs.headless == false && 'false' || 'true' }}
+    steps:
+      - uses: actions/checkout@v7.0.1
+      - uses: actions/setup-node@v7.0.0
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: tools/little-orbit/package-lock.json
+      - run: npm ci
+      - run: npx playwright install chromium firefox
+      - name: Verify balanced control plan
+        run: |
+          node tests/motion-control-unit.cjs
+          node tests/motion-control-notices-unit.cjs
+          node tests/analyze-motion-controls-unit.cjs
+      # Separate steps keep complete raw notice chunks recoverable per round.
+      # Continue research after a sample error; the final completeness check fails
+      # for any missing/error record. Production browser gates are unchanged.
+      - name: Measure balanced round 0
+        continue-on-error: true
+        env:
+          CLOCK_DIAGNOSTIC_ROUND: '0'
+        run: node tests/diagnose-motion-control.cjs
+      - name: Measure balanced round 1
+        continue-on-error: true
+        env:
+          CLOCK_DIAGNOSTIC_ROUND: '1'
+        run: node tests/diagnose-motion-control.cjs
+      - name: Measure balanced round 2
+        continue-on-error: true
+        env:
+          CLOCK_DIAGNOSTIC_ROUND: '2'
+        run: node tests/diagnose-motion-control.cjs
+      - name: Measure balanced round 3
+        continue-on-error: true
+        env:
+          CLOCK_DIAGNOSTIC_ROUND: '3'
+        run: node tests/diagnose-motion-control.cjs
+      - name: Require every planned sample and retain errors
+        if: always()
+        run: |
+          node <<'NODE'
+          const fs = require('node:fs');
+          const assert = require('node:assert/strict');
+          const {readConfig, makeSchedule} = require('./tests/motion-control-plan.cjs');
+          const records = fs.readFileSync('test-results/motion-controls.jsonl', 'utf8').trim().split(/\r?\n/).filter(Boolean).map(JSON.parse);
+          const key = item => `${item.group}:${item.round}:${item.position}:${item.condition}`;
+          const expected = makeSchedule(readConfig(process.env)).map(item => key({...item, group: item.profile.id})).sort();
+          const actual = records.map(record => key(record.context)).sort();
+          assert.deepEqual(actual, expected, 'Every planned sample must appear exactly once');
+          const errors = records.filter(record => record.data.errors.length);
+          console.log(JSON.stringify({samples: records.length, errors: errors.map(record => ({context: record.context, errors: record.data.errors}))}));
+          assert.equal(errors.length, 0, 'Diagnostic setup/sample errors remain in the raw records');
+          NODE
+      - name: Preserve exact control samples
+        if: always()
+        uses: actions/upload-artifact@v7.0.2
+        with:
+          name: little-orbit-motion-controls-${{ matrix.os }}-${{ github.run_attempt }}
+          path: tools/little-orbit/test-results/motion-controls.jsonl
+          if-no-files-found: warn
+          retention-days: 7

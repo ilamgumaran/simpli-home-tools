@@ -1,8 +1,70 @@
 # Green House 1: Ally installation and acceptance
 
-Prepared 2026-10-18. Green House 1 is the weather and tiny-community theme; Woodland retains its larger characters and terrain-engineering activities. Current runtime `f02092b12a45d72cefe73ba68d5acd2f68932358`, portable SHA-256 `046f02a9772a5060ac422b6acceee763fb29726a230df1ce1932a38611899ec6`. Both `npm test` runs exit 0 (combined Chrome/Firefox and native Edge; runner `7bfe736`): all 9 pure programs, 13 browser programs per engine, offline portable checks and all 66 cadence cases pass. Focused meal (4 functional + 4 cadence per engine), community (14 groups per engine), caption clearance across seven stages, quiet mode across four views at DPR 1/2, and >=30 CSS-pixel group-gap / >=16 CSS-pixel viewport-margin gates pass. No full-run failures or retries. Session 017 contains the full results. Physical Ally/Vanadium and sustained acceptance remain pending; earlier intermittent stalls remain unexplained. The meal runs in the 11:00–13:00 and 20:00–22:00 windows. Use a browser-only mock preview at 11:08 and sample seconds 4, 11, 28, 40, 47, 51 and 57 to inspect the stages; do not change the operating-system clock. Return device findings as `004-ally-to-cloud.md` in the weather-habitat session thread. The [earlier fullscreen handoff](../../../sessions/2026-10-05-immersive-woodland/003-cloud-scene-ready.md) remains history.
+## Current efficiency candidate — 2026-10-31
 
-## Current runtime — browser and portable validation passed; device review pending
+Fetch `feature/anatomy-foundation` / [draft PR #16](https://github.com/ilamgumaran/simpli-home-tools/pull/16).
+Runtime `dd6e9d53694d6b5c4667bd0c778635b2779c746e` skips dashboard trail geometry
+reads while the minute marker is hidden. Visible positions still use fresh SVG
+geometry after minute changes and resizing. It preserves scene art and motion.
+
+Portable SHA-256:
+`0accb9737b218f4e4d202b368d0277355d114c21758163ae09cb57f61e142b85`.
+
+[Session 033](../../../sessions/2026-10-10-weather-habitat/033-matched-controls-results.md)
+records 96 complete control samples, the source review and exact limits. Current
+local coverage passes full Chrome/Firefox suites (18 pure, 15 browser programs
+per engine, offline, 44 cadence cases), plus Edge focused marker and affected
+dashboard checks (four cadence cases). Hosted Windows/macOS timing gates still
+fail. This is an efficiency candidate, not a confirmed native-stall fix.
+
+Physical Ally/Vanadium and sustained operation remain unrun. Test a separate
+candidate while preserving the existing installation/profile, verify the hash,
+and inspect the first three seconds of minute changes, resize/rotation and
+extended motion. Record device feedback in reserved 026; the next cloud message
+is 034. No installation or release was performed by this cloud slice.
+
+
+## Earlier reading-camera candidate — 2026-10-29
+
+The current development branch is `feature/anatomy-foundation`, [draft PR #16](https://github.com/ilamgumaran/simpli-home-tools/pull/16).
+Runtime `99931338f12d5111ea0321cc2690d6588ef59ab9` uses a zero-depth 3D
+transform on the reading/clock layer only while the camera moves. Still and
+reduced-motion paths retain planar transforms. Artwork, camera coordinates,
+weather, story and character contacts are preserved.
+
+Portable SHA-256:
+`1e36b79704ac3046230644555ffc5fc691cc5229ac2df067a61d2901e0169d8b`.
+
+[Session 028](../../../sessions/2026-10-10-weather-habitat/028-reading-camera-results.md)
+records this candidate's exact browser outcomes, preserved failures and remaining
+hosted gates. Both browser engines matched baseline images/geometry in 52 final
+comparisons. Required hosted checks remain open; this candidate has no physical
+Ally/Vanadium or sustained-display acceptance. Fetch this branch and verify the
+runtime ancestry and checksum before testing it. Record device feedback in
+reserved message 026; a later cloud follow-up uses 034.
+
+The test-only follow-up in [session 030](../../../sessions/2026-10-10-weather-habitat/030-ci-trace-results.md)
+recovers exact Windows/macOS callback failures and preserves 66 local cadence
+passes. It changes no display code or portable bytes; use the same runtime and
+checksum above. Hosted gates and physical acceptance remain open.
+
+[Session 031](../../../sessions/2026-10-10-weather-habitat/031-policy-replay-results.md)
+adds test-only policy replay and four later CI failures. It also retains a fresh
+local normal-mode max-gap failure. No phase-only change is supported for the
+fixed macOS samples; matched native/full-scene controls are next. This study
+changes no installable bytes or physical acceptance status.
+
+The earlier installation instructions below stay pinned to their named meal
+runtime. They are historical evidence, not validation or installation instructions
+for the new candidate. Preserve local configuration and the existing installed
+build while evaluating a separate candidate.
+
+## Earlier meal handoff
+
+
+Prepared 2026-10-18 for the earlier meal handoff. Green House 1 is the weather and tiny-community theme; Woodland retains its larger characters and terrain-engineering activities. Earlier runtime `f02092b12a45d72cefe73ba68d5acd2f68932358`, portable SHA-256 `046f02a9772a5060ac422b6acceee763fb29726a230df1ce1932a38611899ec6`. Both `npm test` runs exit 0 (combined Chrome/Firefox and native Edge; runner `7bfe736`): all 9 pure programs, 13 browser programs per engine, offline portable checks and all 66 cadence cases pass. Focused meal (4 functional + 4 cadence per engine), community (14 groups per engine), caption clearance across seven stages, quiet mode across four views at DPR 1/2, and >=30 CSS-pixel group-gap / >=16 CSS-pixel viewport-margin gates pass. No full-run failures or retries. Session 017 contains the full results. Physical Ally/Vanadium and sustained acceptance remain pending; earlier intermittent stalls remain unexplained. The meal runs in the 11:00–13:00 and 20:00–22:00 windows. Use a browser-only mock preview at 11:08 and sample seconds 4, 11, 28, 40, 47, 51 and 57 to inspect the stages; do not change the operating-system clock. Return device findings as `004-ally-to-cloud.md` in the weather-habitat session thread. The [earlier fullscreen handoff](../../../sessions/2026-10-05-immersive-woodland/003-cloud-scene-ready.md) remains history.
+
+## Earlier runtime — recorded browser/portable passes; device acceptance unrun
 
 | Item | Value |
 | --- | --- |

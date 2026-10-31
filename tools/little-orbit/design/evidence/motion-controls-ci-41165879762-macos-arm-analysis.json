@@ -1,0 +1,646 @@
+{
+  "schemaVersion": 1,
+  "kind": "motion-control-analysis",
+  "inputFiles": ["tools/little-orbit/design/evidence/motion-controls-ci-41165879762-macos-arm.jsonl"],
+  "totalRecords": 16,
+  "groups": [
+    {
+      "identity": {
+        "platform": "darwin",
+        "arch": "arm64",
+        "node": "v22.23.4",
+        "browser": "chromium",
+        "browserVersion": "151.0.7922.34",
+        "profile": "macos-chromium-dashboard-low",
+        "lowPower": true,
+        "view": "dashboard",
+        "viewport": {"width":854,"height":480},
+        "dpr": 1,
+        "channel": "default",
+        "headless": true,
+        "modeEntry": "direct-low-power",
+        "gitSHA": "ef70fefc759d7d28b81140e8af4d2750d835029a",
+        "diagnosticDigest": "d3fb571f2ac016d19452f327f6ec192f60c113dc5bf484cb0021c61b8bfe5522",
+        "planDigest": "118d4f51712dfb8bbffca42bf30ea08d9cfe9e5c5b600d8c113577e4a5bbd777",
+        "helperDigest": "1d30900bac964615c28e073df16c659d2e8dc4fbcf9b81019b8a6858dfd579be"
+      },
+      "completeness": {
+        "expectedRepeats": 4,
+        "expectedRecords": 16,
+        "presentRecords": 16,
+        "missingKeys": [],
+        "duplicateKeys": []
+      },
+      "conditions": {
+        "blank": {
+          "usableSamples": 4,
+          "errors": 0,
+          "nativeNominal": {
+            "fps": {"n":4,"min":43.66604964639944,"median":45.86291040782734,"max":48.823998873291536},
+            "p95": {"n":4,"min":33.399999999999636,"median":34.15000000000009,"max":34.59999999999991},
+            "maxGap": {"n":4,"min":37.09999999999991,"median":38.950000000000045,"max":54.09999999999991}
+          },
+          "nativeActual": {
+            "p95": {"n":4,"min":33.5,"median":34.55000000001746,"max":36},
+            "maxGap": {"n":4,"min":37.40000000002328,"median":39.14999999999418,"max":55.29999999998836}
+          },
+          "acceptedAppNominal": {
+            "fps": {"n":0,"min":null,"median":null,"max":null},
+            "p95": {"n":0,"min":null,"median":null,"max":null},
+            "maxGap": {"n":0,"min":null,"median":null,"max":null}
+          },
+          "acceptedAppPerformanceAtEntry": {
+            "fps": {"n":0,"min":null,"median":null,"max":null},
+            "p95": {"n":0,"min":null,"median":null,"max":null},
+            "maxGap": {"n":0,"min":null,"median":null,"max":null}
+          },
+          "geometryObservations": {
+            "observationsPerSecond": {"n":0,"min":null,"median":null,"max":null},
+            "p95GapMs": {"n":0,"min":null,"median":null,"max":null},
+            "maxGapMs": {"n":0,"min":null,"median":null,"max":null}
+          }
+        },
+        "full": {
+          "usableSamples": 4,
+          "errors": 0,
+          "nativeNominal": {
+            "fps": {"n":4,"min":52.74662611670727,"median":54.96842428516747,"max":56.139683143821635},
+            "p95": {"n":4,"min":29.799999999999727,"median":32.450000000000045,"max":35.90000000000009},
+            "maxGap": {"n":4,"min":33.69999999999982,"median":38.65000000000009,"max":41.899999999999636}
+          },
+          "nativeActual": {
+            "p95": {"n":4,"min":32.29999999998836,"median":34.55000000001746,"max":37.70000000001164},
+            "maxGap": {"n":4,"min":35.20000000001164,"median":39.89999999999418,"max":43.399999999965075}
+          },
+          "acceptedAppNominal": {
+            "fps": {"n":4,"min":26.135715643413512,"median":27.324023543529982,"max":28.38758516275502},
+            "p95": {"n":4,"min":49.30000000000018,"median":50.59999999999991,"max":53.5},
+            "maxGap": {"n":4,"min":52.19999999999982,"median":54.65000000000009,"max":57.69999999999982}
+          },
+          "acceptedAppPerformanceAtEntry": {
+            "fps": {"n":4,"min":26.135715643413512,"median":27.324023543529982,"max":28.38758516275502},
+            "p95": {"n":4,"min":50.40000000002328,"median":53.90000000002328,"max":55.29999999998836},
+            "maxGap": {"n":4,"min":52.90000000002328,"median":56.85000000000582,"max":66.79999999998836}
+          },
+          "geometryObservations": {
+            "observationsPerSecond": {"n":4,"min":26.135715643413512,"median":27.324023543529982,"max":28.38758516275502},
+            "p95GapMs": {"n":4,"min":50.5,"median":54.09999999997672,"max":54.70000000001164},
+            "maxGapMs": {"n":4,"min":53.199999999953434,"median":57.10000000000582,"max":66.70000000001164}
+          }
+        },
+        "static-hidden": {
+          "usableSamples": 4,
+          "errors": 0,
+          "nativeNominal": {
+            "fps": {"n":4,"min":54.280544710027314,"median":54.601157759379525,"max":55.07287660827073},
+            "p95": {"n":4,"min":31.799999999999955,"median":32.950000000000045,"max":33.399999999999864},
+            "maxGap": {"n":4,"min":38.700000000000045,"median":40.249999999999886,"max":41}
+          },
+          "nativeActual": {
+            "p95": {"n":4,"min":34.29999999998836,"median":35.34999999997672,"max":37},
+            "maxGap": {"n":4,"min":40.29999999998836,"median":41.200000000040745,"max":43.09999999997672}
+          },
+          "acceptedAppNominal": {
+            "fps": {"n":4,"min":27.140272355013657,"median":27.418653786410587,"max":28.011204481792873},
+            "p95": {"n":4,"min":50.40000000000009,"median":51.80000000000007,"max":52.70000000000027},
+            "maxGap": {"n":4,"min":53.5,"median":54.89999999999998,"max":56.799999999999955}
+          },
+          "acceptedAppPerformanceAtEntry": {
+            "fps": {"n":4,"min":27.140272355013657,"median":27.418653786410587,"max":28.011204481792873},
+            "p95": {"n":4,"min":50.600000000034925,"median":54.100000000034925,"max":55},
+            "maxGap": {"n":4,"min":53.79999999998836,"median":55.69999999998254,"max":61}
+          },
+          "geometryObservations": {
+            "observationsPerSecond": {"n":4,"min":27.140272355013657,"median":27.418653786410587,"max":28.011204481792873},
+            "p95GapMs": {"n":4,"min":51.5,"median":54.35000000000582,"max":54.90000000002328},
+            "maxGapMs": {"n":4,"min":54.29999999998836,"median":56.19999999998254,"max":61.40000000002328}
+          }
+        },
+        "world-hidden": {
+          "usableSamples": 4,
+          "errors": 0,
+          "nativeNominal": {
+            "fps": {"n":4,"min":41.6883793642529,"median":46.792547433529904,"max":48.72971566447435},
+            "p95": {"n":4,"min":33.299999999999955,"median":34.19999999999993,"max":36.20000000000027},
+            "maxGap": {"n":4,"min":35.799999999999955,"median":38.299999999999955,"max":39.20000000000027}
+          },
+          "nativeActual": {
+            "p95": {"n":4,"min":33.59999999997672,"median":34.64999999999418,"max":36.79999999998836},
+            "maxGap": {"n":4,"min":36.100000000034925,"median":38.45000000001164,"max":44.59999999997672}
+          },
+          "acceptedAppNominal": {
+            "fps": {"n":4,"min":26.91599376682309,"median":27.45823295860128,"max":27.91049718529701},
+            "p95": {"n":4,"min":50.09999999999991,"median":53.40000000000032,"max":54.90000000000009},
+            "maxGap": {"n":4,"min":52.80000000000018,"median":56,"max":64.90000000000009}
+          },
+          "acceptedAppPerformanceAtEntry": {
+            "fps": {"n":4,"min":26.91599376682309,"median":27.45823295860128,"max":27.91049718529701},
+            "p95": {"n":4,"min":50.90000000002328,"median":53.39999999999418,"max":54.5},
+            "maxGap": {"n":4,"min":52.90000000002328,"median":55.85000000000582,"max":64.70000000001164}
+          },
+          "geometryObservations": {
+            "observationsPerSecond": {"n":4,"min":26.91599376682309,"median":27.45823295860128,"max":27.91049718529701},
+            "p95GapMs": {"n":4,"min":50.899999999965075,"median":53.94999999998254,"max":54.59999999997672},
+            "maxGapMs": {"n":4,"min":52.899999999965075,"median":55.90000000002328,"max":65.5}
+          }
+        }
+      },
+      "pairedRounds": [
+        {
+          "round": 0,
+          "fullMinusBlankNativeActualP95Ms": -1.2000000000116415,
+          "staticHiddenMinusFull": {"nativeActualP95Ms":2.599999999976717,"geometryP95Ms":1},
+          "worldHiddenMinusFull": {"nativeActualP95Ms":1.7000000000116415,"geometryP95Ms":0.3999999999650754}
+        },
+        {
+          "round": 1,
+          "fullMinusBlankNativeActualP95Ms": -1,
+          "staticHiddenMinusFull": {"nativeActualP95Ms":-0.7000000000116415,"geometryP95Ms":1.3000000000465661},
+          "worldHiddenMinusFull": {"nativeActualP95Ms":-1.400000000023283,"geometryP95Ms":0.7999999999883585}
+        },
+        {
+          "round": 2,
+          "fullMinusBlankNativeActualP95Ms": -0.8999999999650754,
+          "staticHiddenMinusFull": {"nativeActualP95Ms":2.8999999999650754,"geometryP95Ms":0.20000000001164153},
+          "worldHiddenMinusFull": {"nativeActualP95Ms":2.699999999953434,"geometryP95Ms":0}
+        },
+        {
+          "round": 3,
+          "fullMinusBlankNativeActualP95Ms": 3.599999999976717,
+          "staticHiddenMinusFull": {"nativeActualP95Ms":-1.900000000023283,"geometryP95Ms":-0.7999999999883585},
+          "worldHiddenMinusFull": {"nativeActualP95Ms":-2.400000000023283,"geometryP95Ms":-1.2000000000116415}
+        }
+      ],
+      "errors": []
+    }
+  ],
+  "records": [
+    {
+      "source": "tools/little-orbit/design/evidence/motion-controls-ci-41165879762-macos-arm.jsonl",
+      "line": 1,
+      "traceID": "05cf96a91ccc964dce14be995856a3c677cf738cb371c8084a304578fd6496c4",
+      "identity": {
+        "platform": "darwin",
+        "arch": "arm64",
+        "node": "v22.23.4",
+        "browser": "chromium",
+        "browserVersion": "151.0.7922.34",
+        "profile": "macos-chromium-dashboard-low",
+        "lowPower": true,
+        "view": "dashboard",
+        "viewport": {"width":854,"height":480},
+        "dpr": 1,
+        "channel": "default",
+        "headless": true,
+        "modeEntry": "direct-low-power",
+        "gitSHA": "ef70fefc759d7d28b81140e8af4d2750d835029a",
+        "diagnosticDigest": "d3fb571f2ac016d19452f327f6ec192f60c113dc5bf484cb0021c61b8bfe5522",
+        "planDigest": "118d4f51712dfb8bbffca42bf30ea08d9cfe9e5c5b600d8c113577e4a5bbd777",
+        "helperDigest": "1d30900bac964615c28e073df16c659d2e8dc4fbcf9b81019b8a6858dfd579be"
+      },
+      "condition": "world-hidden",
+      "round": 3,
+      "position": 0,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "source": "tools/little-orbit/design/evidence/motion-controls-ci-41165879762-macos-arm.jsonl",
+      "line": 2,
+      "traceID": "68abf0c89fe40f7f8bdf97d2df743abc3f437e491e7bedab87022d58b82ad33d",
+      "identity": {
+        "platform": "darwin",
+        "arch": "arm64",
+        "node": "v22.23.4",
+        "browser": "chromium",
+        "browserVersion": "151.0.7922.34",
+        "profile": "macos-chromium-dashboard-low",
+        "lowPower": true,
+        "view": "dashboard",
+        "viewport": {"width":854,"height":480},
+        "dpr": 1,
+        "channel": "default",
+        "headless": true,
+        "modeEntry": "direct-low-power",
+        "gitSHA": "ef70fefc759d7d28b81140e8af4d2750d835029a",
+        "diagnosticDigest": "d3fb571f2ac016d19452f327f6ec192f60c113dc5bf484cb0021c61b8bfe5522",
+        "planDigest": "118d4f51712dfb8bbffca42bf30ea08d9cfe9e5c5b600d8c113577e4a5bbd777",
+        "helperDigest": "1d30900bac964615c28e073df16c659d2e8dc4fbcf9b81019b8a6858dfd579be"
+      },
+      "condition": "blank",
+      "round": 3,
+      "position": 1,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "source": "tools/little-orbit/design/evidence/motion-controls-ci-41165879762-macos-arm.jsonl",
+      "line": 3,
+      "traceID": "a839fa20788c8303e9d0b5479043ba1739aefb4d7aa873936d8802136763acc2",
+      "identity": {
+        "platform": "darwin",
+        "arch": "arm64",
+        "node": "v22.23.4",
+        "browser": "chromium",
+        "browserVersion": "151.0.7922.34",
+        "profile": "macos-chromium-dashboard-low",
+        "lowPower": true,
+        "view": "dashboard",
+        "viewport": {"width":854,"height":480},
+        "dpr": 1,
+        "channel": "default",
+        "headless": true,
+        "modeEntry": "direct-low-power",
+        "gitSHA": "ef70fefc759d7d28b81140e8af4d2750d835029a",
+        "diagnosticDigest": "d3fb571f2ac016d19452f327f6ec192f60c113dc5bf484cb0021c61b8bfe5522",
+        "planDigest": "118d4f51712dfb8bbffca42bf30ea08d9cfe9e5c5b600d8c113577e4a5bbd777",
+        "helperDigest": "1d30900bac964615c28e073df16c659d2e8dc4fbcf9b81019b8a6858dfd579be"
+      },
+      "condition": "static-hidden",
+      "round": 3,
+      "position": 2,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "source": "tools/little-orbit/design/evidence/motion-controls-ci-41165879762-macos-arm.jsonl",
+      "line": 4,
+      "traceID": "8ca214e04ece19e7db4ab4964086fd0019aabe39a5f711355dfb0a6f9c0f853b",
+      "identity": {
+        "platform": "darwin",
+        "arch": "arm64",
+        "node": "v22.23.4",
+        "browser": "chromium",
+        "browserVersion": "151.0.7922.34",
+        "profile": "macos-chromium-dashboard-low",
+        "lowPower": true,
+        "view": "dashboard",
+        "viewport": {"width":854,"height":480},
+        "dpr": 1,
+        "channel": "default",
+        "headless": true,
+        "modeEntry": "direct-low-power",
+        "gitSHA": "ef70fefc759d7d28b81140e8af4d2750d835029a",
+        "diagnosticDigest": "d3fb571f2ac016d19452f327f6ec192f60c113dc5bf484cb0021c61b8bfe5522",
+        "planDigest": "118d4f51712dfb8bbffca42bf30ea08d9cfe9e5c5b600d8c113577e4a5bbd777",
+        "helperDigest": "1d30900bac964615c28e073df16c659d2e8dc4fbcf9b81019b8a6858dfd579be"
+      },
+      "condition": "full",
+      "round": 3,
+      "position": 3,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "source": "tools/little-orbit/design/evidence/motion-controls-ci-41165879762-macos-arm.jsonl",
+      "line": 5,
+      "traceID": "1c59f01242a922ee5996184afecf3e404df7b28ffccf214a670d8ac4df9f8186",
+      "identity": {
+        "platform": "darwin",
+        "arch": "arm64",
+        "node": "v22.23.4",
+        "browser": "chromium",
+        "browserVersion": "151.0.7922.34",
+        "profile": "macos-chromium-dashboard-low",
+        "lowPower": true,
+        "view": "dashboard",
+        "viewport": {"width":854,"height":480},
+        "dpr": 1,
+        "channel": "default",
+        "headless": true,
+        "modeEntry": "direct-low-power",
+        "gitSHA": "ef70fefc759d7d28b81140e8af4d2750d835029a",
+        "diagnosticDigest": "d3fb571f2ac016d19452f327f6ec192f60c113dc5bf484cb0021c61b8bfe5522",
+        "planDigest": "118d4f51712dfb8bbffca42bf30ea08d9cfe9e5c5b600d8c113577e4a5bbd777",
+        "helperDigest": "1d30900bac964615c28e073df16c659d2e8dc4fbcf9b81019b8a6858dfd579be"
+      },
+      "condition": "static-hidden",
+      "round": 2,
+      "position": 0,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "source": "tools/little-orbit/design/evidence/motion-controls-ci-41165879762-macos-arm.jsonl",
+      "line": 6,
+      "traceID": "3a00d9e66b976a457c3ac59c3963e75d66008031660e3e225713a3bf4b00d226",
+      "identity": {
+        "platform": "darwin",
+        "arch": "arm64",
+        "node": "v22.23.4",
+        "browser": "chromium",
+        "browserVersion": "151.0.7922.34",
+        "profile": "macos-chromium-dashboard-low",
+        "lowPower": true,
+        "view": "dashboard",
+        "viewport": {"width":854,"height":480},
+        "dpr": 1,
+        "channel": "default",
+        "headless": true,
+        "modeEntry": "direct-low-power",
+        "gitSHA": "ef70fefc759d7d28b81140e8af4d2750d835029a",
+        "diagnosticDigest": "d3fb571f2ac016d19452f327f6ec192f60c113dc5bf484cb0021c61b8bfe5522",
+        "planDigest": "118d4f51712dfb8bbffca42bf30ea08d9cfe9e5c5b600d8c113577e4a5bbd777",
+        "helperDigest": "1d30900bac964615c28e073df16c659d2e8dc4fbcf9b81019b8a6858dfd579be"
+      },
+      "condition": "world-hidden",
+      "round": 2,
+      "position": 1,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "source": "tools/little-orbit/design/evidence/motion-controls-ci-41165879762-macos-arm.jsonl",
+      "line": 7,
+      "traceID": "5e539024f135cc1119abd95e30a8475493d903bd7798c4fadd5cbcc3146542da",
+      "identity": {
+        "platform": "darwin",
+        "arch": "arm64",
+        "node": "v22.23.4",
+        "browser": "chromium",
+        "browserVersion": "151.0.7922.34",
+        "profile": "macos-chromium-dashboard-low",
+        "lowPower": true,
+        "view": "dashboard",
+        "viewport": {"width":854,"height":480},
+        "dpr": 1,
+        "channel": "default",
+        "headless": true,
+        "modeEntry": "direct-low-power",
+        "gitSHA": "ef70fefc759d7d28b81140e8af4d2750d835029a",
+        "diagnosticDigest": "d3fb571f2ac016d19452f327f6ec192f60c113dc5bf484cb0021c61b8bfe5522",
+        "planDigest": "118d4f51712dfb8bbffca42bf30ea08d9cfe9e5c5b600d8c113577e4a5bbd777",
+        "helperDigest": "1d30900bac964615c28e073df16c659d2e8dc4fbcf9b81019b8a6858dfd579be"
+      },
+      "condition": "full",
+      "round": 2,
+      "position": 2,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "source": "tools/little-orbit/design/evidence/motion-controls-ci-41165879762-macos-arm.jsonl",
+      "line": 8,
+      "traceID": "99732f0461c7743da02eb72c7e8f5eeea7ebee1cb3f640911623e34901f6aeea",
+      "identity": {
+        "platform": "darwin",
+        "arch": "arm64",
+        "node": "v22.23.4",
+        "browser": "chromium",
+        "browserVersion": "151.0.7922.34",
+        "profile": "macos-chromium-dashboard-low",
+        "lowPower": true,
+        "view": "dashboard",
+        "viewport": {"width":854,"height":480},
+        "dpr": 1,
+        "channel": "default",
+        "headless": true,
+        "modeEntry": "direct-low-power",
+        "gitSHA": "ef70fefc759d7d28b81140e8af4d2750d835029a",
+        "diagnosticDigest": "d3fb571f2ac016d19452f327f6ec192f60c113dc5bf484cb0021c61b8bfe5522",
+        "planDigest": "118d4f51712dfb8bbffca42bf30ea08d9cfe9e5c5b600d8c113577e4a5bbd777",
+        "helperDigest": "1d30900bac964615c28e073df16c659d2e8dc4fbcf9b81019b8a6858dfd579be"
+      },
+      "condition": "blank",
+      "round": 2,
+      "position": 3,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "source": "tools/little-orbit/design/evidence/motion-controls-ci-41165879762-macos-arm.jsonl",
+      "line": 9,
+      "traceID": "d7969e178ac9814cdef0fa95e4ac2c60b1795cd9ce30f262ae69c169a9be3104",
+      "identity": {
+        "platform": "darwin",
+        "arch": "arm64",
+        "node": "v22.23.4",
+        "browser": "chromium",
+        "browserVersion": "151.0.7922.34",
+        "profile": "macos-chromium-dashboard-low",
+        "lowPower": true,
+        "view": "dashboard",
+        "viewport": {"width":854,"height":480},
+        "dpr": 1,
+        "channel": "default",
+        "headless": true,
+        "modeEntry": "direct-low-power",
+        "gitSHA": "ef70fefc759d7d28b81140e8af4d2750d835029a",
+        "diagnosticDigest": "d3fb571f2ac016d19452f327f6ec192f60c113dc5bf484cb0021c61b8bfe5522",
+        "planDigest": "118d4f51712dfb8bbffca42bf30ea08d9cfe9e5c5b600d8c113577e4a5bbd777",
+        "helperDigest": "1d30900bac964615c28e073df16c659d2e8dc4fbcf9b81019b8a6858dfd579be"
+      },
+      "condition": "full",
+      "round": 1,
+      "position": 0,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "source": "tools/little-orbit/design/evidence/motion-controls-ci-41165879762-macos-arm.jsonl",
+      "line": 10,
+      "traceID": "9bac7f6f641f91916f61364d1d7599a11a60c1ced9ce86aa998a7012ec3ed258",
+      "identity": {
+        "platform": "darwin",
+        "arch": "arm64",
+        "node": "v22.23.4",
+        "browser": "chromium",
+        "browserVersion": "151.0.7922.34",
+        "profile": "macos-chromium-dashboard-low",
+        "lowPower": true,
+        "view": "dashboard",
+        "viewport": {"width":854,"height":480},
+        "dpr": 1,
+        "channel": "default",
+        "headless": true,
+        "modeEntry": "direct-low-power",
+        "gitSHA": "ef70fefc759d7d28b81140e8af4d2750d835029a",
+        "diagnosticDigest": "d3fb571f2ac016d19452f327f6ec192f60c113dc5bf484cb0021c61b8bfe5522",
+        "planDigest": "118d4f51712dfb8bbffca42bf30ea08d9cfe9e5c5b600d8c113577e4a5bbd777",
+        "helperDigest": "1d30900bac964615c28e073df16c659d2e8dc4fbcf9b81019b8a6858dfd579be"
+      },
+      "condition": "static-hidden",
+      "round": 1,
+      "position": 1,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "source": "tools/little-orbit/design/evidence/motion-controls-ci-41165879762-macos-arm.jsonl",
+      "line": 11,
+      "traceID": "8fd65268a1812af5abaaba318bb994b82047c12f7770ac620025e5a4965c8095",
+      "identity": {
+        "platform": "darwin",
+        "arch": "arm64",
+        "node": "v22.23.4",
+        "browser": "chromium",
+        "browserVersion": "151.0.7922.34",
+        "profile": "macos-chromium-dashboard-low",
+        "lowPower": true,
+        "view": "dashboard",
+        "viewport": {"width":854,"height":480},
+        "dpr": 1,
+        "channel": "default",
+        "headless": true,
+        "modeEntry": "direct-low-power",
+        "gitSHA": "ef70fefc759d7d28b81140e8af4d2750d835029a",
+        "diagnosticDigest": "d3fb571f2ac016d19452f327f6ec192f60c113dc5bf484cb0021c61b8bfe5522",
+        "planDigest": "118d4f51712dfb8bbffca42bf30ea08d9cfe9e5c5b600d8c113577e4a5bbd777",
+        "helperDigest": "1d30900bac964615c28e073df16c659d2e8dc4fbcf9b81019b8a6858dfd579be"
+      },
+      "condition": "blank",
+      "round": 1,
+      "position": 2,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "source": "tools/little-orbit/design/evidence/motion-controls-ci-41165879762-macos-arm.jsonl",
+      "line": 12,
+      "traceID": "fa5883a118d164925eaf53d9a82d0cb455c6da36491a732237292546419fb810",
+      "identity": {
+        "platform": "darwin",
+        "arch": "arm64",
+        "node": "v22.23.4",
+        "browser": "chromium",
+        "browserVersion": "151.0.7922.34",
+        "profile": "macos-chromium-dashboard-low",
+        "lowPower": true,
+        "view": "dashboard",
+        "viewport": {"width":854,"height":480},
+        "dpr": 1,
+        "channel": "default",
+        "headless": true,
+        "modeEntry": "direct-low-power",
+        "gitSHA": "ef70fefc759d7d28b81140e8af4d2750d835029a",
+        "diagnosticDigest": "d3fb571f2ac016d19452f327f6ec192f60c113dc5bf484cb0021c61b8bfe5522",
+        "planDigest": "118d4f51712dfb8bbffca42bf30ea08d9cfe9e5c5b600d8c113577e4a5bbd777",
+        "helperDigest": "1d30900bac964615c28e073df16c659d2e8dc4fbcf9b81019b8a6858dfd579be"
+      },
+      "condition": "world-hidden",
+      "round": 1,
+      "position": 3,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "source": "tools/little-orbit/design/evidence/motion-controls-ci-41165879762-macos-arm.jsonl",
+      "line": 13,
+      "traceID": "801e3dd662878b14a69b37db62cae88865c2f8bbbdec1df09bd3cd9afbffb37a",
+      "identity": {
+        "platform": "darwin",
+        "arch": "arm64",
+        "node": "v22.23.4",
+        "browser": "chromium",
+        "browserVersion": "151.0.7922.34",
+        "profile": "macos-chromium-dashboard-low",
+        "lowPower": true,
+        "view": "dashboard",
+        "viewport": {"width":854,"height":480},
+        "dpr": 1,
+        "channel": "default",
+        "headless": true,
+        "modeEntry": "direct-low-power",
+        "gitSHA": "ef70fefc759d7d28b81140e8af4d2750d835029a",
+        "diagnosticDigest": "d3fb571f2ac016d19452f327f6ec192f60c113dc5bf484cb0021c61b8bfe5522",
+        "planDigest": "118d4f51712dfb8bbffca42bf30ea08d9cfe9e5c5b600d8c113577e4a5bbd777",
+        "helperDigest": "1d30900bac964615c28e073df16c659d2e8dc4fbcf9b81019b8a6858dfd579be"
+      },
+      "condition": "blank",
+      "round": 0,
+      "position": 0,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "source": "tools/little-orbit/design/evidence/motion-controls-ci-41165879762-macos-arm.jsonl",
+      "line": 14,
+      "traceID": "c725f43e6d5086b0b9d5b1c06b5cba0dd83689b8d3b35b34189a1ceb476ea376",
+      "identity": {
+        "platform": "darwin",
+        "arch": "arm64",
+        "node": "v22.23.4",
+        "browser": "chromium",
+        "browserVersion": "151.0.7922.34",
+        "profile": "macos-chromium-dashboard-low",
+        "lowPower": true,
+        "view": "dashboard",
+        "viewport": {"width":854,"height":480},
+        "dpr": 1,
+        "channel": "default",
+        "headless": true,
+        "modeEntry": "direct-low-power",
+        "gitSHA": "ef70fefc759d7d28b81140e8af4d2750d835029a",
+        "diagnosticDigest": "d3fb571f2ac016d19452f327f6ec192f60c113dc5bf484cb0021c61b8bfe5522",
+        "planDigest": "118d4f51712dfb8bbffca42bf30ea08d9cfe9e5c5b600d8c113577e4a5bbd777",
+        "helperDigest": "1d30900bac964615c28e073df16c659d2e8dc4fbcf9b81019b8a6858dfd579be"
+      },
+      "condition": "full",
+      "round": 0,
+      "position": 1,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "source": "tools/little-orbit/design/evidence/motion-controls-ci-41165879762-macos-arm.jsonl",
+      "line": 15,
+      "traceID": "dae28b238dfa0b6e475ee7059bac87673e2064ee78f92c8a9e1ac840a82a9961",
+      "identity": {
+        "platform": "darwin",
+        "arch": "arm64",
+        "node": "v22.23.4",
+        "browser": "chromium",
+        "browserVersion": "151.0.7922.34",
+        "profile": "macos-chromium-dashboard-low",
+        "lowPower": true,
+        "view": "dashboard",
+        "viewport": {"width":854,"height":480},
+        "dpr": 1,
+        "channel": "default",
+        "headless": true,
+        "modeEntry": "direct-low-power",
+        "gitSHA": "ef70fefc759d7d28b81140e8af4d2750d835029a",
+        "diagnosticDigest": "d3fb571f2ac016d19452f327f6ec192f60c113dc5bf484cb0021c61b8bfe5522",
+        "planDigest": "118d4f51712dfb8bbffca42bf30ea08d9cfe9e5c5b600d8c113577e4a5bbd777",
+        "helperDigest": "1d30900bac964615c28e073df16c659d2e8dc4fbcf9b81019b8a6858dfd579be"
+      },
+      "condition": "world-hidden",
+      "round": 0,
+      "position": 2,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "source": "tools/little-orbit/design/evidence/motion-controls-ci-41165879762-macos-arm.jsonl",
+      "line": 16,
+      "traceID": "4af094f339115989875e5ccafed65ab7c0649a51c165efe3bea8867ebca67fef",
+      "identity": {
+        "platform": "darwin",
+        "arch": "arm64",
+        "node": "v22.23.4",
+        "browser": "chromium",
+        "browserVersion": "151.0.7922.34",
+        "profile": "macos-chromium-dashboard-low",
+        "lowPower": true,
+        "view": "dashboard",
+        "viewport": {"width":854,"height":480},
+        "dpr": 1,
+        "channel": "default",
+        "headless": true,
+        "modeEntry": "direct-low-power",
+        "gitSHA": "ef70fefc759d7d28b81140e8af4d2750d835029a",
+        "diagnosticDigest": "d3fb571f2ac016d19452f327f6ec192f60c113dc5bf484cb0021c61b8bfe5522",
+        "planDigest": "118d4f51712dfb8bbffca42bf30ea08d9cfe9e5c5b600d8c113577e4a5bbd777",
+        "helperDigest": "1d30900bac964615c28e073df16c659d2e8dc4fbcf9b81019b8a6858dfd579be"
+      },
+      "condition": "static-hidden",
+      "round": 0,
+      "position": 3,
+      "errors": [],
+      "warnings": []
+    }
+  ],
+  "sampleErrors": [],
+  "validationErrors": [],
+  "warnings": []
+}

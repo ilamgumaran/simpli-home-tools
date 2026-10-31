@@ -1,0 +1,646 @@
+{
+  "schemaVersion": 1,
+  "kind": "motion-control-analysis",
+  "inputFiles": ["tools/little-orbit/design/evidence/motion-controls-ci-41165879762-windows.jsonl"],
+  "totalRecords": 16,
+  "groups": [
+    {
+      "identity": {
+        "platform": "win32",
+        "arch": "x64",
+        "node": "v22.23.4",
+        "browser": "firefox",
+        "browserVersion": "153.0",
+        "profile": "windows-firefox-dashboard-normal",
+        "lowPower": false,
+        "view": "dashboard",
+        "viewport": {"width":854,"height":480},
+        "dpr": 1,
+        "channel": "default",
+        "headless": true,
+        "modeEntry": "direct-normal",
+        "gitSHA": "ef70fefc759d7d28b81140e8af4d2750d835029a",
+        "diagnosticDigest": "d3fb571f2ac016d19452f327f6ec192f60c113dc5bf484cb0021c61b8bfe5522",
+        "planDigest": "118d4f51712dfb8bbffca42bf30ea08d9cfe9e5c5b600d8c113577e4a5bbd777",
+        "helperDigest": "1d30900bac964615c28e073df16c659d2e8dc4fbcf9b81019b8a6858dfd579be"
+      },
+      "completeness": {
+        "expectedRepeats": 4,
+        "expectedRecords": 16,
+        "presentRecords": 16,
+        "missingKeys": [],
+        "duplicateKeys": []
+      },
+      "conditions": {
+        "blank": {
+          "usableSamples": 4,
+          "errors": 0,
+          "nativeNominal": {
+            "fps": {"n":4,"min":57.264552768575484,"median":59.32751636248306,"max":60.23529411764706},
+            "p95": {"n":4,"min":29.659999999999854,"median":30.57000000000005,"max":31.480000000000018},
+            "maxGap": {"n":4,"min":32.440000000000055,"median":32.66999999999996,"max":32.98000000000002}
+          },
+          "nativeActual": {
+            "p95": {"n":4,"min":29,"median":29.5,"max":31},
+            "maxGap": {"n":4,"min":31,"median":32,"max":32}
+          },
+          "acceptedAppNominal": {
+            "fps": {"n":0,"min":null,"median":null,"max":null},
+            "p95": {"n":0,"min":null,"median":null,"max":null},
+            "maxGap": {"n":0,"min":null,"median":null,"max":null}
+          },
+          "acceptedAppPerformanceAtEntry": {
+            "fps": {"n":0,"min":null,"median":null,"max":null},
+            "p95": {"n":0,"min":null,"median":null,"max":null},
+            "maxGap": {"n":0,"min":null,"median":null,"max":null}
+          },
+          "geometryObservations": {
+            "observationsPerSecond": {"n":0,"min":null,"median":null,"max":null},
+            "p95GapMs": {"n":0,"min":null,"median":null,"max":null},
+            "maxGapMs": {"n":0,"min":null,"median":null,"max":null}
+          }
+        },
+        "full": {
+          "usableSamples": 4,
+          "errors": 0,
+          "nativeNominal": {
+            "fps": {"n":4,"min":51.634296541923256,"median":61.447011680219816,"max":62.14689265536723},
+            "p95": {"n":4,"min":18.079999999999927,"median":18.24000000000001,"max":31.800000000000182},
+            "maxGap": {"n":4,"min":18.45999999999981,"median":19.720000000000027,"max":32.24000000000069}
+          },
+          "nativeActual": {
+            "p95": {"n":4,"min":17,"median":17,"max":32},
+            "maxGap": {"n":4,"min":17,"median":18,"max":32}
+          },
+          "acceptedAppNominal": {
+            "fps": {"n":4,"min":51.634296541923256,"median":61.447011680219816,"max":62.14689265536723},
+            "p95": {"n":4,"min":18.079999999999927,"median":18.24000000000001,"max":31.800000000000182},
+            "maxGap": {"n":4,"min":18.45999999999981,"median":19.720000000000027,"max":32.24000000000069}
+          },
+          "acceptedAppPerformanceAtEntry": {
+            "fps": {"n":4,"min":51.634296541923256,"median":61.447011680219816,"max":62.14689265536723},
+            "p95": {"n":4,"min":17,"median":17,"max":32},
+            "maxGap": {"n":4,"min":18,"median":18,"max":32}
+          },
+          "geometryObservations": {
+            "observationsPerSecond": {"n":4,"min":52.581714827096164,"median":62.39600983986135,"max":62.61770244821092},
+            "p95GapMs": {"n":4,"min":17,"median":17,"max":32},
+            "maxGapMs": {"n":4,"min":17,"median":18,"max":32}
+          }
+        },
+        "static-hidden": {
+          "usableSamples": 4,
+          "errors": 0,
+          "nativeNominal": {
+            "fps": {"n":4,"min":61.1764705882353,"median":61.96788895571977,"max":62.17370669197912},
+            "p95": {"n":4,"min":18.0600000000004,"median":18.200000000000273,"max":18.25999999999999},
+            "maxGap": {"n":4,"min":18.38000000000011,"median":18.63000000000011,"max":20.420000000000073}
+          },
+          "nativeActual": {
+            "p95": {"n":4,"min":17,"median":17,"max":17},
+            "maxGap": {"n":4,"min":17,"median":17,"max":18}
+          },
+          "acceptedAppNominal": {
+            "fps": {"n":4,"min":61.1764705882353,"median":61.96788895571977,"max":62.17370669197912},
+            "p95": {"n":4,"min":18.0600000000004,"median":18.200000000000273,"max":18.25999999999999},
+            "maxGap": {"n":4,"min":18.38000000000011,"median":18.63000000000011,"max":20.420000000000073}
+          },
+          "acceptedAppPerformanceAtEntry": {
+            "fps": {"n":4,"min":61.1764705882353,"median":61.96788895571977,"max":62.17370669197912},
+            "p95": {"n":4,"min":17,"median":17,"max":17},
+            "maxGap": {"n":4,"min":17,"median":17,"max":18}
+          },
+          "geometryObservations": {
+            "observationsPerSecond": {"n":4,"min":62.11764705882353,"median":62.913963596265106,"max":63.12292358803987},
+            "p95GapMs": {"n":4,"min":17,"median":17,"max":17},
+            "maxGapMs": {"n":4,"min":17,"median":17,"max":18}
+          }
+        },
+        "world-hidden": {
+          "usableSamples": 4,
+          "errors": 0,
+          "nativeNominal": {
+            "fps": {"n":4,"min":61.31178707224335,"median":61.87531149472158,"max":62.011943040881945},
+            "p95": {"n":4,"min":18.059999999999945,"median":18.20999999999981,"max":18.320000000000164},
+            "maxGap": {"n":4,"min":18.460000000000036,"median":18.49000000000001,"max":18.519999999999982}
+          },
+          "nativeActual": {
+            "p95": {"n":4,"min":17,"median":17,"max":17},
+            "maxGap": {"n":4,"min":18,"median":18,"max":18}
+          },
+          "acceptedAppNominal": {
+            "fps": {"n":4,"min":61.31178707224335,"median":61.87531149472158,"max":62.011943040881945},
+            "p95": {"n":4,"min":18.059999999999945,"median":18.20999999999981,"max":18.320000000000164},
+            "maxGap": {"n":4,"min":18.460000000000036,"median":18.49000000000001,"max":18.519999999999982}
+          },
+          "acceptedAppPerformanceAtEntry": {
+            "fps": {"n":4,"min":61.31178707224335,"median":61.87531149472158,"max":62.011943040881945},
+            "p95": {"n":4,"min":17,"median":17,"max":17},
+            "maxGap": {"n":4,"min":17,"median":18,"max":18}
+          },
+          "geometryObservations": {
+            "observationsPerSecond": {"n":4,"min":62.26235741444867,"median":62.82723936387114,"max":62.93063849333946},
+            "p95GapMs": {"n":4,"min":17,"median":17,"max":17},
+            "maxGapMs": {"n":4,"min":18,"median":18,"max":18}
+          }
+        }
+      },
+      "pairedRounds": [
+        {
+          "round": 0,
+          "fullMinusBlankNativeActualP95Ms": 3,
+          "staticHiddenMinusFull": {"nativeActualP95Ms":-15,"geometryP95Ms":-15},
+          "worldHiddenMinusFull": {"nativeActualP95Ms":-15,"geometryP95Ms":-15}
+        },
+        {
+          "round": 1,
+          "fullMinusBlankNativeActualP95Ms": -14,
+          "staticHiddenMinusFull": {"nativeActualP95Ms":0,"geometryP95Ms":0},
+          "worldHiddenMinusFull": {"nativeActualP95Ms":0,"geometryP95Ms":0}
+        },
+        {
+          "round": 2,
+          "fullMinusBlankNativeActualP95Ms": -12,
+          "staticHiddenMinusFull": {"nativeActualP95Ms":0,"geometryP95Ms":0},
+          "worldHiddenMinusFull": {"nativeActualP95Ms":0,"geometryP95Ms":0}
+        },
+        {
+          "round": 3,
+          "fullMinusBlankNativeActualP95Ms": -13,
+          "staticHiddenMinusFull": {"nativeActualP95Ms":0,"geometryP95Ms":0},
+          "worldHiddenMinusFull": {"nativeActualP95Ms":0,"geometryP95Ms":0}
+        }
+      ],
+      "errors": []
+    }
+  ],
+  "records": [
+    {
+      "source": "tools/little-orbit/design/evidence/motion-controls-ci-41165879762-windows.jsonl",
+      "line": 1,
+      "traceID": "a294a83eb95ac86071153de6255cec66a2d351eacbe85fe2f883e1ddff1375ec",
+      "identity": {
+        "platform": "win32",
+        "arch": "x64",
+        "node": "v22.23.4",
+        "browser": "firefox",
+        "browserVersion": "153.0",
+        "profile": "windows-firefox-dashboard-normal",
+        "lowPower": false,
+        "view": "dashboard",
+        "viewport": {"width":854,"height":480},
+        "dpr": 1,
+        "channel": "default",
+        "headless": true,
+        "modeEntry": "direct-normal",
+        "gitSHA": "ef70fefc759d7d28b81140e8af4d2750d835029a",
+        "diagnosticDigest": "d3fb571f2ac016d19452f327f6ec192f60c113dc5bf484cb0021c61b8bfe5522",
+        "planDigest": "118d4f51712dfb8bbffca42bf30ea08d9cfe9e5c5b600d8c113577e4a5bbd777",
+        "helperDigest": "1d30900bac964615c28e073df16c659d2e8dc4fbcf9b81019b8a6858dfd579be"
+      },
+      "condition": "world-hidden",
+      "round": 3,
+      "position": 0,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "source": "tools/little-orbit/design/evidence/motion-controls-ci-41165879762-windows.jsonl",
+      "line": 2,
+      "traceID": "307c5db497c63b64801d600b4e69fbd60afd65609b88973575e46cbc96ad1496",
+      "identity": {
+        "platform": "win32",
+        "arch": "x64",
+        "node": "v22.23.4",
+        "browser": "firefox",
+        "browserVersion": "153.0",
+        "profile": "windows-firefox-dashboard-normal",
+        "lowPower": false,
+        "view": "dashboard",
+        "viewport": {"width":854,"height":480},
+        "dpr": 1,
+        "channel": "default",
+        "headless": true,
+        "modeEntry": "direct-normal",
+        "gitSHA": "ef70fefc759d7d28b81140e8af4d2750d835029a",
+        "diagnosticDigest": "d3fb571f2ac016d19452f327f6ec192f60c113dc5bf484cb0021c61b8bfe5522",
+        "planDigest": "118d4f51712dfb8bbffca42bf30ea08d9cfe9e5c5b600d8c113577e4a5bbd777",
+        "helperDigest": "1d30900bac964615c28e073df16c659d2e8dc4fbcf9b81019b8a6858dfd579be"
+      },
+      "condition": "blank",
+      "round": 3,
+      "position": 1,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "source": "tools/little-orbit/design/evidence/motion-controls-ci-41165879762-windows.jsonl",
+      "line": 3,
+      "traceID": "0faa050146b36a81b65137b61a55fac84d9b2b4e0d4e55e8268b3f5631157b78",
+      "identity": {
+        "platform": "win32",
+        "arch": "x64",
+        "node": "v22.23.4",
+        "browser": "firefox",
+        "browserVersion": "153.0",
+        "profile": "windows-firefox-dashboard-normal",
+        "lowPower": false,
+        "view": "dashboard",
+        "viewport": {"width":854,"height":480},
+        "dpr": 1,
+        "channel": "default",
+        "headless": true,
+        "modeEntry": "direct-normal",
+        "gitSHA": "ef70fefc759d7d28b81140e8af4d2750d835029a",
+        "diagnosticDigest": "d3fb571f2ac016d19452f327f6ec192f60c113dc5bf484cb0021c61b8bfe5522",
+        "planDigest": "118d4f51712dfb8bbffca42bf30ea08d9cfe9e5c5b600d8c113577e4a5bbd777",
+        "helperDigest": "1d30900bac964615c28e073df16c659d2e8dc4fbcf9b81019b8a6858dfd579be"
+      },
+      "condition": "static-hidden",
+      "round": 3,
+      "position": 2,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "source": "tools/little-orbit/design/evidence/motion-controls-ci-41165879762-windows.jsonl",
+      "line": 4,
+      "traceID": "85839b179cf651b6930bd56a2d91f6f529bdb7c5ba436d0191898cc43e4d2a53",
+      "identity": {
+        "platform": "win32",
+        "arch": "x64",
+        "node": "v22.23.4",
+        "browser": "firefox",
+        "browserVersion": "153.0",
+        "profile": "windows-firefox-dashboard-normal",
+        "lowPower": false,
+        "view": "dashboard",
+        "viewport": {"width":854,"height":480},
+        "dpr": 1,
+        "channel": "default",
+        "headless": true,
+        "modeEntry": "direct-normal",
+        "gitSHA": "ef70fefc759d7d28b81140e8af4d2750d835029a",
+        "diagnosticDigest": "d3fb571f2ac016d19452f327f6ec192f60c113dc5bf484cb0021c61b8bfe5522",
+        "planDigest": "118d4f51712dfb8bbffca42bf30ea08d9cfe9e5c5b600d8c113577e4a5bbd777",
+        "helperDigest": "1d30900bac964615c28e073df16c659d2e8dc4fbcf9b81019b8a6858dfd579be"
+      },
+      "condition": "full",
+      "round": 3,
+      "position": 3,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "source": "tools/little-orbit/design/evidence/motion-controls-ci-41165879762-windows.jsonl",
+      "line": 5,
+      "traceID": "3e56fc5ccadc788240065d522295fb1584ad315f3c178257bea15b037e2b1fe3",
+      "identity": {
+        "platform": "win32",
+        "arch": "x64",
+        "node": "v22.23.4",
+        "browser": "firefox",
+        "browserVersion": "153.0",
+        "profile": "windows-firefox-dashboard-normal",
+        "lowPower": false,
+        "view": "dashboard",
+        "viewport": {"width":854,"height":480},
+        "dpr": 1,
+        "channel": "default",
+        "headless": true,
+        "modeEntry": "direct-normal",
+        "gitSHA": "ef70fefc759d7d28b81140e8af4d2750d835029a",
+        "diagnosticDigest": "d3fb571f2ac016d19452f327f6ec192f60c113dc5bf484cb0021c61b8bfe5522",
+        "planDigest": "118d4f51712dfb8bbffca42bf30ea08d9cfe9e5c5b600d8c113577e4a5bbd777",
+        "helperDigest": "1d30900bac964615c28e073df16c659d2e8dc4fbcf9b81019b8a6858dfd579be"
+      },
+      "condition": "static-hidden",
+      "round": 2,
+      "position": 0,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "source": "tools/little-orbit/design/evidence/motion-controls-ci-41165879762-windows.jsonl",
+      "line": 6,
+      "traceID": "607fe608cd789d75689ba60201b5eec5463ffc08ae01b1ab0d17c3ed8d31b881",
+      "identity": {
+        "platform": "win32",
+        "arch": "x64",
+        "node": "v22.23.4",
+        "browser": "firefox",
+        "browserVersion": "153.0",
+        "profile": "windows-firefox-dashboard-normal",
+        "lowPower": false,
+        "view": "dashboard",
+        "viewport": {"width":854,"height":480},
+        "dpr": 1,
+        "channel": "default",
+        "headless": true,
+        "modeEntry": "direct-normal",
+        "gitSHA": "ef70fefc759d7d28b81140e8af4d2750d835029a",
+        "diagnosticDigest": "d3fb571f2ac016d19452f327f6ec192f60c113dc5bf484cb0021c61b8bfe5522",
+        "planDigest": "118d4f51712dfb8bbffca42bf30ea08d9cfe9e5c5b600d8c113577e4a5bbd777",
+        "helperDigest": "1d30900bac964615c28e073df16c659d2e8dc4fbcf9b81019b8a6858dfd579be"
+      },
+      "condition": "world-hidden",
+      "round": 2,
+      "position": 1,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "source": "tools/little-orbit/design/evidence/motion-controls-ci-41165879762-windows.jsonl",
+      "line": 7,
+      "traceID": "f0adb07c29ca7e169fad5a680528bee30bf0e38cfd6ef9f97bf9700f43d32116",
+      "identity": {
+        "platform": "win32",
+        "arch": "x64",
+        "node": "v22.23.4",
+        "browser": "firefox",
+        "browserVersion": "153.0",
+        "profile": "windows-firefox-dashboard-normal",
+        "lowPower": false,
+        "view": "dashboard",
+        "viewport": {"width":854,"height":480},
+        "dpr": 1,
+        "channel": "default",
+        "headless": true,
+        "modeEntry": "direct-normal",
+        "gitSHA": "ef70fefc759d7d28b81140e8af4d2750d835029a",
+        "diagnosticDigest": "d3fb571f2ac016d19452f327f6ec192f60c113dc5bf484cb0021c61b8bfe5522",
+        "planDigest": "118d4f51712dfb8bbffca42bf30ea08d9cfe9e5c5b600d8c113577e4a5bbd777",
+        "helperDigest": "1d30900bac964615c28e073df16c659d2e8dc4fbcf9b81019b8a6858dfd579be"
+      },
+      "condition": "full",
+      "round": 2,
+      "position": 2,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "source": "tools/little-orbit/design/evidence/motion-controls-ci-41165879762-windows.jsonl",
+      "line": 8,
+      "traceID": "9ebeb775187b71ae707e637ef744224cb165557a6626af5a2de936d79ea33ebc",
+      "identity": {
+        "platform": "win32",
+        "arch": "x64",
+        "node": "v22.23.4",
+        "browser": "firefox",
+        "browserVersion": "153.0",
+        "profile": "windows-firefox-dashboard-normal",
+        "lowPower": false,
+        "view": "dashboard",
+        "viewport": {"width":854,"height":480},
+        "dpr": 1,
+        "channel": "default",
+        "headless": true,
+        "modeEntry": "direct-normal",
+        "gitSHA": "ef70fefc759d7d28b81140e8af4d2750d835029a",
+        "diagnosticDigest": "d3fb571f2ac016d19452f327f6ec192f60c113dc5bf484cb0021c61b8bfe5522",
+        "planDigest": "118d4f51712dfb8bbffca42bf30ea08d9cfe9e5c5b600d8c113577e4a5bbd777",
+        "helperDigest": "1d30900bac964615c28e073df16c659d2e8dc4fbcf9b81019b8a6858dfd579be"
+      },
+      "condition": "blank",
+      "round": 2,
+      "position": 3,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "source": "tools/little-orbit/design/evidence/motion-controls-ci-41165879762-windows.jsonl",
+      "line": 9,
+      "traceID": "fb63ce325187ad770ad676c8e36c70a30ce6154c72b608d141843fa7e1ad6278",
+      "identity": {
+        "platform": "win32",
+        "arch": "x64",
+        "node": "v22.23.4",
+        "browser": "firefox",
+        "browserVersion": "153.0",
+        "profile": "windows-firefox-dashboard-normal",
+        "lowPower": false,
+        "view": "dashboard",
+        "viewport": {"width":854,"height":480},
+        "dpr": 1,
+        "channel": "default",
+        "headless": true,
+        "modeEntry": "direct-normal",
+        "gitSHA": "ef70fefc759d7d28b81140e8af4d2750d835029a",
+        "diagnosticDigest": "d3fb571f2ac016d19452f327f6ec192f60c113dc5bf484cb0021c61b8bfe5522",
+        "planDigest": "118d4f51712dfb8bbffca42bf30ea08d9cfe9e5c5b600d8c113577e4a5bbd777",
+        "helperDigest": "1d30900bac964615c28e073df16c659d2e8dc4fbcf9b81019b8a6858dfd579be"
+      },
+      "condition": "full",
+      "round": 1,
+      "position": 0,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "source": "tools/little-orbit/design/evidence/motion-controls-ci-41165879762-windows.jsonl",
+      "line": 10,
+      "traceID": "8831dc0a558f2afeeda7d57a8157271a43fc6a04b8c99b66308085083eb60e03",
+      "identity": {
+        "platform": "win32",
+        "arch": "x64",
+        "node": "v22.23.4",
+        "browser": "firefox",
+        "browserVersion": "153.0",
+        "profile": "windows-firefox-dashboard-normal",
+        "lowPower": false,
+        "view": "dashboard",
+        "viewport": {"width":854,"height":480},
+        "dpr": 1,
+        "channel": "default",
+        "headless": true,
+        "modeEntry": "direct-normal",
+        "gitSHA": "ef70fefc759d7d28b81140e8af4d2750d835029a",
+        "diagnosticDigest": "d3fb571f2ac016d19452f327f6ec192f60c113dc5bf484cb0021c61b8bfe5522",
+        "planDigest": "118d4f51712dfb8bbffca42bf30ea08d9cfe9e5c5b600d8c113577e4a5bbd777",
+        "helperDigest": "1d30900bac964615c28e073df16c659d2e8dc4fbcf9b81019b8a6858dfd579be"
+      },
+      "condition": "static-hidden",
+      "round": 1,
+      "position": 1,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "source": "tools/little-orbit/design/evidence/motion-controls-ci-41165879762-windows.jsonl",
+      "line": 11,
+      "traceID": "4adab9e8b4f7d55196f2bbade32463bb96d7aa14c0fffb6cfc2d9318852697b3",
+      "identity": {
+        "platform": "win32",
+        "arch": "x64",
+        "node": "v22.23.4",
+        "browser": "firefox",
+        "browserVersion": "153.0",
+        "profile": "windows-firefox-dashboard-normal",
+        "lowPower": false,
+        "view": "dashboard",
+        "viewport": {"width":854,"height":480},
+        "dpr": 1,
+        "channel": "default",
+        "headless": true,
+        "modeEntry": "direct-normal",
+        "gitSHA": "ef70fefc759d7d28b81140e8af4d2750d835029a",
+        "diagnosticDigest": "d3fb571f2ac016d19452f327f6ec192f60c113dc5bf484cb0021c61b8bfe5522",
+        "planDigest": "118d4f51712dfb8bbffca42bf30ea08d9cfe9e5c5b600d8c113577e4a5bbd777",
+        "helperDigest": "1d30900bac964615c28e073df16c659d2e8dc4fbcf9b81019b8a6858dfd579be"
+      },
+      "condition": "blank",
+      "round": 1,
+      "position": 2,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "source": "tools/little-orbit/design/evidence/motion-controls-ci-41165879762-windows.jsonl",
+      "line": 12,
+      "traceID": "4864fd9e2c97755c6ccd04ba92ace21e0ca1c2064852260e1318d83410317206",
+      "identity": {
+        "platform": "win32",
+        "arch": "x64",
+        "node": "v22.23.4",
+        "browser": "firefox",
+        "browserVersion": "153.0",
+        "profile": "windows-firefox-dashboard-normal",
+        "lowPower": false,
+        "view": "dashboard",
+        "viewport": {"width":854,"height":480},
+        "dpr": 1,
+        "channel": "default",
+        "headless": true,
+        "modeEntry": "direct-normal",
+        "gitSHA": "ef70fefc759d7d28b81140e8af4d2750d835029a",
+        "diagnosticDigest": "d3fb571f2ac016d19452f327f6ec192f60c113dc5bf484cb0021c61b8bfe5522",
+        "planDigest": "118d4f51712dfb8bbffca42bf30ea08d9cfe9e5c5b600d8c113577e4a5bbd777",
+        "helperDigest": "1d30900bac964615c28e073df16c659d2e8dc4fbcf9b81019b8a6858dfd579be"
+      },
+      "condition": "world-hidden",
+      "round": 1,
+      "position": 3,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "source": "tools/little-orbit/design/evidence/motion-controls-ci-41165879762-windows.jsonl",
+      "line": 13,
+      "traceID": "e9058f91492b37f2fe18be465539ecf7d70af8ca391ebd1caffcb93f77c8b0ef",
+      "identity": {
+        "platform": "win32",
+        "arch": "x64",
+        "node": "v22.23.4",
+        "browser": "firefox",
+        "browserVersion": "153.0",
+        "profile": "windows-firefox-dashboard-normal",
+        "lowPower": false,
+        "view": "dashboard",
+        "viewport": {"width":854,"height":480},
+        "dpr": 1,
+        "channel": "default",
+        "headless": true,
+        "modeEntry": "direct-normal",
+        "gitSHA": "ef70fefc759d7d28b81140e8af4d2750d835029a",
+        "diagnosticDigest": "d3fb571f2ac016d19452f327f6ec192f60c113dc5bf484cb0021c61b8bfe5522",
+        "planDigest": "118d4f51712dfb8bbffca42bf30ea08d9cfe9e5c5b600d8c113577e4a5bbd777",
+        "helperDigest": "1d30900bac964615c28e073df16c659d2e8dc4fbcf9b81019b8a6858dfd579be"
+      },
+      "condition": "blank",
+      "round": 0,
+      "position": 0,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "source": "tools/little-orbit/design/evidence/motion-controls-ci-41165879762-windows.jsonl",
+      "line": 14,
+      "traceID": "93adf44b117fccad920a2ee8548ce7cf9115ac6e0af20b8111a324c995c584d3",
+      "identity": {
+        "platform": "win32",
+        "arch": "x64",
+        "node": "v22.23.4",
+        "browser": "firefox",
+        "browserVersion": "153.0",
+        "profile": "windows-firefox-dashboard-normal",
+        "lowPower": false,
+        "view": "dashboard",
+        "viewport": {"width":854,"height":480},
+        "dpr": 1,
+        "channel": "default",
+        "headless": true,
+        "modeEntry": "direct-normal",
+        "gitSHA": "ef70fefc759d7d28b81140e8af4d2750d835029a",
+        "diagnosticDigest": "d3fb571f2ac016d19452f327f6ec192f60c113dc5bf484cb0021c61b8bfe5522",
+        "planDigest": "118d4f51712dfb8bbffca42bf30ea08d9cfe9e5c5b600d8c113577e4a5bbd777",
+        "helperDigest": "1d30900bac964615c28e073df16c659d2e8dc4fbcf9b81019b8a6858dfd579be"
+      },
+      "condition": "full",
+      "round": 0,
+      "position": 1,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "source": "tools/little-orbit/design/evidence/motion-controls-ci-41165879762-windows.jsonl",
+      "line": 15,
+      "traceID": "fe205f0c4a0cbcaf81bc4b638444881fe7551d8d25fef3c339929eccdfa2d44e",
+      "identity": {
+        "platform": "win32",
+        "arch": "x64",
+        "node": "v22.23.4",
+        "browser": "firefox",
+        "browserVersion": "153.0",
+        "profile": "windows-firefox-dashboard-normal",
+        "lowPower": false,
+        "view": "dashboard",
+        "viewport": {"width":854,"height":480},
+        "dpr": 1,
+        "channel": "default",
+        "headless": true,
+        "modeEntry": "direct-normal",
+        "gitSHA": "ef70fefc759d7d28b81140e8af4d2750d835029a",
+        "diagnosticDigest": "d3fb571f2ac016d19452f327f6ec192f60c113dc5bf484cb0021c61b8bfe5522",
+        "planDigest": "118d4f51712dfb8bbffca42bf30ea08d9cfe9e5c5b600d8c113577e4a5bbd777",
+        "helperDigest": "1d30900bac964615c28e073df16c659d2e8dc4fbcf9b81019b8a6858dfd579be"
+      },
+      "condition": "world-hidden",
+      "round": 0,
+      "position": 2,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "source": "tools/little-orbit/design/evidence/motion-controls-ci-41165879762-windows.jsonl",
+      "line": 16,
+      "traceID": "d5f4eefe6f4fee252071a8fb961838d696d1fead30cbb31b492fde93839c3f7e",
+      "identity": {
+        "platform": "win32",
+        "arch": "x64",
+        "node": "v22.23.4",
+        "browser": "firefox",
+        "browserVersion": "153.0",
+        "profile": "windows-firefox-dashboard-normal",
+        "lowPower": false,
+        "view": "dashboard",
+        "viewport": {"width":854,"height":480},
+        "dpr": 1,
+        "channel": "default",
+        "headless": true,
+        "modeEntry": "direct-normal",
+        "gitSHA": "ef70fefc759d7d28b81140e8af4d2750d835029a",
+        "diagnosticDigest": "d3fb571f2ac016d19452f327f6ec192f60c113dc5bf484cb0021c61b8bfe5522",
+        "planDigest": "118d4f51712dfb8bbffca42bf30ea08d9cfe9e5c5b600d8c113577e4a5bbd777",
+        "helperDigest": "1d30900bac964615c28e073df16c659d2e8dc4fbcf9b81019b8a6858dfd579be"
+      },
+      "condition": "static-hidden",
+      "round": 0,
+      "position": 3,
+      "errors": [],
+      "warnings": []
+    }
+  ],
+  "sampleErrors": [],
+  "validationErrors": [],
+  "warnings": []
+}

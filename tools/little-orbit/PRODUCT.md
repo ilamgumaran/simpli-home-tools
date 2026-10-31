@@ -6,9 +6,50 @@ Our Desk Clock is a configurable browser display for desks, families, spare scre
 
 This is the product's planning hub. Designs are proposals until explicitly marked implemented. The current Woodland scene is on `feature/woodland-immersive-story`; the [installation handoff](design/ALLY-TEST-HANDOFF.md) identifies its runtime and portable artifact. The initial five-theme foundation remains in [PR #3](https://github.com/ilamgumaran/simpli-home-tools/pull/3), stacked on the shared-character and original-clock PRs. No versioned release has been published yet. [Earlier local installation results](../../sessions/2026-10-05-woodland-ally/002-ally-to-cloud.md) distinguish browser checks from physical-device acceptance.
 
-## Next character work — planned, not implemented
+## Woodland/Green House 1 cadence candidate
 
-The [shared anatomy and organic movement plan](design/ANATOMY-AND-ORGANIC-MOVEMENT.md) covers every current character and renderer: oriented palms and grips, ankle/heel/toe footwear, joint limits, supported gait and coordinated body movement. Start with a reviewed anatomy/workshop foundation, then migrate Sage’s meal and the family before the remaining consumers, including Candy’s separate artwork. Pebble stays swaddled and visibly supported. Each stage has independent geometry, visual, lifecycle and performance gates. This planning update changes no runtime behavior; [session 017](../../sessions/2026-10-10-weather-habitat/017-cloud-meal-choreography-results.md) remains the tested build.
+The [bounded phase pacing design](design/FRAME-CADENCE.md) addresses a low-power limiter that amplifies native callback jitter into skipped character updates. Both Woodland renderers share the candidate policy. Scene art, body contacts and gait curves remain unchanged. [Session 025](../../sessions/2026-10-10-weather-habitat/025-cadence-verification-handoff.md) records the earlier corrected runtime: 65 of 66 local cadence cases pass, with one Firefox hosted DPR2 rain failure; functional/offline coverage is complete, but the combined npm run exits 1. Required Windows/macOS checks remain failed. The [rain investigation](design/RAIN-CADENCE-INVESTIGATION.md) defines profiling tasks; PR #16 remains draft.
+
+The reading-layer camera candidate `9993133` preserves the existing x/y path
+and uses a zero-depth 3D transform only for the reading/clock SVG while the camera moves. Still and reduced-motion modes retain planar transforms. Balanced
+Firefox rain controls and targeted comparisons support this bounded change;
+they do not prove compositor presentation or a universal performance gain.
+The [rain investigation](design/RAIN-CADENCE-INVESTIGATION.md) retains 35 layer/transform samples and
+12 matched meal samples and a reusable layer-measurement command. Candidate
+validation and remaining gates are recorded in
+[session 028](../../sessions/2026-10-10-weather-habitat/028-reading-camera-results.md).
+
+The hosted-boundary follow-up adds test-only failure tracing, preserving the
+current display. [Session 030](../../sessions/2026-10-10-weather-habitat/030-ci-trace-results.md)
+records all 66 local cadence passes and four exact Windows/macOS failures.
+Native callbacks reach the app and accepted draws reach geometry. With the
+current minimum, accepted RAF timing already fails before geometry observation. The underlying browser,
+paint or host cause is not isolated. The [capture guide](design/CI-FAILURE-TRACING.md)
+and raw records support the next policy replay/control study; hosted gates remain open.
+
+The [policy replay study](design/CADENCE-POLICY-REPLAY.md) now compares exact
+callback streams without changing production pacing. Hindsight bounds separate
+a scheduling choice from missing opportunities; nominal and callback-entry
+clocks remain separate from geometry and physical presentation. The latest
+Windows normal-mode failure already accepts every callback, so it cannot be
+repaired by a low-power limiter change.
+
+The [matched-control study](design/MATCHED-MOTION-CONTROLS.md) now implements
+the next investigation: balanced blank/full/hidden conditions with exact timing
+records and explicit Windows, macOS and local DPR2 profiles. The complete
+96-record study preserves native-delivery limits without claiming a stall fix.
+A bounded dashboard efficiency candidate now skips unused minute-marker SVG
+queries while hidden; visible geometry remains fresh.
+
+The next [Firefox attribution study](design/FIREFOX-STALL-ATTRIBUTION.md)
+compares full/hidden scenes with and without native profiling and aligns
+Gecko content-thread events to the clock sample. It changes no display code.
+
+## Shared anatomy — foundation and inspection candidate
+
+The [shared anatomy and organic movement plan](design/ANATOMY-AND-ORGANIC-MOVEMENT.md) now has an additive foundation: [versioned anatomy profiles](design/ANATOMY-PROFILES.md), constrained two-bone reference geometry, named palm/thumb/heel/ball/toe landmarks, and a [workshop reference panel](design/character-study.html) for the seven identities. Adult, drop and learner proportions remain distinct; Pebble has support-only swaddled anatomy. The [baseline inventory](design/ANATOMY-BASELINE.md) and 120 captured legacy pose samples protect existing output.
+
+Live scenes retain their tested artwork, gait and wrist/ankle contact meanings. The new records and static workshop geometry prepare A2 silhouettes and later A3/A4 palm/sole adapters; natural new gait and infant palm support are not claimed yet. Complete scene/prop bounds and new contact acceptance remain before rollout. This preserves the meal behavior while the reusable anatomy is reviewed. [Session 020](../../sessions/2026-10-10-weather-habitat/020-anatomy-foundation-results.md) records the candidate, independent review, local browser results and hosted CI gates. Earlier meal evidence below remains tied to its named runtime.
 
 ## Engineering theme — detailed proposal
 
