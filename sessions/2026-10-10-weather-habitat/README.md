@@ -1,5 +1,7 @@
 # Green House 1 — weather-responsive habitat
 
+Local device update: [026: Ally efficiency installation](026-ally-efficiency-install.md) records the latest candidate installed/restarted, reversible staging, passing focused local checks after packaging repair, and open platform/sustained gates.
+
 Current work: [034 — Firefox attribution ownership](034-firefox-attribution-ownership.md). Native-profile and unprofiled controls are implemented; complete experiments are pending. Runtime remains `dd6e9d5`.
 
 Latest: [033 — matched-control and marker results](033-matched-controls-results.md). All 96 complete control records are archived; the measured hidden-marker guard is implemented at runtime `dd6e9d5`. Full Chrome/Firefox and affected Edge checks pass (48 local cadence cases). Hosted Windows/macOS gates remain open; no stall fix or physical acceptance is claimed.
@@ -58,6 +60,7 @@ Historical meal candidate: [017 — Sage’s connected meal](017-cloud-meal-chor
 | [027-rain-profiling-resumed.md](027-rain-profiling-resumed.md) | Cloud → owner and implementation/device sessions | Resumed DPR2 profiling ownership, model split and preserved acceptance gates |
 | [028-reading-camera-results.md](028-reading-camera-results.md) | Cloud → owner and implementation/device sessions | Balanced layer/transform evidence, reading-camera source and portable candidate, parity and suite outcomes |
 | [029-ci-trace-ownership.md](029-ci-trace-ownership.md) | Cloud → owner and implementation/device sessions | Exact callback/decision/geometry and bounded navigation tracing; browser/CI outcomes pending |
+| [026-ally-efficiency-install.md](026-ally-efficiency-install.md) | Ally → cloud | Latest candidate installed/restarted; local checks and preserved limitations |
 | [034-firefox-attribution-ownership.md](034-firefox-attribution-ownership.md) | Cloud → owner and implementation/device sessions | Native Firefox profiling, reviewed timing alignment and pending complete samples |
 | [033-matched-controls-results.md](033-matched-controls-results.md) | Cloud → owner and implementation/device sessions | Complete controls, compressed recovery, measured marker guard and current local/hosted validation |
 | [032-matched-controls-ownership.md](032-matched-controls-ownership.md) | Cloud → owner and implementation/device sessions | Balanced raw control implementation, verification ownership and pending samples |
