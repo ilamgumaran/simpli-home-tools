@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "observedDate": "2026-11-01 America/New_York",
+  "sourceRevision": "33050d7af61c08c9fb1601e04a06dd33c62cc649",
+  "runID": 41200331906,
+  "checkID": 124534699232,
+  "event": "push",
+  "browser": "chromium",
+  "form": "portable",
+  "formEvidence": "verify() printed final hosted PASS, then failed before portable PASS; entrypoint runs hosted followed by portable",
+  "failure": "page.waitForFunction timed out at cached-weather restoration after offline reload",
+  "expectedStatus": "cached",
+  "reportedStatus": "unavailable",
+  "parsedCache": null,
+  "rawCache": "not captured; read() null may mean absent or malformed JSON",
+  "companionUbuntuCheck": {"checkID":124534710267,"status":"success"},
+  "productChange": "No cache/application code changed in the profiling slice",
+  "next": "Capture raw storage classification and producer-cache precondition without replacing or weakening offline reload assertions",
+  "annotationExcerpt": "PASS weather habitat: hosted provider, rain/snow, thermometer, responsive layout, night, cache, unit and location race.\nCached weather diagnostic {\n  weather: {\n    revision: 2,\n    status: 'unavailable',\n    available: false,\n    temperature: null,\n    temperatureC: null,\n    unit: 'fahrenheit',\n    unitSymbol: '°F',\n    label: '— °F',\n    code: null,\n    kind: 'unknown',\n    precipitation: 'none',\n    at: null,\n    place: { name: 'Test woodland', latitude: 33.9276, longitude: -84.6202 }\n  },\n  key: 'orbit-weather:33.9276:-84.6202:fahrenheit',\n  cache: null,\n  unit: 'fahrenheit',\n  place: { name: 'Test woodland', latitude: 33.9276, longitude: -84.6202 }\n}\npage.waitForFunction: Timeout 30000ms exceeded.\n    at verify (/home/runner/work/simpli-home-tools/simpli-home-tools/tools/little-orbit/tests/verify-weather-habitat.cjs:102:14)\n    at async /home/runner/work/simpli-home-tools/simpli-home-tools/tools/little-orbit/tests/verify-weather-habitat.cjs:207:41 {\n  log: [],\n  name: 'TimeoutError'\n}\nchromium verify-weather-habitat.cjs failed\n\n",
+  "testSourceSha256": "25c71817ccc0f7198f69c821d9ab89e4f42078636f2cbebc0590901669f6609d"
+}

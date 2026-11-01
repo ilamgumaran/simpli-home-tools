@@ -41,9 +41,11 @@ records and explicit Windows, macOS and local DPR2 profiles. The complete
 A bounded dashboard efficiency candidate now skips unused minute-marker SVG
 queries while hidden; visible geometry remains fresh.
 
-The next [Firefox attribution study](design/FIREFOX-STALL-ATTRIBUTION.md)
-compares full/hidden scenes with and without native profiling and aligns
-Gecko content-thread events to the clock sample. It changes no display code.
+The completed [Firefox attribution study](design/FIREFOX-STALL-ATTRIBUTION.md)
+compares full/hidden scenes with and without native profiling. Its 32 cases
+show a profiling-related cadence association without capturing the original
+failing p95 event. A lower-interference method is needed before claiming a
+rendering cause; display code is unchanged.
 
 ## Shared anatomy — foundation and inspection candidate
 

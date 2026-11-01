@@ -35,9 +35,11 @@ guard is implemented as an efficiency candidate. [Results 033](../../sessions/20
 records 48 local cadence passes and complete reference checks; hosted
 Windows/macOS gates and target-device profiling remain open.
 
-[Firefox attribution](design/FIREFOX-STALL-ATTRIBUTION.md) now implements the
-next bounded Windows investigation. Complete its balanced samples and metric/
-clock-alignment review before inferring an avoidable runtime expense.
+[Firefox attribution](design/FIREFOX-STALL-ATTRIBUTION.md) is complete: 32 cases
+and 64 windows validate. [Results 035](../../sessions/2026-10-10-weather-habitat/035-firefox-attribution-results.md)
+record the profiler timing association and absence of the originally failing
+p95 event. The proposed next task validates lower-interference marker-only
+capture against disabled profiling before any new runtime change.
 
 ## Character priority — anatomy foundation candidate, later rollout planned
 

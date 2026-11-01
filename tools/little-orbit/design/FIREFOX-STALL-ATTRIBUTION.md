@@ -1,8 +1,9 @@
 <!-- SPDX-License-Identifier: LicenseRef-Simpli-Noncommercial-1.0 -->
 # Firefox stall attribution
 
-Status: research instrumentation; runtime `dd6e9d5`, portable bytes and required
-browser gates are unchanged. [Results 033](../../../sessions/2026-10-10-weather-habitat/033-matched-controls-results.md)
+Status: complete local and Windows research with an observed profiler timing
+association; positive stall attribution is unavailable. Runtime `dd6e9d5`,
+portable bytes and required browser gates are unchanged. [Results 033](../../../sessions/2026-10-10-weather-habitat/033-matched-controls-results.md)
 retains the earlier 96-record matched study. The next question is what the
 content thread does between callbacks in the occasional Windows full-scene
 outlier. An outlier is not evidence of a JavaScript hot path by itself.
@@ -66,6 +67,7 @@ From `tools/little-orbit/` with Playwright Firefox installed:
 ```sh
 node tests/firefox-stall-profile-unit.cjs
 node tests/firefox-stall-notices-unit.cjs
+node tests/analyze-firefox-stalls-unit.cjs
 node tests/diagnose-firefox-stalls.cjs
 ```
 
@@ -92,3 +94,28 @@ unrounded geometry before interpreting any profile. Keep every sample and error,
 separate actual host/browser/source identities and profiling factors, and retain
 previous failures when later samples pass. A successful research job means
 complete evidence without setup errors; it is not production or device acceptance.
+
+## Results and next method
+
+[Results 035](../../../sessions/2026-10-10-weather-habitat/035-firefox-attribution-results.md)
+and the [derived summary](evidence/firefox-stall-attribution-2026-10-31-summary.json)
+retain 32 complete cases / 64 windows, all raw tuples and independent checks.
+On Windows, profiled normal windows have no intervals >=25 ms out of 1,041;
+unprofiled windows have 41 out of 1,002, matching geometry gap indices. This
+exploratory bin is not a new gate. Full versus hidden differences vary by round,
+and no original failing p95 event was captured. There are no Windows profiled
+above-threshold gaps and therefore no gap-level category/marker attribution.
+The experiment supports a measurement-perturbation risk, not a CPU/idle or host
+cause, nor a rendering fix. The lower-interference marker-only proposal in 035
+needs actual feature validation and a new paired experiment before use.
+
+For independent recomputation, run from the repository root:
+
+```sh
+node tools/little-orbit/tests/analyze-firefox-stalls.cjs \
+  tools/little-orbit/design/evidence/firefox-stall-ci-41200331944.jsonl
+node tools/little-orbit/tests/analyze-firefox-stalls.cjs \
+  tools/little-orbit/design/evidence/firefox-stall-local-33050d7-2026-10-31.jsonl
+```
+
+JSON formatting in archived analysis may be compacted; parsed content is unchanged.
