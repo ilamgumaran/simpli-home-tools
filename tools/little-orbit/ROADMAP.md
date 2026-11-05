@@ -1,6 +1,6 @@
 # Our Desk Clock roadmap
 
-Updated 2026-10-31. Milestones express intent, not promised delivery dates. The product owner sets priorities and authorizes deferred implementation.
+Updated 2026-11-05 UTC. Milestones express intent, not promised delivery dates. The product owner sets priorities and authorizes deferred implementation.
 
 Before anatomy artwork rollout, complete the [bounded phase cadence candidate](design/FRAME-CADENCE.md)'s hosted/portable and cross-platform gates. [Session 025](../../sessions/2026-10-10-weather-habitat/025-cadence-verification-handoff.md) preserves the earlier 65/66 local cadence passes and Firefox rain plus hosted Windows/macOS failures. The [DPR2 investigation](design/RAIN-CADENCE-INVESTIGATION.md) now records balanced profiling and the reading-camera candidate below. Performance thresholds remain unchanged.
 
@@ -40,6 +40,13 @@ and 64 windows validate. [Results 035](../../sessions/2026-10-10-weather-habitat
 record the profiler timing association and absence of the originally failing
 p95 event. The proposed next task validates lower-interference marker-only
 capture against disabled profiling before any new runtime change.
+
+The [portable weather-cache evidence](design/PORTABLE-WEATHER-CACHE.md) slice
+captures a real Edge failure: usable storage before reload, the same key absent
+afterward. The original offline assertion and timeout remain. Next isolate
+storage operations and navigation/context identity before choosing a product
+change. Full Chrome/Firefox validation still exits 1 on a separate Firefox
+rain timing gate; neither issue is fixed by this diagnostic slice.
 
 ## Character priority — anatomy foundation candidate, later rollout planned
 

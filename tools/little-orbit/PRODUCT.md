@@ -47,6 +47,11 @@ show a profiling-related cadence association without capturing the original
 failing p95 event. A lower-interference method is needed before claiming a
 rendering cause; display code is unchanged.
 
+The [portable cache investigation](design/PORTABLE-WEATHER-CACHE.md) adds
+test-only producer checks and sanitized failure records. It preserves the
+offline reload assertion and does not change installable bytes or claim a
+weather-cache repair. Runtime and physical acceptance gates remain open.
+
 ## Shared anatomy — foundation and inspection candidate
 
 The [shared anatomy and organic movement plan](design/ANATOMY-AND-ORGANIC-MOVEMENT.md) now has an additive foundation: [versioned anatomy profiles](design/ANATOMY-PROFILES.md), constrained two-bone reference geometry, named palm/thumb/heel/ball/toe landmarks, and a [workshop reference panel](design/character-study.html) for the seven identities. Adult, drop and learner proportions remain distinct; Pebble has support-only swaddled anatomy. The [baseline inventory](design/ANATOMY-BASELINE.md) and 120 captured legacy pose samples protect existing output.

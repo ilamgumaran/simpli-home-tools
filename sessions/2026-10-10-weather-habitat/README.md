@@ -1,6 +1,8 @@
 # Green House 1 — weather-responsive habitat
 
-Latest: [035 — complete Firefox attribution results](035-firefox-attribution-results.md). All 32 cases and 64 windows validate. Profiling changes the observed interval distribution; no failing Windows p95 event was captured, so no rendering cause is claimed. Fresh full Chrome/Firefox checks pass (44 cadence cases); runtime `dd6e9d5` and portable bytes are unchanged.
+Latest: [036 — portable weather-cache evidence](036-portable-weather-cache-evidence.md). Edge reproduces a usable cache becoming absent across reload at the same key. Test-only diagnostics preserve the original gate. Full Chrome/Firefox exits 1 on a separate rain timing failure; 43 timing cases pass and one fails after completion checks. No cache repair or runtime change is claimed.
+
+Previous: [035 — complete Firefox attribution results](035-firefox-attribution-results.md). All 32 cases and 64 windows validate. Profiling changes the observed interval distribution; no failing Windows p95 event was captured, so no rendering cause is claimed. Fresh full Chrome/Firefox checks pass (44 cadence cases); runtime `dd6e9d5` and portable bytes are unchanged.
 
 Previous ownership: [034 — Firefox attribution ownership](034-firefox-attribution-ownership.md). It defines the reviewed method; complete outcomes are in 035. Runtime remains `dd6e9d5`.
 
@@ -60,6 +62,7 @@ Historical meal candidate: [017 — Sage’s connected meal](017-cloud-meal-chor
 | [027-rain-profiling-resumed.md](027-rain-profiling-resumed.md) | Cloud → owner and implementation/device sessions | Resumed DPR2 profiling ownership, model split and preserved acceptance gates |
 | [028-reading-camera-results.md](028-reading-camera-results.md) | Cloud → owner and implementation/device sessions | Balanced layer/transform evidence, reading-camera source and portable candidate, parity and suite outcomes |
 | [029-ci-trace-ownership.md](029-ci-trace-ownership.md) | Cloud → owner and implementation/device sessions | Exact callback/decision/geometry and bounded navigation tracing; browser/CI outcomes pending |
+| [036-portable-weather-cache-evidence.md](036-portable-weather-cache-evidence.md) | Cloud → owner and implementation/device sessions | Current-key producer checks, bounded reload evidence, review and validation |
 | [035-firefox-attribution-results.md](035-firefox-attribution-results.md) | Cloud → owner and implementation/device sessions | Complete profiler comparison, observer-effect limits, current regression checks and next proposed method |
 | [034-firefox-attribution-ownership.md](034-firefox-attribution-ownership.md) | Cloud → owner and implementation/device sessions | Native Firefox profiling, reviewed timing alignment and pending complete samples |
 | [033-matched-controls-results.md](033-matched-controls-results.md) | Cloud → owner and implementation/device sessions | Complete controls, compressed recovery, measured marker guard and current local/hosted validation |
@@ -67,4 +70,4 @@ Historical meal candidate: [017 — Sage’s connected meal](017-cloud-meal-chor
 | [031-policy-replay-results.md](031-policy-replay-results.md) | Cloud → owner and implementation/device sessions | Exact policy comparisons, independent hindsight bounds, later CI failures and next matched-control task split |
 | [030-ci-trace-results.md](030-ci-trace-results.md) | Cloud → owner and implementation/device sessions | Four exact CI failure traces, local passing validation, pure analysis and next native-delivery/replay tasks |
 
-Work branch: `feature/anatomy-foundation` / draft PR #16, based on `feature/woodland-weather-habitat` / draft PR #11, which in turn builds on `feature/woodland-immersive-story` / PR #9. Published messages 001–025 and 027–035 are immutable; use 036 for the next cloud follow-up. Message 026 remains reserved for device feedback. Reserve 002 for the initial device reply and 004 for local device findings. Fetch the branch before reading. Git does not notify another session automatically.
+Work branch: `feature/anatomy-foundation` / draft PR #16, based on `feature/woodland-weather-habitat` / draft PR #11, which in turn builds on `feature/woodland-immersive-story` / PR #9. Published messages 001–025 and 027–036 are immutable; use 037 for the next cloud follow-up. Message 026 remains reserved for device feedback. Reserve 002 for the initial device reply and 004 for local device findings. Fetch the branch before reading. Git does not notify another session automatically.

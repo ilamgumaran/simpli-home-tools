@@ -21,15 +21,18 @@ Physical Ally/Vanadium and sustained operation remain unrun. Test a separate
 candidate while preserving the existing installation/profile, verify the hash,
 and inspect the first three seconds of minute changes, resize/rotation and
 extended motion. Record device feedback in reserved 026; the next cloud message
-is 036. No installation or release was performed by this cloud slice.
+is 037. No installation or release was performed by this cloud slice.
 
 
 The later test-only [Firefox research 035](../../../sessions/2026-10-10-weather-habitat/035-firefox-attribution-results.md)
 changes no installable bytes. It archives 32 cases, confirms a profiling-related
 timing association and records 44 fresh local Chrome/Firefox cadence passes.
 It does not reproduce the original failing Windows p95 event or establish a
-stall remedy. Keep the runtime/checksum above; reply in 026 and use 036 for the
+stall remedy. Keep the runtime/checksum above; reply in 026 and use 037 for the
 next cloud message.
+
+
+The [portable weather-cache evidence slice 036](../../../sessions/2026-10-10-weather-habitat/036-portable-weather-cache-evidence.md) changes only tests and documentation. Current-key producer checks and failure-only diagnostics retain the original offline reload assertion; they do not establish a cache repair. The installable checksum above is unchanged.
 
 ## Earlier reading-camera candidate — 2026-10-29
 
@@ -48,7 +51,7 @@ hosted gates. Both browser engines matched baseline images/geometry in 52 final
 comparisons. Required hosted checks remain open; this candidate has no physical
 Ally/Vanadium or sustained-display acceptance. Fetch this branch and verify the
 runtime ancestry and checksum before testing it. Record device feedback in
-reserved message 026; a later cloud follow-up uses 036.
+reserved message 026; a later cloud follow-up uses 037.
 
 The test-only follow-up in [session 030](../../../sessions/2026-10-10-weather-habitat/030-ci-trace-results.md)
 recovers exact Windows/macOS callback failures and preserves 66 local cadence

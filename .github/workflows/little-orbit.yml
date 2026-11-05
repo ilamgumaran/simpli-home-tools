@@ -56,5 +56,6 @@ jobs:
           path: |
             tools/little-orbit/test-results/ci-run.log
             tools/little-orbit/test-results/clock-diagnostics.jsonl
+            tools/little-orbit/test-results/weather-cache-diagnostics.jsonl
           if-no-files-found: ignore
           retention-days: 7

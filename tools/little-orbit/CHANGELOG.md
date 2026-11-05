@@ -1,5 +1,13 @@
 # Our Desk Clock changelog
 
+### Portable weather-cache failure evidence
+
+- Added current-key producer assertions and bounded failure snapshots around
+  the existing offline reload, with independent JSONL and CI-notice outputs.
+  The original cached assertion and timeout remain. Application and portable
+  bytes are unchanged; no intermittent-cache repair is claimed.
+  [Evidence design](design/PORTABLE-WEATHER-CACHE.md).
+
 ### Firefox attribution research
 
 - Added native-profile and profiler-disabled controls following the dashboard

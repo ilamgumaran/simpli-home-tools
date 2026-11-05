@@ -5,6 +5,7 @@ const assert=require('node:assert/strict');
 const path=require('node:path');
 const {pathToFileURL}=require('node:url');
 const {installCadenceTrace,writeTrace,emitTrace}=require('./cadence-trace.cjs');
+const {installWeatherCacheSnapshot,classifySnapshot,preserveFailure,bestEffortSnapshot}=require('./weather-cache-evidence.cjs');
 const portable=pathToFileURL(path.join(__dirname,'..','Little Orbit.html')).href;
 const settings={theme:'greenhouse1',place:{name:'Test woodland',latitude:33.9276,longitude:-84.6202},format24:true,care:false,rest:false,night:false,lowPower:false,display:{woodlandView:'immersive'}};
 const weather=(temperature,code)=>({current:{temperature_2m:temperature,apparent_temperature:temperature-2,weather_code:code},daily:{temperature_2m_max:[temperature+5],temperature_2m_min:[temperature-5]}});
@@ -44,6 +45,7 @@ async function verify(browser,target){
   });
   await freezeClock(page,'2026-10-05T10:08:28-04:00');
   await page.addInitScript(settings=>localStorage.setItem('orbit-settings',JSON.stringify(settings)),settings);
+  await page.addInitScript(installWeatherCacheSnapshot);
   await page.goto(target);
   await page.waitForFunction(()=>window.DeskHabitatWeather?.get().status==='live');
   assert.equal(await page.locator('#woodland-immersive').isVisible(),true);
@@ -95,11 +97,25 @@ async function verify(browser,target){
   view=await visual();assert.equal(view.sunOpacity,0,'Night weather paints a hot sun');assert.equal(await page.locator('#woodland-immersive').getAttribute('data-night'),'true');
   assert.equal(view.time,'21:08');
   await page.clock.setSystemTime(new Date('2026-10-05T10:08:28-04:00'));
-  await page.evaluate(()=>WoodlandScene.sync());
+  const cacheBeforeReload=await page.evaluate(()=>{WoodlandScene.sync();return window.__weatherCacheSnapshot();});
+  const cacheContext={browser:process.env.CLOCK_TEST_BROWSER||'chromium',browserVersion:browser.version(),form:target.startsWith('file:')?'portable':'hosted',target:target.startsWith('file:')?'file':'hosted'};
+  try{
+   assert.ok(['fahrenheit','celsius'].includes(cacheBeforeReload.unit),'Weather cache unit was not captured');
+   assert.equal(cacheBeforeReload.key,`orbit-weather:${settings.place.latitude}:${settings.place.longitude}:${cacheBeforeReload.unit}`,'Weather cache key does not match the fixture place and current unit');
+   assert.equal(classifySnapshot(cacheBeforeReload),'usable','Current fixture weather cache is not usable');
+   const cachedEntry=JSON.parse(cacheBeforeReload.raw);
+   assert.equal(cachedEntry.data.current.weather_code,71,'Current fixture cache is not snow');
+  }catch(error){
+   throw await preserveFailure(error,cacheContext,{before:cacheBeforeReload},{phase:'beforeReload'});
+  }
 
   // A saved response is identified as stale when a later request fails.
   offline=true;await page.reload();
-  await page.waitForFunction(()=>DeskHabitatWeather.get().status==='cached').catch(async error=>{console.error('Cached weather diagnostic',await page.evaluate(()=>({weather:DeskHabitatWeather.get(),key:cacheKey(),cache:read(cacheKey(),null),unit:prefs.unit,place:prefs.place})));throw error;});
+  try{await page.waitForFunction(()=>DeskHabitatWeather.get().status==='cached');}
+  catch(error){
+   const after=await bestEffortSnapshot(()=>page.evaluate(()=>window.__weatherCacheSnapshot()),1500);
+   throw await preserveFailure(error,cacheContext,{before:cacheBeforeReload,after},{phase:'afterReload'});
+  }
   assert.equal((await state()).kind,'snow');assert.equal((await visual()).freshness,'Cached');
   const validCache=await page.evaluate(()=>{const key=cacheKey();const saved=localStorage.getItem(key),entry=JSON.parse(saved);entry.data.daily.temperature_2m_max=[null];localStorage.setItem(key,JSON.stringify(entry));return {key,saved};});
   await page.reload();await page.waitForFunction(()=>DeskHabitatWeather.get().status==='unavailable');
