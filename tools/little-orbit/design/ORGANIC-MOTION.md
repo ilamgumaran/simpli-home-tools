@@ -6,7 +6,7 @@ Next planned refinement: [shared anatomy and organic movement](ANATOMY-AND-ORGAN
 
 ## Motion and pacing
 
-The Woodland renderer previously sampled low-power motion at about 10–12 frames per second and capped normal motion at 24. It now renders at 30 frames per second in low-power mode and follows the browser’s animation frames in normal mode. Remainder-preserving pacing avoids dropping every other eligible frame. Landscape composition and viewport measurement are cached; stable SVG markup is retained instead of replacing it on each frame.
+The Woodland renderer previously sampled low-power motion at about 10–12 frames per second and capped normal motion at 24. It now renders at 30 frames per second in low-power mode and follows the browser’s animation frames in normal mode. The current [bounded phase candidate](FRAME-CADENCE.md) retains the 30 Hz target through small callback jitter, prevents short catch-up pairs and rebases after stalls; its own browser/CI acceptance remains separate from historical results. Landscape composition and viewport measurement are cached; stable SVG markup is retained instead of replacing it on each frame.
 
 Travel is separate from work. Crossings take 1–20 seconds according to distance in character body coordinates (50 local units per second before easing), using a quintic start and stop. Walking steps follow distance along the route instead of a fixed rhythm; the supporting foot stays planted as the body passes it. Slope adjusts foot placement; a largely vertical descent uses the protected rappel pose. The first 0.35 seconds blend from the actual previous contact rig; the last 0.45 seconds blend into the destination stance. Rig blends solve limb targets again to preserve bone lengths.
 

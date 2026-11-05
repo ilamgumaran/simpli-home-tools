@@ -137,6 +137,25 @@ const stamp=(day,minute,second=28,hour=10)=>new Date(+new Date(`2026-10-${String
    const staticState=()=>page.evaluate(()=>({camera:document.querySelector('#woodland-immersive-world').style.transform,poses:[...document.querySelectorAll('#woodland-immersive-cast .character-art')].map(e=>[...e.querySelectorAll('[data-part^="arm-"],[data-part^="leg-"]')].map(p=>p.getAttribute('d')))}));
    const quietState=await staticState();await page.clock.runFor(1000);assert.deepEqual(await staticState(),quietState);
    await page.emulateMedia({reducedMotion:'no-preference'});await at(stamp(5,8));
+   // Camera mode changes must update the reading transform even when the
+   // quantized coordinates stay at zero.
+   const cameraState=()=>page.evaluate(()=>Object.fromEntries(['woodland-immersive-world','woodland-immersive-weather-layer','woodland-immersive-reading','woodland-immersive-actors','woodland-immersive-light-layer'].map(id=>{
+    const transform=document.getElementById(id).style.transform,matrix=new DOMMatrix(transform);return [id,{transform,x:matrix.m41,y:matrix.m42,z:matrix.m43}];
+   })));
+   const assertCamera=(state,moving)=>{
+    for(const [id,value] of Object.entries(state)){
+     const reading=id==='woodland-immersive-reading';
+     assert.ok(value.transform.startsWith(reading&&moving?'translate3d(':'translate('),`${id} transform ${value.transform}`);
+     assert.deepEqual([value.x,value.y,value.z],[0,0,0],`${id} camera geometry`);
+    }
+   };
+   await page.clock.setSystemTime(new Date(0));
+   await page.evaluate(()=>{prefs.display.cameraMotion='gentle';WoodlandScene.sync();});assertCamera(await cameraState(),true);
+   await page.evaluate(()=>{prefs.display.cameraMotion='still';WoodlandScene.sync();});assertCamera(await cameraState(),false);
+   await page.evaluate(()=>{prefs.display.cameraMotion='gentle';WoodlandScene.sync();});assertCamera(await cameraState(),true);
+   await page.emulateMedia({reducedMotion:'reduce'});await page.waitForFunction(()=>matchMedia('(prefers-reduced-motion: reduce)').matches&&!WoodlandScene.running);
+   assertCamera(await cameraState(),false);assert.equal(await page.evaluate(()=>WoodlandScene.running),false);
+   await page.emulateMedia({reducedMotion:'no-preference'});await at(stamp(5,8));
    await page.click('#settings-button');assert.equal(await page.evaluate(()=>WoodlandScene.running),false);
    await page.selectOption('#woodland-view','dashboard');await page.click('#settings-form button[type="submit"]');
    assert.equal(await page.locator('#woodland-immersive').isVisible(),false);assert.equal(await page.locator('#woodland-scene').isVisible(),true);

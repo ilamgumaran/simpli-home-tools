@@ -31,7 +31,11 @@ const path=require('node:path'),{pathToFileURL}=require('node:url');
    await page.getByRole('button',{name:'Settings'}).click();assert.equal(await page.locator('#climber-stage').isHidden(),true);await page.locator('#close-settings').click();
    await page.evaluate(()=>{prefs.display.companion=false;DeskClimber.sync();});assert.equal(await page.locator('#climber-stage').isHidden(),true);
    await page.evaluate(()=>{prefs.display.companion=true;prefs.theme='orbit';applyTheme();});assert.equal(await page.locator('#climber-stage').isHidden(),true);
-   await page.evaluate(()=>{prefs.theme='climber';applyTheme();});await page.emulateMedia({reducedMotion:'reduce'});await page.waitForFunction(()=>matchMedia('(prefers-reduced-motion: reduce)').matches);
+   await page.evaluate(()=>{prefs.theme='climber';applyTheme();});
+   // Matching the preference can precede the product's queued change handler.
+   // Wait for dispatch before starting the two-second quiet visit under test.
+   await page.evaluate(()=>{const query=matchMedia('(prefers-reduced-motion: reduce)');window.__climberMotionChange=query.matches?Promise.resolve():new Promise(resolve=>query.addEventListener('change',event=>{if(event.matches)resolve();},{once:true}));});
+   await page.emulateMedia({reducedMotion:'reduce'});await page.evaluate(async()=>{await window.__climberMotionChange;delete window.__climberMotionChange;});
    await page.evaluate(()=>{DeskClimber.stop();DeskClimber.start();});await page.clock.runFor(2500);assert.equal(await page.locator('#climber-stage').isHidden(),true);
    await page.evaluate(()=>{prefs.display.companion=true;DeskClimber.start();});await page.clock.setSystemTime(new Date('2026-10-04T12:59:01-04:00'));await page.evaluate(()=>tick());assert.equal(await page.locator('#climber-stage').isHidden(),true);
    assert.deepEqual(errors,[]);await page.close();console.log('PASS Time Climber:',target.startsWith('file:')?'portable':'hosted','all layouts, rope/climb/supplies/build/tent/rest/rappel, real minute change, settings/disable/original-theme/rest pause, reduced motion.');

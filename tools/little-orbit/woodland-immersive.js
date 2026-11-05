@@ -39,7 +39,8 @@
  thought.onclick=()=>{if(locked)return;const show=document.body.classList.toggle('woodland-information');thought.setAttribute('aria-expanded',String(show));};
  const media=typeof matchMedia==='function'?matchMedia('(prefers-reduced-motion: reduce)'):null;
  let reducedMotion=!!media?.matches;
- let frame=null,timer=null,lastFrame=0,lastChapter='',lastMinute='',lastCast='',lastLayout='',lastClock='',lastLabel='',weatherSnapshot=null,weatherKey='',lastThermometer='';
+ let frame=null,timer=null,lastChapter='',lastMinute='',lastCast='',lastLayout='',lastClock='',lastLabel='',weatherSnapshot=null,weatherKey='',lastThermometer='';
+ const cadence=DeskFrameCadence.create();
  let lastAmbientBeat=null,lastAmbientFrozen=null;
  let layout={width:800,height:360,sx:1,sy:1,portrait:false,ground:322},slots=[],actors=[],paths=[];
  const greenhouse=()=>prefs.theme==='greenhouse1';
@@ -55,9 +56,13 @@
  const data=(el,name,value)=>{const next=String(value);if(el.dataset[name]!==next)el.dataset[name]=next;};
  const cameraLayers=['woodland-immersive-world','woodland-immersive-weather-layer','woodland-immersive-reading','woodland-immersive-actors','woodland-immersive-light-layer'];
  let lastCameraTransform='';
- // CSS serializes commas and trailing zeroes differently; retain our input
- // so Still camera does not rewrite the same five layer styles every frame.
- const setCameraTransform=value=>{if(value===lastCameraTransform)return;for(const id of cameraLayers)get(id).style.transform=value;lastCameraTransform=value;};
+ // Use a 3D transform on the reading layer only while the camera is moving.
+ const setCameraTransform=(x,y,moving=false)=>{
+  const value=`${x},${y}|${moving}`;if(value===lastCameraTransform)return;
+  const planar=`translate(${x},${y})`,reading=moving?`translate3d(${x},${y},0px)`:planar;
+  for(const id of cameraLayers)get(id).style.transform=id==='woodland-immersive-reading'?reading:planar;
+  lastCameraTransform=value;
+ };
  const actorSvg=get('woodland-immersive-actors'),actorCropProperties=['position','inset','left','top','right','bottom','width','height','overflow'];
  const actorCropOriginal={viewBox:actorSvg.getAttribute('viewBox'),style:Object.fromEntries(actorCropProperties.map(name=>[name,[actorSvg.style.getPropertyValue(name),actorSvg.style.getPropertyPriority(name)]]))};
  function restoreActorPaintFrame(){
@@ -414,10 +419,10 @@
   if(!frozen&&prefs.display.cameraMotion!=='still'){
    // Translate the outer SVG in CSS so its cached art can be composited.
    // An inner SVG camera transform rerasterizes the moving forest at high DPR.
-   const cameraTransform=`translate(${compositorPosition(Math.sin(t/47)*9*layout.sx)}px,${compositorPosition(Math.sin(t/61)*3*layout.sy)}px)`;
-   setCameraTransform(cameraTransform);
+   const cameraX=`${compositorPosition(Math.sin(t/47)*9*layout.sx)}px`,cameraY=`${compositorPosition(Math.sin(t/61)*3*layout.sy)}px`;
+   setCameraTransform(cameraX,cameraY,true);
    driftUI(compositorPosition(Math.sin(t/53)*10)+'px',compositorPosition(Math.sin(t/79)*4)+'px');
-  }else{setCameraTransform('translate(0px,0px)');driftUI('0px','0px');}
+  }else{setCameraTransform('0px','0px');driftUI('0px','0px');}
   attr('woodland-immersive-light','opacity',frozen?'0':(.016+.012*Math.sin(t/39)).toFixed(4));
   // Slow scenery has a separate 30fps cadence; actors and rain retain
   // the main frame cadence. Clock buckets also reconstruct manual time jumps.
@@ -432,11 +437,9 @@
  }
  function stop(){clearTimeout(timer);timer=null;if(frame!==null)cancelAnimationFrame(frame);frame=null;}
  function loop(at){
-  frame=null;if(!visible())return;const period=1000/30;
-  if(prefs.lowPower&&at-lastFrame<period-2){frame=requestAnimationFrame(loop);return;}
-  // Pace from the frame actually shown. Catching up an ideal phase after a
-  // late frame produces a visible 50ms/16ms alternation on a 60Hz display.
-  lastFrame=at;
+  frame=null;if(!visible())return;
+  // A bounded phase allowance handles callback jitter without a 16ms catch-up draw.
+  if(!cadence.shouldDraw(at,!!prefs.lowPower)){frame=requestAnimationFrame(loop);return;}
   if(draw())frame=requestAnimationFrame(loop);
  }
  function sync(){

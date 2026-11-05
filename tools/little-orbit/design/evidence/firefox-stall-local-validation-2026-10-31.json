@@ -1,0 +1,808 @@
+{
+  "schemaVersion": 1,
+  "dateUTC": "2026-10-31",
+  "checkpoint": "33050d7af61c08c9fb1601e04a06dd33c62cc649",
+  "runtimeRevision": "dd6e9d53694d6b5c4667bd0c778635b2779c746e",
+  "portableSha256": "0accb9737b218f4e4d202b368d0277355d114c21758163ae09cb57f61e142b85",
+  "node": "v24.19.0",
+  "platform": "linux",
+  "jobExits": {"firefox-stall-local-16":0,"firefox-stall-local-16-analysis":0,"firefox-stall-local-roundtrip":0,"firefox-stall-full-chrome-firefox":0},
+  "applicationChanged": false,
+  "purePrograms": 21,
+  "browserProgramsPerEngine": 15,
+  "scope": "Fresh full Chrome/Firefox plus offline; Edge/physical device not rerun. Prior Edge results in033.",
+  "logSha256": "611aacc55fc9dbb5d5702309867fe6d89a46ebdb6ba1d4ca524739c78fa5d532",
+  "cadenceCases": [
+    {
+      "case": "PASS live motion cadence: hosted low-power",
+      "metrics": {"fps":29.99571489786109,"p95":33.899999998509884,"maxGap":34.80000000074506,"frames":63}
+    },
+    {
+      "case": "PASS live motion cadence: hosted normal",
+      "metrics": {"fps":59.99142979572218,"p95":17.59999999962747,"maxGap":18.600000001490116,"frames":126}
+    },
+    {
+      "case": "PASS live motion cadence: portable low-power",
+      "metrics": {"fps":29.994286802535086,"p95":34.09999999962747,"maxGap":35.59999999962747,"frames":63}
+    },
+    {
+      "case": "PASS live motion cadence: portable normal",
+      "metrics": {"fps":59.99428625841965,"p95":17.700000001117587,"maxGap":19.40000000037253,"frames":126}
+    },
+    {
+      "case": "PASS immersive frame cadence: hosted 854×480 DPR1 30fps low-power",
+      "metrics": {"fps":29.99571489786109,"p95":33.70000000111759,"maxGap":35.59999999962747}
+    },
+    {
+      "case": "PASS immersive frame cadence: hosted 854×480 DPR1 60fps normal",
+      "metrics": {"fps":60.946576516489806,"p95":17.59999999962747,"maxGap":22.799999998882413}
+    },
+    {
+      "case": "PASS immersive frame cadence: portable 854×480 DPR1 30fps low-power",
+      "metrics": {"fps":29.99714312923643,"p95":34,"maxGap":34.69999999925494}
+    },
+    {
+      "case": "PASS immersive frame cadence: portable 854×480 DPR1 60fps normal",
+      "metrics": {"fps":60.94947859626813,"p95":17.300000000745058,"maxGap":18.800000000745058}
+    },
+    {
+      "case": "PASS immersive frame cadence: hosted 1280×720 DPR2 30fps low-power",
+      "metrics": {"fps":29.99714312923643,"p95":33.90000000037253,"maxGap":34.399999998509884}
+    },
+    {
+      "case": "PASS immersive frame cadence: hosted 1280×720 DPR2 60fps normal",
+      "metrics": {"fps":60.94657651654386,"p95":17.200000001117587,"maxGap":22.199999999254942}
+    },
+    {
+      "case": "PASS rainy habitat cadence: hosted 854×480 DPR1 30fps low-power",
+      "metrics": {"fps":29.99714312923643,"p95":33.80000000074506,"maxGap":34.69999999925494}
+    },
+    {
+      "case": "PASS rainy habitat cadence: hosted 854×480 DPR1 60fps normal",
+      "metrics": {"fps":61.375963459869766,"p95":17.300000000745058,"maxGap":21.399999998509884}
+    },
+    {
+      "case": "PASS rainy habitat cadence: hosted 1280×720 DPR2 30fps low-power",
+      "metrics": {"fps":29.99857149660072,"p95":33.80000000074506,"maxGap":34.09999999962747}
+    },
+    {
+      "case": "PASS rainy habitat cadence: hosted 1280×720 DPR2 60fps normal",
+      "metrics": {"fps":61.3818043395617,"p95":19.899999998509884,"maxGap":23.199999999254942}
+    },
+    {
+      "case": "PASS rainy habitat cadence: portable 854×480 DPR1 30fps low-power",
+      "metrics": {"fps":29.99714312923643,"p95":33.90000000037253,"maxGap":35.19999999925494}
+    },
+    {
+      "case": "PASS rainy habitat cadence: portable 854×480 DPR1 60fps normal",
+      "metrics": {"fps":60.94947859626813,"p95":17.199999999254942,"maxGap":19.700000001117587}
+    },
+    {
+      "case": "PASS rainy habitat cadence: portable 1280×720 DPR2 30fps low-power",
+      "metrics": {"fps":29.519592439164885,"p95":34,"maxGap":49.90000000037253}
+    },
+    {
+      "case": "PASS rainy habitat cadence: portable 1280×720 DPR2 60fps normal",
+      "metrics": {"fps":60.94947859626813,"p95":17.09999999962747,"maxGap":28.700000001117587}
+    },
+    {
+      "case": "PASS active meal cadence: hosted 854×480 DPR1 30fps low-power",
+      "metrics": {"fps":29.99571489786109,"p95":34,"maxGap":39.100000001490116,"frames":63}
+    },
+    {
+      "case": "PASS active meal cadence: hosted 854×480 DPR1 60fps normal",
+      "metrics": {"fps":60.94947859621408,"p95":17,"maxGap":17.799999998882413,"frames":128}
+    },
+    {
+      "case": "PASS active meal cadence: portable 1280×720 DPR2 30fps low-power",
+      "metrics": {"fps":29.998571496574115,"p95":33.69999999925494,"maxGap":35.30000000074506,"frames":63}
+    },
+    {
+      "case": "PASS active meal cadence: portable 1280×720 DPR2 60fps normal",
+      "metrics": {"fps":60.94367471316865,"p95":18.100000001490116,"maxGap":25.699999999254942,"frames":128}
+    },
+    {
+      "case": "PASS live motion cadence: hosted low-power",
+      "metrics": {"fps":30,"p95":35,"maxGap":35,"frames":63}
+    },
+    {
+      "case": "PASS live motion cadence: hosted normal",
+      "metrics": {"fps":60.418648905804,"p95":18,"maxGap":20,"frames":127}
+    },
+    {
+      "case": "PASS live motion cadence: portable low-power",
+      "metrics": {"fps":30,"p95":35,"maxGap":36,"frames":63}
+    },
+    {
+      "case": "PASS live motion cadence: portable normal",
+      "metrics": {"fps":59.97144217039505,"p95":18,"maxGap":46,"frames":126}
+    },
+    {
+      "case": "PASS immersive frame cadence: hosted 854×480 DPR1 30fps low-power",
+      "metrics": {"fps":30,"p95":34,"maxGap":36}
+    },
+    {
+      "case": "PASS immersive frame cadence: hosted 854×480 DPR1 60fps normal",
+      "metrics": {"fps":60.95238095238095,"p95":18,"maxGap":22}
+    },
+    {
+      "case": "PASS immersive frame cadence: portable 854×480 DPR1 30fps low-power",
+      "metrics": {"fps":30,"p95":34,"maxGap":36}
+    },
+    {
+      "case": "PASS immersive frame cadence: portable 854×480 DPR1 60fps normal",
+      "metrics": {"fps":60.92336982389338,"p95":18,"maxGap":21}
+    },
+    {
+      "case": "PASS immersive frame cadence: hosted 1280×720 DPR2 30fps low-power",
+      "metrics": {"fps":29.985721085197525,"p95":34,"maxGap":35}
+    },
+    {
+      "case": "PASS immersive frame cadence: hosted 1280×720 DPR2 60fps normal",
+      "metrics": {"fps":59.01951451689671,"p95":21,"maxGap":33}
+    },
+    {
+      "case": "PASS rainy habitat cadence: hosted 854×480 DPR1 30fps low-power",
+      "metrics": {"fps":30,"p95":36,"maxGap":37}
+    },
+    {
+      "case": "PASS rainy habitat cadence: hosted 854×480 DPR1 60fps normal",
+      "metrics": {"fps":60.92336982389338,"p95":18,"maxGap":26}
+    },
+    {
+      "case": "PASS rainy habitat cadence: hosted 1280×720 DPR2 30fps low-power",
+      "metrics": {"fps":29.61591855622397,"p95":35,"maxGap":36}
+    },
+    {
+      "case": "PASS rainy habitat cadence: hosted 1280×720 DPR2 60fps normal",
+      "metrics": {"fps":60.476190476190474,"p95":20,"maxGap":34}
+    },
+    {
+      "case": "PASS rainy habitat cadence: portable 854×480 DPR1 30fps low-power",
+      "metrics": {"fps":30.075187969924812,"p95":35,"maxGap":35}
+    },
+    {
+      "case": "PASS rainy habitat cadence: portable 854×480 DPR1 60fps normal",
+      "metrics": {"fps":60.95238095238095,"p95":18,"maxGap":26}
+    },
+    {
+      "case": "PASS rainy habitat cadence: portable 1280×720 DPR2 30fps low-power",
+      "metrics": {"fps":29.985721085197525,"p95":34,"maxGap":36}
+    },
+    {
+      "case": "PASS rainy habitat cadence: portable 1280×720 DPR2 60fps normal",
+      "metrics": {"fps":57.59162303664922,"p95":25,"maxGap":35}
+    },
+    {
+      "case": "PASS active meal cadence: hosted 854×480 DPR1 30fps low-power",
+      "metrics": {"fps":29.047619047619047,"p95":37,"maxGap":41,"frames":61}
+    },
+    {
+      "case": "PASS active meal cadence: hosted 854×480 DPR1 60fps normal",
+      "metrics": {"fps":59.38242280285036,"p95":20,"maxGap":67,"frames":125}
+    },
+    {
+      "case": "PASS active meal cadence: portable 1280×720 DPR2 30fps low-power",
+      "metrics": {"fps":29.885057471264368,"p95":35,"maxGap":36,"frames":65}
+    },
+    {
+      "case": "PASS active meal cadence: portable 1280×720 DPR2 60fps normal",
+      "metrics": {"fps":60.361216730038024,"p95":18,"maxGap":33,"frames":127}
+    }
+  ],
+  "rawRecomputations": [
+    {
+      "traceID": "f8c0050238b1681020a35f7ec1a55bbacc20a18786cd8f62f684e09299c47169",
+      "context": {
+        "suite": "dashboard",
+        "form": "hosted",
+        "browser": "chromium",
+        "browserVersion": "151.0.7922.34",
+        "lowPower": true,
+        "deviceScaleFactor": 1,
+        "dpr": 1,
+        "viewport": {"width":854,"height":480}
+      },
+      "geometryObservations": 63,
+      "nativeCallbacks": 126,
+      "appCallbacks": 126,
+      "metrics": {"fps":29.99571489786109,"p95":33.899999998509884,"maxGap":34.80000000074506}
+    },
+    {
+      "traceID": "b2cd72d3c6f337adc9eb28cec55103042f6e2ef96fe8dbd840c6714411a4448b",
+      "context": {
+        "suite": "dashboard",
+        "form": "hosted",
+        "browser": "chromium",
+        "browserVersion": "151.0.7922.34",
+        "lowPower": false,
+        "deviceScaleFactor": 1,
+        "dpr": 1,
+        "viewport": {"width":854,"height":480}
+      },
+      "geometryObservations": 126,
+      "nativeCallbacks": 126,
+      "appCallbacks": 126,
+      "metrics": {"fps":59.99142979572218,"p95":17.59999999962747,"maxGap":18.600000001490116}
+    },
+    {
+      "traceID": "f7351be7c60b6aebf63de604e26b49638860270a39a8a758ff7b033e33d19061",
+      "context": {
+        "suite": "dashboard",
+        "form": "portable",
+        "browser": "chromium",
+        "browserVersion": "151.0.7922.34",
+        "lowPower": true,
+        "deviceScaleFactor": 1,
+        "dpr": 1,
+        "viewport": {"width":854,"height":480}
+      },
+      "geometryObservations": 63,
+      "nativeCallbacks": 126,
+      "appCallbacks": 126,
+      "metrics": {"fps":29.994286802535086,"p95":34.09999999962747,"maxGap":35.59999999962747}
+    },
+    {
+      "traceID": "775e723b6469a1c0c56b2f91dbd1499908faac3db88442bce7e0247dfc1022ef",
+      "context": {
+        "suite": "dashboard",
+        "form": "portable",
+        "browser": "chromium",
+        "browserVersion": "151.0.7922.34",
+        "lowPower": false,
+        "deviceScaleFactor": 1,
+        "dpr": 1,
+        "viewport": {"width":854,"height":480}
+      },
+      "geometryObservations": 126,
+      "nativeCallbacks": 126,
+      "appCallbacks": 126,
+      "metrics": {"fps":59.99428625841965,"p95":17.700000001117587,"maxGap":19.40000000037253}
+    },
+    {
+      "traceID": "2b97105bde999ff410bba742cda872c73876803c4b623182fd307a6108b9a7dd",
+      "context": {
+        "suite": "immersive",
+        "form": "hosted",
+        "browser": "chromium",
+        "browserVersion": "151.0.7922.34",
+        "lowPower": true,
+        "deviceScaleFactor": 1,
+        "dpr": 1,
+        "viewport": {"width":854,"height":480}
+      },
+      "geometryObservations": 63,
+      "nativeCallbacks": 126,
+      "appCallbacks": 126,
+      "metrics": {"fps":29.99571489786109,"p95":33.70000000111759,"maxGap":35.59999999962747}
+    },
+    {
+      "traceID": "93cf8de3aeda931a43e21db7ad5348919e13159f5f62c045c974a54361970692",
+      "context": {
+        "suite": "immersive",
+        "form": "hosted",
+        "browser": "chromium",
+        "browserVersion": "151.0.7922.34",
+        "lowPower": false,
+        "deviceScaleFactor": 1,
+        "dpr": 1,
+        "viewport": {"width":854,"height":480}
+      },
+      "geometryObservations": 128,
+      "nativeCallbacks": 126,
+      "appCallbacks": 126,
+      "metrics": {"fps":60.946576516489806,"p95":17.59999999962747,"maxGap":22.799999998882413}
+    },
+    {
+      "traceID": "b82b3670e6c49a61b3af2cb6976486798091ecef270d3a75bd3b43b632d6eab5",
+      "context": {
+        "suite": "immersive",
+        "form": "portable",
+        "browser": "chromium",
+        "browserVersion": "151.0.7922.34",
+        "lowPower": true,
+        "deviceScaleFactor": 1,
+        "dpr": 1,
+        "viewport": {"width":854,"height":480}
+      },
+      "geometryObservations": 63,
+      "nativeCallbacks": 126,
+      "appCallbacks": 126,
+      "metrics": {"fps":29.99714312923643,"p95":34.0,"maxGap":34.69999999925494}
+    },
+    {
+      "traceID": "26716bc3e78c65e1f77aac5ab18ac682572d9fd274b9befd9194bc5b07db6f2e",
+      "context": {
+        "suite": "immersive",
+        "form": "portable",
+        "browser": "chromium",
+        "browserVersion": "151.0.7922.34",
+        "lowPower": false,
+        "deviceScaleFactor": 1,
+        "dpr": 1,
+        "viewport": {"width":854,"height":480}
+      },
+      "geometryObservations": 128,
+      "nativeCallbacks": 126,
+      "appCallbacks": 126,
+      "metrics": {"fps":60.94947859626813,"p95":17.300000000745058,"maxGap":18.800000000745058}
+    },
+    {
+      "traceID": "29f94d5dedae785c56af20c323ef64b0a03270990ab31cbb7b20b86f64dfcacd",
+      "context": {
+        "suite": "immersive",
+        "form": "hosted",
+        "browser": "chromium",
+        "browserVersion": "151.0.7922.34",
+        "lowPower": true,
+        "deviceScaleFactor": 2,
+        "dpr": 2,
+        "viewport": {"width":1280,"height":720}
+      },
+      "geometryObservations": 63,
+      "nativeCallbacks": 126,
+      "appCallbacks": 126,
+      "metrics": {"fps":29.99714312923643,"p95":33.90000000037253,"maxGap":34.399999998509884}
+    },
+    {
+      "traceID": "edf54b2cfa6d8d1d34c838d8fcc3b4aa1dd94995e3a83b0b1cc0717c6cd520d8",
+      "context": {
+        "suite": "immersive",
+        "form": "hosted",
+        "browser": "chromium",
+        "browserVersion": "151.0.7922.34",
+        "lowPower": false,
+        "deviceScaleFactor": 2,
+        "dpr": 2,
+        "viewport": {"width":1280,"height":720}
+      },
+      "geometryObservations": 128,
+      "nativeCallbacks": 126,
+      "appCallbacks": 126,
+      "metrics": {"fps":60.94657651654386,"p95":17.200000001117587,"maxGap":22.199999999254942}
+    },
+    {
+      "traceID": "73ea6868dcd2a10b6ccead76a163007465fe7f608c97cab5455b220c21f4064f",
+      "context": {
+        "suite": "rain",
+        "form": "hosted",
+        "browser": "chromium",
+        "browserVersion": "151.0.7922.34",
+        "lowPower": true,
+        "deviceScaleFactor": 1,
+        "dpr": 1,
+        "viewport": {"width":854,"height":480}
+      },
+      "geometryObservations": 63,
+      "nativeCallbacks": 126,
+      "appCallbacks": 126,
+      "metrics": {"fps":29.99714312923643,"p95":33.80000000074506,"maxGap":34.69999999925494}
+    },
+    {
+      "traceID": "63bcc14ab67c6165149d92ec9fef175e4ae99b6c145287d2546d588237d82684",
+      "context": {
+        "suite": "rain",
+        "form": "hosted",
+        "browser": "chromium",
+        "browserVersion": "151.0.7922.34",
+        "lowPower": false,
+        "deviceScaleFactor": 1,
+        "dpr": 1,
+        "viewport": {"width":854,"height":480}
+      },
+      "geometryObservations": 129,
+      "nativeCallbacks": 127,
+      "appCallbacks": 127,
+      "metrics": {"fps":61.375963459869766,"p95":17.300000000745058,"maxGap":21.399999998509884}
+    },
+    {
+      "traceID": "6364c4768d117a35e4f4f6e53be5cd67052c3b88527d66fec44eaba338eeb47d",
+      "context": {
+        "suite": "rain",
+        "form": "hosted",
+        "browser": "chromium",
+        "browserVersion": "151.0.7922.34",
+        "lowPower": true,
+        "deviceScaleFactor": 2,
+        "dpr": 2,
+        "viewport": {"width":1280,"height":720}
+      },
+      "geometryObservations": 63,
+      "nativeCallbacks": 126,
+      "appCallbacks": 126,
+      "metrics": {"fps":29.99857149660072,"p95":33.80000000074506,"maxGap":34.09999999962747}
+    },
+    {
+      "traceID": "d6b58996ffdcf8893b15d6af558924c3614517f93461a4639b476050f78ccbaa",
+      "context": {
+        "suite": "rain",
+        "form": "hosted",
+        "browser": "chromium",
+        "browserVersion": "151.0.7922.34",
+        "lowPower": false,
+        "deviceScaleFactor": 2,
+        "dpr": 2,
+        "viewport": {"width":1280,"height":720}
+      },
+      "geometryObservations": 129,
+      "nativeCallbacks": 127,
+      "appCallbacks": 127,
+      "metrics": {"fps":61.3818043395617,"p95":19.899999998509884,"maxGap":23.199999999254942}
+    },
+    {
+      "traceID": "631ff70752284ef3551daa88ab77ee1c97e3f8172935ba0bc32b35785bf71b5d",
+      "context": {
+        "suite": "rain",
+        "form": "portable",
+        "browser": "chromium",
+        "browserVersion": "151.0.7922.34",
+        "lowPower": true,
+        "deviceScaleFactor": 1,
+        "dpr": 1,
+        "viewport": {"width":854,"height":480}
+      },
+      "geometryObservations": 63,
+      "nativeCallbacks": 126,
+      "appCallbacks": 126,
+      "metrics": {"fps":29.99714312923643,"p95":33.90000000037253,"maxGap":35.19999999925494}
+    },
+    {
+      "traceID": "817e3159068cc52dac312b90f0c9bacd6302e22f04cfae2a0ff380f64f91ebc6",
+      "context": {
+        "suite": "rain",
+        "form": "portable",
+        "browser": "chromium",
+        "browserVersion": "151.0.7922.34",
+        "lowPower": false,
+        "deviceScaleFactor": 1,
+        "dpr": 1,
+        "viewport": {"width":854,"height":480}
+      },
+      "geometryObservations": 128,
+      "nativeCallbacks": 126,
+      "appCallbacks": 126,
+      "metrics": {"fps":60.94947859626813,"p95":17.199999999254942,"maxGap":19.700000001117587}
+    },
+    {
+      "traceID": "260e8f974d2199ef8371e5799a7abdb07cb6b6d0ce30ec46558b07be9e293e3d",
+      "context": {
+        "suite": "rain",
+        "form": "portable",
+        "browser": "chromium",
+        "browserVersion": "151.0.7922.34",
+        "lowPower": true,
+        "deviceScaleFactor": 2,
+        "dpr": 2,
+        "viewport": {"width":1280,"height":720}
+      },
+      "geometryObservations": 62,
+      "nativeCallbacks": 124,
+      "appCallbacks": 124,
+      "metrics": {"fps":29.519592439164885,"p95":34.0,"maxGap":49.90000000037253}
+    },
+    {
+      "traceID": "1317c738700b1e742520959cd3804b8db72368ce53d04939e746e171319ac37b",
+      "context": {
+        "suite": "rain",
+        "form": "portable",
+        "browser": "chromium",
+        "browserVersion": "151.0.7922.34",
+        "lowPower": false,
+        "deviceScaleFactor": 2,
+        "dpr": 2,
+        "viewport": {"width":1280,"height":720}
+      },
+      "geometryObservations": 128,
+      "nativeCallbacks": 126,
+      "appCallbacks": 126,
+      "metrics": {"fps":60.94947859626813,"p95":17.09999999962747,"maxGap":28.700000001117587}
+    },
+    {
+      "traceID": "6dd30fc0db92ad8f0970578add745e9e62a055a625f18867f2cc55f15c8f2785",
+      "context": {
+        "suite": "dashboard",
+        "form": "hosted",
+        "browser": "firefox",
+        "browserVersion": "153.0",
+        "lowPower": true,
+        "deviceScaleFactor": 1,
+        "dpr": 1,
+        "viewport": {"width":854,"height":480}
+      },
+      "geometryObservations": 63,
+      "nativeCallbacks": 126,
+      "appCallbacks": 126,
+      "metrics": {"fps":30.0,"p95":35,"maxGap":35}
+    },
+    {
+      "traceID": "81eae47ddf4188ee7655494f2cef34fc85678d6a3bb43b83afbe3e50a9ca6acf",
+      "context": {
+        "suite": "dashboard",
+        "form": "hosted",
+        "browser": "firefox",
+        "browserVersion": "153.0",
+        "lowPower": false,
+        "deviceScaleFactor": 1,
+        "dpr": 1,
+        "viewport": {"width":854,"height":480}
+      },
+      "geometryObservations": 127,
+      "nativeCallbacks": 127,
+      "appCallbacks": 127,
+      "metrics": {"fps":60.418648905804,"p95":18,"maxGap":20}
+    },
+    {
+      "traceID": "623a7ef840b6d63d4a5c14b09b2c6919c954f65d3e56b762025b8c04d7a7f1a1",
+      "context": {
+        "suite": "dashboard",
+        "form": "portable",
+        "browser": "firefox",
+        "browserVersion": "153.0",
+        "lowPower": true,
+        "deviceScaleFactor": 1,
+        "dpr": 1,
+        "viewport": {"width":854,"height":480}
+      },
+      "geometryObservations": 63,
+      "nativeCallbacks": 126,
+      "appCallbacks": 126,
+      "metrics": {"fps":30.0,"p95":35,"maxGap":36}
+    },
+    {
+      "traceID": "2d48d965a794f99bbf0274b08f74dfe29fe7da44e64747cc7f44614d1e4b60db",
+      "context": {
+        "suite": "dashboard",
+        "form": "portable",
+        "browser": "firefox",
+        "browserVersion": "153.0",
+        "lowPower": false,
+        "deviceScaleFactor": 1,
+        "dpr": 1,
+        "viewport": {"width":854,"height":480}
+      },
+      "geometryObservations": 126,
+      "nativeCallbacks": 126,
+      "appCallbacks": 126,
+      "metrics": {"fps":59.97144217039505,"p95":18,"maxGap":46}
+    },
+    {
+      "traceID": "c674080b588e54640c1c4d48887d30cfc616b500b457a455c3725e0b7bae99ae",
+      "context": {
+        "suite": "immersive",
+        "form": "hosted",
+        "browser": "firefox",
+        "browserVersion": "153.0",
+        "lowPower": true,
+        "deviceScaleFactor": 1,
+        "dpr": 1,
+        "viewport": {"width":854,"height":480}
+      },
+      "geometryObservations": 63,
+      "nativeCallbacks": 126,
+      "appCallbacks": 126,
+      "metrics": {"fps":30.0,"p95":34,"maxGap":36}
+    },
+    {
+      "traceID": "c205e00ff8e048f89e0a3993ce5ba8599988eb36474ea0c553cbb61c310b462a",
+      "context": {
+        "suite": "immersive",
+        "form": "hosted",
+        "browser": "firefox",
+        "browserVersion": "153.0",
+        "lowPower": false,
+        "deviceScaleFactor": 1,
+        "dpr": 1,
+        "viewport": {"width":854,"height":480}
+      },
+      "geometryObservations": 128,
+      "nativeCallbacks": 126,
+      "appCallbacks": 126,
+      "metrics": {"fps":60.95238095238095,"p95":18,"maxGap":22}
+    },
+    {
+      "traceID": "fb8967f029f0e104f63190b9c2ffa343bcf87809c8d6e36a0fe424e83a989618",
+      "context": {
+        "suite": "immersive",
+        "form": "portable",
+        "browser": "firefox",
+        "browserVersion": "153.0",
+        "lowPower": true,
+        "deviceScaleFactor": 1,
+        "dpr": 1,
+        "viewport": {"width":854,"height":480}
+      },
+      "geometryObservations": 63,
+      "nativeCallbacks": 127,
+      "appCallbacks": 127,
+      "metrics": {"fps":30.0,"p95":34,"maxGap":36}
+    },
+    {
+      "traceID": "0f5dc40068311a608ceedaaa65a56bfba7190367769ff1bd0ffa16028efed6a8",
+      "context": {
+        "suite": "immersive",
+        "form": "portable",
+        "browser": "firefox",
+        "browserVersion": "153.0",
+        "lowPower": false,
+        "deviceScaleFactor": 1,
+        "dpr": 1,
+        "viewport": {"width":854,"height":480}
+      },
+      "geometryObservations": 128,
+      "nativeCallbacks": 126,
+      "appCallbacks": 126,
+      "metrics": {"fps":60.92336982389338,"p95":18,"maxGap":21}
+    },
+    {
+      "traceID": "d329f0bd8a9eed491ea0fbb669062fbc85b37737e37c11804230a68644b92c94",
+      "context": {
+        "suite": "immersive",
+        "form": "hosted",
+        "browser": "firefox",
+        "browserVersion": "153.0",
+        "lowPower": true,
+        "deviceScaleFactor": 2,
+        "dpr": 2,
+        "viewport": {"width":1280,"height":720}
+      },
+      "geometryObservations": 63,
+      "nativeCallbacks": 126,
+      "appCallbacks": 126,
+      "metrics": {"fps":29.985721085197525,"p95":34,"maxGap":35}
+    },
+    {
+      "traceID": "52a46715e98272b65095fc6ea4ef65e986c637b235f6d860e695e965fbe0e802",
+      "context": {
+        "suite": "immersive",
+        "form": "hosted",
+        "browser": "firefox",
+        "browserVersion": "153.0",
+        "lowPower": false,
+        "deviceScaleFactor": 2,
+        "dpr": 2,
+        "viewport": {"width":1280,"height":720}
+      },
+      "geometryObservations": 124,
+      "nativeCallbacks": 122,
+      "appCallbacks": 122,
+      "metrics": {"fps":59.01951451689671,"p95":21,"maxGap":33}
+    },
+    {
+      "traceID": "0a5994f97d88b7b22e4eca237e3b8160dd7989cd0be2d80b408ffcc39a221da9",
+      "context": {
+        "suite": "rain",
+        "form": "hosted",
+        "browser": "firefox",
+        "browserVersion": "153.0",
+        "lowPower": true,
+        "deviceScaleFactor": 1,
+        "dpr": 1,
+        "viewport": {"width":854,"height":480}
+      },
+      "geometryObservations": 63,
+      "nativeCallbacks": 126,
+      "appCallbacks": 126,
+      "metrics": {"fps":30.0,"p95":36,"maxGap":37}
+    },
+    {
+      "traceID": "acda13dbfcb6b1a7310fbe5d6ff4809253a65f1c81ce8031803bc3f487d93775",
+      "context": {
+        "suite": "rain",
+        "form": "hosted",
+        "browser": "firefox",
+        "browserVersion": "153.0",
+        "lowPower": false,
+        "deviceScaleFactor": 1,
+        "dpr": 1,
+        "viewport": {"width":854,"height":480}
+      },
+      "geometryObservations": 128,
+      "nativeCallbacks": 126,
+      "appCallbacks": 126,
+      "metrics": {"fps":60.92336982389338,"p95":18,"maxGap":26}
+    },
+    {
+      "traceID": "8074dd40c208b937d7f73955884e9118a720b3aec2859d0e5bf417be722fa467",
+      "context": {
+        "suite": "rain",
+        "form": "hosted",
+        "browser": "firefox",
+        "browserVersion": "153.0",
+        "lowPower": true,
+        "deviceScaleFactor": 2,
+        "dpr": 2,
+        "viewport": {"width":1280,"height":720}
+      },
+      "geometryObservations": 64,
+      "nativeCallbacks": 129,
+      "appCallbacks": 129,
+      "metrics": {"fps":29.61591855622397,"p95":35,"maxGap":36}
+    },
+    {
+      "traceID": "5bb79ae588e5a32f54c12094e32e20278795660a4af9ec9efe14b4a46a44fda7",
+      "context": {
+        "suite": "rain",
+        "form": "hosted",
+        "browser": "firefox",
+        "browserVersion": "153.0",
+        "lowPower": false,
+        "deviceScaleFactor": 2,
+        "dpr": 2,
+        "viewport": {"width":1280,"height":720}
+      },
+      "geometryObservations": 127,
+      "nativeCallbacks": 125,
+      "appCallbacks": 125,
+      "metrics": {"fps":60.476190476190474,"p95":20,"maxGap":34}
+    },
+    {
+      "traceID": "e4d1f31d5163574140126267c1fb713bf0825c9e4d898263be6d0dbc10ba7053",
+      "context": {
+        "suite": "rain",
+        "form": "portable",
+        "browser": "firefox",
+        "browserVersion": "153.0",
+        "lowPower": true,
+        "deviceScaleFactor": 1,
+        "dpr": 1,
+        "viewport": {"width":854,"height":480}
+      },
+      "geometryObservations": 64,
+      "nativeCallbacks": 127,
+      "appCallbacks": 127,
+      "metrics": {"fps":30.075187969924812,"p95":35,"maxGap":35}
+    },
+    {
+      "traceID": "689dbec57f6118df7826cb349c1ea47a98ccc39ea538e2e8837054393c5e67f7",
+      "context": {
+        "suite": "rain",
+        "form": "portable",
+        "browser": "firefox",
+        "browserVersion": "153.0",
+        "lowPower": false,
+        "deviceScaleFactor": 1,
+        "dpr": 1,
+        "viewport": {"width":854,"height":480}
+      },
+      "geometryObservations": 128,
+      "nativeCallbacks": 126,
+      "appCallbacks": 126,
+      "metrics": {"fps":60.95238095238095,"p95":18,"maxGap":26}
+    },
+    {
+      "traceID": "dd4ad23eec044b2dc9fecb6dca36895fa2dba19017aecb9b816966442d77f5ce",
+      "context": {
+        "suite": "rain",
+        "form": "portable",
+        "browser": "firefox",
+        "browserVersion": "153.0",
+        "lowPower": true,
+        "deviceScaleFactor": 2,
+        "dpr": 2,
+        "viewport": {"width":1280,"height":720}
+      },
+      "geometryObservations": 63,
+      "nativeCallbacks": 126,
+      "appCallbacks": 126,
+      "metrics": {"fps":29.985721085197525,"p95":34,"maxGap":36}
+    },
+    {
+      "traceID": "1899963e7453eecd0547983f85d068b5abed4dbeca9403905500cf30487257c3",
+      "context": {
+        "suite": "rain",
+        "form": "portable",
+        "browser": "firefox",
+        "browserVersion": "153.0",
+        "lowPower": false,
+        "deviceScaleFactor": 2,
+        "dpr": 2,
+        "viewport": {"width":1280,"height":720}
+      },
+      "geometryObservations": 121,
+      "nativeCallbacks": 119,
+      "appCallbacks": 119,
+      "metrics": {"fps":57.59162303664922,"p95":25,"maxGap":35}
+    }
+  ],
+  "totals": {"cadencePass":44,"cadenceFail":0,"rawRecomputations":36}
+}

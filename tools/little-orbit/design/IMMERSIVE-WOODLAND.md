@@ -47,7 +47,7 @@ Slow wind moves foliage, clouds drift, water flows and lighting changes. Camera 
 
 High definition here means proportion-preserving silhouettes, layered lighting/depth, timber bark/end grain, stone texture, water banks and visible equipment. The fullscreen cast targets 80–160 CSS pixel heights, with crisp SVG at DPR 1 and 2. Decorative texture must preserve essential numeral contrast. Reduced motion gives a complete static composition with current time updates and settled activities, overriding camera and continual atmosphere.
 
-The camera translates the outer SVG through CSS so browsers can composite its art. The inner scene group stays fixed; writing its transform every frame made Firefox redraw the forest at high density. Viewport and footer geometry are cached between layout changes. This preserves shared screen-space terrain contacts while reducing paint and layout work. Low-power pacing starts from each displayed frame, avoiding alternating short and long gaps after a late frame.
+The camera translates the outer SVG through CSS so browsers can composite its art. The inner scene group stays fixed; writing its transform every frame made Firefox redraw the forest at high density. Viewport and footer geometry are cached between layout changes. This preserves shared screen-space terrain contacts while reducing paint and layout work. The [bounded phase pacing candidate](FRAME-CADENCE.md) targets 30 Hz with a minimum gap between paced paints and discards stale work after a long pause. This replaces the reset-to-now limiter whose callback-jitter sensitivity was observed in hosted CI; current acceptance is recorded separately from the historical evidence below.
 
 ## Implementation phases
 

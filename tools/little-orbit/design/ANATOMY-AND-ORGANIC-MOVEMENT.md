@@ -1,7 +1,7 @@
 <!-- SPDX-License-Identifier: LicenseRef-Simpli-Noncommercial-1.0 -->
 # Shared anatomy and organic movement — staged implementation plan
 
-Status: **planning complete; implementation has not started**. Requested 2026-10-18. This plan covers finer hands, palms, wrists, feet, ankles and legs for the existing cast, with the connected body mechanics needed to make them convincing. The artwork should remain comic, warm and readable at clock size.
+Status: **A0 inventory / A1 foundation implemented as an additive candidate; later rollout remains pending**. Requested 2026-10-18. The [profile contract](ANATOMY-PROFILES.md), [baseline inventory](ANATOMY-BASELINE.md), pure geometry and workshop reference panel begin the foundation. Full live-scene/prop bounds still need capture before A2 artwork expands them. A2 silhouettes, A3/A4 contacts/gait and later consumers are not enabled. This plan covers finer hands, palms, wrists, feet, ankles and legs for the existing cast, with the connected body mechanics needed to make them convincing. The artwork should remain comic, warm and readable at clock size.
 
 Baseline: runtime `f02092b12a45d72cefe73ba68d5acd2f68932358`, regression runner `7bfe736`, published handoff `6adfa86`. Portable `Little Orbit.html` SHA-256: `046f02a9772a5060ac422b6acceee763fb29726a230df1ce1932a38611899ec6`. [Session 017](../../../sessions/2026-10-10-weather-habitat/017-cloud-meal-choreography-results.md) contains that candidate's evidence. Those passing checks do **not** validate the proposed anatomy. [Session 018](../../../sessions/2026-10-10-weather-habitat/018-cloud-anatomy-movement-plan.md) records this planning handoff.
 

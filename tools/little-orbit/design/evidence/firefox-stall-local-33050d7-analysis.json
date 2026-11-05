@@ -1,0 +1,1319 @@
+{
+  "schemaVersion": 1,
+  "kind": "firefox-stall-analysis",
+  "totals": {"records":16,"groups":1,"expectedRecordsPerGroup":16,"completeGroups":1,"incompleteGroups":0,"invalidGroups":0,"validCases":16,"invalidCases":0,"errorCases":0,"validationErrors":0},
+  "groups": [
+    {
+      "source": {"platform":"linux","arch":"x64","node":"v24.19.0","browserVersion":"153.0","gitSHA":"33050d7af61c08c9fb1601e04a06dd33c62cc649","captureDigest":"aa812c695d8fd9cfa6df0cb4d4c4be939d50330eb63f103851e5dd5d058b90e9","traceDigest":"1d30900bac964615c28e073df16c659d2e8dc4fbcf9b81019b8a6858dfd579be","profileExtractorDigest":"f2ada22886039e36d6956304f9b14ad388a929be22dcce4e2d0bea32effb02dd"},
+      "recordCount": 16,
+      "expectedRecordCount": 16,
+      "status": "complete",
+      "missingKeys": [],
+      "duplicateCount": 0,
+      "unexpectedCount": 0,
+      "validationErrorCount": 0,
+      "conditionModes": {
+        "full-profiled": {
+          "runCount": 4,
+          "runs": [
+            {
+              "round": 0,
+              "position": 0,
+              "globalIndex": 0,
+              "status": "valid",
+              "profiler": {
+                "enabled": true,
+                "requested": {"features":"js,leaf,stackwalk","intervalMs":1,"entries":2000000,"filter":"GeckoMain","shutdownFilename":"profile.json"},
+                "actualFeatures": ["js","stackwalk"],
+                "missingRequestedFeatures": ["leaf"],
+                "actualIntervalMs": 1,
+                "profile": {
+                  "version": 34,
+                  "startTimeMs": 1793449012769.0767,
+                  "intervalMs": 1,
+                  "profilingStartTimeMs": 0.352579,
+                  "profilingEndTimeMs": 8065.693331,
+                  "configurationFeatures": ["js","stackwalk"]
+                }
+              },
+              "windows": {
+                "low": {
+                  "kind": "low",
+                  "lowPower": true,
+                  "metrics": {
+                    "reported": {"fps":30,"p95":35,"maxGap":37,"frames":63,"elapsedMs":2100},
+                    "recomputed": {"fps":30,"p95":35,"maxGap":37,"frames":63,"elapsedMs":2100},
+                    "researchGatePasses": {"fps":true,"p95":true,"maxGap":true},
+                    "thresholds": {"fps":26,"p95":46,"maxGap":100}
+                  },
+                  "native": {
+                    "count": 126,
+                    "nominal": {"count":125,"p95Ms":17.200000000000045},
+                    "actual": {"count":125,"p95Ms":19}
+                  },
+                  "acceptedApp": {
+                    "count": 63,
+                    "nominal": {"count":62,"p95Ms":34.2199999999998},
+                    "entry": {"count":62,"p95Ms":35}
+                  },
+                  "geometryP95Ms": 35,
+                  "warnings": [],
+                  "warningDisposition": {
+                    "nonfatalQuantization": [],
+                    "fatal": []
+                  },
+                  "profileWindow": {
+                    "thresholdMs": 46,
+                    "outlierGapCount": 0,
+                    "selectedGapCount": 0,
+                    "gaps": []
+                  }
+                },
+                "normal": {
+                  "kind": "normal",
+                  "lowPower": false,
+                  "metrics": {
+                    "reported": {"fps":60,"p95":18,"maxGap":18,"frames":126,"elapsedMs":2100},
+                    "recomputed": {"fps":60,"p95":18,"maxGap":18,"frames":126,"elapsedMs":2100},
+                    "researchGatePasses": {"fps":true,"p95":true,"maxGap":true},
+                    "thresholds": {"fps":45,"p95":31,"maxGap":100}
+                  },
+                  "native": {
+                    "count": 126,
+                    "nominal": {"count":125,"p95Ms":17.18000000000029},
+                    "actual": {"count":125,"p95Ms":18}
+                  },
+                  "acceptedApp": {
+                    "count": 126,
+                    "nominal": {"count":125,"p95Ms":17.18000000000029},
+                    "entry": {"count":125,"p95Ms":18}
+                  },
+                  "geometryP95Ms": 18,
+                  "warnings": [],
+                  "warningDisposition": {
+                    "nonfatalQuantization": [],
+                    "fatal": []
+                  },
+                  "profileWindow": {
+                    "thresholdMs": 31,
+                    "outlierGapCount": 0,
+                    "selectedGapCount": 0,
+                    "gaps": []
+                  }
+                }
+              }
+            },
+            {
+              "round": 1,
+              "position": 2,
+              "globalIndex": 6,
+              "status": "valid",
+              "profiler": {
+                "enabled": true,
+                "requested": {"features":"js,leaf,stackwalk","intervalMs":1,"entries":2000000,"filter":"GeckoMain","shutdownFilename":"profile.json"},
+                "actualFeatures": ["js","stackwalk"],
+                "missingRequestedFeatures": ["leaf"],
+                "actualIntervalMs": 1,
+                "profile": {
+                  "version": 34,
+                  "startTimeMs": 1793449058615.511,
+                  "intervalMs": 1,
+                  "profilingStartTimeMs": 0.304007,
+                  "profilingEndTimeMs": 7533.622227999999,
+                  "configurationFeatures": ["js","stackwalk"]
+                }
+              },
+              "windows": {
+                "low": {
+                  "kind": "low",
+                  "lowPower": true,
+                  "metrics": {
+                    "reported": {"fps":30,"p95":34,"maxGap":38,"frames":63,"elapsedMs":2100},
+                    "recomputed": {"fps":30,"p95":34,"maxGap":38,"frames":63,"elapsedMs":2100},
+                    "researchGatePasses": {"fps":true,"p95":true,"maxGap":true},
+                    "thresholds": {"fps":26,"p95":46,"maxGap":100}
+                  },
+                  "native": {
+                    "count": 126,
+                    "nominal": {"count":125,"p95Ms":17.159999999999854},
+                    "actual": {"count":125,"p95Ms":19}
+                  },
+                  "acceptedApp": {
+                    "count": 63,
+                    "nominal": {"count":62,"p95Ms":34.159999999999854},
+                    "entry": {"count":62,"p95Ms":34}
+                  },
+                  "geometryP95Ms": 34,
+                  "warnings": [],
+                  "warningDisposition": {
+                    "nonfatalQuantization": [],
+                    "fatal": []
+                  },
+                  "profileWindow": {
+                    "thresholdMs": 46,
+                    "outlierGapCount": 0,
+                    "selectedGapCount": 0,
+                    "gaps": []
+                  }
+                },
+                "normal": {
+                  "kind": "normal",
+                  "lowPower": false,
+                  "metrics": {
+                    "reported": {"fps":60,"p95":18,"maxGap":19,"frames":126,"elapsedMs":2100},
+                    "recomputed": {"fps":60,"p95":18,"maxGap":19,"frames":126,"elapsedMs":2100},
+                    "researchGatePasses": {"fps":true,"p95":true,"maxGap":true},
+                    "thresholds": {"fps":45,"p95":31,"maxGap":100}
+                  },
+                  "native": {
+                    "count": 126,
+                    "nominal": {"count":125,"p95Ms":17.140000000000327},
+                    "actual": {"count":125,"p95Ms":18}
+                  },
+                  "acceptedApp": {
+                    "count": 126,
+                    "nominal": {"count":125,"p95Ms":17.140000000000327},
+                    "entry": {"count":125,"p95Ms":18}
+                  },
+                  "geometryP95Ms": 18,
+                  "warnings": [],
+                  "warningDisposition": {
+                    "nonfatalQuantization": [],
+                    "fatal": []
+                  },
+                  "profileWindow": {
+                    "thresholdMs": 31,
+                    "outlierGapCount": 0,
+                    "selectedGapCount": 0,
+                    "gaps": []
+                  }
+                }
+              }
+            },
+            {
+              "round": 2,
+              "position": 3,
+              "globalIndex": 11,
+              "status": "valid",
+              "profiler": {
+                "enabled": true,
+                "requested": {"features":"js,leaf,stackwalk","intervalMs":1,"entries":2000000,"filter":"GeckoMain","shutdownFilename":"profile.json"},
+                "actualFeatures": ["js","stackwalk"],
+                "missingRequestedFeatures": ["leaf"],
+                "actualIntervalMs": 1,
+                "profile": {
+                  "version": 34,
+                  "startTimeMs": 1793449095614.843,
+                  "intervalMs": 1,
+                  "profilingStartTimeMs": 0.354693,
+                  "profilingEndTimeMs": 7507.877224,
+                  "configurationFeatures": ["js","stackwalk"]
+                }
+              },
+              "windows": {
+                "low": {
+                  "kind": "low",
+                  "lowPower": true,
+                  "metrics": {
+                    "reported": {"fps":29.985721085197525,"p95":35,"maxGap":41,"frames":63,"elapsedMs":2101},
+                    "recomputed": {"fps":29.985721085197525,"p95":35,"maxGap":41,"frames":63,"elapsedMs":2101},
+                    "researchGatePasses": {"fps":true,"p95":true,"maxGap":true},
+                    "thresholds": {"fps":26,"p95":46,"maxGap":100}
+                  },
+                  "native": {
+                    "count": 126,
+                    "nominal": {"count":125,"p95Ms":17.120000000000346},
+                    "actual": {"count":125,"p95Ms":19}
+                  },
+                  "acceptedApp": {
+                    "count": 63,
+                    "nominal": {"count":62,"p95Ms":34.2199999999998},
+                    "entry": {"count":62,"p95Ms":34}
+                  },
+                  "geometryP95Ms": 35,
+                  "warnings": [],
+                  "warningDisposition": {
+                    "nonfatalQuantization": [],
+                    "fatal": []
+                  },
+                  "profileWindow": {
+                    "thresholdMs": 46,
+                    "outlierGapCount": 0,
+                    "selectedGapCount": 0,
+                    "gaps": []
+                  }
+                },
+                "normal": {
+                  "kind": "normal",
+                  "lowPower": false,
+                  "metrics": {
+                    "reported": {"fps":59.523809523809526,"p95":18,"maxGap":45,"frames":125,"elapsedMs":2100},
+                    "recomputed": {"fps":59.523809523809526,"p95":18,"maxGap":45,"frames":125,"elapsedMs":2100},
+                    "researchGatePasses": {"fps":true,"p95":true,"maxGap":true},
+                    "thresholds": {"fps":45,"p95":31,"maxGap":100}
+                  },
+                  "native": {
+                    "count": 125,
+                    "nominal": {"count":124,"p95Ms":17.17999999999938},
+                    "actual": {"count":124,"p95Ms":18}
+                  },
+                  "acceptedApp": {
+                    "count": 125,
+                    "nominal": {"count":124,"p95Ms":17.17999999999938},
+                    "entry": {"count":124,"p95Ms":18}
+                  },
+                  "geometryP95Ms": 18,
+                  "warnings": [],
+                  "warningDisposition": {
+                    "nonfatalQuantization": [],
+                    "fatal": []
+                  },
+                  "profileWindow": {
+                    "thresholdMs": 31,
+                    "outlierGapCount": 1,
+                    "selectedGapCount": 1,
+                    "gaps": [
+                      {
+                        "gapIndex": 103,
+                        "gapMs": 45,
+                        "categoryCounts": {"Idle/Other":42,"JavaScript/Builtin API":1,"DOM/Other":2,"Graphics/DisplayList building":2,"Graphics/WebRender display list":1},
+                        "cpuDeltaSumRaw": null,
+                        "cpuDeltaCount": 0,
+                        "sampleCount": 48,
+                        "sourceSamplesTruncated": 16,
+                        "markerCount": 16,
+                        "markersTruncated": 0,
+                        "markers": [
+                          {"startMs":6147.866162,"endMs":null,"eventTimeMs":6147.866162,"phase":2,"label":"requestAnimationFrame callbacks","type":"requestAnimationFrame callbacks","category":7,"scope":"page","innerWindowID":10737418241},
+                          {"startMs":null,"endMs":6149.486002,"eventTimeMs":6149.486002,"phase":3,"label":"requestAnimationFrame callbacks","type":"requestAnimationFrame callbacks","category":7,"scope":"page","innerWindowID":10737418241},
+                          {"startMs":6149.494655,"endMs":6149.955418,"eventTimeMs":null,"phase":1,"label":"Styles","type":"Styles","category":3,"scope":"page","innerWindowID":10737418241},
+                          {"startMs":6149.962088,"endMs":null,"eventTimeMs":6149.962088,"phase":2,"label":"Reflow (sync)","type":"Reflow (sync)","category":3,"scope":"page","innerWindowID":10737418241},
+                          {"startMs":null,"endMs":6149.995859,"eventTimeMs":6149.995859,"phase":3,"label":"Reflow (sync)","type":"Reflow (sync)","category":3,"scope":"page","innerWindowID":10737418241},
+                          {"startMs":6150.075709,"endMs":null,"eventTimeMs":6150.075709,"phase":2,"label":"DisplayList","type":"DisplayList","category":7,"scope":"process"},
+                          {"startMs":null,"endMs":6150.456081,"eventTimeMs":6150.456081,"phase":3,"label":"DisplayList","type":"DisplayList","category":7,"scope":"process"},
+                          {"startMs":6147.85865,"endMs":6150.950074,"eventTimeMs":null,"phase":1,"label":"RefreshDriverTick","type":"RefreshDriverTick","category":7,"scope":"page","innerWindowID":10737418241},
+                          {"startMs":6194.111369,"endMs":null,"eventTimeMs":6194.111369,"phase":2,"label":"requestAnimationFrame callbacks","type":"requestAnimationFrame callbacks","category":7,"scope":"page","innerWindowID":10737418241},
+                          {"startMs":null,"endMs":6195.295299,"eventTimeMs":6195.295299,"phase":3,"label":"requestAnimationFrame callbacks","type":"requestAnimationFrame callbacks","category":7,"scope":"page","innerWindowID":10737418241},
+                          {"startMs":6195.304383,"endMs":6195.810644,"eventTimeMs":null,"phase":1,"label":"Styles","type":"Styles","category":3,"scope":"page","innerWindowID":10737418241},
+                          {"startMs":6195.817034,"endMs":null,"eventTimeMs":6195.817034,"phase":2,"label":"Reflow (sync)","type":"Reflow (sync)","category":3,"scope":"page","innerWindowID":10737418241},
+                          {"startMs":null,"endMs":6195.916143,"eventTimeMs":6195.916143,"phase":3,"label":"Reflow (sync)","type":"Reflow (sync)","category":3,"scope":"page","innerWindowID":10737418241},
+                          {"startMs":6196.008882,"endMs":null,"eventTimeMs":6196.008882,"phase":2,"label":"DisplayList","type":"DisplayList","category":7,"scope":"process"},
+                          {"startMs":null,"endMs":6196.70607,"eventTimeMs":6196.70607,"phase":3,"label":"DisplayList","type":"DisplayList","category":7,"scope":"process"},
+                          {"startMs":6194.101104,"endMs":6197.513324,"eventTimeMs":null,"phase":1,"label":"RefreshDriverTick","type":"RefreshDriverTick","category":7,"scope":"page","innerWindowID":10737418241}
+                        ]
+                      }
+                    ]
+                  }
+                }
+              }
+            },
+            {
+              "round": 3,
+              "position": 1,
+              "globalIndex": 13,
+              "status": "valid",
+              "profiler": {
+                "enabled": true,
+                "requested": {"features":"js,leaf,stackwalk","intervalMs":1,"entries":2000000,"filter":"GeckoMain","shutdownFilename":"profile.json"},
+                "actualFeatures": ["js","stackwalk"],
+                "missingRequestedFeatures": ["leaf"],
+                "actualIntervalMs": 1,
+                "profile": {
+                  "version": 34,
+                  "startTimeMs": 1793449110442.7842,
+                  "intervalMs": 1,
+                  "profilingStartTimeMs": 10.289153,
+                  "profilingEndTimeMs": 7610.269008,
+                  "configurationFeatures": ["js","stackwalk"]
+                }
+              },
+              "windows": {
+                "low": {
+                  "kind": "low",
+                  "lowPower": true,
+                  "metrics": {
+                    "reported": {"fps":30,"p95":34,"maxGap":39,"frames":63,"elapsedMs":2100},
+                    "recomputed": {"fps":30,"p95":34,"maxGap":39,"frames":63,"elapsedMs":2100},
+                    "researchGatePasses": {"fps":true,"p95":true,"maxGap":true},
+                    "thresholds": {"fps":26,"p95":46,"maxGap":100}
+                  },
+                  "native": {
+                    "count": 126,
+                    "nominal": {"count":125,"p95Ms":17.1400000000001},
+                    "actual": {"count":125,"p95Ms":19}
+                  },
+                  "acceptedApp": {
+                    "count": 63,
+                    "nominal": {"count":62,"p95Ms":34.159999999999854},
+                    "entry": {"count":62,"p95Ms":34}
+                  },
+                  "geometryP95Ms": 34,
+                  "warnings": [],
+                  "warningDisposition": {
+                    "nonfatalQuantization": [],
+                    "fatal": []
+                  },
+                  "profileWindow": {
+                    "thresholdMs": 46,
+                    "outlierGapCount": 0,
+                    "selectedGapCount": 0,
+                    "gaps": []
+                  }
+                },
+                "normal": {
+                  "kind": "normal",
+                  "lowPower": false,
+                  "metrics": {
+                    "reported": {"fps":60,"p95":18,"maxGap":21,"frames":126,"elapsedMs":2100},
+                    "recomputed": {"fps":60,"p95":18,"maxGap":21,"frames":126,"elapsedMs":2100},
+                    "researchGatePasses": {"fps":true,"p95":true,"maxGap":true},
+                    "thresholds": {"fps":45,"p95":31,"maxGap":100}
+                  },
+                  "native": {
+                    "count": 126,
+                    "nominal": {"count":125,"p95Ms":17.460000000000036},
+                    "actual": {"count":125,"p95Ms":18}
+                  },
+                  "acceptedApp": {
+                    "count": 126,
+                    "nominal": {"count":125,"p95Ms":17.460000000000036},
+                    "entry": {"count":125,"p95Ms":18}
+                  },
+                  "geometryP95Ms": 18,
+                  "warnings": [],
+                  "warningDisposition": {
+                    "nonfatalQuantization": [],
+                    "fatal": []
+                  },
+                  "profileWindow": {
+                    "thresholdMs": 31,
+                    "outlierGapCount": 0,
+                    "selectedGapCount": 0,
+                    "gaps": []
+                  }
+                }
+              }
+            }
+          ],
+          "ranges": {
+            "low": {
+              "fps": {"min":29.985721085197525,"median":30,"max":30},
+              "p95": {"min":34,"median":34.5,"max":35},
+              "maxGap": {"min":37,"median":38.5,"max":41}
+            },
+            "normal": {
+              "fps": {"min":59.523809523809526,"median":60,"max":60},
+              "p95": {"min":18,"median":18,"max":18},
+              "maxGap": {"min":18,"median":20,"max":45}
+            }
+          }
+        },
+        "world-hidden-profiled": {
+          "runCount": 4,
+          "runs": [
+            {
+              "round": 0,
+              "position": 1,
+              "globalIndex": 1,
+              "status": "valid",
+              "profiler": {
+                "enabled": true,
+                "requested": {"features":"js,leaf,stackwalk","intervalMs":1,"entries":2000000,"filter":"GeckoMain","shutdownFilename":"profile.json"},
+                "actualFeatures": ["js","stackwalk"],
+                "missingRequestedFeatures": ["leaf"],
+                "actualIntervalMs": 1,
+                "profile": {
+                  "version": 34,
+                  "startTimeMs": 1793449021207.24,
+                  "intervalMs": 1,
+                  "profilingStartTimeMs": 0.48568100000000003,
+                  "profilingEndTimeMs": 7871.606358,
+                  "configurationFeatures": ["js","stackwalk"]
+                }
+              },
+              "windows": {
+                "low": {
+                  "kind": "low",
+                  "lowPower": true,
+                  "metrics": {
+                    "reported": {"fps":30,"p95":34,"maxGap":35,"frames":63,"elapsedMs":2100},
+                    "recomputed": {"fps":30,"p95":34,"maxGap":35,"frames":63,"elapsedMs":2100},
+                    "researchGatePasses": {"fps":true,"p95":true,"maxGap":true},
+                    "thresholds": {"fps":26,"p95":46,"maxGap":100}
+                  },
+                  "native": {
+                    "count": 126,
+                    "nominal": {"count":125,"p95Ms":17.159999999999854},
+                    "actual": {"count":125,"p95Ms":19}
+                  },
+                  "acceptedApp": {
+                    "count": 63,
+                    "nominal": {"count":62,"p95Ms":34.19999999999982},
+                    "entry": {"count":62,"p95Ms":34}
+                  },
+                  "geometryP95Ms": 34,
+                  "warnings": [],
+                  "warningDisposition": {
+                    "nonfatalQuantization": [],
+                    "fatal": []
+                  },
+                  "profileWindow": {
+                    "thresholdMs": 46,
+                    "outlierGapCount": 0,
+                    "selectedGapCount": 0,
+                    "gaps": []
+                  }
+                },
+                "normal": {
+                  "kind": "normal",
+                  "lowPower": false,
+                  "metrics": {
+                    "reported": {"fps":59.954233409610985,"p95":18,"maxGap":20,"frames":131,"elapsedMs":2185},
+                    "recomputed": {"fps":59.954233409610985,"p95":18,"maxGap":20,"frames":131,"elapsedMs":2185},
+                    "researchGatePasses": {"fps":true,"p95":true,"maxGap":true},
+                    "thresholds": {"fps":45,"p95":31,"maxGap":100}
+                  },
+                  "native": {
+                    "count": 131,
+                    "nominal": {"count":130,"p95Ms":17.199999999999818},
+                    "actual": {"count":130,"p95Ms":18}
+                  },
+                  "acceptedApp": {
+                    "count": 131,
+                    "nominal": {"count":130,"p95Ms":17.199999999999818},
+                    "entry": {"count":130,"p95Ms":18}
+                  },
+                  "geometryP95Ms": 18,
+                  "warnings": [],
+                  "warningDisposition": {
+                    "nonfatalQuantization": [],
+                    "fatal": []
+                  },
+                  "profileWindow": {
+                    "thresholdMs": 31,
+                    "outlierGapCount": 0,
+                    "selectedGapCount": 0,
+                    "gaps": []
+                  }
+                }
+              }
+            },
+            {
+              "round": 1,
+              "position": 0,
+              "globalIndex": 4,
+              "status": "valid",
+              "profiler": {
+                "enabled": true,
+                "requested": {"features":"js,leaf,stackwalk","intervalMs":1,"entries":2000000,"filter":"GeckoMain","shutdownFilename":"profile.json"},
+                "actualFeatures": ["js","stackwalk"],
+                "missingRequestedFeatures": ["leaf"],
+                "actualIntervalMs": 1,
+                "profile": {
+                  "version": 34,
+                  "startTimeMs": 1793449043518.4744,
+                  "intervalMs": 1,
+                  "profilingStartTimeMs": 0.286711,
+                  "profilingEndTimeMs": 7800.0520639999995,
+                  "configurationFeatures": ["js","stackwalk"]
+                }
+              },
+              "windows": {
+                "low": {
+                  "kind": "low",
+                  "lowPower": true,
+                  "metrics": {
+                    "reported": {"fps":29.985721085197525,"p95":34,"maxGap":35,"frames":63,"elapsedMs":2101},
+                    "recomputed": {"fps":29.985721085197525,"p95":34,"maxGap":35,"frames":63,"elapsedMs":2101},
+                    "researchGatePasses": {"fps":true,"p95":true,"maxGap":true},
+                    "thresholds": {"fps":26,"p95":46,"maxGap":100}
+                  },
+                  "native": {
+                    "count": 126,
+                    "nominal": {"count":125,"p95Ms":17.179999999999836},
+                    "actual": {"count":125,"p95Ms":19}
+                  },
+                  "acceptedApp": {
+                    "count": 63,
+                    "nominal": {"count":62,"p95Ms":34.14000000000033},
+                    "entry": {"count":62,"p95Ms":34}
+                  },
+                  "geometryP95Ms": 34,
+                  "warnings": [],
+                  "warningDisposition": {
+                    "nonfatalQuantization": [],
+                    "fatal": []
+                  },
+                  "profileWindow": {
+                    "thresholdMs": 46,
+                    "outlierGapCount": 0,
+                    "selectedGapCount": 0,
+                    "gaps": []
+                  }
+                },
+                "normal": {
+                  "kind": "normal",
+                  "lowPower": false,
+                  "metrics": {
+                    "reported": {"fps":60.07568590350047,"p95":18,"maxGap":20,"frames":127,"elapsedMs":2114},
+                    "recomputed": {"fps":60.07568590350047,"p95":18,"maxGap":20,"frames":127,"elapsedMs":2114},
+                    "researchGatePasses": {"fps":true,"p95":true,"maxGap":true},
+                    "thresholds": {"fps":45,"p95":31,"maxGap":100}
+                  },
+                  "native": {
+                    "count": 127,
+                    "nominal": {"count":126,"p95Ms":17.360000000000582},
+                    "actual": {"count":126,"p95Ms":18}
+                  },
+                  "acceptedApp": {
+                    "count": 127,
+                    "nominal": {"count":126,"p95Ms":17.360000000000582},
+                    "entry": {"count":126,"p95Ms":18}
+                  },
+                  "geometryP95Ms": 18,
+                  "warnings": [],
+                  "warningDisposition": {
+                    "nonfatalQuantization": [],
+                    "fatal": []
+                  },
+                  "profileWindow": {
+                    "thresholdMs": 31,
+                    "outlierGapCount": 0,
+                    "selectedGapCount": 0,
+                    "gaps": []
+                  }
+                }
+              }
+            },
+            {
+              "round": 2,
+              "position": 2,
+              "globalIndex": 10,
+              "status": "valid",
+              "profiler": {
+                "enabled": true,
+                "requested": {"features":"js,leaf,stackwalk","intervalMs":1,"entries":2000000,"filter":"GeckoMain","shutdownFilename":"profile.json"},
+                "actualFeatures": ["js","stackwalk"],
+                "missingRequestedFeatures": ["leaf"],
+                "actualIntervalMs": 1,
+                "profile": {
+                  "version": 34,
+                  "startTimeMs": 1793449087268.93,
+                  "intervalMs": 1,
+                  "profilingStartTimeMs": 0.319751,
+                  "profilingEndTimeMs": 8013.41797,
+                  "configurationFeatures": ["js","stackwalk"]
+                }
+              },
+              "windows": {
+                "low": {
+                  "kind": "low",
+                  "lowPower": true,
+                  "metrics": {
+                    "reported": {"fps":30,"p95":36,"maxGap":39,"frames":63,"elapsedMs":2100},
+                    "recomputed": {"fps":30,"p95":36,"maxGap":39,"frames":63,"elapsedMs":2100},
+                    "researchGatePasses": {"fps":true,"p95":true,"maxGap":true},
+                    "thresholds": {"fps":26,"p95":46,"maxGap":100}
+                  },
+                  "native": {
+                    "count": 126,
+                    "nominal": {"count":125,"p95Ms":17.16000000000031},
+                    "actual": {"count":125,"p95Ms":19}
+                  },
+                  "acceptedApp": {
+                    "count": 63,
+                    "nominal": {"count":62,"p95Ms":34.18000000000029},
+                    "entry": {"count":62,"p95Ms":35}
+                  },
+                  "geometryP95Ms": 36,
+                  "warnings": [],
+                  "warningDisposition": {
+                    "nonfatalQuantization": [],
+                    "fatal": []
+                  },
+                  "profileWindow": {
+                    "thresholdMs": 46,
+                    "outlierGapCount": 0,
+                    "selectedGapCount": 0,
+                    "gaps": []
+                  }
+                },
+                "normal": {
+                  "kind": "normal",
+                  "lowPower": false,
+                  "metrics": {
+                    "reported": {"fps":60,"p95":18,"maxGap":20,"frames":126,"elapsedMs":2100},
+                    "recomputed": {"fps":60,"p95":18,"maxGap":20,"frames":126,"elapsedMs":2100},
+                    "researchGatePasses": {"fps":true,"p95":true,"maxGap":true},
+                    "thresholds": {"fps":45,"p95":31,"maxGap":100}
+                  },
+                  "native": {
+                    "count": 126,
+                    "nominal": {"count":125,"p95Ms":17.17999999999938},
+                    "actual": {"count":125,"p95Ms":19}
+                  },
+                  "acceptedApp": {
+                    "count": 126,
+                    "nominal": {"count":125,"p95Ms":17.17999999999938},
+                    "entry": {"count":125,"p95Ms":18}
+                  },
+                  "geometryP95Ms": 18,
+                  "warnings": [],
+                  "warningDisposition": {
+                    "nonfatalQuantization": [],
+                    "fatal": []
+                  },
+                  "profileWindow": {
+                    "thresholdMs": 31,
+                    "outlierGapCount": 0,
+                    "selectedGapCount": 0,
+                    "gaps": []
+                  }
+                }
+              }
+            },
+            {
+              "round": 3,
+              "position": 3,
+              "globalIndex": 15,
+              "status": "valid",
+              "profiler": {
+                "enabled": true,
+                "requested": {"features":"js,leaf,stackwalk","intervalMs":1,"entries":2000000,"filter":"GeckoMain","shutdownFilename":"profile.json"},
+                "actualFeatures": ["js","stackwalk"],
+                "missingRequestedFeatures": ["leaf"],
+                "actualIntervalMs": 1,
+                "profile": {
+                  "version": 34,
+                  "startTimeMs": 1793449125474.9172,
+                  "intervalMs": 1,
+                  "profilingStartTimeMs": 0.39265,
+                  "profilingEndTimeMs": 7572.981989999999,
+                  "configurationFeatures": ["js","stackwalk"]
+                }
+              },
+              "windows": {
+                "low": {
+                  "kind": "low",
+                  "lowPower": true,
+                  "metrics": {
+                    "reported": {"fps":30,"p95":34,"maxGap":35,"frames":63,"elapsedMs":2100},
+                    "recomputed": {"fps":30,"p95":34,"maxGap":35,"frames":63,"elapsedMs":2100},
+                    "researchGatePasses": {"fps":true,"p95":true,"maxGap":true},
+                    "thresholds": {"fps":26,"p95":46,"maxGap":100}
+                  },
+                  "native": {
+                    "count": 126,
+                    "nominal": {"count":125,"p95Ms":17.139999999999873},
+                    "actual": {"count":125,"p95Ms":19}
+                  },
+                  "acceptedApp": {
+                    "count": 63,
+                    "nominal": {"count":62,"p95Ms":34.19999999999982},
+                    "entry": {"count":62,"p95Ms":34}
+                  },
+                  "geometryP95Ms": 34,
+                  "warnings": [],
+                  "warningDisposition": {
+                    "nonfatalQuantization": [],
+                    "fatal": []
+                  },
+                  "profileWindow": {
+                    "thresholdMs": 46,
+                    "outlierGapCount": 0,
+                    "selectedGapCount": 0,
+                    "gaps": []
+                  }
+                },
+                "normal": {
+                  "kind": "normal",
+                  "lowPower": false,
+                  "metrics": {
+                    "reported": {"fps":59.97144217039505,"p95":18,"maxGap":19,"frames":126,"elapsedMs":2101},
+                    "recomputed": {"fps":59.97144217039505,"p95":18,"maxGap":19,"frames":126,"elapsedMs":2101},
+                    "researchGatePasses": {"fps":true,"p95":true,"maxGap":true},
+                    "thresholds": {"fps":45,"p95":31,"maxGap":100}
+                  },
+                  "native": {
+                    "count": 126,
+                    "nominal": {"count":125,"p95Ms":17.159999999999854},
+                    "actual": {"count":125,"p95Ms":18}
+                  },
+                  "acceptedApp": {
+                    "count": 126,
+                    "nominal": {"count":125,"p95Ms":17.159999999999854},
+                    "entry": {"count":125,"p95Ms":18}
+                  },
+                  "geometryP95Ms": 18,
+                  "warnings": [],
+                  "warningDisposition": {
+                    "nonfatalQuantization": [],
+                    "fatal": []
+                  },
+                  "profileWindow": {
+                    "thresholdMs": 31,
+                    "outlierGapCount": 0,
+                    "selectedGapCount": 0,
+                    "gaps": []
+                  }
+                }
+              }
+            }
+          ],
+          "ranges": {
+            "low": {
+              "fps": {"min":29.985721085197525,"median":30,"max":30},
+              "p95": {"min":34,"median":34,"max":36},
+              "maxGap": {"min":35,"median":35,"max":39}
+            },
+            "normal": {
+              "fps": {"min":59.954233409610985,"median":59.985721085197525,"max":60.07568590350047},
+              "p95": {"min":18,"median":18,"max":18},
+              "maxGap": {"min":19,"median":20,"max":20}
+            }
+          }
+        },
+        "full-unprofiled": {
+          "runCount": 4,
+          "runs": [
+            {
+              "round": 0,
+              "position": 3,
+              "globalIndex": 3,
+              "status": "valid",
+              "profiler": {"enabled":false,"requested":null,"actualFeatures":null,"missingRequestedFeatures":null,"actualIntervalMs":null,"profile":null},
+              "windows": {
+                "low": {
+                  "kind": "low",
+                  "lowPower": true,
+                  "metrics": {
+                    "reported": {"fps":29.985721085197525,"p95":34,"maxGap":36,"frames":63,"elapsedMs":2101},
+                    "recomputed": {"fps":29.985721085197525,"p95":34,"maxGap":36,"frames":63,"elapsedMs":2101},
+                    "researchGatePasses": {"fps":true,"p95":true,"maxGap":true},
+                    "thresholds": {"fps":26,"p95":46,"maxGap":100}
+                  },
+                  "native": {
+                    "count": 126,
+                    "nominal": {"count":125,"p95Ms":17.160000000000082},
+                    "actual": {"count":125,"p95Ms":18}
+                  },
+                  "acceptedApp": {
+                    "count": 63,
+                    "nominal": {"count":62,"p95Ms":34.13999999999987},
+                    "entry": {"count":62,"p95Ms":34}
+                  },
+                  "geometryP95Ms": 34,
+                  "warnings": [],
+                  "warningDisposition": {
+                    "nonfatalQuantization": [],
+                    "fatal": []
+                  },
+                  "profileWindow": null
+                },
+                "normal": {
+                  "kind": "normal",
+                  "lowPower": false,
+                  "metrics": {
+                    "reported": {"fps":60,"p95":18,"maxGap":19,"frames":126,"elapsedMs":2100},
+                    "recomputed": {"fps":60,"p95":18,"maxGap":19,"frames":126,"elapsedMs":2100},
+                    "researchGatePasses": {"fps":true,"p95":true,"maxGap":true},
+                    "thresholds": {"fps":45,"p95":31,"maxGap":100}
+                  },
+                  "native": {
+                    "count": 126,
+                    "nominal": {"count":125,"p95Ms":17.140000000000327},
+                    "actual": {"count":125,"p95Ms":18}
+                  },
+                  "acceptedApp": {
+                    "count": 126,
+                    "nominal": {"count":125,"p95Ms":17.140000000000327},
+                    "entry": {"count":125,"p95Ms":18}
+                  },
+                  "geometryP95Ms": 18,
+                  "warnings": [],
+                  "warningDisposition": {
+                    "nonfatalQuantization": [],
+                    "fatal": []
+                  },
+                  "profileWindow": null
+                }
+              }
+            },
+            {
+              "round": 1,
+              "position": 1,
+              "globalIndex": 5,
+              "status": "valid",
+              "profiler": {"enabled":false,"requested":null,"actualFeatures":null,"missingRequestedFeatures":null,"actualIntervalMs":null,"profile":null},
+              "windows": {
+                "low": {
+                  "kind": "low",
+                  "lowPower": true,
+                  "metrics": {
+                    "reported": {"fps":29.985721085197525,"p95":34,"maxGap":35,"frames":63,"elapsedMs":2101},
+                    "recomputed": {"fps":29.985721085197525,"p95":34,"maxGap":35,"frames":63,"elapsedMs":2101},
+                    "researchGatePasses": {"fps":true,"p95":true,"maxGap":true},
+                    "thresholds": {"fps":26,"p95":46,"maxGap":100}
+                  },
+                  "native": {
+                    "count": 126,
+                    "nominal": {"count":125,"p95Ms":17.159999999999854},
+                    "actual": {"count":125,"p95Ms":18}
+                  },
+                  "acceptedApp": {
+                    "count": 63,
+                    "nominal": {"count":62,"p95Ms":34.179999999999836},
+                    "entry": {"count":62,"p95Ms":34}
+                  },
+                  "geometryP95Ms": 34,
+                  "warnings": [],
+                  "warningDisposition": {
+                    "nonfatalQuantization": [],
+                    "fatal": []
+                  },
+                  "profileWindow": null
+                },
+                "normal": {
+                  "kind": "normal",
+                  "lowPower": false,
+                  "metrics": {
+                    "reported": {"fps":60,"p95":18,"maxGap":31,"frames":126,"elapsedMs":2100},
+                    "recomputed": {"fps":60,"p95":18,"maxGap":31,"frames":126,"elapsedMs":2100},
+                    "researchGatePasses": {"fps":true,"p95":true,"maxGap":true},
+                    "thresholds": {"fps":45,"p95":31,"maxGap":100}
+                  },
+                  "native": {
+                    "count": 126,
+                    "nominal": {"count":125,"p95Ms":17.199999999999818},
+                    "actual": {"count":125,"p95Ms":18}
+                  },
+                  "acceptedApp": {
+                    "count": 126,
+                    "nominal": {"count":125,"p95Ms":17.199999999999818},
+                    "entry": {"count":125,"p95Ms":18}
+                  },
+                  "geometryP95Ms": 18,
+                  "warnings": [],
+                  "warningDisposition": {
+                    "nonfatalQuantization": [],
+                    "fatal": []
+                  },
+                  "profileWindow": null
+                }
+              }
+            },
+            {
+              "round": 2,
+              "position": 0,
+              "globalIndex": 8,
+              "status": "valid",
+              "profiler": {"enabled":false,"requested":null,"actualFeatures":null,"missingRequestedFeatures":null,"actualIntervalMs":null,"profile":null},
+              "windows": {
+                "low": {
+                  "kind": "low",
+                  "lowPower": true,
+                  "metrics": {
+                    "reported": {"fps":30,"p95":35,"maxGap":35,"frames":63,"elapsedMs":2100},
+                    "recomputed": {"fps":30,"p95":35,"maxGap":35,"frames":63,"elapsedMs":2100},
+                    "researchGatePasses": {"fps":true,"p95":true,"maxGap":true},
+                    "thresholds": {"fps":26,"p95":46,"maxGap":100}
+                  },
+                  "native": {
+                    "count": 126,
+                    "nominal": {"count":125,"p95Ms":17.140000000000327},
+                    "actual": {"count":125,"p95Ms":18}
+                  },
+                  "acceptedApp": {
+                    "count": 63,
+                    "nominal": {"count":62,"p95Ms":34.179999999999836},
+                    "entry": {"count":62,"p95Ms":34}
+                  },
+                  "geometryP95Ms": 35,
+                  "warnings": [],
+                  "warningDisposition": {
+                    "nonfatalQuantization": [],
+                    "fatal": []
+                  },
+                  "profileWindow": null
+                },
+                "normal": {
+                  "kind": "normal",
+                  "lowPower": false,
+                  "metrics": {
+                    "reported": {"fps":60,"p95":18,"maxGap":20,"frames":126,"elapsedMs":2100},
+                    "recomputed": {"fps":60,"p95":18,"maxGap":20,"frames":126,"elapsedMs":2100},
+                    "researchGatePasses": {"fps":true,"p95":true,"maxGap":true},
+                    "thresholds": {"fps":45,"p95":31,"maxGap":100}
+                  },
+                  "native": {
+                    "count": 126,
+                    "nominal": {"count":125,"p95Ms":17.159999999999854},
+                    "actual": {"count":125,"p95Ms":18}
+                  },
+                  "acceptedApp": {
+                    "count": 126,
+                    "nominal": {"count":125,"p95Ms":17.159999999999854},
+                    "entry": {"count":125,"p95Ms":18}
+                  },
+                  "geometryP95Ms": 18,
+                  "warnings": [],
+                  "warningDisposition": {
+                    "nonfatalQuantization": [],
+                    "fatal": []
+                  },
+                  "profileWindow": null
+                }
+              }
+            },
+            {
+              "round": 3,
+              "position": 2,
+              "globalIndex": 14,
+              "status": "valid",
+              "profiler": {"enabled":false,"requested":null,"actualFeatures":null,"missingRequestedFeatures":null,"actualIntervalMs":null,"profile":null},
+              "windows": {
+                "low": {
+                  "kind": "low",
+                  "lowPower": true,
+                  "metrics": {
+                    "reported": {"fps":30,"p95":35,"maxGap":40,"frames":63,"elapsedMs":2100},
+                    "recomputed": {"fps":30,"p95":35,"maxGap":40,"frames":63,"elapsedMs":2100},
+                    "researchGatePasses": {"fps":true,"p95":true,"maxGap":true},
+                    "thresholds": {"fps":26,"p95":46,"maxGap":100}
+                  },
+                  "native": {
+                    "count": 126,
+                    "nominal": {"count":125,"p95Ms":17.16000000000031},
+                    "actual": {"count":125,"p95Ms":18}
+                  },
+                  "acceptedApp": {
+                    "count": 63,
+                    "nominal": {"count":62,"p95Ms":33.42000000000007},
+                    "entry": {"count":62,"p95Ms":35}
+                  },
+                  "geometryP95Ms": 35,
+                  "warnings": [],
+                  "warningDisposition": {
+                    "nonfatalQuantization": [],
+                    "fatal": []
+                  },
+                  "profileWindow": null
+                },
+                "normal": {
+                  "kind": "normal",
+                  "lowPower": false,
+                  "metrics": {
+                    "reported": {"fps":59.97144217039505,"p95":18,"maxGap":21,"frames":126,"elapsedMs":2101},
+                    "recomputed": {"fps":59.97144217039505,"p95":18,"maxGap":21,"frames":126,"elapsedMs":2101},
+                    "researchGatePasses": {"fps":true,"p95":true,"maxGap":true},
+                    "thresholds": {"fps":45,"p95":31,"maxGap":100}
+                  },
+                  "native": {
+                    "count": 126,
+                    "nominal": {"count":125,"p95Ms":17.18000000000029},
+                    "actual": {"count":125,"p95Ms":18}
+                  },
+                  "acceptedApp": {
+                    "count": 126,
+                    "nominal": {"count":125,"p95Ms":17.18000000000029},
+                    "entry": {"count":125,"p95Ms":18}
+                  },
+                  "geometryP95Ms": 18,
+                  "warnings": [],
+                  "warningDisposition": {
+                    "nonfatalQuantization": [],
+                    "fatal": []
+                  },
+                  "profileWindow": null
+                }
+              }
+            }
+          ],
+          "ranges": {
+            "low": {
+              "fps": {"min":29.985721085197525,"median":29.992860542598763,"max":30},
+              "p95": {"min":34,"median":34.5,"max":35},
+              "maxGap": {"min":35,"median":35.5,"max":40}
+            },
+            "normal": {
+              "fps": {"min":59.97144217039505,"median":60,"max":60},
+              "p95": {"min":18,"median":18,"max":18},
+              "maxGap": {"min":19,"median":20.5,"max":31}
+            }
+          }
+        },
+        "world-hidden-unprofiled": {
+          "runCount": 4,
+          "runs": [
+            {
+              "round": 0,
+              "position": 2,
+              "globalIndex": 2,
+              "status": "valid",
+              "profiler": {"enabled":false,"requested":null,"actualFeatures":null,"missingRequestedFeatures":null,"actualIntervalMs":null,"profile":null},
+              "windows": {
+                "low": {
+                  "kind": "low",
+                  "lowPower": true,
+                  "metrics": {
+                    "reported": {"fps":30,"p95":34,"maxGap":35,"frames":63,"elapsedMs":2100},
+                    "recomputed": {"fps":30,"p95":34,"maxGap":35,"frames":63,"elapsedMs":2100},
+                    "researchGatePasses": {"fps":true,"p95":true,"maxGap":true},
+                    "thresholds": {"fps":26,"p95":46,"maxGap":100}
+                  },
+                  "native": {
+                    "count": 126,
+                    "nominal": {"count":125,"p95Ms":17.25999999999999},
+                    "actual": {"count":125,"p95Ms":18}
+                  },
+                  "acceptedApp": {
+                    "count": 63,
+                    "nominal": {"count":62,"p95Ms":33.72000000000003},
+                    "entry": {"count":62,"p95Ms":34}
+                  },
+                  "geometryP95Ms": 34,
+                  "warnings": [],
+                  "warningDisposition": {
+                    "nonfatalQuantization": [],
+                    "fatal": []
+                  },
+                  "profileWindow": null
+                },
+                "normal": {
+                  "kind": "normal",
+                  "lowPower": false,
+                  "metrics": {
+                    "reported": {"fps":59.97144217039505,"p95":18,"maxGap":21,"frames":126,"elapsedMs":2101},
+                    "recomputed": {"fps":59.97144217039505,"p95":18,"maxGap":21,"frames":126,"elapsedMs":2101},
+                    "researchGatePasses": {"fps":true,"p95":true,"maxGap":true},
+                    "thresholds": {"fps":45,"p95":31,"maxGap":100}
+                  },
+                  "native": {
+                    "count": 126,
+                    "nominal": {"count":125,"p95Ms":17.159999999999854},
+                    "actual": {"count":125,"p95Ms":18}
+                  },
+                  "acceptedApp": {
+                    "count": 126,
+                    "nominal": {"count":125,"p95Ms":17.159999999999854},
+                    "entry": {"count":125,"p95Ms":18}
+                  },
+                  "geometryP95Ms": 18,
+                  "warnings": [],
+                  "warningDisposition": {
+                    "nonfatalQuantization": [],
+                    "fatal": []
+                  },
+                  "profileWindow": null
+                }
+              }
+            },
+            {
+              "round": 1,
+              "position": 3,
+              "globalIndex": 7,
+              "status": "valid",
+              "profiler": {"enabled":false,"requested":null,"actualFeatures":null,"missingRequestedFeatures":null,"actualIntervalMs":null,"profile":null},
+              "windows": {
+                "low": {
+                  "kind": "low",
+                  "lowPower": true,
+                  "metrics": {
+                    "reported": {"fps":29.971455756422454,"p95":35,"maxGap":54,"frames":63,"elapsedMs":2102},
+                    "recomputed": {"fps":29.971455756422454,"p95":35,"maxGap":54,"frames":63,"elapsedMs":2102},
+                    "researchGatePasses": {"fps":true,"p95":true,"maxGap":true},
+                    "thresholds": {"fps":26,"p95":46,"maxGap":100}
+                  },
+                  "native": {
+                    "count": 126,
+                    "nominal": {"count":125,"p95Ms":17.16000000000031},
+                    "actual": {"count":125,"p95Ms":18}
+                  },
+                  "acceptedApp": {
+                    "count": 63,
+                    "nominal": {"count":62,"p95Ms":34.19999999999982},
+                    "entry": {"count":62,"p95Ms":34}
+                  },
+                  "geometryP95Ms": 35,
+                  "warnings": [],
+                  "warningDisposition": {
+                    "nonfatalQuantization": [],
+                    "fatal": []
+                  },
+                  "profileWindow": null
+                },
+                "normal": {
+                  "kind": "normal",
+                  "lowPower": false,
+                  "metrics": {
+                    "reported": {"fps":60.336763330215156,"p95":18,"maxGap":18,"frames":129,"elapsedMs":2138},
+                    "recomputed": {"fps":60.336763330215156,"p95":18,"maxGap":18,"frames":129,"elapsedMs":2138},
+                    "researchGatePasses": {"fps":true,"p95":true,"maxGap":true},
+                    "thresholds": {"fps":45,"p95":31,"maxGap":100}
+                  },
+                  "native": {
+                    "count": 129,
+                    "nominal": {"count":128,"p95Ms":17.23999999999978},
+                    "actual": {"count":128,"p95Ms":18}
+                  },
+                  "acceptedApp": {
+                    "count": 129,
+                    "nominal": {"count":128,"p95Ms":17.23999999999978},
+                    "entry": {"count":128,"p95Ms":18}
+                  },
+                  "geometryP95Ms": 18,
+                  "warnings": [],
+                  "warningDisposition": {
+                    "nonfatalQuantization": [],
+                    "fatal": []
+                  },
+                  "profileWindow": null
+                }
+              }
+            },
+            {
+              "round": 2,
+              "position": 1,
+              "globalIndex": 9,
+              "status": "valid",
+              "profiler": {"enabled":false,"requested":null,"actualFeatures":null,"missingRequestedFeatures":null,"actualIntervalMs":null,"profile":null},
+              "windows": {
+                "low": {
+                  "kind": "low",
+                  "lowPower": true,
+                  "metrics": {
+                    "reported": {"fps":30,"p95":34,"maxGap":35,"frames":63,"elapsedMs":2100},
+                    "recomputed": {"fps":30,"p95":34,"maxGap":35,"frames":63,"elapsedMs":2100},
+                    "researchGatePasses": {"fps":true,"p95":true,"maxGap":true},
+                    "thresholds": {"fps":26,"p95":46,"maxGap":100}
+                  },
+                  "native": {
+                    "count": 126,
+                    "nominal": {"count":125,"p95Ms":17.16000000000031},
+                    "actual": {"count":125,"p95Ms":18}
+                  },
+                  "acceptedApp": {
+                    "count": 63,
+                    "nominal": {"count":62,"p95Ms":34.180000000000064},
+                    "entry": {"count":62,"p95Ms":34}
+                  },
+                  "geometryP95Ms": 34,
+                  "warnings": [],
+                  "warningDisposition": {
+                    "nonfatalQuantization": [],
+                    "fatal": []
+                  },
+                  "profileWindow": null
+                },
+                "normal": {
+                  "kind": "normal",
+                  "lowPower": false,
+                  "metrics": {
+                    "reported": {"fps":60.418648905804,"p95":18,"maxGap":20,"frames":127,"elapsedMs":2102},
+                    "recomputed": {"fps":60.418648905804,"p95":18,"maxGap":20,"frames":127,"elapsedMs":2102},
+                    "researchGatePasses": {"fps":true,"p95":true,"maxGap":true},
+                    "thresholds": {"fps":45,"p95":31,"maxGap":100}
+                  },
+                  "native": {
+                    "count": 127,
+                    "nominal": {"count":126,"p95Ms":17.17999999999938},
+                    "actual": {"count":126,"p95Ms":18}
+                  },
+                  "acceptedApp": {
+                    "count": 127,
+                    "nominal": {"count":126,"p95Ms":17.17999999999938},
+                    "entry": {"count":126,"p95Ms":18}
+                  },
+                  "geometryP95Ms": 18,
+                  "warnings": [],
+                  "warningDisposition": {
+                    "nonfatalQuantization": [],
+                    "fatal": []
+                  },
+                  "profileWindow": null
+                }
+              }
+            },
+            {
+              "round": 3,
+              "position": 0,
+              "globalIndex": 12,
+              "status": "valid",
+              "profiler": {"enabled":false,"requested":null,"actualFeatures":null,"missingRequestedFeatures":null,"actualIntervalMs":null,"profile":null},
+              "windows": {
+                "low": {
+                  "kind": "low",
+                  "lowPower": true,
+                  "metrics": {
+                    "reported": {"fps":30,"p95":34,"maxGap":36,"frames":63,"elapsedMs":2100},
+                    "recomputed": {"fps":30,"p95":34,"maxGap":36,"frames":63,"elapsedMs":2100},
+                    "researchGatePasses": {"fps":true,"p95":true,"maxGap":true},
+                    "thresholds": {"fps":26,"p95":46,"maxGap":100}
+                  },
+                  "native": {
+                    "count": 126,
+                    "nominal": {"count":125,"p95Ms":17.199999999999818},
+                    "actual": {"count":125,"p95Ms":18}
+                  },
+                  "acceptedApp": {
+                    "count": 63,
+                    "nominal": {"count":62,"p95Ms":33.440000000000055},
+                    "entry": {"count":62,"p95Ms":34}
+                  },
+                  "geometryP95Ms": 34,
+                  "warnings": [],
+                  "warningDisposition": {
+                    "nonfatalQuantization": [],
+                    "fatal": []
+                  },
+                  "profileWindow": null
+                },
+                "normal": {
+                  "kind": "normal",
+                  "lowPower": false,
+                  "metrics": {
+                    "reported": {"fps":59.97144217039505,"p95":18,"maxGap":18,"frames":126,"elapsedMs":2101},
+                    "recomputed": {"fps":59.97144217039505,"p95":18,"maxGap":18,"frames":126,"elapsedMs":2101},
+                    "researchGatePasses": {"fps":true,"p95":true,"maxGap":true},
+                    "thresholds": {"fps":45,"p95":31,"maxGap":100}
+                  },
+                  "native": {
+                    "count": 126,
+                    "nominal": {"count":125,"p95Ms":17.200000000000273},
+                    "actual": {"count":125,"p95Ms":18}
+                  },
+                  "acceptedApp": {
+                    "count": 126,
+                    "nominal": {"count":125,"p95Ms":17.200000000000273},
+                    "entry": {"count":125,"p95Ms":18}
+                  },
+                  "geometryP95Ms": 18,
+                  "warnings": [],
+                  "warningDisposition": {
+                    "nonfatalQuantization": [],
+                    "fatal": []
+                  },
+                  "profileWindow": null
+                }
+              }
+            }
+          ],
+          "ranges": {
+            "low": {
+              "fps": {"min":29.971455756422454,"median":30,"max":30},
+              "p95": {"min":34,"median":34,"max":35},
+              "maxGap": {"min":35,"median":35.5,"max":54}
+            },
+            "normal": {
+              "fps": {"min":59.97144217039505,"median":60.1541027503051,"max":60.418648905804},
+              "p95": {"min":18,"median":18,"max":18},
+              "maxGap": {"min":18,"median":19,"max":21}
+            }
+          }
+        }
+      }
+    }
+  ],
+  "validationErrors": [],
+  "status": "valid"
+}

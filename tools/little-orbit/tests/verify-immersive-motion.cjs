@@ -2,6 +2,7 @@
 // Copyright (C) 2026 ilamgumaran and contributors
 const {engine,options,url,freezeClock}=require('./runtime.cjs');
 const assert=require('node:assert/strict'),path=require('node:path'),{pathToFileURL}=require('node:url');
+const {installCadenceTrace,writeTrace,emitTrace}=require('./cadence-trace.cjs');
 const portable=pathToFileURL(path.join(__dirname,'..','Little Orbit.html')).href;
 const names={leftHand:'arm-left',rightHand:'arm-right',leftFoot:'leg-left',rightFoot:'leg-right'};
 const settings={theme:'woodland',care:false,rest:false,night:false,lowPower:false,display:{woodlandView:'immersive'}};
@@ -150,12 +151,13 @@ async function verifyCadence(browser,target,deviceScaleFactor=1){
  try{
   page.on('pageerror',error=>errors.push(error.message));await page.route('https://**',route=>route.abort());
   // Only Date is shifted. RAF, performance.now() and timers keep their real
-  // cadence, so geometry observations measure frames actually displayed.
+  // cadence, so geometry updates retain their native timing.
   await page.addInitScript(settings=>{
    const RealDate=Date,start=performance.now(),base=+new RealDate('2026-10-05T10:08:05-04:00');
    window.Date=class extends RealDate{constructor(...args){super(...(args.length?args:[base+performance.now()-start]));}static now(){return base+performance.now()-start;}};
    localStorage.setItem('orbit-settings',JSON.stringify({...settings,lowPower:true}));
   },settings);
+  await page.addInitScript(installCadenceTrace);
   await page.goto(target);
   // Measure the running illustration after font loading and first-paint/JIT
   // work settles; the real frame cadence and all performance gates stay intact.
@@ -163,19 +165,25 @@ async function verifyCadence(browser,target,deviceScaleFactor=1){
   await page.waitForTimeout(1000);
   for(const lowPower of [true,false]){
    await page.evaluate(lowPower=>{prefs.lowPower=lowPower;WoodlandScene.sync();},lowPower);
-   const result=await page.evaluate(async()=>{
+   const resultSample=await page.evaluate(async()=>{
     const host=document.querySelector('#woodland-immersive-cast > g');let last='',frames=[];
     const observer=new MutationObserver(()=>{
      const geometry=host.getAttribute('transform')+[...host.querySelectorAll('[data-part^="arm-"],[data-part^="leg-"]')].map(part=>part.getAttribute('d')).join(':')+host.querySelector('[data-layer=body]').getAttribute('transform');
      if(geometry!==last){last=geometry;frames.push(performance.now());}
     });
     observer.observe(host,{subtree:true,attributes:true,attributeFilter:['d','transform']});
-    const start=performance.now();await new Promise(resolve=>setTimeout(resolve,2100));observer.disconnect();
+    const start=performance.now();window.__clockCadenceTrace.start(start);await new Promise(resolve=>setTimeout(resolve,2100));observer.disconnect();
     const elapsed=performance.now()-start,gaps=frames.slice(1).map((at,i)=>at-frames[i]).sort((a,b)=>a-b);
-    return {fps:frames.length*1000/elapsed,p95:gaps[Math.floor(gaps.length*.95)],maxGap:gaps.at(-1)};
+    const result={fps:frames.length*1000/elapsed,p95:gaps[Math.floor(gaps.length*.95)],maxGap:gaps.at(-1)};
+    return {result,trace:{...window.__clockCadenceTrace.stop(start+elapsed),geometryTimesMs:frames,geometryStartMs:start,geometryEndMs:start+elapsed}};
    });
-   assert.ok(result.fps>=(lowPower?26:45),JSON.stringify({lowPower,result}));
-   assert.ok(result.p95<=(lowPower?46:31)&&result.maxGap<100,JSON.stringify({lowPower,result}));
+   const {result,trace}=resultSample;
+   const contextInfo={suite:'immersive',form:target.startsWith('file:')?'portable':'hosted',browser:process.env.CLOCK_TEST_BROWSER||'chromium',browserVersion:browser.version(),viewport,deviceScaleFactor,dpr:deviceScaleFactor,lowPower};
+   const record=writeTrace('cadence',contextInfo,{metrics:result,...trace});
+   try{
+    assert.ok(result.fps>=(lowPower?26:45),JSON.stringify({lowPower,result}));
+    assert.ok(result.p95<=(lowPower?46:31)&&result.maxGap<100,JSON.stringify({lowPower,result}));
+   }catch(error){try{emitTrace(record);}catch{}throw error;}
    console.log('PASS immersive frame cadence:',target.startsWith('file:')?'portable':'hosted',`${viewport.width}×${viewport.height} DPR${deviceScaleFactor}`,lowPower?'30fps low-power':'60fps normal',JSON.stringify(result));
   }
   assert.deepEqual(errors,[]);
