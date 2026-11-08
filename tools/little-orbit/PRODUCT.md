@@ -51,6 +51,9 @@ The [portable cache investigation](design/PORTABLE-WEATHER-CACHE.md) adds
 test-only producer checks and sanitized failure records. It preserves the
 offline reload assertion and does not change installable bytes or claim a
 weather-cache repair. Runtime and physical acceptance gates remain open.
+The November 8 balanced study captures the same loss in fresh Chrome without
+the extra high-DPI layout context. That context is not required for the failure;
+native storage/navigation evidence is the next step before a product change.
 
 ## Shared anatomy — foundation and inspection candidate
 

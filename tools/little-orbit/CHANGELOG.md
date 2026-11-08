@@ -1,5 +1,13 @@
 # Our Desk Clock changelog
 
+### Portable cache isolation controls
+
+- Added a standalone balanced hosted/portable study with and without the
+  separate high-DPI layout context, using the canonical fixture through its
+  original cached reload assertion. Source fingerprints, complete case records
+  and transformation/order checks distinguish research from regression gates.
+  No production caching or display behavior changes.
+
 ### Portable weather-cache failure evidence
 
 - Added current-key producer assertions and bounded failure snapshots around
