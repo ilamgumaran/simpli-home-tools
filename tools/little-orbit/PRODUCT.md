@@ -1,10 +1,75 @@
 # Our Desk Clock — product guide
 
+The [model orchestration plan](design/MODEL-ORCHESTRATION.md) keeps planning and integration review with Sol 6.1, validation with Sol 6, and bounded execution with lighter models. Current delivery gates cover browser evidence, narrow fixes, the portable build and Git handoff, followed by physical device feedback.
+
 Our Desk Clock is a configurable browser display for desks, families, spare screens, and handhelds. It combines readable time, date, local weather, daily learning, and quiet character scenes. The source directory remains `tools/little-orbit/` for compatibility.
 
-This is the product's planning hub. Designs are proposals until explicitly marked implemented; the portable clock and its tests describe shipped behavior. Current code is on the `add-little-orbit-clock` branch in [PR #1](https://github.com/ilamgumaran/simpli-home-tools/pull/1), pending merge. No versioned release has been published yet.
+This is the product's planning hub. Designs are proposals until explicitly marked implemented. The current Woodland scene is on `feature/woodland-immersive-story`; the [installation handoff](design/ALLY-TEST-HANDOFF.md) identifies its runtime and portable artifact. The initial five-theme foundation remains in [PR #3](https://github.com/ilamgumaran/simpli-home-tools/pull/3), stacked on the shared-character and original-clock PRs. No versioned release has been published yet. [Earlier local installation results](../../sessions/2026-10-05-woodland-ally/002-ally-to-cloud.md) distinguish browser checks from physical-device acceptance.
+
+## Woodland/Green House 1 cadence candidate
+
+The [bounded phase pacing design](design/FRAME-CADENCE.md) addresses a low-power limiter that amplifies native callback jitter into skipped character updates. Both Woodland renderers share the candidate policy. Scene art, body contacts and gait curves remain unchanged. [Session 025](../../sessions/2026-10-10-weather-habitat/025-cadence-verification-handoff.md) records the earlier corrected runtime: 65 of 66 local cadence cases pass, with one Firefox hosted DPR2 rain failure; functional/offline coverage is complete, but the combined npm run exits 1. Required Windows/macOS checks remain failed. The [rain investigation](design/RAIN-CADENCE-INVESTIGATION.md) defines profiling tasks; PR #16 remains draft.
+
+The reading-layer camera candidate `9993133` preserves the existing x/y path
+and uses a zero-depth 3D transform only for the reading/clock SVG while the camera moves. Still and reduced-motion modes retain planar transforms. Balanced
+Firefox rain controls and targeted comparisons support this bounded change;
+they do not prove compositor presentation or a universal performance gain.
+The [rain investigation](design/RAIN-CADENCE-INVESTIGATION.md) retains 35 layer/transform samples and
+12 matched meal samples and a reusable layer-measurement command. Candidate
+validation and remaining gates are recorded in
+[session 028](../../sessions/2026-10-10-weather-habitat/028-reading-camera-results.md).
+
+The hosted-boundary follow-up adds test-only failure tracing, preserving the
+current display. [Session 030](../../sessions/2026-10-10-weather-habitat/030-ci-trace-results.md)
+records all 66 local cadence passes and four exact Windows/macOS failures.
+Native callbacks reach the app and accepted draws reach geometry. With the
+current minimum, accepted RAF timing already fails before geometry observation. The underlying browser,
+paint or host cause is not isolated. The [capture guide](design/CI-FAILURE-TRACING.md)
+and raw records support the next policy replay/control study; hosted gates remain open.
+
+The [policy replay study](design/CADENCE-POLICY-REPLAY.md) now compares exact
+callback streams without changing production pacing. Hindsight bounds separate
+a scheduling choice from missing opportunities; nominal and callback-entry
+clocks remain separate from geometry and physical presentation. The latest
+Windows normal-mode failure already accepts every callback, so it cannot be
+repaired by a low-power limiter change.
+
+The [matched-control study](design/MATCHED-MOTION-CONTROLS.md) now implements
+the next investigation: balanced blank/full/hidden conditions with exact timing
+records and explicit Windows, macOS and local DPR2 profiles. The complete
+96-record study preserves native-delivery limits without claiming a stall fix.
+A bounded dashboard efficiency candidate now skips unused minute-marker SVG
+queries while hidden; visible geometry remains fresh.
+
+The completed [Firefox attribution study](design/FIREFOX-STALL-ATTRIBUTION.md)
+compares full/hidden scenes with and without native profiling. Its 32 cases
+show a profiling-related cadence association without capturing the original
+failing p95 event. A lower-interference method is needed before claiming a
+rendering cause; display code is unchanged.
+
+The [portable cache investigation](design/PORTABLE-WEATHER-CACHE.md) adds
+test-only producer checks and sanitized failure records. It preserves the
+offline reload assertion and does not change installable bytes or claim a
+weather-cache repair. Runtime and physical acceptance gates remain open.
+The November 8 balanced study captures the same loss in fresh Chrome without
+the extra high-DPI layout context. That context is not required for the failure;
+native storage/navigation evidence is the next step before a product change.
+
+## Shared anatomy — foundation and inspection candidate
+
+The [shared anatomy and organic movement plan](design/ANATOMY-AND-ORGANIC-MOVEMENT.md) now has an additive foundation: [versioned anatomy profiles](design/ANATOMY-PROFILES.md), constrained two-bone reference geometry, named palm/thumb/heel/ball/toe landmarks, and a [workshop reference panel](design/character-study.html) for the seven identities. Adult, drop and learner proportions remain distinct; Pebble has support-only swaddled anatomy. The [baseline inventory](design/ANATOMY-BASELINE.md) and 120 captured legacy pose samples protect existing output.
+
+Live scenes retain their tested artwork, gait and wrist/ankle contact meanings. The new records and static workshop geometry prepare A2 silhouettes and later A3/A4 palm/sole adapters; natural new gait and infant palm support are not claimed yet. Complete scene/prop bounds and new contact acceptance remain before rollout. This preserves the meal behavior while the reusable anatomy is reviewed. [Session 020](../../sessions/2026-10-10-weather-habitat/020-anatomy-foundation-results.md) records the candidate, independent review, local browser results and hosted CI gates. Earlier meal evidence below remains tied to its named runtime.
+
+## Engineering theme — detailed proposal
+
+[Zero Workshop](design/engineering/README.md) expands the proposed industrial world into a people-powered mechanical calendar: full year/month/day/hour/minute/second reading, a regulated gear train, finite reserves and hydraulic/air demonstrations, three overlapping-zero character groups, and an 80-record visible/hidden object catalog. Source status, decisions and stages E0–E8 are recorded separately from claims of physical novelty, accuracy or long life. This is planning only; the shared anatomy foundation above remains the next character implementation, and no engineering runtime is added. [Engineering session 003](../../sessions/2026-10-18-engineering-complication/003-complete-plan-handoff.md) is the continuation handoff.
 
 ## Product principles
+
+The next character branch, `feature/woodland-walking-grips`, adds [planted survey walking and grounded tool grips](design/WALKING-AND-GRIPS.md). [Session outcome](../../sessions/2026-10-05-woodland-ally/004-walking-grips.md) records verification, deployment and remaining physical acceptance.
+
+The character follow-up on `feature/woodland-character-contacts` adds [planted rock contacts](design/CHARACTER-CONTACTS.md) to the Woodland slice. [Progress and outcomes](../../sessions/2026-10-05-woodland-ally/003-character-contacts.md) distinguish implementation/browser checks from pending live-device acceptance.
 
 1. Read the clock at a glance. Time, date, weather, and facts must stay visible across device sizes and motion states.
 2. Browser first. Keep the runtime independent of OS helpers, accounts, installed packages, and external fonts. Preserve the single-file offline path.
@@ -22,7 +87,10 @@ This is the product's planning hub. Designs are proposals until explicitly marke
 | [Roadmap](ROADMAP.md) | Prioritized milestones and completion criteria |
 | [Changelog](CHANGELOG.md) | Implemented changes and release history |
 | [Design index](design/README.md) | Proposals, design studies, and their status |
+| [Immersive Woodland](design/IMMERSIVE-WOODLAND.md) | Fullscreen camp scene, material/time choreography, movement and acceptance targets |
 | [Owner prompts and session handoff](design/OWNER-PROMPTS.md) | Original product direction and where a new session should resume |
+| [Ally installation handoff](design/ALLY-TEST-HANDOFF.md) | Published build revision, checksum, installation and physical-device checks |
+| [Session communication](../../sessions/README.md) | Numbered handoffs and replies between development and device-testing sessions |
 | [Architecture](design/ARCHITECTURE.md) | Current source map and intended separation as the product grows |
 | [Decision log](design/DECISIONS.md) | Why lasting product choices were made |
 | [Repository contribution guide](../../CONTRIBUTING.md) | Reporting issues and submitting work |
@@ -48,4 +116,16 @@ Do not add a backend, accounts, analytics, paid assets, automatic updating, or h
 
 ## Shared character foundation
 
-The first character layer centralizes Pip, Moss and Ridge in `characters.js`, independent of themes. Appearance, anatomical poses and role kits can evolve separately. The climbing themes use a shared harness/rope attachment and a stylized effort/recovery model; safety equipment is continuous and optional ascender assistance is reserved for a late deadline. The [character workshop](design/character-study.html) demonstrates appearance and role selection, with a catalog for climbing, trail, backpacking, food, bushcraft, farming and hunting equipment. See [scope and deferred physics](design/CHARACTERS.md); cooking, farming, hunting and world-space contact simulation are future layers.
+The first character layer centralizes Pip, Moss, Ridge and Sprout in `characters.js`, independent of themes. Appearance, anatomical poses and role kits can evolve separately. The climbing themes use a shared harness/rope attachment and a stylized effort/recovery model; safety equipment is continuous and optional ascender assistance is reserved for a late deadline. The [character workshop](design/character-study.html) demonstrates appearance and role selection, with a catalog for climbing, trail, backpacking, food, bushcraft, farming and hunting equipment. See [scope and deferred physics](design/CHARACTERS.md); Woodland now illustrates cooking and foraging; farming, hunting, resource conservation and world-space contact simulation remain future layers.
+
+Woodland of Time is implemented as the fifth theme on the living-world branch. Reusable landscape, action, story, philosophy and recipe definitions compose centrally defined characters into one woodland scene. All current time digits stay readable while hourly places, minute vignettes and six daily social episodes vary. The [living-world plan](design/LIVING-WORLDS.md) records the larger direction and specialist plans; six later worlds remain proposed. Complete contact physics, conserved resources and persistent family generations remain future work.
+
+Woodland now fills the available scene panel, with proportion-preserving trees, time digits and larger characters, smoother shared anatomical poses, detailed timber and curved mountain layers. [Organic motion](design/ORGANIC-MOTION.md) adds body-paced travel, planted steps, supported weight shifts and continuous contact-rig transitions. Low-power motion renders at 30 fps and normal motion follows browser frames. Work starts after arrival; repeated visits include a protected return for climbing. Bouts end before the next visit or second 55, preserving recovery and a quiet minute ending. Companion-off, reduced motion, hidden tabs, open settings and screen rest suppress those moving frames. This visual pass does not complete terrain-contact or rope-force simulation; browser and device review remain separate evidence.
+
+Woodland refinement preserves shelter/crossing grips and reciprocal teaching from the other session; see [implemented scope and next milestones](design/REFINEMENT-AND-WORK.md). Physical acceptance remains pending.
+
+The [immersive Woodland scene](design/IMMERSIVE-WOODLAND.md) is implemented with fullscreen SVG art and a larger shared cast. Woodland defaults to Immersive, with Dashboard available through `display.woodlandView`; new profiles still default to Time Climber II. Complete current HH:MM paths use timber/stone hours and flowing minute material, alongside a DD day plaque. Twelve camp activities, supervised family shallows and construction sampled from the advancing chapter connect work to time. Slow wind, clouds, water, lighting and camera/HUD movement respect reduced motion; climbing begins after arrival and includes supported recovery and protected descent. The Chrome/Edge/Firefox results in the immersive handoff validate the earlier PR #9 baseline. Current Green House 1 runtime `f02092b12a45d72cefe73ba68d5acd2f68932358` passes build, pure, browser, cadence and portable validation. See [session 017](../../sessions/2026-10-10-weather-habitat/017-cloud-meal-choreography-results.md) for results; physical Ally/Vanadium and sustained acceptance remain pending. Earlier dashboard and immersive stalls on `c827dba9` remain unexplained; see [session 010](../../sessions/2026-10-10-weather-habitat/010-cloud-clock-rendering-results.md) and sessions 011–015 for their candidate-specific evidence. Persistent construction/resources and full dynamics remain deferred.
+
+Green House 1 (`greenhouse1`) is implemented in the development branch as a separate weather-responsive habitat with tiny antlike camp people, tent, food/play area and a thermometer. Condition-driven sun/cool light and precipitation reuse the existing Open-Meteo response/cache through an immutable adapter, with no extra requests. Current runtime `f02092b12a45d72cefe73ba68d5acd2f68932358` (portable SHA-256 `046f02a9772a5060ac422b6acceee763fb29726a230df1ce1932a38611899ec6`) includes Sage's seven-stage meal minute during 11:00–13:00 and 20:00–22:00, carried food and a shared serving stand. The meal uses an eight-step route in each direction, returning Sage home at the minute boundary. The camp inset clears the caption/stand overlap; both `npm test` runs exit 0 (combined Chrome/Firefox and native Edge; runner `7bfe736`): all 9 pure programs, 13 browser programs per engine, offline portable, and all 66 cadence cases (54 existing + 12 meal cases). Final focused meal (4 functional + 4 cadence per engine) and community (14 groups per engine) checks pass. Caption clearance passes all seven stages and quiet mode across four views at DPR 1/2. Painted-group gaps meet >=30 CSS px and viewport margins meet >=16 CSS px. No full-run failures or retries. Physical Ally/Vanadium and sustained acceptance remain pending; earlier intermittent stalls remain unexplained. Aster, Sage and Sprout have independent rhythms with 1.2-second quintic pose blends; Aster continues to support Pebble. Session 015 records earlier spacing/motion results; [session 017](../../sessions/2026-10-10-weather-habitat/017-cloud-meal-choreography-results.md) records current evidence.
+
+The first Green House 1 Community Habitat slice is implemented as authored recurrence: Aster cares for swaddled, supported infant Pebble; Sage performs shelter, forage, cook, teach and remembrance routines; Sprout joins safe, supervised play and sleep. Dusk memorial flowers (17:00–20:00) honor Fern; no ancestor character appears. Current runtime `f02092b12a45d72cefe73ba68d5acd2f68932358` adds a repeatable minute-long seven-stage Sage meal to the 11:00–13:00 and 20:00–22:00 routines. Sage begins at home x78, makes eight alternating steps each way through the foreground, serves at x142,y14, then returns home. The same bowl geometry connects Sage's hand to the tabletop; food props quiet in frozen mode, and other daily activities remain unchanged. The 12-pixel camp-inset adjustment clears caption overlap. Both `npm test` runs exit 0 (combined Chrome/Firefox and native Edge; runner `7bfe736`): all 9 pure programs, 13 browser programs per engine, offline portable, and all 66 cadence cases (54 existing + 12 meal cases). Final focused meal (4 functional + 4 cadence per engine) and community (14 groups per engine) checks pass. Caption clearance passes all seven stages and quiet mode across four views at DPR 1/2. Painted-group gaps meet >=30 CSS px and viewport margins meet >=16 CSS px. No full-run failures or retries. Physical Ally/Vanadium and sustained acceptance remain pending; earlier intermittent stalls remain unexplained. Aster continues to support Pebble; independent rhythms and 1.2-second quintic blends remain. Session 015's exact spacing measurements apply to its earlier candidate. Full current evidence is in [session 017](../../sessions/2026-10-10-weather-habitat/017-cloud-meal-choreography-results.md). No fast aging, infant replacement, ecosystem or persistent lineage/resources are simulated. Woodland retains the larger-actor engineering terrain/time scene.

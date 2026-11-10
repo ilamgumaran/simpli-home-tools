@@ -16,7 +16,7 @@ function normalizeDisplay(value){
   gap:displayNumber(d.gap,8,4,24),
   companionInterval:displayNumber(d.companionInterval,60,30,300),
   companionDuration:displayNumber(d.companionDuration,12,4,20),
-  companion:d.companion!==false,cameraMotion:d.cameraMotion==='still'?'still':'gentle'};
+  companion:d.companion!==false,cameraMotion:d.cameraMotion==='still'?'still':'gentle',woodlandView:d.woodlandView==='dashboard'?'dashboard':'immersive'};
 }
 function applyDisplay(){
  prefs.display=normalizeDisplay(prefs.display);
@@ -25,7 +25,7 @@ function applyDisplay(){
  }
  document.body.dataset.profile=prefs.display.profile;
  write('orbit-settings',prefs);
- document.dispatchEvent(new Event('desk-display-change'));
+ document.dispatchEvent(new Event('desk-display-change',{bubbles:true}));
 }
 function fillDisplaySettings(d=prefs.display){
  $('display-profile').value=d.profile;
@@ -34,11 +34,12 @@ function fillDisplaySettings(d=prefs.display){
  }
  $('companion').checked=d.companion;
  $('camera-motion').value=d.cameraMotion;
+ $('woodland-view').value=d.woodlandView;
  $('viewport-info').textContent=`Browser viewport: ${innerWidth} × ${innerHeight} · pixel ratio ${window.devicePixelRatio||1}. Size presets follow your browser window; OS scaling is already included.`;
 }
 function updateDisplayLabel(key){$(key+'-value').textContent=['clockScale','weatherScale','factScale'].includes(key)?`${Math.round(Number($(key).value)*100)}%`:`${$(key).value}${key==='gap'?' px':' s'}`;}
 function saveDisplaySettings(){
- prefs.display=normalizeDisplay({profile:$('display-profile').value,...Object.fromEntries(['clockScale','weatherScale','factScale','gap','companionInterval','companionDuration'].map(key=>[key,Number($(key).value)])),companion:$('companion').checked,cameraMotion:$('camera-motion').value});
+ prefs.display=normalizeDisplay({profile:$('display-profile').value,...Object.fromEntries(['clockScale','weatherScale','factScale','gap','companionInterval','companionDuration'].map(key=>[key,Number($(key).value)])),companion:$('companion').checked,cameraMotion:$('camera-motion').value,woodlandView:$('woodland-view').value});
  applyDisplay();
 }
 for(const key of ['clockScale','weatherScale','factScale','gap','companionInterval','companionDuration'])$(key).addEventListener('input',()=>updateDisplayLabel(key));

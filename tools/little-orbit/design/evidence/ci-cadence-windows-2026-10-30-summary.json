@@ -1,0 +1,116 @@
+{
+  "schemaVersion": 1,
+  "diagnosticCheckpoint": "d58f040a098d87ebd7c3cf07fd454e1ebd279dc2",
+  "records": [
+    {
+      "runID": 41005460616,
+      "event": "push",
+      "traceID": "1e9571f7e2d8c9ca4804bf974de594d6556f4f166d4474eb0fa9a72f1b3dd0da",
+      "checkoutRevision": "d58f040a098d87ebd7c3cf07fd454e1ebd279dc2",
+      "scene": {
+        "suite": "immersive",
+        "form": "portable",
+        "browser": "firefox",
+        "browserVersion": "153.0",
+        "lowPower": true,
+        "deviceScaleFactor": 1,
+        "dpr": 1,
+        "viewport": {"width": 854, "height": 480}
+      },
+      "geometryMetrics": {"fps": 29.369966840360018, "p95": 47, "maxGap": 48},
+      "nativeCount": 117,
+      "appCount": 117,
+      "acceptedCount": 62,
+      "geometryCount": 62,
+      "nominalTimestampsMatchIndexForIndex": true,
+      "acceptedNominalGapP95Ms": 47.31999999999971,
+      "geometryAfterDecisionEntryLagMs": {"min": 0, "p95": 2, "max": 2},
+      "acceptedGapBelow24Ms": 0,
+      "longGeometryGaps": [
+        {
+          "geometryGapMs": 47,
+          "acceptedNominalGapMs": 48.25999999999999,
+          "rejectedNominalOffsetsMs": [18.75999999999999]
+        },
+        {
+          "geometryGapMs": 48,
+          "acceptedNominalGapMs": 49.36000000000013,
+          "rejectedNominalOffsetsMs": [17.680000000000064]
+        },
+        {
+          "geometryGapMs": 47,
+          "acceptedNominalGapMs": 47.31999999999971,
+          "rejectedNominalOffsetsMs": [15.61999999999989]
+        },
+        {
+          "geometryGapMs": 47,
+          "acceptedNominalGapMs": 46.879999999999654,
+          "rejectedNominalOffsetsMs": [15.61999999999989]
+        },
+        {
+          "geometryGapMs": 48,
+          "acceptedNominalGapMs": 47.539999999999964,
+          "rejectedNominalOffsetsMs": [15.620000000000346]
+        }
+      ]
+    },
+    {
+      "runID": 41005464977,
+      "event": "pull_request",
+      "traceID": "b7db56c37f7217160b654eb08fa499e2c48ae3814b9892d4c469cb753f0d9e20",
+      "checkoutRevision": "1248434cb3108961b27c16904eb9ec890eb14315",
+      "scene": {
+        "suite": "rain",
+        "form": "portable",
+        "browser": "firefox",
+        "browserVersion": "153.0",
+        "lowPower": true,
+        "deviceScaleFactor": 1,
+        "dpr": 1,
+        "viewport": {"width": 854, "height": 480}
+      },
+      "geometryMetrics": {"fps": 29.328287606433303, "p95": 47, "maxGap": 48},
+      "nativeCount": 110,
+      "appCount": 110,
+      "acceptedCount": 62,
+      "geometryCount": 62,
+      "nominalTimestampsMatchIndexForIndex": true,
+      "acceptedNominalGapP95Ms": 47.48000000000002,
+      "geometryAfterDecisionEntryLagMs": {"min": 0, "p95": 1, "max": 1},
+      "acceptedGapBelow24Ms": 0,
+      "longGeometryGaps": [
+        {
+          "geometryGapMs": 48,
+          "acceptedNominalGapMs": 47.72000000000003,
+          "rejectedNominalOffsetsMs": [15.61999999999989]
+        },
+        {
+          "geometryGapMs": 47,
+          "acceptedNominalGapMs": 47.819999999999936,
+          "rejectedNominalOffsetsMs": [15.639999999999873]
+        },
+        {
+          "geometryGapMs": 47,
+          "acceptedNominalGapMs": 47.24000000000001,
+          "rejectedNominalOffsetsMs": [15.639999999999873]
+        },
+        {
+          "geometryGapMs": 47,
+          "acceptedNominalGapMs": 47.039999999999964,
+          "rejectedNominalOffsetsMs": [15.620000000000346]
+        },
+        {
+          "geometryGapMs": 47,
+          "acceptedNominalGapMs": 47.48000000000002,
+          "rejectedNominalOffsetsMs": [15.620000000000346]
+        },
+        {
+          "geometryGapMs": 48,
+          "acceptedNominalGapMs": 47.01999999999998,
+          "rejectedNominalOffsetsMs": [15.61999999999989]
+        }
+      ]
+    }
+  ],
+  "limits": "Exact instrumented failing samples, not identified underlying OS/browser/paint cause. Current limiter did not miss native opportunities or reject eligible app calls."
+}

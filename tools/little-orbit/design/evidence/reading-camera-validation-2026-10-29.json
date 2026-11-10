@@ -1,0 +1,867 @@
+{
+  "schemaVersion": 1,
+  "sourceRevision": "99931338f12d5111ea0321cc2690d6588ef59ab9",
+  "nodeVersion": "24.19.0",
+  "playwrightVersion": "1.62.1",
+  "portableSHA256": "1e36b79704ac3046230644555ffc5fc691cc5229ac2df067a61d2901e0169d8b",
+  "browserVersions": {
+    "Chrome": "151.0.7922.34",
+    "Firefox": "153.0",
+    "Edge": "154.0.4258.53"
+  },
+  "buildExitCode": 0,
+  "focusedCameraModeChecks": {
+    "Chrome": 0,
+    "Firefox": 0
+  },
+  "finalJobExits": {
+    "parity-chromium": 0,
+    "parity-firefox": 0,
+    "full-chrome-firefox": 0,
+    "edge": 0,
+    "diagnostic": 0
+  },
+  "cadenceCounts": {
+    "Chrome": 22,
+    "Firefox": 22,
+    "Edge": 22
+  },
+  "cadenceSamples": [
+    {
+      "browser": "Chrome",
+      "case": "PASS live motion cadence: hosted low-power",
+      "metrics": {
+        "fps": 29.997143129183222,
+        "p95": 34,
+        "maxGap": 34.900000005960464,
+        "frames": 63,
+        "callback": {
+          "count": 126,
+          "fps": 59.994286258366444,
+          "nominalP95": 16.8,
+          "nominalMax": 16.8,
+          "actualP95": 17.6,
+          "actualMax": 19,
+          "tailNominalGaps": [16.7, 16.7, 16.5, 16.7, 16.7, 16.7, 16.7, 16.6, 16.7, 16.6, 16.8, 16.6, 16.6, 16.8, 16.6, 16.6, 16.7, 16.6, 16.7, 16.7, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.7, 16.7, 16.6, 16.7, 16.6, 16.6, 16.8, 16.6, 16.7, 16.7, 16.6, 16.7, 16.7, 16.6, 16.6, 16.8, 16.6, 16.7, 16.6, 16.7, 16.7, 16.7, 16.6, 16.7, 16.6, 16.7, 16.6, 16.8, 16.6, 16.7, 16.7, 16.6, 16.7, 16.7, 16.6, 16.6, 16.8, 16.6, 16.6, 16.7, 16.7, 16.7, 16.6, 16.7, 16.6, 16.8, 16.6, 16.7, 16.7, 16.6, 16.7, 16.7, 16.6, 16.6, 16.8, 16.6, 16.6, 16.7, 16.7, 16.7, 16.6, 16.7, 16.6, 16.8, 16.6, 16.7, 16.6, 16.7, 16.6, 16.7, 16.6, 16.7, 16.8, 16.6, 16.6, 16.7, 16.6, 16.7, 16.7, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.7, 16.7, 16.6, 16.7, 16.7, 16.6, 16.6, 16.7, 16.7, 16.6, 16.7, 16.7, 16.7, 16.6],
+          "largestNominalGaps": [16.8, 16.8, 16.8, 16.8, 16.8, 16.8, 16.8, 16.8]
+        }
+      }
+    },
+    {
+      "browser": "Chrome",
+      "case": "PASS live motion cadence: hosted normal",
+      "metrics": {
+        "fps": 59.994286258366444,
+        "p95": 17,
+        "maxGap": 24.5,
+        "frames": 126,
+        "callback": {
+          "count": 126,
+          "fps": 59.994286258366444,
+          "nominalP95": 16.8,
+          "nominalMax": 16.8,
+          "actualP95": 17,
+          "actualMax": 24.5,
+          "tailNominalGaps": [16.7, 16.6, 16.7, 16.6, 16.8, 16.5, 16.8, 16.6, 16.7, 16.6, 16.7, 16.7, 16.6, 16.8, 16.6, 16.6, 16.7, 16.7, 16.6, 16.7, 16.6, 16.7, 16.7, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.7, 16.7, 16.6, 16.6, 16.8, 16.6, 16.7, 16.6, 16.8, 16.6, 16.6, 16.7, 16.7, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.7, 16.6, 16.6, 16.8, 16.6, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.6, 16.8, 16.6, 16.6, 16.7, 16.7, 16.7, 16.6, 16.7, 16.6, 16.7, 16.7, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.7, 16.6, 16.6, 16.8, 16.6, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.6, 16.8, 16.6, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.6, 16.7],
+          "largestNominalGaps": [16.8, 16.8, 16.8, 16.8, 16.8, 16.8, 16.8, 16.8]
+        }
+      }
+    },
+    {
+      "browser": "Chrome",
+      "case": "PASS live motion cadence: portable low-power",
+      "metrics": {
+        "fps": 29.998571496467687,
+        "p95": 34.1000000089407,
+        "maxGap": 34.70000000298023,
+        "frames": 63,
+        "callback": {
+          "count": 126,
+          "fps": 59.99714299293537,
+          "nominalP95": 16.7,
+          "nominalMax": 16.8,
+          "actualP95": 18,
+          "actualMax": 18.9,
+          "tailNominalGaps": [16.7, 16.7, 16.6, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.7, 16.7, 16.6, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.7, 16.7, 16.6, 16.6, 16.8, 16.6, 16.6, 16.7, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.7, 16.7, 16.6, 16.7, 16.7, 16.6, 16.6, 16.7, 16.7, 16.7, 16.7, 16.6, 16.7, 16.7, 16.6, 16.6, 16.8, 16.6, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.7, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.7, 16.7, 16.6, 16.7, 16.6, 16.7, 16.6, 16.7, 16.7, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.7, 16.7, 16.6, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.6, 16.7, 16.7, 16.6, 16.8, 16.6, 16.6],
+          "largestNominalGaps": [16.8, 16.8, 16.8, 16.7, 16.7, 16.7, 16.7, 16.7]
+        }
+      }
+    },
+    {
+      "browser": "Chrome",
+      "case": "PASS live motion cadence: portable normal",
+      "metrics": {
+        "fps": 59.99714299293537,
+        "p95": 17.099999994039536,
+        "maxGap": 18.80000001192093,
+        "frames": 126,
+        "callback": {
+          "count": 126,
+          "fps": 59.99714299293537,
+          "nominalP95": 16.7,
+          "nominalMax": 16.8,
+          "actualP95": 17.1,
+          "actualMax": 18.8,
+          "tailNominalGaps": [16.7, 16.7, 16.7, 16.5, 16.8, 16.6, 16.7, 16.7, 16.6, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.7, 16.7, 16.6, 16.7, 16.6, 16.7, 16.7, 16.7, 16.6, 16.7, 16.6, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.7, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.7, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.6, 16.7, 16.7, 16.7, 16.6, 16.6, 16.7, 16.7, 16.7, 16.6, 16.7, 16.6, 16.8, 16.6, 16.7, 16.6, 16.7, 16.6, 16.7, 16.6, 16.7, 16.7, 16.7, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.6, 16.7, 16.7, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.7, 16.6, 16.6, 16.8, 16.6, 16.7, 16.6, 16.7, 16.7, 16.7, 16.6, 16.6, 16.7, 16.7, 16.6, 16.8, 16.6, 16.6, 16.7, 16.7, 16.6, 16.7, 16.7, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.6, 16.8, 16.6, 16.6, 16.7, 16.6, 16.7, 16.7, 16.6],
+          "largestNominalGaps": [16.8, 16.8, 16.8, 16.8, 16.8, 16.7, 16.7, 16.7]
+        }
+      }
+    },
+    {
+      "browser": "Chrome",
+      "case": "PASS immersive frame cadence: hosted 854\u00d7480 DPR1 30fps low-power",
+      "metrics": {
+        "fps": 29.995714897914294,
+        "p95": 34.3999999910593,
+        "maxGap": 37.29999999701977
+      }
+    },
+    {
+      "browser": "Chrome",
+      "case": "PASS immersive frame cadence: hosted 854\u00d7480 DPR1 60fps normal",
+      "metrics": {
+        "fps": 60.4704313874011,
+        "p95": 17.700000002980232,
+        "maxGap": 33.20000000298023
+      }
+    },
+    {
+      "browser": "Chrome",
+      "case": "PASS immersive frame cadence: portable 854\u00d7480 DPR1 30fps low-power",
+      "metrics": {
+        "fps": 29.997143129183222,
+        "p95": 34,
+        "maxGap": 34.5
+      }
+    },
+    {
+      "browser": "Chrome",
+      "case": "PASS immersive frame cadence: portable 854\u00d7480 DPR1 60fps normal",
+      "metrics": {
+        "fps": 60.946576516435755,
+        "p95": 17.69999998807907,
+        "maxGap": 23.599999994039536
+      }
+    },
+    {
+      "browser": "Chrome",
+      "case": "PASS immersive frame cadence: hosted 1280\u00d7720 DPR2 30fps low-power",
+      "metrics": {
+        "fps": 29.997143129183222,
+        "p95": 34.1000000089407,
+        "maxGap": 35.70000000298023
+      }
+    },
+    {
+      "browser": "Chrome",
+      "case": "PASS immersive frame cadence: hosted 1280\u00d7720 DPR2 60fps normal",
+      "metrics": {
+        "fps": 60.949478595997846,
+        "p95": 17.700000002980232,
+        "maxGap": 26.099999994039536
+      }
+    },
+    {
+      "browser": "Chrome",
+      "case": "PASS rainy habitat cadence: hosted 854\u00d7480 DPR1 30fps low-power",
+      "metrics": {
+        "fps": 29.99857149668054,
+        "p95": 33.79999999701977,
+        "maxGap": 34.69999998807907
+      }
+    },
+    {
+      "browser": "Chrome",
+      "case": "PASS rainy habitat cadence: hosted 854\u00d7480 DPR1 60fps normal",
+      "metrics": {
+        "fps": 59.99714299293537,
+        "p95": 17.200000002980232,
+        "maxGap": 20.900000005960464
+      }
+    },
+    {
+      "browser": "Chrome",
+      "case": "PASS rainy habitat cadence: hosted 1280\u00d7720 DPR2 30fps low-power",
+      "metrics": {
+        "fps": 29.994286802641483,
+        "p95": 34,
+        "maxGap": 35.8999999910593
+      }
+    },
+    {
+      "browser": "Chrome",
+      "case": "PASS rainy habitat cadence: hosted 1280\u00d7720 DPR2 60fps normal",
+      "metrics": {
+        "fps": 60.946576516435755,
+        "p95": 17.200000002980232,
+        "maxGap": 23
+      }
+    },
+    {
+      "browser": "Chrome",
+      "case": "PASS rainy habitat cadence: portable 854\u00d7480 DPR1 30fps low-power",
+      "metrics": {
+        "fps": 29.995714897914294,
+        "p95": 33.8999999910593,
+        "maxGap": 34.400000005960464
+      }
+    },
+    {
+      "browser": "Chrome",
+      "case": "PASS rainy habitat cadence: portable 854\u00d7480 DPR1 60fps normal",
+      "metrics": {
+        "fps": 60.946576516435755,
+        "p95": 17.299999997019768,
+        "maxGap": 18.799999997019768
+      }
+    },
+    {
+      "browser": "Chrome",
+      "case": "PASS rainy habitat cadence: portable 1280\u00d7720 DPR2 30fps low-power",
+      "metrics": {
+        "fps": 29.994286802641483,
+        "p95": 33.80000001192093,
+        "maxGap": 34.29999999701977
+      }
+    },
+    {
+      "browser": "Chrome",
+      "case": "PASS rainy habitat cadence: portable 1280\u00d7720 DPR2 60fps normal",
+      "metrics": {
+        "fps": 61.419797171483985,
+        "p95": 17.69999998807907,
+        "maxGap": 27.299999997019768
+      }
+    },
+    {
+      "browser": "Chrome",
+      "case": "PASS active meal cadence: hosted 854\u00d7480 DPR1 30fps low-power",
+      "metrics": {
+        "fps": 29.998571496467687,
+        "p95": 34,
+        "maxGap": 35.29999999701977,
+        "frames": 63,
+        "stageBefore": "deliver",
+        "stageAfter": "deliver",
+        "moved": true
+      }
+    },
+    {
+      "browser": "Chrome",
+      "case": "PASS active meal cadence: hosted 854\u00d7480 DPR1 60fps normal",
+      "metrics": {
+        "fps": 60.9088746133714,
+        "p95": 17.200000002980232,
+        "maxGap": 26.599999994039536,
+        "frames": 128,
+        "stageBefore": "deliver",
+        "stageAfter": "deliver",
+        "moved": true
+      }
+    },
+    {
+      "browser": "Chrome",
+      "case": "PASS active meal cadence: portable 1280\u00d7720 DPR2 30fps low-power",
+      "metrics": {
+        "fps": 29.997143129183222,
+        "p95": 34,
+        "maxGap": 34.29999999701977,
+        "frames": 63,
+        "stageBefore": "deliver",
+        "stageAfter": "deliver",
+        "moved": true
+      }
+    },
+    {
+      "browser": "Chrome",
+      "case": "PASS active meal cadence: portable 1280\u00d7720 DPR2 60fps normal",
+      "metrics": {
+        "fps": 60.946576516435755,
+        "p95": 17.200000002980232,
+        "maxGap": 21,
+        "frames": 128,
+        "stageBefore": "deliver",
+        "stageAfter": "deliver",
+        "moved": true
+      }
+    },
+    {
+      "browser": "Firefox",
+      "case": "PASS live motion cadence: hosted low-power",
+      "metrics": {
+        "fps": 30,
+        "p95": 34,
+        "maxGap": 35,
+        "frames": 63,
+        "callback": {
+          "count": 126,
+          "fps": 60,
+          "nominalP95": 17.16,
+          "nominalMax": 17.32,
+          "actualP95": 18,
+          "actualMax": 19,
+          "tailNominalGaps": [17.32, 16.36, 16.12, 17.16, 17.04, 16.2, 17.12, 16.14, 17.14, 16.1, 17.14, 16.12, 17.14, 16.14, 17.14, 16.12, 17.16, 16.14, 17.12, 17.08, 16.18, 17.12, 16.14, 17.12, 16.14, 17.12, 16.14, 17.12, 16.12, 17.12, 16.12, 17.14, 17.08, 16.22, 17.12, 16.12, 17.12, 16.1, 17.12, 16.12, 17.16, 16.12, 17.12, 16.12, 17.14, 17.08, 16.16, 17.12, 16.14, 17.12, 16.12, 17.12, 16.14, 17.12, 16.12, 17.2, 16.1, 17.12, 17.1, 16.14, 17.14, 16.12, 17.12, 16.12, 17.14, 16.12, 17.12, 16.12, 17.12, 17.06, 16.18, 17.16, 16.18, 17.12, 16.12, 17.14, 16.12, 17.12, 16.16, 17.14, 16.16, 17.16, 16.12, 17.16, 16.16, 17.22, 16.14, 17.12, 16.14, 17.16, 17.02, 16.24, 17.1, 16.2, 17.14, 16.12, 17.12, 16.14, 17.12, 16.14, 17.12, 16.14, 17.12, 16.12, 17.12, 17.06, 16.18, 17.16, 16.14, 17.12, 16.14, 17.12, 16.1, 17.14, 16.12, 17.14, 16.14, 17.14, 17.04, 16.2, 17.12, 16.12, 17.18, 16.1, 17.12],
+          "largestNominalGaps": [17.32, 17.22, 17.2, 17.18, 17.16, 17.16, 17.16, 17.16]
+        }
+      }
+    },
+    {
+      "browser": "Firefox",
+      "case": "PASS live motion cadence: hosted normal",
+      "metrics": {
+        "fps": 60,
+        "p95": 18,
+        "maxGap": 20,
+        "frames": 126,
+        "callback": {
+          "count": 126,
+          "fps": 60,
+          "nominalP95": 17.14,
+          "nominalMax": 17.2,
+          "actualP95": 18,
+          "actualMax": 20,
+          "tailNominalGaps": [17.12, 16.12, 17.12, 17.02, 16.24, 17.1, 16.18, 17.1, 16.72, 16.34, 16.12, 17.12, 17.08, 16.18, 17.16, 16.14, 17.14, 16.16, 17.12, 16.14, 17.12, 16.3, 17.12, 16.1, 17.12, 16.14, 17.12, 16.12, 17.16, 16.12, 17.12, 17.1, 16.18, 17.14, 15.84, 17.12, 17.04, 16.28, 16.24, 17.12, 17.04, 16.2, 17.12, 16.14, 17.2, 16.14, 17.12, 16.12, 17.12, 16.28, 17.12, 16.16, 17.14, 16.12, 17.12, 16.12, 17.12, 16.12, 17.2, 16.12, 17.12, 17.1, 16.14, 17.12, 16.12, 17.12, 16.14, 17.12, 16.12, 17.12, 16.12, 17.1, 17.1, 16.16, 17.12, 16.12, 17.12, 16.14, 17.12, 16.12, 17.12, 16.12, 17.16, 17.04, 16.22, 17.12, 16.12, 17.14, 16.1, 17.14, 16.12, 17.12, 16.12, 17.12, 16.12, 17.1, 17.12, 16.12, 17.14, 16.1, 17.12, 16.1, 17.12, 16.12, 17.12, 17.06, 16.2, 17.12, 16.12, 17.1, 16.12, 17.14, 16.1, 17.14, 16.12, 17.16, 16.2, 17.14, 16.1, 17.14, 17.1, 16.14, 17.14, 16.14, 17.12],
+          "largestNominalGaps": [17.2, 17.2, 17.16, 17.16, 17.16, 17.16, 17.14, 17.14]
+        }
+      }
+    },
+    {
+      "browser": "Firefox",
+      "case": "PASS live motion cadence: portable low-power",
+      "metrics": {
+        "fps": 29.967727063162748,
+        "p95": 34,
+        "maxGap": 35,
+        "frames": 65,
+        "callback": {
+          "count": 131,
+          "fps": 60.39649608114338,
+          "nominalP95": 17.18,
+          "nominalMax": 17.26,
+          "actualP95": 18,
+          "actualMax": 19,
+          "tailNominalGaps": [16.16, 17.1, 16.12, 17.12, 16.12, 17.12, 16.12, 17.1, 17.04, 16.2, 17.12, 16.12, 17.1, 16.12, 17.14, 16.12, 17.16, 16.12, 17.14, 16.12, 17.18, 17.02, 16.22, 17.1, 16.14, 17.14, 16.12, 17.12, 16.12, 17.14, 16.12, 17.2, 16.12, 17.12, 16.12, 17.12, 17.1, 16.16, 17.12, 16.16, 17.12, 16.12, 17.16, 16.12, 17.12, 16.12, 17.12, 17.02, 16.26, 17.08, 16.14, 17.14, 16.12, 17.12, 16.12, 17.12, 16.12, 17.14, 16.12, 17.14, 17.04, 16.22, 17.12, 16.16, 17.12, 16.12, 17.14, 16.12, 17.14, 16.14, 17.16, 16.1, 17.12, 16.14, 17.12, 17.08, 16.18, 17.12, 16.16, 17.14, 16.12, 17.12, 16.14, 17.12, 16.14, 17.14, 16.16, 17.14, 16.12, 17.12, 17.08, 16.18, 17.12, 16.14, 17.18, 16.12, 17.26, 16.2, 17.12, 16.12, 17.12, 16.14, 17.18, 16.14, 17.18, 16.12, 17.2, 16.2, 17.18, 16.14, 17.14, 16.14, 17.14, 16.18, 17.18, 16.12, 17.16, 16.12, 17.16, 16.12, 17.16, 16.12, 17.14, 17.08, 16.2, 17.14, 16.18, 17.12, 16.16, 17.12],
+          "largestNominalGaps": [17.26, 17.2, 17.2, 17.18, 17.18, 17.18, 17.18, 17.18]
+        }
+      }
+    },
+    {
+      "browser": "Firefox",
+      "case": "PASS live motion cadence: portable normal",
+      "metrics": {
+        "fps": 60,
+        "p95": 18,
+        "maxGap": 18,
+        "frames": 126,
+        "callback": {
+          "count": 126,
+          "fps": 60,
+          "nominalP95": 17.2,
+          "nominalMax": 17.24,
+          "actualP95": 18,
+          "actualMax": 18,
+          "tailNominalGaps": [17.1, 16.14, 17.18, 16.14, 17.18, 16.12, 17.2, 16.14, 17.14, 16.22, 17.16, 16.2, 17.14, 16.14, 17.16, 16.24, 17.14, 16.16, 17.12, 16.16, 17.14, 16.16, 17.12, 16.16, 17.12, 17.06, 16.2, 17.14, 16.16, 17.14, 16.14, 17.22, 16.14, 17.16, 16.14, 17.2, 16.18, 17.14, 16.2, 17.16, 16.22, 17.14, 16.22, 17.1, 16.3, 17.04, 16.38, 16.24, 17.22, 16.26, 17.2, 16.18, 17.14, 16.18, 17.14, 16.42, 16.26, 17.12, 16.26, 17.12, 16.12, 17.18, 16.12, 17.12, 16.14, 17.16, 17.04, 16.24, 17.1, 16.2, 17.12, 16.16, 17.12, 16.14, 17.14, 16.18, 17.14, 16.18, 17.24, 16.22, 17.16, 16.18, 17.12, 16.1, 17.18, 16.18, 17.16, 16.18, 17.12, 16.24, 17.14, 16.26, 17.14, 16.18, 17.14, 16.18, 16.7, 17.12, 16.24, 17.1, 16.42, 16.16, 17.16, 16.14, 17.22, 16.16, 17.2, 16.14, 17.12, 16.14, 17.12, 16.24, 17.14, 16.16, 17.16, 16.16, 17.12, 16.24, 17.12, 16.18, 17.12, 17.04, 16.22, 17.12, 16.18],
+          "largestNominalGaps": [17.24, 17.22, 17.22, 17.22, 17.2, 17.2, 17.2, 17.2]
+        }
+      }
+    },
+    {
+      "browser": "Firefox",
+      "case": "PASS immersive frame cadence: hosted 854\u00d7480 DPR1 30fps low-power",
+      "metrics": {
+        "fps": 30,
+        "p95": 35,
+        "maxGap": 36
+      }
+    },
+    {
+      "browser": "Firefox",
+      "case": "PASS immersive frame cadence: hosted 854\u00d7480 DPR1 60fps normal",
+      "metrics": {
+        "fps": 60.95238095238095,
+        "p95": 18,
+        "maxGap": 26
+      }
+    },
+    {
+      "browser": "Firefox",
+      "case": "PASS immersive frame cadence: portable 854\u00d7480 DPR1 30fps low-power",
+      "metrics": {
+        "fps": 30.374940673943996,
+        "p95": 34,
+        "maxGap": 36
+      }
+    },
+    {
+      "browser": "Firefox",
+      "case": "PASS immersive frame cadence: portable 854\u00d7480 DPR1 60fps normal",
+      "metrics": {
+        "fps": 60.92336982389338,
+        "p95": 18,
+        "maxGap": 23
+      }
+    },
+    {
+      "browser": "Firefox",
+      "case": "PASS immersive frame cadence: hosted 1280\u00d7720 DPR2 30fps low-power",
+      "metrics": {
+        "fps": 30,
+        "p95": 35,
+        "maxGap": 37
+      }
+    },
+    {
+      "browser": "Firefox",
+      "case": "PASS immersive frame cadence: hosted 1280\u00d7720 DPR2 60fps normal",
+      "metrics": {
+        "fps": 58.06758686339838,
+        "p95": 23,
+        "maxGap": 39
+      }
+    },
+    {
+      "browser": "Firefox",
+      "case": "PASS rainy habitat cadence: hosted 854\u00d7480 DPR1 30fps low-power",
+      "metrics": {
+        "fps": 29.523809523809526,
+        "p95": 35,
+        "maxGap": 65
+      }
+    },
+    {
+      "browser": "Firefox",
+      "case": "PASS rainy habitat cadence: hosted 854\u00d7480 DPR1 60fps normal",
+      "metrics": {
+        "fps": 60.476190476190474,
+        "p95": 18,
+        "maxGap": 25
+      }
+    },
+    {
+      "browser": "Firefox",
+      "case": "PASS rainy habitat cadence: hosted 1280\u00d7720 DPR2 30fps low-power",
+      "metrics": {
+        "fps": 29.985721085197525,
+        "p95": 35,
+        "maxGap": 37
+      }
+    },
+    {
+      "browser": "Firefox",
+      "case": "PASS rainy habitat cadence: hosted 1280\u00d7720 DPR2 60fps normal",
+      "metrics": {
+        "fps": 59.01951451689671,
+        "p95": 21,
+        "maxGap": 35
+      }
+    },
+    {
+      "browser": "Firefox",
+      "case": "PASS rainy habitat cadence: portable 854\u00d7480 DPR1 30fps low-power",
+      "metrics": {
+        "fps": 29.773156899810964,
+        "p95": 34,
+        "maxGap": 35
+      }
+    },
+    {
+      "browser": "Firefox",
+      "case": "PASS rainy habitat cadence: portable 854\u00d7480 DPR1 60fps normal",
+      "metrics": {
+        "fps": 60.92336982389338,
+        "p95": 18,
+        "maxGap": 18
+      }
+    },
+    {
+      "browser": "Firefox",
+      "case": "PASS rainy habitat cadence: portable 1280\u00d7720 DPR2 30fps low-power",
+      "metrics": {
+        "fps": 30.231459612659425,
+        "p95": 34,
+        "maxGap": 35
+      }
+    },
+    {
+      "browser": "Firefox",
+      "case": "PASS rainy habitat cadence: portable 1280\u00d7720 DPR2 60fps normal",
+      "metrics": {
+        "fps": 55.26688710439301,
+        "p95": 28,
+        "maxGap": 40
+      }
+    },
+    {
+      "browser": "Firefox",
+      "case": "PASS active meal cadence: hosted 854\u00d7480 DPR1 30fps low-power",
+      "metrics": {
+        "fps": 30,
+        "p95": 34,
+        "maxGap": 45,
+        "frames": 63,
+        "stageBefore": "deliver",
+        "stageAfter": "deliver",
+        "moved": true
+      }
+    },
+    {
+      "browser": "Firefox",
+      "case": "PASS active meal cadence: hosted 854\u00d7480 DPR1 60fps normal",
+      "metrics": {
+        "fps": 59.523809523809526,
+        "p95": 19,
+        "maxGap": 49,
+        "frames": 125,
+        "stageBefore": "deliver",
+        "stageAfter": "deliver",
+        "moved": true
+      }
+    },
+    {
+      "browser": "Firefox",
+      "case": "PASS active meal cadence: portable 1280\u00d7720 DPR2 30fps low-power",
+      "metrics": {
+        "fps": 29.928741092636578,
+        "p95": 34,
+        "maxGap": 35,
+        "frames": 63,
+        "stageBefore": "deliver",
+        "stageAfter": "deliver",
+        "moved": true
+      }
+    },
+    {
+      "browser": "Firefox",
+      "case": "PASS active meal cadence: portable 1280\u00d7720 DPR2 60fps normal",
+      "metrics": {
+        "fps": 61.25356125356125,
+        "p95": 20,
+        "maxGap": 20,
+        "frames": 129,
+        "stageBefore": "deliver",
+        "stageAfter": "deliver",
+        "moved": true
+      }
+    },
+    {
+      "browser": "Edge",
+      "case": "PASS live motion cadence: hosted low-power",
+      "metrics": {
+        "fps": 29.997143129183222,
+        "p95": 33.8999999910593,
+        "maxGap": 34.5,
+        "frames": 63,
+        "callback": {
+          "count": 126,
+          "fps": 59.994286258366444,
+          "nominalP95": 16.7,
+          "nominalMax": 16.8,
+          "actualP95": 18,
+          "actualMax": 18.5,
+          "tailNominalGaps": [16.7, 16.7, 16.7, 16.6, 16.7, 16.6, 16.7, 16.7, 16.7, 16.6, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.6, 16.7, 16.7, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.7, 16.7, 16.6, 16.7, 16.6, 16.7, 16.7, 16.7, 16.6, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.7, 16.7, 16.6, 16.7, 16.6, 16.7, 16.7, 16.7, 16.6, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.6, 16.7, 16.7, 16.7, 16.6, 16.7, 16.7, 16.6, 16.6, 16.7, 16.7, 16.6, 16.7, 16.7, 16.6, 16.8, 16.6, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.7, 16.7, 16.6, 16.7, 16.6, 16.7, 16.7, 16.7, 16.6, 16.6, 16.7, 16.7, 16.7, 16.6, 16.7, 16.6, 16.7, 16.7, 16.7, 16.7, 16.6, 16.7, 16.6, 16.6, 16.8, 16.6, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7],
+          "largestNominalGaps": [16.8, 16.8, 16.7, 16.7, 16.7, 16.7, 16.7, 16.7]
+        }
+      }
+    },
+    {
+      "browser": "Edge",
+      "case": "PASS live motion cadence: hosted normal",
+      "metrics": {
+        "fps": 59.99714299293537,
+        "p95": 17.5,
+        "maxGap": 19.600000008940697,
+        "frames": 126,
+        "callback": {
+          "count": 126,
+          "fps": 59.99714299293537,
+          "nominalP95": 16.7,
+          "nominalMax": 16.8,
+          "actualP95": 17.6,
+          "actualMax": 19.6,
+          "tailNominalGaps": [16.7, 16.7, 16.7, 16.6, 16.7, 16.6, 16.7, 16.7, 16.7, 16.6, 16.7, 16.6, 16.8, 16.6, 16.7, 16.6, 16.7, 16.7, 16.7, 16.6, 16.7, 16.6, 16.7, 16.6, 16.7, 16.7, 16.7, 16.7, 16.5, 16.8, 16.6, 16.7, 16.7, 16.7, 16.6, 16.6, 16.7, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.7, 16.7, 16.6, 16.7, 16.6, 16.7, 16.7, 16.7, 16.6, 16.7, 16.6, 16.7, 16.6, 16.7, 16.7, 16.7, 16.7, 16.6, 16.7, 16.6, 16.7, 16.7, 16.7, 16.6, 16.6, 16.7, 16.6, 16.7, 16.8, 16.5, 16.7, 16.7, 16.7, 16.7, 16.6, 16.6, 16.7, 16.7, 16.7, 16.7, 16.6, 16.7, 16.6, 16.7, 16.7, 16.7, 16.6, 16.7, 16.6, 16.7, 16.7, 16.7, 16.6, 16.6, 16.7, 16.7, 16.7, 16.7, 16.6, 16.6, 16.8, 16.6, 16.7, 16.6, 16.7, 16.7, 16.7, 16.6, 16.6, 16.8, 16.6, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.7, 16.6],
+          "largestNominalGaps": [16.8, 16.8, 16.8, 16.8, 16.8, 16.7, 16.7, 16.7]
+        }
+      }
+    },
+    {
+      "browser": "Edge",
+      "case": "PASS live motion cadence: portable low-power",
+      "metrics": {
+        "fps": 29.998571496467687,
+        "p95": 34.599999994039536,
+        "maxGap": 35.900000005960464,
+        "frames": 63,
+        "callback": {
+          "count": 126,
+          "fps": 59.99714299293537,
+          "nominalP95": 16.7,
+          "nominalMax": 16.8,
+          "actualP95": 18.2,
+          "actualMax": 19.9,
+          "tailNominalGaps": [16.6, 16.7, 16.6, 16.7, 16.7, 16.7, 16.6, 16.7, 16.6, 16.7, 16.7, 16.7, 16.6, 16.6, 16.7, 16.7, 16.6, 16.7, 16.7, 16.7, 16.7, 16.6, 16.7, 16.6, 16.7, 16.6, 16.8, 16.6, 16.7, 16.7, 16.6, 16.7, 16.6, 16.7, 16.6, 16.7, 16.6, 16.7, 16.7, 16.7, 16.7, 16.6, 16.6, 16.8, 16.6, 16.7, 16.6, 16.7, 16.7, 16.7, 16.6, 16.7, 16.6, 16.7, 16.6, 16.8, 16.6, 16.7, 16.6, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.7, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.6, 16.7, 16.7, 16.7, 16.6, 16.6, 16.8, 16.6, 16.7, 16.7, 16.7, 16.6, 16.6, 16.7, 16.7, 16.6, 16.7, 16.7, 16.7, 16.6, 16.6, 16.7, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.7, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.6, 16.7, 16.7],
+          "largestNominalGaps": [16.8, 16.8, 16.8, 16.8, 16.7, 16.7, 16.7, 16.7]
+        }
+      }
+    },
+    {
+      "browser": "Edge",
+      "case": "PASS live motion cadence: portable normal",
+      "metrics": {
+        "fps": 59.99714299336108,
+        "p95": 17.399999991059303,
+        "maxGap": 18.099999994039536,
+        "frames": 126,
+        "callback": {
+          "count": 126,
+          "fps": 59.99714299336108,
+          "nominalP95": 16.8,
+          "nominalMax": 16.8,
+          "actualP95": 17.4,
+          "actualMax": 18.1,
+          "tailNominalGaps": [16.6, 16.8, 16.6, 16.7, 16.6, 16.8, 16.6, 16.7, 16.6, 16.7, 16.6, 16.7, 16.6, 16.8, 16.6, 16.7, 16.6, 16.7, 16.6, 16.7, 16.7, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.6, 16.8, 16.6, 16.6, 16.8, 16.6, 16.6, 16.7, 16.7, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.6, 16.8, 16.6, 16.6, 16.7, 16.7, 16.6, 16.7, 16.7, 16.7, 16.6, 16.7, 16.6, 16.8, 16.6, 16.6, 16.7, 16.7, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.7, 16.6, 16.6, 16.7, 16.7, 16.6, 16.8, 16.6, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.6, 16.7, 16.7, 16.6, 16.8, 16.6, 16.6, 16.7, 16.6, 16.7, 16.7, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.7, 16.7, 16.6, 16.7, 16.7, 16.6, 16.6, 16.7, 16.7, 16.7, 16.7, 16.6, 16.6, 16.8, 16.6, 16.7, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7, 16.7, 16.6, 16.7],
+          "largestNominalGaps": [16.8, 16.8, 16.8, 16.8, 16.8, 16.8, 16.8, 16.8]
+        }
+      }
+    },
+    {
+      "browser": "Edge",
+      "case": "PASS immersive frame cadence: hosted 854\u00d7480 DPR1 30fps low-power",
+      "metrics": {
+        "fps": 29.995714897914294,
+        "p95": 34,
+        "maxGap": 37.79999999701977
+      }
+    },
+    {
+      "browser": "Edge",
+      "case": "PASS immersive frame cadence: hosted 854\u00d7480 DPR1 60fps normal",
+      "metrics": {
+        "fps": 60.946576516435755,
+        "p95": 17.400000005960464,
+        "maxGap": 21.099999994039536
+      }
+    },
+    {
+      "browser": "Edge",
+      "case": "PASS immersive frame cadence: portable 854\u00d7480 DPR1 30fps low-power",
+      "metrics": {
+        "fps": 29.998571496467687,
+        "p95": 34,
+        "maxGap": 35.20000000298023
+      }
+    },
+    {
+      "browser": "Edge",
+      "case": "PASS immersive frame cadence: portable 854\u00d7480 DPR1 60fps normal",
+      "metrics": {
+        "fps": 60.9494785964303,
+        "p95": 17.600000008940697,
+        "maxGap": 18.599999994039536
+      }
+    },
+    {
+      "browser": "Edge",
+      "case": "PASS immersive frame cadence: hosted 1280\u00d7720 DPR2 30fps low-power",
+      "metrics": {
+        "fps": 29.997143129183222,
+        "p95": 34.79999999701977,
+        "maxGap": 35.900000005960464
+      }
+    },
+    {
+      "browser": "Edge",
+      "case": "PASS immersive frame cadence: hosted 1280\u00d7720 DPR2 60fps normal",
+      "metrics": {
+        "fps": 60.94367471279031,
+        "p95": 19.100000008940697,
+        "maxGap": 23.600000008940697
+      }
+    },
+    {
+      "browser": "Edge",
+      "case": "PASS rainy habitat cadence: hosted 854\u00d7480 DPR1 30fps low-power",
+      "metrics": {
+        "fps": 29.997143129183222,
+        "p95": 34,
+        "maxGap": 41.20000000298023
+      }
+    },
+    {
+      "browser": "Edge",
+      "case": "PASS rainy habitat cadence: hosted 854\u00d7480 DPR1 60fps normal",
+      "metrics": {
+        "fps": 60.949478595997846,
+        "p95": 17.5,
+        "maxGap": 27.399999991059303
+      }
+    },
+    {
+      "browser": "Edge",
+      "case": "PASS rainy habitat cadence: hosted 1280\u00d7720 DPR2 30fps low-power",
+      "metrics": {
+        "fps": 29.99857149668054,
+        "p95": 33.8999999910593,
+        "maxGap": 34.79999999701977
+      }
+    },
+    {
+      "browser": "Edge",
+      "case": "PASS rainy habitat cadence: hosted 1280\u00d7720 DPR2 60fps normal",
+      "metrics": {
+        "fps": 60.9494785964303,
+        "p95": 18.5,
+        "maxGap": 25
+      }
+    },
+    {
+      "browser": "Edge",
+      "case": "PASS rainy habitat cadence: portable 854\u00d7480 DPR1 30fps low-power",
+      "metrics": {
+        "fps": 29.997143129183222,
+        "p95": 34.5,
+        "maxGap": 37
+      }
+    },
+    {
+      "browser": "Edge",
+      "case": "PASS rainy habitat cadence: portable 854\u00d7480 DPR1 60fps normal",
+      "metrics": {
+        "fps": 60.9436747132227,
+        "p95": 17.600000008940697,
+        "maxGap": 20.700000002980232
+      }
+    },
+    {
+      "browser": "Edge",
+      "case": "PASS rainy habitat cadence: portable 1280\u00d7720 DPR2 30fps low-power",
+      "metrics": {
+        "fps": 29.997143129183222,
+        "p95": 33.79999999701977,
+        "maxGap": 34
+      }
+    },
+    {
+      "browser": "Edge",
+      "case": "PASS rainy habitat cadence: portable 1280\u00d7720 DPR2 60fps normal",
+      "metrics": {
+        "fps": 61.34094151212553,
+        "p95": 17.099999994039536,
+        "maxGap": 19.099999994039536
+      }
+    },
+    {
+      "browser": "Edge",
+      "case": "PASS active meal cadence: hosted 854\u00d7480 DPR1 30fps low-power",
+      "metrics": {
+        "fps": 29.99857149668054,
+        "p95": 34.099999994039536,
+        "maxGap": 35.29999999701977,
+        "frames": 63,
+        "stageBefore": "deliver",
+        "stageAfter": "deliver",
+        "moved": true
+      }
+    },
+    {
+      "browser": "Edge",
+      "case": "PASS active meal cadence: hosted 854\u00d7480 DPR1 60fps normal",
+      "metrics": {
+        "fps": 60.9494785964303,
+        "p95": 17.100000008940697,
+        "maxGap": 17.799999997019768,
+        "frames": 128,
+        "stageBefore": "deliver",
+        "stageAfter": "deliver",
+        "moved": true
+      }
+    },
+    {
+      "browser": "Edge",
+      "case": "PASS active meal cadence: portable 1280\u00d7720 DPR2 30fps low-power",
+      "metrics": {
+        "fps": 29.94865944083107,
+        "p95": 33.79999999701977,
+        "maxGap": 35.3999999910593,
+        "frames": 63,
+        "stageBefore": "deliver",
+        "stageAfter": "deliver",
+        "moved": true
+      }
+    },
+    {
+      "browser": "Edge",
+      "case": "PASS active meal cadence: portable 1280\u00d7720 DPR2 60fps normal",
+      "metrics": {
+        "fps": 60.946576516435755,
+        "p95": 17.200000002980232,
+        "maxGap": 19.799999997019768,
+        "frames": 128,
+        "stageBefore": "deliver",
+        "stageAfter": "deliver",
+        "moved": true
+      }
+    }
+  ],
+  "visualParity": {
+    "pairs": 52,
+    "PNGBytesIdentical": true,
+    "geometryIdentical": true,
+    "pageErrors": 0,
+    "report": "reading-camera-parity-2026-10-29.json"
+  },
+  "retainedInitialFailure": {
+    "source": "3daae2a",
+    "combinedNpmExitCode": 1,
+    "ChromeCadencePasses": 22,
+    "FirefoxCadencePasses": 21,
+    "case": "Firefox portable1280x720DPR2 normal active-meal delivery, Still camera",
+    "fps": 51.42857142857143,
+    "p95Ms": 37,
+    "limitMs": 31,
+    "maxGapMs": 54,
+    "status": "Retained; later matched diagnostic samples do not explain or erase this failed run."
+  },
+  "diagnostic": {
+    "schemaVersion": 1,
+    "harnessSHA256": "49b6972617d82ce97ddac65f8fa0824f3b75dc59d57feaa307eb7ae5f81501bc",
+    "browser": "firefox",
+    "browserVersion": "153.0",
+    "sourceRevision": "99931338f12d5111ea0321cc2690d6588ef59ab9",
+    "authoredStart": "2026-10-05T10:08:05-04:00",
+    "measurementCompleted": true,
+    "samples": 21,
+    "errors": [],
+    "applicationAcceptanceClaim": false
+  },
+  "limits": "Native callbacks, static PNG parity and DOM geometry updates do not establish physical-display presentation or sustained Ally/Vanadium acceptance. Hosted CI is recorded separately; no thresholds were relaxed.",
+  "hostedCI": {
+    "sourceRevision": "99931338f12d5111ea0321cc2690d6588ef59ab9",
+    "runs": [
+      {
+        "id": 40811984797,
+        "Ubuntu": "success",
+        "Windows": "Firefox Time Climber II page.goto timeout30000ms",
+        "macOS": {
+          "status": "failed Chromium dashboard low power",
+          "geometryFPS": 27.954136264569627,
+          "p95Ms": 53.9,
+          "maxGapMs": 55.1,
+          "nativeCallbacksPerSecond": 55.43447360940078
+        }
+      },
+      {
+        "id": 40811993306,
+        "Ubuntu": "success",
+        "Windows": {
+          "status": "failed Firefox rain1280x720DPR2 low power",
+          "hostedOrPortable": "not identified by bounded annotation",
+          "geometryFPS": 29.99062792877226,
+          "p95Ms": 47,
+          "p95LimitMs": 46,
+          "maxGapMs": 48
+        },
+        "macOS": "failure"
+      }
+    ]
+  }
+}

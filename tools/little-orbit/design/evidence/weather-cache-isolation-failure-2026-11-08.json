@@ -1,0 +1,54 @@
+{
+  "schemaVersion": 1,
+  "kind": "weather-cache",
+  "provenance": {
+    "sourceRevision": "d7f8de29ed7b47e5549e6f1219188550f5ba235c",
+    "platform": "linux",
+    "arch": "x64",
+    "node": "v24.19.0",
+    "browser": "chromium",
+    "browserVersion": "151.0.7922.34",
+    "form": "portable",
+    "helperDigest": "842ca9a580fddbb3d72ddfc41ad9534f112dd7e0ae501ea51872e01c4d58203d",
+    "verifierDigest": "0625b95b377e688d85d4f6f02c7700b1221abe635a0be93080df7e701fe600f5"
+  },
+  "context": {
+    "suite": "weather-habitat",
+    "target": "file"
+  },
+  "data": {
+    "phase": "afterReload",
+    "before": {
+      "classification": "usable",
+      "key": "orbit-weather:33.9276:-84.6202:fahrenheit",
+      "unit": "fahrenheit",
+      "rawLength": 167,
+      "truncated": false,
+      "rawSha256": "e628992e927413efd5d722fb5ca3579dbba568c2053cb2d6c81716d29c05e4a9",
+      "weatherStatus": "live",
+      "weatherKind": "snow",
+      "forecast": {
+        "code": 71,
+        "temperature": 68
+      },
+      "storageError": null
+    },
+    "after": {
+      "classification": "absent",
+      "key": "orbit-weather:33.9276:-84.6202:fahrenheit",
+      "unit": "fahrenheit",
+      "rawLength": null,
+      "truncated": false,
+      "rawSha256": null,
+      "weatherStatus": "unavailable",
+      "weatherKind": "unknown",
+      "forecast": null,
+      "storageError": null
+    },
+    "error": {
+      "name": "TimeoutError",
+      "message": "page.waitForFunction: Timeout 30000ms exceeded."
+    }
+  },
+  "traceID": "81669e4dbf45d6b93e864adc44d7e9568598b3cca524a35ed362a1468b785547"
+}
