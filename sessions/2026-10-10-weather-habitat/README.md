@@ -1,3 +1,5 @@
+Local update: [016: Ally spacing install](016-ally-spacing-install.md) records the new artifact installed and restarted, passing focused Edge/Firefox checks and remaining physical/performance acceptance.
+
 # Green House 1 — weather-responsive habitat
 
 Latest: [038 — cache isolation results](038-cache-isolation-results.md), following [037 ownership](037-cache-isolation-ownership.md). The 48-case comparison retains 47 passes and a Chrome portable failure without the high-DPI sibling. This loss occurs in a fresh browser without the sibling. Next is native storage/navigation capture; runtime and portable bytes remain unchanged.
