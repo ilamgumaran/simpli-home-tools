@@ -6,9 +6,30 @@ Start a new session with the [owner prompts and handoff](OWNER-PROMPTS.md). Plan
 
 | Design | Status | Preview |
 | --- | --- | --- |
+| [Firefox stall attribution](FIREFOX-STALL-ATTRIBUTION.md) | Complete 32-case study; attribution limited by profiler timing association | Profiler on/off and full/hidden controls, calibrated content-thread events |
+| [Matched frame-delivery controls](MATCHED-MOTION-CONTROLS.md) | Complete 96-record study; efficiency candidate validated locally | Exact native/app/geometry records, fresh browsers and explicit failing-mode profiles |
+| [Exact callback policy replay](CADENCE-POLICY-REPLAY.md) | Test-only study; production policy unchanged | Cold-start alternatives and independent nominal/entry hindsight bounds on exact CI failures |
+| [Engineering: Zero Workshop](engineering/README.md) | Detailed conceptual plan; E0–E8 proposed, physical proof/research open; no runtime | People-powered calendar, 80 object records, energy paths, three zero-loop groups and staged acceptance |
+| [Shared anatomy and organic movement](ANATOMY-AND-ORGANIC-MOVEMENT.md) | A0 inventory / A1 additive foundation candidate; live scenes remain legacy | [Profiles](ANATOMY-PROFILES.md), [baseline](ANATOMY-BASELINE.md), static workshop skeleton/landmarks; silhouettes and contact/gait rollout pending |
+| [Sage’s connected meal](MEAL-CHOREOGRAPHY.md) | Implemented; full browser/offline and 66 cadence cases pass on session 017’s candidate | Gather, carry, cook, deliver, serve, rest and return |
+| [Organic character motion](ORGANIC-MOTION.md) | Implemented on `feature/woodland-organic-motion` | 30 fps low-power/native-frame rendering, paced planted travel, supported weight shifts and continuous contact/teaching transitions |
+| [Planted walking and tool grips](WALKING-AND-GRIPS.md) | Implemented on `feature/woodland-walking-grips` | Survey ground contacts, map stowing and reachable gathering/cooking work |
+| [Planted Woodland rock contacts](CHARACTER-CONTACTS.md) | Next character step implemented on `feature/woodland-character-contacts` | Authored sockets, one-limb steps, supported body lifts and recovery |
+| [Local installation results](../../../sessions/2026-10-05-woodland-ally/002-ally-to-cloud.md) | Woodland installed; Windows browser suites passed; live inspection pending | Compact-scene feedback and five validation milestones |
+| [Ally install and testing handoff](ALLY-TEST-HANDOFF.md) | Session 033: local full Chrome/Firefox and affected Edge pass; hosted and physical gates open | Current marker-efficiency runtime, portable checksum and separate device checks |
+| [Living-world composition](LIVING-WORLDS.md) | Woodland and Green House 1 implemented; five other worlds proposed | Actual clock: select Woodland |
+| [Green House 1 weather habitat](WEATHER-HABITAT.md) | Session 017 candidate: full browser/offline/cadence checks pass; sustained/device acceptance pending | Existing cached weather drives authored light and precipitation |
+| [Green House 1 community habitat](COMMUNITY-HABITAT.md) | Session 017 candidate: meal/community and full browser/offline/cadence checks pass; sustained/device acceptance pending | Recurring family routines, supervised child play and quiet remembrance |
+| [Visual layers](VISUAL-LAYERS.md), [actions and time](ACTIONS-AND-TIME.md), [stories and philosophy](STORIES-AND-PHILOSOPHY.md) | Detailed reusable contracts and future review gates | Original runtime SVG artwork |
 | [Shared character layers](CHARACTERS.md) | First appearance/equipment/effort implementation; deeper physics and activities deferred | [Interactive character workshop](character-study.html) |
 | [Time Climber II — Mountain of Time](TIME-CLIMBER-V2-PLAN.md) | Initial implementation on development branch; hardware/release review remains | [Original interactive design study](time-climber-ii-preview.html) — download and open in a browser |
 
 The preview has a fixed sample clock and manually selected focus/viewpoints. It does not change settings or connect to the running desk clock. GitHub's file viewer displays its source; download the file to interact with it.
 
 See [architecture](ARCHITECTURE.md), [decision log](DECISIONS.md), [product guide](../PRODUCT.md), and [roadmap](../ROADMAP.md) for context. Keep originals/license notices with artwork. Do not save personal screen captures, device profiles, private settings, credentials, or OS power state here.
+
+- [Woodland refinement and supported work](REFINEMENT-AND-WORK.md): merged size/motion and contact histories, shelter/crossing sockets, teaching and remaining milestones.
+
+[Bounded frame pacing](FRAME-CADENCE.md) records the Woodland/Green House 1 cadence candidate, evidence and unchanged acceptance gates. The [DPR2 rain investigation](RAIN-CADENCE-INVESTIGATION.md) records an isolated native-callback/geometry probe and the next profiling tasks; it does not replace the failed acceptance result.
+
+[Exact CI failure tracing](CI-FAILURE-TRACING.md) documents synchronized native/app/geometry evidence, bounded navigation records, complete notice recovery and pure analysis. [Session 030](../../../sessions/2026-10-10-weather-habitat/030-ci-trace-results.md) records four recovered platform failures and passing local checks; production animation and hosted acceptance gates remain unchanged.

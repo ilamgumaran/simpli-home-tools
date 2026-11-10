@@ -20,6 +20,7 @@ window.ORBIT_CONFIG = {
     companionInterval: 60,
     companionDuration: 12,
     companion: true,
-    cameraMotion: 'gentle'
+    cameraMotion: 'gentle',
+    woodlandView: 'immersive'
   }
 };

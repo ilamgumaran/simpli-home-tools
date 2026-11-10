@@ -1,0 +1,275 @@
+{
+  "schemaVersion": 1,
+  "dateUTC": "2026-10-31",
+  "checkpoint": "33050d7af61c08c9fb1601e04a06dd33c62cc649",
+  "runtimeRevision": "dd6e9d53694d6b5c4667bd0c778635b2779c746e",
+  "portableSha256": "0accb9737b218f4e4d202b368d0277355d114c21758163ae09cb57f61e142b85",
+  "researchRun": 41200331944,
+  "researchCheck": 124534699303,
+  "diagnosticBinMs": 25,
+  "limits": "25ms is an exploratory interval bin, not a gate. Four rounds are descriptive. Sample categories are not CPU time. No originally failing p95 case was captured on Windows.",
+  "hosts": [
+    {
+      "source": "firefox-stall-local-33050d7-2026-10-31.jsonl",
+      "sha256": "2c4ee0bbb2f43355361a6f0680b4e585a2c514becbbe737bc824bd9330fe8063",
+      "actualPlatform": "linux",
+      "browserVersion": "153.0",
+      "records": 16,
+      "conditions": {
+        "full-profiled": {
+          "rounds": 4,
+          "modes": {
+            "low": {
+              "geometryP95Ms": [35,34,35,34],
+              "nativeActualP95Ms": [19,19,19,19],
+              "nativeIntervalCount": 500,
+              "nativeIntervalsAtLeast25Ms": 1,
+              "geometryIntervalsAtLeast25Ms": 248,
+              "sameNativeGeometryHighGapIndices": false,
+              "allResearchGatesPass": true
+            },
+            "normal": {
+              "geometryP95Ms": [18,18,18,18],
+              "nativeActualP95Ms": [18,18,18,18],
+              "nativeIntervalCount": 499,
+              "nativeIntervalsAtLeast25Ms": 1,
+              "geometryIntervalsAtLeast25Ms": 1,
+              "sameNativeGeometryHighGapIndices": true,
+              "allResearchGatesPass": true
+            }
+          },
+          "roundOrder": [0,1,2,3]
+        },
+        "world-hidden-profiled": {
+          "rounds": 4,
+          "modes": {
+            "low": {
+              "geometryP95Ms": [34,34,36,34],
+              "nativeActualP95Ms": [19,19,19,19],
+              "nativeIntervalCount": 500,
+              "nativeIntervalsAtLeast25Ms": 0,
+              "geometryIntervalsAtLeast25Ms": 248,
+              "sameNativeGeometryHighGapIndices": false,
+              "allResearchGatesPass": true
+            },
+            "normal": {
+              "geometryP95Ms": [18,18,18,18],
+              "nativeActualP95Ms": [18,18,19,18],
+              "nativeIntervalCount": 506,
+              "nativeIntervalsAtLeast25Ms": 0,
+              "geometryIntervalsAtLeast25Ms": 0,
+              "sameNativeGeometryHighGapIndices": true,
+              "allResearchGatesPass": true
+            }
+          },
+          "roundOrder": [0,1,2,3]
+        },
+        "full-unprofiled": {
+          "rounds": 4,
+          "modes": {
+            "low": {
+              "geometryP95Ms": [34,34,35,35],
+              "nativeActualP95Ms": [18,18,18,18],
+              "nativeIntervalCount": 500,
+              "nativeIntervalsAtLeast25Ms": 0,
+              "geometryIntervalsAtLeast25Ms": 248,
+              "sameNativeGeometryHighGapIndices": false,
+              "allResearchGatesPass": true
+            },
+            "normal": {
+              "geometryP95Ms": [18,18,18,18],
+              "nativeActualP95Ms": [18,18,18,18],
+              "nativeIntervalCount": 500,
+              "nativeIntervalsAtLeast25Ms": 1,
+              "geometryIntervalsAtLeast25Ms": 1,
+              "sameNativeGeometryHighGapIndices": true,
+              "allResearchGatesPass": true
+            }
+          },
+          "roundOrder": [0,1,2,3]
+        },
+        "world-hidden-unprofiled": {
+          "rounds": 4,
+          "modes": {
+            "low": {
+              "geometryP95Ms": [34,35,34,34],
+              "nativeActualP95Ms": [18,18,18,18],
+              "nativeIntervalCount": 500,
+              "nativeIntervalsAtLeast25Ms": 1,
+              "geometryIntervalsAtLeast25Ms": 248,
+              "sameNativeGeometryHighGapIndices": false,
+              "allResearchGatesPass": true
+            },
+            "normal": {
+              "geometryP95Ms": [18,18,18,18],
+              "nativeActualP95Ms": [18,18,18,18],
+              "nativeIntervalCount": 504,
+              "nativeIntervalsAtLeast25Ms": 0,
+              "geometryIntervalsAtLeast25Ms": 0,
+              "sameNativeGeometryHighGapIndices": true,
+              "allResearchGatesPass": true
+            }
+          },
+          "roundOrder": [0,1,2,3]
+        }
+      },
+      "alignment": [
+        {"globalIndex":0,"kind":"low","offsetStartMs":1232.6490720000002,"offsetEndMs":1232.0186139999996,"offsetMs":1232.333843,"disagreementMs":0.6304580000005444,"uncertaintyMs":3.6304580000005444,"accepted":true,"selectedGapCount":0,"outlierGapCount":0},
+        {"globalIndex":0,"kind":"normal","offsetStartMs":1232.4487330000002,"offsetEndMs":1232.8474729999998,"offsetMs":1232.648103,"disagreementMs":0.39873999999963416,"uncertaintyMs":3.398739999999634,"accepted":true,"selectedGapCount":0,"outlierGapCount":0},
+        {"globalIndex":1,"kind":"low","offsetStartMs":979.6838090000001,"offsetEndMs":980.091966,"offsetMs":979.8878875,"disagreementMs":0.40815699999984645,"uncertaintyMs":3.4081569999998464,"accepted":true,"selectedGapCount":0,"outlierGapCount":0},
+        {"globalIndex":1,"kind":"normal","offsetStartMs":979.7372839999998,"offsetEndMs":979.5612389999997,"offsetMs":979.6492614999997,"disagreementMs":0.17604500000015832,"uncertaintyMs":3.1760450000001583,"accepted":true,"selectedGapCount":0,"outlierGapCount":0},
+        {"globalIndex":4,"kind":"low","offsetStartMs":1001.8668750000002,"offsetEndMs":1001.2559899999997,"offsetMs":1001.5614324999999,"disagreementMs":0.6108850000005077,"uncertaintyMs":3.6108850000005077,"accepted":true,"selectedGapCount":0,"outlierGapCount":0},
+        {"globalIndex":4,"kind":"normal","offsetStartMs":1001.5779469999998,"offsetEndMs":1001.96288,"offsetMs":1001.7704134999999,"disagreementMs":0.38493300000027375,"uncertaintyMs":3.3849330000002738,"accepted":true,"selectedGapCount":0,"outlierGapCount":0},
+        {"globalIndex":6,"kind":"low","offsetStartMs":900.4004690000002,"offsetEndMs":900.7716369999998,"offsetMs":900.586053,"disagreementMs":0.37116799999967043,"uncertaintyMs":3.3711679999996704,"accepted":true,"selectedGapCount":0,"outlierGapCount":0},
+        {"globalIndex":6,"kind":"normal","offsetStartMs":900.5665390000004,"offsetEndMs":900.868982,"offsetMs":900.7177605000002,"disagreementMs":0.30244299999958457,"uncertaintyMs":3.3024429999995846,"accepted":true,"selectedGapCount":0,"outlierGapCount":0},
+        {"globalIndex":10,"kind":"low","offsetStartMs":1100.491337,"offsetEndMs":1101.1755810000004,"offsetMs":1100.8334590000002,"disagreementMs":0.6842440000004899,"uncertaintyMs":3.68424400000049,"accepted":true,"selectedGapCount":0,"outlierGapCount":0},
+        {"globalIndex":10,"kind":"normal","offsetStartMs":1101.0369689999998,"offsetEndMs":1101.3568100000002,"offsetMs":1101.1968895,"disagreementMs":0.31984100000045146,"uncertaintyMs":3.3198410000004515,"accepted":true,"selectedGapCount":0,"outlierGapCount":0},
+        {"globalIndex":11,"kind":"low","offsetStartMs":883.9549769999999,"offsetEndMs":883.3246049999998,"offsetMs":883.6397909999998,"disagreementMs":0.6303720000000794,"uncertaintyMs":3.6303720000000794,"accepted":true,"selectedGapCount":0,"outlierGapCount":0},
+        {"globalIndex":11,"kind":"normal","offsetStartMs":882.9891440000001,"offsetEndMs":883.2342939999999,"offsetMs":883.111719,"disagreementMs":0.24514999999973952,"uncertaintyMs":3.2451499999997395,"accepted":true,"selectedGapCount":1,"outlierGapCount":1},
+        {"globalIndex":13,"kind":"low","offsetStartMs":1025.6930390000002,"offsetEndMs":1026.1678110000003,"offsetMs":1025.9304250000002,"disagreementMs":0.47477200000002995,"uncertaintyMs":3.47477200000003,"accepted":true,"selectedGapCount":0,"outlierGapCount":0},
+        {"globalIndex":13,"kind":"normal","offsetStartMs":1025.3896260000001,"offsetEndMs":1025.8033960000002,"offsetMs":1025.5965110000002,"disagreementMs":0.4137700000001132,"uncertaintyMs":3.413770000000113,"accepted":true,"selectedGapCount":0,"outlierGapCount":0},
+        {"globalIndex":15,"kind":"low","offsetStartMs":915.5025569999998,"offsetEndMs":915.9405539999998,"offsetMs":915.7215554999998,"disagreementMs":0.43799699999999575,"uncertaintyMs":3.4379969999999958,"accepted":true,"selectedGapCount":0,"outlierGapCount":0},
+        {"globalIndex":15,"kind":"normal","offsetStartMs":915.6670620000004,"offsetEndMs":915.2222490000004,"offsetMs":915.4446555000004,"disagreementMs":0.4448130000000674,"uncertaintyMs":3.4448130000000674,"accepted":true,"selectedGapCount":0,"outlierGapCount":0}
+      ],
+      "unprofiledNormalByRound": [
+        {"round":0,"fullGeometryP95Ms":18,"hiddenGeometryP95Ms":18,"fullMinusHiddenMs":0},
+        {"round":1,"fullGeometryP95Ms":18,"hiddenGeometryP95Ms":18,"fullMinusHiddenMs":0},
+        {"round":2,"fullGeometryP95Ms":18,"hiddenGeometryP95Ms":18,"fullMinusHiddenMs":0},
+        {"round":3,"fullGeometryP95Ms":18,"hiddenGeometryP95Ms":18,"fullMinusHiddenMs":0}
+      ],
+      "profiledOutlierGaps": 1,
+      "selectedProfiledGapCount": 1
+    },
+    {
+      "source": "firefox-stall-ci-41200331944.jsonl",
+      "sha256": "cc0efd97874d01d66f08b8955274ccec299920dbb82e2d213909bbd5ee371a2c",
+      "actualPlatform": "win32",
+      "browserVersion": "153.0",
+      "records": 16,
+      "conditions": {
+        "full-profiled": {
+          "rounds": 4,
+          "modes": {
+            "low": {
+              "geometryP95Ms": [33,33,33,34],
+              "nativeActualP95Ms": [17,18,17,17],
+              "nativeIntervalCount": 513,
+              "nativeIntervalsAtLeast25Ms": 0,
+              "geometryIntervalsAtLeast25Ms": 255,
+              "sameNativeGeometryHighGapIndices": false,
+              "allResearchGatesPass": true
+            },
+            "normal": {
+              "geometryP95Ms": [17,17,17,17],
+              "nativeActualP95Ms": [17,17,17,17],
+              "nativeIntervalCount": 522,
+              "nativeIntervalsAtLeast25Ms": 0,
+              "geometryIntervalsAtLeast25Ms": 0,
+              "sameNativeGeometryHighGapIndices": true,
+              "allResearchGatesPass": true
+            }
+          },
+          "roundOrder": [0,1,2,3]
+        },
+        "world-hidden-profiled": {
+          "rounds": 4,
+          "modes": {
+            "low": {
+              "geometryP95Ms": [33,34,33,33],
+              "nativeActualP95Ms": [17,18,17,17],
+              "nativeIntervalCount": 519,
+              "nativeIntervalsAtLeast25Ms": 0,
+              "geometryIntervalsAtLeast25Ms": 258,
+              "sameNativeGeometryHighGapIndices": false,
+              "allResearchGatesPass": true
+            },
+            "normal": {
+              "geometryP95Ms": [17,17,17,17],
+              "nativeActualP95Ms": [17,17,17,17],
+              "nativeIntervalCount": 519,
+              "nativeIntervalsAtLeast25Ms": 0,
+              "geometryIntervalsAtLeast25Ms": 0,
+              "sameNativeGeometryHighGapIndices": true,
+              "allResearchGatesPass": true
+            }
+          },
+          "roundOrder": [0,1,2,3]
+        },
+        "full-unprofiled": {
+          "rounds": 4,
+          "modes": {
+            "low": {
+              "geometryP95Ms": [33,33,33,33],
+              "nativeActualP95Ms": [17,17,17,17],
+              "nativeIntervalCount": 525,
+              "nativeIntervalsAtLeast25Ms": 0,
+              "geometryIntervalsAtLeast25Ms": 260,
+              "sameNativeGeometryHighGapIndices": false,
+              "allResearchGatesPass": true
+            },
+            "normal": {
+              "geometryP95Ms": [18,31,17,18],
+              "nativeActualP95Ms": [17,31,17,18],
+              "nativeIntervalCount": 501,
+              "nativeIntervalsAtLeast25Ms": 22,
+              "geometryIntervalsAtLeast25Ms": 22,
+              "sameNativeGeometryHighGapIndices": true,
+              "allResearchGatesPass": true
+            }
+          },
+          "roundOrder": [0,1,2,3]
+        },
+        "world-hidden-unprofiled": {
+          "rounds": 4,
+          "modes": {
+            "low": {
+              "geometryP95Ms": [33,33,33,33],
+              "nativeActualP95Ms": [17,17,17,17],
+              "nativeIntervalCount": 525,
+              "nativeIntervalsAtLeast25Ms": 0,
+              "geometryIntervalsAtLeast25Ms": 260,
+              "sameNativeGeometryHighGapIndices": false,
+              "allResearchGatesPass": true
+            },
+            "normal": {
+              "geometryP95Ms": [29,18,18,18],
+              "nativeActualP95Ms": [29,18,18,18],
+              "nativeIntervalCount": 501,
+              "nativeIntervalsAtLeast25Ms": 19,
+              "geometryIntervalsAtLeast25Ms": 19,
+              "sameNativeGeometryHighGapIndices": true,
+              "allResearchGatesPass": true
+            }
+          },
+          "roundOrder": [0,1,2,3]
+        }
+      },
+      "alignment": [
+        {"globalIndex":0,"kind":"low","offsetStartMs":757.4647,"offsetEndMs":758.5910000000003,"offsetMs":758.0278500000002,"disagreementMs":1.1263000000003558,"uncertaintyMs":4.126300000000356,"accepted":true,"selectedGapCount":0,"outlierGapCount":0},
+        {"globalIndex":0,"kind":"normal","offsetStartMs":757.0389999999998,"offsetEndMs":757.7061000000003,"offsetMs":757.37255,"disagreementMs":0.6671000000005733,"uncertaintyMs":3.6671000000005733,"accepted":true,"selectedGapCount":0,"outlierGapCount":0},
+        {"globalIndex":1,"kind":"low","offsetStartMs":917.8045000000002,"offsetEndMs":918.0630000000001,"offsetMs":917.9337500000001,"disagreementMs":0.2584999999999127,"uncertaintyMs":3.2584999999999127,"accepted":true,"selectedGapCount":0,"outlierGapCount":0},
+        {"globalIndex":1,"kind":"normal","offsetStartMs":917.9263000000001,"offsetEndMs":917.7178999999996,"offsetMs":917.8220999999999,"disagreementMs":0.208400000000438,"uncertaintyMs":3.208400000000438,"accepted":true,"selectedGapCount":0,"outlierGapCount":0},
+        {"globalIndex":4,"kind":"low","offsetStartMs":709.0171999999998,"offsetEndMs":708.0879999999997,"offsetMs":708.5525999999998,"disagreementMs":0.9292000000000371,"uncertaintyMs":3.929200000000037,"accepted":true,"selectedGapCount":0,"outlierGapCount":0},
+        {"globalIndex":4,"kind":"normal","offsetStartMs":708.4075999999995,"offsetEndMs":707.9952000000003,"offsetMs":708.2013999999999,"disagreementMs":0.41239999999925203,"uncertaintyMs":3.412399999999252,"accepted":true,"selectedGapCount":0,"outlierGapCount":0},
+        {"globalIndex":6,"kind":"low","offsetStartMs":726.4587000000001,"offsetEndMs":726.6779999999999,"offsetMs":726.56835,"disagreementMs":0.21929999999974825,"uncertaintyMs":3.2192999999997483,"accepted":true,"selectedGapCount":0,"outlierGapCount":0},
+        {"globalIndex":6,"kind":"normal","offsetStartMs":726.7365,"offsetEndMs":727.5396000000001,"offsetMs":727.13805,"disagreementMs":0.8031000000000859,"uncertaintyMs":3.803100000000086,"accepted":true,"selectedGapCount":0,"outlierGapCount":0},
+        {"globalIndex":10,"kind":"low","offsetStartMs":757.0142000000001,"offsetEndMs":756.6611000000003,"offsetMs":756.8376500000002,"disagreementMs":0.353099999999813,"uncertaintyMs":3.353099999999813,"accepted":true,"selectedGapCount":0,"outlierGapCount":0},
+        {"globalIndex":10,"kind":"normal","offsetStartMs":756.3278,"offsetEndMs":756.5936000000002,"offsetMs":756.4607000000001,"disagreementMs":0.2658000000001266,"uncertaintyMs":3.2658000000001266,"accepted":true,"selectedGapCount":0,"outlierGapCount":0},
+        {"globalIndex":11,"kind":"low","offsetStartMs":773.6329000000001,"offsetEndMs":773.4147000000003,"offsetMs":773.5238000000002,"disagreementMs":0.218199999999797,"uncertaintyMs":3.218199999999797,"accepted":true,"selectedGapCount":0,"outlierGapCount":0},
+        {"globalIndex":11,"kind":"normal","offsetStartMs":772.9318999999996,"offsetEndMs":773.2083000000002,"offsetMs":773.0700999999999,"disagreementMs":0.276400000000649,"uncertaintyMs":3.276400000000649,"accepted":true,"selectedGapCount":0,"outlierGapCount":0},
+        {"globalIndex":13,"kind":"low","offsetStartMs":724.3229999999999,"offsetEndMs":724.9053000000004,"offsetMs":724.6141500000001,"disagreementMs":0.5823000000004868,"uncertaintyMs":3.5823000000004868,"accepted":true,"selectedGapCount":0,"outlierGapCount":0},
+        {"globalIndex":13,"kind":"normal","offsetStartMs":724.9686000000002,"offsetEndMs":724.3134,"offsetMs":724.6410000000001,"disagreementMs":0.6552000000001499,"uncertaintyMs":3.65520000000015,"accepted":true,"selectedGapCount":0,"outlierGapCount":0},
+        {"globalIndex":15,"kind":"low","offsetStartMs":764.8168000000001,"offsetEndMs":764.5825000000004,"offsetMs":764.6996500000002,"disagreementMs":0.23429999999962092,"uncertaintyMs":3.234299999999621,"accepted":true,"selectedGapCount":0,"outlierGapCount":0},
+        {"globalIndex":15,"kind":"normal","offsetStartMs":764.0019000000002,"offsetEndMs":763.7945,"offsetMs":763.8982000000001,"disagreementMs":0.20740000000023429,"uncertaintyMs":3.2074000000002343,"accepted":true,"selectedGapCount":0,"outlierGapCount":0}
+      ],
+      "unprofiledNormalByRound": [
+        {"round":0,"fullGeometryP95Ms":18,"hiddenGeometryP95Ms":29,"fullMinusHiddenMs":-11},
+        {"round":1,"fullGeometryP95Ms":31,"hiddenGeometryP95Ms":18,"fullMinusHiddenMs":13},
+        {"round":2,"fullGeometryP95Ms":17,"hiddenGeometryP95Ms":18,"fullMinusHiddenMs":-1},
+        {"round":3,"fullGeometryP95Ms":18,"hiddenGeometryP95Ms":18,"fullMinusHiddenMs":0}
+      ],
+      "profiledOutlierGaps": 0,
+      "selectedProfiledGapCount": 0
+    }
+  ]
+}

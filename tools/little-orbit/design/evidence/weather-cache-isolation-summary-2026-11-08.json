@@ -1,0 +1,230 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-11-08 UTC",
+  "sourceCheckpoint": "d7f8de29ed7b47e5549e6f1219188550f5ba235c",
+  "runtimeRevision": "dd6e9d53694d6b5c4667bd0c778635b2779c746e",
+  "portableSha256": "0accb9737b218f4e4d202b368d0277355d114c21758163ae09cb57f61e142b85",
+  "sourceDigests": {
+    "diagnose-weather-cache-isolation.cjs": "d4ea4ac8d9ecbf204a720c8738261609c89fc0c93a0af442347d03f308a99804",
+    "diagnose-weather-cache-isolation-unit.cjs": "f873dae91a2439804865be5d2944612a2d79e3b36fc83f3bea8286124a8c34d1"
+  },
+  "totalCases": 48,
+  "passed": 47,
+  "failed": 1,
+  "browsers": [
+    {
+      "browserLabel": "edge",
+      "exitCode": 0,
+      "caseCount": 16,
+      "passed": 16,
+      "failed": 0,
+      "logSha256": "a710ad00053f632272202b3972e093d2338180c42b5c2f49163823b4d63e9c6d",
+      "caseFileSha256": "07e3fb0537bc34b1bfc8a618116b2a81f8022f7902e1a381d62b4c9134eb254f",
+      "diagnosticsFileSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "browserVersion": "154.0.4258.53",
+      "recordFile": "weather-cache-isolation-edge-2026-11-08.jsonl",
+      "conditions": [
+        {
+          "form": "hosted",
+          "sibling": "present",
+          "passed": 4,
+          "failed": 0
+        },
+        {
+          "form": "hosted",
+          "sibling": "absent",
+          "passed": 4,
+          "failed": 0
+        },
+        {
+          "form": "portable",
+          "sibling": "present",
+          "passed": 4,
+          "failed": 0
+        },
+        {
+          "form": "portable",
+          "sibling": "absent",
+          "passed": 4,
+          "failed": 0
+        }
+      ]
+    },
+    {
+      "browserLabel": "chrome",
+      "exitCode": 1,
+      "caseCount": 16,
+      "passed": 15,
+      "failed": 1,
+      "logSha256": "b5af2a80f87cb04f66419e2d8929588ca3c7913451d191f8d24c9fb05923ade9",
+      "caseFileSha256": "a7930fd4055e870e0bb9367102fba53ee419aca4f99fdd91cbd12defc1176cca",
+      "diagnosticsFileSha256": "79b9334ccaaa0b709aeaf53d6c2aca4a5ec31c26ae095c4c6ca640022cc7e64d",
+      "browserVersion": "151.0.7922.34",
+      "recordFile": "weather-cache-isolation-chrome-2026-11-08.jsonl",
+      "conditions": [
+        {
+          "form": "hosted",
+          "sibling": "present",
+          "passed": 4,
+          "failed": 0
+        },
+        {
+          "form": "hosted",
+          "sibling": "absent",
+          "passed": 4,
+          "failed": 0
+        },
+        {
+          "form": "portable",
+          "sibling": "present",
+          "passed": 4,
+          "failed": 0
+        },
+        {
+          "form": "portable",
+          "sibling": "absent",
+          "passed": 3,
+          "failed": 1
+        }
+      ]
+    },
+    {
+      "browserLabel": "firefox",
+      "exitCode": 0,
+      "caseCount": 16,
+      "passed": 16,
+      "failed": 0,
+      "logSha256": "c7685bd1649875703cd76fa0da14336be21a19f848cca4c823f86ea9270d98f2",
+      "caseFileSha256": "fd08c8c741ac65750f0fcb0abc37e5d82e30df68adc55d726db3e275524050fa",
+      "diagnosticsFileSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "browserVersion": "153.0",
+      "recordFile": "weather-cache-isolation-firefox-2026-11-08.jsonl",
+      "conditions": [
+        {
+          "form": "hosted",
+          "sibling": "present",
+          "passed": 4,
+          "failed": 0
+        },
+        {
+          "form": "hosted",
+          "sibling": "absent",
+          "passed": 4,
+          "failed": 0
+        },
+        {
+          "form": "portable",
+          "sibling": "present",
+          "passed": 4,
+          "failed": 0
+        },
+        {
+          "form": "portable",
+          "sibling": "absent",
+          "passed": 4,
+          "failed": 0
+        }
+      ]
+    }
+  ],
+  "failure": {
+    "caseTraceID": "b5a9451b29db0a093041ac346f3da4a5d59b457d78d43e90ca581b814db02447",
+    "diagnosticTraceID": "81669e4dbf45d6b93e864adc44d7e9568598b3cca524a35ed362a1468b785547",
+    "diagnosticFile": "weather-cache-isolation-failure-2026-11-08.json",
+    "before": "usable",
+    "after": "absent",
+    "keyUnchanged": true,
+    "unitUnchanged": true,
+    "error": "original cached status wait timed out after 30000ms"
+  },
+  "canonicalEdgeControl": {
+    "sourceCheckpoint": "d7f8de29ed7b47e5549e6f1219188550f5ba235c",
+    "testSha256": "0625b95b377e688d85d4f6f02c7700b1221abe635a0be93080df7e701fe600f5",
+    "helperSha256": "842ca9a580fddbb3d72ddfc41ad9534f112dd7e0ae501ea51872e01c4d58203d",
+    "execution": "Unmodified current verifier; native Edge 154, Chromium engine",
+    "exitCode": 0,
+    "logSha256": "abe3be73b0665770cdaea9f224090f7aa592f6e919f5ef9c92d8d9dcda0a92ed",
+    "weatherFormsPassed": 2,
+    "rainCadence": [
+      {
+        "case": "PASS rainy habitat cadence: hosted 854\u00d7480 DPR1 30fps low-power",
+        "metrics": {
+          "fps": 29.99428680242869,
+          "p95": 34.19999998807907,
+          "maxGap": 47.69999998807907
+        }
+      },
+      {
+        "case": "PASS rainy habitat cadence: hosted 854\u00d7480 DPR1 60fps normal",
+        "metrics": {
+          "fps": 60.45891649936139,
+          "p95": 17.599999994039536,
+          "maxGap": 38.30000001192093
+        }
+      },
+      {
+        "case": "PASS rainy habitat cadence: hosted 1280\u00d7720 DPR2 30fps low-power",
+        "metrics": {
+          "fps": 29.99714312897039,
+          "p95": 35.20000001788139,
+          "maxGap": 36
+        }
+      },
+      {
+        "case": "PASS rainy habitat cadence: hosted 1280\u00d7720 DPR2 60fps normal",
+        "metrics": {
+          "fps": 60.94367471279031,
+          "p95": 17.599999994039536,
+          "maxGap": 23.400000005960464
+        }
+      },
+      {
+        "case": "PASS rainy habitat cadence: portable 854\u00d7480 DPR1 30fps low-power",
+        "metrics": {
+          "fps": 29.997143129396054,
+          "p95": 35,
+          "maxGap": 46.5
+        }
+      },
+      {
+        "case": "PASS rainy habitat cadence: portable 854\u00d7480 DPR1 60fps normal",
+        "metrics": {
+          "fps": 60.94657651686818,
+          "p95": 18.900000005960464,
+          "maxGap": 23.200000017881393
+        }
+      },
+      {
+        "case": "PASS rainy habitat cadence: portable 1280\u00d7720 DPR2 30fps low-power",
+        "metrics": {
+          "fps": 29.518187012332778,
+          "p95": 36.69999998807907,
+          "maxGap": 60.900000005960464
+        }
+      },
+      {
+        "case": "PASS rainy habitat cadence: portable 1280\u00d7720 DPR2 60fps normal",
+        "metrics": {
+          "fps": 60.92916984057954,
+          "p95": 19.599999994039536,
+          "maxGap": 24.5
+        }
+      }
+    ]
+  },
+  "independentValidation": {
+    "caseAndDiagnosticRecords": 49,
+    "hashesAndNoticesMatch": true,
+    "completeWilliamsSchedulePerBrowser": true,
+    "sourceDigestsMatch": true,
+    "diagnosticReadErrors": 0
+  },
+  "interpretation": "Failure reproduced in fresh Chrome without the sibling or prior hosted navigation in that browser. Neither is required for this captured failure. No root cause or product fix established.",
+  "limits": [
+    "Linux desktop browser research; no physical Ally/Vanadium or new hosted acceptance.",
+    "Sibling-present is canonical only through the first cached restoration; later fixture and cadence tests are excluded.",
+    "Fresh browser per case differs from full canonical shared-browser ordering.",
+    "One failure does not establish comparative reliability or failure rates.",
+    "Earlier Edge and Firefox timing failures remain retained at their original checkpoints."
+  ]
+}

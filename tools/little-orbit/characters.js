@@ -5,11 +5,16 @@
  'use strict';
  const freeze=value=>{if(value&&typeof value==='object'){Object.values(value).forEach(freeze);Object.freeze(value);}return value;};
  const clamp=(n,a=0,b=1)=>Math.max(a,Math.min(b,n)),lerp=(a,b,t)=>a+(b-a)*t;
+ const ease=t=>{const p=clamp(t);return p*p*p*(p*(p*6-15)+10);};
  const palette={skin:'#c68d67',jacket:'#91bbaa',trousers:'#68758c',helmet:'#e6b567',pack:'#bd7f70',boots:'#394d48',harness:'#dfc784',metal:'#c3d4d2',rope:'#d6b77a',ink:'#182a29',outline:'#d1aaba',highlight:'#d5b7c5',eyes:'#182a29'};
  const identities=freeze({
   candy:{name:'Pip',body:'drop',face:'cheerful',appearance:{...palette,skin:'#ad8fad',jacket:'#89bba3',trousers:'#ab92b9',helmet:'#b7a575',pack:'#958563',harness:'#bba778',ink:'#342737',eyes:'#17141e'},temperament:'Playful, curious, happy to help.'},
   moss:{name:'Moss',body:'drop',face:'cheerful',appearance:{...palette,jacket:'#b597a9',pack:'#718f70'},temperament:'Patient trail companion; celebrates small gains.'},
+  sprout:{name:'Sprout',young:true,body:'drop',face:'cheerful',appearance:{...palette,jacket:'#c9bb75',pack:'#8ca89a',helmet:'#d19d79'},temperament:'Young trail learner; notices what adults hurry past.'},
   ridge:{name:'Ridge',body:'human',face:'cheerful',appearance:{...palette},temperament:'Comic, determined climber; takes recovery seriously.'}
+  ,aster:{name:'Aster',body:'human',face:'gentle',appearance:{...palette,jacket:'#779d87',trousers:'#675b55',pack:'#c59d70',helmet:'#d7b77b'},temperament:'Steady shelter keeper and patient parent.'}
+  ,sage:{name:'Sage',body:'human',face:'gentle',appearance:{...palette,jacket:'#9b8095',trousers:'#5b6870',pack:'#91a47b',helmet:'#d9ba86'},temperament:'Curious forager, cook, and gentle teacher.'}
+  ,pebble:{name:'Pebble',young:true,infant:true,body:'swaddled',face:'sleeping',appearance:{...palette,jacket:'#e6d6b8',trousers:'#d4bca1',pack:'#a6b8a0',helmet:'#e6d6b8'},temperament:'A newborn, always cared for by an adult.'}
  });
  // A catalog is available equipment, not a claim that one person carries all of it.
  const groups={
@@ -25,18 +30,22 @@
  };
  const items=freeze(Object.fromEntries(Object.entries(groups).flatMap(([category,rows])=>rows.map(([id,name,attachment])=>[id,{id,name,category,attachment,essential:category==='protection',use:category==='protection'?'always':id==='ascender'?'deadline-assistance':'activity'}]))));
  const roles=freeze({
+  expedition:{name:'Woodland expedition guide',available:Object.keys(items),carried:['helmet','harness','locking-carabiner','belay-device','dynamic-rope','static-rope','personal-tether','climbing-shoes','gloves','backpack','bottle','filter','first-aid','firesteel','tinder','pot','spoon','cord','saw','map','compass','ascender','foot-loop'],optionalAid:'ascender'},
   climbing:{name:'Rock climber',available:[...groups.protection,...groups.climbing,...groups.alpine,...groups.backpacking,...groups.food].map(row=>row[0]),carried:['helmet','harness','locking-carabiner','belay-device','dynamic-rope','climbing-shoes','personal-tether','gloves','backpack','bottle','energy-bar','chalk','quickdraws','nuts','cams','static-rope','ascender','foot-loop','first-aid'],optionalAid:'ascender'},
   trail:{name:'Trail / trials explorer',available:[...groups.trail,...groups.backpacking,...groups.food].map(row=>row[0]),carried:['trail-shoes','poles','map','compass','backpack','bottle','filter','trail-mix','rain-shell','first-aid','headlamp']},
   backpacking:{name:'Backpacker',available:[...groups.backpacking,...groups.trail,...groups.food].map(row=>row[0]),carried:['backpack','trail-shoes','bottle','filter','map','compass','sleeping-bag','sleeping-mat','shelter','stove','fuel','pot','oats','first-aid']},
-  bushcraft:{name:'Bushcraft cook',available:[...groups.bushcraft,...groups.backpacking,...groups.food].map(row=>row[0]),carried:['backpack','bottle','filter','tarp','cord','knife','saw','work-gloves','firesteel','tinder','pot','rice','beans','first-aid']},
+  bushcraft:{name:'Bushcraft cook',available:[...groups.bushcraft,...groups.backpacking,...groups.food].map(row=>row[0]),carried:['backpack','bottle','filter','tarp','cord','knife','saw','work-gloves','firesteel','tinder','pot','spoon','rice','beans','first-aid']},
   farming:{name:'Grower',available:[...groups.farming,...groups.backpacking,...groups.food].map(row=>row[0]),carried:['trowel','seeds','backpack','bottle','fresh-produce','first-aid']},
   hunting:{name:'Forager / hunter',available:[...groups.hunting,...groups.backpacking,...groups.food].map(row=>row[0]),carried:['backpack','bottle','binoculars','fishing-kit','field-kit','food-bag','first-aid']},
   play:{name:'Playful helper',available:[],carried:[]}
+  ,caregiver:{name:'Camp caregiver',available:['backpack','bottle','oats','fresh-produce','harvest-basket','stove','pot','spoon','tarp','cord','first-aid','thermal-layer'],carried:['backpack','bottle','oats','fresh-produce','pot','spoon','first-aid']}
+  ,infant:{name:'Newborn in adult care',available:[],carried:[]}
  });
- const themes=freeze({orbit:null,candy:{character:'candy',role:'play'},climber:{character:'moss',role:'climbing'},climber2:{character:'ridge',role:'climbing'}});
+ const themes=freeze({orbit:null,candy:{character:'candy',role:'play'},climber:{character:'moss',role:'climbing'},climber2:{character:'ridge',role:'climbing'},woodland:{character:'moss',role:'trail'}});
  const anatomy=freeze({shoulders:[{x:-6,y:-10},{x:6,y:-10}],hips:[{x:-4,y:8},{x:4,y:8}],upperArm:12,forearm:11,thigh:12,shin:12,belayLoop:{x:0,y:9}});
  function create(id,{role='climbing',appearance={}}={}){
-  if(!identities[id]||!roles[role])throw Error('Unknown character or role');
+  if(!Object.hasOwn(identities,id)||!Object.hasOwn(roles,role))throw Error('Unknown character or role');
+  if(!!identities[id].infant!==(role==='infant'))throw Error('Infant identity and role must be used together');
   const colors={...identities[id].appearance};
   for(const key of Object.keys(appearance)){
    if(!(key in colors)||!/^#[0-9a-f]{6}$/i.test(appearance[key]))throw Error('Appearance expects a known color and six-digit hex value');
@@ -47,7 +56,7 @@
  function forTheme(theme){
   const binding=themes[theme];if(!binding)return null;
   const chosen=globalThis.ORBIT_CONFIG?.characters?.[theme]||binding.character;
-  return create(identities[chosen]?chosen:binding.character,{role:binding.role});
+  return create(identities[chosen]&&!identities[chosen].infant?chosen:binding.character,{role:binding.role});
  }
  // Two-link inverse kinematics: targets are clamped to anatomical reach.
  function joint(root,target,a,b,bend=1){
@@ -56,12 +65,17 @@
   const middle={x:root.x+a*Math.cos(angle+bend*offset),y:root.y+a*Math.sin(angle+bend*offset)};
   return [root,middle,{x:root.x+d*Math.cos(angle),y:root.y+d*Math.sin(angle)}];
  }
- function pose(action='camp',cycle=0){
-  const climbing=['climb','assist','rappel'].includes(action),rest=['rest','camp','sleep','collect'].includes(action);
-  const c=((cycle%1)+1)%1,step=Math.floor(c*4),t=(c*4)%1,lift=Math.sin(t*Math.PI);
+ function pose(action='camp',cycle=0,{from=null,fromCycle=cycle,blend=1}={}){
+  const climbing=['climb','assist','rappel'].includes(action),rest=['rest','camp','sleep','collect','recover-climb'].includes(action);
+  const c=((cycle%1)+1)%1,step=Math.floor(c*4),t=(c*4)%1,lift=Math.sin(t*Math.PI)**2,wave=Math.sin(c*Math.PI*2);
   const hands=climbing?[{x:-12,y:-27},{x:12,y:-24}]:[{x:-13,y:2},{x:13,y:2}];
   const feet=rest?[{x:-15,y:23},{x:15,y:23}]:[{x:-8,y:30},{x:8,y:30}];
   const contacts={leftHand:climbing,rightHand:climbing,leftFoot:true,rightFoot:true};
+  // Camp tasks keep their own supported stance. The cosine beat arrives and
+  // leaves each cycle at zero velocity; it does not alter the shared gait.
+  const pulse=(1-Math.cos(c*Math.PI*2))/2;
+  let task=null;
+  const kneel=()=>{feet[0]={x:-16,y:20};feet[1]={x:16,y:20};};
   if(climbing){
    // Move one appendage at a time: the other three remain supporting contacts.
    if(step===0){hands[0].y+=lift*5;contacts.leftHand=lift<.001;}
@@ -69,27 +83,182 @@
    if(step===2){hands[1].y+=lift*5;contacts.rightHand=lift<.001;}
    if(step===3){feet[1].y-=lift*7;contacts.rightFoot=lift<.001;}
   }else if(action==='walk'||action==='traverse'){
-   feet[0].x+=Math.sin(c*Math.PI*2)*4;feet[1].x-=Math.sin(c*Math.PI*2)*4;
-   feet[step<2?0:1].y-=lift*3;
+   // Smooth swing and planted stance, with opposite arm/leg timing.
+   feet[0].x+=wave*7;feet[1].x-=wave*7;
+   feet[0].y-=Math.max(0,wave)**2*5;feet[1].y-=Math.max(0,-wave)**2*5;
+   hands[0].x-=wave*4;hands[1].x+=wave*4;
+   hands[0].y-=Math.max(0,-wave)*3;hands[1].y-=Math.max(0,wave)*3;
   }else if(action==='cast'){hands[0]={x:-11,y:-24};}
+  else if(action==='gather'){hands[0]={x:-17+wave*2,y:9-wave*2};hands[1]={x:15,y:7};}
+  else if(action==='build'){hands[0]={x:-18,y:-8-wave*3};hands[1]={x:20,y:-13};}
+  else if(action==='water'){hands[0]={x:-3,y:-19+wave};hands[1]={x:17,y:1};}
+  else if(action==='cook'){hands[0]={x:-16,y:3};hands[1]={x:20+wave*2,y:-2+Math.cos(c*Math.PI*2)*2};}
+  else if(action==='teach'||action==='read-map'){hands[0]={x:-20,y:-14+wave*2};hands[1]={x:16,y:0};}
+  else if(action==='listen'){hands[0]={x:-12,y:4};hands[1]={x:12,y:4};}
+  else if(action==='recover-climb'){hands[0]={x:-12,y:-27};hands[1]={x:13,y:2};feet[0]={x:-12,y:30};feet[1]={x:12,y:30};contacts.leftHand=true;}
+  else if(action==='pave'){
+   kneel();hands[0]={x:-14,y:1+5*pulse};hands[1]={x:16,y:5+4*pulse};
+   task={stance:'kneel',groundY:20,kind:'stone',hand:1,tip:{x:16,y:12+4*pulse}};
+  }else if(action==='rake-sand'){
+   feet[0]={x:-10,y:30};feet[1]={x:10,y:30};
+   hands[0]={x:0,y:(50*pulse-240)/17};hands[1]={x:8,y:2*pulse};
+   task={stance:'stand',groundY:30,kind:'rake',hand:1,secondHand:0,tip:{x:25,y:30}};
+  }else if(action==='carry-wood'){
+   feet[0]={x:-10,y:30};feet[1]={x:10,y:30};
+   hands[0]={x:-13,y:3+.5*pulse};hands[1]={x:13,y:3+.5*pulse};
+   task={stance:'stand',groundY:30,kind:'log',hand:0,secondHand:1,tip:{x:20,y:3+.5*pulse}};
+  }else if(action==='kindle-fire'){
+   kneel();hands[0]={x:3,y:4};hands[1]={x:15+2*pulse,y:7+2*pulse};
+   task={stance:'kneel',groundY:20,kind:'firesteel',hand:1,secondHand:0,tip:{x:24,y:14}};
+  }else if(action==='fill-water'){
+   kneel();hands[0]={x:-13,y:4};hands[1]={x:13,y:8+2*pulse};
+   task={stance:'kneel',groundY:20,kind:'filter-bottle',hand:1,tip:{x:13,y:20}};
+  }else if(action==='wade'||action==='play-water'){
+   const leftLift=Math.max(0,wave)**2*3,rightLift=Math.max(0,-wave)**2*3;
+   feet[0]={x:-9,y:30-leftLift};feet[1]={x:9,y:30-rightLift};
+   contacts.leftFoot=leftLift<1e-8;contacts.rightFoot=rightLift<1e-8;
+   hands[0]={x:-13,y:1-3*pulse};hands[1]={x:13+2*pulse,y:1+3*pulse};
+   task={stance:'shallow-water',groundY:30,...(action==='play-water'?{kind:'splash',hand:1,tip:{x:19,y:18}}:{})};
+  }else if(action==='play-sand'){
+   kneel();hands[0]={x:-12,y:8-2*pulse};hands[1]={x:14,y:7+2*pulse};
+   task={stance:'kneel',groundY:20,kind:'sand-stick',hand:1,tip:{x:20,y:20}};
+  }else if(action==='stir-pot'){
+   hands[0]={x:-14,y:3};hands[1]={x:14+4*pulse,y:-1+2*pulse};
+   task={stance:'stand',groundY:30,kind:'spoon',hand:1,tip:{x:20+2*pulse,y:12}};
+  }else if(action==='tent-peg'){
+   kneel();hands[0]={x:-12,y:4};hands[1]={x:15,y:1-6*pulse};
+   task={stance:'kneel',groundY:20,kind:'mallet',hand:1,tip:{x:20,y:20-6*pulse}};
+  }else if(action==='cradle-care'){
+   // Two reachable, quiet hand contacts support a horizontal swaddled infant;
+   // legs remain planted and only the breath beat moves the upper body subtly.
+   const cradleBreath=Math.sin(c*Math.PI*2)*.22;
+   hands[0]={x:-9,y:-7+cradleBreath};hands[1]={x:8,y:-4+cradleBreath};
+  }else if(action==='kneel'){
+   kneel();hands[0]={x:-12,y:2};hands[1]={x:12,y:2};
+  }
+
+  // Blend targets before IK, so transitions retain fixed bone lengths.
+  if(from&&blend<1){
+   const previous=pose(from,fromCycle),amount=clamp(blend);
+   hands.forEach((p,i)=>{p.x=lerp(previous.arms[i][2].x,p.x,amount);p.y=lerp(previous.arms[i][2].y,p.y,amount);});
+   feet.forEach((p,i)=>{p.x=lerp(previous.legs[i][2].x,p.x,amount);p.y=lerp(previous.legs[i][2].y,p.y,amount);});
+  }
   const arms=hands.map((p,i)=>joint(anatomy.shoulders[i],p,anatomy.upperArm,anatomy.forearm,i?-1:1));
   const legs=feet.map((p,i)=>joint(anatomy.hips[i],p,anatomy.thigh,anatomy.shin,i?1:-1));
-  return {arms,legs,contacts,resting:rest};
+  const result={arms,legs,contacts,resting:rest};
+  if(task){
+   result.stance=task.stance;result.groundY=task.groundY;
+   // The scene can place the root from this support plane while settling
+   // from a standing pose to folded knees, without pushing boots underground.
+   if(from&&blend<1){
+    result.groundY=Math.max(...legs.flatMap(limb=>limb.slice(1).map(point=>point.y)));
+    contacts.leftFoot=Math.abs(legs[0][2].y-result.groundY)<1e-8;
+    contacts.rightFoot=Math.abs(legs[1][2].y-result.groundY)<1e-8;
+   }
+   if(task.kind){
+    result.prop={kind:task.kind,hand:task.hand,grip:{...arms[task.hand][2]},tip:{...task.tip}};
+    if(task.secondHand!==undefined)result.prop.secondGrip={...arms[task.secondHand][2]};
+   }
+  }
+  return result;
  }
  // Stylized effort model per ascent: a mandatory hold-and-recover interval.
  // Pure progress sampling avoids integrating hidden-tab time or missed frames.
  function ascent(progress,remainingSeconds=Infinity){
   const p=clamp(progress),resting=p>=.34&&p<.5;
   let distance,fatigue;
-  if(p<.34){distance=p/.34*.4;fatigue=lerp(.12,.72,p/.34);}
+  if(p<.34){distance=ease(p/.34)*.4;fatigue=lerp(.12,.72,p/.34);}
   else if(p<.5){distance=.4;fatigue=lerp(.72,.24,(p-.34)/.16);}
-  else{distance=lerp(.4,1,(p-.5)/.5);fatigue=lerp(.24,.76,(p-.5)/.5);}
+  else{distance=lerp(.4,1,ease((p-.5)/.5));fatigue=lerp(.24,.76,(p-.5)/.5);}
   const assisted=!resting&&p>.85&&remainingSeconds>=0&&remainingSeconds<1.5;
   return {progress:distance,fatigue,resting,assisted,action:resting?'rest':assisted?'assist':'climb'};
  }
- const path=points=>points.map((p,i)=>`${i?'L':'M'}${p.x.toFixed(2)} ${p.y.toFixed(2)}`).join(' ');
+ // Authored world-space stations: four limb transfers, then a supported body lift.
+ // Sampling stays deterministic across resize, clock jumps and missed frames.
+ function climbContacts(route,progress,{resting=false}={}){
+  const names=['leftHand','leftFoot','rightHand','rightFoot'],stations=route.stations;
+  if(!Number.isFinite(progress)||!(route.scale>0)||stations.length<2)throw Error('Invalid contact route');
+  const at=clamp(progress)*(stations.length-1),index=Math.min(stations.length-2,Math.floor(at));
+  const local=at-index,stage=Math.min(4,Math.floor(local*5+1e-9)),t=clamp(local*5-stage),smooth=ease(t);
+  const before=stations[index],after=stations[index+1];
+  // Shift weight over the support, then rise as the feet advance. Waiting for
+  // all four transfers and lifting only at the end produces a mechanical jerk.
+  // The first rise stays small while the old right foothold is still loaded.
+  const rise=.375*ease((local-.2)/.4)+.625*ease((local-.6)/.4);
+  const weight=Math.sin(local*Math.PI*2)*Math.sin(local*Math.PI)**2;
+  const root={x:lerp(before.root.x,after.root.x,ease(local))+route.scale*1.15*weight,y:lerp(before.root.y,after.root.y,rise)};
+  const targets={},contacts={},holds={};
+  names.forEach((name,i)=>{
+   const completed=i<stage,current=i===stage&&stage<4,start=before[name],end=after[name];
+   // A released foot lifts away from the wall and arrives with zero velocity.
+   const clearance=name.endsWith('Foot')?Math.sin(t*Math.PI)**2*route.scale*2:0;
+   targets[name]=completed?{x:end.x,y:end.y}:current?{x:lerp(start.x,end.x,smooth)+clearance,y:lerp(start.y,end.y,smooth)}:{x:start.x,y:start.y};
+   contacts[name]=!current||t===0||t===1;
+   holds[name]=contacts[name]?(completed||t===1?end.id:start.id):null;
+  });
+  const relative=name=>({x:(targets[name].x-root.x)/route.scale,y:(targets[name].y-root.y)/route.scale});
+  const solve=(origin,target,a,b,bend)=>{
+   const distance=Math.hypot(target.x-origin.x,target.y-origin.y);
+   if(distance>a+b-.01||distance<Math.abs(a-b)+.01)throw Error('Authored hold outside limb reach');
+   return joint(origin,target,a,b,bend);
+  };
+  const arms=['leftHand','rightHand'].map((name,i)=>solve(anatomy.shoulders[i],relative(name),anatomy.upperArm,anatomy.forearm,i?-1:1));
+  const legs=['leftFoot','rightFoot'].map((name,i)=>solve(anatomy.hips[i],relative(name),anatomy.thigh,anatomy.shin,i?1:-1));
+  return {root,targets,holds,stage,moving:stage<4&&t>0&&t<1?names[stage]:null,arms,legs,contacts,resting};
+ }
+ function walkContacts(route,progress,{action='walk'}={}){
+  if(!Number.isFinite(progress)||!(route.scale>0)||!Number.isInteger(route.steps)||route.steps<1)throw Error('Invalid walking route');
+  const at=clamp(progress)*route.steps,index=Math.min(route.steps-1,Math.floor(at)),t=at-index,stride=route.stride,scale=route.scale;
+  const lift=Math.sin(t*Math.PI)**2;
+  // Supporting knees compress during weight transfer; the stance foot remains
+  // in world space while the body and the opposite arm follow the walking beat.
+  const root={x:route.origin.x+at*stride,y:route.origin.y-.65*scale*lift};
+  const leftMoves=index%2===0,start=[route.origin.x-stride/2,route.origin.x+stride/2];
+  const targets={},holds={},contacts={leftHand:false,rightHand:false};
+  ['leftFoot','rightFoot'].forEach((name,i)=>{
+   const completed=Math.floor((index+(i===0?1:0))/2),x=start[i]+completed*2*stride,moving=i===(leftMoves?0:1);
+   const groundX=moving?x+2*stride*ease(t):x;
+   targets[name]={x:groundX,y:route.groundY-(moving?lift*4*scale:0)};
+   contacts[name]=!moving||t===0||t===1;
+   holds[name]=contacts[name]?{x:groundX,y:route.groundY}:null;
+  });
+  const base=pose(action,progress*route.steps);
+  const armBeat=-Math.cos(at*Math.PI);
+  const arms=action==='walk'||action==='traverse'?[{x:-13-armBeat*4,y:2-Math.max(0,armBeat)**2*2},{x:13+armBeat*4,y:2-Math.max(0,-armBeat)**2*2}].map((target,i)=>joint(anatomy.shoulders[i],target,anatomy.upperArm,anatomy.forearm,i?-1:1)):base.arms;
+  const legs=['leftFoot','rightFoot'].map((name,i)=>{
+   const target={x:(targets[name].x-root.x)/scale,y:(targets[name].y-root.y)/scale},hip=anatomy.hips[i];
+   if(Math.hypot(target.x-hip.x,target.y-hip.y)>anatomy.thigh+anatomy.shin-.01)throw Error('Authored ground outside limb reach');
+   return joint(hip,target,anatomy.thigh,anatomy.shin,i?1:-1);
+  });
+  return {...base,root,arms,legs,targets,holds,contacts,resting:action!=='walk'};
+ }
+ // Place a tool by a named local grip, with its working end at the work socket.
+ function toolGrip(hand,work,{length=14,grip={x:0,y:0}}={}){
+  const angle=Math.atan2(work.y-hand.y,work.x-hand.x),c=Math.cos(angle),s=Math.sin(angle);
+  return {angle:angle*180/Math.PI,x:hand.x-grip.x*c+grip.y*s,y:hand.y-grip.x*s-grip.y*c,tip:{x:hand.x+length*c,y:hand.y+length*s}};
+ }
+ function workContacts({root,scale,groundY,work,hand=0,angle=Math.PI/2,length=14,action='gather',cycle=0,sway=1}){
+  const base=pose(action,cycle),beat=cycle*Math.PI*2;
+  // Move the hips over a fixed stance without letting either foot or the tool
+  // socket slide. This small supported shift gives the working arm a full body.
+  const supported={x:root.x+Math.sin(beat)*.5*scale*clamp(sway),y:root.y+Math.sin(beat/2)**2*.3*scale*clamp(sway)};
+  const target={x:(work.x-supported.x)/scale,y:(work.y-supported.y)/scale};
+  const wrist={x:target.x-length*Math.cos(angle),y:target.y-length*Math.sin(angle)},shoulder=anatomy.shoulders[hand];
+  if(Math.hypot(wrist.x-shoulder.x,wrist.y-shoulder.y)>anatomy.upperArm+anatomy.forearm-.01)throw Error('Work socket outside hand reach');
+  const arms=base.arms.slice();arms[hand]=joint(shoulder,wrist,anatomy.upperArm,anatomy.forearm,hand?-1:1);
+  const targets={},holds={};
+  const legs=[-12,12].map((x,i)=>{
+   const name=i?'rightFoot':'leftFoot',world={x:root.x+x*scale,y:groundY};targets[name]=world;holds[name]={...world};
+   const foot={x:(world.x-supported.x)/scale,y:(world.y-supported.y)/scale},hip=anatomy.hips[i];
+   if(Math.hypot(foot.x-hip.x,foot.y-hip.y)>anatomy.thigh+anatomy.shin-.01)throw Error('Work stance outside limb reach');
+   return joint(hip,foot,anatomy.thigh,anatomy.shin,i?1:-1);
+  });
+  return {...base,root:supported,arms,legs,targets,holds,toolTarget:target,toolHand:hand,contacts:{leftHand:false,rightHand:false,leftFoot:true,rightFoot:true}};
+ }
+ const path=points=>points.map((p,i)=>`${i?'L':'M'}${p.x.toFixed(3)} ${p.y.toFixed(3)}`).join(' ');
  function artwork(character){
-  const c=character.appearance,climbing=character.role==='climbing',has=id=>character.inventory.includes(id);
+  if(character.infant)return infantArtwork(character);
+  const c=character.appearance,climbing=character.inventory.includes('helmet')&&character.inventory.includes('harness'),has=id=>character.inventory.includes(id);
   const body=character.body==='drop'?'M0 -19C-3 -13 -10 -9 -9 -2Q-9 10 0 10Q10 10 10 -2C10 -9 3 -13 0 -19Z':'M-6 -13Q0 -16 6 -13L8 7Q0 11 -8 7Z';
   return `<g class="character-art" data-character="${character.id}" data-role="${character.role}" style="--character-skin:${c.skin};--character-ink:${c.ink}">
    <g data-layer="equipment-back"><g class="character-pack" ${has('backpack')?'':'display="none"'} fill="${c.pack}" stroke="${c.ink}" stroke-width="1.2"><rect x="7" y="-14" width="10" height="22" rx="4"/><path d="M9 -8H15M10 -14V-18H15V-14" fill="none"/><rect x="8" y="-21" width="12" height="5" rx="2" fill="${c.trousers}"/><rect x="16" y="-3" width="3" height="7" rx="1" fill="#82b9c1"/></g></g>
@@ -97,32 +266,50 @@
    <g data-layer="body"><path d="${body}" fill="${c.jacket}" stroke="${c.ink}" stroke-width="1.2"/><path d="M-5 -12L-3 4M5 -12L3 4" fill="none" stroke="${c.pack}" stroke-width="1.5"/><path d="M0 -11V4" stroke="${c.ink}" stroke-width=".8"/></g>
    <g data-layer="face"><circle cy="-23" r="7.3" fill="${c.skin}" stroke="${c.ink}" stroke-width="1.2"/><path data-part="eyes" d="M-3 -24V-22M3 -24V-22" fill="none" stroke="${c.ink}" stroke-width="1.2" stroke-linecap="round"/><path data-part="mouth" d="M-3 -19Q0 -16 3 -19" fill="none" stroke="${c.ink}" stroke-width="1"/><path d="M-5 -20H-4M4 -20H5" stroke="${c.pack}"/><path data-part="sweat" d="M10 -24Q7 -19 10 -19Q13 -19 10 -24" fill="#9ac6cc" display="none"/></g>
    <g data-layer="headwear"><path d="${climbing?'M-8 -26Q-7 -34 0 -34Q7 -34 8 -26Z':'M-8 -26Q-6 -32 1 -31L6 -26L11 -25H-8Z'}" fill="${c.helmet}" stroke="${c.ink}" stroke-width="1.2"/><path ${climbing?'':'display="none"'} d="M-6 -26L-5 -17H5L6 -26" fill="none" stroke="${c.harness}" stroke-width="1"/><path d="M-4 -30H-2M2 -30H4" stroke="${c.ink}" stroke-width="1"/></g>
-   <g data-layer="equipment-front" ${climbing?'':'display="none"'}>
+   <g data-layer="equipment-front"><g class="character-climbing-kit" ${climbing?'':'display="none"'}>
     <g class="character-harness" fill="none" stroke="${c.harness}" stroke-width="2"><path d="M-8 4H8M-7 8Q-8 15 -2 14L-1 7M7 8Q8 15 2 14L1 7M-5 5L0 9L5 5"/><ellipse cx="0" cy="9" rx="1.8" ry="3"/></g>
     <g stroke="${c.metal}" stroke-width="1" fill="none"><path d="M-9 3Q-15 3 -14 8Q-12 11 -9 7ZM9 3Q15 3 14 8Q12 11 9 7Z"/><path d="M-11 4V7M11 4V7"/><rect x="-2" y="11" width="4" height="3" rx="1"/></g>
     <path d="M9 -7Q20 -11 20 -4Q20 3 13 0Q9 -2 13 -5Q18 -8 18 -3" fill="none" stroke="${c.rope}" stroke-width="1.5"/>
     <path data-part="fixed-line" display="none" fill="none" stroke="${c.rope}" stroke-width="1"/><path data-part="aid-tether" display="none" fill="none" stroke="${c.harness}" stroke-width="1"/><path data-part="aid-foot-loop" display="none" fill="none" stroke="${c.harness}" stroke-width="1"/><g data-part="ascender" display="none"><rect x="-2" y="-3" width="4" height="7" rx="1" fill="${c.metal}" stroke="${c.ink}" stroke-width=".7"/></g>
-   <g data-part="glove-left" fill="${c.boots}"><circle r="2"/></g><g data-part="glove-right" fill="${c.boots}"><circle r="2"/></g><g data-part="held-bottle" display="none" fill="#82b9c1" stroke="${c.ink}" stroke-width=".8"><rect x="-2" y="-5" width="4" height="7" rx="1"/><path d="M-1 -7H1V-5H-1Z"/></g><g data-part="held-food" display="none" fill="${c.helmet}" stroke="${c.ink}" stroke-width=".8"><rect x="-3" y="-2" width="6" height="3" rx="1"/></g><g data-part="held-gear" display="none" fill="none" stroke="${c.metal}" stroke-width="1"><path d="M-2 -3Q3 -5 3 0Q2 4 -2 2Z"/></g></g><g data-layer="footwear" stroke="${c.boots}" stroke-width="3.8" stroke-linecap="round"><path data-part="boot-left"/><path data-part="boot-right"/></g>
+   </g><g data-part="glove-left" fill="${c.boots}"><circle r="2"/></g><g data-part="glove-right" fill="${c.boots}"><circle r="2"/></g><g data-part="held-bottle" display="none" fill="#82b9c1" stroke="${c.ink}" stroke-width=".8"><rect x="-2" y="-5" width="4" height="7" rx="1"/><path d="M-1 -7H1V-5H-1Z"/></g><g data-part="held-food" display="none" fill="${c.helmet}" stroke="${c.ink}" stroke-width=".8"><rect x="-3" y="-2" width="6" height="3" rx="1"/></g><g data-part="held-map" display="none" fill="#e3d6ac" stroke="${c.ink}" stroke-width=".7"><path d="M-7 -5L0 -7L7 -5V5L0 3L-7 5Z"/><path d="M0 -7V3" fill="none"/></g><g data-part="held-spoon" display="none" fill="${c.metal}" stroke="${c.ink}" stroke-width=".5"><path d="M0 0H11"/><ellipse cx="14" cy="0" rx="3" ry="1.6"/></g><g data-part="held-gear" display="none" fill="none" stroke="${c.metal}" stroke-width="1"><path d="M-2 -3Q3 -5 3 0Q2 4 -2 2Z"/></g></g><g data-layer="footwear" stroke="${c.boots}" stroke-width="3.8" stroke-linecap="round"><path data-part="boot-left"/><path data-part="boot-right"/></g>
   </g>`;
  }
- function mount(host,character){host.innerHTML=artwork(character);host._deskCharacter=character;update(host,{action:'camp'});return host;}
- function update(host,{action='camp',cycle=0,fatigue=0,assisted=false,item=null,ropeAnchor={x:0,y:-40}}={}){
+ const infantSupportPoints=freeze({head:{x:-9,y:-7},body:{x:8,y:-4}});
+ function infantArtwork(character=create('pebble',{role:'infant'})){const c=character.appearance;return `<g data-infant-art="pebble" aria-label="Swaddled infant"><path d="M-10 -2Q-8 -6 -3 -5L5 -4Q10 -3 10 1L8 4H-7Q-11 2 -10 -2Z" fill="${c.jacket}" stroke="${c.ink}" stroke-width="1.1"/><path d="M-8 -3Q-11 -8 -7 -10Q-2 -12 0 -7L-1 -3Z" fill="${c.skin}" stroke="${c.ink}" stroke-width="1"/><path d="M-1 -4L2 1M3 -4L6 1" fill="none" stroke="${c.highlight}" stroke-width=".8"/></g>`;}
+ function mount(host,character){host.innerHTML=artwork(character);host._deskCharacter=character;if(!character.infant)update(host,{action:'camp'});return host;}
+ // Mounted art is stable until remount; cache its rig nodes and avoid
+ // rewriting unchanged attributes on every animation frame.
+ const rigNodes=new WeakMap();
+ function write(node,name,value){const next=String(value);if(node.getAttribute(name)!==next)node.setAttribute(name,next);}
+ function update(host,{action='camp',cycle=0,from=null,fromCycle=cycle,blend=1,fatigue=0,assisted=false,item=null,ropeAnchor={x:0,y:-40},rig=null,organic=0,phase=cycle}={}){
+  if(host._deskCharacter?.infant)return;
   const root=host.querySelector('.character-art');if(!root)return;
-  const character=host._deskCharacter,p=pose(action,cycle),part=name=>root.querySelector(`[data-part="${name}"]`);
-  ['left','right'].forEach((side,i)=>{part('arm-'+side).setAttribute('d',path(p.arms[i]));part('leg-'+side).setAttribute('d',path(p.legs[i]));const foot=p.legs[i][2];part('boot-'+side).setAttribute('d',path([foot,{x:foot.x+(i?4:-4),y:foot.y}]));});
-  ['left','right'].forEach((side,i)=>{const hand=p.arms[i][2];part('glove-'+side).setAttribute('transform',`translate(${hand.x} ${hand.y})`);part('glove-'+side).setAttribute('display',character.inventory.includes('gloves')?'':'none');});
-  for(const [name,kind,inventory] of [['held-bottle','water','bottle'],['held-food','food','energy-bar'],['held-gear','gear','locking-carabiner']]){const hand=p.arms[0][2];part(name).setAttribute('transform',`translate(${hand.x} ${hand.y})`);part(name).setAttribute('display',['collect','camp'].includes(action)&&item===kind&&character.inventory.includes(inventory)?'':'none');}
-  root.dataset.action=action;root.dataset.fatigue=clamp(fatigue).toFixed(3);root.dataset.support=String(Object.values(p.contacts).filter(Boolean).length);
-  part('sweat').setAttribute('display',fatigue>.55&&!p.resting?'':'none');
-  part('eyes').setAttribute('d',action==='sleep'?'M-4 -23H-1M1 -23H4':'M-3 -24V-22M3 -24V-22');
-  part('mouth').setAttribute('d',fatigue>.55&&!p.resting?'M-2 -19Q0 -22 2 -19Q0 -17 -2 -19':'M-3 -19Q0 -16 3 -19');
+  let nodes=rigNodes.get(root);
+  if(!nodes){nodes={parts:Object.fromEntries([...root.querySelectorAll('[data-part]')].map(node=>[node.dataset.part,node])),layers:Object.fromEntries([...root.querySelectorAll('[data-layer]')].map(node=>[node.dataset.layer,node]))};rigNodes.set(root,nodes);}
+  const character=host._deskCharacter,p=rig||pose(action,cycle,{from,fromCycle,blend}),part=name=>nodes.parts[name];
+  // Breathing and carried weight move only the body/accessories, never contacts.
+  const amount=clamp(organic),breath=Math.sin(phase*2.1)*amount,lean=Math.sin(phase*1.6)*amount;
+  write(nodes.layers['body'],'transform',`translate(0 ${breath*.22}) rotate(${lean*1.2} 0 8)`);
+  for(const layer of ['face','headwear'])write(nodes.layers[layer],'transform',`translate(${lean*.28} ${breath*.22})`);
+  write(nodes.layers['equipment-back'],'transform',`rotate(${-lean*.8} 7 -4)`);
+  ['left','right'].forEach((side,i)=>{write(part('arm-'+side),'d',path(p.arms[i]));write(part('leg-'+side),'d',path(p.legs[i]));const foot=p.legs[i][2];write(part('boot-'+side),'d',path([foot,{x:foot.x+(i?4:-4),y:foot.y}]));});
+  ['left','right'].forEach((side,i)=>{const hand=p.arms[i][2];write(part('glove-'+side),'transform',`translate(${hand.x} ${hand.y})`);write(part('glove-'+side),'display',(character.inventory.includes('gloves')||character.inventory.includes('work-gloves'))?'':'none');});
+  for(const [name,kind,inventory] of [['held-bottle','water','bottle'],['held-food','food','energy-bar'],['held-gear','gear','locking-carabiner']]){const hand=p.arms[0][2];write(part(name),'transform',`translate(${hand.x} ${hand.y})`);write(part(name),'display',['collect','camp','water','cook'].includes(action)&&item===kind&&(character.inventory.includes(inventory)||(kind==='food'&&character.inventory.some(id=>['rice','beans','trail-mix'].includes(id))))?'':'none');}
+  for(const [name,index,show] of [['held-map',0,['teach','read-map'].includes(action)&&character.inventory.includes('map')],['held-spoon',1,['cook','stir-pot'].includes(action)&&character.inventory.includes('spoon')]]){const hand=p.arms[index][2];write(part(name),'transform',`translate(${hand.x} ${hand.y})`);write(part(name),'display',show?'':'none');}
+  if(['cook','stir-pot'].includes(action)&&p.toolTarget){const grip=toolGrip(p.arms[1][2],p.toolTarget);write(part('held-spoon'),'transform',`translate(${grip.x} ${grip.y}) rotate(${grip.angle})`);}
+  else if(action==='stir-pot'&&character.inventory.includes('spoon')){const hand=p.arms[1][2],grip=toolGrip(hand,{x:hand.x,y:9});write(part('held-spoon'),'transform',`translate(${grip.x} ${grip.y}) rotate(${grip.angle})`);}
+  write(root,'data-action',action);write(root,'data-fatigue',clamp(fatigue).toFixed(3));write(root,'data-support',Object.values(p.contacts).filter(Boolean).length);
+  if(action==='cradle-care'){write(root,'data-infant-support','both-hands');write(root,'data-infant-head-support','left-hand');}else{if(root.hasAttribute('data-infant-support'))root.removeAttribute('data-infant-support');if(root.hasAttribute('data-infant-head-support'))root.removeAttribute('data-infant-head-support');}
+  write(part('sweat'),'display',fatigue>.55&&!p.resting?'':'none');
+  write(part('eyes'),'d',action==='sleep'?'M-4 -23H-1M1 -23H4':'M-3 -24V-22M3 -24V-22');
+  write(part('mouth'),'d',fatigue>.55&&!p.resting?'M-2 -19Q0 -22 2 -19Q0 -17 -2 -19':'M-3 -19Q0 -16 3 -19');
   const aid=action==='assist'&&assisted&&character.inventory.includes('ascender')&&character.inventory.includes('static-rope');
   const loop=anatomy.belayLoop,dx=ropeAnchor.x-loop.x,dy=ropeAnchor.y-loop.y,d=Math.hypot(dx,dy)||1,device={x:loop.x+dx/d*19-dy/d*3,y:loop.y+dy/d*19+dx/d*3};
-  part('ascender').setAttribute('transform',`translate(${device.x} ${device.y})`);
-  part('fixed-line').setAttribute('d',path([{x:ropeAnchor.x-dy/d*3,y:ropeAnchor.y+dx/d*3},{x:loop.x-dx/d*20-dy/d*3,y:loop.y-dy/d*20+dx/d*3}]));
-  part('aid-tether').setAttribute('d',path([device,loop]));part('aid-foot-loop').setAttribute('d',path([device,p.legs[0][2]]));
-  for(const name of ['ascender','aid-tether','aid-foot-loop','fixed-line'])part(name).setAttribute('display',aid?'':'none');
-  root.dataset.ropeSystem=aid?'protected-fixed-line':'dynamic-protection';
+  write(part('ascender'),'transform',`translate(${device.x} ${device.y})`);
+  write(part('fixed-line'),'d',path([{x:ropeAnchor.x-dy/d*3,y:ropeAnchor.y+dx/d*3},{x:loop.x-dx/d*20-dy/d*3,y:loop.y-dy/d*20+dx/d*3}]));
+  write(part('aid-tether'),'d',path([device,loop]));write(part('aid-foot-loop'),'d',path([device,p.legs[0][2]]));
+  for(const name of ['ascender','aid-tether','aid-foot-loop','fixed-line'])write(part(name),'display',aid?'':'none');
+  write(root,'data-rope-system',aid?'protected-fixed-line':'dynamic-protection');
   return p;
  }
  function attachment(character){if(!character.inventory.includes('harness'))throw Error('Rope-bearing roles require a harness');return {...anatomy.belayLoop};}
@@ -137,5 +324,11 @@
   <g class="candy-broom" stroke="${c.harness}" stroke-width="3" fill="${c.pack}"><path d="M65 29L53 63"/><path d="M48 59L59 63L60 73L43 68Z"/></g>
  </svg>`;}
  function mountCandy(host){const character=forTheme('candy');host.innerHTML=character.id==='candy'?candyArt(character):`<svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg"><g transform="translate(40 38) scale(.75)">${artwork(character)}</g></svg>`;host.dataset.character=character.id;host.dataset.role=character.role;if(character.id!=='candy'){host._deskCharacter=character;update(host,{action:'walk'});}}
- globalThis.DeskCharacters=freeze({identities,items,roles,themes,anatomy,create,forTheme,joint,pose,ascent,artwork,mount,update,attachment,mountCandy});
+ // Additive A1 inspection only. Existing poses keep their wrist/ankle endpoints
+ // and legacy contact semantics until each scene's palm/sole adapter is verified.
+ function anatomyProfile(character){
+  if(!globalThis.DeskAnatomy)throw Error('Shared anatomy library is not loaded');
+  return globalThis.DeskAnatomy.profileFor(character);
+ }
+ globalThis.DeskCharacters=freeze({identities,items,roles,themes,anatomy,infantSupportPoints,create,forTheme,joint,pose,ascent,climbContacts,walkContacts,workContacts,toolGrip,artwork,infantArtwork,mount,update,attachment,mountCandy,anatomyProfile});
 })();

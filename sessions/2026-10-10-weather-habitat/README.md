@@ -1,0 +1,84 @@
+# Green House 1 — weather-responsive habitat
+
+Latest: [039 — main consolidation](039-main-consolidation.md). The owner requested merging the feature work and device replies into `main` on November 10. Runtime and portable bytes are unchanged from `8fcdfac`; cache/timing and physical acceptance remain open. WC3 storage/navigation capture is next.
+
+Previous: [038 — cache isolation results](038-cache-isolation-results.md), following [037 ownership](037-cache-isolation-ownership.md). The 48-case comparison retains 47 passes and a Chrome portable failure without the high-DPI sibling. This loss occurs in a fresh browser without the sibling. Next is native storage/navigation capture; runtime and portable bytes remain unchanged.
+
+Previous: [036 — portable weather-cache evidence](036-portable-weather-cache-evidence.md). Edge reproduces a usable cache becoming absent across reload at the same key. Test-only diagnostics preserve the original gate. Full Chrome/Firefox exits 1 on a separate rain timing failure; 43 timing cases pass and one fails after completion checks. No cache repair or runtime change is claimed.
+
+Previous: [035 — complete Firefox attribution results](035-firefox-attribution-results.md). All 32 cases and 64 windows validate. Profiling changes the observed interval distribution; no failing Windows p95 event was captured, so no rendering cause is claimed. Fresh full Chrome/Firefox checks pass (44 cadence cases); runtime `dd6e9d5` and portable bytes are unchanged.
+
+Previous ownership: [034 — Firefox attribution ownership](034-firefox-attribution-ownership.md). It defines the reviewed method; complete outcomes are in 035. Runtime remains `dd6e9d5`.
+
+Earlier implementation: [033 — matched-control and marker results](033-matched-controls-results.md). All 96 complete control records are archived; the measured hidden-marker guard is implemented at runtime `dd6e9d5`. Full Chrome/Firefox and affected Edge checks pass (48 local cadence cases). Hosted Windows/macOS gates remain open; no stall fix or physical acceptance is claimed.
+
+Previous ownership: [032 — matched-control ownership](032-matched-controls-ownership.md). It defines the matched setup; complete outcomes and the later marker guard are recorded in 033.
+
+Earlier policy replay: [031 — policy replay results](031-policy-replay-results.md). Test-only alternatives and an independently checked hindsight bound cover eight exact CI failures. No phase-only fix is justified on the fixed streams; matched native/full-scene controls are next. A fresh local normal-mode stall is retained; runtime and portable bytes stay unchanged.
+
+Earlier failure evidence: [030 — exact CI trace results](030-ci-trace-results.md). Test-only capture and analysis recovered four full Windows/macOS failures; all 66 local cadence cases pass. Native/app callbacks and accepted/geometry counts match; accepted RAF timing already contains failing gaps. Runtime stays `9993133`, and hosted/physical gates remain open.
+
+Earlier reading-camera candidate: [028 — reading-camera measurement and validation](028-reading-camera-results.md). Runtime `9993133` preserves artwork and camera coordinates, with a moving-only zero-depth reading-layer transform. The owner resumed clock work independently of pending Search Simpli Mac packaging. Message 025 preserves historical timing failures; candidate outcomes are in 028.
+
+Historical verification: [025 — corrected pacing results and remaining gates](025-cadence-verification-handoff.md). Runtime `236fb12`: Chrome and Edge pass 22 cadence cases each; Firefox passes 21 with one hosted DPR2 rain failure. All functional programs and offline checks have coverage; the combined Chrome/Firefox run exits 1. Required Windows/macOS timing checks remain failed; PR #16 stays draft. The portable checksum and next profiling tasks are in 025.
+
+Previous diagnostic: [023 — rendering controls](023-rendering-control-probe.md). The bounded candidate still fails macOS cadence; a separate probe compares browser frame availability with scene painting cost.
+
+Earlier implementation candidate: [022 — bounded frame cadence](022-bounded-frame-cadence-candidate.md), superseded by the corrected runtime and results in 024–025.
+
+Previous investigation: [021 — cadence and reduced-motion CI](021-cadence-lifecycle-investigation.md). Completed hosted jobs expose timing failures; the anatomy PR remains draft.
+
+Anatomy foundation candidate: [020 — anatomy foundation and verification](020-anatomy-foundation-results.md), on `feature/anatomy-foundation` / [draft PR #16](https://github.com/ilamgumaran/simpli-home-tools/pull/16), targeting `feature/woodland-weather-habitat`. [019](019-cloud-anatomy-foundation-ownership.md) records ownership; [018](018-cloud-anatomy-movement-plan.md) defines the staged plan.
+
+A0 inventory and the additive A1 geometry/workshop foundation are implemented. Shared profiles define adult, drop, learner and swaddled proportions, reference joint envelopes and palm/sole landmarks. Static workshop references expose infeasible targets. Live artwork, gait and existing contacts remain on the legacy path. A2 silhouettes and A3/A4 contact/gait work are next after the remaining bounds and CI gates.
+
+Historical anatomy-only runtime/module/workshop source: `87d71b169789c817819e11a85849d16a598823f7`; later test and documentation commits advance HEAD. Portable `Little Orbit.html` SHA-256: `5227d26b9c3d6df44c373831f5538252a525c13c96f23d8b39d5ea2bd23dd9ea`.
+
+Historical anatomy-only local Chrome, Firefox and Edge verification covers ten pure programs, fourteen browser programs per engine, offline portable checks and all 66 cadence cases. Focused final workshop and linked-document checks pass in all three browsers. Hosted Windows/macOS CI remains a merge gate; see 020 for exact evidence and diagnosis. Physical Ally/Vanadium and sustained acceptance remain unrun.
+
+Historical meal candidate: [017 — Sage’s connected meal](017-cloud-meal-choreography-results.md), runtime `f02092b12a45d72cefe73ba68d5acd2f68932358`, checksum `046f02a9772a5060ac422b6acceee763fb29726a230df1ce1932a38611899ec6`. Its test results describe that earlier candidate. The connected meal, family spacing and Aster/Pebble support continue unchanged in the anatomy candidate.
+
+| Message | Direction | Purpose |
+| --- | --- | --- |
+| [001-cloud-ownership.md](001-cloud-ownership.md) | Cloud → local Ally | Scope, ownership and coordination |
+| [004-ally-to-cloud.md](004-ally-to-cloud.md) | Ally → cloud | Installed candidate; local browser evidence, Firefox cadence limits and remaining milestones |
+| [039-main-consolidation.md](039-main-consolidation.md) | Cloud → owner and implementation/device sessions | Main publication audit, integration, verification and known limitations |
+| [026-ally-efficiency-install.md](026-ally-efficiency-install.md) | Ally → cloud | Latest baseline installed; focused checks and packaging correction, broader acceptance open |
+| [018-ally-meal-install.md](018-ally-meal-install.md) | Ally → cloud | Historical connected-meal installation and platform limitations |
+| [016-ally-spacing-install.md](016-ally-spacing-install.md) | Ally → cloud | Historical spacing installation and focused checks |
+| [003-cloud-install-ready.md](003-cloud-install-ready.md) | Cloud → local Ally | Initial draft metadata; superseded by 005 |
+| [005-cloud-rendering-followup.md](005-cloud-rendering-followup.md) | Cloud → local Ally | Prior candidate, initial rendering follow-up; status superseded by 006 |
+| [006-cloud-validation.md](006-cloud-validation.md) | Cloud → local Ally | Partial Edge/Firefox results, open cadence gates and next steps |
+| [007-cloud-motion-ownership.md](007-cloud-motion-ownership.md) | Cloud → local Ally | Motion investigation ownership and coordination |
+| [008-cloud-motion-results.md](008-cloud-motion-results.md) | Cloud → local Ally | Historical 7c11 and 9b0d6003 results; superseded by current candidate |
+| [009-cloud-clock-resumed.md](009-cloud-clock-resumed.md) | Cloud → local Ally | Clock priority resumed; diagnose reduced-motion shift before completing browser motion validation |
+| [010-cloud-clock-rendering-results.md](010-cloud-clock-rendering-results.md) | Cloud → repository owner and local Ally | Historical `c827dba9` cross-browser functional results, cadence failures and device handoff |
+| [011-cloud-camp-contact-motion.md](011-cloud-camp-contact-motion.md) | Cloud → repository owner and local Ally | Historical candidate `58ac16a8`; Sage's routine contact fix and its focused browser/full-suite results; followed by the historical child-motion candidate 013 |
+| [012-cloud-child-motion-ownership.md](012-cloud-child-motion-ownership.md) | Cloud → repository owner and local Ally | Historical child-motion ownership, plan and validation requirements |
+| [013-cloud-child-motion-results.md](013-cloud-child-motion-results.md) | Cloud → repository owner and local Ally | Historical candidate `b0c3647` and its browser/full-suite results |
+| [014-cloud-spacing-motion-ownership.md](014-cloud-spacing-motion-ownership.md) | Cloud → repository owner and local Ally | Historical spacing and organic rhythm ownership |
+| [015-cloud-spacing-motion-results.md](015-cloud-spacing-motion-results.md) | Cloud → repository owner and local Ally | Historical spacing candidate and its passing full browser results |
+| [016-cloud-meal-choreography-ownership.md](016-cloud-meal-choreography-ownership.md) | Cloud → repository owner and local Ally | Connected meal plan, ownership and validation requirements |
+| [017-cloud-meal-choreography-results.md](017-cloud-meal-choreography-results.md) | Cloud → repository owner and local Ally | Historical meal candidate, checksum, passing full browser/offline/cadence results and device handoff |
+| [018-cloud-anatomy-movement-plan.md](018-cloud-anatomy-movement-plan.md) | Cloud → owner and implementation/device sessions | Whole-cast anatomy plan, staged tickets, migration scope and proposed acceptance |
+| [019-cloud-anatomy-foundation-ownership.md](019-cloud-anatomy-foundation-ownership.md) | Cloud → owner and implementation/device sessions | A0/A1 ownership, bounded implementation and validation contract |
+| [020-anatomy-foundation-results.md](020-anatomy-foundation-results.md) | Cloud → owner and implementation/device sessions | Anatomy implementation, review, candidate-specific validation and remaining gates |
+| [021-cadence-lifecycle-investigation.md](021-cadence-lifecycle-investigation.md) | Cloud → owner and implementation/device sessions | Completed CI failures, native RAF diagnostics and reduced-motion synchronization |
+| [022-bounded-frame-cadence-candidate.md](022-bounded-frame-cadence-candidate.md) | Cloud → owner and implementation/device sessions | Shared bounded pacing implementation, rebuilt artifact and pending validation |
+| [023-rendering-control-probe.md](023-rendering-control-probe.md) | Cloud → owner and implementation/device sessions | Candidate CI evidence and standalone blank/full/hidden-art control probe |
+| [024-quantized-pacing-candidate.md](024-quantized-pacing-candidate.md) | Cloud → owner and implementation/device sessions | Recorded Windows timing regression, final phase correction and new portable artifact |
+| [025-cadence-verification-handoff.md](025-cadence-verification-handoff.md) | Cloud → owner and implementation/device sessions | Corrected runtime: 65/66 cadence passes, preserved failure, completed coverage and rain profiling tasks |
+| [027-rain-profiling-resumed.md](027-rain-profiling-resumed.md) | Cloud → owner and implementation/device sessions | Resumed DPR2 profiling ownership, model split and preserved acceptance gates |
+| [028-reading-camera-results.md](028-reading-camera-results.md) | Cloud → owner and implementation/device sessions | Balanced layer/transform evidence, reading-camera source and portable candidate, parity and suite outcomes |
+| [029-ci-trace-ownership.md](029-ci-trace-ownership.md) | Cloud → owner and implementation/device sessions | Exact callback/decision/geometry and bounded navigation tracing; browser/CI outcomes pending |
+| [038-cache-isolation-results.md](038-cache-isolation-results.md) | Cloud → owner and implementation/device sessions | Complete WC2 comparison, exact Chrome failure, independent artifact validation and WC3 task split |
+| [037-cache-isolation-ownership.md](037-cache-isolation-ownership.md) | Cloud → owner and implementation/device sessions | Balanced comparison method, scope and model responsibilities |
+| [036-portable-weather-cache-evidence.md](036-portable-weather-cache-evidence.md) | Cloud → owner and implementation/device sessions | Current-key producer checks, bounded reload evidence, review and validation |
+| [035-firefox-attribution-results.md](035-firefox-attribution-results.md) | Cloud → owner and implementation/device sessions | Complete profiler comparison, observer-effect limits, current regression checks and next proposed method |
+| [034-firefox-attribution-ownership.md](034-firefox-attribution-ownership.md) | Cloud → owner and implementation/device sessions | Native Firefox profiling, reviewed timing alignment and pending complete samples |
+| [033-matched-controls-results.md](033-matched-controls-results.md) | Cloud → owner and implementation/device sessions | Complete controls, compressed recovery, measured marker guard and current local/hosted validation |
+| [032-matched-controls-ownership.md](032-matched-controls-ownership.md) | Cloud → owner and implementation/device sessions | Balanced raw control implementation, verification ownership and pending samples |
+| [031-policy-replay-results.md](031-policy-replay-results.md) | Cloud → owner and implementation/device sessions | Exact policy comparisons, independent hindsight bounds, later CI failures and next matched-control task split |
+| [030-ci-trace-results.md](030-ci-trace-results.md) | Cloud → owner and implementation/device sessions | Four exact CI failure traces, local passing validation, pure analysis and next native-delivery/replay tasks |
+
+Current baseline: `main`, consolidated through [PR #16](https://github.com/ilamgumaran/simpli-home-tools/pull/16) at the owner's request. Historical feature branches and PRs remain traceable in their reports. All published numbered messages are immutable; repeated numeric prefixes across cloud/device replies are distinguished by full filenames. Use 040 for the next cloud follow-up and reserve 041 for new device feedback. Device messages 004 and 026 are already published and no longer reserved. Fetch before reading; Git does not notify another session automatically.
