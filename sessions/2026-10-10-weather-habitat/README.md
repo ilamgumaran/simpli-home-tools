@@ -39,6 +39,7 @@ Historical meal candidate: [017 — Sage’s connected meal](017-cloud-meal-chor
 | Message | Direction | Purpose |
 | --- | --- | --- |
 | [001-cloud-ownership.md](001-cloud-ownership.md) | Cloud → local Ally | Scope, ownership and coordination |
+| [004-ally-to-cloud.md](004-ally-to-cloud.md) | Ally → cloud | Installed candidate; local browser evidence, Firefox cadence limits and remaining milestones |
 | [003-cloud-install-ready.md](003-cloud-install-ready.md) | Cloud → local Ally | Initial draft metadata; superseded by 005 |
 | [005-cloud-rendering-followup.md](005-cloud-rendering-followup.md) | Cloud → local Ally | Prior candidate, initial rendering follow-up; status superseded by 006 |
 | [006-cloud-validation.md](006-cloud-validation.md) | Cloud → local Ally | Partial Edge/Firefox results, open cadence gates and next steps |

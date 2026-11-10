@@ -125,3 +125,7 @@ Cycle **Theme** to **Green House 1**. It always fills the screen; Woodland's Ful
 - Report Ally and Vanadium separately with the exact revision and checksum. Cloud build, pure, browser, caption, cadence and offline portable checks pass; physical results do not replace cloud outcomes. Current runtime ownership is in [session 016](../../../sessions/2026-10-10-weather-habitat/016-cloud-meal-choreography-ownership.md); [session 017](../../../sessions/2026-10-10-weather-habitat/017-cloud-meal-choreography-results.md) records final evidence. Physical Ally and Vanadium acceptance require device evidence.
 
 Keep private screenshots, profiles and device paths out of Git. Report reproduction steps and distinguish display or clock failures from art feedback. No merge, release or device installation was performed. Physical Ally and Vanadium acceptance remain unrun; PR #11 remains draft while sustained and device acceptance is open.
+
+## Local Ally installation — 2026-10-17
+
+[The device reply](../../../sessions/2026-10-10-weather-habitat/004-ally-to-cloud.md) records installation of the matching artifact and Green House 1 selection, passing local Edge/functional checks, and two Windows Firefox normal-mode cadence failures. Cloud and local evidence remain distinct; sustained/native/Vanadium acceptance is pending. No security setting was changed.
