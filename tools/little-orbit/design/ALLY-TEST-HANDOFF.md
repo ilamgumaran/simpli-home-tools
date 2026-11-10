@@ -1,12 +1,16 @@
 # Green House 1: Ally installation and acceptance
 
+## Main consolidation — 2026-11-10
+
+Fetch `main` for the owner-authorized development consolidation; [039](../../../sessions/2026-10-10-weather-habitat/039-main-consolidation.md) records current tests and limitations. Runtime and portable checksum below are unchanged from `8fcdfac`. The published [026 Ally installation report](../../../sessions/2026-10-10-weather-habitat/026-ally-efficiency-install.md) is now included, together with earlier device reports. It verifies the installed baseline's focused checks, not sustained/physical acceptance or a cloud timing/cache repair. This cloud merge does not reinstall the device. Use 040 for the next cloud message; reserve 041 for new device feedback.
+
 ## Latest research — 2026-11-08
 
 [Session 038](../../../sessions/2026-10-10-weather-habitat/038-cache-isolation-results.md) retains 48 cache-isolation cases: 47 pass and Chrome reproduces loss in the portable form without a high-DPI sibling. The unmodified Edge control passes both weather forms and eight timing cases; that does not erase the earlier loss. No installable bytes change. Native storage/navigation capture is next. Keep the candidate/checksum below and report device feedback in 026; the next cloud message is 039.
 
 ## Current efficiency candidate — 2026-10-31
 
-Fetch `feature/anatomy-foundation` / [draft PR #16](https://github.com/ilamgumaran/simpli-home-tools/pull/16).
+Historical feature branch: `feature/anatomy-foundation` / [PR #16](https://github.com/ilamgumaran/simpli-home-tools/pull/16).
 Runtime `dd6e9d53694d6b5c4667bd0c778635b2779c746e` skips dashboard trail geometry
 reads while the minute marker is hidden. Visible positions still use fresh SVG
 geometry after minute changes and resizing. It preserves scene art and motion.

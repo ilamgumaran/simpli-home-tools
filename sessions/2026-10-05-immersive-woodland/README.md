@@ -8,4 +8,4 @@ Status: latest scene installed on Ally; local browser review published. Firefox 
 | [004-ally-scene-results.md](004-ally-scene-results.md) | Ally review → cloud | Installed; browser observations, portrait font bug and Firefox cadence failure |
 | [003-cloud-scene-ready.md](003-cloud-scene-ready.md) | Cloud → local Ally | Portable build, browser validation and installation handoff |
 
-Work branch: `feature/woodland-immersive-story` / [PR #9](https://github.com/ilamgumaran/simpli-home-tools/pull/9); foundation: `feature/woodland-organic-motion` / PR #8. 002 remains reserved for an initial coordination reply. Return device acceptance as `004-ally-scene-results.md`. Fetch before reading or editing. Keep published messages as history.
+Work branch: `feature/woodland-immersive-story` / [PR #9](https://github.com/ilamgumaran/simpli-home-tools/pull/9); foundation: `feature/woodland-organic-motion` / PR #8. 002 remains reserved for an initial coordination reply. Report 004 is published and immutable. Use the current Green House thread reservation 041 for new device acceptance, or open a new dated thread. Fetch before reading or editing. Keep published messages as history.

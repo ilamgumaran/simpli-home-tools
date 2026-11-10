@@ -1,8 +1,8 @@
-Local update: [016: Ally spacing install](016-ally-spacing-install.md) records the new artifact installed and restarted, passing focused Edge/Firefox checks and remaining physical/performance acceptance.
-
 # Green House 1 — weather-responsive habitat
 
-Latest: [038 — cache isolation results](038-cache-isolation-results.md), following [037 ownership](037-cache-isolation-ownership.md). The 48-case comparison retains 47 passes and a Chrome portable failure without the high-DPI sibling. This loss occurs in a fresh browser without the sibling. Next is native storage/navigation capture; runtime and portable bytes remain unchanged.
+Latest: [039 — main consolidation](039-main-consolidation.md). The owner requested merging the feature work and device replies into `main` on November 10. Runtime and portable bytes are unchanged from `8fcdfac`; cache/timing and physical acceptance remain open. WC3 storage/navigation capture is next.
+
+Previous: [038 — cache isolation results](038-cache-isolation-results.md), following [037 ownership](037-cache-isolation-ownership.md). The 48-case comparison retains 47 passes and a Chrome portable failure without the high-DPI sibling. This loss occurs in a fresh browser without the sibling. Next is native storage/navigation capture; runtime and portable bytes remain unchanged.
 
 Previous: [036 — portable weather-cache evidence](036-portable-weather-cache-evidence.md). Edge reproduces a usable cache becoming absent across reload at the same key. Test-only diagnostics preserve the original gate. Full Chrome/Firefox exits 1 on a separate rain timing failure; 43 timing cases pass and one fails after completion checks. No cache repair or runtime change is claimed.
 
@@ -42,6 +42,10 @@ Historical meal candidate: [017 — Sage’s connected meal](017-cloud-meal-chor
 | --- | --- | --- |
 | [001-cloud-ownership.md](001-cloud-ownership.md) | Cloud → local Ally | Scope, ownership and coordination |
 | [004-ally-to-cloud.md](004-ally-to-cloud.md) | Ally → cloud | Installed candidate; local browser evidence, Firefox cadence limits and remaining milestones |
+| [039-main-consolidation.md](039-main-consolidation.md) | Cloud → owner and implementation/device sessions | Main publication audit, integration, verification and known limitations |
+| [026-ally-efficiency-install.md](026-ally-efficiency-install.md) | Ally → cloud | Latest baseline installed; focused checks and packaging correction, broader acceptance open |
+| [018-ally-meal-install.md](018-ally-meal-install.md) | Ally → cloud | Historical connected-meal installation and platform limitations |
+| [016-ally-spacing-install.md](016-ally-spacing-install.md) | Ally → cloud | Historical spacing installation and focused checks |
 | [003-cloud-install-ready.md](003-cloud-install-ready.md) | Cloud → local Ally | Initial draft metadata; superseded by 005 |
 | [005-cloud-rendering-followup.md](005-cloud-rendering-followup.md) | Cloud → local Ally | Prior candidate, initial rendering follow-up; status superseded by 006 |
 | [006-cloud-validation.md](006-cloud-validation.md) | Cloud → local Ally | Partial Edge/Firefox results, open cadence gates and next steps |
@@ -77,4 +81,4 @@ Historical meal candidate: [017 — Sage’s connected meal](017-cloud-meal-chor
 | [031-policy-replay-results.md](031-policy-replay-results.md) | Cloud → owner and implementation/device sessions | Exact policy comparisons, independent hindsight bounds, later CI failures and next matched-control task split |
 | [030-ci-trace-results.md](030-ci-trace-results.md) | Cloud → owner and implementation/device sessions | Four exact CI failure traces, local passing validation, pure analysis and next native-delivery/replay tasks |
 
-Work branch: `feature/anatomy-foundation` / draft PR #16, based on `feature/woodland-weather-habitat` / draft PR #11, which in turn builds on `feature/woodland-immersive-story` / PR #9. Published messages 001–025 and 027–038 are immutable; use 039 for the next cloud follow-up. Message 026 remains reserved for device feedback. Reserve 002 for the initial device reply and 004 for local device findings. Fetch the branch before reading. Git does not notify another session automatically.
+Current baseline: `main`, consolidated through [PR #16](https://github.com/ilamgumaran/simpli-home-tools/pull/16) at the owner's request. Historical feature branches and PRs remain traceable in their reports. All published numbered messages are immutable; repeated numeric prefixes across cloud/device replies are distinguished by full filenames. Use 040 for the next cloud follow-up and reserve 041 for new device feedback. Device messages 004 and 026 are already published and no longer reserved. Fetch before reading; Git does not notify another session automatically.

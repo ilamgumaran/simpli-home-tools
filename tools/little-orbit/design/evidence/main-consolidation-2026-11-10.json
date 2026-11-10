@@ -1,0 +1,626 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-11-10 UTC",
+  "integrationSourceRevision": "b87872430b2287d4db4f21f0da3c835c39ea7211",
+  "originalFeatureTip": "8fcdfac4180568245149f42e7986fc98a525b45e",
+  "startingRemoteMain": "c15284df7f4202c773458a5ed0f217414082f787",
+  "runtimeRevision": "dd6e9d53694d6b5c4667bd0c778635b2779c746e",
+  "portableSha256": "0accb9737b218f4e4d202b368d0277355d114c21758163ae09cb57f61e142b85",
+  "runtimeComparedWithFeatureTip": "unchanged; only Markdown and whitespace in public preview SVG differ",
+  "remoteTipsIncluded": [
+    {
+      "ref": "origin/add-little-orbit-clock",
+      "sha": "4b1e15030599b9b9ff70ac0713205cf41e0ea979"
+    },
+    {
+      "ref": "origin/feature/anatomy-foundation",
+      "sha": "8fcdfac4180568245149f42e7986fc98a525b45e"
+    },
+    {
+      "ref": "origin/feature/living-woodland-time",
+      "sha": "71a490078813644ff0e3cf5803ded1ddff478073"
+    },
+    {
+      "ref": "origin/feature/shared-character-layers",
+      "sha": "7d0314e150d8ec1d70148d33b19570c848d4757d"
+    },
+    {
+      "ref": "origin/feature/woodland-character-contacts",
+      "sha": "630891a6c190b5e959777b155d696b8f7febbcdd"
+    },
+    {
+      "ref": "origin/feature/woodland-immersive-story",
+      "sha": "85af2e9cd3e61d7ae48f5523fe1105c06eafa566"
+    },
+    {
+      "ref": "origin/feature/woodland-organic-motion",
+      "sha": "75a3adab4b88378cbe1cbc22997326eda165bb53"
+    },
+    {
+      "ref": "origin/feature/woodland-refinement-contacts",
+      "sha": "248115d79c39ea11cc61c4e7d39dd8a9e3b1e264"
+    },
+    {
+      "ref": "origin/feature/woodland-walking-grips",
+      "sha": "f8b1245d5fe79c691fa2fd49a894c03680b493c3"
+    },
+    {
+      "ref": "origin/feature/woodland-weather-habitat",
+      "sha": "307c8e132927d77d9ee12048a36558b8be8cba3d"
+    },
+    {
+      "ref": "origin/local/ally-efficiency-install-1031",
+      "sha": "395c856db6efd38de0f864c4941e3ac6a0ded5a2"
+    },
+    {
+      "ref": "origin/local/green-house-ally-install",
+      "sha": "bbcb8eaf44c2751e8fd5b2eb972f8ba86d1e48b8"
+    },
+    {
+      "ref": "origin/local/green-house-meal-install",
+      "sha": "4e2ee77728ef39ad755b3627bbf816f6afa2e981"
+    },
+    {
+      "ref": "origin/local/green-house-spacing-install",
+      "sha": "f6bc2f9f7ac59859e2152e5099c29ed4d72abb36"
+    },
+    {
+      "ref": "origin/local/immersive-ally-review",
+      "sha": "3d221835947611bf2076c3d8811ac4101f7c9a7f"
+    },
+    {
+      "ref": "origin/local/woodland-ally-check",
+      "sha": "a0adc0b11d247bba5c6790c5d070ee72148f3515"
+    },
+    {
+      "ref": "origin/main",
+      "sha": "c15284df7f4202c773458a5ed0f217414082f787"
+    },
+    {
+      "ref": "origin/plan/engineering-complication",
+      "sha": "3d3abbd8a4d0bc1e86e17d9c98f7d5a71376477e"
+    }
+  ],
+  "immutableReports": [
+    {
+      "source": "origin/local/immersive-ally-review",
+      "path": "sessions/2026-10-05-immersive-woodland/004-ally-scene-results.md",
+      "unchangedBlob": "9070012400cf5b666fc5af1896ec45ef65107af1"
+    },
+    {
+      "source": "origin/local/green-house-ally-install",
+      "path": "sessions/2026-10-10-weather-habitat/004-ally-to-cloud.md",
+      "unchangedBlob": "790d4445e04189c19da7eea22e0ad2cc29981aab"
+    },
+    {
+      "source": "origin/local/green-house-spacing-install",
+      "path": "sessions/2026-10-10-weather-habitat/016-ally-spacing-install.md",
+      "unchangedBlob": "75ebe66f9510c13ed4347750023be747b8f86d0c"
+    },
+    {
+      "source": "origin/local/green-house-meal-install",
+      "path": "sessions/2026-10-10-weather-habitat/018-ally-meal-install.md",
+      "unchangedBlob": "20d55ac1a34fd70fd1d78e76cbadfbb431b7fa07"
+    },
+    {
+      "source": "origin/local/ally-efficiency-install-1031",
+      "path": "sessions/2026-10-10-weather-habitat/026-ally-efficiency-install.md",
+      "unchangedBlob": "7618a174ce5d320b4cb8767b86167577aaac48a8"
+    }
+  ],
+  "clock": {
+    "buildExit": 0,
+    "fullTestExit": 0,
+    "purePrograms": 23,
+    "browserPrograms": {
+      "chromium": [
+        "verify.cjs",
+        "verify-themes.cjs",
+        "verify-config.cjs",
+        "verify-climber.cjs",
+        "verify-mountain.cjs",
+        "verify-characters.cjs",
+        "verify-anatomy.cjs",
+        "verify-woodland.cjs",
+        "verify-motion.cjs",
+        "verify-minute-marker.cjs",
+        "verify-immersive.cjs",
+        "verify-immersive-motion.cjs",
+        "verify-weather-habitat.cjs",
+        "verify-community-habitat.cjs",
+        "verify-meal.cjs"
+      ],
+      "firefox": [
+        "verify.cjs",
+        "verify-themes.cjs",
+        "verify-config.cjs",
+        "verify-climber.cjs",
+        "verify-mountain.cjs",
+        "verify-characters.cjs",
+        "verify-anatomy.cjs",
+        "verify-woodland.cjs",
+        "verify-motion.cjs",
+        "verify-minute-marker.cjs",
+        "verify-immersive.cjs",
+        "verify-immersive-motion.cjs",
+        "verify-weather-habitat.cjs",
+        "verify-community-habitat.cjs",
+        "verify-meal.cjs"
+      ]
+    },
+    "offlineChromeFirefox": true,
+    "cadencePassed": 44,
+    "cadenceCases": [
+      {
+        "engine": "chromium",
+        "case": "PASS live motion cadence: hosted low-power",
+        "metrics": {
+          "fps": 29.99714312854472,
+          "p95": 33.799999952316284,
+          "maxGap": 66.39999997615814,
+          "frames": 63
+        }
+      },
+      {
+        "engine": "chromium",
+        "case": "PASS live motion cadence: hosted normal",
+        "metrics": {
+          "fps": 58.91296085105364,
+          "p95": 17.30000001192093,
+          "maxGap": 51.19999998807907,
+          "frames": 124
+        }
+      },
+      {
+        "engine": "chromium",
+        "case": "PASS live motion cadence: portable low-power",
+        "metrics": {
+          "fps": 29.995714897701482,
+          "p95": 33.80000001192093,
+          "maxGap": 35.60000002384186,
+          "frames": 63
+        }
+      },
+      {
+        "engine": "chromium",
+        "case": "PASS live motion cadence: portable normal",
+        "metrics": {
+          "fps": 59.04199600071605,
+          "p95": 17.69999998807907,
+          "maxGap": 46.19999998807907,
+          "frames": 124
+        }
+      },
+      {
+        "engine": "chromium",
+        "case": "PASS immersive frame cadence: hosted 854\u00d7480 DPR1 30fps low-power",
+        "metrics": {
+          "fps": 29.992858843132588,
+          "p95": 33.80000001192093,
+          "maxGap": 35.80000001192093
+        }
+      },
+      {
+        "engine": "chromium",
+        "case": "PASS immersive frame cadence: hosted 854\u00d7480 DPR1 60fps normal",
+        "metrics": {
+          "fps": 60.94367471279031,
+          "p95": 17.400000035762787,
+          "maxGap": 21.599999964237213
+        }
+      },
+      {
+        "engine": "chromium",
+        "case": "PASS immersive frame cadence: portable 854\u00d7480 DPR1 30fps low-power",
+        "metrics": {
+          "fps": 29.995714897701482,
+          "p95": 34.200000047683716,
+          "maxGap": 35.59999996423721
+        }
+      },
+      {
+        "engine": "chromium",
+        "case": "PASS immersive frame cadence: portable 854\u00d7480 DPR1 60fps normal",
+        "metrics": {
+          "fps": 60.94657651686818,
+          "p95": 17.69999998807907,
+          "maxGap": 28.19999998807907
+        }
+      },
+      {
+        "engine": "chromium",
+        "case": "PASS immersive frame cadence: hosted 1280\u00d7720 DPR2 30fps low-power",
+        "metrics": {
+          "fps": 29.995714897701482,
+          "p95": 34.5,
+          "maxGap": 34.60000002384186
+        }
+      },
+      {
+        "engine": "chromium",
+        "case": "PASS immersive frame cadence: hosted 1280\u00d7720 DPR2 60fps normal",
+        "metrics": {
+          "fps": 60.94367471279031,
+          "p95": 18.600000023841858,
+          "maxGap": 23.599999964237213
+        }
+      },
+      {
+        "engine": "chromium",
+        "case": "PASS rainy habitat cadence: hosted 854\u00d7480 DPR1 30fps low-power",
+        "metrics": {
+          "fps": 29.997143129396054,
+          "p95": 34.19999998807907,
+          "maxGap": 65.09999996423721
+        }
+      },
+      {
+        "engine": "chromium",
+        "case": "PASS rainy habitat cadence: hosted 854\u00d7480 DPR1 60fps normal",
+        "metrics": {
+          "fps": 60.467552255812656,
+          "p95": 17.899999976158142,
+          "maxGap": 52
+        }
+      },
+      {
+        "engine": "chromium",
+        "case": "PASS rainy habitat cadence: hosted 1280\u00d7720 DPR2 30fps low-power",
+        "metrics": {
+          "fps": 29.997143129396054,
+          "p95": 33.80000001192093,
+          "maxGap": 47.89999997615814
+        }
+      },
+      {
+        "engine": "chromium",
+        "case": "PASS rainy habitat cadence: hosted 1280\u00d7720 DPR2 60fps normal",
+        "metrics": {
+          "fps": 60.9088746133714,
+          "p95": 17,
+          "maxGap": 17.200000047683716
+        }
+      },
+      {
+        "engine": "chromium",
+        "case": "PASS rainy habitat cadence: portable 854\u00d7480 DPR1 30fps low-power",
+        "metrics": {
+          "fps": 29.997143129396054,
+          "p95": 34.19999998807907,
+          "maxGap": 41.09999996423721
+        }
+      },
+      {
+        "engine": "chromium",
+        "case": "PASS rainy habitat cadence: portable 854\u00d7480 DPR1 60fps normal",
+        "metrics": {
+          "fps": 60.94657651686818,
+          "p95": 17.19999998807907,
+          "maxGap": 19.5
+        }
+      },
+      {
+        "engine": "chromium",
+        "case": "PASS rainy habitat cadence: portable 1280\u00d7720 DPR2 30fps low-power",
+        "metrics": {
+          "fps": 29.99714312854472,
+          "p95": 34.299999952316284,
+          "maxGap": 37.89999997615814
+        }
+      },
+      {
+        "engine": "chromium",
+        "case": "PASS rainy habitat cadence: portable 1280\u00d7720 DPR2 60fps normal",
+        "metrics": {
+          "fps": 61.3321922689435,
+          "p95": 18.400000035762787,
+          "maxGap": 23.099999964237213
+        }
+      },
+      {
+        "engine": "chromium",
+        "case": "PASS active meal cadence: hosted 854\u00d7480 DPR1 30fps low-power",
+        "metrics": {
+          "fps": 29.998571496254836,
+          "p95": 33.69999998807907,
+          "maxGap": 67.60000002384186,
+          "frames": 63,
+          "stageBefore": "deliver",
+          "stageAfter": "deliver",
+          "moved": true
+        }
+      },
+      {
+        "engine": "chromium",
+        "case": "PASS active meal cadence: hosted 854\u00d7480 DPR1 60fps normal",
+        "metrics": {
+          "fps": 59.99428625879211,
+          "p95": 17.200000047683716,
+          "maxGap": 62.60000002384186,
+          "frames": 126,
+          "stageBefore": "deliver",
+          "stageAfter": "deliver",
+          "moved": true
+        }
+      },
+      {
+        "engine": "chromium",
+        "case": "PASS active meal cadence: portable 1280\u00d7720 DPR2 30fps low-power",
+        "metrics": {
+          "fps": 29.99714312854472,
+          "p95": 34.5,
+          "maxGap": 47,
+          "frames": 63,
+          "stageBefore": "deliver",
+          "stageAfter": "deliver",
+          "moved": true
+        }
+      },
+      {
+        "engine": "chromium",
+        "case": "PASS active meal cadence: portable 1280\u00d7720 DPR2 60fps normal",
+        "metrics": {
+          "fps": 60.94947859729523,
+          "p95": 17.5,
+          "maxGap": 19.899999976158142,
+          "frames": 128,
+          "stageBefore": "deliver",
+          "stageAfter": "deliver",
+          "moved": true
+        }
+      },
+      {
+        "engine": "firefox",
+        "case": "PASS live motion cadence: hosted low-power",
+        "metrics": {
+          "fps": 30,
+          "p95": 35,
+          "maxGap": 47,
+          "frames": 63
+        }
+      },
+      {
+        "engine": "firefox",
+        "case": "PASS live motion cadence: hosted normal",
+        "metrics": {
+          "fps": 60.447405997144216,
+          "p95": 19,
+          "maxGap": 27,
+          "frames": 127
+        }
+      },
+      {
+        "engine": "firefox",
+        "case": "PASS live motion cadence: portable low-power",
+        "metrics": {
+          "fps": 29.829545454545453,
+          "p95": 35,
+          "maxGap": 55,
+          "frames": 63
+        }
+      },
+      {
+        "engine": "firefox",
+        "case": "PASS live motion cadence: portable normal",
+        "metrics": {
+          "fps": 60,
+          "p95": 18,
+          "maxGap": 36,
+          "frames": 126
+        }
+      },
+      {
+        "engine": "firefox",
+        "case": "PASS immersive frame cadence: hosted 854\u00d7480 DPR1 30fps low-power",
+        "metrics": {
+          "fps": 29.047619047619047,
+          "p95": 35,
+          "maxGap": 98
+        }
+      },
+      {
+        "engine": "firefox",
+        "case": "PASS immersive frame cadence: hosted 854\u00d7480 DPR1 60fps normal",
+        "metrics": {
+          "fps": 58.57142857142857,
+          "p95": 18,
+          "maxGap": 59
+        }
+      },
+      {
+        "engine": "firefox",
+        "case": "PASS immersive frame cadence: portable 854\u00d7480 DPR1 30fps low-power",
+        "metrics": {
+          "fps": 29.801324503311257,
+          "p95": 35,
+          "maxGap": 73
+        }
+      },
+      {
+        "engine": "firefox",
+        "case": "PASS immersive frame cadence: portable 854\u00d7480 DPR1 60fps normal",
+        "metrics": {
+          "fps": 60.49149338374291,
+          "p95": 19,
+          "maxGap": 30
+        }
+      },
+      {
+        "engine": "firefox",
+        "case": "PASS immersive frame cadence: hosted 1280\u00d7720 DPR2 30fps low-power",
+        "metrics": {
+          "fps": 30.28868906767629,
+          "p95": 36,
+          "maxGap": 54
+        }
+      },
+      {
+        "engine": "firefox",
+        "case": "PASS immersive frame cadence: hosted 1280\u00d7720 DPR2 60fps normal",
+        "metrics": {
+          "fps": 52.33111322549952,
+          "p95": 31,
+          "maxGap": 47
+        }
+      },
+      {
+        "engine": "firefox",
+        "case": "PASS rainy habitat cadence: hosted 854\u00d7480 DPR1 30fps low-power",
+        "metrics": {
+          "fps": 29.523809523809526,
+          "p95": 35,
+          "maxGap": 65
+        }
+      },
+      {
+        "engine": "firefox",
+        "case": "PASS rainy habitat cadence: hosted 854\u00d7480 DPR1 60fps normal",
+        "metrics": {
+          "fps": 58.54355069014755,
+          "p95": 18,
+          "maxGap": 74
+        }
+      },
+      {
+        "engine": "firefox",
+        "case": "PASS rainy habitat cadence: hosted 1280\u00d7720 DPR2 30fps low-power",
+        "metrics": {
+          "fps": 30,
+          "p95": 39,
+          "maxGap": 42
+        }
+      },
+      {
+        "engine": "firefox",
+        "case": "PASS rainy habitat cadence: hosted 1280\u00d7720 DPR2 60fps normal",
+        "metrics": {
+          "fps": 49.02427415516421,
+          "p95": 30,
+          "maxGap": 42
+        }
+      },
+      {
+        "engine": "firefox",
+        "case": "PASS rainy habitat cadence: portable 854\u00d7480 DPR1 30fps low-power",
+        "metrics": {
+          "fps": 30.064754856614247,
+          "p95": 35,
+          "maxGap": 37
+        }
+      },
+      {
+        "engine": "firefox",
+        "case": "PASS rainy habitat cadence: portable 854\u00d7480 DPR1 60fps normal",
+        "metrics": {
+          "fps": 59.97144217039505,
+          "p95": 21,
+          "maxGap": 31
+        }
+      },
+      {
+        "engine": "firefox",
+        "case": "PASS rainy habitat cadence: portable 1280\u00d7720 DPR2 30fps low-power",
+        "metrics": {
+          "fps": 30,
+          "p95": 35,
+          "maxGap": 38
+        }
+      },
+      {
+        "engine": "firefox",
+        "case": "PASS rainy habitat cadence: portable 1280\u00d7720 DPR2 60fps normal",
+        "metrics": {
+          "fps": 55.977229601518026,
+          "p95": 28,
+          "maxGap": 38
+        }
+      },
+      {
+        "engine": "firefox",
+        "case": "PASS active meal cadence: hosted 854\u00d7480 DPR1 30fps low-power",
+        "metrics": {
+          "fps": 30,
+          "p95": 35,
+          "maxGap": 46,
+          "frames": 63,
+          "stageBefore": "deliver",
+          "stageAfter": "deliver",
+          "moved": true
+        }
+      },
+      {
+        "engine": "firefox",
+        "case": "PASS active meal cadence: hosted 854\u00d7480 DPR1 60fps normal",
+        "metrics": {
+          "fps": 60.476190476190474,
+          "p95": 18,
+          "maxGap": 42,
+          "frames": 127,
+          "stageBefore": "deliver",
+          "stageAfter": "deliver",
+          "moved": true
+        }
+      },
+      {
+        "engine": "firefox",
+        "case": "PASS active meal cadence: portable 1280\u00d7720 DPR2 30fps low-power",
+        "metrics": {
+          "fps": 30,
+          "p95": 35,
+          "maxGap": 38,
+          "frames": 63,
+          "stageBefore": "deliver",
+          "stageAfter": "deliver",
+          "moved": true
+        }
+      },
+      {
+        "engine": "firefox",
+        "case": "PASS active meal cadence: portable 1280\u00d7720 DPR2 60fps normal",
+        "metrics": {
+          "fps": 59.91440798858773,
+          "p95": 20,
+          "maxGap": 41,
+          "frames": 126,
+          "stageBefore": "deliver",
+          "stageAfter": "deliver",
+          "moved": true
+        }
+      }
+    ],
+    "logSha256": "a94dc9f454c6149b66dd9d2d58e8c2c5ad9bd002ebca932f3ba36dc9c354fd5c",
+    "buildLogSha256": "8e91da58615feade15deb22d10ecf9b6f8e1be67d9c8c415a6945fc5acfe8e9c"
+  },
+  "search": {
+    "main": "41ae08e3c07526a0c044ac6c87fb9d877c1809f2",
+    "allOriginalLocalTipsAlreadyOnMain": true,
+    "engine": {
+      "passed": 418,
+      "total": 426,
+      "skippedOptInScale": 8
+    },
+    "abiPassed": 24,
+    "filenameComplexity": {
+      "DebugPassed": 2,
+      "ReleaseSmallPassed": 2
+    },
+    "nativePython": {
+      "run": 335,
+      "skipped": 11,
+      "result": "OK"
+    },
+    "dependencyFreePython": {
+      "run": 297,
+      "skipped": 48,
+      "result": "OK"
+    },
+    "otherGates": "requirements, relevance mechanics, family-folder, J2 and whitespace passed",
+    "limits": "Full ReleaseSmall engine/ABI suite not repeated; Android/iOS need NDK/Xcode."
+  },
+  "limits": [
+    "This fresh local pass does not erase earlier recorded clock cache/timing failures.",
+    "No source change claims to fix intermittent file cache loss or browser native-delivery stalls.",
+    "No new hosted Windows/macOS, physical Ally/Vanadium or sustained acceptance.",
+    "Main consolidation is owner-authorized development integration; tests and thresholds remain unchanged."
+  ]
+}

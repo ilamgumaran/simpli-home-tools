@@ -27,7 +27,7 @@ Original synthetic fixed-time preview; noncommercial license applies. -->
  <rect id="woodland-immersive-wash" x="-30" y="-30" width="860" height="420" fill="#90aaa0"/>
  <g id="woodland-immersive-camera" transform="translate(-0.625 -1.733)"><g id="woodland-immersive-backdrop"><rect x="-24" y="-24" width="848" height="408" fill="url(#w-art-sky)"/>
    <circle cx="707" cy="49" r="61" fill="url(#w-art-sun)" opacity="0.75"/><circle cx="707" cy="49" r="20" fill="#f8e5b2"/>
-   
+
    <g data-cloud=".31 0" fill="#e8ecdb" opacity="0.32" transform="translate(-8.087 0)"><path d="M35 50Q48 35 66 40Q80 22 96 40Q122 29 137 47Q153 41 161 51Z"/><path d="M267 35Q288 17 305 25Q322 9 342 25Q369 16 395 34Z"/></g>
    <g data-cloud=".2 2" fill="#f1ebd5" opacity="0.22" transform="translate(11.578 0)"><path d="M483 69Q514 47 533 58Q550 38 574 57Q598 48 621 66Z"/></g>
    <path d="M-24 153Q19 138 65 98T147 77Q184 101 226 141Q265 145 298 108L363 68Q385 43 407 77T485 137Q520 140 559 104T632 77Q663 74 693 104T755 125Q788 104 824 91V259H-24Z" fill="#a5b784" opacity="0.65"/>

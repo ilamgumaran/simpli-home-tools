@@ -1,5 +1,7 @@
 # Our Desk Clock — product guide
 
+The November 10 [main consolidation](../../sessions/2026-10-10-weather-habitat/039-main-consolidation.md) brings the existing feature work and published device reports onto `main` at the owner's request. Runtime/portable bytes match `8fcdfac`; known cache and timing failures, staged anatomy work and physical acceptance remain open. Historical candidate results below keep their original scope.
+
 The [model orchestration plan](design/MODEL-ORCHESTRATION.md) keeps planning and integration review with Sol 6.1, validation with Sol 6, and bounded execution with lighter models. Current delivery gates cover browser evidence, narrow fixes, the portable build and Git handoff, followed by physical device feedback.
 
 Our Desk Clock is a configurable browser display for desks, families, spare screens, and handhelds. It combines readable time, date, local weather, daily learning, and quiet character scenes. The source directory remains `tools/little-orbit/` for compatibility.
@@ -8,7 +10,7 @@ This is the product's planning hub. Designs are proposals until explicitly marke
 
 ## Woodland/Green House 1 cadence candidate
 
-The [bounded phase pacing design](design/FRAME-CADENCE.md) addresses a low-power limiter that amplifies native callback jitter into skipped character updates. Both Woodland renderers share the candidate policy. Scene art, body contacts and gait curves remain unchanged. [Session 025](../../sessions/2026-10-10-weather-habitat/025-cadence-verification-handoff.md) records the earlier corrected runtime: 65 of 66 local cadence cases pass, with one Firefox hosted DPR2 rain failure; functional/offline coverage is complete, but the combined npm run exits 1. Required Windows/macOS checks remain failed. The [rain investigation](design/RAIN-CADENCE-INVESTIGATION.md) defines profiling tasks; PR #16 remains draft.
+The [bounded phase pacing design](design/FRAME-CADENCE.md) addresses a low-power limiter that amplifies native callback jitter into skipped character updates. Both Woodland renderers share the candidate policy. Scene art, body contacts and gait curves remain unchanged. [Session 025](../../sessions/2026-10-10-weather-habitat/025-cadence-verification-handoff.md) records the earlier corrected runtime: 65 of 66 local cadence cases pass, with one Firefox hosted DPR2 rain failure; functional/offline coverage is complete, but the combined npm run exits 1. Required Windows/macOS checks remain failed. The [rain investigation](design/RAIN-CADENCE-INVESTIGATION.md) defines profiling tasks; PR #16 was draft at that checkpoint.
 
 The reading-layer camera candidate `9993133` preserves the existing x/y path
 and uses a zero-depth 3D transform only for the reading/clock SVG while the camera moves. Still and reduced-motion modes retain planar transforms. Balanced

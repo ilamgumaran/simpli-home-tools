@@ -1,5 +1,10 @@
 # Our Desk Clock changelog
 
+### Main consolidation — 2026-11-10
+
+- Consolidated the clock feature histories, anatomy reference foundation, engineering plans, research evidence and all five published Ally reports onto main at the owner's request. Updated indexes without editing published messages.
+- Runtime/portable bytes match the prior feature tip; cache restoration, timing and physical acceptance remain open. No timing threshold or test policy changes. See [handoff 039](../../sessions/2026-10-10-weather-habitat/039-main-consolidation.md) for exact verification.
+
 ### Portable cache isolation controls
 
 - Added a standalone balanced hosted/portable study with and without the

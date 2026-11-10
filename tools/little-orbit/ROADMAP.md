@@ -1,6 +1,8 @@
 # Our Desk Clock roadmap
 
-Updated 2026-11-08 UTC. Milestones express intent, not promised delivery dates. The product owner sets priorities and authorizes deferred implementation.
+Updated 2026-11-10 UTC. Milestones express intent, not promised delivery dates. The product owner sets priorities and authorizes deferred implementation.
+
+The owner authorized consolidation onto `main` on November 10. [Handoff 039](../../sessions/2026-10-10-weather-habitat/039-main-consolidation.md) records the included features/device reports and current tests. This development merge does not complete cache, timing, sustained-device or later anatomy gates. WC3 remains the next implementation; earlier milestone evidence below stays tied to its original source.
 
 Before anatomy artwork rollout, complete the [bounded phase cadence candidate](design/FRAME-CADENCE.md)'s hosted/portable and cross-platform gates. [Session 025](../../sessions/2026-10-10-weather-habitat/025-cadence-verification-handoff.md) preserves the earlier 65/66 local cadence passes and Firefox rain plus hosted Windows/macOS failures. The [DPR2 investigation](design/RAIN-CADENCE-INVESTIGATION.md) now records balanced profiling and the reading-camera candidate below. Performance thresholds remain unchanged.
 
